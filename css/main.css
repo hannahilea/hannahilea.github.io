@@ -1,11 +1,11 @@
 @font-face {
-  font-family: "Jura Light";
-  src: url("../fonts/Jura-Light.ttf");
+  font-family: "Jura Regular";
+  src: url("../fonts/Jura-Medium.ttf");
 }
 
 @font-face {
-  font-family: "Jura Regular";
-  src: url("../fonts/Jura-Regular.ttf");
+  font-family: "Jura Bold";
+  src: url("../fonts/Jura-Bold.ttf");
 }
 
 ul {
@@ -14,7 +14,7 @@ ul {
 
 body {
   vertical-align: middle;
-  font-family: "Jura Light";
+  font-family: "Jura Regular";
   color: #4a4a4a;
 }
 
@@ -22,7 +22,7 @@ h1,
 h2 {
   font-weight: normal;
   margin: 0;
-  font-family: "Jura Regular";
+  font-family: "Jura Bold";
   border-bottom: 2px solid #0843c3;
   padding-bottom: 2px;
   margin-bottom: 3px;
@@ -31,7 +31,7 @@ h2 {
 h5 {
   font-weight: normal;
   margin: 0;
-  font-family: "Jura Light";
+  font-family: "Jura Regular";
 }
 
 /* a { color: #4a90e2; } */
@@ -102,7 +102,7 @@ img {
 }
 
 .nav-link {
-  font-family: "Jura Regular";
+  font-family: "Jura Bold";
   color: #4a4a4a;
   text-decoration: none;
   border-bottom: 2px solid #0843c3;
