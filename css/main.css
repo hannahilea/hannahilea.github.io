@@ -34,8 +34,10 @@ h5 {
   font-family: "Jura Light";
 }
 
+/* a { color: #4a90e2; } */
 a {
-  color: #4a90e2;
+  color: #0843c3;
+  text-decoration: none;
 }
 
 img {
@@ -43,10 +45,6 @@ img {
   max-width: 250px;
   align-self: center;
 }
-
-/* p {
-  padding-bottom: 2rem;
-} */
 
 .main-container {
   position: absolute;
@@ -78,12 +76,12 @@ img {
   align-items: center;
 }
 
-.row-2 {
+.row-3 {
   display: flex;
   align-items: center;
 }
 
-.row-3 {
+.row-2 {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -142,7 +140,7 @@ img {
     display: none;
   }
 
-  .row-2 {
+  .row-3 {
     flex-direction: column;
   }
 
@@ -155,13 +153,12 @@ img {
     width: 100%;
   }
 
-  .row-3 {
+  .row-2 {
     flex-direction: column;
   }
 
   .links-outer {
     display: flex;
-    /* justify-content: space-between; */
     width: 100%;
     margin-top: 20px;
   }
@@ -174,7 +171,6 @@ img {
   }
 
   .nav-link {
-    /* font-size: 20px; */
     margin-bottom: auto;
     margin-left: 0;
   }
