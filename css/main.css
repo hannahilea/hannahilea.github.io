@@ -1,21 +1,20 @@
 @font-face {
-  font-family: "Montserrat Light";
-  src: url("../fonts/Montserrat-Light.ttf");
+  font-family: "Jura Light";
+  src: url("../fonts/Jura-Light.ttf");
 }
 
 @font-face {
-  font-family: "Montserrat Regular";
-  src: url("../fonts/Montserrat-Regular.ttf");
+  font-family: "Jura Regular";
+  src: url("../fonts/Jura-Regular.ttf");
 }
 
 ul {
   padding: 0;
-  margin-left: 20px;
 }
 
 body {
   vertical-align: middle;
-  font-family: "Montserrat Light";
+  font-family: "Jura Light";
   color: #4a4a4a;
 }
 
@@ -23,28 +22,16 @@ h1,
 h2 {
   font-weight: normal;
   margin: 0;
-  font-family: "Montserrat Regular";
-  border-bottom: 2px solid #cea988;
-  padding-bottom: 2px;
-  margin-bottom: 3px;
-}
-
-h3 {
-  margin-top: 50px;
-  padding-bottom: 2px;
-  margin-bottom: 3px;
-}
-
-h4 {
-  font-weight: bold;
+  font-family: "Jura Regular";
+  border-bottom: 2px solid #0843c3;
   padding-bottom: 2px;
   margin-bottom: 3px;
 }
 
 h5 {
-    font-weight: normal;
-    margin: 0;
-    font-family: "Montserrat Light";
+  font-weight: normal;
+  margin: 0;
+  font-family: "Jura Light";
 }
 
 a {
@@ -56,6 +43,10 @@ img {
   max-width: 250px;
   align-self: center;
 }
+
+/* p {
+  padding-bottom: 2rem;
+} */
 
 .main-container {
   position: absolute;
@@ -113,12 +104,12 @@ img {
 }
 
 .nav-link {
-  font-family: "Montserrat Regular";
+  font-family: "Jura Regular";
   color: #4a4a4a;
   text-decoration: none;
-  border-bottom: 2px solid #cea988;
+  border-bottom: 2px solid #0843c3;
   padding-bottom: 2px;
-  margin-left: 2rem;
+  margin-left: 1rem;
 }
 
 .about-container {
@@ -170,20 +161,21 @@ img {
 
   .links-outer {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     width: 100%;
-    margin-top: 50px;
+    margin-top: 20px;
   }
 
   .mobile-buttons {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     justify-content: space-around;
   }
 
   .nav-link {
-    font-size: 20px;
+    /* font-size: 20px; */
     margin-bottom: auto;
+    margin-left: 0;
   }
 }
