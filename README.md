@@ -1,2 +1,3 @@
 # hannahilea.github.io
-Landing page for [hannahilea.github.io](hannahilea.github.io)
+
+Personal website; can be viewed at [hannahilea.com](www.hannahilea.com).
