@@ -15,7 +15,7 @@ ul {
 body {
   vertical-align: middle;
   font-family: "Jura Regular";
-  color: #4a4a4a;
+  color: #03163f;
 }
 
 h1,
@@ -34,7 +34,6 @@ h5 {
   font-family: "Jura Regular";
 }
 
-/* a { color: #4a90e2; } */
 a {
   color: #0843c3;
   text-decoration: none;
@@ -103,7 +102,7 @@ img {
 
 .nav-link {
   font-family: "Jura Bold";
-  color: #4a4a4a;
+  color: #03163f;
   text-decoration: none;
   border-bottom: 2px solid #0843c3;
   padding-bottom: 2px;
