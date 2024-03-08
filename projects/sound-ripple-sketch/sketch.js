@@ -8,7 +8,7 @@ let mic;
 let livingParticles = [];
 
 function setup() {
-  createCanvas(500, 400);
+  createCanvas(displayWidth, displayHeight)
   colorMode(HSL, 1.0);
 
   // Create an Audio input
@@ -49,16 +49,11 @@ function spawnParticles(volume) {
 function draw() {
   background("darkblue");
   
+  // https://stackoverflow.com/questions/55026293/google-chrome-javascript-issue-in-getting-user-audio-the-audiocontext-was-not
+  getAudioContext().resume();
 
   // Get the overall volume (between 0 and 1.0)
   let vol = mic.getLevel() * 4.0;
-//   fill(vol * 255);
-//   stroke(0);
-
-//   // Draw an ellipse with height based on volume
-//   let h = map(vol, 0, 1, height, 0);
-//   ellipse(width / 2, h - 25, 50, 50);
-  
   if (vol > 0.04) {
     spawnParticles(vol);
   }
