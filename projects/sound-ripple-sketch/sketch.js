@@ -8,7 +8,7 @@ let mic;
 let livingParticles = [];
 
 function setup() {
-  createCanvas(displayWidth, displayHeight)
+  createCanvas(windowWidth, windowHeight)
   colorMode(HSL, 1.0);
 
   // Create an Audio input
@@ -17,6 +17,10 @@ function setup() {
   // start the Audio Input.
   // By default, it does not .connect() (to the computer speakers)
   mic.start();
+}
+
+function windowResized(){
+  resizeCanvas(windowWidth, windowHeight);
 }
 
 function spawnParticles(volume) {
