@@ -33,10 +33,10 @@ function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
 
-function spawnParticles(volume) {
+function spawnParticles(volume, x, y) {
   let numParticles = volume * 100;
   for (let i = 0; i < numParticles; i++) {
-    let particle = { x: mouseX, y: mouseY, energy: volume, life: volume * 8.0 };
+    let particle = { x: x, y: y, energy: volume, life: volume * 8.0 };
     let d;
     switch (params.mode) {
       case 'burst':
@@ -75,14 +75,17 @@ function draw() {
   // Get the overall volume (between 0 and 1.0)
   let vol = mic.getLevel() * params.micSensitivity;
   if (vol > 0.04) {
-    spawnParticles(vol);
+    if (screen.width <= 480) {
+      // Hack to guess if on mobile....
+      spawnParticles(vol, width / 2, height / 2);
+    } else {
+      spawnParticles(vol, mouseX, mouseY);
+    }
   }
 
-  if (true) {
-    livingParticles = livingParticles.filter((p) => {
-      return p.life > 0;
-    });
-  }
+  livingParticles = livingParticles.filter((p) => {
+    return p.life > 0;
+  });
 
   livingParticles.forEach((p) => {
     fill(p.energy, 0.75, 0.5);
