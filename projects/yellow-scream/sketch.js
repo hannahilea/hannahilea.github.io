@@ -13,25 +13,27 @@ let currentBrushHeight = 30;
 
 const params = {
   brushHeight: 30,
-  margin: 30,
+  // margin: 30,
   yellSensitivity: 0.02,
   brushYWiggle: 0.2,
 };
 
 const gui = new GUI();
 gui.add(params, 'brushHeight', 1, 100, 5);
-gui.add(params, 'margin', 0, 100, 1);
+// gui.add(params, 'margin', 0, 100, 1);
 gui.add(params, 'yellSensitivity', 0.01, 10, .1);
 gui.add(params, 'brushYWiggle', 0, .6, .1);
 
 function setup() {
-  createCanvas(windowWidth - 2 * params.margin, windowHeight - 2 * params.margin);
+  // createCanvas(windowWidth - 2 * params.margin, windowHeight - 2 * params.margin);
+  createCanvas(windowWidth, windowHeight);
   colorMode(RGB, 255);
 
   // Set up painting canvas
   background("#515763");
   fill("#E8E7D7");
-  rect(params.margin, params.margin, windowWidth - 2 * params.margin, windowHeight - 2 * params.margin);
+  // rect(params.margin, params.margin, windowWidth - 2 * params.margin, windowHeight - 2 * params.margin);
+  rect(0, 0, windowWidth, windowHeight)
 
   // ...and pallette
   yellowColor = color(255, 204, 0);
@@ -53,8 +55,10 @@ function draw() {
   // console.log(vol);
   if (vol > params.yellSensitivity && !isPainting) {
     // Start a stroke
-    x = random(width - 2 * params.margin) + params.margin;
-    y = random(height - 2 * params.margin) + params.margin;
+    // x = random(width - 2 * params.margin) + params.margin;
+    // y = random(height - 2 * params.margin) + params.margin;
+    x = random(width);
+    y = random(height);
     yellowColor = color(255, 204 + random(-10, 100), 0);
     isPainting = true;
     currentBrushHeight = params.brushHeight + random(-1.0, 1.0);
