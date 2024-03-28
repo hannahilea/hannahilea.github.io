@@ -13,29 +13,23 @@ let currentBrushHeight = 30;
 
 const params = {
   brushHeight: 30,
-  // margin: 30,
   yellSensitivity: 0.02,
-  brushYWiggle: 0.2,
+  maxBrushYJitter: 0.2,
 };
 
 const gui = new GUI();
 gui.add(params, 'brushHeight', 1, 100, 5);
-// gui.add(params, 'margin', 0, 100, 1);
 gui.add(params, 'yellSensitivity', 0.01, 10, .1);
-gui.add(params, 'brushYWiggle', 0, .6, .1);
+gui.add(params, 'maxBrushYJitter', 0, .6, .1);
 
 function setup() {
-  // createCanvas(windowWidth - 2 * params.margin, windowHeight - 2 * params.margin);
   createCanvas(windowWidth, windowHeight);
   colorMode(RGB, 255);
 
   // Set up painting canvas
-  background("#515763");
-  fill("#E8E7D7");
-  // rect(params.margin, params.margin, windowWidth - 2 * params.margin, windowHeight - 2 * params.margin);
-  rect(0, 0, windowWidth, windowHeight)
+  background("#E8E7D7");
 
-  // ...and pallette
+  // ...and palette
   yellowColor = color(255, 204, 0);
 
   // Create an Audio input
@@ -47,6 +41,7 @@ function setup() {
 }
 
 function draw() {
+  background("blue"); //TODO: DELETE
   // https://stackoverflow.com/questions/55026293/google-chrome-javascript-issue-in-getting-user-audio-the-audiocontext-was-not
   getAudioContext().resume();
 
@@ -55,8 +50,6 @@ function draw() {
   // console.log(vol);
   if (vol > params.yellSensitivity && !isPainting) {
     // Start a stroke
-    // x = random(width - 2 * params.margin) + params.margin;
-    // y = random(height - 2 * params.margin) + params.margin;
     x = random(width);
     y = random(height);
     yellowColor = color(255, 204 + random(-10, 100), 0);
@@ -65,8 +58,8 @@ function draw() {
   } else if (vol > params.yellSensitivity && isPainting) {
     // Continuing a stroke
 
-    if (x <= params.margin + 0.5) { x = params.margin + 0.5; } else { x -= 0.5; }
-    y += random(-params.brushYWiggle, params.brushYWiggle);
+    x -= 0.5;
+    y += random(-params.maxBrushYJitter, params.maxBrushYJitter);
   } else if (isPainting) {
     // no noise is happening, stop painting
     isPainting = false;
