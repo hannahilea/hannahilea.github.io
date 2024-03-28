@@ -1,8 +1,7 @@
-// Co-created by hannahilea (https://hannahilea.github.io/) 
-// and hendersonreed (https://hendersonreed.github.io/)
+// Created by hannahilea (https://hannahilea.github.io/) 
 // as a creative coding project while at the 
 // Recurse Center (www.recurse.com/)
-// Original p5 sketch: https://editor.p5js.org/hannahilea/sketches/Vx6KrBw6-
+// Original p5 sketch: https://editor.p5js.org/hannahilea/sketches/iJpZMXe8X
 
 let mic;
 let x;
