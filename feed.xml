@@ -1,38 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <atom:link href="http://yoursite.com/feed.xml" rel="self" type="application/rss+xml" />
-    <title>YourSite</title>
-    <link>http://YourSite.com</link>
-    <description>Something Describing Your Site</description>
-    <language>en-us</language>    
+    <atom:link href="http://hannahilea.com/feed.xml" rel="self" type="application/rss+xml" />
+    <title>@hannahilea</title>
+    <link>http://hannahilea.com</link>
+    <description>Personal website of Hannah Robertson (`@hannahilea`)</description>
+    <language>en-us</language>
     <image>
-      <title>Picture Title</title>
-      <link>http://YourSite.com</link>
-      <url>http://yoursite.com/yourpicture.gif</url>
-      <width>70</width>
-      <height>55</height>
+      <title>@hannahilea's avatar</title>
+      <link>http://hannahilea.com</link>
+      <url>http://hannahilea.com/img/avatar-smaller.jpeg</url>
+      <width>100</width>
+      <height>100</height>
+      <description>Avatar: Photo of stereo system with large googly eyes on top to look surprised</description>
     </image>
     <item>
-      <title>Web Page 1 Title</title>
+      <title>Hello world</title>
       <pubDate>Mon, 6 Sep 2010 12:40:21 GMT</pubDate>
-      <link>http://yoursite.com/webpage1.html</link>
-      <guid>http://yoursite.com/item001</guid>
+      <link>http://hannahilea.com/blog/.html</link>
+      <guid>http://hannahilea.com/item001</guid>
       <description>Information about Web Page 1</description>
     </item>
-    <item>
+    <!-- <item>
       <title>Web Page 2 Title</title>
       <pubDate>Mon, 6 Sep 2010 12:40:21 GMT</pubDate>
-      <link>http://yoursite.com/webpage2.html</link>
-      <guid>http://yoursite.com/item002</guid>
+      <link>http://hannahilea.com/webpage2.html</link>
+      <guid>http://hannahilea.com/item002</guid>
       <description>Information about Web Page 2</description>
     </item>
     <item>
       <title>Web Page 3 Title</title>
       <pubDate>Mon, 6 Sep 2010 12:40:21 GMT</pubDate>
-      <link>http://yoursite.com/webpage3.html</link>
-      <guid>http://yoursite.com/item003</guid>
+      <link>http://hannahilea.com/webpage3.html</link>
+      <guid>http://hannahilea.com/item003</guid>
       <description>Information about Web Page 3</description>
-    </item>
+    </item> -->
   </channel>
 </rss>
