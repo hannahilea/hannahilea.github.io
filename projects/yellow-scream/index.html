@@ -5,12 +5,20 @@
   <title>Yellow Scream</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lil-gui@0.19"></script>
+  <script>
+    var GUI = lil.GUI;
+  </script>
   <link rel="stylesheet" type="text/css" href="../../css/main.css" />
   <style>
+
+    body {
+    color: #03163f;
+  }
     canvas {
       display: block;
       position: absolute;
-      left: 0;
+      left: 20;
       top: 10;
     }
 
@@ -37,7 +45,7 @@
     <p><i>Usage:</i> When prompted, grant microphone access, then yell.
       If you are uninterested in yelling (?!?!?!?!), play the above video through your computer speakers.</p>
   </details>
-  <script src="./sketch.js"></script>
+  <div id="art"> <script src="./sketch.js"></script></div>
 </body>
 
 </html>
