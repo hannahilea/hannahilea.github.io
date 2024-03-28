@@ -13,13 +13,13 @@ let currentbrushWidth;
 
 const params = {
   brushSpeed: 1.5,
-  yellSensitivity: 0.02,
+  screamThreshold: 10,
   brushWidth: 80,
   maxBrushYJitter: 0.2,
 };
 
 const gui = new GUI();
-gui.add(params, 'yellSensitivity', 0.01, 10, .1);
+gui.add(params, 'screamThreshold', 0, 300, 5);
 gui.add(params, 'brushSpeed', 0.1, 5, 1);
 gui.add(params, 'brushWidth', 1, 100, 5);
 gui.add(params, 'maxBrushYJitter', 0, .6, .1);
@@ -49,16 +49,16 @@ function draw() {
   getAudioContext().resume();
 
   // Get the overall volume (between 0 and 1.0)
-  let vol = mic.getLevel() * 10;
-  // console.log(vol);
-  if (vol > params.yellSensitivity && !isPainting) {
+  let vol = mic.getLevel() * 1000;
+  console.log(vol);
+  if (vol > params.screamThreshold && !isPainting) {
     // Start a stroke
     x = random(width);
     y = random(height);
     yellowColor = color(255, 204 + random(-10, 100), 0);
     isPainting = true;
     currentbrushWidth = params.brushWidth + random(-1.0, 1.0);
-  } else if (vol > params.yellSensitivity && isPainting) {
+  } else if (vol > params.screamThreshold && isPainting) {
     // Continuing a stroke
 
     x -= params.brushSpeed;
