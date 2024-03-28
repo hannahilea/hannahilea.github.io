@@ -9,17 +9,19 @@ let x;
 let y;
 let yellowColor;
 let isPainting = false;
-let currentBrushHeight = 30;
+let currentbrushWidth;
 
 const params = {
-  brushHeight: 30,
+  brushSpeed: 1.5,
   yellSensitivity: 0.02,
+  brushWidth: 80,
   maxBrushYJitter: 0.2,
 };
 
 const gui = new GUI();
-gui.add(params, 'brushHeight', 1, 100, 5);
 gui.add(params, 'yellSensitivity', 0.01, 10, .1);
+gui.add(params, 'brushSpeed', 0.1, 5, 1);
+gui.add(params, 'brushWidth', 1, 100, 5);
 gui.add(params, 'maxBrushYJitter', 0, .6, .1);
 
 function setup() {
@@ -29,8 +31,9 @@ function setup() {
   // Set up painting canvas
   background("#E8E7D7");
 
-  // ...and palette
+  // ...and studio:
   yellowColor = color(255, 204, 0);
+  // params.brushWidth = windowHeight/10;
 
   // Create an Audio input
   mic = new p5.AudioIn();
@@ -38,10 +41,10 @@ function setup() {
   // start the Audio Input.
   // By default, it does not .connect() (to the computer speakers)
   mic.start();
+  console.log(windowHeight / 10)
 }
 
 function draw() {
-  background("blue"); //TODO: DELETE
   // https://stackoverflow.com/questions/55026293/google-chrome-javascript-issue-in-getting-user-audio-the-audiocontext-was-not
   getAudioContext().resume();
 
@@ -54,11 +57,11 @@ function draw() {
     y = random(height);
     yellowColor = color(255, 204 + random(-10, 100), 0);
     isPainting = true;
-    currentBrushHeight = params.brushHeight + random(-1.0, 1.0);
+    currentbrushWidth = params.brushWidth + random(-1.0, 1.0);
   } else if (vol > params.yellSensitivity && isPainting) {
     // Continuing a stroke
 
-    x -= 0.5;
+    x -= params.brushSpeed;
     y += random(-params.maxBrushYJitter, params.maxBrushYJitter);
   } else if (isPainting) {
     // no noise is happening, stop painting
@@ -68,6 +71,6 @@ function draw() {
   if (isPainting) {
     fill(yellowColor);
     noStroke();
-    square(x, y, currentBrushHeight, 0);
+    square(x, y, currentbrushWidth, 0);
   }
 }
