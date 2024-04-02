@@ -1,7 +1,8 @@
-// TODO: edit this blurb!
-// Original p5 sketch {{ co-created with FOO+link}}
+// Initial p5 sketch for this project was co-created with David Brooks
 // as a creative coding project while at the 
 // Recurse Center (www.recurse.com/)
+// https://editor.p5js.org/hannahilea/sketches/AWA1W-c3H
+
 
 let mic;
 

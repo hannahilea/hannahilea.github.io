@@ -3,8 +3,8 @@ const NEW_PROJ_COMMENT = "<!-- Add new project here -->"
 # Some quick and brittle Julia utilities for adding new projects
 # Doesn't handle nested, only does new js projects
 # Will fail if dir already exists
-# TODO: function to add different types of projects
-# TODO: validate git state isn't dirty before starting
+# Future: functions to add different types of projects
+# Future: validate git state isn't dirty before starting
 function new_js_project()
     project_name = lstrip(rstrip(Base.prompt("Enter project name: ")))
     dir_name = lstrip(rstrip(Base.prompt("Enter project url name: ")))
