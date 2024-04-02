@@ -4,14 +4,13 @@
 // https://editor.p5js.org/hannahilea/sketches/AWA1W-c3H
 
 let angle = 0;
-let earthSize = 200;
 let earthImg;
 
 let mySound;
 function preload() {
   soundFormats('mp3');
   mySound = loadSound('world.mp3');
-  earthImg = loadImage('earth3.jpeg');
+  earthImg = loadImage('earth.jpg');
 }
 
 function setup() {
@@ -39,9 +38,8 @@ function draw() {
     spinAmt = 0;
   } else if (mouseY < height / 2) {
     spinAmt = map(mouseY, 0, height, 0.001, 0.03, true)
-    // console.log(spinAmt);
   } else {
-    spinAmt = map(mouseY - height / 2, 0, height, 0.02, 0.5);
+    spinAmt = map(mouseY - height / 2, 0, height, 0.02, 0.3);
   }
   pan = map(mouseX, 0, width, -1., 1.);
 
@@ -64,9 +62,9 @@ function draw() {
   noStroke();
   angle += spinAmt;
   texture(earthImg);
-  sphere(earthSize);
+  sphere(windowHeight * .35);
 
-  // Update our audio
+  // Update audio
   mySound.rate(rate);
   mySound.pan(pan);
 }
