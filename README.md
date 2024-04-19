@@ -8,4 +8,5 @@ Personal website; can be viewed at [hannahilea.com](https://hannahilea.com).
 - [x] Update style to not be full copy-pasta
 - [ ] Port over projects from deprecated mcgill site 
 - [ ] Update deets on home page?
-- [ ] Remove "under construction flags"
+- [ ] Fill out project page links
+- [ ] Remove "under construction" flags
