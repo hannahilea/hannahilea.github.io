@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+
+<link
+href='http://fonts.googleapis.com/css?family=Macondo+Swash+Caps|Jura:400,600'
+    rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../../../css/legacyhannahstyle.css" />
+
+<style type="text/css">
+    @font-face
+    {
+    font-family: celt;
+    src: url('thisfont.eot');
+      src: local('☺'),
+        url('thisfont.woff') format('woff'), url('thisfont.ttf') format('truetype');
+    }
+
+    h1, h2, h3 .content
+    {font-family: celt, serif}
+
+    a.download:link
+    {background-color:#dc241f;}
+    a.download:hover
+    {background-color:#989898;}
+</style>
+
+<title>MUMT307: Final Project Code</title>
+</head>
+
+<body>
+<div class="intro">
+MUMT 307: Music & Audio Computing II <a class="subtle"
+href="http://www.music.mcgill.ca/~gary/307">[course page]</a></br>
+
+<strong>Winter 2012 :: Final Project</strong></br>
+
+Hannah Robertson
+<a class="subtle" href="/">[home page]</a></br>
+
+</div>
+<div class="content">
+<h1>Code and usage for stk::Feadog+fipple</h1>
+<strong>Jump to:</strong></br>
+    <a class='subtle' href="#inst">[ Installation ]</a>
+    <a class='subtle' href="#use">[ Usage (Score) ]</a>
+    <a class='subtle' href="#max">[ Usage (MIDI) ]</a></br></br>
+    <a class="main" href="307project.html">[ Project main page ]</a></br></br>
+    <hr />
+
+<a name="inst"><h2>Installation</h2></a>
+<a class="main download" href="robertson307code.zip">
+    [ Download code ]</a>
+
+<p>To start, make sure you've installed the <a class="subtle"
+    href="https://ccrma.stanford.edu/software/stk/information.html">
+    Synthesis ToolKit in C++ (STK)</a>. Then:</p>
+    <ol>
+        <li>Copy "Feadog.cpp" to the STK <code>src/</code> directory;</li>
+        <li>Copy "Feadog.h" to the STK <code>include/</code> directory;</li>
+        <li>Copy the files in "scores" to the STK <code>projects/demo/scores</code> directory.</li>
+        <li>Replace the following STK files with the new files here:
+            <ul><li><code>projects/demo/tcl/Demo.tcl</code></li>
+                <li><code>projects/demo/utilities.cpp</code></li>
+                <li><code>project/demo/Makefile.in</code></li></ul>
+            </li>
+        <li>In the main STK directory, run <code>./configure</code>;</li>
+        <li>In the stk/projects/demos directory, run <code>make clean</code>
+            and then <code>make</code>.</li>
+    </ol>
+
+<a name="max"><h2>Usage (Realtime MIDI, with MaxMSP)</h2></a>
+
+<p>In MaxMSP, open both midi_feadog.maxpat and (from the extras menu) KeyMidi.</p>
+
+<p>From the stk/projects/demos directory, run <code>./demo Feadog -im -or</code>. Now realtime MIDI usage should be working. If no sound comes out, double-click the "ctlout" object in the MaxMSP patch and change MIDI outputs ("From MaxMSP 1" should do it). Change notes with the KeyMidi keyboard, and change note parameters with the Max patch!</p>
+
+<a name="use"><h2>Usage (from scores)</h2></a>
+<h3>Play SKINI scores</h3>
+
+<p>From the "new_files" directory, compile with the following (after changing
+    the -L, -I, and Feadog.cpp paths to match your STK installation):</p>
+
+<p><code>g++ -D__MACOSX_CORE__ -L/.../stk-4.4.3/src -I/.../stk-4.4.3/include/ -o test_fipple test_fipple.cpp /.../stk-4.4.3/src/Feadog.cpp -lstk -lpthread -framework CoreAudio -framework CoreMIDI -framework CoreFoundation</code></p>
+
+<p>Now, from the directory containing both fipple_test and the scores directory, type</p>
+<code>./fipple_test scores/<scorefile> [-w #] [-r] [-b]</code>
+
+<ul>
+    <li><code>scorefile</code> is a SKINI score file. For included scores, see
+        <a class='subtle' href="#scores">below</a>; read about the SKINI
+        (Synthesis ToolKit Instrument Network Interface) format
+        <a class='subtle'
+        href="https://ccrma.stanford.edu/software/stk/skini.html">here</a>.
+    </li>
+    <li>The optional "-w #" flag indicates a whistle-type preset: "-w 1" is a
+        low whistle; "-w 0" is a high whistle; any other integer will default
+        to high whistle-type body. More presets may be added in the future.</li>
+    <li>The optional "-r" flag sets the excitation source back to the initial
+        reedtable lookup built into the stk::BlowHole class, for comparison's
+        sake.</li>
+    <li>The optional "-b" flag sets the resonance source back to the initial
+        single delayline of the stk::BlowHole class, for comparison's
+        sake. Note: Changing notes won't change the pitch, as the tuble length remains the same! This is mostly useful for listening to the effect of the jet delay on the pitch/octave of a single lowest note.</li>
+</ul>
+
+<h3>Sample scores</h3>
+<p>Several SKINI score files have been included to demonstrate various aspects of the fipple implementaiton. Note: If the file doesn't sound when you play it, try again until it *does* sound. Sometimes this takes two or three re-starts, and is presumably linked to the initial noise impulse being too low.</p>
+
+<ul>
+    <li>To hear the effect of different excitation source/resonance source configurations, "start_test.ski" plays three notes (D, E, F#) first in the lower octave, and then in the higher. It repeats this sequence at different speeds. Compare:</br>
+        <code>./fipple_test scores/start_test.ski -w 1</code> (low whistle, fipple, tone holes) with </br>
+        <code>./fipple_test scores/start_test.ski -w 1 -b</code> (low whistle, fipple, cylinder) with </br>
+        <code>./fipple_test scores/start_test.ski -w 1 -r</code> (low whistle, "reed", toneholes) with </br>
+        <code>./fipple_test scores/start_test.ski -w 1 -r -b</code> (low whistle, "reed", cylinder).</br>
+    Remember that for the -b flag, the body delayline doesn't change so only the jet delay length is being altered when each new note is played.
+    </li></br>
+
+    <li>To hear the effect of different articulations, "artic_test.ski" plays three notes (D, E, F#) first in the lower octave, and then in the higher. It repeats this sequence for the three articulations. Compare:</br>
+        <code>./fipple_test scores/artic_test.ski -w 1</code> (low whistle, fipple, tone holes) with </br>
+        <code>./fipple_test scores/artic_test.ski -w 1 -b</code> (low whistle, fipple, cylinder) with </br>
+        <code>./fipple_test scores/artic_test.ski -w 1 -r</code> (low whistle, "reed", toneholes) with </br>
+        <code>./fipple_test scores/artic_test.ski -w 1 -r -b</code> (low whistle, "reed", cylinder).</br>
+    </li></br>
+
+    <li>Additional articulation test:</br>
+        <code>./fipple_test scores/test.ski -w 1</code> (low whistle, fipple, tone holes).</br>
+    </li></br>
+
+    <li>To hear the effect of different delay length ratios, "delay_test.ski" plays three notes (D, E, F#) first in the lower octave, and then in the higher. It repeats this sequence for the three different ratios: 1, .5, .25. Compare:</br>
+        <code>./fipple_test scores/delay_test.ski -w 1</code> (low whistle, fipple, tone holes).</br>
+    </li></br>
+
+    <li>To play with delay length ratios more, open <code>scale_ratio_demo.ski</code> and change the value of the last integer in the first non-comment line (currently "22.0000") to a value between 1 and 128 (representing ratios from 0 to 1).
+    </li></br>
+
+    <li>Now, to hear it in action for a tune, compare a slow tune on a low whistle with and without the fipple. Note that even though it starts off over-blown, by the end it jumps down to the lower octave. Clearly the fipple model isn't adequately mimicking a real fipple yet, but the fact that these two octaves are *possible* with multiple tone hole model gives hope for controlling them in the future.</br>
+        <code>./fipple_test scores/slow_demo.ski -w 1</code> (low whistle, fipple, tone holes) with</br>
+        <code>./fipple_test scores/slow_demo.ski -w 1</code> (low whistle, NO fipple, tone holes).</br>
+    </li></br>
+</ul>
+
+<a class='subtle' href="">[ Top ]</a>
+
+</body>
+</html>
