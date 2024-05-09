@@ -3,14 +3,22 @@
 let flock;
 
 const params = {
-  worldWraps: true,
+  worldWraps: false,
+  maxspeed: 2,
+  maxforce: 0.05, // Maximum steering force
+  radius: 3,
 };
 
 const gui = new GUI();
 gui.add(params, 'worldWraps').name("Wrap world");
+const guiFolder = gui.addFolder( 'Settings for spawned boids' );
+guiFolder.add(params, 'maxspeed', 0, 8, .5).name("Max speed");
+guiFolder.add(params, 'maxforce', 0, .1, .01).name("Max steering force");
+guiFolder.add(params, 'radius', .1, 10, .3).name("Size");
 
 function setup() {
   createCanvas(windowWidth, windowHeight)
+  // Tone.start();
 
   flock = new Flock();
   // Add an initial set of boids into the system
@@ -26,7 +34,7 @@ function windowResized() {
 
 function draw() {
   // https://stackoverflow.com/questions/55026293/google-chrome-javascript-issue-in-getting-user-audio-the-audiocontext-was-not
-  // getAudioContext().resume();
+  getAudioContext().resume();
 
   background(51);
   flock.run();
@@ -76,9 +84,10 @@ function Boid(x, y) {
   this.acceleration = createVector(0, 0);
   this.velocity = createVector(random(-1, 1), random(-1, 1));
   this.position = createVector(x, y);
-  this.r = 3.0;
-  this.maxspeed = 3;    // Maximum speed
-  this.maxforce = 0.05; // Maximum steering force
+  this.r = params.radius;
+  this.maxspeed = params.maxspeed;    // Maximum speed
+  this.maxforce = params.maxforce;    // Maximum steering force
+  // this.synth = new Tone.Synth().toDestination();
 }
 
 Boid.prototype.run = function (boids) {
@@ -187,7 +196,12 @@ Boid.prototype.separate = function (boids) {
     steer.mult(this.maxspeed);
     steer.sub(this.velocity);
     steer.limit(this.maxforce);
+
+    // Play collision sound! 
+    // console.log(this, "ping", steer.mag())
+    // this.synth.triggerAttackRelease("C4", "8n")
   }
+
   return steer;
 }
 
