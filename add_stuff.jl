@@ -11,9 +11,12 @@ const NEW_BLOG_COMMENT = "<!-- Add new post here -->"
 # Will fail if dir already exists
 # Future: functions to add different types of projects
 # Future: validate git state isn't dirty before starting
-function new_js_project()
-    project_name = lstrip(rstrip(Base.prompt("Enter project name: ")))
-    dir_name = lstrip(rstrip(Base.prompt("Enter project url name: ")))
+function new_p5_project()
+    project_name = lstrip(rstrip(Base.prompt("Enter project name")))
+    dir_name = let
+        default = replace(lowercase(project_name), " " => "-")
+        lstrip(rstrip(Base.prompt("Enter project url name"; default)))
+    end
     dir = joinpath("projects", dir_name)
 
     @info "Creating new project directory" project_name dir_name
@@ -29,9 +32,9 @@ function new_js_project()
     @info "Adding new project to project index"
     let
         index_path = joinpath("projects", "index.html")
-        new_blob = """\n        <li><a href="./projects/$(dir_name)">\n            <h3>$(project_name)</h3>\n          </a>\n          <p>TODO-description</p>\n        </li>"""
+        new_blob = """\n        <li><a href="./$(dir_name)">\n            $(project_name)\n          </a>\n          <p>TODO-description</p>\n        </li>"""
         str = read(index_path, String)
-        i = findfirst(NEW_PROJ_COMMENT, file)
+        i = findfirst(NEW_PROJ_COMMENT, str)
         isnothing(i) && throw(ArgumentError("Oh no, $(NEW_PROJ_COMMENT) not found in $(index_path)"))
         str = str[1:last(i)] * new_blob * str[last(i)+1:end]
         write(index_path, str)
@@ -42,11 +45,11 @@ end
 function new_blog_post()
     blog_title = lstrip(rstrip(Base.prompt("Enter blog post title")))
 
-    dir_name = let 
-        default=replace(lowercase(blog_title), " " => "-")
-        lstrip(rstrip(Base.prompt("Enter blog dir name: "; default)))
+    dir_name = let
+        default = replace(lowercase(blog_title), " " => "-")
+        lstrip(rstrip(Base.prompt("Enter blog url name"; default)))
     end
-    
+
     dir = joinpath("blog", dir_name)
     date = today()
     date_pretty = Dates.format(today(), dateformat"d U yyyy")
@@ -65,9 +68,7 @@ function new_blog_post()
     @info "Adding new project to blog index"
     let
         index_path = joinpath("blog", "index.html")
-        new_blob = """\n        <li>$(date_pretty): <a href="./$(dir_name)">$(blog_title)</a>
-                          <p><em>In which TODO.</em></p>
-                      </li>"""
+        new_blob = """\n        <li>$(date_pretty): <a href="./$(dir_name)">$(blog_title)</a>\n          <p><em>In which TODO.</em></p>\n        </li>"""
         str = read(index_path, String)
         i = findfirst(NEW_BLOG_COMMENT, str)
         isnothing(i) && throw(ArgumentError("Oh no, $(NEW_BLOG_COMMENT) not found in $(index_path)"))
@@ -77,5 +78,24 @@ function new_blog_post()
 
     #TODO-future: also add to rss feed 
     @info "Do ctrl+f TODO to find regions to update for newly added project!"
+end
+
+function run_wizard(::Missing)
+    choice = lstrip(rstrip(Base.prompt("""Which type of content do you want to add? 
+                                          Choices: p5, blog""")))
+    return run_wizard(choice)
+end
+
+function run_wizard(choice)
+    choice = rstrip(lstrip(lowercase(choice)))
+    choice == "blog" && return new_blog_post()
+    choice == "p5" && return new_p5_project()
+    println("Unsupported selection `$choice`")
+    return run_wizard(missing)
+end
+
+# CLI entrypoint
+if abspath(PROGRAM_FILE) == @__FILE__
+    run_wizard(isempty(ARGS) ? missing : first(ARGS))
 end
 
