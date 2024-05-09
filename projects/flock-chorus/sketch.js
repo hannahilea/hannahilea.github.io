@@ -1,7 +1,4 @@
-// TODO: edit this blurb!
-// Original p5 sketch {{ co-created with FOO+link}}
-// as a creative coding project while at the 
-// Recurse Center (www.recurse.com/)
+// Built off of p5 flocking demo sketch https://p5js.org/examples/simulate-flocking.html
 
 let mic;
 
