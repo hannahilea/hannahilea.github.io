@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Sketch: Flock chorus</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lil-gui@0.19"></script>
+  <script src="https://unpkg.com/tone"></script>
+  <script>
+    var GUI = lil.GUI;
+  </script>
+  <link rel="stylesheet" type="text/css" href="../../css/main.css" />
+  <style>
+    canvas {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 10;
+    }
+
+  </style>
+  <script>
+    function playNote() {
+      // create a synth
+      const synth = new Tone.Synth().toDestination();
+      synth.volume.value = -12;
+      // const panner = new Tone.Panner(-1).toDestination();
+      // const osc = new Tone.Oscillator(100).connect(panner).start();
+      // play a note from that synth
+      // synth.triggerAttackRelease("C4", "8n"); //.chain(panner);
+      synth.triggerAttack("C4");
+      synth.setNote(440);
+    }
+  </script>
+</head>
+
+<body>
+  <nav class="navbar" role="navigation"></nav>
+  <div class="underline">
+    <h4><a href="../..">@hannahilea</a> > <a href="../../projects">projects</a> > Sketch: Flock chorus
+    </h4>
+  </div>
+  </nav>
+  <details>
+    <summary>Details</summary>
+      <p>Built on top of the <a href="https://p5js.org/examples/simulate-flocking.html">p5 flocking demo</a>.</p>
+    <p><i>Usage:</i> Click on screen to spawn a bird. Make sure your computer sound is on. May not yet work on mobile.</p>
+    
+  </details>
+  <button onclick="playNote()">Test sound!</button>
+  <script src="./sketch.js"></script>
+
+</body>
+
+</html>
