@@ -98,4 +98,3 @@ end
 if abspath(PROGRAM_FILE) == @__FILE__
     run_wizard(isempty(ARGS) ? missing : first(ARGS))
 end
-
