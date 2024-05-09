@@ -1,31 +1,35 @@
 // Built off of p5 flocking demo sketch https://p5js.org/examples/simulate-flocking.html
-
+console.log("Access to tone module?", Tone)
 let flock;
 
 const params = {
   worldWraps: false,
-  maxspeed: 2,
+  maxspeed: .5, //2,
   maxforce: 0.05, // Maximum steering force
   radius: 3,
+  targetFreqHz: 440,
+  maxStartOffsetHz: 100,
 };
 
 const gui = new GUI();
 gui.add(params, 'worldWraps').name("Wrap world");
 const guiFolder = gui.addFolder( 'Settings for spawned boids' );
+guiFolder.add(params, 'targetFreqHz', 27, 2350, 5).name("Target freq (Hz)");
+guiFolder.add(params, 'maxStartOffsetHz', 0, 100, 1);
 guiFolder.add(params, 'maxspeed', 0, 8, .5).name("Max speed");
 guiFolder.add(params, 'maxforce', 0, .1, .01).name("Max steering force");
 guiFolder.add(params, 'radius', .1, 10, .3).name("Size");
 
 function setup() {
   createCanvas(windowWidth, windowHeight)
-  // Tone.start();
+  Tone.start();
 
   flock = new Flock();
   // Add an initial set of boids into the system
-  for (let i = 0; i < 100; i++) {
-    let b = new Boid(width / 2, height / 2);
-    flock.addBoid(b);
-  }
+  // for (let i = 0; i < 100; i++) {
+  //   let b = new Boid(width / 2, height / 2);
+  //   flock.addBoid(b);
+  // }
 }
 
 function windowResized() {
@@ -34,14 +38,14 @@ function windowResized() {
 
 function draw() {
   // https://stackoverflow.com/questions/55026293/google-chrome-javascript-issue-in-getting-user-audio-the-audiocontext-was-not
-  getAudioContext().resume();
+  // getAudioContext().resume();
 
   background(51);
   flock.run();
 }
 
 // Add a new boid into the System
-function mouseDragged() {
+function mouseClicked() {
   flock.addBoid(new Boid(mouseX, mouseY));
 }
 
@@ -87,7 +91,11 @@ function Boid(x, y) {
   this.r = params.radius;
   this.maxspeed = params.maxspeed;    // Maximum speed
   this.maxforce = params.maxforce;    // Maximum steering force
-  // this.synth = new Tone.Synth().toDestination();
+  this.targetFreqHz = params.targetFreqHz; 
+  this.synth = new Tone.PolySynth().toDestination();
+  this.synth.volume.value = -12
+  this.currentFreqHz = this.targetFreqHz + params.maxStartOffsetHz; //TODO: allow negative, randomize idff
+  this.synth.triggerAttack(this.currentFreqHz)
 }
 
 Boid.prototype.run = function (boids) {
@@ -187,6 +195,14 @@ Boid.prototype.separate = function (boids) {
   // Average -- divide by how many
   if (count > 0) {
     steer.div(count);
+    // console.log(count,this.currentFreqHz, this.targetFreqHz)
+    if (this.currentFreqHz > this.targetFreqHz) {
+      this.currentFreqHz = this.currentFreqHz - 1;
+      // this.synth.triggerRelease()
+      this.synth.triggerAttack(this.currentFreqHz, Tone.now())
+      this.synth.releaseAll()
+      console.log("OK")
+    }
   }
 
   // As long as the vector is greater than 0
@@ -199,7 +215,6 @@ Boid.prototype.separate = function (boids) {
 
     // Play collision sound! 
     // console.log(this, "ping", steer.mag())
-    // this.synth.triggerAttackRelease("C4", "8n")
   }
 
   return steer;

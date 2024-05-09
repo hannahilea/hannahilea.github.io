@@ -4,9 +4,8 @@
 <head>
   <title>Sketch: Flock chorus</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lil-gui@0.19"></script>
-  <!-- <script type="module" src="http://unpkg.com/tone"></script> -->
+  <script src="https://unpkg.com/tone"></script>
   <script>
     var GUI = lil.GUI;
   </script>
@@ -20,6 +19,19 @@
     }
 
   </style>
+  <script>
+    function playNote() {
+      // create a synth
+      const synth = new Tone.Synth().toDestination();
+      synth.volume.value = -12;
+      // const panner = new Tone.Panner(-1).toDestination();
+      // const osc = new Tone.Oscillator(100).connect(panner).start();
+      // play a note from that synth
+      // synth.triggerAttackRelease("C4", "8n"); //.chain(panner);
+      synth.triggerAttack("C4");
+      synth.setNote(440);
+    }
+  </script>
 </head>
 
 <body>
@@ -31,13 +43,11 @@
   </nav>
   <details>
     <summary>Details</summary>
-    <!-- <p>A creative coding excercise (prompt: <i>TODO</i>), co-created with <a
-        href="https://TODO.github.io/">TODO</a>
-      while at the <a href="www.recurse.com">Recurse Center</a></p> -->
       <p>Built on top of the <a href="https://p5js.org/examples/simulate-flocking.html">p5 flocking demo</a>.</p>
     <p><i>Usage:</i> Drag on screen to loose flocks of birds. Make sure your computer sound is on. May not yet work on mobile.</p>
+    
   </details>
-
+  <button onclick="playNote()">Test sound!</button>
   <script src="./sketch.js"></script>
 
 </body>
