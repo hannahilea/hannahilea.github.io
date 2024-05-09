@@ -3,11 +3,11 @@
 let flock;
 
 const params = {
-  // micSensitivity: 4.0,
+  worldWraps: true,
 };
 
 const gui = new GUI();
-// gui.add(params, 'micSensitivity', 0.01, 30, 2);
+gui.add(params, 'worldWraps').name("Wrap world");
 
 function setup() {
   createCanvas(windowWidth, windowHeight)
@@ -52,6 +52,12 @@ function Flock() {
 Flock.prototype.run = function () {
   for (let i = 0; i < this.boids.length; i++) {
     this.boids[i].run(this.boids);  // Passing the entire list of boids to each boid individually
+  }
+  if (!params.worldWraps) {
+    // If the world doesn't wrap, remove all boids that have flown off screen
+    this.boids = this.boids.filter((b) => {
+      return b.position.x <= windowWidth && b.position.x >= 0 && b.position.y <= windowHeight && b.position.y >= 0; 
+    });
   }
 }
 
