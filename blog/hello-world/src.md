@@ -6,5 +6,3 @@ Thanks to [Teresa Ibarra](https://teresaibarra.com), whose site (and assistance!
 --- 
 - created at: 2/23/24
 - last updated: 3/1/24
-<!-- - polish level (1-10): 1
-- tags: "journal", recurse -->

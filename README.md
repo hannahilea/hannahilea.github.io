@@ -12,3 +12,6 @@ Personal website; can be viewed at [hannahilea.com](https://hannahilea.com).
 - [ ] Figure out blog situation
 - [ ] Set up rss feed
 - [ ] Remove "under construction" flags
+
+### Use template to add new content
+Run `julia --startup-file=no add_stuff.jl <ARG>` with arg `blog` or `p5`. 
