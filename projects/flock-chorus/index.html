@@ -22,14 +22,25 @@
   <script>
     function playNote() {
       // create a synth
-      const synth = new Tone.Synth().toDestination();
-      synth.volume.value = -12;
-      // const panner = new Tone.Panner(-1).toDestination();
-      // const osc = new Tone.Oscillator(100).connect(panner).start();
-      // play a note from that synth
-      // synth.triggerAttackRelease("C4", "8n"); //.chain(panner);
-      synth.triggerAttack("C4");
-      synth.setNote(440);
+      // const synth = new Tone.Synth().toDestination();
+      // synth.volume.value = -12;
+      // // 
+      // // const osc = new Tone.Oscillator(100).connect(panner).start();
+      // // play a note from that synth
+      // // synth.triggerAttackRelease("C4", "8n"); //.chain(panner);
+      // synth.triggerAttack("C4");
+      // synth.setNote(440);
+
+
+      let osc = new Tone.Oscillator({
+        frequency: 440,
+        type: "sawtooth4",
+        volume: -12,
+        detune: Math.random() * 30 - 15, 
+      }).toDestination();
+
+      let panner = new Tone.Panner(-.5).toDestination();
+      osc.connect(panner).start();
     }
   </script>
 </head>

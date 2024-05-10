@@ -110,16 +110,26 @@ function Boid(x, y) {
     frequency: this.currentFreqHz,
     type: "sawtooth4",
     volume: -20,
-    detune: Math.random() * 30 - 15, //TODO: Do I want this??
-  }).toDestination();
+    detune: Math.random() * 30 - 15,
+  });
+  this.panner = new Tone.Panner(getPanFromX(x)).toDestination();
 
   // Start playing on spawn
-  this.oscillator.start();
+  this.oscillator.connect(this.panner).start();
+}
+
+function getPanFromX(x) {
+  let p = map(x, 0, windowWidth, -1, 1);
+  p = p < -1 ? -1 : p;
+  p = p > 1 ? 1 : p;
+  console.log(x, p)
+  return p
 }
 
 Boid.prototype.run = function (boids) {
   this.flock(boids);
   this.update();
+  this.panner.pan.value = getPanFromX(this.position.x);
   this.borders();
   this.render();
 }
