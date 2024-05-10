@@ -16,7 +16,7 @@ const params = {
 const gui = new GUI().title("Parameters");
 gui.add(params, 'worldWraps').name("Wrap world");
 const guiFolder = gui.addFolder( 'New boid spawn settings' );
-guiFolder.add(params, 'targetFreqHz', 27, 2350, 5).name("Target pitch (Hz)");
+guiFolder.add(params, 'targetFreqHz', 125, 2350, 5).name("Target pitch (Hz)");
 guiFolder.add(params, 'freqIncrement', 0.1, 1.5, .1).name("Pitch converge speed");
 guiFolder.add(params, 'maxStartOffsetHz', 0, 600, 50).name("Start pitch max offset (Hz)");
 
@@ -102,7 +102,7 @@ Flock.prototype.addBoid = function (b) {
 
 function Boid(x, y) {
   this.acceleration = createVector(0, 0);
-  this.velocity = createVector(random(-1, 1), random(-1, 1));
+  this.velocity = createVector(random(-1, 1) * params.maxspeed, random(-1, 1) * params.maxspeed);
   this.position = createVector(x, y);
   this.r = params.radius;
   this.maxspeed = params.maxspeed;    // Maximum speed
