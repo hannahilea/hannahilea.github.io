@@ -15,7 +15,7 @@ const params = {
 
 const gui = new GUI().title("Parameters");
 gui.add(params, 'worldWraps').name("Wrap world");
-const guiFolder = gui.addFolder( 'New boid spawn settings' );
+const guiFolder = gui.addFolder('New boid spawn settings');
 guiFolder.add(params, 'targetFreqHz', 125, 2350, 5).name("Target pitch (Hz)");
 guiFolder.add(params, 'freqIncrement', 0.1, 1.5, .1).name("Pitch converge speed");
 guiFolder.add(params, 'maxStartOffsetHz', 0, 600, 50).name("Start pitch max offset (Hz)");
@@ -37,16 +37,16 @@ function windowResized() {
 }
 
 function draw() {
-    // Draw background sky gradient
-    let c2 = color(156, 186, 230);
-    let c1 = color(229, 250, 280);
-    for (let y = 0; y <= windowHeight; y++) {
-      let newc = lerpColor(c1, c2, map(y, 0, windowHeight, 0, 1));
-      stroke(newc);
-      line(0, y, windowWidth, y);
-    }
+  // Draw background sky gradient
+  let c2 = color(156, 186, 230);
+  let c1 = color(229, 250, 280);
+  for (let y = 0; y <= windowHeight; y++) {
+    let newc = lerpColor(c1, c2, map(y, 0, windowHeight, 0, 1));
+    stroke(newc);
+    line(0, y, windowWidth, y);
+  }
 
-  flock.run(); 
+  flock.run();
 }
 
 // Add new boids into the System
@@ -78,13 +78,13 @@ Flock.prototype.run = function () {
   if (!params.worldWraps) {
     // If the world doesn't wrap, remove all boids that have flown off screen
     this.boids = this.boids.filter((b) => {
-      let isOnScreen = b.position.x <= windowWidth && b.position.x >= 0 && b.position.y <= windowHeight && b.position.y >= 0; 
+      let isOnScreen = b.position.x <= windowWidth && b.position.x >= 0 && b.position.y <= windowHeight && b.position.y >= 0;
       if (!isOnScreen) {
         // Fade out the synth before the boid is killed (in theory, might actually get destroyed sooner than the oscillator stops....)
         b.oscillator.stop("+1.2");
         b.oscillator.volume.rampTo(-Infinity, 1);
       }
-      return isOnScreen; 
+      return isOnScreen;
     });
   }
 }
@@ -107,7 +107,7 @@ function Boid(x, y) {
   this.r = params.radius;
   this.maxspeed = params.maxspeed;    // Maximum speed
   this.maxforce = params.maxforce;    // Maximum steering force
-  this.targetFreqHz = params.targetFreqHz; 
+  this.targetFreqHz = params.targetFreqHz;
   this.currentFreqHz = this.targetFreqHz + ((Math.random() - 0.5) * params.maxStartOffsetHz);
   this.freqIncrement = params.freqIncrement;
 
@@ -236,7 +236,7 @@ Boid.prototype.separate = function (boids) {
       let newFreq = currentFreq + Math.sign(diffFreq) * this.freqIncrement;
       this.oscillator.frequency.value = newFreq;
     } else {
-      this.oscillator.frequency.value = this.targetFreqHz; 
+      this.oscillator.frequency.value = this.targetFreqHz;
     }
   }
 
