@@ -9,7 +9,7 @@ const params = {
   radius: 3,
   targetFreqHz: 440,
   maxStartOffsetHz: 100,
-  volume: -40,
+  volume: -Infinity, //-40,
   freqIncrement: .9,
 };
 
@@ -26,14 +26,19 @@ guiFolder.add(params, 'maxStartOffsetHz', 0, 600, 50).name("Start pitch max offs
 // guiFolder.add(params, 'radius', .1, 10, .3).name("Size");
 // guiFolder.add(params, 'volume', -80, -12, 1).name("Volume");
 
+function getProjectHeight() {
+  elem = document.getElementById("project-header");
+  return windowHeight - parseInt(elem.offsetHeight) - parseInt(elem.offsetTop)
+}
+
 function setup() {
-  createCanvas(windowWidth, windowHeight)
+  createCanvas(windowWidth, getProjectHeight())
   Tone.start();
   flock = new Flock(); // Empty flock!
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  resizeCanvas(windowWidth, getProjectHeight());
 }
 
 function draw() {
