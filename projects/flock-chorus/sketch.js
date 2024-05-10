@@ -32,7 +32,8 @@ function getProjectHeight() {
 }
 
 function setup() {
-  createCanvas(windowWidth, getProjectHeight())
+  let canvas = createCanvas(windowWidth, getProjectHeight())
+  canvas.mouseClicked(mouseClickedOnCanvas)
   Tone.start();
   flock = new Flock(); // Empty flock!
 }
@@ -60,7 +61,7 @@ function mouseDragged() {
 }
 
 // Add a new boid into the System
-function mouseClicked() {
+function mouseClickedOnCanvas() {
   flock.addBoid(new Boid(mouseX, mouseY));
 }
 
