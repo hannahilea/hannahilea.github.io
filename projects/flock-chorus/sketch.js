@@ -9,7 +9,7 @@ const params = {
   radius: 3,
   targetFreqHz: 440,
   maxStartOffsetHz: 100,
-  volume: -Infinity, //-40,
+  volume: -40,
   freqIncrement: .9,
 };
 
