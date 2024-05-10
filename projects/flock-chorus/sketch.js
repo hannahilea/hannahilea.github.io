@@ -32,12 +32,9 @@ function windowResized() {
 }
 
 function draw() {
-  // background(51);
-
-    // Draw background gradient
+    // Draw background sky gradient
     let c2 = color(156, 186, 230);
     let c1 = color(229, 250, 280);
-
     for (let y = 0; y <= windowHeight; y++) {
       let newc = lerpColor(c1, c2, map(y, 0, windowHeight, 0, 1));
       stroke(newc);
@@ -170,14 +167,15 @@ Boid.prototype.seek = function (target) {
 Boid.prototype.render = function () {
   // Draw a triangle rotated in the direction of velocity
   let theta = this.velocity.heading() + radians(90);
-  fill(127);
-  stroke(200);
+  fill("#090979");
+  stroke("#8484c3");
   push();
   translate(this.position.x, this.position.y);
   rotate(theta);
   beginShape();
   vertex(0, -this.r * 2);
   vertex(-this.r, this.r * 2);
+  vertex(0, this.r * 1);
   vertex(this.r, this.r * 2);
   endShape(CLOSE);
   pop();
