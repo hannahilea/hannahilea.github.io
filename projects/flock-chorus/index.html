@@ -7,7 +7,7 @@
   <script src="https://cdn.jsdelivr.net/npm/lil-gui@0.19"></script>
   <script src="https://unpkg.com/tone"></script>
   <script>
-    var GUI = lil.GUI;
+    const GUI = lil.GUI;
   </script>
   <link rel="stylesheet" type="text/css" href="../../css/main.css" />
   <style>
@@ -20,6 +20,12 @@
       margin: 0;
       height: 100%;
       overflow: hidden
+    }
+
+    #gui_container{
+      position: fixed;
+      top: 0;
+      right: 0;
     }
 
   </style>
@@ -41,6 +47,7 @@
 
 <body>
   <div id="project-header">
+    <div id="gui-container"></div>
     <nav class="navbar" role="navigation"></nav>
     <div class="underline">
       <h4><a href="../..">@hannahilea</a> > <a href="../../projects">projects</a> > Flock chorus
