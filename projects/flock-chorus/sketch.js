@@ -44,6 +44,11 @@ function draw() {
   flock.run();
 }
 
+// Add new boids into the System
+function mouseDragged() {
+  flock.addBoid(new Boid(mouseX, mouseY));
+}
+
 // Add a new boid into the System
 function mouseClicked() {
   flock.addBoid(new Boid(mouseX, mouseY));
@@ -98,19 +103,18 @@ function Boid(x, y) {
   this.maxspeed = params.maxspeed;    // Maximum speed
   this.maxforce = params.maxforce;    // Maximum steering force
   this.targetFreqHz = params.targetFreqHz; 
-  this.currentFreqHz = this.targetFreqHz + params.maxStartOffsetHz; //TODO: allow negative, randomize idff
+  this.currentFreqHz = this.targetFreqHz + ((Math.random() - 0.5) * params.maxStartOffsetHz);
 
   // Set up sound
   this.oscillator = new Tone.Oscillator({
     frequency: this.currentFreqHz,
     type: "sawtooth4",
-    volume: -Infinity,
+    volume: -20,
     detune: Math.random() * 30 - 15, //TODO: Do I want this??
   }).toDestination();
 
   // Start playing on spawn
   this.oscillator.start();
-  this.oscillator.volume.rampTo(-20, 1);
 }
 
 Boid.prototype.run = function (boids) {
@@ -211,10 +215,12 @@ Boid.prototype.separate = function (boids) {
   // Average -- divide by how many
   if (count > 0) {
     steer.div(count);
-    if (this.currentFreqHz > this.targetFreqHz) {
-      let newFreq = this.currentFreqHz - 1;
-      this.oscillator.frequency.rampTo(newFreq, 0.1);
-      this.currentFreqHz = newFreq; // TODO: maybe don't need this, if we can get the freq FROM the oscillator
+    let currentFreq = this.oscillator.frequency.value;
+    let diffFreq = this.targetFreqHz - currentFreq;
+    // console.log(diffFreq)
+    if (Math.abs(diffFreq) > 1) {
+      let newFreq = currentFreq + Math.sign(diffFreq);
+      this.oscillator.frequency.value = newFreq;
     }
   }
 
