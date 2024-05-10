@@ -32,10 +32,18 @@ function windowResized() {
 }
 
 function draw() {
-  // https://stackoverflow.com/questions/55026293/google-chrome-javascript-issue-in-getting-user-audio-the-audiocontext-was-not
-  // getAudioContext().resume();
+  // background(51);
 
-  background(51);
+    // Draw background gradient
+    let c2 = color(156, 186, 230);
+    let c1 = color(229, 250, 280);
+
+    for (let y = 0; y <= windowHeight; y++) {
+      let newc = lerpColor(c1, c2, map(y, 0, windowHeight, 0, 1));
+      stroke(newc);
+      line(0, y, windowWidth, y);
+    }
+
   flock.run();
 }
 
