@@ -4,7 +4,7 @@ let flock;
 
 const params = {
   worldWraps: false,
-  maxspeed: .5, //2,
+  maxspeed: 2,
   maxforce: 0.05, // Maximum steering force
   radius: 3,
   targetFreqHz: 440,
@@ -12,6 +12,7 @@ const params = {
 };
 
 const gui = new GUI();
+
 gui.add(params, 'worldWraps').name("Wrap world");
 const guiFolder = gui.addFolder( 'Settings for spawned boids' );
 guiFolder.add(params, 'targetFreqHz', 27, 2350, 5).name("Target freq (Hz)");
@@ -23,13 +24,7 @@ guiFolder.add(params, 'radius', .1, 10, .3).name("Size");
 function setup() {
   createCanvas(windowWidth, windowHeight)
   Tone.start();
-
-  flock = new Flock();
-  // Add an initial set of boids into the system
-  // for (let i = 0; i < 100; i++) {
-  //   let b = new Boid(width / 2, height / 2);
-  //   flock.addBoid(b);
-  // }
+  flock = new Flock(); // Empty flock!
 }
 
 function windowResized() {
@@ -68,7 +63,13 @@ Flock.prototype.run = function () {
   if (!params.worldWraps) {
     // If the world doesn't wrap, remove all boids that have flown off screen
     this.boids = this.boids.filter((b) => {
-      return b.position.x <= windowWidth && b.position.x >= 0 && b.position.y <= windowHeight && b.position.y >= 0; 
+      let isOnScreen = b.position.x <= windowWidth && b.position.x >= 0 && b.position.y <= windowHeight && b.position.y >= 0; 
+      if (!isOnScreen) {
+        // Fade out the synth before the boid is killed (in theory, might actually get destroyed sooner than the oscillator stops....)
+        b.oscillator.stop("+1.2");
+        b.oscillator.volume.rampTo(-Infinity, 1);
+      }
+      return isOnScreen; 
     });
   }
 }
@@ -92,10 +93,19 @@ function Boid(x, y) {
   this.maxspeed = params.maxspeed;    // Maximum speed
   this.maxforce = params.maxforce;    // Maximum steering force
   this.targetFreqHz = params.targetFreqHz; 
-  this.synth = new Tone.PolySynth().toDestination();
-  this.synth.volume.value = -12
   this.currentFreqHz = this.targetFreqHz + params.maxStartOffsetHz; //TODO: allow negative, randomize idff
-  this.synth.triggerAttack(this.currentFreqHz)
+
+  // Set up sound
+  this.oscillator = new Tone.Oscillator({
+    frequency: this.currentFreqHz,
+    type: "sawtooth4",
+    volume: -Infinity,
+    detune: Math.random() * 30 - 15, //TODO: Do I want this??
+  }).toDestination();
+
+  // Start playing on spawn
+  this.oscillator.start();
+  this.oscillator.volume.rampTo(-20, 1);
 }
 
 Boid.prototype.run = function (boids) {
@@ -195,13 +205,10 @@ Boid.prototype.separate = function (boids) {
   // Average -- divide by how many
   if (count > 0) {
     steer.div(count);
-    // console.log(count,this.currentFreqHz, this.targetFreqHz)
     if (this.currentFreqHz > this.targetFreqHz) {
-      this.currentFreqHz = this.currentFreqHz - 1;
-      // this.synth.triggerRelease()
-      this.synth.triggerAttack(this.currentFreqHz, Tone.now())
-      this.synth.releaseAll()
-      console.log("OK")
+      let newFreq = this.currentFreqHz - 1;
+      this.oscillator.frequency.rampTo(newFreq, 0.1);
+      this.currentFreqHz = newFreq; // TODO: maybe don't need this, if we can get the freq FROM the oscillator
     }
   }
 
@@ -212,9 +219,6 @@ Boid.prototype.separate = function (boids) {
     steer.mult(this.maxspeed);
     steer.sub(this.velocity);
     steer.limit(this.maxforce);
-
-    // Play collision sound! 
-    // console.log(this, "ping", steer.mag())
   }
 
   return steer;
