@@ -9,17 +9,22 @@ const params = {
   radius: 3,
   targetFreqHz: 440,
   maxStartOffsetHz: 100,
+  volume: -40,
+  freqIncrement: .9,
 };
 
-const gui = new GUI();
-
+const gui = new GUI().title("Parameters");
 gui.add(params, 'worldWraps').name("Wrap world");
-const guiFolder = gui.addFolder( 'Settings for spawned boids' );
-guiFolder.add(params, 'targetFreqHz', 27, 2350, 5).name("Target freq (Hz)");
-guiFolder.add(params, 'maxStartOffsetHz', 0, 100, 1);
-guiFolder.add(params, 'maxspeed', 0, 8, .5).name("Max speed");
-guiFolder.add(params, 'maxforce', 0, .1, .01).name("Max steering force");
-guiFolder.add(params, 'radius', .1, 10, .3).name("Size");
+const guiFolder = gui.addFolder( 'New boid spawn settings' );
+guiFolder.add(params, 'targetFreqHz', 27, 2350, 5).name("Target pitch (Hz)");
+guiFolder.add(params, 'freqIncrement', 0.1, 1.5, .1).name("Pitch converge speed");
+guiFolder.add(params, 'maxStartOffsetHz', 0, 600, 50).name("Start pitch max offset (Hz)");
+
+// These are nice for development but do not maximize fun
+// guiFolder.add(params, 'maxspeed', 0, 8, .5).name("Max speed");
+// guiFolder.add(params, 'maxforce', 0, .1, .01).name("Max steering force");
+// guiFolder.add(params, 'radius', .1, 10, .3).name("Size");
+// guiFolder.add(params, 'volume', -80, -12, 1).name("Volume");
 
 function setup() {
   createCanvas(windowWidth, windowHeight)
@@ -41,7 +46,7 @@ function draw() {
       line(0, y, windowWidth, y);
     }
 
-  flock.run();
+  flock.run(); 
 }
 
 // Add new boids into the System
@@ -104,12 +109,13 @@ function Boid(x, y) {
   this.maxforce = params.maxforce;    // Maximum steering force
   this.targetFreqHz = params.targetFreqHz; 
   this.currentFreqHz = this.targetFreqHz + ((Math.random() - 0.5) * params.maxStartOffsetHz);
+  this.freqIncrement = params.freqIncrement;
 
   // Set up sound
   this.oscillator = new Tone.Oscillator({
     frequency: this.currentFreqHz,
     type: "sawtooth4",
-    volume: -20,
+    volume: params.volume,
     detune: Math.random() * 30 - 15,
   });
   this.panner = new Tone.Panner(getPanFromX(x)).toDestination();
@@ -122,7 +128,6 @@ function getPanFromX(x) {
   let p = map(x, 0, windowWidth, -1, 1);
   p = p < -1 ? -1 : p;
   p = p > 1 ? 1 : p;
-  console.log(x, p)
   return p
 }
 
@@ -227,10 +232,11 @@ Boid.prototype.separate = function (boids) {
     steer.div(count);
     let currentFreq = this.oscillator.frequency.value;
     let diffFreq = this.targetFreqHz - currentFreq;
-    // console.log(diffFreq)
-    if (Math.abs(diffFreq) > 1) {
-      let newFreq = currentFreq + Math.sign(diffFreq);
+    if (Math.abs(diffFreq) > this.freqIncrement) {
+      let newFreq = currentFreq + Math.sign(diffFreq) * this.freqIncrement;
       this.oscillator.frequency.value = newFreq;
+    } else {
+      this.oscillator.frequency.value = this.targetFreqHz; 
     }
   }
 
