@@ -9,11 +9,13 @@ const params = {
   radius: 3,
   targetFreqHz: 440,
   maxStartOffsetHz: 100,
-  volume: -40,
+  volume: -Infinity, //-40,
   freqIncrement: .9,
 };
 
-const gui = new GUI().title("Parameters");
+const gui = new GUI( { autoPlace: true} ).title("Parameters");
+gui.domElement.id = 'gui';
+document.getElementById("gui-container").appendChild(gui.domElement);
 gui.add(params, 'worldWraps').name("Wrap world");
 const guiFolder = gui.addFolder('New boid spawn settings');
 guiFolder.add(params, 'targetFreqHz', 125, 2350, 5).name("Target pitch (Hz)");
@@ -26,14 +28,25 @@ guiFolder.add(params, 'maxStartOffsetHz', 0, 600, 50).name("Start pitch max offs
 // guiFolder.add(params, 'radius', .1, 10, .3).name("Size");
 // guiFolder.add(params, 'volume', -80, -12, 1).name("Volume");
 
+function calculateCanvasHeight() {
+  elem = document.getElementById("project-header");
+  return windowHeight - parseInt(elem.offsetHeight) - parseInt(elem.offsetTop)
+}
+
+function calculateCanvasYOffset() {
+  elem = document.getElementById("project-header");
+  return parseInt(elem.offsetHeight) + parseInt(elem.offsetTop)
+}
+
 function setup() {
-  createCanvas(windowWidth, windowHeight)
+  let canvas = createCanvas(windowWidth, calculateCanvasHeight())
+  canvas.mouseClicked(mouseClickedOnCanvas)
   Tone.start();
   flock = new Flock(); // Empty flock!
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  resizeCanvas(windowWidth, calculateCanvasHeight());
 }
 
 function draw() {
@@ -50,12 +63,22 @@ function draw() {
 }
 
 // Add new boids into the System
-function mouseDragged() {
-  flock.addBoid(new Boid(mouseX, mouseY));
+function mouseDragged(event) {
+  let overCanvas = event.clientY > calculateCanvasYOffset();
+  let elem = document.getElementById("gui");
+  let guiY = (parseInt(elem.offsetHeight) + parseInt(elem.offsetTop));
+  let guiX = (parseInt(elem.offsetWidth) + parseInt(elem.offsetLeft));
+
+  // If not over the canvas, ignore
+  // If over the GUI, ignore 
+  if (event.clientY > guiY && event.clientX < guiX && overCanvas){
+    console.log("we did it, joe");
+    flock.addBoid(new Boid(mouseX, mouseY));
+  }  
 }
 
 // Add a new boid into the System
-function mouseClicked() {
+function mouseClickedOnCanvas() {
   flock.addBoid(new Boid(mouseX, mouseY));
 }
 

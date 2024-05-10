@@ -7,15 +7,25 @@
   <script src="https://cdn.jsdelivr.net/npm/lil-gui@0.19"></script>
   <script src="https://unpkg.com/tone"></script>
   <script>
-    var GUI = lil.GUI;
+    const GUI = lil.GUI;
   </script>
   <link rel="stylesheet" type="text/css" href="../../css/main.css" />
   <style>
-    canvas {
-      display: block;
-      position: absolute;
-      left: 0;
-      top: 10;
+    #project-header {
+      margin: 1rem;
+    }
+
+    html,
+    body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden
+    }
+
+    #gui_container{
+      position: fixed;
+      top: 0;
+      right: 0;
     }
 
   </style>
@@ -36,22 +46,29 @@
 </head>
 
 <body>
-  <nav class="navbar" role="navigation"></nav>
-  <div class="underline">
-    <h4><a href="../..">@hannahilea</a> > <a href="../../projects">projects</a> > Flock chorus
-    </h4>
+  <div id="project-header">
+    <div id="gui-container"></div>
+    <nav class="navbar" role="navigation"></nav>
+    <div class="underline">
+      <h4><a href="../..">@hannahilea</a> > <a href="../../projects">projects</a> > Flock chorus
+      </h4>
+    </div>
+    </nav>
+    <details>
+      <summary>Details</summary>
+      <p>Built for a web-based musical instrument hackathon while at the <a href="https://www.recurse.com">Recurse
+          Center</a>. Built on top of the <a href="https://p5js.org/examples/simulate-flocking.html">p5 flocking
+          demo</a>.
+      </p>
+      <p><i>Usage:</i> Click screen to spawn [boids](https://en.wikipedia.org/wiki/Boids). Make sure your computer sound
+        is on. (May not yet work on mobile.)</p>
+      <p><i>Warning:</i> If you add a gagillion boids, the page may get laggy or stop playing altogether. I'm pretty
+        sure this is a Tone.js limitation (well, a "my current usage of Tone.js" limitation, specifically!), and if you
+        have an idea of how to work around it, please let me know! In the meantime, simply refresh your screen to start
+        fresh (or un-toggle "wrap world" to let some of your flocks fly away).</p>
+      <button onclick="playNote()">Test sound!</button>
+    </details>
   </div>
-  </nav>
-  <details>
-    <summary>Details</summary>
-    <p>Built for a web-based musical instrument hackathon while at the <a href="https://www.recurse.com">Recurse
-        Center</a>. Built on top of the <a href="https://p5js.org/examples/simulate-flocking.html">p5 flocking demo</a>.
-    </p>
-    <p><i>Usage:</i> Click screen to spawn [boids](https://en.wikipedia.org/wiki/Boids). Make sure your computer sound is on. (May not yet work on mobile.)</p>
-    <p><i>Warning:</i> If you add a gagillion boids, the page may get laggy or stop playing altogether. I'm pretty sure this is a Tone.js limitation (well, a "my current usage of Tone.js" limitation, specifically!), and if you have an idea of how to work around it, please let me know! In the meantime, simply refresh your screen to start fresh (or un-toggle "wrap world" to let some of your flocks fly away).</p>
-    <button onclick="playNote()">Test sound!</button>
-  </details>
-  
   <script src="./sketch.js"></script>
 
 </body>
