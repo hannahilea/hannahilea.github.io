@@ -31,6 +31,11 @@ function getProjectHeight() {
   return windowHeight - parseInt(elem.offsetHeight) - parseInt(elem.offsetTop)
 }
 
+function getCanvasYOffset() {
+  elem = document.getElementById("project-header");
+  return parseInt(elem.offsetHeight) + parseInt(elem.offsetTop)
+}
+
 function setup() {
   let canvas = createCanvas(windowWidth, getProjectHeight())
   canvas.mouseClicked(mouseClickedOnCanvas)
@@ -56,8 +61,10 @@ function draw() {
 }
 
 // Add new boids into the System
-function mouseDragged() {
-  flock.addBoid(new Boid(mouseX, mouseY));
+function mouseDragged(event) {
+  if (event.clientY > getCanvasYOffset()) {
+    flock.addBoid(new Boid(mouseX, mouseY));
+  }
 }
 
 // Add a new boid into the System
