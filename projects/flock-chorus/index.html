@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Sketch: Flock chorus</title>
+  <title>Flock chorus</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lil-gui@0.19"></script>
   <script src="https://unpkg.com/tone"></script>
@@ -22,14 +22,15 @@
   <script>
     function playNote() {
       // create a synth
-      const synth = new Tone.Synth().toDestination();
-      synth.volume.value = -12;
-      // const panner = new Tone.Panner(-1).toDestination();
-      // const osc = new Tone.Oscillator(100).connect(panner).start();
-      // play a note from that synth
-      // synth.triggerAttackRelease("C4", "8n"); //.chain(panner);
-      synth.triggerAttack("C4");
-      synth.setNote(440);
+      let osc = new Tone.Oscillator({
+        frequency: 440,
+        type: "sawtooth4",
+        volume: -40,
+        detune: Math.random() * 30 - 15,
+      }).toDestination();
+
+      let panner = new Tone.Panner(-.5).toDestination();
+      osc.connect(panner).start();
     }
   </script>
 </head>
@@ -37,17 +38,20 @@
 <body>
   <nav class="navbar" role="navigation"></nav>
   <div class="underline">
-    <h4><a href="../..">@hannahilea</a> > <a href="../../projects">projects</a> > Sketch: Flock chorus
+    <h4><a href="../..">@hannahilea</a> > <a href="../../projects">projects</a> > Flock chorus
     </h4>
   </div>
   </nav>
   <details>
     <summary>Details</summary>
-      <p>Built on top of the <a href="https://p5js.org/examples/simulate-flocking.html">p5 flocking demo</a>.</p>
-    <p><i>Usage:</i> Click on screen to spawn a bird. Make sure your computer sound is on. May not yet work on mobile.</p>
-    
+    <p>Built for a web-based musical instrument hackathon while at the <a href="https://www.recurse.com">Recurse
+        Center</a>. Built on top of the <a href="https://p5js.org/examples/simulate-flocking.html">p5 flocking demo</a>.
+    </p>
+    <p><i>Usage:</i> Click screen to spawn [boids](https://en.wikipedia.org/wiki/Boids). Make sure your computer sound is on. (May not yet work on mobile.)</p>
+    <p><i>Warning:</i> If you add a gagillion boids, the page may get laggy or stop playing altogether. I'm pretty sure this is a Tone.js limitation (well, a "my current usage of Tone.js" limitation, specifically!), and if you have an idea of how to work around it, please let me know! In the meantime, simply refresh your screen to start fresh (or un-toggle "wrap world" to let some of your flocks fly away).</p>
+    <button onclick="playNote()">Test sound!</button>
   </details>
-  <button onclick="playNote()">Test sound!</button>
+  
   <script src="./sketch.js"></script>
 
 </body>

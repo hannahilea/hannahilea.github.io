@@ -4,32 +4,32 @@ let flock;
 
 const params = {
   worldWraps: false,
-  maxspeed: .5, //2,
+  maxspeed: 2,
   maxforce: 0.05, // Maximum steering force
   radius: 3,
   targetFreqHz: 440,
   maxStartOffsetHz: 100,
+  volume: -40,
+  freqIncrement: .9,
 };
 
-const gui = new GUI();
+const gui = new GUI().title("Parameters");
 gui.add(params, 'worldWraps').name("Wrap world");
-const guiFolder = gui.addFolder( 'Settings for spawned boids' );
-guiFolder.add(params, 'targetFreqHz', 27, 2350, 5).name("Target freq (Hz)");
-guiFolder.add(params, 'maxStartOffsetHz', 0, 100, 1);
-guiFolder.add(params, 'maxspeed', 0, 8, .5).name("Max speed");
-guiFolder.add(params, 'maxforce', 0, .1, .01).name("Max steering force");
-guiFolder.add(params, 'radius', .1, 10, .3).name("Size");
+const guiFolder = gui.addFolder('New boid spawn settings');
+guiFolder.add(params, 'targetFreqHz', 125, 2350, 5).name("Target pitch (Hz)");
+guiFolder.add(params, 'freqIncrement', 0.1, 1.5, .1).name("Pitch converge speed");
+guiFolder.add(params, 'maxStartOffsetHz', 0, 600, 50).name("Start pitch max offset (Hz)");
+
+// These are nice for development but do not maximize fun
+// guiFolder.add(params, 'maxspeed', 0, 8, .5).name("Max speed");
+// guiFolder.add(params, 'maxforce', 0, .1, .01).name("Max steering force");
+// guiFolder.add(params, 'radius', .1, 10, .3).name("Size");
+// guiFolder.add(params, 'volume', -80, -12, 1).name("Volume");
 
 function setup() {
   createCanvas(windowWidth, windowHeight)
   Tone.start();
-
-  flock = new Flock();
-  // Add an initial set of boids into the system
-  // for (let i = 0; i < 100; i++) {
-  //   let b = new Boid(width / 2, height / 2);
-  //   flock.addBoid(b);
-  // }
+  flock = new Flock(); // Empty flock!
 }
 
 function windowResized() {
@@ -37,11 +37,21 @@ function windowResized() {
 }
 
 function draw() {
-  // https://stackoverflow.com/questions/55026293/google-chrome-javascript-issue-in-getting-user-audio-the-audiocontext-was-not
-  // getAudioContext().resume();
+  // Draw background sky gradient
+  let c2 = color(156, 186, 230);
+  let c1 = color(229, 250, 280);
+  for (let y = 0; y <= windowHeight; y++) {
+    let newc = lerpColor(c1, c2, map(y, 0, windowHeight, 0, 1));
+    stroke(newc);
+    line(0, y, windowWidth, y);
+  }
 
-  background(51);
   flock.run();
+}
+
+// Add new boids into the System
+function mouseDragged() {
+  flock.addBoid(new Boid(mouseX, mouseY));
 }
 
 // Add a new boid into the System
@@ -68,7 +78,13 @@ Flock.prototype.run = function () {
   if (!params.worldWraps) {
     // If the world doesn't wrap, remove all boids that have flown off screen
     this.boids = this.boids.filter((b) => {
-      return b.position.x <= windowWidth && b.position.x >= 0 && b.position.y <= windowHeight && b.position.y >= 0; 
+      let isOnScreen = b.position.x <= windowWidth && b.position.x >= 0 && b.position.y <= windowHeight && b.position.y >= 0;
+      if (!isOnScreen) {
+        // Fade out the synth before the boid is killed (in theory, might actually get destroyed sooner than the oscillator stops....)
+        b.oscillator.stop("+1.2");
+        b.oscillator.volume.rampTo(-Infinity, 1);
+      }
+      return isOnScreen;
     });
   }
 }
@@ -86,21 +102,39 @@ Flock.prototype.addBoid = function (b) {
 
 function Boid(x, y) {
   this.acceleration = createVector(0, 0);
-  this.velocity = createVector(random(-1, 1), random(-1, 1));
+  this.velocity = createVector(random(-1, 1) * params.maxspeed, random(-1, 1) * params.maxspeed);
   this.position = createVector(x, y);
   this.r = params.radius;
   this.maxspeed = params.maxspeed;    // Maximum speed
   this.maxforce = params.maxforce;    // Maximum steering force
-  this.targetFreqHz = params.targetFreqHz; 
-  this.synth = new Tone.PolySynth().toDestination();
-  this.synth.volume.value = -12
-  this.currentFreqHz = this.targetFreqHz + params.maxStartOffsetHz; //TODO: allow negative, randomize idff
-  this.synth.triggerAttack(this.currentFreqHz)
+  this.targetFreqHz = params.targetFreqHz;
+  this.currentFreqHz = this.targetFreqHz + ((Math.random() - 0.5) * params.maxStartOffsetHz);
+  this.freqIncrement = params.freqIncrement;
+
+  // Set up sound
+  this.oscillator = new Tone.Oscillator({
+    frequency: this.currentFreqHz,
+    type: "sawtooth4",
+    volume: params.volume,
+    detune: Math.random() * 30 - 15,
+  });
+  this.panner = new Tone.Panner(getPanFromX(x)).toDestination();
+
+  // Start playing on spawn
+  this.oscillator.connect(this.panner).start();
+}
+
+function getPanFromX(x) {
+  let p = map(x, 0, windowWidth, -1, 1);
+  p = p < -1 ? -1 : p;
+  p = p > 1 ? 1 : p;
+  return p
 }
 
 Boid.prototype.run = function (boids) {
   this.flock(boids);
   this.update();
+  this.panner.pan.value = getPanFromX(this.position.x);
   this.borders();
   this.render();
 }
@@ -152,14 +186,15 @@ Boid.prototype.seek = function (target) {
 Boid.prototype.render = function () {
   // Draw a triangle rotated in the direction of velocity
   let theta = this.velocity.heading() + radians(90);
-  fill(127);
-  stroke(200);
+  fill("#090979");
+  stroke("#8484c3");
   push();
   translate(this.position.x, this.position.y);
   rotate(theta);
   beginShape();
   vertex(0, -this.r * 2);
   vertex(-this.r, this.r * 2);
+  vertex(0, this.r * 1);
   vertex(this.r, this.r * 2);
   endShape(CLOSE);
   pop();
@@ -195,13 +230,13 @@ Boid.prototype.separate = function (boids) {
   // Average -- divide by how many
   if (count > 0) {
     steer.div(count);
-    // console.log(count,this.currentFreqHz, this.targetFreqHz)
-    if (this.currentFreqHz > this.targetFreqHz) {
-      this.currentFreqHz = this.currentFreqHz - 1;
-      // this.synth.triggerRelease()
-      this.synth.triggerAttack(this.currentFreqHz, Tone.now())
-      this.synth.releaseAll()
-      console.log("OK")
+    let currentFreq = this.oscillator.frequency.value;
+    let diffFreq = this.targetFreqHz - currentFreq;
+    if (Math.abs(diffFreq) > this.freqIncrement) {
+      let newFreq = currentFreq + Math.sign(diffFreq) * this.freqIncrement;
+      this.oscillator.frequency.value = newFreq;
+    } else {
+      this.oscillator.frequency.value = this.targetFreqHz;
     }
   }
 
@@ -212,9 +247,6 @@ Boid.prototype.separate = function (boids) {
     steer.mult(this.maxspeed);
     steer.sub(this.velocity);
     steer.limit(this.maxforce);
-
-    // Play collision sound! 
-    // console.log(this, "ping", steer.mag())
   }
 
   return steer;
