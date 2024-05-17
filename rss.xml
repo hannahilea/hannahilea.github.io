@@ -3,13 +3,13 @@
   <channel>
     <atom:link href="http://hannahilea.com/rss.xml" rel="self" type="application/rss+xml" />
     <title>@hannahilea</title>
-    <link>http://hannahilea.com</link>
+    <link>https://hannahilea.com</link>
     <description>Personal website of Hannah Robertson (`@hannahilea`)</description>
     <language>en-us</language>
     <image>
-      <title>@hannahilea's avatar</title>
-      <link>http://hannahilea.com</link>
-      <url>http://hannahilea.com/img/avatar-smaller.jpeg</url>
+      <title>@hannahilea</title>
+      <link>https://hannahilea.com</link>
+      <url>https://hannahilea.com/img/avatar-smaller.jpeg</url>
       <width>100</width>
       <height>100</height>
       <description>Avatar: Photo of stereo system with large googly eyes on top to look surprised</description>
