@@ -6,12 +6,12 @@ Personal website; can be viewed at [hannahilea.com](https://hannahilea.com).
 - [x] Basic site built
 - [x] Connected with my hannahilea.com domain
 - [x] Update style to not be full copy-pasta
-- [x] Port over projects from deprecated mcgill site 
+- [x] Port over projects from deprecated mcgill site
+- [x] Figure out blog situation
 - [ ] Fill out remaining project page links
 - [ ] Update deets on home page
-- [ ] Figure out blog situation
 - [ ] Set up rss feed
 - [ ] Remove "under construction" flags
 
 ### Use template to add new content
-Run `julia --startup-file=no add_stuff.jl <ARG>` with arg `blog` or `p5`. 
+Run `julia --startup-file=no add_stuff.jl <ARG>` with arg `blog` or `p5`.
