@@ -1,10 +1,12 @@
-# Site structure
+# This website's structure: a meta post
 
-While doing a batch at the [Recurse Center](https://www.recurse.com/), I revived my personal website—the very site you are almost certainly looking at Right Now! ![surprise-pikachu](/img/emojis/surprise-pikachu.png)
+While doing a batch at the [Recurse Center](https://www.recurse.com/), I revived my personal website—the very site you are almost certainly looking at Right Now!
+
+![surprise-pikachu](/img/emojis/surprise-pikachu.png)
 
 ## Motivation
 
-I had a few goals for the resultant site:
+I had two goals for this site at the outset:
 1. **Be trivially easy to set up**, so that my focus could be on "building new stuff" rather than "building, styling, and maintaining a website" and
 2. **Be trivially easy to update**, so that I can reduce the friction of sharing projects and (in theory!) get out of my own way to actually share them.
 
@@ -37,7 +39,7 @@ The structure is pretty basic:
 ```
 There are also some top-level style folders that I've excluded here, as they will likely be reshuffled at some point. (Want to see the full source? You're [in luck](https://github.com/hannahilea/hannahilea.github.io/).)
 
-### Blog subdiretory structure
+### Blog subdirectories
 
 The structure of each blog subdirectory `<blog-n>` is
 ```
@@ -49,7 +51,7 @@ The structure of each blog subdirectory `<blog-n>` is
 
 Why this approach? Writing markdown feels much more natural to me than writing html, and even though I have to include the same boilerplate html file in every blog post directory, it is mentally cheaper than switching the whole site over to a templating engine that generates the whole site from a set of markdown files. (It is also cheaper than writing my own markdown-to-html converter, however tempting that was...)
 
-### Project subdirectory
+### Project subdirectories
 
 The structure of each project subdirectory `<project-n>` depends on the type of project, as many projects are not hosted directly on the site at all: some link out to external repositories or sites, etc.
 
@@ -63,13 +65,13 @@ where the index contains no little specialized content except a description of t
 
 This structure has made it trivially easy to transfer javascript sketches to this site from sandbox environments like the [p5.js](https://editor.p5js.org/) editor.
 
-## Site hosting
+## Site hosting and deployment
 
-I [build and deploy the site via GitHub](https://pages.github.com/). Thanks, GitHub! You can look at the [GitHub Action](https://github.com/hannahilea/hannahilea.github.io/blob/main/.github/workflows/static.yml) I use to deploy, but I warn you: there is nothing customized or personal about it.
+I [build, host, and deploy the site through GitHub](https://pages.github.com/). Thanks, GitHub! You can look at the [GitHub Action](https://github.com/hannahilea/hannahilea.github.io/blob/main/.github/workflows/static.yml) I use to deploy, but there is nothing custom or personal about it.
 
 ## Adding new content
 
-You might be thinking, well, if the blog and project subdirectories all have similar structures, it would probably be easy to auto-setup new blog posts and/or projects. And you would be correct!
+You might be thinking, well, if the blog and project subdirectories all have similar structures, it would probably be easy to auto-setup new blog posts and/or projects. And you would be correct! (That was, in fact, one of the reasons I did it this way. :))
 
 The top-level [`add_stuff.jl`](https://github.com/hannahilea/hannahilea.github.io/blob/main/add_stuff.jl) file is a commandline Julia script that (1) generates a new subdirectory, based on files in the corresponding `__template` subdirectory; (2) adds it to the relevant list in the corresponding project/blog index.html; and (3) (in the case of blogs) adds it to the rss feed. (Okay, this last item isn't actually implemented yet, but it will be shortly.)
 
@@ -83,7 +85,7 @@ The structure of this site has evolved slightly since I first set it up, and may
 
 As I borrowed (with permission!) from [Teresa's site structure](../hello-world/) when first assembling this site, please feel free to borrow from me. It doesn't seem worthwhile to turn the whole site into a template itself (yet?!), but I could be convinced otherwise if you reach out to let me know that you're interested.
 
-And finally if you, erstwhile reader, are a Web Person™ who thinks I've made an egregious error in approach or think you have some additional tweaks, do let me know!
+And finally if you, erstwhile reader, are a Web Person™ who thinks I've made an egregious error in approach or wants to propose some additional tweaks/improvements, do let me know!
 
 ---
 - created at: 2024-05-17
