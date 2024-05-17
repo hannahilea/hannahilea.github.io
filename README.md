@@ -8,9 +8,9 @@ Personal website; can be viewed at [hannahilea.com](https://hannahilea.com).
 - [x] Update style to not be full copy-pasta
 - [x] Port over projects from deprecated mcgill site
 - [x] Figure out blog situation
+- [x] Set up rss feed
 - [ ] Fill out remaining project page links
 - [ ] Update deets on home page
-- [ ] Set up rss feed
 - [ ] Remove "under construction" flags
 
 ### Use template to add new content
