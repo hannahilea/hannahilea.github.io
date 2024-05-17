@@ -85,12 +85,12 @@ function new_blog_post()
         pub_date = Dates.format(now(Dates.UTC), dateformat"e, d U yyyy HH:MM:SS ") * "GMT"
         new_blob = replace(new_blob, "{{ BLOG_TITLE }}" => blog_title,
                            "{{ PUB_DATE }}" => pub_date, "{{ BLOG_DIR }}" => dir_name)
-        str = read("feed.xml", String)
+        str = read("rss.xml", String)
         i = findfirst(NEW_BLOG_COMMENT, str)
         isnothing(i) &&
             throw(ArgumentError("Oh no, $(NEW_BLOG_COMMENT) not found in $(index_path)"))
         str = str[1:first(i)-1] * new_blob * str[(first(i)):end]
-        write("feed.xml", str)
+        write("rss.xml", str)
     end
 
     @info "Do ctrl+f TODO to find regions to update for newly added project!"
