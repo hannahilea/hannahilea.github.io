@@ -15,25 +15,12 @@
       <description>Avatar: Photo of stereo system with large googly eyes on top to look surprised</description>
     </image>
     <item>
-      <title>Hello world</title>
-      <pubDate>Mon, 6 Sep 2010 12:40:21 GMT</pubDate>
-      <link>http://hannahilea.com/blog/.html</link>
-      <guid>http://hannahilea.com/item001</guid>
-      <description>Information about Web Page 1</description>
+      <title>This website's structure: a meta post</title>
+      <pubDate>Fri, 17 May 2024 20:22:34 GMT</pubDate>
+      <link>https://hannahilea.com/blog/site-structure</link>
+      <guid>https://hannahilea.com/blog/site-structure</guid>
+      <description>In which the structure of this website is motivated and described.</description>
     </item>
-    <!-- <item>
-      <title>Web Page 2 Title</title>
-      <pubDate>Mon, 6 Sep 2010 12:40:21 GMT</pubDate>
-      <link>http://hannahilea.com/webpage2.html</link>
-      <guid>http://hannahilea.com/item002</guid>
-      <description>Information about Web Page 2</description>
-    </item>
-    <item>
-      <title>Web Page 3 Title</title>
-      <pubDate>Mon, 6 Sep 2010 12:40:21 GMT</pubDate>
-      <link>http://hannahilea.com/webpage3.html</link>
-      <guid>http://hannahilea.com/item003</guid>
-      <description>Information about Web Page 3</description>
-    </item> -->
+    <!-- Add new post here -->
   </channel>
 </rss>
