@@ -1,6 +1,6 @@
 ### {{ BLOG_TITLE }}
 
-Contents! They will go here.
+TODO: Contents! They will go here.
 
 --- 
 - created at: {{ DATE }}
