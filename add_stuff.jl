@@ -22,6 +22,7 @@ function new_p5_project()
     @info "Creating new project directory" project_name dir_name
     cp(joinpath("projects", "__template"), dir)
     for file in readdir(dir; join=true)
+        endswith(file, ".rss_blob.xml") && continue # Used later, but not a per-blog file
         @info "Updating $file..."
         str = read(file, String)
         str = replace(str, "{{ PROJECT_NAME }}" => project_name)
