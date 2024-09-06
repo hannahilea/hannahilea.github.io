@@ -88,5 +88,5 @@ As I borrowed (with permission!) from [Teresa's site structure](../hello-world/)
 And finally if you, erstwhile reader, are a Web Person™ who thinks I've made an egregious error in approach or wants to propose some additional tweaks/improvements, do let me know!
 
 ---
-- created at: 2024-05-17
+- created: 2024-05-17
 - last updated: 2024-05-17
