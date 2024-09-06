@@ -1,13 +1,19 @@
-### Cuttle for CAD: Designing for lasers!
+### Cuttle for CAD: Designing for laser cutting!
 
-TODO: Contents! They will go here. 
+My primary creative outlet recently has been playing with my local library's laser cutter. 
 
 Pithy statement about getting into CAD. Library maker space training, looking for web-based tool, found Cuttle. Addicting. 
 
 Right, so what have I made with it? The following only include projects I've designed myself (or at least, have significantly changed from their original design); I'm not including pre-existing Cuttle templates that I've printed (e.g., [this one](TODO), which makes a particularly fun/extensible gift). 
 
 #### Bookends!
-TODO
+TODO-motivate
+
+https://cuttle.xyz/@hannahilea/Bookends-eBHfPdCNGTIH
+
+[link](https://cuttle.xyz/@hannahilea/Bookends-eBHfPdCNGTIH)
+
+<iframe style="width: 640px; height: 360px; overflow: hidden; border: 5px solid black" frameborder="0" src="https://cuttle.xyz/@hannahilea/Bookends-eBHfPdCNGTIH"></iframe>
 
 #### A cover for a set of doorbell chimes!
 TODO
