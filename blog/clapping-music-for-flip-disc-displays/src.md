@@ -103,20 +103,22 @@ I particularly enjoy that, because the two boards have different disc flip timbr
 
 ## What's next?
 
-Yet to be determined! If you have fun ideas to try---or additional electromechanical displays for me to play with!---do reach out. :) A friend recently suggested adding the set of chromatic rainbow desk bells displayed nearby to the performance, which would be pretty nifty; I'm still mulling over how best to bring her idea into the mix. If you want to pair on that with me on that....
+Yet to be determined! If you have fun ideas to try---or additional electromechanical displays for me to play with!---do reach out. :) A friend recently suggested adding the set of chromatic rainbow desk bells displayed nearby to the performance, which would be pretty cool; I'm still mulling over how best to implement her idea. If you want to pair with me on that....
 
 <p align="center"><img src="assets/bells.jpg" alt="Photo of two rows of rainbow desk bells."></p>
 
-***The full code for our setup---including instructions for setting up your own boards---is available [on GitHub](https://github.com/hannahilea/FlipDotsPi). Thanks to AF for filming the examples here, and to Cosmo for putting up with us being annoying while she was trying to sleep.***
-
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Un1VF6QwQ7E?si=TEJnxtiWZ5pBCiUU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
----
 ### Footnotes
 
 <a name="footnote-1">[<sup>1</sup>](#footnote-1-site)</a> This setup took non-zero effort: this was my first real Raspberry Pi project, and while the AlphaZeta boards shipped with a basic Python application installed on a companion Raspberry Pi, we wanted lower-level control of their pixel arrays. We therefore needed to set up our Raspberry Pi, send serial commands to flip individual discs/segments on the display boards (using AlphaZeta's serial communication protocol), and write (in Julia) the higher-level applications to display static text, scrolling text, and weather. We also had fun figuring out how we wanted to dislpay the project, and ended up modifying a spare Ikea shelf for that purpose. 
 
 <a name="footnote-2">[<sup>2</sup>](#footnote-2-site)</a> Yes, I know this is automatable, I just haven't done it yet!
+
+---
+
+***The full code for this display---including set-up instructions---is available [on GitHub](https://github.com/hannahilea/FlipDotsPi). Thanks to AF for filming the examples here, and to Cosmo for putting up with us being annoying while she was trying to sleep.***
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Un1VF6QwQ7E?si=TEJnxtiWZ5pBCiUU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 
 --- 
 - created: 2024-09-06
