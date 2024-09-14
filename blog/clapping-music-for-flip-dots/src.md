@@ -2,7 +2,7 @@
 
 I present unto you: Steve Reich's ***Clapping Music***, as performed by a pair of flip-disc displays:
 
-TODO: VIDEO
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/zPqz-vKaC6Q?si=C70XBC_asYbQ392O" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Read on for its provenance...
 
@@ -14,7 +14,7 @@ Several years ago, I became obsessed with [flip-disc displays](https://en.wikipe
 
 As a result, my partner gifted me a pair of [AlphaZeta](https://flipdots.com/en/products-services/flip-dot-boards-xy5/) boards: one 7x28 flip-dots display, and one 7x4 seven-segment flip-digits ("Vane") display. We set them up in our living room and programmed them to show the date, current outside temperature, and current weather (prioritizing upcoming precipitation), updated on the half hour.<sup><a name="footnote-1-site">[1](#footnote-1)</a></sup>
 
-<p align="center""><img src="assets/weather.jpg" alt="Static image of two flip-disc displays, one reading '71 + sun icon', the other reading '6 sep friday'"></p>
+<p align="center"><img src="assets/weather.jpg" alt="Static image of two flip-disc displays, one reading '71 + sun icon', the other reading '6 sep friday'"></p>
 
 Our display has been running for nearly three years at this point, with only minimal intervention (i.e., manual restarts after the power goes off<sup><a name="footnote-2-site">[2](#footnote-2)</a></sup>). It makes me so happy! Two unexpected benefits: 
 1. My internal mapping of temperature (Farenheit) to garments of clothing I should put on before going outside? MUCH better. 
@@ -24,11 +24,13 @@ Our display has been running for nearly three years at this point, with only min
 
 One of my favorite things about electromechanical displays is how visceral they are---that tiny "chk!" when changing state. The two displays sound different from one another: while a single dot makes a soft snick, such that updating many dots yields a whirring noise, a single digit's segment makes a much sharper clack, and a fast digits update creates an agressive clacking din.
 
-[[TODO: video of sound difference]]
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Xg-LF_N-oCU?si=2Mv5BxPRnFqSAL11" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-As soon as we had successfully sent commands to the boards (a win in its own right!), I started playing around with intentionally playing basic rhythms on them. I sent a video of this to a [musician/composer friend](https://acampbellpayne.com/), whose immediate response was
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Pe9hm0pdGr0?si=ksCFYkJ2jjmH4gR2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<p align="center""><img src="assets/signal.png" alt="Screenshot of a message that reads 'ooh gotta make it do clapping music'"></p>
+As soon as we had successfully sent commands to the boards (a win in its own right!), I started playing around with playing basic rhythms with them. I sent a video of a beat to a [musician/composer friend](https://acampbellpayne.com/), whose immediate response was
+
+<p align="center"><img src="assets/signal.png" alt="Screenshot of a message that reads 'ooh gotta make it do clapping music'"></p>
 
 They were right: I ***did*** gotta make it do clapping music. Immediately. :D
 
@@ -38,24 +40,24 @@ Steve Reich's [***Clapping Music***](https://en.wikipedia.org/wiki/Clapping_Musi
 
 Here is the clapped pattern:
 
-<p align="center""><img src="assets/clapping.gif" alt="Single bar of 12/8 rhythm, with repeat"></p>
+<p align="center"><img src="assets/clapping.gif" alt="Single bar of 12/8 rhythm, with repeat"></p>
 
-and a very nice visualisation of its performance:
+and someone else's very nice visualisation of its performance:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/lzkOFJMI5i8?si=ejabmAmcAjnxOlPn&amp;start=21" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 The code for performing this on two flip-disc displays is relatively simple:
 ```julia
-function _clapping_music(sink_dots, sink_digits; pause=0.1875,
+function _clapping_music(sink_dots, sink_digits; pause=0.15,
                          clap_pattern=Bool[1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0],
-                         num_repeats=12, num_shifts=13, num_dots_to_set=28,
-                         num_digit_segments_to_set=7)
+                         num_repeats=12, num_shifts=length(clap_pattern) + 1,
+                         num_dots_to_set=28, num_digits_to_set=2)
     i_pattern_shift = 0
     for _ in 1:num_shifts
         for _ in 1:num_repeats, i_pattern in eachindex(clap_pattern)
             clap_pattern[i_pattern] &&
                 write_to_sink(sink_dots, rand(0x00:0x7F, num_dots_to_set))
-            clap_pattern[mod1(i_pattern + i_pattern_shift, 12)] &&
-                write_to_sink(sink_digits, rand(0x00:0x7F, num_digit_segments_to_set))
+            clap_pattern[mod1(i_pattern + i_pattern_shift, length(clap_pattern))] &&
+                write_to_sink(sink_digits, rand(0x00:0x7F, num_digits_to_set))
             sleep(pause)
         end
         i_pattern_shift += 1
@@ -66,13 +68,36 @@ end
 The included parameters are:
 - `pause`: Adjusts the playback speed
 - `clap_pattern`, `num_repeats`, `num_shifts`: While the default composition is Reich's, the same approach can be used to play any other pattern with any other shift approach. I thought it could be fun to play with these! (Also, sometimes one wants to demo the piece without playing through the whole thing...)
-- `num_dots_to_set`, `num_digit_segments_to_set`: The relative volume difference between a single disc flipping on each of the two boards was noticeable enough that, if the same number of discs were flipped per "clap" on each board, the digits board drowned out the dots board. We therefore cut down the number of flip-digit segments toggled until the boards "clapped" at roughly the same volume. Due to randomness in discs flipped, this is actually the maximum number of discs flipped per clap (e.g., all "on" to all "off"), but in practice the variation is mild enough that it sounds good enough, and we don't need to keep track of and adjust the previous state.
+- `num_dots_to_set`, `num_digit_segments_to_set`: The relative volume difference between a single disc flipping on each of the two boards was noticeable enough that, if the same number of discs were flipped per "clap" on each board, the digits board drowned out the dots board. I therefore cut down the number of flip-digit segments toggled until the boards "clapped" at roughly the same volume. Due to randomness in discs flipped, this is actually the maximum number of discs flipped per clap (e.g., all "on" to all "off"), but in practice the variation is mild enough that it sounds good enough, and I don't need to keep track of and adjust the previous state.
 
-The resultant performance sounds pretty great (see the video at the top of this post!), and playing around with different clap patterns is also fun:
+The resultant performance sounds pretty cool:
 
-[[TODO-VIDEO with PARAMS1]]
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/VPkU-Za2RbQ?si=5VK44GdHQVeRcWa9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+***This is an abridged version, where I repeat each bar only twice instead of all 12 times; the full unabridged performance is at the top of this post.***
 
-[[TODO-VIDEO with PARAMS2]]
+
+Playing around with different clap patterns is also fun:
+
+```
+# Variant A
+clap_pattern = Bool[1, 0, 0, 1, 1, 1]
+pause=0.12
+num_repeats=2
+num_dots_to_set=14
+num_digits_to_set=4
+```
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ciV0xh-zSWQ?si=fdVteWLUc9NTKnWA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+```
+# Variant B
+clap_pattern = Bool[1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0]
+pause=0.15
+num_repeats=2
+num_dots_to_set=28
+num_digits_to_set=14
+```
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/dWDWntJga5Y?si=SeyqEdE7jgBlMAoM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 I particularly enjoy that, because the two boards have different disc flip timbres, the overall effect is of two different performers---just as there would be with two human performers with slightly different claps. While the piece could just as easily be performed on a single flip-disc board, or on two different boards of the same type, the current presentation is quite pleasing.
 
@@ -80,17 +105,18 @@ I particularly enjoy that, because the two boards have different disc flip timbr
 
 Yet to be determined! If you have fun ideas to try---or additional electromechanical displays for me to play with!---do reach out. :) A friend recently suggested adding the set of chromatic rainbow desk bells displayed nearby to the performance, which would be pretty nifty; I'm still mulling over how best to bring her idea into the mix. If you want to pair on that with me on that....
 
-[[TODO: pic of rainbow bells]]
+<p align="center"><img src="assets/bells.jpg" alt="Photo of two rows of rainbow desk bells."></p>
 
+***The full code for our setup---including instructions for setting up your own boards---is available [on GitHub](https://github.com/hannahilea/FlipDotsPi). Thanks to AF for filming the examples here, and to Cosmo for putting up with us being annoying while she was trying to sleep.***
 
-***The full code for our setup---including instructions for setting up your own boards---is available [on GitHub](https://github.com/hannahilea/FlipDotsPi).***
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Un1VF6QwQ7E?si=TEJnxtiWZ5pBCiUU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 ### Footnotes
 
 <a name="footnote-1">[<sup>1</sup>](#footnote-1-site)</a> This setup took non-zero effort: this was my first real Raspberry Pi project, and while the AlphaZeta boards shipped with a basic Python application installed on a companion Raspberry Pi, we wanted lower-level control of their pixel arrays. We therefore needed to set up our Raspberry Pi, send serial commands to flip individual discs/segments on the display boards (using AlphaZeta's serial communication protocol), and write (in Julia) the higher-level applications to display static text, scrolling text, and weather. We also had fun figuring out how we wanted to dislpay the project, and ended up modifying a spare Ikea shelf for that purpose. 
 
-<a name="footnote-2">[<sup>2</sup>](#footnote-2-site)</a> Yes, I know this is automatable, we just haven't done it yet!
+<a name="footnote-2">[<sup>2</sup>](#footnote-2-site)</a> Yes, I know this is automatable, I just haven't done it yet!
 
 --- 
 - created: 2024-09-06
