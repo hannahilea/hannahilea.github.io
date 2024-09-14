@@ -28,7 +28,7 @@ function new_p5_project()
         str = replace(str, "{{ DIR_NAME }}" => dir_name)
         write(file, str)
     end
-
+    
     @info "Adding new project to project index"
     let
         index_path = joinpath("projects", "index.html")
@@ -58,7 +58,12 @@ function new_blog_post()
     @info "Creating new blog directory" blog_title dir_name
     cp(joinpath("blog", "__template"), dir)
     for file in readdir(dir; join=true)
+        if endswith(file, ".rss_blob.xml")
+            rm(file)
+            continue
+        end
         startswith(basename(file), ".") && continue
+        
         @info "Updating $file..."
         str = read(file, String)
         str = replace(str, "{{ BLOG_TITLE }}" => blog_title)

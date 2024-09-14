@@ -83,10 +83,12 @@ Why is the script in Julia? Because I like Julia, and I find it easy to read/wri
 
 The structure of this site has evolved slightly since I first set it up, and may evolve further, but for now I'm in a state where both goals (trivially easy to set up, trivially easy to update) are met, as evinced by the fact that I have fairly consistently added [projects](/projects) to the site as I've built them! 🎉 Will this site structure work out longer-term? Time will tell! But at least it exists (!) publicly (!!) right now (!!!).
 
-As I borrowed (with permission!) from [Teresa's site structure](../hello-world/) when first assembling this site, please feel free to borrow from me. It doesn't seem worthwhile to turn the whole site into a template itself (yet?!), but I could be convinced otherwise if you reach out to let me know that you're interested.
+As I borrowed (with permission!) when first assembling this site, please feel free to borrow from me. It doesn't seem worthwhile to turn the whole site into a template itself (yet?!), but I could be convinced otherwise if you reach out to let me know that you're interested.
 
 And finally if you, erstwhile reader, are a Web Person™ who thinks I've made an egregious error in approach or wants to propose some additional tweaks/improvements, do let me know!
 
+***Thanks to [Teresa Ibarra](https://teresaibarra.com), whose site (and assistance!) I used as an initial starting point.***
+
 ---
-- created at: 2024-05-17
+- created: 2024-05-17
 - last updated: 2024-05-17

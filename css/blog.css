@@ -1,0 +1,55 @@
+@font-face {
+  font-family: "OpenSans Light";
+  src: url("../fonts/OpenSans-Light.ttf");
+}
+
+@font-face {
+  font-family: "Jura Bold";
+  src: url("../fonts/Jura-Bold.ttf");
+}
+
+body {
+  vertical-align: middle;
+  font-family: "OpenSans Light";
+  color: #03163f;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: normal;
+  margin: 0;
+  font-family: "Jura Bold";
+  /* border-bottom: 2px solid #0843c3; */
+  padding-bottom: 2px;
+  margin-bottom: 3px;
+}
+
+a {
+  color: #0843c3;
+  text-decoration: none;
+}
+
+img {
+  max-width: 550px;
+  align-self: center;
+}
+
+.blogpost {
+  align-self: center;
+  margin: auto;
+  width: 50%;
+} 
+
+.language-, 
+.language-julia {
+  background: #eeeff1;
+  border: 2px solid #ddd;
+  page-break-inside: avoid;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1em 1.5em;
+}
