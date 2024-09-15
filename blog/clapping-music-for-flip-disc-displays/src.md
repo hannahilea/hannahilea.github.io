@@ -121,6 +121,6 @@ Yet to be determined! If you have fun ideas to try---or additional electromechan
 
 
 --- 
-- created: 2024-09-06
-- last updated: 2024-09-06
+- created: 2024-09-14
+- last updated: 2024-09-14
 - tags: electromechanical-display, raspberry-pi, music, programming, hardware, software, julia, 
