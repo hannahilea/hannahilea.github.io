@@ -2,7 +2,7 @@
 
 While doing a batch at the [Recurse Center](https://www.recurse.com/), I revived my personal website—the very site you are almost certainly looking at Right Now!
 
-![surprise-pikachu](/img/emojis/surprise-pikachu.png)
+![surprise-pikachu](/assets/img/emojis/surprise-pikachu.png)
 
 ## Motivation
 
