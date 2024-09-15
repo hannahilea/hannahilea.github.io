@@ -8,9 +8,14 @@
   src: url("../fonts/Jura-Bold.ttf");
 }
 
+@font-face {
+  font-family: "OpenSans Light";
+  src: url("../fonts/OpenSans-Light.ttf");
+}
+
 body {
   vertical-align: middle;
-  font-family: "Jura Regular";
+  font-family: "OpenSans Light";
   color: #03163f;
 }
 
