@@ -22,14 +22,14 @@
 @font-face {
   font-family: "OpenSans Light";
   src: url("../fonts/OpenSans-LightItalic.ttf");
-  font-style: italic, oblique;
+  font-style: italic;
 }
 
 @font-face {
   font-family: "OpenSans Light";
   src: url("../fonts/OpenSans-Italic.ttf");
   font-weight: bold;
-  font-style: italic, oblique;
+  font-style: italic;
 }
 
 body {
