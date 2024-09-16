@@ -1,6 +1,26 @@
+
 @font-face {
   font-family: "OpenSans Light";
   src: url("../fonts/OpenSans-Light.ttf");
+}
+
+@font-face {
+  font-family: "OpenSans Light";
+  src: url("../fonts/OpenSans-Regular.ttf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "OpenSans Light";
+  src: url("../fonts/OpenSans-LightItalic.ttf");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "OpenSans Light";
+  src: url("../fonts/OpenSans-Italic.ttf");
+  font-weight: bold;
+  font-style: italic;
 }
 
 @font-face {
@@ -43,6 +63,10 @@ a {
   color: #0843c3;
   text-decoration: underline dotted;
   text-underline-offset: 3px;
+}
+
+a.impersonal {
+  color:#03163f;
 }
 
 img {
