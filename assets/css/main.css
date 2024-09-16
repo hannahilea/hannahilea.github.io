@@ -31,12 +31,11 @@ body {
   margin-bottom: 1em;
 }
 
-.nav-bar {
-  margin-bottom: 1.6em;
-}
-
 .nav-link {
   font-family: "Jura Bold";
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+  color:#03163f;
 }
 
 .posts {
@@ -74,6 +73,10 @@ h2 {
 a {
   color: #0843c3;
   text-decoration: underline dotted;
+}
+
+.navbar {
+  color:#03163f;
 }
 
 .warning {
