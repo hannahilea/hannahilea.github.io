@@ -13,6 +13,25 @@
   src: url("../fonts/OpenSans-Light.ttf");
 }
 
+@font-face {
+  font-family: "OpenSans Light";
+  src: url("../fonts/OpenSans-Regular.ttf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "OpenSans Light";
+  src: url("../fonts/OpenSans-LightItalic.ttf");
+  font-style: italic, oblique;
+}
+
+@font-face {
+  font-family: "OpenSans Light";
+  src: url("../fonts/OpenSans-Italic.ttf");
+  font-weight: bold;
+  font-style: italic, oblique;
+}
+
 body {
   vertical-align: middle;
   font-family: "OpenSans Light";
