@@ -92,6 +92,7 @@ h2 {
 a {
   color: #0843c3;
   text-decoration: underline dotted;
+  text-underline-offset: 3px;
 }
 
 .navbar {
