@@ -12,11 +12,6 @@ Personal website; can be viewed at [hannahilea.com](https://hannahilea.com).
 - [ ] Fill out remaining project page links
 - [ ] Update deets on home page
 - [ ] Remove "under construction" flags
-- [ ] Blog niceties:
-    - [ ] footnote support
-    - [ ] better header 
-    - [ ] style update
-    - [ ] works nicely on phone?
 
 ### Use template to add new content
 Run `julia --startup-file=no add_stuff.jl <ARG>` with arg `blog` or `p5`.
