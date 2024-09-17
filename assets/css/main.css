@@ -209,3 +209,16 @@ img {
     flex-direction: column;
   }
 }
+
+
+/* Project pages */
+.projects-navbar {
+  font-family: "Jura Regular";
+  color:#03163f;
+  padding: 0 0 1em;
+}
+
+.projects-details {
+  font-family: "OpenSans Light";
+  font-size:small;
+}
