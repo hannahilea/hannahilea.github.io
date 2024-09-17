@@ -81,12 +81,17 @@ body {
 }
 
 h1,
-h2 {
+h2, h3 {
   font-weight: normal;
   margin: 0;
   font-family: "Jura Bold";
   padding-bottom: 2px;
   margin-bottom: 3px;
+}
+
+img {
+  max-width: 400px;
+  align-self: center;
 }
 
 a {
@@ -101,6 +106,7 @@ a.impersonal {
 
 .navbar {
   color:#03163f;
+  font-family: "Jura Bold";
 }
 
 .warning {
@@ -109,11 +115,7 @@ a.impersonal {
   margin-bottom: 2em;
 }
 
-img {
-  width: 80%;
-  max-width: 250px;
-  align-self: center;
-}
+
 
 .badge {
   height: 20%;
@@ -194,6 +196,12 @@ img {
   justify-content: center;
 }
 
+img.home-img {
+  width: 80%;
+  max-width: 250px;
+  align-self: center;
+}
+
 @media (max-width: 700px) {
   .home-img-container {
     width: 100%;
@@ -210,7 +218,6 @@ img {
   }
 }
 
-
 /* Project pages */
 .projects-navbar {
   font-family: "Jura Regular";
@@ -222,3 +229,24 @@ img {
   font-family: "OpenSans Light";
   font-size:small;
 }
+
+/* Blog pages*/
+.blog-navbar {
+  color:#03163f;
+  font-family: "Jura Regular";
+  margin-bottom: 1.6em;
+}
+
+.language-, 
+.language-julia {
+  background: #eeeff1;
+  border: 2px solid #ddd;
+  page-break-inside: avoid;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1em 1.5em;
+} 
+
