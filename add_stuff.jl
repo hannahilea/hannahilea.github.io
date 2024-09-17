@@ -29,7 +29,7 @@ function new_p5_project()
         str = replace(str, "{{ DIR_NAME }}" => dir_name)
         write(file, str)
     end
-
+    
     @info "Adding new project to project index"
     let
         index_path = joinpath("projects", "index.html")
@@ -59,7 +59,12 @@ function new_blog_post()
     @info "Creating new blog directory" blog_title dir_name
     cp(joinpath("blog", "__template"), dir)
     for file in readdir(dir; join=true)
+        if endswith(file, ".rss_blob.xml")
+            rm(file)
+            continue
+        end
         startswith(basename(file), ".") && continue
+        
         @info "Updating $file..."
         str = read(file, String)
         str = replace(str, "{{ BLOG_TITLE }}" => blog_title)
@@ -71,7 +76,7 @@ function new_blog_post()
     @info "Adding new project to blog index"
     let
         index_path = joinpath("blog", "index.html")
-        new_blob = """\n        <li>$(date_pretty): <a href="./$(dir_name)">$(blog_title)</a>\n          <p><em>In which TODO.</em></p>\n        </li>"""
+        new_blob = """\n        <li><strong class="blog-date">$(date_pretty)</strong> <a class="blog-url" href="./$(dir_name)">$(blog_title)</a>        </li>"""
         str = read(index_path, String)
         i = findfirst(NEW_BLOG_COMMENT, str)
         isnothing(i) &&

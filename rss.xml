@@ -9,7 +9,7 @@
     <image>
       <title>@hannahilea</title>
       <link>https://hannahilea.com</link>
-      <url>https://hannahilea.com/img/avatar-smaller.jpeg</url>
+      <url>https://hannahilea.com/assets/img/avatar-smaller.jpeg</url>
       <width>100</width>
       <height>100</height>
       <description>Avatar: Photo of stereo system with large googly eyes on top to look surprised</description>
@@ -19,11 +19,18 @@
       <pubDate>Fri, 17 May 2024 20:22:34 GMT</pubDate>
       <link>https://hannahilea.com/blog/site-structure</link>
       <guid>https://hannahilea.com/blog/site-structure</guid>
-      <description>In which the structure of this website is motivated and described.</description>
+      <description>The structure of this website motivated and described.</description>
+    </item>
+    <item>
+      <title>Clapping music for two flip-disc displays</title>
+      <pubDate>Sat, 14 September 2024 16:54:11 GMT</pubDate>
+      <link>https://hannahilea.com/blog/clapping-music-for-flip-disc-displays</link>
+      <guid>https://hannahilea.com/blog/clapping-music-for-flip-disc-displays</guid>
+      <description>Reich's Clapping Music performed on a pair of electromechanical flip-disc displays.</description>
     </item>
     <!-- <item>
       <title>Cuttle for CAD: Designing for lasers!</title>
-      <pubDate>Tue, 9 July 2024 17:11:37 GMT</pubDate>
+      <pubDate>Fri, 20 September 2024 17:11:37 GMT</pubDate>
       <link>https://hannahilea.com/blog/cuttle-for-cad</link>
       <guid>https://hannahilea.com/blog/cuttle-for-cad</guid>
       <description>TODO: Description.</description>

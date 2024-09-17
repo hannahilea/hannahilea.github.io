@@ -2,24 +2,23 @@
 <html lang="en">
 
 <head>
+  <link rel="shortcut icon" type="image/png" href="../../assets/img/favicon.png" />
   <title>Blog: {{ BLOG_TITLE }}</title>
-  <link rel="stylesheet" type="text/css" href="../../css/main.css" />
-  <script type="module" src="../../scripts/md-block.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
+  <script type="module" src="../../assets/scripts/md-block.js"></script>
 </head>
 
 <body>
-  <nav class="navbar" role="navigation"></nav>
-  <div class="underline">
-    <h4><a href="../..">@hannahilea</a> > <a href="..">Blog</a> > {{ BLOG_DIR }}
-    </h4>
-  </div>
-  </nav>
-  <div style="margin-left:5%;margin-right:5%;">
+  <div class="main-container">
+    <nav class="blog-navbar" role="navigation">
+      @hannahilea: 
+      <a href="../.." class="nav-link">home</a> |
+      <a href="../../projects" class="nav-link">projects</a> |
+      <a href=".." class="nav-link">blog</a> |
+      <a href="mailto:hannah.ilea.robertson+site@gmail.com" class="nav-link">contact</a>
+    </nav>
     <md-block src="./src.md"></md-block>
   </div>
-  
 </body>
 
 </html>
-
-

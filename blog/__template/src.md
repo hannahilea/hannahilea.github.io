@@ -3,6 +3,6 @@
 TODO: Contents! They will go here.
 
 --- 
-- created at: {{ DATE }}
+- created: {{ DATE }}
 - last updated: {{ DATE }}
 - tags: 
