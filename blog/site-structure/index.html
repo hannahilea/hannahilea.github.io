@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-  <link rel="shortcut icon" type="image/png" href="../../img/favicon.png" />
+  <link rel="shortcut icon" type="image/png" href="../../assets/img/favicon.png" />
   <title>Blog: This website’s structure: a meta post</title>
-  <link rel="stylesheet" type="text/css" href="../../css/blog.css" />
-  <script type="module" src="../../scripts/md-block.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
+  <script type="module" src="../../assets/scripts/md-block.js"></script>
   <style type="text/css">
     img {
       width: auto;
@@ -19,9 +19,13 @@
 
 <body>
   <div class="main-container">
-    <div class="navbar">
-      <a href="../..">@hannahilea</a> > <a href="..">blog</a>
-    </div>
+    <nav class="blog-navbar" role="navigation">
+      @hannahilea: 
+      <a href="../.." class="nav-link">home</a> |
+      <a href="../../projects" class="nav-link">projects</a> |
+      <a href=".." class="nav-link">blog</a> |
+      <a href="mailto:hannah.ilea.robertson+site@gmail.com" class="nav-link">contact</a>
+    </nav>
     <md-block src="./src.md"></md-block>
   </div>
 </body>

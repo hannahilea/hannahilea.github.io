@@ -9,7 +9,7 @@
   <script>
     const GUI = lil.GUI;
   </script>
-  <link rel="stylesheet" type="text/css" href="../../css/main.css" />
+  <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
   <style>
     #project-header {
       margin: 1rem;
@@ -48,25 +48,23 @@
 <body>
   <div id="project-header">
     <div id="gui-container"></div>
-    <nav class="navbar" role="navigation"></nav>
-    <div class="underline">
-      <h4><a href="../..">@hannahilea</a> > <a href="../../projects">projects</a> > Flock chorus
-      </h4>
-    </div>
+    <nav class="projects-navbar" role="navigation">
+      <a href="../.." class="nav-link">@hannahilea</a> >
+      <a href="../../projects" class="nav-link">projects</a> > Flock chorus
     </nav>
-    <details>
-      <summary>Details</summary>
-      <p>Built for a web-based musical instrument hackathon while at the <a href="https://www.recurse.com">Recurse
-          Center</a>. Built on top of the <a href="https://p5js.org/examples/simulate-flocking.html">p5 flocking
+    <details class="projects-details">
+      <summary><strong>Details</strong></summary>
+      <p>Built for a web-based musical instrument hackathon while at the <a class="impersonal" href="https://www.recurse.com">Recurse
+          Center</a>. Built on top of the <a class="impersonal" href="https://p5js.org/examples/simulate-flocking.html">p5 flocking
           demo</a>.
       </p>
-      <p><i>Usage:</i> Click screen to spawn [boids](https://en.wikipedia.org/wiki/Boids). Make sure your computer sound
+      <p><i>Usage:</i> Click screen to spawn <a class="impersonal" href="https://en.wikipedia.org/wiki/Boids">boids</a>. Make sure your computer sound
         is on. (May not yet work on mobile.)</p>
       <p><i>Warning:</i> If you add a gagillion boids, the page may get laggy or stop playing altogether. I'm pretty
         sure this is a Tone.js limitation (well, a "my current usage of Tone.js" limitation, specifically!), and if you
         have an idea of how to work around it, please let me know! In the meantime, simply refresh your screen to start
         fresh (or un-toggle "wrap world" to let some of your flocks fly away).</p>
-      <button onclick="playNote()">Test sound!</button>
+      <button onclick="playNote()">Test sound! (refresh page to stop...)</button>
     </details>
   </div>
   <script src="./sketch.js"></script>
