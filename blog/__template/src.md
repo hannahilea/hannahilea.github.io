@@ -1,4 +1,4 @@
-### {{ BLOG_TITLE }}
+# {{ BLOG_TITLE }}
 
 TODO: Contents! They will go here.
 
