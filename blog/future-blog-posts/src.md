@@ -1,4 +1,4 @@
-# The title and/or first sentence of future posts I may never write
+# The title and/or first sentence of posts I may never write
 
 TODO: Contents! They will go here.
 
