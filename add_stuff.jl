@@ -53,7 +53,7 @@ function new_blog_post()
 
     dir = joinpath("blog", dir_name)
     date = today()
-    date_pretty = Dates.format(today(), dateformat"d U yyyy")
+    date_pretty = Dates.format(today(), dateformat"d u yyyy")
 
     @info "Creating new blog directory" blog_title dir_name
     cp(joinpath("blog", "__template"), dir)
