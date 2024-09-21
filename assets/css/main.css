@@ -80,6 +80,10 @@ body {
   font-weight: bolder;
 }
 
+md-block {
+  line-height: 150%;
+}
+
 h1,
 h2, h3 {
   font-weight: normal;
@@ -87,6 +91,19 @@ h2, h3 {
   font-family: "Jura Bold";
   padding-bottom: 2px;
   margin-bottom: 3px;
+}
+
+md-block > h1 {
+  line-height: 1.2em;
+}
+
+.footnote-ref, .footnote {
+  text-decoration: underline;
+  text-underline-offset: 1px;
+}
+
+.footnotes {
+	font-size: 80%;
 }
 
 img {
