@@ -1,4 +1,4 @@
-# Playing with "driven development": spite, muffins, and more
+# Dopamine-driven development (DDD), spite-driven development (SDD), and other DDs
 
 A few weeks ago, <a class="impersonal" href="https://www.recurse.com/about">Recurser</a> friend Nicole Tietz-Sokolskaya
 published <a class="impersonal" href="https://ntietz.com/blog/making-progress-with-content-driven-development">Making progress on side projects with content-driven development</a>, an excellent write-up about Doing Stuff in order to be able to Share About Having Done Stuff™. You should read it!
