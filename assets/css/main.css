@@ -106,6 +106,12 @@ md-block > h1 {
 	font-size: 80%;
 }
 
+sup {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.4em;
+}
+
 img {
   max-width: 400px;
   align-self: center;
