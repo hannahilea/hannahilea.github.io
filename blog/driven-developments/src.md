@@ -3,15 +3,13 @@
 A few weeks ago, <a class="impersonal" href="https://www.recurse.com/about">Recurser</a> friend Nicole Tietz-Sokolskaya
 published <a class="impersonal" href="https://ntietz.com/blog/making-progress-with-content-driven-development">Making progress on side projects with content-driven development</a>, an excellent write-up about Doing Stuff in order to be able to Share About Having Done Stuff™. You should read it!
 
-Unfortunately for me, her denomination of "Content-driven development" tripped some switch in my brain, and since then a rotating slate of "X-driven development" variations have taken over. I started with obsessing over spite-driven development (SDD), am currently on a dopamine-driven development (DDD) kick, and have (today) shifted to a rapidly changing moment-by-moment characterization of my actions: feed-the-cat-driven development (FCDD)! Coffeshop-driven development (CDD)! Beat-the-rain-home-driven development (BRHDD)!  Perhaps writing about it will help me keep the situation in check, before it becomes my whole personality?[^personality] We can only hope. In the meantime, I am writing this post following muffin-driven development (MDD).[^MDD] 
-
-I've started using DDD and SDD conversationally, and folks are running with it in a delightful way---both sharing their own examples of spite-driven development and coining new ones (crisis-driven development!). I hope that XDDs become part of popular parlance, and to read about more XDDs in the near future.
+Unfortunately for me, her denomination of "Content-driven development" tripped some switch in my brain, and since then a rotating slate of "X-driven development" variations have taken over. I started with obsessing over spite-driven development (SDD), am currently on a dopamine-driven development (DDD) kick, and have (today) shifted to a rapidly changing moment-by-moment characterization of my actions: feed-the-cat-driven development (FCDD)! Coffee-shop-driven development (CSDD)! Beat-the-rain-home-driven development (BRHDD)!  Perhaps writing about it will help me keep the situation in check, before it becomes my whole personality?[^personality] We can only hope. In the meantime, I am writing this post following muffin-driven development (MDD).[^MDD] 
 
 ## What is a "driven development", anyway?
 
-Many software engineers (and possibly *only* software engineers?) are familiar with a process called  <a class="impersonal" href="https://en.wikipedia.org/wiki/Test-driven_development">*test-driven development* (TDD)</a>. TDD is the OG "driven development": it defines both a specific approach to writing code (write a failing test, see that it fails, write the code to make the test pass, write the next failing test, etc ad nauseum) and a general approach to software development that emphasizes testing *units of behavior* rather than units of code.[^TDDfeels]
+Many software engineers (and possibly *only* software engineers?) are familiar with a process called  <a class="impersonal" href="https://en.wikipedia.org/wiki/Test-driven_development">*test-driven development* (TDD)</a>. TDD is the OG "driven development": it defines both a specific approach to writing code (write a failing test, see that it fails, write the code to make the test pass, write the next failing test, repeat ad nauseam) and a general approach to software development that emphasizes testing *units of behavior* rather than units of code.[^TDDfeels]
 
-TDD is part of the gestalt; there's a reason Nicole's "content-driven development" was so mentally sticky, and that when I have said "spite-driven development" to a number of software folks, I have immediately been regaled with their own relevant experiences, no additional explaination necessary.
+TDD is part of the gestalt; there's a reason Nicole's "content-driven development" was so mentally sticky, and that when I have said "spite-driven development" to a number of software folks, I have immediately been regaled with their own relevant experiences, no additional explanation necessary.
 
 As far as I'm aware, the "*X*-driven development" pattern isn't a widespread naming approach. There are at least a couple less prevalent software engineering practices pattern-matched on TDD in definition and naming, but nothing sweeping.
 
@@ -27,15 +25,23 @@ While it's fun to turn basically any noun into a DD (see also: muffin-driven dev
 2. Provide a thought framework for reinterpreting a goal in a way that makes it achievable, and/or
 3. Provides an operating scaffold for working through steps towards that goal.
 
-Basically, `X-driven development` aids the practitioner in making desired progress by means of `X`. 
+In short, "*X*-driven development" must aid the practitioner in making desired progress towards some goal, by means of *X*. If *X* is driving your development, you are practicing *X*DD. 
 
-Like TDD, there's a time and a place for each approach, and multiple DDs can be used simultaneously. If *X* is driving your development, you are practicing *X*DD. 
+Like TDD, there's a time and a place for each approach, and multiple DDs can be used simultaneously. 
 
-## The DDs I use most often, in no particular order
+## X-driven development examples
+
+Some DDs I've identified as using most often myself, in no particular order:
 
 #### Dopamine-driven development (DDD)
 
-If you acomplish a task in a particular way, you will be given some combination of attention, recognition, and/or praise; if you break it down further into specific subtasks, you'll maximize the amount or type of praise per unit of work. DDD is a super-technique that overlaps with many niche driven-developments; for example, Nicole's content-driven development can be a subtype of dopamine-driven development.
+If you accomplish a task in a particular way, you will be given some combination of attention, recognition, and/or praise; if you break it down further into specific subtasks, you'll maximize the amount or type of praise per unit of work. DDD is a super-technique that overlaps with many niche driven-developments; for example, Nicole's content-driven development can be a subtype of dopamine-driven development.
+
+#### Checkbox-driven development (ChDD)
+Another flavor of DDD, but one where the tasks are known relatively well up front so that they can be written down ahead of time and then checked off systematically. ChDD encourages breaking tasks down into stupidly small units, so that progress through the list feels smooth and positively reinforcing. See also: [Make a list](../blog/make-a-list).
+
+#### Procrastination-driven development (PDD)
+This is a dangerous one if unrecognized, as it is a variation of DDD that runs counter to the most important task on your task list. If wielded strategically, however, it can be used to make progress towards two separate goals, by avoiding one in service of the other and then switching back as the next task up becomes less desirable. For example, instead of doing my laundry, I am stalling by editing this post.
 
 #### Spite-driven development (SDD)
 
@@ -56,24 +62,20 @@ If you realize that you're practicing SDD regularly, you may want to consider an
 #### Speedrun-driven development (SrDD)
 You've learned a new skill! Congrats! Now you apply it as quickly as possible to everything you can pattern match against. 
 
-SrDD is a subtype of DDD, and can pair nicely with SDD on occasion. For example, I once spent awhile (days+) investigating how a particular type of audio artifact (click) was being introduced into one of my team's products; it took me awhile to understand the underlying pattern that introduced the click, but once I did I was able to solve a bunch of similar filed (and un-filed!) bugs in a short period of time. Whew. Exhilarating! 
-
-#### Checkbox-driven development (ChDD)
-Another flavor of DDD, but one where the tasks are known relatively well up front so that they can be written down ahead of time and then checked off systematically. ChDD encourages breaking tasks down into stupidly small units, so that progress through the list feels smooth and positively reinforcing. See also: [[ ] Make a list](../make-a-list).
-
-#### Procrastination-driven development (PDD)
-This is a dangerous one if unrecognized, as it is a variation of DDD that runs counter to the most important task on your tasklist. If wielded strategically, however, it can be used to make progress towards two separate goals, by avoiding one in service of the other and then switching back as the next task up becomes less desirable. For example, instead of doing my laundry, I am stalling by editing this post.
+SrDD is a subtype of DDD, and can pair nicely with SDD on occasion. For example, I once spent a Certain Amount of Time (on the order of days) investigating how a particular type of audio artifact (click) was being introduced by one of my team's algorithms; it took me a while to understand the underlying pattern, but once I did I was able to solve a bunch of similar  bugs (both filed and un-filed) in a relatively short period of time. Whew. Exhilarating! 
 
 #### Swear-driven development (SwDD)
 Welp, the deadline is tomorrow, regardless of how long you gave yourself to work on it. Better cut some scope, cut some expectations, and use the power of pure adrenaline---and some well-timed expletives---to Get. It. Done. Also encountered if you have limited time booked on a piece of equipment, and need to (random crazy example) cut a certain number of pieces on the laser cutter in a too-short amount of time. (Can pair nicely with content-driven development, if the task involves some flavor of presentation.) If wielded adeptly, can stem from initial anti-patterns such as hanger-driven development,  and under-the-thumb-of-capitalism-driven development.
 
 #### Dancing-driven development (DDD)
-You're feeling sluggish about working on a fairly mundane and repetitive task, but you put on a jam and now you can't help but power through it. Often involves headbobbing and chair dancing; can be counter-productive if the music is too good, so an effective practitioner must balance the chosen music against the current task.
+You're feeling sluggish about working on a fairly mundane and repetitive task, but you put on a jam and now you can't help but power through it. Often involves head-bobbing and chair dancing; can be counter-productive if the music is too good, so an effective practitioner must balance the chosen music against the current task.
 
 #### Service-driven development (SrvDD)
 Someone in your community needs or wants something, and you know how to make it happen for them! For me, this often shows up when making a present or acting as tech support. When used as the target of PDD, SrvDD can be a double-edged sword. (Alternative name: love-driven development (LDD).)
 
-...and those are my big ones! I've found it useful to classify my motivations like this; it has been helping me provide a sanity-check about the goal of a given task, as well as help me recognize when I've unintentionally gone off-task.
+...and those are my big ones! I've found it useful to classify my motivations like this; it has been helping me provide a sanity-check about the goal of a given task, as well as help me recognize when I've unintentionally gone off-task. I've also found that DD terminology does a nice job of succinctly communicating my current state to others. It'll be interesting to see if I feel like using the terminology longer term, or if it's just a short-term meme. 
+
+I've started using DDD and SDD conversationally, and folks in my circles have run with it in delightful ways---both by sharing their own examples of spite-driven development (it's the one that seems to stand out!!) and by coining new "driven development" techniques. Keep 'em coming! 
 
 
 ## FAQs
@@ -83,11 +85,11 @@ Someone in your community needs or wants something, and you know how to make it 
 
 
 **Q:** *Okay, but I have a job to do. What about, like, paycheck-driven development? Or healthcare-driven development?*</br>
-**A:** Those are great DDs if they work for you! I feel like they are a more natural technique for some types of jobs (contract, hourly, etc) than others (salaried).
+**A:** Those are great DDs if they work for you! Personally I find that I usually need a more specific technique to drive my efforts on an minute-by-minute basis, but it's all context dependent. 
 
 
 **Q:** *It seems like an awful lot of these overlap, or maybe are even exactly the same, with a different name. Or like you'd use multiple at once.*</br>
-**A:** That isn't a question, but you're totally right. For example, I am often powered by both DDD and TDD, with an ocassional background smattering of SDD! I contain multitudes. You probably do too.
+**A:** That isn't a question, but you're totally right. For example, I am often powered by both DDD and TDD, with an occasional background smattering of SDD! I contain multitudes. You probably do too.
 
 **Q:** *I have a really cool idea for one: string-theory driven development! But the acronym is...not ideal. What gives?*</br>
 **A:** That's on you, friend. I have confidence that you can use a trusty thesaurus to find an alternate name. Or don't, and own it!
@@ -100,7 +102,7 @@ Someone in your community needs or wants something, and you know how to make it 
 
 [^litreview]: 👀 👀 👀
 
-[^TDDdomains]: Okay okay, I would not take this *literally*---but it is possible to imagine what might happen if the test you are doing is broken without making it physically break, and therefore electrocuting yourself/using moldy fruit/FOO. The "understand what a failing case would look like so that you will know definitely that you have completed your task in a way that is NOT failing" point stands!
+[^TDDdomains]: Okay okay, I would not necessarily take TDD *literally* in many domains---but it is certainly possible to think through the "what-ifs" to understand what a failing case would look like, and then what a successful case looks like. And it seems like (from the [TDD wikipedia page](https://en.wikipedia.org/wiki/Test-driven_development) this cross-domain adoption is something that folks already do. Good!
 
 ---
 ### Footnotes
