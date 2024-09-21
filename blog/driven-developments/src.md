@@ -38,7 +38,7 @@ Some DDs I've identified as using most often myself, in no particular order:
 If you accomplish a task in a particular way, you will be given some combination of attention, recognition, and/or praise; if you break it down further into specific subtasks, you'll maximize the amount or type of praise per unit of work. DDD is a super-technique that overlaps with many niche driven-developments; for example, Nicole's content-driven development can be a subtype of dopamine-driven development.
 
 #### Checkbox-driven development (ChDD)
-Another flavor of DDD, but one where the tasks are known relatively well up front so that they can be written down ahead of time and then checked off systematically. ChDD encourages breaking tasks down into stupidly small units, so that progress through the list feels smooth and positively reinforcing. See also: [Make a list](../blog/make-a-list).
+Another flavor of DDD, but one where the tasks are known relatively well up front so that they can be written down ahead of time and then checked off systematically. ChDD encourages breaking tasks down into stupidly small units, so that progress through the list feels smooth and positively reinforcing. See also: [First things first: Make a list](../make-a-list).
 
 #### Procrastination-driven development (PDD)
 This is a dangerous one if unrecognized, as it is a variation of DDD that runs counter to the most important task on your task list. If wielded strategically, however, it can be used to make progress towards two separate goals, by avoiding one in service of the other and then switching back as the next task up becomes less desirable. For example, instead of doing my laundry, I am stalling by editing this post.

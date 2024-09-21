@@ -1,4 +1,4 @@
-# This website's structure: a meta post
+# This website's structure: A meta post
 
 While doing a batch at the <a class="impersonal" href="https://www.recurse.com">Recurse Center</a>, I revived my personal website—the very site you are almost certainly looking at Right Now!
 
