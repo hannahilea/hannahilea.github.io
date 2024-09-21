@@ -1,4 +1,4 @@
-// https://md-block.verou.me/md-block.js
+// This is md-block.js's hr/footnotes branch!!
 /**
  * <md-block> custom element
  * @author Lea Verou
@@ -21,6 +21,93 @@ function deIndent(text) {
 		indent = indent[1];
 
 		text = text.replace(RegExp("^" + indent, "gm"), "");
+	}
+
+	return text;
+}
+
+// Handle footnote support
+function handleFootnotes(text) {
+	// Find all footnotes; must have a newline before and after them
+	let footnotes = text.match(/<p>[ \t]*\[\^[A-Za-z0-9]+\]:.*[ \t\n]*<\/p>/g);
+	if (footnotes === null) {
+		return text;
+	}
+
+	// Strip all footnotes from the text:
+	footnotes.forEach(f => {
+		text = text.replace(f, "");
+	})
+	let footnotesClean = footnotes.map(function (f) {
+		return f.substring(3, f.length - 4);
+	});
+
+	// Find all footnote references
+	let footnoteRefs = text.match(/\[\^[A-Za-z0-9]+\](?!:)/g);
+	if (footnoteRefs === null) {
+		return text;
+	}
+
+	// Only treat candidate refs as footnote refs if they have a corresponding footnote 
+	let refSymbols = footnoteRefs.map(function (r) { return r.substring(2, r.length - 1); });
+	let footnoteSymbols = footnotesClean.map(function (r) {
+		r = r.split(":")[0];  // [^foo]
+		return r.substring(2, r.length - 1)  // foo
+	});
+	let validRefSymbols = refSymbols.filter((r) => footnoteSymbols.includes(r));
+	// ...and make sure those references are unique
+	validRefSymbols = Array.from(new Set(validRefSymbols))
+
+	// Only include the first footnotes for each reference
+	let validFootnotes = validRefSymbols.map(function (s) {
+		let i = footnoteSymbols.findIndex(function (fn) { return fn === s; });
+		return footnotes[i];
+	});
+
+	// Now our lists of references and footnotes are all ordered correctly!
+	// First, let's set up the footnote footer 
+	let footnoteFooter = '\n<div class="footnotes">\n'
+
+	validRefSymbols.forEach((symbol, i) => {
+		// Let's add the footnote itself first
+		let footnote = validFootnotes[i];
+		let content = footnote.split("]:", 2)[1];
+		console.log()
+		content = content.substring(0, content.length - 4).trim();
+
+		let iRef = i + 1;
+		let footnoteHTML = "\n\t<p>" + iRef + ". " + content;
+
+		// It is possible for multiple references to point to the same footnote,
+		// so we need to give them each unique ids
+		let r = RegExp(String.raw`\[\^${symbol}\]`, "g")
+		let numRefs = text.match(r).length;
+		for (let iSymbol = 0; iSymbol < numRefs; iSymbol++) {
+			let uniqueRef = numRefs > 1 ? iRef + "-" + (iSymbol + 1) : iRef;
+
+			// Update the footnote reference
+			let footnoteSuperscript = '<sup><a class="footnote-ref" href="#footnote-' +
+				uniqueRef + '" id="footnote-' + uniqueRef + '-ref">' +
+				iRef + '</a></sup>';
+			text = text.replace("[^" + symbol + "]", footnoteSuperscript);
+
+			// Add the footnote linkback
+			let linkback = '<a class="footnote" href="#footnote-' + uniqueRef +
+				'-ref" id="footnote-' + uniqueRef + '">↩</a>'
+			footnoteHTML += linkback;
+		}
+		footnoteFooter += footnoteHTML + "</p>";
+	})
+
+	// ...and close out the footnote footer:
+	footnoteFooter += "\n</div>"
+
+	let footnoteElement = text.includes("<footnotes/>")
+	if (footnoteElement === null) {
+		text += '<hr class="footnote-div">'
+		text += footnoteFooter;
+	} else {
+		text = text.replace("<footnotes/>", footnoteFooter)
 	}
 
 	return text;
@@ -101,6 +188,8 @@ export class MarkdownElement extends HTMLElement {
 				return;
 			}
 		}
+
+		html = handleFootnotes(html);
 
 		this.innerHTML = html;
 

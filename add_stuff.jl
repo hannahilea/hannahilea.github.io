@@ -44,7 +44,7 @@ function new_p5_project()
 end
 
 function new_blog_post()
-    blog_title = lstrip(rstrip(Base.prompt("Enter blog post title")))
+    blog_title = lstrip(rstrip(Base.prompt("Enter blog post title"; default="TODO_TITLE")))
 
     dir_name = let
         default = replace(lowercase(blog_title), " " => "-")
