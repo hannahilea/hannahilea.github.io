@@ -23,7 +23,7 @@ Without further ado, some things I could write *right now*<sup><a name="footnote
 - *The rest of the owl: My first experience with <a class="impersonal" href="https://codecrafters.io">codecrafters</a>*
 
 ### Feelings™ (tech and otherwise)
-- *Dopamine-Driven Development (DDD), Spite-Driven Development (SDD), and other DDs*
+- ~*Dopamine-Driven Development (DDD), Spite-Driven Development (SDD), and other DDs*~ [EDIT 9/23/24: [Written](../driven-developments/)!]
 - *A batch at the Recurse Center: My antidote to burnout*
 - *The Mike Ratio: A Bechdel test for the modern tech team*
 - *Towards a Bechdel test for assessing a candidate employer*<sup><a name="footnote-4-site">[4](#footnote-4)</a></sup>
@@ -46,5 +46,5 @@ Right. Now that I've gotten this current list out of my head, maybe I'll be able
 
 --- 
 - created: 2024-09-18
-- last updated: 2024-09-18
+- last updated: 2024-09-23
 - tags: brainstorm, metawriting
