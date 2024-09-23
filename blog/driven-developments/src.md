@@ -73,6 +73,8 @@ You're feeling sluggish about working on a fairly mundane and repetitive task, b
 #### Service-driven development (SrvDD)
 Someone in your community needs or wants something, and you know how to make it happen for them! For me, this often shows up when making a present or acting as tech support. When used as the target of PDD, SrvDD can be a double-edged sword. (Alternative name: love-driven development (LDD).)
 
+<p style="text-align:center">***</p>
+
 ...and those are my big ones! I've found it useful to classify my motivations like this; it has been helping me provide a sanity-check about the goal of a given task, as well as help me recognize when I've unintentionally gone off-task. I've also found that DD terminology does a nice job of succinctly communicating my current state to others. It'll be interesting to see if I feel like using the terminology longer term, or if it's just a short-term meme. 
 
 I've started using DDD and SDD conversationally, and folks in my circles have run with it in delightful ways---both by sharing their own examples of spite-driven development (it's the one that seems to stand out!!) and by coining new "driven development" techniques. Keep 'em coming! 
