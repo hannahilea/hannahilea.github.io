@@ -8,7 +8,7 @@ Without further ado, some things I could write *right now*<sup><a name="footnote
 
 ### Project write-ups<sup><a name="footnote-2-site">[2](#footnote-2)</a></sup> and tutorials
 - *Musidex* | What I wanted was a Craigslist jukebox; what I got was a Rolodex. (Closing line: *I still want a Craigslist jukebox.*)
-- *Obsessed with <a class="impersonal" href="https://cuttle.xyz/">Cuttle</a>: Parametric CAD for prototyping, producing, and procrastinating*
+- ~*Obsessed with <a class="impersonal" href="https://cuttle.xyz/">Cuttle</a>: Parametric CAD for prototyping, producing, and procrastinating*~ [EDIT 9/24/24: [Written](../cuttle-obsession/)!]
 - *Making mixtapes for your youngest pals* | Do you want to enable the song addictions of the small children in your life, to set them on a path towards music obsession, while potentially annoying the heck out of their parents? Of course you do! (This post is not sponsored by <a class="impersonal" href="https://us.yotoplay.com/collections/library">Yoto</a>, but could be, should they choose... 👀)
 - *Small Tales* | On building a bookshelf of your favorite reads, in miniature, for when you have limited bookshelf space or a limited book budget.
 - *Mobiles! For that new tiny human in your extended universe*
@@ -46,5 +46,5 @@ Right. Now that I've gotten this current list out of my head, maybe I'll be able
 
 --- 
 - created: 2024-09-18
-- last updated: 2024-09-23
+- last updated: 2024-09-24
 - tags: brainstorm, metawriting
