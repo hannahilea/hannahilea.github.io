@@ -1,4 +1,5 @@
-// This is md-block.js's hr/footnotes branch!!
+// This is md-block.js's hr/footnotes branch, with some additions
+
 /**
  * <md-block> custom element
  * @author Lea Verou
@@ -23,6 +24,12 @@ function deIndent(text) {
 		text = text.replace(RegExp("^" + indent, "gm"), "");
 	}
 
+	return text;
+}
+
+function addClassesToLinks(text) {
+	text = text.replace(' href=".', ' class="local" href=".');
+	text = text.replace(' href="https://github.com/hannahilea', ' class="local" href="https://github.com/hannahilea');
 	return text;
 }
 
@@ -190,6 +197,7 @@ export class MarkdownElement extends HTMLElement {
 		}
 
 		html = handleFootnotes(html);
+		html = addClassesToLinks(html);
 
 		this.innerHTML = html;
 
