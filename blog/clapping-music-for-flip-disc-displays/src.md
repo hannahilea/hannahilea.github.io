@@ -108,7 +108,10 @@ Yet to be determined! If you have fun ideas to try---or additional electromechan
 
 <p align="center"><img src="assets/bells.jpg" alt="Photo of two rows of rainbow desk bells."></p>
 
+---
 ### Footnotes
+
+<footnotes/>
 
 <a name="footnote-1">[<sup>1</sup>](#footnote-1-site)</a> This setup took non-zero effort: this was my first real Raspberry Pi project, and while the AlphaZeta boards shipped with a basic Python application installed on a companion Raspberry Pi, we wanted lower-level control of their pixel arrays. We therefore needed to set up our Raspberry Pi, send serial commands to flip individual discs/segments on the display boards (using AlphaZeta's serial communication protocol), and write (in Julia) the higher-level applications to display static text, scrolling text, and weather. We also had fun figuring out how we wanted to dislpay the project, and ended up modifying a spare Ikea shelf for that purpose. 
 

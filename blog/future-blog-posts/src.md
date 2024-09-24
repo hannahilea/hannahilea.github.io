@@ -34,8 +34,11 @@ Without further ado, some things I could write *right now*<sup><a name="footnote
 
 Right. Now that I've gotten this current list out of my head, maybe I'll be able to pick one and just go for it....
 
------
+---
 ### Footnotes
+
+<footnotes/>
+
 <a name="footnote-1">[<sup>1</sup>](#footnote-1-site)</a>Not included: any hypothetical projects I have not yet done.
 
 <a name="footnote-2">[<sup>2</sup>](#footnote-2-site)</a>Also, this list only includes a few of the as-yet-undocumented [projects](https://www.hannahilea.com/projects-site) from my backlog, but anything on that page is fair game for a DDD request.

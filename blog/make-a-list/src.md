@@ -23,6 +23,9 @@ I've also found that adding a punch list to a <a class="impersonal" href="https:
 
 [^chuck]: One of the most valuable things I learned in grad school!
 
+---
+### Footnotes
+
 <footnotes/>
 
 --- 
