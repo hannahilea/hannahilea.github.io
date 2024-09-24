@@ -1,6 +1,6 @@
 # This website's structure: A meta post
 
-While doing a batch at the <a class="impersonal" href="https://www.recurse.com">Recurse Center</a>, I revived my personal website—the very site you are almost certainly looking at Right Now!
+While doing a batch at the [Recurse Center](https://www.recurse.com), I revived my personal website—the very site you are almost certainly looking at Right Now!
 
 ![surprise-pikachu](/assets/img/emojis/surprise-pikachu.png)
 
@@ -47,7 +47,7 @@ The structure of each blog subdirectory `<blog-n>` is
 ├── index.html
 └── src.md
 ```
-`src.md` contains the full content of a blogpost, written in markdown. `index.html` is identical across blog posts and contains no specialized content; it exists simply to contain the results of converting `src.md` to html, which is performed with the <a class="impersonal" href="https://md-block.verou.me/">`md-block.js`</a> library.
+`src.md` contains the full content of a blogpost, written in markdown. `index.html` is identical across blog posts and contains no specialized content; it exists simply to contain the results of converting `src.md` to html, which is performed with the [`md-block.js`](https://md-block.verou.me/) library.
 
 Why this approach? Writing markdown feels much more natural to me than writing html, and even though I have to include the same boilerplate html file in every blog post directory, it is mentally cheaper than switching the whole site over to a templating engine that generates the whole site from a set of markdown files. (It is also cheaper than writing my own markdown-to-html converter, however tempting that was...)
 
@@ -63,11 +63,11 @@ That said, for a common type of project that I've been building lately, namely, 
 ```
 where the index contains no little specialized content except a description of the project, and the content of the sketch lives in `sketch.js`.
 
-This structure has made it trivially easy to transfer javascript sketches to this site from sandbox environments like the <a class="impersonal" href="https://editor.p5js.org/">p5.js</a> editor.
+This structure has made it trivially easy to transfer javascript sketches to this site from sandbox environments like the [`p5.js`](https://editor.p5js.org/) editor.
 
 ## Site hosting and deployment
 
-I build, host, and deploy the site using <a class="impersonal" href="https://pages.github.com/">GitHub Pages</a>. Thanks, GitHub! You can look at the [GitHub Action](https://github.com/hannahilea/hannahilea.github.io/blob/main/.github/workflows/static.yml) I use to deploy, but there is nothing custom or personal about it.
+I build, host, and deploy the site using [GitHub Pages](https://pages.github.com/). Thanks, GitHub! You can look at the [GitHub Action](https://github.com/hannahilea/hannahilea.github.io/blob/main/.github/workflows/static.yml) I use to deploy, but there is nothing custom or personal about it.
 
 ## Adding new content
 
@@ -87,7 +87,7 @@ As I borrowed (with permission!) when first assembling this site, please feel fr
 
 And finally if you, erstwhile reader, are a Web Person™ who thinks I've made an egregious error in approach or wants to propose some additional tweaks/improvements, do let me know!
 
-***Thanks to <a class="impersonal" href="https://teresaibarra.com">Teresa Ibarra</a>, whose site (and assistance!) I used as an initial starting point.***
+***Thanks to [Teresa Ibarra](https://teresaibarra.com), whose site (and assistance!) I used as an initial starting point.***
 
 ---
 - created: 2024-05-17

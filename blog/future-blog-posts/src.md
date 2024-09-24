@@ -7,8 +7,8 @@ My tech writing these days follows DDD (Dopamine-Driven Development), which mean
 Without further ado, some things I could write *right now[^footnote1]*:
 ### Project write-ups[^footnote2] and tutorials
 - *Musidex* | What I wanted was a Craigslist jukebox; what I got was a Rolodex. (Closing line: *I still want a Craigslist jukebox.*)
-- *Obsessed with <a class="impersonal" href="https://cuttle.xyz/">Cuttle</a>: Parametric CAD for prototyping, producing, and procrastinating*
-- *Making mixtapes for your youngest pals* | Do you want to enable the song addictions of the small children in your life, to set them on a path towards music obsession, while potentially annoying the heck out of their parents? Of course you do! (This post is not sponsored by <a class="impersonal" href="https://us.yotoplay.com/collections/library">Yoto</a>, but could be, should they choose... 👀)
+- *Obsessed with [Cuttle](https://cuttle.xyz/): Parametric CAD for prototyping, producing, and procrastinating*
+- *Making mixtapes for your youngest pals* | Do you want to enable the song addictions of the small children in your life, to set them on a path towards music obsession, while potentially annoying the heck out of their parents? Of course you do! (This post is not sponsored by [Yoto](https://us.yotoplay.com/collections/library), but could be, should they choose... 👀)
 - *Small Tales* | On building a bookshelf of your favorite reads, in miniature, for when you have limited bookshelf space or a limited book budget.
 - *Mobiles! For that new tiny human in your extended universe*
 - *Easy inter-room trolling: OSX's `say`, a bluetooth speaker, and you*
@@ -17,9 +17,9 @@ Without further ado, some things I could write *right now[^footnote1]*:
 - *Mix of the Month Clubs for the 2020s* | Mixtapes are my love language, but no one has a cd player anymore (not to mention a disc drive, or a cassette player). What's a fellow to do?
 - *Message in a bottle, or, the US Postal Service is way more fun than most people know it is*
 - *Stabby McStabface: The joy of needlefelting memes*
-- *From LiveJournal to <a class="impersonal" href="https://www.tinylogger.com">tinylogger</a> and beyond: My current writing workflow*
+- *From LiveJournal to [tinylogger](https://www.tinylogger.com) and beyond: My current writing workflow*
 - *How should I know when there's a new blog to read?* | What the heck is RSS, and how do I make it work for me if I don't consider myself tech saavy?
-- *The rest of the owl: My first experience with <a class="impersonal" href="https://codecrafters.io">codecrafters</a>*
+- *The rest of the owl: My first experience with [codecrafters](https://codecrafters.io)*
 
 ### Feelings™ (tech and otherwise)
 - ~*Dopamine-Driven Development (DDD), Spite-Driven Development (SDD), and other DDs*~ [EDIT 9/23/24: [Written](../driven-developments/)!]
