@@ -104,7 +104,7 @@ I've started using DDD and SDD conversationally, and folks in my circles have ru
 
 [^litreview]: 👀 👀 👀
 
-[^TDDdomains]: Okay okay, I would not necessarily take TDD *literally* in many domains---but it is certainly possible to think through the "what-ifs" to understand what a failing case would look like, and then what a successful case looks like. And it seems like (from the [TDD wikipedia page](https://en.wikipedia.org/wiki/Test-driven_development) this cross-domain adoption is something that folks already do. Good!
+[^TDDdomains]: Okay okay, I would not necessarily take TDD *literally* in many domains---but it is certainly possible to think through the "what-ifs" to understand what a failing case would look like, and then what a successful case looks like. And it seems like (from the [TDD wikipedia page](https://en.wikipedia.org/wiki/Test-driven_development)) this cross-domain adoption is something that folks already do. Good!
 
 ---
 ### Footnotes
