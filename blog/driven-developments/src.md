@@ -1,13 +1,13 @@
 # Dopamine-driven development (DDD), spite-driven development (SDD), and other DDs
 
-A few weeks ago, <a class="impersonal" href="https://www.recurse.com/about">Recurser</a> friend Nicole Tietz-Sokolskaya
-published <a class="impersonal" href="https://ntietz.com/blog/making-progress-with-content-driven-development">Making progress on side projects with content-driven development</a>, an excellent write-up about Doing Stuff in order to be able to Share About Having Done Stuff™. You should read it!
+A few weeks ago, [Recurser](https://www.recurse.com/about) friend Nicole Tietz-Sokolskaya
+published [Making progress on side projects with content-driven development](https://ntietz.com/blog/making-progress-with-content-driven-development), an excellent write-up about Doing Stuff in order to be able to Share About Having Done Stuff™. You should read it!
 
 Unfortunately for me, her denomination of "Content-driven development" tripped some switch in my brain, and since then a rotating slate of "X-driven development" variations have taken over. I started with obsessing over spite-driven development (SDD), am currently on a dopamine-driven development (DDD) kick, and have (today) shifted to a rapidly changing moment-by-moment characterization of my actions: feed-the-cat-driven development (FCDD)! Coffee-shop-driven development (CSDD)! Beat-the-rain-home-driven development (BRHDD)!  Perhaps writing about it will help me keep the situation in check, before it becomes my whole personality?[^personality] We can only hope. In the meantime, I am writing this post following muffin-driven development (MDD).[^MDD] 
 
 ## What is a "driven development", anyway?
 
-Many software engineers (and possibly *only* software engineers?) are familiar with a process called  <a class="impersonal" href="https://en.wikipedia.org/wiki/Test-driven_development">*test-driven development* (TDD)</a>. TDD is the OG "driven development": it defines both a specific approach to writing code (write a failing test, see that it fails, write the code to make the test pass, write the next failing test, repeat ad nauseam) and a general approach to software development that emphasizes testing *units of behavior* rather than units of code.[^TDDfeels]
+Many software engineers (and possibly *only* software engineers?) are familiar with a process called  [*test-driven development* (TDD)](https://en.wikipedia.org/wiki/Test-driven_development). TDD is the OG "driven development": it defines both a specific approach to writing code (write a failing test, see that it fails, write the code to make the test pass, write the next failing test, repeat ad nauseam) and a general approach to software development that emphasizes testing *units of behavior* rather than units of code.[^TDDfeels]
 
 TDD is part of the gestalt; there's a reason Nicole's "content-driven development" was so mentally sticky, and that when I have said "spite-driven development" to a number of software folks, I have immediately been regaled with their own relevant experiences, no additional explanation necessary.
 
@@ -98,7 +98,7 @@ I've started using DDD and SDD conversationally, and folks in my circles have ru
 
 [^personality]: Get-it-out-of-my-brain-driven development (GIOMBDD)
 
-[^MDD]: I chose a time to make <a class="impersonal" href="https://smittenkitchen.com/2020/10/morning-glory-breakfast-cake">muffins</a> that cut a liiiiiiittle too close to the Publication Accountabilibuddies session I frequent, such that I am only now coming off the adrenaline of getting them in the oven in time. The next step is to write as much as possible before the oven timer goes off. How will I know I'm done? There will be words on my page AND a muffin to consume. Muffin-driven development!
+[^MDD]: I chose a time to make [muffins](https://smittenkitchen.com/2020/10/morning-glory-breakfast-cake) that cut a liiiiiiittle too close to the Publication Accountabilibuddies session I frequent, such that I am only now coming off the adrenaline of getting them in the oven in time. The next step is to write as much as possible before the oven timer goes off. How will I know I'm done? There will be words on my page AND a muffin to consume. Muffin-driven development!
 
 [^maddie]: All of her writing is excellent, I recommend checking out other posts.
 

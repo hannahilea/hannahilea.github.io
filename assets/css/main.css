@@ -117,13 +117,15 @@ img {
   align-self: center;
 }
 
-a {
+a,
+a.local {
   color: #0843c3;
   text-decoration: underline dotted;
   text-underline-offset: 3px;
 }
 
-a.impersonal {
+a.impersonal,
+md-block a {
   color:#03163f;
 }
 
@@ -137,8 +139,6 @@ a.impersonal {
   font-family: "Jura Bold";
   margin-bottom: 2em;
 }
-
-
 
 .badge {
   height: 20%;
