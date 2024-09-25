@@ -129,11 +129,14 @@ md-block a {
   color:#03163f;
 }
 
-md-block h1 a,
-md-block h2 a,
-md-block h3 a,
-md-block h4 a  {
+md-block a.internal-anchor {
   text-decoration: none;
+}
+
+md-block p > a.internal-anchor {
+  text-decoration: none;
+  font-weight: bold;
+  font-style: italic;
 }
 
 .navbar {

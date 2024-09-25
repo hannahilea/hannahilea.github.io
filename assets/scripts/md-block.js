@@ -29,6 +29,7 @@ function deIndent(text) {
 
 function addClassesToLinks(text) {
 	text = text.replace(' href=".', ' class="local" href=".');
+	text = text.replace(/\shref="#/g, ' class="internal-anchor" href="#');
 	text = text.replace(' href="https://github.com/hannahilea', ' class="local" href="https://github.com/hannahilea');
 	return text;
 }
