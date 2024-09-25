@@ -1,28 +1,49 @@
-- [ ] TODO: how does cuttle brand themselves? with .xyz? 
-
 # Obsessed with Cuttle: Parametric CAD for prototyping, producing, and procrastinating
 
-One of my primary creative outlets this year has been playing with the CNC laser cutter[^cutters] at my library's makerspace. It is the first computer numerical control (CNC, i.e., computer-programmable) shop tool I've gotten comfortable and fluent with: while I've worked with plenty of *manual* shop tools for wood and metal, I've never previously bridged the programming/shop divide.[^attempt] Unsurprisingly, it is SO. MUCH. FUN.
+One of my primary creative outlets this year has been playing with the CNC laser cutter[^cutters] at my library's makerspace. It is the first  ("computer numerical control", i.e., computer-programmable) shop tool I've gotten comfortable and fluent with: while I've worked informally with plenty of *manual* shop tools for wood and metal, I've never previously bridged that programming/shop divide.[^attempt] Unsurprisingly, it is SO. MUCH. FUN.
 
-[^cutters]: Technically my makerspace has two laser cutters, an [Epilog Zing](LINK) and a [Glowforge](LINK), and while I've trained to use both, I prefer the Zing. I'll save the reasoning---and my Zing workflow---for another post.
+[^cutters]: Technically my makerspace has two laser cutters, an [Epilog Zing](LINK) and a [Glowforge](LINK); while I've trained to use both, I prefer the Zing. I'll save the reasoning---and my Zing workflow---for a future write-up.
 
-[^attempt]: I had one aborted attempt many years ago, where I got trained to use a very large (and very cool!) CNC laser cutter for working with sheet metal. Lack of materials, lack of transport for acquiring materials, and lack of initiative for solving either issue proved prohibitive, so I never ended up using it. Now that I feel comfortable with the desktop-sized CNC cutter, I feel a lot more empowered (and motivated) to try the large-format CNC again.
+[^attempt]: I had one aborted attempt many years ago, where I got trained to use a very large (and very cool!) CNC laser cutter for working with sheet metal. Lack of materials, lack of transport for acquiring materials, and lack of initiative for solving either issue proved prohibitive, so I never ended up making anything with it. Now that I feel comfortable with this desktop-sized CNC machine, I feel a lot more empowered (not to mention motivated!) to try the large-format version.
 
-There is a vast and inspiring community of makers in this space who learn generously by sharing their project designs. I used some of these pre-existing projects while getting comfortable cutting and engraving with the machine, but quickly realized that I'm happiest when I can make a project my own---whether designing it from scratch, modifying a pre-existing project, or re-implementing a project using a toolchain I'm familiar with.
+There is a vast and inspiring community of makers in this space, who learn generously by sharing their project designs online. I used some of these pre-existing projects while getting comfortable cutting and engraving with the machine, but quickly realized that I'm happiest when I can make a project my own---whether designing it from scratch, modifying a pre-existing project, or re-implementing an existing design with a toolchain I'm familiar with. 
 
-I don't remember what exact search brought me to [Cuttle.xyz](http://cuttle.xyz)---some combination of "CAD" and "laser cutter" and "web-based", probably---but since I started using it, I haven't so much as thought about switching to a different ecosystem. 
-
-Cuttle is [TODO-describe]; it has been around since [TODO-year]. It is a powerful design system with an exceptionally shallow learning curve, a commendable set of tutorials, pre-existing templates, and an active and welcoming [Discord community](TODO) in which its developers participate actively.
+I don't remember what exact search brought me to [Cuttle.xyz](http://cuttle.xyz)---some combination of "CAD" and "laser cutter" and "web-based", probably---but since I started using it, I haven't so much as thought about switching to a different ecosystem. Cuttle is a web-based "parametric" design tool, with loads of built-in capability and (most excitingly) the ability to program any functionality that it doesn't have, in Javascript. This means that it is both easy for non-programmers to use it, and extensible by folks who need additional custom objects and modifiers. It is a powerful design system with an exceptionally shallow learning curve, a commendable set of tutorials, pre-existing templates, and an active and welcoming [Discord community](TODO) in which its developers participate actively.
 
 Also, I'm now addicted to it.
 
+## How do I CAD thee? Let me count the ways
+
+There are several classes of activity for which I turn to Cuttle; I'll summarize those here, and then document them below:
+
+- **Specific laser cutter projects.** This motivation is the most straight-forward one, and why I started using Cuttle in the first place: I have a set of shapes that I need to be able to cut with the laser cutter, in service of building a physical object. 
+
+    Relevant projects: [decorative bookends](#bookends), [a doorbell chime cover](#a-cover-for-a-set-of-doorbell-chimes), and assorted [calibration tools](#a-handful-of-calibration-tools).
+
+- **Exploration of patterns/shapes/concepts.** This one is a natural result of Cuttle being fun to play with. Now when I see an interesting shape or pattern, I think "hrm, how might program that?" In the act of building it, instead of hard-coding specific dimensions or qualities (number of sides, number of repeats, sizes of angles, etc) I try parameterizing them in different ways. Then, once I have successfully copied the original item, I can play with those parameters to see what other interesting shapes or designs they turn into. Before Cuttle I didn't really do this type of activity, except *maybe* by hand. Now it scratches the dual creativity itches of "constrained problem solving" and "open-ended exploration".
+
+    Relevant projects: [assorted pattern studies](#pattern-studies).
+
+    
+
+- **Prototyping.** This was an unexpected use-case, and one that came about because I had problems I wanted to solve at a point where I was already actively using Cuttle. Instead of turning to other tools (programming languages or independent software apps), I used Cuttle. 
+
+    Relevant projects: [music box punch cards](#punch-cards-for-music-boxes), [weaving cartoon](#weaving-cartoon).
+
+
+
+An alternative way to break down my motivations for pulling out Cuttle:
+- I need to build A SPECIFIC THING
+- I need something vaguely constructive to do to procrastinate on doing something else entirely
+
+
 ## Show, don't tell
 
-Right, so what have I made with it? The following only include projects I've designed myself (or at least, have significantly changed from a cited starting point). I'm not including pre-existing Cuttle templates that I've printed, e.g., [this one](TODO), which makes a particularly fun/extensible gift.
+Right, so what have I made with it? The following only include projects I've designed myself (or at least, have significantly changed from a cited starting point). I'm not including pre-existing Cuttle templates that I've printed, e.g., [this one](TODO), which makes a particularly fun/extensible gift. 
 
-In no particular order...
+In no particular order:
 
-#### Bookends!
+### Bookends!
 
 I designed this [set of bookends](https://cuttle.xyz/@hannahilea/Bookends-eBHfPdCNGTIH) was a gift I made, and also an excuse to make an easily-swappable decoration for an otherwise utilitarian object: metal bookends.
 
@@ -63,10 +84,13 @@ Sidebar: are you a parent with a penchant for music curation? Or with friends wh
 
 #### A handful of calibration tools
 Most of these were in support of some other project, either public or non, but they were a good way to explore Cuttle's [repeat modifiers with custom per-repeat transformations](TODO):
+
+ in service of other projects and/or learning how to appropriately tune the laser cutter across different materials.
+
 TODO
 
-#### Weaving cartoon!
-TODO
+#### Weaving cartoon
+My mom is a weaver, and asked me to prototype various ways of "blowing up" a floormat that we thought looked cool, to see how it might be 
 
 #### A poem!
 TODO
@@ -83,6 +107,7 @@ Procrastinating:
 
 It remains to be seen whether Cuttle is my gateway drug to using the historically professional CAD software. For now, it has met my needs, and I've been able to either design around any software limitations[^limitations] or avoid larger version control reproducibility issues by prototyping only a portion of the system in Cuttle, keeping the non-CAD pieces in a different (and checked in) ecosystem[^vc], and assuming that I'll rebuild the Cuttle piece in a different language if I truly want to make the design more robust and user-friendly. The development team is friendly, supportive, and actively plugging away, and with any luck these limitations are a symptom of early-stage software development (a focus on rapid iteration rather than optimization and long-term exportability/reproducibility). 
 
+The biggest problem with Cuttle is that it is fun. Too fun. And too easy to say "oh, let me just try one more thing..." and then come up for air to find that it is 1am.
 
 [^limitations]: Sometimes large numbers of objects causes my session to choke! Truly the bounds of the project? Maybe my understandings of the abstractions need tweaking? So far not worth asking for help, and easier to just design around and approach in different ways, but the Cuttle Discord is active and supportive, and when I've asked for help their I've gotten it, so until further notice assume that this is not a fundamental limitation of the software!
 
