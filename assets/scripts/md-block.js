@@ -34,6 +34,26 @@ function addClassesToLinks(text) {
 	return text;
 }
 
+function handleBlockQuotes(text) {
+	// let bquotes = text.match(/<blockquote>[\r\n][ \t]*<p>\[![A-Za-z0-9]+\]<\/p>/g);
+	let bquotes = text.match(/<blockquote>[\r\n]*[ \t]*<p>\[!.+\]<\/p>/g);
+	if (bquotes === null) {
+		return text;
+	}
+	bquotes.forEach(q => {
+		let alertType = String(q.match(/<p>\[!.+\]<\/p>/)); // First match, which is guaranteed to exist if we're here
+		alertType = alertType.substring(5, alertType.length - 5).replace(/\W/g, '').toLowerCase()
+		let newBQuote = q.replace("<blockquote>", '<blockquote class="alert alert-' + alertType + '">')
+		
+		// Only replaces first instance, by design!!
+		newBQuote = newBQuote.replace("<p>", '<p class="alert-heading">')
+		newBQuote = newBQuote.replace("<p>", '<p class="alert-heading">').replace("[!", "").replace("]", "")
+		text = text.replace(q, newBQuote);
+	})
+	text = text.replace(' href="https://github.com/hannahilea', ' class="local" href="https://github.com/hannahilea');
+	return text;
+}
+
 // Handle footnote support
 function handleFootnotes(text) {
 	// Find all footnotes; must have a newline before and after them
@@ -199,6 +219,7 @@ export class MarkdownElement extends HTMLElement {
 
 		html = handleFootnotes(html);
 		html = addClassesToLinks(html);
+		html = handleBlockQuotes(html);
 
 		this.innerHTML = html;
 

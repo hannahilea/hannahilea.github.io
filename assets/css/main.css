@@ -301,3 +301,16 @@ img.home-img {
   display: flex;
   border:1px dashed black;
 }
+
+md-block .alert {
+  border: none;
+  border-left: 2mm solid rgb(255, 230, 0);
+  padding-left: .5em;
+  flex: 0 1 auto;
+  margin-bottom: 2em;
+}
+
+md-block .alert-heading {
+  font-weight: bold;
+  margin-bottom: 1em;
+}
