@@ -44,35 +44,35 @@ In no particular order:
 
 *Play with the project [here](https://cuttle.xyz/@hannahilea/Bookends-eBHfPdCNGTIH)!*
 
-[TODO: image of result]
+![alt text TODO](assets/TODO.png)
 
 There are two pieces I'm especially proud of here:
 1. The original design of "decorative faceplate designed to attach (with magnets) to cheap metal bookends, including correctly managing registration (i.e., alignment of the piece) during printing to engrave both front and back.
 2. The specific book icon I designed to decorate the faceplates. The book icon parameterized on FOO, BAR, and FOO; you can see that the bookends each play with that design in a different way---note that the number of pages change for each successive icon row. which I then changed the values of iteratively for the design. The book icon is fun to play with in its own right! 
 
-[TODO-gif of parameterized design]
+<!-- ![alt text TODO](assets/TODO.png) // gif of parameterized design -->
 
 ### Doorbell chime cover
 
 *Play with the project [here](https://cuttle.xyz/@hannahilea/Doorbell-box-q6JyrDmh1bNq)!*
 
-[TODO: image of result]
+![alt text TODO](./assets/TODO.png)
 
 I designed this decorative doorbell cover for my parents, to replace an original doorbell cover that they didn't care for. I started from a basic [Cuttle box template](https://cuttle.xyz/@cuttle/Open-Box-with-Finger-Joints-D2ugGEvYUNfd), and then added a design to the sides, a decorated front plate, and a cutout on the bottom for the chimes. 
 
 It took me awhile to build this, as I did a lot of angsting over how to decorate it---the only project requirement was that the size and bottom cutout matched the original, so that it would fit. Eventually I got unstuck by building a single little snowflake pattern unit and then playing around with with repeating and incrementally scaling a couple parameters until it felt visually pleasing.
 
-[TODO-gif]
+<!-- ![alt text TODO](assets/TODO.png) gif -->
 
 I also ended up printing a bunch of test pieces to see how thin I could get the lines on the decorative cutouts before they were too thin for the laser to handle:
 
-[TODO-test pieces]
+<!-- ![alt text TODO](assets/TODO.png) test pieces -->
 
 ### Punch cards for music boxes!
 
 *Play with the project [here](https://cuttle.xyz/@hannahilea/Music-box-punchcards-iTT4lnLVNL5f)!*
 
-[TODO: image of result]
+![alt text TODO](assets/TODO.png)
 
 This was a project I've wanted to do for a long time: automatically generate music rolls that can be played on a mechanical music box. I'm planning to document this project in its own write-up, so am intentionally skimping on details here, but there is an additional sparse write-up [here](https://github.com/hannahilea/music-box-punch-cards).
 
@@ -83,7 +83,7 @@ These music box rolls are an example of using Cuttle to prototype: rather than b
 
 *Play with the project [here](https://cuttle.xyz/@hannahilea/Tabletop-card-stand-A4tFugrfB4wg)!*
 
-[TODO: image of result]
+![alt text TODO](assets/TODO.png)
 
 My young niblings have a [Yoto](https://us.yotoplay.com/yoto-mini) player, along with a collection of various story and music cards. (A Yoto player is a small portable music box for kids; specific playlists are triggered by inserting a corresponding card.) I like making and sending mixes to them, so made this card holder so they could see their entire library.[^remember] While I CADed this myself, I modeled it off of card holders I saw elsewhere on the internet, parameterized to be customizable to the size of a card collection. The piece that I was most excited about here was the color---I cut it from Glowforge Draftboard (a proprietary medium-density fiberboard material), painted it with watercolor paint (!), and then sealed it. The piece the recipient was most excited about was that the truck design was one that he specifically likes to color in, when printed at a larger size. 
 
@@ -95,7 +95,7 @@ Sidebar: are you a parent with a penchant for music curation or friends who woul
 
 *Play with the calibrators [here](TODO)/[here](TODO)/[here](TODO)!*
 
-[TODO: images of result]
+![alt text TODO](assets/TODO.png) ![alt text TODO](assets/TODO.png) ![alt text TODO](assets/TODO.png)
 
 Most of these were in support of some other project, either public or non, for learning how to appropriately tune the laser cutter across different materials. You can see the ones where I thought I was engraving words but was actually cutting all the way through the material (whoops!), and also the ones where I scrawled on them to be able to later map back to various print settings.
 
@@ -103,7 +103,7 @@ Most of these were in support of some other project, either public or non, for l
 
 *Play with the project [here](https://cuttle.xyz/@hannahilea/Weaving-cartoon-Fireplace-SFpVg2LNsz41)!*
 
-[TODO: image of result]
+![alt text TODO](assets/TODO.png)
 
 My mom is a weaver; she asked me to make a "weaving cartoon" (i.e., a mock-up) to see how this nifty doormat might look if scaled up, in service of potentially weaving a site-specific piece. (What she requested was a very basic hacky photoshop collage...instead I had some fun in Cuttle. Ah well, the result was fun!)
 
@@ -112,7 +112,7 @@ My mom is a weaver; she asked me to make a "weaving cartoon" (i.e., a mock-up) t
 
 *Play with the project [here](TODO)!*
 
-[TODO: image of result]
+![alt text TODO](assets/TODO.png)
 
 These are fairly self-evident: I see a pattern I think is cool and I have a go at CADding it and then playing with the result. (Once you start thinking in CAD elements, it is very hard to stop---but it does make the world more interesting at large! Hard to be bored if you could instead be thinking through how you'd replicate the design of the wallpaper/that building across the street/etc.) 
 
@@ -120,7 +120,7 @@ These are fairly self-evident: I see a pattern I think is cool and I have a go a
 
 *Play with the project [here](https://cuttle.xyz/@hannahilea/RC-CC-Everybody-has-a-hungry-heart-pqGODlplgbMg)!*
 
-[TODO: image of result]
+![alt text TODO](assets/hungry-bodies.gif)
 
 Last but not least, this is the most off-label task I've used Cuttle for thus far: a poem. I made this as a creative coding exercise while at the [Recurse Center](https://www.recurse.com/); in the weekly creative coding session, attendees have ~1.5 hours to build something (anything, in any programming language or paradigm!) based on a prompt received at the start of the session. The week's prompt had been "Everybody has a hungry heart", and I used the session as an excuse to write and apply a very basic custom modifier in Cuttle. 
 
