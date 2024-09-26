@@ -314,3 +314,9 @@ md-block .alert-heading {
   font-weight: bold;
   margin-bottom: 1em;
 }
+
+md-block img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
