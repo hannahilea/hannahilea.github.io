@@ -10,7 +10,7 @@ One of my primary creative outlets this year has been playing with the CNC laser
 
 There is a vast and inspiring community of makers who share their laser cutter designs and knowledge online. I used some of these pre-existing projects to get comfortable with the machine, and then wanted to move on to designing my own projects---both fully from scratch and by iterating on projects I've seen someone else create. To do that, I found [Cuttle](http://cuttle.xyz).
 
-Cuttle is a web-based 2D parametric CAD tool. It is easy to learn, free unless you want to be a super-user, and most importantly, Just Works. It has a clean and usable interface (not a given with CAD!), several high-quality tutorials for getting started, and a bunch of project templates of varying degrees of complexity, which serve as both a teaching tool ("how was this piece constructed? look at the internals to figure it out!") and a starting point for customization (it is trivially easy to clone an existing project and modify it yourself). While it includes many built-in components and modifiers, it also supports custom JavaScript code. This means that it is both easy for non-programmers to use, and extensible by folks who want additional customization.
+Cuttle is a web-based 2D parametric computer-aided design (CAD) tool. It is easy to learn, has a full-featured free tier, and---most importantly---it Just Works™. It has a clean and usable interface (not a given with CAD!), several high-quality tutorials for getting started, and a bunch of project templates of varying degrees of complexity, which serve as both a teaching tool ("how was this piece constructed? look at the internals to figure it out!") and a starting point for customization (it is trivially easy to clone an existing project and modify it yourself). While it includes many built-in components and modifiers, it also supports custom JavaScript code. This means that it is both easy for non-programmers to use, and extensible by folks who want additional customization.
 
 In short, Cuttle is a powerful design system with an exceptionally shallow learning curve, a commendable set of tutorials and pre-existing templates, and an active and welcoming [community](https://cuttle.xyz/discord) in which its developers actively participate.  
 
@@ -135,7 +135,9 @@ My mom is a weaver; she asked me to make a "weaving cartoon" (i.e., a mock-up) t
 
 ![Animated image of two overlaid grids shifting to cause moire patterns](assets/pattern-moire.gif)
 
-These are fairly self-evident: I see a pattern I think is cool and I have a go at CADding it. 
+This motivation is the one I use to "let" myself procrastinate. I *could* respond to that email...or I could see how quickly I can implement a basic [moiré pattern](https://en.wikipedia.org/wiki/Moir%C3%A9_pattern). ¯\\\_(ツ)\_/¯ Before Cuttle I didn't really do this type of rapid programmatic pattern prototyping, except *maybe* by hand. Now I can, and it scratches the dual creativity itches of "constrained problem solving" followed by "open-ended exploration and search for visually interesting results". (Translation: Making pretty pictures is fun.)
+
+The approach is basic: I see a pattern I think is cool and then I have a go at CADding it. 
 
 ![Side-by-side photo of a pattern punched into brass and the same pattern rended as a CAD drawing](assets/pattern-lamp.png)
 
