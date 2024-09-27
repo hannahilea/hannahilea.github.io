@@ -1,6 +1,6 @@
 # ***Clapping Music*** for flip-discs continued: Byte and variations
 
-In response to [***Clapping Music*** for two flip-disc displays](../clapping-music-for-flip-disc-displays/), a reader [commented](https://lobste.rs/s/70ipvr/blog_clapping_music_for_two_flip_disc)
+In response to [*Clapping Music* for two flip-disc displays](../clapping-music-for-flip-disc-displays/), a reader [commented](https://lobste.rs/s/70ipvr/blog_clapping_music_for_two_flip_disc)
 
 > *I’d love to see a version played on a single board, with the two performers represented by the left and right sides of the board. It would more closely match the layout of a typical performance (two people standing side by side), and I think it would make it easier to see the phasing points.*
 
@@ -57,20 +57,20 @@ function clapping_music(; clap_a=() -> print("A"), clap_b=() -> print("B"),
     end
 end
 ```
-This fully decouples a performance of `clapping_music` from the flip-disc boards---now you can play clapping music with any two clap functions that you want![^caveat] Your "claps" could trigger the playback of a cat meow sound, or a horn honking, or trigger a light to blink. You could even send one clap command to a doorbell and another to an automated door lock, and make your house play clapping music![^caveat2] 
+This fully decouples a performance of `clapping_music` from the flip-disc boards---now you can play *Clapping Music* with any two clap functions that you want![^caveat] Your "claps" could trigger the playback of a cowbell sound or trigger a light to blink. You could even send one clap command to trigger a doorbell and another to flip an automated door lock, and make your home play clapping music![^caveat2] 
 
-The default behavior is to print a comment to the command line, which gives a lovely realtime-captioned[^caption] mashup of Clapping Music with [John Cage's *4'33'*](https://en.wikipedia.org/wiki/4%E2%80%B233%E2%80%B3):
+The default behavior is to print a comment to the command line, which gives a lovely realtime-captioned[^caption] mashup of *Clapping Music* with [John Cage's *4'33'*](https://en.wikipedia.org/wiki/4%E2%80%B233%E2%80%B3):
 
 TODO-video 
 
-Of course, a post-hoc read of that performance is even less interesting:
+A post-hoc recap of that performance is even less interesting:
 ```
 AABBABABABABABABA [...] 
 ```
 
 [^caption]: This opens up a whole awesome can of worms re: realtime audio visualization, but that's for another time! 
 
-BACK TO OUR MISSION. To recreate the original performance of the original post, we would set 
+BACK TO OUR MISSION. To recreate the performance of the original post with this new refactoring, we call 
 ```julia 
 clap_a = () -> write_to_sink(sink_dots, rand(0x00:0x7F, num_dots_to_set))
 clap_b = () -> write_to_sink(sink_digits, rand(0x00:0x7F, num_digits_to_set))
@@ -78,7 +78,8 @@ clap_b = () -> write_to_sink(sink_digits, rand(0x00:0x7F, num_digits_to_set))
 # Play it:
 clapping_music(; clap_a, clap_b)
 ```
-and setting up the newly proposed rendition is now straightforward:
+
+Setting up the newly proposed rendition is now trivially easy:
 ```julia
 board_state = zeros(UInt8, 28)
 num_cols = 10
@@ -99,9 +100,9 @@ clapping_music(; clap_a=clap_a!, clap_b=clap_b!)
 
 You'll note that in this new variant, we keep track of---and update---the full state of the board. TODO-EXPLAIN OR DON'T DO THIS IF IT ISN"T NECESSARY
 
-[^caveat]: Clapper beware: if your "clap" function is blocking (i.e., if there is a significant delay between calling `clap()` and when the function returns), this implementation won't behave as expected; the synchronicity of claps from both players happening at the same time relies on calls to `clap_a()` and `clap_b()` triggering an external clap production but then returning immediately, before the sound has a chance to happen. In the case of the flip dots displays used here, this works out fine: the clap functions send a serial command to the boards (which is fast!) and then returns without waiting for the display board to *have been* update. Because this delay happens quickly relative to both the duration of sound production and the timescale of the full piece, the two claps appear to happen simultaneously and on a beat. (There is, of course, a slight delay---but not one that matters on the timescale of the piece's BPM.)
+[^caveat]: Clapper beware: if your "clap" function is blocking (i.e., if it waits until the clap sound has been played to return to the main function call), you won't get the desired dual-clap synchronicity. The synchronicity relies on calls to `clap_a()` and `clap_b()` triggering an external clap production but then returning immediately, before the sound has a chance to happen. In the case of the flip dots displays used here, this works out fine: the clap functions send a serial command to the boards (which is fast!) and then returns without waiting for the display board to *have been* update. Because this delay happens quickly relative to both the duration of sound production and the timescale of the full piece, the two claps appear to happen simultaneously and on a beat. (There is, of course, a slight delay---but not one that matters on the timescale of the piece's BPM.)
 
-[^caveat2]: Due to the previous caveat, if you do make your "smart" home play clapping music, you'll probably have to slow the piece down A LOT to allow for the production of each clap before moving on to the next. This sounds pretty entertaining---if perhaps a great way to accidentally break your door...---and if you have a home you'd be willing to let me experiment on, let me know. :) 
+[^caveat2]: Due to the previous caveat, if you do make your "smart" home play *Clapping Music*, you'll probably have to slow the piece down A LOT to allow for the production of each clap before moving on to the next. This sounds pretty entertaining---if perhaps a great way to accidentally break your door...---and if you have a home you'd be willing to let me experiment on, let me know. :) 
 
 ## A cool whoops
 
@@ -115,7 +116,7 @@ and this is what it looks like:
 
 TODO-video. 
 
-:TODO-surprise-pikachu:
+<img style="border: none;" src="/assets/img/emojis/surprise-pikachu.png" alt="Surprise pikachu"/>
 
 What is going on?! Why does it look so cool? Why am I inadvertently counting the total number of claps that've been clapped, instead of setting a whole block of discs to random values? 
 
