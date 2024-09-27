@@ -189,6 +189,6 @@ The biggest problem with Cuttle is that it is fun. Too fun. Too easy to say "oh,
 <footnotes/>
 
 --- 
-- created: 2024-09-25
-- last updated: 2024-09-25
+- created: 2024-09-27
+- last updated: 2024-09-27
 - tags: project-writeup, cuttle, cad, programming, prototyping, javascript, creative-coding, makerspace
