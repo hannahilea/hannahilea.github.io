@@ -18,13 +18,13 @@ Also, now I'm addicted to it.
 
 ## How do I CAD thee? Let me count the ways
 
-There are several types of activity for which I've turn to Cuttle:
+There are several types of activity for which I've turned to Cuttle:
 
 - **Creation of physical laser-cutter objects.** This is the most straight-forward situation, and why I started using Cuttle in the first place: I have a set of shapes that I need to be able to cut with the laser cutter, in service of building a physical object. I build them in Cuttle, export them as SVG files, and then import and print them from the laser cutter.
 
-    Examples (to be described shortly!): [decorative bookends](#bookends), [a doorbell chime cover](#a-cover-for-a-set-of-doorbell-chimes), and assorted [calibration tools](#a-handful-of-calibration-tools).
+    Examples (illustrated in the following section): [decorative bookends](#bookends), [a doorbell chime cover](#a-cover-for-a-set-of-doorbell-chimes), and assorted [calibration tools](#a-handful-of-calibration-tools).
 
-- **Exploration of arbitrary patterns/shapes/concepts.** This situation is a natural result of Cuttle being fun to play with. When I see an interesting shape or pattern, I now think "hrm, how might I construct that?" and then I give it a try. Notably, instead of hard-coding specific dimensions or qualities of the item (number of sides, number of repeats, sizes of angles, etc), I attempt to parameterize them in different ways: instead of making a 6-sized shape, I'll make an `n`-sided shape and set `n` as a Cuttle variable. Then, once I have successfully completed the original item, I can play with those parameters to see what other interesting shapes or designs fall out. (In case it doesn't go without saying, there is no one way to parameterize a design! Therein lies the creativity.)
+- **Exploration of arbitrary patterns/shapes/concepts.** This situation is a natural result of Cuttle being fun to play with. When I see an interesting shape or pattern, I now think "hrm, how might I construct that?" and then I give it a try. Notably, instead of hard-coding specific dimensions or qualities of the item (number of sides, number of repeats, sizes of angles, etc), I attempt to parameterize them in different ways: instead of making a 6-sized shape, I'll make an `n`-sided shape and set `n` as a Cuttle variable. Then, once I have successfully completed the original item, I can play with those parameters to see what other interesting shapes or designs fall out. (In case it doesn't go without saying, there is no one way to parameterize a design! Therein lies the ~madness~ creativity.)
 
     Examples: [assorted pattern studies](#pattern-studies), [poem](#a-poem).
 
@@ -88,7 +88,7 @@ This was a project I've wanted to do for a long time: automatically generate and
 
 ![Screencapture of a CAD drawing of a long rectangular shape with holes cut out.](assets/music-design.png)
 
-These music box rolls are an example of using Cuttle to prototype: rather than building out an end-to-end MIDI-to-SVG pipeline (`midi2svg`!), I instead converted MIDI to note index coordinates in an external Julia script, and then plugged the output coordinates of that script into a Cuttle template. This allowed me to spend my development time easily tweaking print parameters (hole spacing, metadata engraving, roll pagination, etc) with immediate visual feedback. When I turn it into an end-to-end system in the future, I won't include Cuttle in the pipeline, and I knew that from the start, but it still made the development process easier and faster for me than I would have been without it.
+These music box rolls are an example of using Cuttle to prototype: rather than building out an end-to-end MIDI-to-SVG pipeline (`midi2svg`!), I instead converted MIDI to note index coordinates in an external Julia script, and then plugged the output coordinates of that script into a Cuttle template. This allowed me to spend my development time easily tweaking print parameters (hole spacing, metadata engraving, roll pagination, etc) with immediate visual feedback. When I turn it into an end-to-end system in the future, I won't include Cuttle in the pipeline, and I knew that from the start, but it still made the development process easier and faster for me than it would have been otherwise.
 
 <p style="text-align:center">***</p>
 
@@ -98,7 +98,7 @@ These music box rolls are an example of using Cuttle to prototype: rather than b
 
 ![Photo of a rainbox-painted flat rectangle with parallel cut lines in it that are displaying cards](assets/yoto.png)
 
-My young niblings have a [Yoto](https://us.yotoplay.com/yoto-mini) player, along with a collection of various story and music cards; I made this card holder for them so that they could see their entire library at a glance.[^remember] (A Yoto player is a small portable music box for kids; specific playlists are triggered by inserting a corresponding card.) While I CADed this myself, I modeled it off of card holders I saw elsewhere on the internet, parameterized to be customizable to the number of cards in a collection. 
+My young niblings have a [Yoto](https://us.yotoplay.com/yoto-mini) player, along with a collection of various story and music cards; I made this card holder for them so that they could see their entire library at a glance.[^remember] (A Yoto player is a small portable music box for kids; specific playlists are triggered by inserting a corresponding card.) While I CADed this myself, I modeled it off of card holders I saw elsewhere on the internet, and made it customizable for the number of cards in a collection. 
 
 The aspect of this project that I was most excited about was the color: I cut the piece from Glowforge Draftboard---a medium-density fiberboard material---and then painted it with watercolor paint (!) and sealed it. 
 
@@ -124,8 +124,7 @@ Most of these were in support of some other project, either public or non, for l
 
 ![Animated image of a wall photo with a rectangular overlay that is being scaled in size and composition](assets/cartoon.gif)
 
-My mom is a weaver; she asked me to make a "weaving cartoon" (i.e., a mock-up) to see how this nifty doormat might look if scaled up, in service of potentially weaving a site-specific piece. (What she requested was a very basic hacky photoshop collage...instead I had some fun in Cuttle. Overkill!)
-
+My mom is a weaver; she asked me to make a "weaving cartoon" (i.e., a mock-up) in service of potentially weaving a site-specific piece. (What she requested was a very basic hacky photoshop collage...instead I had some fun in Cuttle. Overkill!)
 
 <p style="text-align:center">***</p>
 
@@ -135,7 +134,7 @@ My mom is a weaver; she asked me to make a "weaving cartoon" (i.e., a mock-up) t
 
 ![Animated image of two overlaid grids shifting to cause moire patterns](assets/pattern-moire.gif)
 
-This motivation is the one I use to "let" myself procrastinate. I *could* respond to that email...or I could see how quickly I can implement a basic [moiré pattern](https://en.wikipedia.org/wiki/Moir%C3%A9_pattern). ¯\\\_(ツ)\_/¯ Before Cuttle I didn't really do this type of rapid programmatic pattern prototyping, except *maybe* by hand. Now I can, and it scratches the dual creativity itches of "constrained problem solving" followed by "open-ended exploration and search for visually interesting results". (Translation: Making pretty pictures is fun.)
+Pattern studies are how I "let" myself procrastinate these days. I *could* respond to that email...or I could see how quickly I can implement a basic [moiré pattern](https://en.wikipedia.org/wiki/Moir%C3%A9_pattern). ¯\\\_(ツ)\_/¯  I didn't previously do this type of pattern playing, except *maybe* via the occasional doodle. Now I do it regularly, and it scratches the dual creativity itches of "constrained problem solving" followed by "open-ended exploration and search for visually interesting results". (Translation: Making pretty pictures is fun.)
 
 The approach is basic: I see a pattern I think is cool and then I have a go at CADding it. 
 
