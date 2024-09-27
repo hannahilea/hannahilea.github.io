@@ -129,6 +129,16 @@ md-block a {
   color:#03163f;
 }
 
+md-block a.internal-anchor {
+  text-decoration: none;
+}
+
+md-block p > a.internal-anchor {
+  text-decoration: none;
+  font-weight: bold;
+  font-style: italic;
+}
+
 .navbar {
   color:#03163f;
   font-family: "Jura Regular";
@@ -290,4 +300,24 @@ img.home-img {
   flex: 1 1 auto;
   display: flex;
   border:1px dashed black;
+}
+
+md-block .alert {
+  border: none;
+  border-left: 2mm solid rgb(255, 230, 0);
+  padding-left: .5em;
+  flex: 0 1 auto;
+  margin-bottom: 2em;
+}
+
+md-block .alert-heading {
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+md-block img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #03163f;
 }
