@@ -1,4 +1,4 @@
-# ***Clapping Music*** for flip-discs continued: Bytes and variations
+# ***Clapping Music*** for flip-discs continued: Byte and variations
 
 In response to [***Clapping Music*** for two flip-disc displays](../clapping-music-for-flip-disc-displays/), a reader [commented](https://lobste.rs/s/70ipvr/blog_clapping_music_for_two_flip_disc)
 
@@ -117,23 +117,37 @@ TODO-video.
 
 :TODO-surprise-pikachu:
 
-What is going on?! Why does it look so cool? Why am I inadvertantly counting the total number of claps that've been clapped, instead of setting a whole block of discs to random values? 
+What is going on?! Why does it look so cool? Why am I inadvertently counting the total number of claps that've been clapped, instead of setting a whole block of discs to random values? 
 
 Even though solving this for the originally intended clap patterns was straight-forward, the reason for these something something ones is cool, and illustrates the underlying organization of the serial command.
 
-### A flip-disc byte 
+### What does a byte look like on a flip-disc display? 
 
-In these displays, one byte of data corresponds to one column of flip-disc board. The board 
-
-[TODO-drawing of diagram]
+In these displays, one byte of data corresponds to one column of flip-disc board (see how each column contains 8 discs? BOOM, a byte!). Let's send the values 1 through 64, one at a time, and see what happens:
 
 [TODO-gif of flipdigits counting up with number counts if possible]
 
+Cool, look familiar? If you have ever done any math or programming, you'll likely notice that we're counting in binary. For the fun of it, here is the equivalent counting-in-binary with fingers:
+
+TODO-gif-finger-counting
+
+There are 28 columns in this board, and therefore to fill in the first dot for each row in the board, we need to send 28 bytes with value 1:
+
+[TODO-do it]
+
 The scheme is identical on the flip-digits display, except that one byte maps to one character. It's harder to see the pattern here, as the individual segments that get flipped aren't in a neat column, but it exists. As in the disc board, byte value 0 maps to all 
 
-[TODO-gif of flipdigits counting up]
+[TODO-gif of flipdigits counting up THEN all set to 1]
 
-One other implimentation fact is relevnat here: something something send whole message at once 
+One other implementation fact is relevant here: something something we must send bytes up to and including the last column we want to set---we can't just target a middle column and leave its preceding columns untouched.^[help] We don't, however, have to update all columns on the board---any remaining columns are left in their previous update state, regardless of whether that was on or off (white or black, flipped or unflipped). 
+
+This means that we have to be strategic about where our given claps are drawn on the board. One approach is to keep track of board state outside of the clapping, capture that state in each of the clap functions, and let the clap update its own subset of discs and then redraw the full world. This is the approach I used at first.
+
+Because I wanted each of my claps to own their own contiguous span of columns, I could avoid keeping track of state and instead make sure to always assign the the right-most set of columns to the clap_a function, such that when clap_b is called it doesn't overwrite clap_a's columns. This is the approach I use now. It's a nice approach, but won't be sufficient when the next person invariable proposes the board be divided up like a chess board, with clap_a given the black squares and clap_b given the white.[^dare]
+
+[^dare]: Go on, I dare you.
+
+[^help]: At least, this is my understanding of the spec from having read it ages ago; if you know otherwise, do speak up.
 
 ### Theme and variations
 
