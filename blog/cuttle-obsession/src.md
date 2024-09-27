@@ -2,11 +2,13 @@
 
 One of my primary creative outlets this year has been playing with the CNC laser cutter[^cutters] at my library's makerspace. It is the first CNC ("computer numerical control", i.e., computer-programmable) shop tool I've gotten comfortable and fluent with: while I've worked informally with plenty of *manual* shop tools for wood and metal, I've never previously bridged that programming/shop divide.[^attempt] Unsurprisingly, it is SO. MUCH. FUN.
 
+![Side-by-side photo of decorated bookend faceplates with their original CAD rendering](assets/bookends-design.png)
+
 [^cutters]: Technically my makerspace has two laser cutters, an [Epilog Zing](https://www.epiloglaser.com/laser-machines/legacy-systems/zing-16-24/) and a [Glowforge](https://glowforge.com/); while I've trained to use both, I prefer the Zing. I'll save the reasoning---and my Zing workflow---for a future write-up. Both are great, though, for different reasons. 
 
 [^attempt]: I had one aborted attempt many years ago, where I got trained to use a very large (and very cool!) CNC laser cutter for working with sheet metal. Lack of materials, lack of transport for acquiring materials, and lack of initiative for solving either issue proved prohibitive, so I never ended up making anything with it. Now that I feel comfortable with this desktop-sized CNC machine, I feel a lot more empowered (not to mention motivated!) to try the large-format version.
 
-There is a vast and inspiring community of makers in this space, who share their project designs and knowledge  online. I used some of their pre-existing projects to get comfortable with the machine, and then wanted to move on to designing my own projects---whether from scratch or by iterating on a project I've seen someone else create. And to do that, I use [Cuttle](http://cuttle.xyz).
+There is a vast and inspiring community of makers who share their laser cutter designs and knowledge online. I used some of these pre-existing projects to get comfortable with the machine, and then wanted to move on to designing my own projects---both fully from scratch and by iterating on projects I've seen someone else create. To do that, I found [Cuttle](http://cuttle.xyz).
 
 Cuttle is a web-based 2D parametric CAD tool. It is easy to learn, free unless you want to be a super-user, and most importantly, Just Works. It has a clean and usable interface (not a given with CAD!), several high-quality tutorials for getting started, and a bunch of project templates of varying degrees of complexity, which serve as both a teaching tool ("how was this piece constructed? look at the internals to figure it out!") and a starting point for customization (it is trivially easy to clone an existing project and modify it yourself). While it includes many built-in components and modifiers, it also supports custom JavaScript code. This means that it is both easy for non-programmers to use, and extensible by folks who want additional customization.
 
@@ -16,19 +18,17 @@ Also, now I'm addicted to it.
 
 ## How do I CAD thee? Let me count the ways
 
-There are several types of activity for which I turn to Cuttle:
+There are several types of activity for which I've turn to Cuttle:
 
-- **Creation of physical laser-cutter objects.** This is the most straight-forward motivation, and why I started using Cuttle in the first place: I have a set of shapes that I need to be able to cut with the laser cutter, in service of building a physical object. I build them in Cuttle, export them as SVG files, and then import and print them from the laser cutter.
+- **Creation of physical laser-cutter objects.** This is the most straight-forward situation, and why I started using Cuttle in the first place: I have a set of shapes that I need to be able to cut with the laser cutter, in service of building a physical object. I build them in Cuttle, export them as SVG files, and then import and print them from the laser cutter.
 
     Examples (to be described shortly!): [decorative bookends](#bookends), [a doorbell chime cover](#a-cover-for-a-set-of-doorbell-chimes), and assorted [calibration tools](#a-handful-of-calibration-tools).
 
-- **Exploration of arbitrary patterns/shapes/concepts.** This motivation is a natural result of Cuttle being fun to play with. When I see an interesting shape or pattern, I now think "hrm, how might I construct that?" and then I give it a try. Notably, instead of hard-coding specific dimensions or qualities of the item (number of sides, number of repeats, sizes of angles, etc), I attempt to parameterize them in different ways: instead of making a 6-sized shape, I'll make an `n`-sided shape and set `n` as a Cuttle variable. Then, once I have successfully completed the original item, I can play with those parameters to see what other interesting shapes or designs fall out. (In case it doesn't go without saying, there is no one way to parameterize a design! That is one of the creative joys/frustrations.)
-    
-    This motivation is the one I use to "let" myself procrastinate. I *could* respond to that email...or I could see how quickly I can implement a basic [Moiré pattern](https://en.wikipedia.org/wiki/Moir%C3%A9_pattern). ¯\\\_(ツ)\_/¯ Before Cuttle I didn't really do this type of rapid programmatic pattern prototyping, except *maybe* by hand. Now I can, and it scratches the dual creativity itches of "constrained problem solving" followed by "open-ended exploration and search for visually interesting results". (Translation: Making pretty pictures is fun.)
+- **Exploration of arbitrary patterns/shapes/concepts.** This situation is a natural result of Cuttle being fun to play with. When I see an interesting shape or pattern, I now think "hrm, how might I construct that?" and then I give it a try. Notably, instead of hard-coding specific dimensions or qualities of the item (number of sides, number of repeats, sizes of angles, etc), I attempt to parameterize them in different ways: instead of making a 6-sized shape, I'll make an `n`-sided shape and set `n` as a Cuttle variable. Then, once I have successfully completed the original item, I can play with those parameters to see what other interesting shapes or designs fall out. (In case it doesn't go without saying, there is no one way to parameterize a design! Therein lies the creativity.)
 
     Examples: [assorted pattern studies](#pattern-studies), [poem](#a-poem).
 
-- **Prototyping.** This was an unexpected Cuttle use-case for me, and came about because I had tasks I needed to accomplish at a point in time where I was actively using Cuttle. For these types of projects, instead of defaulting to other more-familiar-to-me programming paradigms/languages/environments, I used Cuttle as a first-pass "try it out and see what works" approach.
+- **Non-CAD prototyping.** These situations have come about because when I am having fun in CAD software, every problem looks like it can be solved with CAD. Instead of defaulting to other more familiar-to-me programming paradigms/languages/environments when working on these projects, I used Cuttle for the prototype stage. 
 
     Examples: [music box punch cards](#punch-cards-for-music-boxes), [weaving cartoon](#weaving-cartoon), [parallax animation](#animating-parallax).
 
@@ -52,15 +52,17 @@ Second, I'm pleased with the specific book icon I designed. The book icon is par
 
 ![Animated image of a line drawing of an open book, with the line dimensions shifting and the book opening](assets/book-icon.gif)
 
-You can see that the bookends each play with that design in a different way---note that the number of pages change for each successive icon row. which I then changed the values of iteratively in different ways for each design:
+You can see that the bookends each play with that design in a different way---note the changing number of pages for the left design, and the degrees of openness of each book on the right.
 
-![Side-by-side photo of decorated bookend faceplates with their original CAD rendering](assets/bookends-design.png)
+![Side-by-side photo of decorated bookend faceplates with their original CAD rendering](assets/bookends-cad.png)
+
+<p style="text-align:center">***</p>
 
 ### Doorbell chime cover
 
 *Play with this project [here](https://cuttle.xyz/@hannahilea/Doorbell-box-q6JyrDmh1bNq)!*
 
-![Photo and zoomed in photo of a decorated wood box hanging on a wall with doorbell chimes sticking out the bottom](./assets/doorbell.png)
+![Photo and zoomed in photo of a decorated wood box hanging on a wall with doorbell chimes sticking out the bottom](./assets/chimes.jpg)
 
 I designed this decorative doorbell cover for my parents, to replace an original doorbell chime cover that they didn't like. I started from a basic [Cuttle box template](https://cuttle.xyz/@cuttle/Open-Box-with-Finger-Joints-D2ugGEvYUNfd), and then added a design to the sides, a decorated front plate, and a cutout on the bottom for the chimes. 
 
@@ -74,6 +76,8 @@ I also had to cut a bunch of test pieces to see how thin I could get the lines o
 
 ![A set of decorative strips cut in different widths](assets/chime-test.jpg)
 
+<p style="text-align:center">***</p>
+
 ### Punch cards for music boxes!
 
 *Play with this project [here](https://cuttle.xyz/@hannahilea/Music-box-punchcards-iTT4lnLVNL5f)!*
@@ -86,6 +90,7 @@ This was a project I've wanted to do for a long time: automatically generate and
 
 These music box rolls are an example of using Cuttle to prototype: rather than building out an end-to-end MIDI-to-SVG pipeline (`midi2svg`!), I instead converted MIDI to note index coordinates in an external Julia script, and then plugged the output coordinates of that script into a Cuttle template. This allowed me to spend my development time easily tweaking print parameters (hole spacing, metadata engraving, roll pagination, etc) with immediate visual feedback. When I turn it into an end-to-end system in the future, I won't include Cuttle in the pipeline, and I knew that from the start, but it still made the development process easier and faster for me than I would have been without it.
 
+<p style="text-align:center">***</p>
 
 ### Card display for a truck-loving kid
 
@@ -95,11 +100,13 @@ These music box rolls are an example of using Cuttle to prototype: rather than b
 
 My young niblings have a [Yoto](https://us.yotoplay.com/yoto-mini) player, along with a collection of various story and music cards; I made this card holder for them so that they could see their entire library at a glance.[^remember] (A Yoto player is a small portable music box for kids; specific playlists are triggered by inserting a corresponding card.) While I CADed this myself, I modeled it off of card holders I saw elsewhere on the internet, parameterized to be customizable to the number of cards in a collection. 
 
-The aspect of this project that I was most excited about was the color: I cut the piece from Glowforge Draftboard---a medium-density fiberboard material---and then painted it with watercolor paint (!) (and then sealed it). 
+The aspect of this project that I was most excited about was the color: I cut the piece from Glowforge Draftboard---a medium-density fiberboard material---and then painted it with watercolor paint (!) and sealed it. 
 
 The aspect of this project that the recipient was most excited about was that the truck design was one that he specifically likes to color in during quiet time, when printed at a slightly larger scale.
 
 [^remember]: "...and remember that music other than *Helper Cars* exists," I thought, to no avail! 
+
+<p style="text-align:center">***</p>
 
 ### A handful of calibration tools
 
@@ -108,6 +115,8 @@ The aspect of this project that the recipient was most excited about was that th
 ![Photos of small boards with holes of various sizes cut out](assets/calibrators.png)
 
 Most of these were in support of some other project, either public or non, for learning how to appropriately tune the laser cutter across different materials. You can see the ones where I thought I was engraving words but was actually cutting all the way through the material (whoops!), and also the ones where I scrawled on them to be able to later map back to various print settings.
+
+<p style="text-align:center">***</p>
 
 ### Weaving cartoon
 
@@ -118,21 +127,27 @@ Most of these were in support of some other project, either public or non, for l
 My mom is a weaver; she asked me to make a "weaving cartoon" (i.e., a mock-up) to see how this nifty doormat might look if scaled up, in service of potentially weaving a site-specific piece. (What she requested was a very basic hacky photoshop collage...instead I had some fun in Cuttle. Overkill!)
 
 
+<p style="text-align:center">***</p>
+
 ### Pattern studies
 
 *Play with these projects [here](https://cuttle.xyz/@hannahilea)!*
 
-![Side-by-side photo of a pattern punched into brass and the same pattern rended as a CAD drawing](assets/pattern-lamp.jpg)
-
-These are fairly self-evident: I see a pattern I think is cool and I have a go at CADding it and then playing with the result. Once you start thinking in CAD components, it is very hard to stop---but it does make the world more interesting at large! Hard to be bored if you can instead be thinking through how you'd replicate the design of the wallpaper/that building across the street/etc.
-
 ![Animated image of two overlaid grids shifting to cause moire patterns](assets/pattern-moire.gif)
 
-I was sick for a week mid-summer[^guess], and for a while there I was both too low-energy to do much of anything---but I had the energy for low-effort pattern CADding, so sketched up some [kumiko](https://en.wikipedia.org/wiki/Kumiko_(woodworking)) patterns I'd come across and felt inspired by.
+These are fairly self-evident: I see a pattern I think is cool and I have a go at CADding it. 
+
+![Side-by-side photo of a pattern punched into brass and the same pattern rended as a CAD drawing](assets/pattern-lamp.png)
+
+Once you start thinking in CAD components, it is very hard to stop---but it does make the world more interesting at large! Hard to be bored if you can instead be thinking through how you'd replicate the design of the wallpaper/that building across the street/the figure you saw in a scientific paper/etc.
+
+![Side-by-side figure with multiple repeating patterns and those same patterns reproduced in CAD](assets/pattern-domokos.png)
+
+I was sick for a week mid-summer,[^guess] and while I was both low-energy and going stir-crazy, I ended up sketching up some [kumiko](https://en.wikipedia.org/wiki/Kumiko_(woodworking)) patterns to keep myself amused:
 
 ![Side-by-side photo of a zoomed in wooden kumiko pattern and the same pattern rended as a CAD drawing](assets/pattern-kumiko.png)
 
-After the initial pattern replication, I love seeing the additional patterns that fall out of it. For example, here's a close-up of one of the kumiko patterns:
+After the initial pattern recreation, I love seeing the additional patterns that fall out of tweaking various angles and ratios. For example, here's a close-up of one of the kumiko patterns:
 
 ![Side-by-side photo of a zoomed in wooden kumiko pattern and the same pattern rended as a CAD drawing](assets/pattern-kumiko1.png)
 
@@ -146,14 +161,17 @@ And an alternate set of variations:
 [^guess]: I'll give you one guess what with... 
 
 
+<p style="text-align:center">***</p>
+
 ### Animating parallax
 
 *Play with this project [here](https://cuttle.xyz/@hannahilea/Prototype-Parallax-animation-M6sxlTXsZYTz)!*
 
 ![Animated image of a cartoon figure with mountains and trees moving in the background, implying forward motion by the character](assets/parallax.gif)
 
-I wanted to test out basic animation of parallax, to see if I could use Cuttle to accomplish generating a set of images to use for a flip book-type application. And, as you see here, I can! Onward to sketches that didn't take 3 minutes total draw...
+I wanted to test out a basic animation with parallax, in service of a future flip book-type application. It worked! Onward to images that take longer than 3 minutes to draw...
 
+<p style="text-align:center">***</p>
 
 ### A poem!
 
@@ -161,26 +179,23 @@ I wanted to test out basic animation of parallax, to see if I could use Cuttle t
 
 ![Animated image of a stack of roughly human-shaped outlines containing heart outlines, with the outlines becoming progressively more jumbled](assets/hungry-bodies.gif)
 
-Last but not least, this is the most off-label task I've used Cuttle for thus far: a poem. I made this as a creative coding exercise while at the [Recurse Center](https://www.recurse.com/); in the weekly creative coding session, attendees have ~1.5 hours to build something (anything, in any programming language or paradigm!) based on a prompt received at the start of the session. The week's prompt had been "Everybody has a hungry heart", and I used the session as an excuse to write and apply a very basic custom modifier in Cuttle. 
+Last but not least, the most off-label task I've used Cuttle for thus far: a poem. I made this as a creative coding exercise while at the [Recurse Center](https://www.recurse.com/). During the weekly creative coding session, attendees have ~1.5 hours to build something based on a prompt received at the start of the session (anything, in any programming language or paradigm!). The week's prompt had been "Everybody has a hungry heart," so I approached it by way of a very basic custom modifier in Cuttle. 
 
-I'm actually really pleased with how this turned out, and it makes me want to do more interactive poem-type pieces in the future. I encourage you to make your own Cuttle poem---it doesn't have to be fancy! If you do, please share it with me.[^discord] 
+I'm actually really pleased with how this one turned out, and it makes me want to do more interactive poem-type pieces in the future. I encourage you to make your own Cuttle poem---it doesn't have to be fancy! If you do, please share it with me.[^discord] 
 
 [^discord]: You can find me over in the [Cuttle Discord server](https://cuttle.xyz/discord), at the handle `@hannahilea` (naturally!).
 
+<p style="text-align:center">***</p>
 
-## Discussion
+## Wrap-up
 
-As you can see, I've been having fun! The amount of time it takes to make any of these depends strongly on the complexity of the pattern, my familiarity with the various tools at the point I made the pattern, and how much time I've spent ahead of time thinking about how I might accomplish a task. Some of the projects here took days (the music box rolls, the doorbell chime box, etc) while others were much faster. The moiré pattern took ~15 minutes, if that.
+And that's all that's worth sharing for now! The amount of time it took to make any of these depended strongly on the complexity of the pattern, my familiarity with the various tools at the point I made it, and how much time I spent strategizing ahead of time. Some of the projects here took days (the music box rolls, the doorbell chime box, etc) while others were much faster. The moiré pattern took ~15 minutes, if that.
 
-Cuttle isn't without flaws---but also, it is relatively new software, and is under active and responsive development. The development team is supportive and friendly, and makes themselves available to troubleshoot, ideate, and provide bug fixes. So far I've been able to design around any limitations[^limitations] I've hit, and the only feature I actively want that doesn't yet exist (import/export serialization, to support use with a code version control system[^vc]!) isn't a blocker for anything I've wanted to build thus far.
+Cuttle isn't without flaws---but also, it is relatively new software, and is under active and responsive development. So far I've been able to design around any limitations I've encountered.[^limitations] The biggest problem with Cuttle is that it is fun. Too fun. Too easy to say "oh, let me just try one more thing..." and then come up for air to find that it is 1am. 🙃
 
-The biggest problem with Cuttle is that it is fun. Too fun. Too easy to say "oh, let me just try one more thing..." and then come up for air to find that it is 1am. 🙃
+[^limitations]: Sometimes large numbers of objects (or modifiers that I'm asking to do A Lot™) cause my browser to choke. Is that truly the fault of the software? I suspect that it's more that my approach to a given design needs rethinking, and I need to simplify it. So far I haven't run into anything so problematic that I've needed to ask for assistance, as it has been fast enough to redesign the offending part in an alternate way. Until further notice, let's assume that this browser choking is a me-issue and not a fundamental limitation of the software.
 
-[^limitations]: Sometimes large numbers of objects (or modifiers that I'm asking to do A Lot™) cause my browser to choke. Is that truly the fault of the software? I suspect that it's more that my approach to a given design needs rethinking, and I need to simplify it. So far I haven't run into anything so problematic that I've needed to ask for assistance, as it has been fast enough to redesign the offending part in an alternate way. Until further notice, let's assume that this browser choking is a me-issue and not a fundamental limitation of the software!
-
-[^vc]: In any engineering paradigm, in order to comfortably shift my tool use from "hobbyist/casual" to "reliable infrastructure," I need to be able to save state locally via version control. Project serialization would facilitate the use of external version control systems (i.e., git) through import/export would serve this need. That said, as I don't (currently? 😅) use Cuttle in a professional software engineer setting, this is not a blocking concern for me! It seems like the bulk of the current usership approaches Cuttle from a maker perspective rather than a "software engineer hell bent on total reproducibility" perspective, anyway, so I suspect I'm an outlier in wanting this feature in the first place.
-
-***Thanks to the folks at the [The Hive](https://www.cambridgema.gov/Departments/cambridgepubliclibrary/Locations/mainlibrary/thehive), the Cambridge Public Library's makerspace, for their laser cutter trainings and assistance!.***
+***A gallery of all my Cuttle work can be found [here](https://cuttle.xyz/@hannahilea). Thanks to the folks at the [The Hive](https://www.cambridgema.gov/Departments/cambridgepubliclibrary/Locations/mainlibrary/thehive), the Cambridge Public Library's makerspace, for their laser cutter trainings and assistance. Thanks to the team at Cuttle for building such an awesome tool.***
 
 
 ---
