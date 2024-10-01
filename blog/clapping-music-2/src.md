@@ -72,8 +72,8 @@ AABBABABABABABABA [...]
 
 BACK TO OUR MISSION. To recreate the performance of the original post with this new refactoring, we call 
 ```julia 
-clap_a = () -> write_to_sink(sink_dots, rand(0x00:0x7F, num_dots_to_set))
-clap_b = () -> write_to_sink(sink_digits, rand(0x00:0x7F, num_digits_to_set))
+clap_a = () -> write_to_sink(sink_dots, rand(0x00:0x7F, 28))
+clap_b = () -> write_to_sink(sink_digits, rand(0x00:0x7F, 2))
 
 # Play it:
 clapping_music(; clap_a, clap_b)
@@ -122,7 +122,7 @@ What is going on?! Why does it look so cool? Why am I inadvertently counting the
 
 Even though solving this for the originally intended clap patterns was straight-forward, the reason for these something something ones is cool, and illustrates the underlying organization of the serial command.
 
-### What does a byte look like on a flip-disc display? 
+## What does a byte look like on this flip-disc display? 
 
 In these displays, one byte of data corresponds to one column of flip-disc board (see how each column contains 8 discs? BOOM, a byte!). Let's send the values 1 through 64, one at a time, and see what happens:
 

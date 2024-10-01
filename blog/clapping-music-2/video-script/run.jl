@@ -3,9 +3,40 @@
 
 using FlipBoard
 shared_srl = open_srl_iff_available(; portname="/dev/ttyS0", baudrate=57600)
-dots_sink = AZDotsSink(; address=0x00, serial_port=shared_srl)
-digits_sink = AZDigitsSink(; address=0x01, serial_port=shared_srl)
-both_boards_sink = all_alphazeta_sink(shared_srl)
+sink_dots = AZDotsSink(; address=0x00, serial_port=shared_srl)
+sink_digits = AZDigitsSink(; address=0x01, serial_port=shared_srl)
+sink_both = all_alphazeta_sink(shared_srl)
+
+# 0. Recreate original version 
+clap_a = () -> write_to_sink(sink_dots, rand(0x00:0x7F, 28))
+clap_b = () -> write_to_sink(sink_digits, rand(0x00:0x7F, 2))
+clapping_music(; clap_a, clap_b)
+
+# 1. New full clapping music 
+FlipBoard.all_dark(sink_both)
+
+function rand_bytes_offset(count_zeros, count_bytes)
+    return vcat(zeros(UInt8, count_zeros), rand(0x00:0x7F, count_bytes))
+end
+
+clap_a = () -> write_to_sink(sink_dots, rand_bytes_offset(14, 4))
+clap_b = () -> write_to_sink(sink_dots, rand_bytes_offset(10, 4))
+clapping_music(; clap_a, clap_b)
+
+
+ma
+
+#...abridged:
+clapping_music(; clap_a=clap_a!, clap_b=clap_b!, num_repeats=2)
+
+# ...full:
+clapping_music(; clap_a, clap_b, num_repeats)
+
+
+
+
+
+
 
 # Let's look at byte---i.e., a column of the board---and watch it count up in bits:
 for x in 0x00:0x7F
@@ -55,27 +86,6 @@ end
 
 # OKAY. Let's play some claping music.
 # clapping_music(; clap_a, clap_b, num_repeats=2)
-
-# 1. New full clapping music 
-FlipBoard.all_dark(sink_dots)
-board_state = zeros(UInt8, 28)
-num_cols = 10
-
-function clap_a!()
-    board_state[1:num_cols] = board_state[1:num_cols] .+ rand(0x00:0x7F, num_cols)
-    return write_to_sink(sink, board_state)
-end
-
-function clap_b!()
-    board_state[(end - num_cols + 1):end] = board_state[(end - num_cols + 1):end] .+ rand(0x00:0x7F, num_cols)
-    return write_to_sink(sink, board_state)
-end
-
-#...abridged:
-clapping_music(; clap_a=clap_a!, clap_b=clap_b!, num_repeats=2)
-
-# ...full:
-clapping_music(; clap_a, clap_b, num_repeats)
 
 # "THE LITTLEST CLAPPING HANDS" ...okay, didn't do what i expected BUT was okay!
 FlipBoard.all_dark(sink_dots)
