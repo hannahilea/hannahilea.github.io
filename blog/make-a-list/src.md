@@ -1,6 +1,12 @@
-# First things first: Make a list
+---
+title: "First things first: Make a list"
+tags: [musings, devtips, DDD]
+created: 2024-09-21
+updated: 2024-09-21
+---
 
 To-do list:
+
 - [x] Make a list
 - [x] Intro/define
 - [x] Cite Chuck
@@ -10,6 +16,7 @@ To-do list:
 - [ ] Remove this to-do list from top of post
 
 ---
+
 I am a big fan of Making A List, whether on paper or digitally.[^skill] 
 
 As taught to me by [Chuck](https://futurestatesband.ca/)[^chuck], **the most important thing about a to-do list is that the first item on it is "Make a list"**. Then, when you've finished adding tasks to your list, you can check it off immediately. Bam, [dopamine](../driven-developments/). Happy day, you're already partly done with your list! Look at you, so much progress already!
@@ -26,9 +33,3 @@ I've also found that adding a punch list to a [Github PR template](https://docs.
 ---
 ### Footnotes
 
-<footnotes/>
-
---- 
-- created: 2024-09-21
-- last updated: 2024-09-21
-- tags: musings, devtips, DDD 
