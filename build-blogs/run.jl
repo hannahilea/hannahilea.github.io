@@ -19,6 +19,7 @@ function convert_to_html(file, outfile; template=blog_template, overwrite_existi
     str = read(outfile, String)
     str = tweak_html!!(str)
     write(outfile, str)
+
     return nothing
 end
 
@@ -33,6 +34,11 @@ function tweak_html!!(text)
     # text = replace(text, " href=\"." =>  " class=\"local\" href=\".");
 	text = replace(text, " href=\"https://github.com/hannahilea" =>" class=\"local\" href=\"https://github.com/hannahilea");
 
+    # Add footnotes heading (this is SO GROSS and we're doing 
+    # it anyway)
+    fnote_predecessor = "role=\"doc-endnotes\">\n    <hr />"
+    fnote_heading = """\n<h3 id="footnotes-title">Footnotes</h3>"""
+    text = replace(text, fnote_predecessor => fnote_predecessor * fnote_heading)
     return text
 end
 
