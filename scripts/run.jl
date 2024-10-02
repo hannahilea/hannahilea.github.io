@@ -1,19 +1,15 @@
-mdDir = "."
-overwrite_existing = true
-
-# For md file in mdDir 
-# TODO - do it!
+# TODO-dependencies
 
 blog_dir = joinpath( @__DIR__, "..", "blog")
-blog_template = joinpath(blog_dir, "__template", "template.html")
+blog_template = joinpath(blog_dir, "__template", "index.html.template")
 
-function convert_to_html(file, outfile; template=blog_template, overwrite_existing=true) #TODO: set overwrite default
+function convert_to_html(file, outfile; template=blog_template, overwrite_existing=false)
     if !overwrite_existing && isfile(outfile)
         @warn "Output file already exists; not overwriting: $outfile"
         return nothing
     end
     cmd = pipeline(`pandoc --standalone --template $template $file -o $outfile`)
-    @info "About to run pandoc" cmd
+    @debug "About to run pandoc" cmd
     run(pipeline(cmd))
 
     # For now, do a very brittle tuning of properties!
@@ -24,15 +20,35 @@ function convert_to_html(file, outfile; template=blog_template, overwrite_existi
     return nothing
 end
 
-function tweak_html!!(str)
+function tweak_html!!(text)
     # Checkboxes are default enabled---disable them (https://github.com/jgm/pandoc/issues/8562)
-    str = replace(str, " type=\"checkbox\"" => " disabled type=\"checkbox\"")
-    return str
+    text = replace(text, " type=\"checkbox\"" => " disabled type=\"checkbox\"")
+    
+    # TODO: add intental anchors?!?!? to headings
+    # text = text.replace(/\shref="#/g, ' class="internal-anchor" href="#');
+
+    # Add specialized classes to links 
+    # text = replace(text, " href=\"." =>  " class=\"local\" href=\".");
+	text = replace(text, " href=\"https://github.com/hannahilea" =>" class=\"local\" href=\"https://github.com/hannahilea");
+
+    return text
 end
 
-filepath = joinpath(blog_dir, "make-a-list", "src.md")
-outfile = replace(filepath, "src.md" => "orig.html")
-convert_to_html(filepath, outfile)
+function generate_all_blogposts(; overwrite_existing=true)
+    for dir in readdir(blog_dir; join=true)
+        isfile(dir) && continue
+        isequal(joinpath(blog_dir, "__template"), dir) && continue
+        
+        md_file = joinpath(dir, "src.md")
+        if !isfile(md_file)
+            @warn "Expected blog source file not found: `$(md_file)`; skipping"
+            continue
+        end
+        @info "Converting $(basename(dirname(md_file)))..."
+        html_outfile = joinpath(dir, "index.html")
+        convert_to_html(md_file, html_outfile; overwrite_existing)
+    end
+    return nothing
+end
 
-
-# Update from-markdown retroactively
+generate_all_blogposts(; overwrite_existing=true)

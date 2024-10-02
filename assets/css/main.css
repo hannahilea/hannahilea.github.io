@@ -123,16 +123,16 @@ img {
   align-self: center;
 }
 
+a.impersonal,
+.blog a {
+  color:#03163f;
+}
+
 a,
 a.local {
   color: #0843c3;
   text-decoration: underline dotted;
   text-underline-offset: 3px;
-}
-
-a.impersonal,
-.blog a {
-  color:#03163f;
 }
 
 .blog a.internal-anchor {

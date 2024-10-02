@@ -1,13 +1,8 @@
-# {{ BLOG_TITLE }}
+---
+title: "{{ BLOG_TITLE }}"
+tags: [TODO]
+created: {{ DATE }}
+updated: {{ DATE }}
+---
 
 TODO: Contents! They will go here.
-
----
-### Footnotes
-
-<footnotes/>
-
---- 
-- created: {{ DATE }}
-- last updated: {{ DATE }}
-- tags: 
