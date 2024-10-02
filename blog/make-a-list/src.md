@@ -29,7 +29,3 @@ I've also found that adding a punch list to a [Github PR template](https://docs.
 [^skill]: This is a different skill than the skill of completing tasks, mind...
 
 [^chuck]: One of the most valuable things I learned in grad school!
-
----
-### Footnotes
-
