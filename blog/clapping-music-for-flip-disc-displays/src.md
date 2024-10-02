@@ -1,4 +1,10 @@
-# ***Clapping Music*** for two flip-disc displays
+---
+title: "***Clapping Music*** for two flip-disc displays"
+rawtitle: "Clapping Music for two flip-disc displays"
+tags: [project-writeup, electromechanical-display, raspberry-pi, music, programming, hardware, software, julia]
+created: 2024-09-14
+updated: 2024-09-14
+---
 
 I present unto you: Steve Reich's ***Clapping Music***, as performed by a pair of flip-disc displays:
 
@@ -117,13 +123,3 @@ Yet to be determined! If you have fun ideas to try---or additional electromechan
 ***The full code for this display---including set-up instructions---is available [on GitHub](https://github.com/hannahilea/FlipDotsPi). Thanks to AF for filming the examples here, and to Cosmo for putting up with us being annoying while she was trying to sleep.***
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Un1VF6QwQ7E?si=TEJnxtiWZ5pBCiUU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
----
-### Footnotes
-
-<footnotes/>
-
---- 
-- created: 2024-09-14
-- last updated: 2024-09-14
-- tags: project-writeup, electromechanical-display, raspberry-pi, music, programming, hardware, software, julia

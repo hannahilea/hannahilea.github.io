@@ -276,8 +276,7 @@ img.home-img {
   margin-bottom: 1.6em;
 }
 
-.language-, 
-.language-julia {
+pre {
   background: #eeeff1;
   border: 2px solid #ddd;
   page-break-inside: avoid;
@@ -288,25 +287,6 @@ img.home-img {
   overflow: auto;
   padding: 1em 1.5em;
 } 
-
-.js-fallback-container {
-  display: flex;
-  flex-flow: column;
-  height: 100vh;
-}
-
-.js-fallback-container .js-fallback-desc {
-  border: none;
-  border-left: 4mm ridge rgb(255, 230, 0);
-  flex: 0 1 auto;
-  margin-bottom: 2em;
-}
-
-.js-fallback {
-  flex: 1 1 auto;
-  display: flex;
-  border:1px dashed black;
-}
 
 .blog .alert {
   border: none;

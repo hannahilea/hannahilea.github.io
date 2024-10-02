@@ -1,11 +1,18 @@
-# Titles of blog posts I might never write
+---
+title: "Titles of blog posts I might never write"
+tags: [brainstorm, metawriting]
+created: 2024-09-18
+updated: 2024-09-24
+---
 
 ...but maybe I will! 
 
 My tech writing these days follows DDD (Dopamine-Driven Development), which means that if you tell me what you want to read from me, I will be that much more likely to write it.
 
 Without further ado, some things I could write *right now[^footnote1]*:
+
 ### Project write-ups[^footnote2] and tutorials
+
 - *Musidex* | What I wanted was a Craigslist jukebox; what I got was a Rolodex. (Closing line: *I still want a Craigslist jukebox.*)
 - ~*Obsessed with [Cuttle](https://cuttle.xyz/): Parametric CAD for prototyping, producing, and procrastinating*~ [EDIT 9/27/24: [Written](../cuttle-obsession/)!]
 - *Making mixtapes for your youngest pals* | Do you want to enable the song addictions of the small children in your life, to set them on a path towards music obsession, while potentially annoying the heck out of their parents? Of course you do! (This post is not sponsored by [Yoto](https://us.yotoplay.com/collections/library), but could be, should they choose... 👀)
@@ -40,13 +47,3 @@ Right. Now that I've gotten this current list out of my head, maybe I'll be able
 [^footnote3]: These already exist in slide form from my batch at RC, so :just: need to be edited appropriately.
 
 [^footnote4]: Why yes, the [Bechdel test](https://en.wikipedia.org/wiki/Bechdel_test) does play an oversized role in my consciousness, why do you ask? As does [Bechdel herself](https://en.wikipedia.org/wiki/Alison_Bechdel) and [the musical incarnation of her memoir](https://www.youtube.com/watch?v=-Qlagsg5LT8).
-
----
-### Footnotes
-
-<footnotes/>
-
---- 
-- created: 2024-09-18
-- last updated: 2024-09-24
-- tags: brainstorm, metawriting

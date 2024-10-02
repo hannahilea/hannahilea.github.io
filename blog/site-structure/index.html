@@ -5,22 +5,13 @@
   <link rel="shortcut icon" type="image/png" href="../../assets/img/favicon.png" />
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>This website’s structure: a meta post</title>
+  <title>This website’s structure: A meta post</title>
   <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
   <script type="module" src="../../assets/scripts/md-block.js"></script>
-  <style type="text/css">
-    img {
-      width: auto;
-      height: auto;
-      vertical-align: top;
-    }
-
-  </style>
-
 </head>
 
 <body>
-  <div class="main-container">
+  <div class="main-container blog">
     <nav class="blog-navbar" role="navigation">
       @hannahilea:
       <a href="../.." class="nav-link">home</a> |
@@ -28,14 +19,155 @@
       <a href=".." class="nav-link">blog</a> |
       <a href="mailto:hannah.ilea.robertson+site@gmail.com" class="nav-link">contact</a>
     </nav>
-    <md-block src="./src.md" hlinks>
-      <noscript>
-        <div class="js-fallback-container">
-          <iframe class="js-fallback-desc" src="../js-fallback-description.html"></iframe>
-          <iframe class="js-fallback" src="./src.md"></iframe>
-        </div>
-      </noscript>
-    </md-block>
+    <h1>This website’s structure: A meta post</h1>
+    <p>While doing a batch at the <a
+    href="https://www.recurse.com">Recurse Center</a>, I revived my
+    personal website—the very site you are almost certainly looking at
+    Right Now!</p>
+    <p><img style="border:none;" src="/assets/img/emojis/surprise-pikachu.png"
+        alt="surprise-pikachu" /></p>
+    <h2 id="motivation">Motivation</h2>
+    <p>I had two goals for this site at the outset:</p>
+    <ol type="1">
+    <li><strong>Be trivially easy to set up</strong>, so that my focus
+    could be on “building new stuff” rather than “building, styling, and
+    maintaining a website” and</li>
+    <li><strong>Be trivially easy to update</strong>, so that I can
+    reduce the friction of sharing projects and (in theory!) get out of
+    my own way to actually share them.</li>
+    </ol>
+    <p>In service of 1, I was hoping to avoid using templating engines,
+    but was prepared to use one if it was the fastest way to achieve my
+    two goals. (My limited experience with templating engines in the
+    past has been a bit frustrating, in that I spend more time trying to
+    understand and work within/around their confines than I spend
+    working on the content of said site.)</p>
+    <p>I asked a bunch of questions of my Recurse batchmates, and got a
+    lot of good advice from folks with web expertise (have I mentioned
+    that I do not have web expertise? I myself do not have web
+    expertise!), and was gratified that their advice boiled down to
+    “just do it in vanilla html/js”, plus some pointers to reading
+    material/examples/etc. So that’s what I did!</p>
+    <p>Now that I’ve been working with it and adding projects to it for
+    a few months, the structure seems static enough to be worth sharing.
+    If you are a person who, like me, has cursory web experience and
+    similar goals for website creation, perhaps this documentation will
+    help you set up your own site.</p>
+    <h2 id="structure">Structure</h2>
+    <p>The structure is pretty basic:</p>
+    <pre><code>.
+├── README.md
+├── add_stuff.jl
+├── blog
+│   ├── __template
+│   ├── index.html
+│   ├── &lt;blog-1&gt;
+│   ├── ...
+│   └── &lt;blog-n&gt;
+├── index.html
+└── projects
+    ├── __template
+    ├── index.html
+    ├── &lt;project-1&gt;
+    ├── ...
+    └── &lt;project-n&gt;</code></pre>
+    <p>There are also some top-level style folders that I’ve excluded
+    here, as they will likely be reshuffled at some point. (Want to see
+    the full source? You’re <a
+    class="local" href="https://github.com/hannahilea/hannahilea.github.io/">in
+    luck</a>.)</p>
+    <h3 id="blog-subdirectories">Blog subdirectories</h3>
+    <p>The structure of each blog subdirectory
+    <code>&lt;blog-n&gt;</code> is</p>
+    <pre><code>.
+├── index.html
+└── src.md</code></pre>
+    <p><code>src.md</code> contains the full content of a blogpost,
+    written in markdown. <code>index.html</code> is identical across
+    blog posts and contains no specialized content; it exists simply to
+    contain the results of converting <code>src.md</code> to html, which
+    is performed with the <a
+    href="https://md-block.verou.me/"><code>md-block.js</code></a>
+    library.</p>
+    <p>Why this approach? Writing markdown feels much more natural to me
+    than writing html, and even though I have to include the same
+    boilerplate html file in every blog post directory, it is mentally
+    cheaper than switching the whole site over to a templating engine
+    that generates the whole site from a set of markdown files. (It is
+    also cheaper than writing my own markdown-to-html converter, however
+    tempting that was…)</p>
+    <h3 id="project-subdirectories">Project subdirectories</h3>
+    <p>The structure of each project subdirectory
+    <code>&lt;project-n&gt;</code> depends on the type of project, as
+    many projects are not hosted directly on the site at all: some link
+    out to external repositories or sites, etc.</p>
+    <p>That said, for a common type of project that I’ve been building
+    lately, namely, self-contained creative coding sketches, the
+    structure looks like:</p>
+    <pre><code>.
+├── index.html
+└── sketch.js</code></pre>
+    <p>where the index contains no little specialized content except a
+    description of the project, and the content of the sketch lives in
+    <code>sketch.js</code>.</p>
+    <p>This structure has made it trivially easy to transfer javascript
+    sketches to this site from sandbox environments like the <a
+    href="https://editor.p5js.org/"><code>p5.js</code></a> editor.</p>
+    <h2 id="site-hosting-and-deployment">Site hosting and
+    deployment</h2>
+    <p>I build, host, and deploy the site using <a
+    href="https://pages.github.com/">GitHub Pages</a>. Thanks, GitHub!
+    You can look at the <a
+    class="local" href="https://github.com/hannahilea/hannahilea.github.io/blob/main/.github/workflows/static.yml">GitHub
+    Action</a> I use to deploy, but there is nothing custom or personal
+    about it.</p>
+    <h2 id="adding-new-content">Adding new content</h2>
+    <p>You might be thinking, well, if the blog and project
+    subdirectories all have similar structures, it would probably be
+    easy to auto-setup new blog posts and/or projects. And you would be
+    correct! (That was, in fact, one of the reasons I did it this way.
+    :))</p>
+    <p>The top-level <a
+    class="local" href="https://github.com/hannahilea/hannahilea.github.io/blob/main/add_stuff.jl"><code>add_stuff.jl</code></a>
+    file is a commandline Julia script that (1) generates a new
+    subdirectory, based on files in the corresponding
+    <code>__template</code> subdirectory; (2) adds it to the relevant
+    list in the corresponding project/blog index.html; and (3) (in the
+    case of blogs) adds it to the rss feed. (Okay, this last item isn’t
+    actually implemented yet, but it will be shortly.)</p>
+    <p>Setting up the script and templates was relatively easy, and has
+    made adding new content to the site downright delightful. (“Delight”
+    may be a strong word, but the less overhead and wordsmithing I have
+    to deal with in order to post content to my site, the more likely
+    that said content will get posted at all…)</p>
+    <p>Why is the script in Julia? Because I like Julia, and I find it
+    easy to read/write.</p>
+    <h2 id="thats-all-folks">That’s all, folks!</h2>
+    <p>The structure of this site has evolved slightly since I first set
+    it up, and may evolve further, but for now I’m in a state where both
+    goals (trivially easy to set up, trivially easy to update) are met,
+    as evinced by the fact that I have fairly consistently added <a
+    href="../../projects">projects</a> to the site as I’ve built them!
+    🎉 Will this site structure work out longer-term? Time will tell!
+    But at least it exists (!) publicly (!!) right now (!!!).</p>
+    <p>As I borrowed (with permission!) when first assembling this site,
+    please feel free to borrow from me. It doesn’t seem worthwhile to
+    turn the whole site into a template itself (yet?!), but I could be
+    convinced otherwise if you reach out to let me know that you’re
+    interested.</p>
+    <p>And finally if you, erstwhile reader, are a Web Person™ who
+    thinks I’ve made an egregious error in approach or wants to propose
+    some additional tweaks/improvements, do let me know!</p>
+    <p><strong><em>Thanks to <a href="https://teresaibarra.com">Teresa
+    Ibarra</a>, whose site (and assistance!) I used as an initial
+    starting point.</em></strong></p>
+
+    <hr>
+    <ul>
+      <li>created: 2024-05-17</li>
+      <li>last updated: 2024-05-17</li>
+      <li>tags: project-writeup, webdev, programming, metawriting</li>
+    </ul>
   </div>
 </body>
 

@@ -8,7 +8,7 @@ function convert_to_html(file, outfile; template=blog_template, overwrite_existi
         @warn "Output file already exists; not overwriting: $outfile"
         return nothing
     end
-    cmd = pipeline(`pandoc --standalone --template $template $file -o $outfile`)
+    cmd = pipeline(`pandoc --template $template $file -o $outfile`)
     @debug "About to run pandoc" cmd
     run(pipeline(cmd))
 
@@ -38,6 +38,7 @@ function generate_all_blogposts(; overwrite_existing=true)
     for dir in readdir(blog_dir; join=true)
         isfile(dir) && continue
         isequal(joinpath(blog_dir, "__template"), dir) && continue
+        contains(dir, "site-structure") || continue
         
         md_file = joinpath(dir, "src.md")
         if !isfile(md_file)
@@ -47,6 +48,8 @@ function generate_all_blogposts(; overwrite_existing=true)
         @info "Converting $(basename(dirname(md_file)))..."
         html_outfile = joinpath(dir, "index.html")
         convert_to_html(md_file, html_outfile; overwrite_existing)
+    
+        break # TODO: remove
     end
     return nothing
 end
