@@ -4,6 +4,7 @@ rawtitle: "Clapping Music for two flip-disc displays"
 tags: [project-writeup, electromechanical-display, raspberry-pi, music, programming, hardware, software, julia]
 created: 2024-09-14
 updated: 2024-09-14
+header: "<script async src=\"https://www.instagram.com/embed.js\"/>"
 ---
 
 I present unto you: Steve Reich's ***Clapping Music***, as performed by a pair of flip-disc displays:
