@@ -46,7 +46,7 @@ function generate_all_blogposts(; overwrite_existing=true)
     for dir in readdir(blog_dir; join=true)
         isfile(dir) && continue
         isequal(joinpath(blog_dir, "__template"), dir) && continue
-        # contains(dir, "site-structure") || continue
+        contains(dir, "cuttle") || continue
         
         md_file = joinpath(dir, "src.md")
         if !isfile(md_file)

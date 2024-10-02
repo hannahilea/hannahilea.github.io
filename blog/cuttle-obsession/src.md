@@ -27,7 +27,7 @@ There are several types of activity for which I've turned to Cuttle:
 
 - **Creation of physical laser-cutter objects.** This is the most straight-forward situation, and why I started using Cuttle in the first place: I have a set of shapes that I need to be able to cut with the laser cutter, in service of building a physical object. I build them in Cuttle, export them as SVG files, and then import and print them from the laser cutter.
 
-    Examples (illustrated in the following section): [decorative bookends](#bookends), [a doorbell chime cover](#a-cover-for-a-set-of-doorbell-chimes), and assorted [calibration tools](#a-handful-of-calibration-tools).
+    Examples (illustrated in the following section): [decorative bookends](#bookends), [a doorbell chime cover](#doorbell-chime-cover), and assorted [calibration tools](#a-handful-of-calibration-tools).
 
 - **Exploration of arbitrary patterns/shapes/concepts.** This situation is a natural result of Cuttle being fun to play with. When I see an interesting shape or pattern, I now think "hrm, how might I construct that?" and then I give it a try. Notably, instead of hard-coding specific dimensions or qualities of the item (number of sides, number of repeats, sizes of angles, etc), I attempt to parameterize them in different ways: instead of making a 6-sized shape, I'll make an `n`-sided shape and set `n` as a Cuttle variable. Then, once I have successfully completed the original item, I can play with those parameters to see what other interesting shapes or designs fall out. (In case it doesn't go without saying, there is no one way to parameterize a design! Therein lies the ~madness~ creativity.)
 
