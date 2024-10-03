@@ -123,12 +123,12 @@ img {
   align-self: center;
 }
 
-a.impersonal,
-.blog a {
+a {
   color:#03163f;
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
 }
 
-a,
 a[href^="."],
 a[href^="https://github.com/hannahilea"] {
   color: #0843c3;
@@ -136,7 +136,7 @@ a[href^="https://github.com/hannahilea"] {
   text-underline-offset: 3px;
 }
 
-.blog [href^="#"]:not(.footnote-back, .footnote-ref){
+[href^="#"]:not(.footnote-back, .footnote-ref){
   text-decoration: none;
   font-weight: bold;
   font-style: italic;
