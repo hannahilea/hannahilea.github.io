@@ -80,7 +80,7 @@ body {
   font-weight: bolder;
 }
 
-md-block {
+.blog {
   line-height: 150%;
 }
 
@@ -93,28 +93,39 @@ h2, h3 {
   margin-bottom: 3px;
 }
 
-md-block > h1 {
+.blog > h1 {
   line-height: 1.2em;
 }
 
-.footnote-ref, .footnote {
-  text-decoration: underline;
-  text-underline-offset: 1px;
+a.footnote-ref {
+  text-decoration: none;
 }
 
-.footnotes {
-	font-size: 80%;
-}
-
-sup {
+a > sup {
   vertical-align: baseline;
   position: relative;
   top: -0.4em;
+  text-decoration: underline;
+  text-underline-offset: .1em;
+}
+
+a.footnote-back {
+  text-decoration: underline;
+  text-underline-offset: .1em;
+}
+
+.footnotes > ol {
+  font-size: smaller;
 }
 
 img {
   max-width: 400px;
   align-self: center;
+}
+
+a.impersonal,
+.blog a {
+  color:#03163f;
 }
 
 a,
@@ -124,16 +135,7 @@ a.local {
   text-underline-offset: 3px;
 }
 
-a.impersonal,
-md-block a {
-  color:#03163f;
-}
-
-md-block a.internal-anchor {
-  text-decoration: none;
-}
-
-md-block p > a.internal-anchor {
+.blog [href^="#"]:not(.footnote-back, .footnote-ref){
   text-decoration: none;
   font-weight: bold;
   font-style: italic;
@@ -270,8 +272,7 @@ img.home-img {
   margin-bottom: 1.6em;
 }
 
-.language-, 
-.language-julia {
+pre {
   background: #eeeff1;
   border: 2px solid #ddd;
   page-break-inside: avoid;
@@ -283,26 +284,7 @@ img.home-img {
   padding: 1em 1.5em;
 } 
 
-.js-fallback-container {
-  display: flex;
-  flex-flow: column;
-  height: 100vh;
-}
-
-.js-fallback-container .js-fallback-desc {
-  border: none;
-  border-left: 4mm ridge rgb(255, 230, 0);
-  flex: 0 1 auto;
-  margin-bottom: 2em;
-}
-
-.js-fallback {
-  flex: 1 1 auto;
-  display: flex;
-  border:1px dashed black;
-}
-
-md-block .alert {
+.blog .alert {
   border: none;
   border-left: 2mm solid rgb(255, 230, 0);
   padding-left: .5em;
@@ -310,12 +292,12 @@ md-block .alert {
   margin-bottom: 2em;
 }
 
-md-block .alert-heading {
+.blog .alert-heading {
   font-weight: bold;
   margin-bottom: 1em;
 }
 
-md-block img {
+.blog img {
   display: block;
   margin-left: auto;
   margin-right: auto;

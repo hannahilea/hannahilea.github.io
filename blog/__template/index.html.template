@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="shortcut icon" type="image/png" href="../../assets/img/favicon.png" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>$if(rawtitle)$$rawtitle$$else$$title$$endif$</title>
+  <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
+  $header$
+</head>
+
+<body>
+  <div class="main-container blog">
+    <nav class="blog-navbar" role="navigation">
+      @hannahilea:
+      <a class="nav-link" href="../.." >home</a> |
+      <a class="nav-link" href="../../projects">projects</a> |
+      <a class="nav-link" href="..">blog</a> |
+      <a class="nav-link" href="mailto:hannah.ilea.robertson+site@gmail.com">contact</a>
+    </nav>
+    <h1>$title$</h1>
+$body$
+    <hr>
+    <ul>
+      <li>created: $created$</li>
+      <li>last updated: $updated$</li>
+      <li>tags: $for(tags)$$tags$$sep$, $endfor$</li>
+    </ul>
+  </div>
+</body>
+
+</html>
