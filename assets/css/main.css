@@ -114,7 +114,7 @@ a.footnote-back {
   text-underline-offset: .1em;
 }
 
-.footnotes {
+.footnotes > ol {
   font-size: smaller;
 }
 

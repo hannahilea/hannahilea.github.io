@@ -29,7 +29,7 @@ function tweak_html!!(text)
 
     # We style links differently if they're internal to our site. Handle that here! 
 	text = replace(text, "href=\"https://github.com/hannahilea" =>"class=\"local\" href=\"https://github.com/hannahilea")
-    text = replace(text, "<a href=." =>  "<a class=\"local\" href=.")
+    text = replace(text, "<a href=\"." =>  "<a class=\"local\" href=\".")
     
     # Sometimes there's a line break, and i haven't found an html formatter yet...
     text = replace(text, "<a\nhref=\"." =>  "<a class=\"local\" href=\".") 
@@ -38,6 +38,11 @@ function tweak_html!!(text)
     fnote_predecessor = "role=\"doc-endnotes\">\n<hr />"
     fnote_heading = """\n<h3 id="footnotes-title">Footnotes</h3>"""
     text = replace(text, fnote_predecessor => fnote_predecessor * fnote_heading)
+
+    # Make headers into links 
+
+
+    
     return text
 end
 

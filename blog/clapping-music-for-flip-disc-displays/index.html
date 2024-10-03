@@ -242,12 +242,15 @@ role="doc-noteref"><sup>1</sup></a></p>
 with only minimal intervention (i.e., manual restarts after the power
 goes off.<a href="#fn2" class="footnote-ref" id="fnref2"
 role="doc-noteref"><sup>2</sup></a> It makes me so happy! Two unexpected
-benefits: 1. My internal mapping of temperature (Farenheit) to garments
-of clothing I should put on before going outside? MUCH better. 2.
-Passive awareness of clock time, as the
+benefits:</p>
+<ol type="1">
+<li>My internal mapping of temperature (Farenheit) to garments of
+clothing I should put on before going outside? MUCH better.</li>
+<li>Passive awareness of clock time, as the
 <strong><em>shickshick</em></strong> update on the hour/half hour is a
 nice reminder that I need to jump into that meeting/head out to the
-bus/consider going to bed.</p>
+bus/consider going to bed.</li>
+</ol>
 <h2 id="the-source-of-that-mysterious-ticking-noise">The source of that
 mysterious ticking noise</h2>
 <p>One of my favorite things about electromechanical displays is how
@@ -305,22 +308,27 @@ class="sourceCode julia"><code class="sourceCode julia"><span id="cb1-1"><a href
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        i_pattern_shift <span class="op">+=</span> <span class="fl">1</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
-<p>The included parameters are: - <code>pause</code>: Adjusts the
-playback speed - <code>clap_pattern</code>, <code>num_repeats</code>,
+<p>The included parameters are:</p>
+<ul>
+<li><code>pause</code>: Adjusts the playback speed</li>
+<li><code>clap_pattern</code>, <code>num_repeats</code>,
 <code>num_shifts</code>: While the default composition is Reich’s, the
 same approach can be used to play any other pattern with any other shift
 approach. I thought it could be fun to play with these! (Also, sometimes
-one wants to demo the piece without playing through the whole thing…) -
-<code>num_dots_to_set</code>, <code>num_digit_segments_to_set</code>:
-The relative volume difference between a single disc flipping on each of
-the two boards was noticeable enough that, if the same number of discs
-were flipped per “clap” on each board, the digits board drowned out the
-dots board. I therefore cut down the number of flip-digit segments
-toggled until the boards “clapped” at roughly the same volume. Due to
-randomness in discs flipped, this is actually the maximum number of
-discs flipped per clap (e.g., all “on” to all “off”), but in practice
-the variation is mild enough that it sounds good enough, and I don’t
-need to keep track of and adjust the previous state.</p>
+one wants to demo the piece without playing through the whole
+thing…)</li>
+<li><code>num_dots_to_set</code>,
+<code>num_digit_segments_to_set</code>: The relative volume difference
+between a single disc flipping on each of the two boards was noticeable
+enough that, if the same number of discs were flipped per “clap” on each
+board, the digits board drowned out the dots board. I therefore cut down
+the number of flip-digit segments toggled until the boards “clapped” at
+roughly the same volume. Due to randomness in discs flipped, this is
+actually the maximum number of discs flipped per clap (e.g., all “on” to
+all “off”), but in practice the variation is mild enough that it sounds
+good enough, and I don’t need to keep track of and adjust the previous
+state.</li>
+</ul>
 <p>The resultant performance sounds pretty cool:</p>
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/VPkU-Za2RbQ?si=5VK44GdHQVeRcWa9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
 </iframe>

@@ -23,7 +23,8 @@ As a result, my partner gifted me a pair of [AlphaZeta](https://flipdots.com/en/
 
 <p align="center"><img src="assets/weather.jpg" alt="Static image of two flip-disc displays, one reading '71 + sun icon', the other reading '6 sep friday'"></p>
 
-Our display has been running for nearly three years at this point, with only minimal intervention (i.e., manual restarts after the power goes off.[^footnote2] It makes me so happy! Two unexpected benefits: 
+Our display has been running for nearly three years at this point, with only minimal intervention (i.e., manual restarts after the power goes off.[^footnote2] It makes me so happy! Two unexpected benefits:
+
 1. My internal mapping of temperature (Farenheit) to garments of clothing I should put on before going outside? MUCH better. 
 2. Passive awareness of clock time, as the ***shickshick*** update on the hour/half hour is a nice reminder that I need to jump into that meeting/head out to the bus/consider going to bed.
 
@@ -73,6 +74,7 @@ end
 ```
 
 The included parameters are:
+
 - `pause`: Adjusts the playback speed
 - `clap_pattern`, `num_repeats`, `num_shifts`: While the default composition is Reich's, the same approach can be used to play any other pattern with any other shift approach. I thought it could be fun to play with these! (Also, sometimes one wants to demo the piece without playing through the whole thing...)
 - `num_dots_to_set`, `num_digit_segments_to_set`: The relative volume difference between a single disc flipping on each of the two boards was noticeable enough that, if the same number of discs were flipped per "clap" on each board, the digits board drowned out the dots board. I therefore cut down the number of flip-digit segments toggled until the boards "clapped" at roughly the same volume. Due to randomness in discs flipped, this is actually the maximum number of discs flipped per clap (e.g., all "on" to all "off"), but in practice the variation is mild enough that it sounds good enough, and I don't need to keep track of and adjust the previous state.
