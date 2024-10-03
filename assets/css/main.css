@@ -129,7 +129,8 @@ a.impersonal,
 }
 
 a,
-a.local {
+a[href^="."],
+a[href^="https://github.com/hannahilea"] {
   color: #0843c3;
   text-decoration: underline dotted;
   text-underline-offset: 3px;

@@ -27,20 +27,13 @@ function tweak_html!!(text)
     # Checkboxes are default enabled---disable them (https://github.com/jgm/pandoc/issues/8562)
     text = replace(text, " type=\"checkbox\"" => " disabled type=\"checkbox\"")
 
-    # We style links differently if they're internal to our site. Handle that here! 
-	text = replace(text, "href=\"https://github.com/hannahilea" =>"class=\"local\" href=\"https://github.com/hannahilea")
-    text = replace(text, "<a href=\"." =>  "<a class=\"local\" href=\".")
-    
-    # Sometimes there's a line break, and i haven't found an html formatter yet...
-    text = replace(text, "<a\nhref=\"." =>  "<a class=\"local\" href=\".") 
-
     # Add footnotes heading (this is SO GROSS and we're doing it anyway)
     fnote_predecessor = "role=\"doc-endnotes\">\n<hr />"
     fnote_heading = """\n<h3 id="footnotes-title">Footnotes</h3>"""
     text = replace(text, fnote_predecessor => fnote_predecessor * fnote_heading)
 
     # Strip out image captions 
-    # This is...a truly gross approach. ¯\_(ツ)_/¯
+    # This is...a truly hacky approach. ¯\_(ツ)_/¯
     in_caption = false
     str_start = "<figcaption aria-hidden=\"true\">" 
     str_stop = "</figcaption>"
