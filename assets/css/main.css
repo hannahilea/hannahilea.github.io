@@ -135,11 +135,7 @@ a.local {
   text-underline-offset: 3px;
 }
 
-.blog a.internal-anchor {
-  text-decoration: none;
-}
-
-.blog p > a.internal-anchor {
+.blog [href^="#"]:not(.footnote-back, .footnote-ref){
   text-decoration: none;
   font-weight: bold;
   font-style: italic;
