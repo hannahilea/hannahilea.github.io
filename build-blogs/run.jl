@@ -39,11 +39,35 @@ function tweak_html!!(text)
     fnote_heading = """\n<h3 id="footnotes-title">Footnotes</h3>"""
     text = replace(text, fnote_predecessor => fnote_predecessor * fnote_heading)
 
-    # Make headers into links 
+    # Strip out image captions 
+    # This is...a truly gross approach. ¯\_(ツ)_/¯
+    in_caption = false
+    str_start = "<figcaption aria-hidden=\"true\">" 
+    str_stop = "</figcaption>"
+    lines = map(split(text, "\n")) do line 
+        # Making some real assumptions that there'll never be multiple of these in one line
+        # ...but if there are, we'll see it in git, so it'll still be okay
 
+        # Single line contains both start and stop
+        if !in_caption && contains(line, str_start) && contains(line, str_stop)
+            line = split(line, str_start; limit=2)[1] 
+            return split(line, str_stop; limit=2)[end] 
+        end
 
-    
-    return text
+        # Multiline caption
+        if in_caption && contains(line, str_stop)
+            in_caption = false
+            return split(line, str_stop; limit=2)[end]
+        end
+        in_caption && return missing
+        if contains(line, str_start)
+            in_caption = true 
+            line = split(line, str_start; limit=2)[1]
+        end 
+        return line 
+    end
+    lines = filter(!ismissing, lines)
+    return join(lines, "\n")
 end
 
 function generate_all_blogposts(; overwrite_existing=true)
