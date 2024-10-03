@@ -72,7 +72,7 @@ function generate_all_blogposts(; overwrite_existing=true)
     for dir in readdir(blog_dir; join=true)
         isfile(dir) && continue
         isequal(joinpath(blog_dir, "__template"), dir) && continue
-        # contains(dir, "list") || continue
+        contains(dir, "list") || continue
 
         md_file = joinpath(dir, "src.md")
         if !isfile(md_file)
@@ -82,6 +82,9 @@ function generate_all_blogposts(; overwrite_existing=true)
         @info "Converting $(basename(dirname(md_file)))..."
         html_outfile = joinpath(dir, "index.html")
         convert_to_html(md_file, html_outfile; overwrite_existing)
+
+        @info "...and formatting it"
+        run(`prettier $(html_outfile) --write --print-width 140`)
     end
     return nothing
 end
