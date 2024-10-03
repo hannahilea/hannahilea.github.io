@@ -81,6 +81,7 @@ body {
 }
 
 .blog {
+.blog {
   line-height: 150%;
 }
 
@@ -94,9 +95,15 @@ h2, h3 {
 }
 
 .blog > h1 {
+.blog > h1 {
   line-height: 1.2em;
 }
 
+a.footnote-ref {
+  text-decoration: none;
+}
+
+a > sup {
 a.footnote-ref {
   text-decoration: none;
 }
@@ -116,6 +123,17 @@ a.footnote-back {
 
 .footnotes > ol {
   font-size: smaller;
+  text-decoration: underline;
+  text-underline-offset: .1em;
+}
+
+a.footnote-back {
+  text-decoration: underline;
+  text-underline-offset: .1em;
+}
+
+.footnotes > ol {
+  font-size: smaller;
 }
 
 img {
@@ -123,19 +141,20 @@ img {
   align-self: center;
 }
 
-a.impersonal,
-.blog a {
+a {
   color:#03163f;
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
 }
 
-a,
-a.local {
+a[href^="."],
+a[href^="https://github.com/hannahilea"] {
   color: #0843c3;
   text-decoration: underline dotted;
   text-underline-offset: 3px;
 }
 
-.blog [href^="#"]:not(.footnote-back, .footnote-ref){
+[href^="#"]:not(.footnote-back, .footnote-ref){
   text-decoration: none;
   font-weight: bold;
   font-style: italic;
@@ -144,12 +163,6 @@ a.local {
 .navbar {
   color:#03163f;
   font-family: "Jura Regular";
-}
-
-.warning {
-  color: rgb(236, 117, 66);
-  font-family: "Jura Bold";
-  margin-bottom: 2em;
 }
 
 .badge {
@@ -273,6 +286,7 @@ img.home-img {
 }
 
 pre {
+pre {
   background: #eeeff1;
   border: 2px solid #ddd;
   page-break-inside: avoid;
@@ -284,19 +298,21 @@ pre {
   padding: 1em 1.5em;
 } 
 
-.blog .alert {
+.alert {
   border: none;
   border-left: 2mm solid rgb(255, 230, 0);
   padding-left: .5em;
   flex: 0 1 auto;
   margin-bottom: 2em;
+  font-size: smaller;
 }
 
-.blog .alert-heading {
+.alert-heading {
   font-weight: bold;
-  margin-bottom: 1em;
+  font-family: "Jura Bold";
 }
 
+.blog img {
 .blog img {
   display: block;
   margin-left: auto;
