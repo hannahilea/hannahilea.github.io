@@ -14,14 +14,13 @@
   <div class="main-container blog">
     <nav class="blog-navbar" role="navigation">
       @hannahilea:
-      <a href="../.." class="nav-link">home</a> |
-      <a href="../../projects" class="nav-link">projects</a> |
-      <a href=".." class="nav-link">blog</a> |
-      <a href="mailto:hannah.ilea.robertson+site@gmail.com" class="nav-link">contact</a>
+      <a class="nav-link" href="../.." >home</a> |
+      <a class="nav-link" href="../../projects">projects</a> |
+      <a class="nav-link" href="..">blog</a> |
+      <a class="nav-link" href="mailto:hannah.ilea.robertson+site@gmail.com">contact</a>
     </nav>
     <h1>$title$</h1>
-    $body$
-
+$body$
     <hr>
     <ul>
       <li>created: $created$</li>
