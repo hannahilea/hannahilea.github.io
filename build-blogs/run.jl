@@ -23,8 +23,6 @@ function convert_to_html(file,
     str = tweak_html!!(str)
     write(outfile, str)
 
-    # Format it...
-
     return nothing
 end
 
