@@ -147,12 +147,6 @@ a[href^="https://github.com/hannahilea"] {
   font-family: "Jura Regular";
 }
 
-.warning {
-  color: rgb(236, 117, 66);
-  font-family: "Jura Bold";
-  margin-bottom: 2em;
-}
-
 .badge {
   height: 20%;
   width: auto;
@@ -285,17 +279,18 @@ pre {
   padding: 1em 1.5em;
 } 
 
-.blog .alert {
+.alert {
   border: none;
   border-left: 2mm solid rgb(255, 230, 0);
   padding-left: .5em;
   flex: 0 1 auto;
   margin-bottom: 2em;
+  font-size: smaller;
 }
 
-.blog .alert-heading {
+.alert-heading {
   font-weight: bold;
-  margin-bottom: 1em;
+  font-family: "Jura Bold";
 }
 
 .blog img {
