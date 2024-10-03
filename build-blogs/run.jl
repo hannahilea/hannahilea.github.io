@@ -26,12 +26,14 @@ end
 function tweak_html!!(text)
     # Checkboxes are default enabled---disable them (https://github.com/jgm/pandoc/issues/8562)
     text = replace(text, " type=\"checkbox\"" => " disabled type=\"checkbox\"")
-    
+
     # We style links differently if they're internal to our site. Handle that here! 
-	text = replace(text, " href=\"https://github.com/hannahilea" =>" class=\"local\" href=\"https://github.com/hannahilea")
+	text = replace(text, "href=\"https://github.com/hannahilea" =>"class=\"local\" href=\"https://github.com/hannahilea")
     text = replace(text, "<a href=." =>  "<a class=\"local\" href=.")
-    text = replace(text, "<a\nhref=\"." =>  "<a class=\"local\" href=\".") # Sometimes there's a line break, and i haven't found an html formatter yet...
     
+    # Sometimes there's a line break, and i haven't found an html formatter yet...
+    text = replace(text, "<a\nhref=\"." =>  "<a class=\"local\" href=\".") 
+
     # Add footnotes heading (this is SO GROSS and we're doing it anyway)
     fnote_predecessor = "role=\"doc-endnotes\">\n<hr />"
     fnote_heading = """\n<h3 id="footnotes-title">Footnotes</h3>"""
@@ -43,7 +45,7 @@ function generate_all_blogposts(; overwrite_existing=true)
     for dir in readdir(blog_dir; join=true)
         isfile(dir) && continue
         isequal(joinpath(blog_dir, "__template"), dir) && continue
-        contains(dir, "list") || continue
+        # contains(dir, "list") || continue
         
         md_file = joinpath(dir, "src.md")
         if !isfile(md_file)
