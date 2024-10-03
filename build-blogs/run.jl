@@ -37,6 +37,9 @@ function tweak_html!!(text)
     fnote_heading = """\n<h3 id="footnotes-title">Footnotes</h3>"""
     text = replace(text, fnote_predecessor => fnote_predecessor * fnote_heading)
 
+    # the formatter will yell otherwise...
+    text = replace(text, "</br>" => "<br>")
+
     # Strip out image captions 
     # This is...a truly hacky approach. ¯\_(ツ)_/¯
     in_caption = false
@@ -72,7 +75,7 @@ function generate_all_blogposts(; overwrite_existing=true)
     for dir in readdir(blog_dir; join=true)
         isfile(dir) && continue
         isequal(joinpath(blog_dir, "__template"), dir) && continue
-        contains(dir, "list") || continue
+        # contains(dir, "list") || continue
 
         md_file = joinpath(dir, "src.md")
         if !isfile(md_file)
