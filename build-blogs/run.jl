@@ -87,7 +87,7 @@ function generate_all_blogposts(; overwrite_existing=true)
         convert_to_html(md_file, html_outfile; overwrite_existing)
 
         @info "...and formatting it"
-        run(`prettier $(html_outfile) --write --print-width 140`)
+        run(`prettier $(html_outfile) --write --print-width 240`)
     end
     return nothing
 end
