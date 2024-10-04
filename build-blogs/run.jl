@@ -1,11 +1,14 @@
-using Pkg 
+using Pkg
 Pkg.activate(@__DIR__)
 using pandoc_jll
 
-blog_dir = joinpath( @__DIR__, "..", "blog")
+blog_dir = joinpath(@__DIR__, "..", "blog")
 blog_template = joinpath(blog_dir, "__template", "index.html.template")
 
-function convert_to_html(file, outfile; template=blog_template, overwrite_existing=false)
+function convert_to_html(file,
+                         outfile;
+                         template=blog_template,
+                         overwrite_existing=false,)
     if !overwrite_existing && isfile(outfile)
         @warn "Output file already exists; not overwriting: $outfile"
         return nothing
@@ -32,19 +35,22 @@ function tweak_html!!(text)
     fnote_heading = """\n<h3 id="footnotes-title">Footnotes</h3>"""
     text = replace(text, fnote_predecessor => fnote_predecessor * fnote_heading)
 
+    # the formatter will yell otherwise...
+    text = replace(text, "</br>" => "<br>")
+
     # Strip out image captions 
     # This is...a truly hacky approach. ¯\_(ツ)_/¯
     in_caption = false
-    str_start = "<figcaption aria-hidden=\"true\">" 
+    str_start = "<figcaption aria-hidden=\"true\">"
     str_stop = "</figcaption>"
-    lines = map(split(text, "\n")) do line 
+    lines = map(split(text, "\n")) do line
         # Making some real assumptions that there'll never be multiple of these in one line
         # ...but if there are, we'll see it in git, so it'll still be okay
 
         # Single line contains both start and stop
         if !in_caption && contains(line, str_start) && contains(line, str_stop)
-            line = split(line, str_start; limit=2)[1] 
-            return split(line, str_stop; limit=2)[end] 
+            line = split(line, str_start; limit=2)[1]
+            return split(line, str_stop; limit=2)[end]
         end
 
         # Multiline caption
@@ -54,13 +60,25 @@ function tweak_html!!(text)
         end
         in_caption && return missing
         if contains(line, str_start)
-            in_caption = true 
+            in_caption = true
             line = split(line, str_start; limit=2)[1]
-        end 
-        return line 
+        end
+        return line
     end
     lines = filter(!ismissing, lines)
     return join(lines, "\n")
+end
+
+function generate_blog_html(md_file; overwrite_existing=true)
+    if !isfile(md_file)
+        @warn "Expected blog source file not found: `$(md_file)`; skipping"
+        return nothing
+    end
+
+    @info "Converting $(basename(dirname(md_file)))..."
+    html_outfile = replace(md_file, "src.md" => "index.html")
+    convert_to_html(md_file, html_outfile; overwrite_existing)
+    return nothing
 end
 
 function generate_all_blogposts(; overwrite_existing=true)
@@ -68,17 +86,21 @@ function generate_all_blogposts(; overwrite_existing=true)
         isfile(dir) && continue
         isequal(joinpath(blog_dir, "__template"), dir) && continue
         # contains(dir, "list") || continue
-        
+
         md_file = joinpath(dir, "src.md")
-        if !isfile(md_file)
-            @warn "Expected blog source file not found: `$(md_file)`; skipping"
-            continue
-        end
-        @info "Converting $(basename(dirname(md_file)))..."
-        html_outfile = joinpath(dir, "index.html")
-        convert_to_html(md_file, html_outfile; overwrite_existing)
+        generate_blog_html(md_file; overwrite_existing)
     end
     return nothing
 end
 
-generate_all_blogposts(; overwrite_existing=true)
+# Run from commandline? 
+if abspath(PROGRAM_FILE) == @__FILE__
+    if isempty(ARGS)
+        generate_all_blogposts(; overwrite_existing=true)
+    elseif isfile(ARGS[1])
+        generate_blog_html(ARGS[1]; overwrite_existing=true)
+    else
+        @warn "Unknown argument $(ARGS[1])"
+    end
+    return nothing
+end
