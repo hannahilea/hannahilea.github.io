@@ -69,6 +69,25 @@ function tweak_html!!(text)
     return join(lines, "\n")
 end
 
+function generate_blog_html(md_file; overwrite_existing=true)
+    if !isfile(md_file)
+        @warn "Expected blog source file not found: `$(md_file)`; skipping"
+        return nothing
+    end
+
+    @info "Converting $(basename(dirname(md_file)))..."
+    html_outfile = replace(md_file, "src.md" => "index.html")
+    convert_to_html(md_file, html_outfile; overwrite_existing)
+
+    @info "...and formatting it"
+    try
+        run(`prettier $(html_outfile) --write --print-width 240`)
+    catch
+        @warn "Prettier not installed OR current html errors"
+    end
+    return nothing
+end
+
 function generate_all_blogposts(; overwrite_existing=true)
     for dir in readdir(blog_dir; join=true)
         isfile(dir) && continue
@@ -76,22 +95,19 @@ function generate_all_blogposts(; overwrite_existing=true)
         # contains(dir, "list") || continue
 
         md_file = joinpath(dir, "src.md")
-        if !isfile(md_file)
-            @warn "Expected blog source file not found: `$(md_file)`; skipping"
-            continue
-        end
-        @info "Converting $(basename(dirname(md_file)))..."
-        html_outfile = joinpath(dir, "index.html")
-        convert_to_html(md_file, html_outfile; overwrite_existing)
-
-        @info "...and formatting it"
-        try
-            run(`prettier $(html_outfile) --write --print-width 240`)
-        catch
-            @warn "Prettier not installed OR current html errors"
-        end
+        generate_blog_html(md_file; overwrite_existing)
     end
     return nothing
 end
 
-generate_all_blogposts(; overwrite_existing=true)
+# Run from commandline? 
+if abspath(PROGRAM_FILE) == @__FILE__
+    if isempty(ARGS)
+        generate_all_blogposts(; overwrite_existing=true)
+    elseif isfile(ARGS[1])
+        generate_blog_html(ARGS[1]; overwrite_existing=true)
+    else
+        @warn "Unknown argument $(ARGS[1])"
+    end
+    return nothing
+end
