@@ -42,7 +42,7 @@ As soon as we had successfully sent commands to the boards (a win in its own rig
 
 They were right: I ***did*** gotta make it do clapping music. Immediately. :D
 
-## ~Clapping~ Flipping music
+## ~~Clapping~~ Flipping music
 
 Steve Reich's [***Clapping Music***](https://en.wikipedia.org/wiki/Clapping_Music) is a composition in which two performers (or sets of performers) repeatedly clap a single 12-beat pattern. After eight or twelve repeats, the second performer shifts their position in the pattern back by a single beat. This process is repeated until the second performer has shifted back to playing the original no-offset pattern. The shifting offset causes a delightful phasing effect for listeners. 
 
