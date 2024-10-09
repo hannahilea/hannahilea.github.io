@@ -78,6 +78,13 @@ function generate_blog_html(md_file; overwrite_existing=true)
     @info "Converting $(basename(dirname(md_file)))..."
     html_outfile = replace(md_file, "src.md" => "index.html")
     convert_to_html(md_file, html_outfile; overwrite_existing)
+
+    @info "...and formatting it"
+    try
+        run(`prettier $(html_outfile) --write --print-width 240`)
+    catch
+        @warn "Prettier not installed OR current html errors"
+    end
     return nothing
 end
 
