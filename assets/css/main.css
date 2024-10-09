@@ -81,7 +81,6 @@ body {
 }
 
 .blog {
-.blog {
   line-height: 150%;
 }
 
@@ -95,7 +94,6 @@ h2, h3 {
 }
 
 .blog > h1 {
-.blog > h1 {
   line-height: 1.2em;
 }
 
@@ -104,25 +102,9 @@ a.footnote-ref {
 }
 
 a > sup {
-a.footnote-ref {
-  text-decoration: none;
-}
-
-a > sup {
   vertical-align: baseline;
   position: relative;
   top: -0.4em;
-  text-decoration: underline;
-  text-underline-offset: .1em;
-}
-
-a.footnote-back {
-  text-decoration: underline;
-  text-underline-offset: .1em;
-}
-
-.footnotes > ol {
-  font-size: smaller;
   text-decoration: underline;
   text-underline-offset: .1em;
 }
@@ -286,7 +268,6 @@ img.home-img {
 }
 
 pre {
-pre {
   background: #eeeff1;
   border: 2px solid #ddd;
   page-break-inside: avoid;
@@ -312,7 +293,6 @@ pre {
   font-family: "Jura Bold";
 }
 
-.blog img {
 .blog img {
   display: block;
   margin-left: auto;
