@@ -1,0 +1,20 @@
+{
+    "liveServer.settings.port": 5502,
+    "emeraldwalk.runonsave": {
+        "commands": [
+        // {
+        //     "match": ".*",
+        //     "isAsync": true,
+        //     "cmd": "echo 'I run for all files.'"
+        // },
+        {
+            "match": "blog/.*/src.md$",
+            "cmd": "echo 'I am a .md file ${file}.'; julia build-blogs/run.jl ${file}"
+        },
+        {
+            "match": "blog/__template/.*$",
+            "cmd": "echo 'A __template file has been saved ${file}.'; julia build-blogs/run.jl"
+        },
+        ]
+    }
+}
