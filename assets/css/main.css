@@ -43,6 +43,7 @@ body {
   padding: .8em;
   max-width: 800px;
   align-self: center;
+  line-height: 150%;
 }
 
 .title {
@@ -78,10 +79,6 @@ body {
 
 .blog-url {
   font-weight: bolder;
-}
-
-.blog {
-  line-height: 150%;
 }
 
 h1,
@@ -141,11 +138,6 @@ a[href^="https://github.com/hannahilea"] {
   text-decoration: none;
   font-weight: bold;
   font-style: italic;
-}
-
-.navbar {
-  color: #03163f;
-  font-family: "Jura Regular";
 }
 
 .badge {
