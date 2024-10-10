@@ -13,7 +13,7 @@ const params = {
   freqIncrement: .9,
 };
 
-const gui = new GUI( { autoPlace: true} ).title("Parameters");
+const gui = new GUI( { autoPlace: false} ).title("Parameters");
 gui.domElement.id = 'gui';
 document.getElementById("gui-container").appendChild(gui.domElement);
 gui.add(params, 'worldWraps').name("Wrap world");
