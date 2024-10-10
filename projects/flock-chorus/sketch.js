@@ -13,9 +13,14 @@ const params = {
   freqIncrement: .9,
 };
 
-const gui = new GUI( { autoPlace: true} ).title("Parameters");
+// Set up param gui
+const GUI = lil.GUI;
+const gui = new GUI({ autoPlace: false }).title("Parameters");
 gui.domElement.id = 'gui';
 document.getElementById("gui-container").appendChild(gui.domElement);
+gui.open(false);
+
+// Add params to param gui
 gui.add(params, 'worldWraps').name("Wrap world");
 const guiFolder = gui.addFolder('New boid spawn settings');
 guiFolder.add(params, 'targetFreqHz', 125, 2350, 5).name("Target pitch (Hz)");
@@ -71,10 +76,10 @@ function mouseDragged(event) {
 
   // If not over the canvas, ignore
   // If over the GUI, ignore 
-  if (event.clientY > guiY && event.clientX < guiX && overCanvas){
+  if (event.clientY > guiY && event.clientX < guiX && overCanvas) {
     console.log("we did it, joe");
     flock.addBoid(new Boid(mouseX, mouseY));
-  }  
+  }
 }
 
 // Add a new boid into the System
