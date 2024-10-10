@@ -12,6 +12,7 @@ const GUI = lil.GUI;
 const gui = new GUI( { autoPlace: false} ).title("Parameters");
 gui.domElement.id = 'gui';
 document.getElementById("gui-container").appendChild(gui.domElement);
+gui.open( false );
 
 // Add params to param gui
 gui.add(params, 'micSensitivity', 0.01, 30, 2);
