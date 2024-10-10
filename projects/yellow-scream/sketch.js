@@ -17,7 +17,13 @@ const params = {
   maxBrushYJitter: 0.2,
 };
 
-const gui = new GUI();
+// Set up param gui
+const GUI = lil.GUI;
+const gui = new GUI( { autoPlace: false} ).title("Parameters");
+gui.domElement.id = 'gui';
+document.getElementById("gui-container").appendChild(gui.domElement);
+
+// Add params to param gui
 gui.add(params, 'screamThreshold', 0, 300, 5);
 gui.add(params, 'brushSpeed', 0.1, 5, 1);
 gui.add(params, 'brushWidth', 1, 100, 5);

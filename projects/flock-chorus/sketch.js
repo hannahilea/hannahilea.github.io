@@ -13,9 +13,13 @@ const params = {
   freqIncrement: .9,
 };
 
+// Set up param gui
+const GUI = lil.GUI;
 const gui = new GUI( { autoPlace: false} ).title("Parameters");
 gui.domElement.id = 'gui';
 document.getElementById("gui-container").appendChild(gui.domElement);
+
+// Add params to param gui
 gui.add(params, 'worldWraps').name("Wrap world");
 const guiFolder = gui.addFolder('New boid spawn settings');
 guiFolder.add(params, 'targetFreqHz', 125, 2350, 5).name("Target pitch (Hz)");

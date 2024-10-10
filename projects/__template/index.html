@@ -2,39 +2,47 @@
 <html lang="en">
 
 <head>
+  <link rel="shortcut icon" type="image/png" href="../../assets/img/favicon.png" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
+
+  <!-- Project-specific details -->
   <title>Sketch: {{ PROJECT_NAME }}</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lil-gui@0.19"></script>
-  <script>
-    var GUI = lil.GUI;
-  </script>
-  <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
-  <style>
-    canvas {
-      display: block;
-      position: absolute;
-      left: 0;
-      top: 10;
-    }
-
-  </style>
 </head>
 
-<body>
-  <nav class="projects-navbar" role="navigation">
-    <a href="../.." class="nav-link">@hannahilea</a> >
-    <a href="../../projects" class="nav-link">projects</a> > Sketch: {{ PROJECT_NAME }}
-  </nav>
-  <details class="projects-details">
-    <summary><strong>Details</strong></summary>
-    <p>A creative coding exercise (prompt: <i>TODO</i>), co-created with <a href="https://TODO.github.io/">TODO</a>
-      while at the <a href="www.recurse.com">Recurse Center</a></p>
-    <p><i>Usage:</i> When prompted, grant microphone access, then TODO.</p>
-  </details>
+<body class="p5-project">
+  <div id="project-header">
+
+    <nav class="blog-navbar" role="navigation">
+      @hannahilea:
+      <a class="nav-link" href="../..">home</a> | <a class="nav-link" href="../../projects">projects</a> | <a
+        class="nav-link" href="..">blog</a>
+    </nav>
+
+    <h3 class="project-title">Sketch: {{ PROJECT_NAME }}</h3>
+    <details class="projects-details">
+      <summary>Details</summary>
+      <p>A creative coding exercise (prompt: <i>TODO</i>), co-created with <a href="https://TODO.github.io/">TODO</a>
+        while at the <a href="www.recurse.com">Recurse Center</a></p>
+      <p><strong>Usage:</strong> When prompted, grant microphone access, then TODO.</p>
+    </details>
+
+    <div id="gui-container"></div>
+    <noscript>
+      <br />
+      <div class="alert">
+        <summary class="alert-heading"> ⚠️ JavaScript required!</summary>
+        <p>If you're seeing this message, JavaScript is likely disabled in your browser; you'll need to enable it to
+          interact with this project.</p>
+      </div>
+    </noscript>
+  </div>
 
   <script src="./sketch.js"></script>
-
 </body>
 
 </html>

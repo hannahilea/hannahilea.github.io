@@ -1,7 +1,5 @@
 // TODO: edit this blurb!
 // Original p5 sketch {{ co-created with FOO+link}}
-// as a creative coding project while at the 
-// Recurse Center (www.recurse.com/)
 
 let mic;
 
@@ -9,7 +7,13 @@ const params = {
   micSensitivity: 4.0,
 };
 
-const gui = new GUI();
+// Set up param gui
+const GUI = lil.GUI;
+const gui = new GUI( { autoPlace: false} ).title("Parameters");
+gui.domElement.id = 'gui';
+document.getElementById("gui-container").appendChild(gui.domElement);
+
+// Add params to param gui
 gui.add(params, 'micSensitivity', 0.01, 30, 2);
 
 function setup() {
