@@ -257,18 +257,19 @@ img.home-img {
 
   #project-header {
     margin: 1rem;
+    margin-bottom: .5rem
   }
 
-  h3.project-title {
-    padding-top: 0;
-    margin-top: 0;
-    line-height: 0em;
+  .project-title {
+    margin-bottom: .5rem
+  }
+
+  .blog-navbar {
+    margin-bottom: .5em;
   }
 
   details {
     font-family: "OpenSans Light";
-    margin-top: 1.3em;
-    margin-bottom: .5em;
     font-size: smaller;
   }
 
@@ -288,19 +289,6 @@ img.home-img {
       position: fixed;
       bottom: 0;
       top: auto;
-    }
-
-    details {
-      margin-top: .8em;
-      margin-bottom: 0em;
-    }
-
-    #project-header {
-      margin-bottom: 0rem;
-    }
-
-    .blog-navbar {
-      margin-bottom: 1rem;
     }
   }
 }
