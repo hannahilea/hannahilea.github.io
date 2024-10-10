@@ -2,47 +2,54 @@
 <html lang="en">
 
 <head>
+  <link rel="shortcut icon" type="image/png" href="../../assets/img/favicon.png" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
+
+  <!-- Project-specific details -->
   <title>Sketch: Wonderful world</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lil-gui@0.19"></script>
-  <script>
-    var GUI = lil.GUI;
-  </script>
-  <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
-  <style>
-    canvas {
-      display: block;
-      position: absolute;
-      left: 0;
-      top: 10;
-    }
-
-  </style>
 </head>
 
-<body>
-  <nav class="projects-navbar" role="navigation">
-    <a href="../.." class="nav-link">@hannahilea</a> >
-    <a href="../../projects" class="nav-link">projects</a> > Sketch: Wonderful
-  </nav>
-  <details class="projects-details">
-    <summary><strong>Details</strong></summary>
-    <p>Adapted from <a href="https://editor.p5js.org/hannahilea/sketches/AWA1W-c3H">a creative
-        coding exercise</a>
-      (prompt:
-      <i>What a wonderful world</i>)
-      co-created with David Brooks while at the <a href="www.recurse.com">Recurse Center</a>.
-      Image <a
-        href="https://visibleearth.nasa.gov/images/73826/october-blue-marble-next-generation-w-topography-and-bathymetry">via
-        NASA</a>. UX consult by Alex Ferguson.
-    </p>
-    <p><i>Usage:</i> Click anywhere on the Earth to play/pause the audio. Move the mouse around your screen during
-      playback. May not work on phone.</p>
-  </details>
+
+<body class="p5-project">
+  <div id="project-header">
+
+    <nav class="blog-navbar" role="navigation">
+      @hannahilea:
+      <a class="nav-link" href="../..">home</a> | <a class="nav-link" href="../../projects">projects</a> | <a
+        class="nav-link" href="..">blog</a>
+    </nav>
+
+    <h3 class="project-title">Sketch: Wonderful World</h3>
+    <details class="projects-details">
+      <summary>Details</summary>
+      <p>Adapted from <a href="https://editor.p5js.org/hannahilea/sketches/AWA1W-c3H">a creative
+          coding exercise</a>
+        (prompt:
+        <i>What a wonderful world</i>)
+        co-created with David Brooks while at the <a href="www.recurse.com">Recurse Center</a>.
+        Image <a
+          href="https://visibleearth.nasa.gov/images/73826/october-blue-marble-next-generation-w-topography-and-bathymetry">via
+          NASA</a>. UX consult by Alex Ferguson.
+      </p>
+      <p><strong>Usage:</strong> Click anywhere on the Earth to play/pause the audio. During playback, move the mouse around your screen (on mobile: drag your finger).</p>
+    </details>
+
+    <div id="gui-container"></div>
+    <noscript>
+      <br />
+      <div class="alert">
+        <summary class="alert-heading"> ⚠️ JavaScript required!</summary>
+        <p>If you're seeing this message, JavaScript is likely disabled in your browser; you'll need to enable it to
+          interact with this project.</p>
+      </div>
+    </noscript>
+  </div>
 
   <script src="./sketch.js"></script>
-
 </body>
 
 </html>
