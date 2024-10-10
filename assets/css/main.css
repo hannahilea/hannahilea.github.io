@@ -256,7 +256,7 @@ img.home-img {
     margin-bottom: .5rem
   }
 
-  .blog-navbar {
+  .navbar {
     margin-bottom: .5em;
   }
 
@@ -286,7 +286,7 @@ img.home-img {
 }
 
 /* Blog pages*/
-.blog-navbar {
+.navbar {
   color: #03163f;
   font-family: "Jura Regular";
   margin-bottom: 1.6em;
