@@ -1,12 +1,19 @@
-# This website's structure: A meta post
+---
+title: "This website's structure: A meta post"
+tags: project-writeup, webdev, programming, metawriting
+created: 2024-05-17
+updated: 2024-05-17
+---
 
 While doing a batch at the [Recurse Center](https://www.recurse.com), I revived my personal website—the very site you are almost certainly looking at Right Now!
 
-<img style="border: none;" src="/assets/img/emojis/surprise-pikachu.png" alt="Surprise pikachu"/>
+<img style="border:none;" src="/assets/img/emojis/surprise-pikachu.png"
+    alt="surprise-pikachu" />
 
 ## Motivation
 
 I had two goals for this site at the outset:
+
 1. **Be trivially easy to set up**, so that my focus could be on "building new stuff" rather than "building, styling, and maintaining a website" and
 2. **Be trivially easy to update**, so that I can reduce the friction of sharing projects and (in theory!) get out of my own way to actually share them.
 
@@ -88,8 +95,3 @@ As I borrowed (with permission!) when first assembling this site, please feel fr
 And finally if you, erstwhile reader, are a Web Person™ who thinks I've made an egregious error in approach or wants to propose some additional tweaks/improvements, do let me know!
 
 ***Thanks to [Teresa Ibarra](https://teresaibarra.com), whose site (and assistance!) I used as an initial starting point.***
-
----
-- created: 2024-05-17
-- last updated: 2024-05-17
-- tags: project-writeup, webdev, programming, metawriting

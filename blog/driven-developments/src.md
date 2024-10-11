@@ -1,4 +1,9 @@
-# Dopamine-driven development (DDD), spite-driven development (SDD), and other DDs
+--- 
+title: "Dopamine-driven development (DDD), spite-driven development (SDD), and other DDs"
+tags: musings, brainstorm, techspeak
+created: 2024-09-20
+updated: 2024-09-20
+---
 
 A few weeks ago, [Recurser](https://www.recurse.com/about) friend Nicole Tietz-Sokolskaya
 published [Making progress on side projects with content-driven development](https://ntietz.com/blog/making-progress-with-content-driven-development), an excellent write-up about Doing Stuff in order to be able to Share About Having Done Stuff™. You should read it!
@@ -100,21 +105,8 @@ I've started using DDD and SDD conversationally, and folks in my circles have ru
 
 [^MDD]: I chose a time to make [muffins](https://smittenkitchen.com/2020/10/morning-glory-breakfast-cake) that cut a liiiiiiittle too close to the Publication Accountabilibuddies session I frequent, such that I am only now coming off the adrenaline of getting them in the oven in time. The next step is to write as much as possible before the oven timer goes off. How will I know I'm done? There will be words on my page AND a muffin to consume. Muffin-driven development!
 
-[^maddie]: All of her writing is excellent, I recommend checking out other posts.
-
-[^litreview]: 👀 👀 👀
-
 [^TDDdomains]: Okay okay, I would not necessarily take TDD *literally* in many domains---but it is certainly possible to think through the "what-ifs" to understand what a failing case would look like, and then what a successful case looks like. And it seems like (from the [TDD wikipedia page](https://en.wikipedia.org/wiki/Test-driven_development)) this cross-domain adoption is something that folks already do. Good!
 
----
-### Footnotes
-
-<footnotes/>
-
---- 
-- created: 2024-09-20
-- last updated: 2024-09-20
-- tags: musings, brainstorm, techspeak
 
 
 

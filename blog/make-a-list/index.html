@@ -1,31 +1,83 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <link rel="shortcut icon" type="image/png" href="../../assets/img/favicon.png" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>First things first: Make a list</title>
+    <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
+  </head>
 
-<head>
-  <link rel="shortcut icon" type="image/png" href="../../assets/img/favicon.png" />
-  <title>First things first: Make a list</title>
-  <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
-  <script type="module" src="../../assets/scripts/md-block.js"></script>
-</head>
-
-<body>
-  <div class="main-container">
-    <nav class="blog-navbar" role="navigation">
-      @hannahilea:
-      <a href="../.." class="nav-link">home</a> |
-      <a href="../../projects" class="nav-link">projects</a> |
-      <a href=".." class="nav-link">blog</a> |
-      <a href="mailto:hannah.ilea.robertson+site@gmail.com" class="nav-link">contact</a>
-    </nav>
-    <md-block src="./src.md" hlinks>
-      <noscript>
-        <div class="js-fallback-container">
-          <iframe class="js-fallback-desc" src="../js-fallback-description.html"></iframe>
-          <iframe class="js-fallback" src="./src.md"></iframe>
-        </div>
-      </noscript>
-    </md-block>
-  </div>
-</body>
-
+  <body>
+    <div class="main-container blog">
+      <nav class="navbar" role="navigation">
+        @hannahilea:
+        <a class="nav-link" href="../..">home</a> | <a class="nav-link" href="../../projects">projects</a> |
+        <a class="nav-link" href="..">blog</a>
+      </nav>
+      <h1>First things first: Make a list</h1>
+      <p>To-do list:</p>
+      <ul class="task-list">
+        <li>
+          <label><input disabled type="checkbox" checked="" />Make a list</label>
+        </li>
+        <li>
+          <label><input disabled type="checkbox" checked="" />Intro/define</label>
+        </li>
+        <li>
+          <label><input disabled type="checkbox" checked="" />Cite Chuck</label>
+        </li>
+        <li>
+          <label><input disabled type="checkbox" checked="" />Pen and paper usage</label>
+        </li>
+        <li>
+          <label><input disabled type="checkbox" checked="" />PR punch lists</label>
+        </li>
+        <li>
+          <label><input disabled type="checkbox" checked="" />Publish post</label>
+        </li>
+        <li>
+          <label><input disabled type="checkbox" />Remove this to-do list from top of post</label>
+        </li>
+      </ul>
+      <hr />
+      <p>
+        I am a big fan of Making A List, whether on paper or digitally.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
+      </p>
+      <p>
+        As taught to me by <a href="https://futurestatesband.ca/">Chuck</a><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a
+        >, <strong>the most important thing about a to-do list is that the first item on it is “Make a list”</strong>. Then, when you’ve finished adding tasks to your list, you can check it off immediately. Bam,
+        <a href="../driven-developments/">dopamine</a>. Happy day, you’re already partly done with your list! Look at you, so much progress already! My notebook is filled with (partially-completed 😅) daily to-do lists, each of which starts
+        with “make a list”.
+      </p>
+      <p>
+        The one type of list I don’t regularly start this way is the <a href="https://en.wikipedia.org/wiki/Punch_list">punch lists</a> that I often add to pull requests. (Pull requests (PRs) are proposals to merge a set of changes into a
+        set of existing documents, e.g., source code.) PR punch lists both keep me on task and let my reviewers know what subtasks I intentionally considered—and, implicitly, what I did not. (Are you requesting a non-trivial review from me?
+        Bonus points if you include a punch list!)
+      </p>
+      <p>
+        I’ve also found that adding a punch list to a
+        <a href="https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository">Github PR template</a> helps improve review turnaround time and
+        reduces review friction, and sets newer contributors up to succeed more quickly.
+      </p>
+      <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+        <hr />
+        <h3 id="footnotes-title">Footnotes</h3>
+        <ol>
+          <li id="fn1">
+            <p>This is a different skill than the skill of completing tasks, mind…<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+          <li id="fn2">
+            <p>One of the most valuable things I learned in grad school!<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+        </ol>
+      </section>
+      <hr />
+      <ul>
+        <li>created: 2024-09-21</li>
+        <li>last updated: 2024-09-21</li>
+        <li>tags: musings, devtips, DDD</li>
+      </ul>
+    </div>
+  </body>
 </html>

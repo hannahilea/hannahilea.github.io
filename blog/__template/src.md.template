@@ -1,0 +1,10 @@
+---
+title: "{{ BLOG_TITLE }}"
+tags: [TODO]
+created: {{ DATE }}
+updated: {{ DATE }}
+---
+
+TODO: Contents! They will go here.
+
+***Thanks to TODO.***

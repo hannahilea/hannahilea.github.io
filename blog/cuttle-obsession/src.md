@@ -1,4 +1,9 @@
-# Obsessed with Cuttle: Parametric CAD for prototyping, producing, and procrastinating
+--- 
+title: "Obsessed with Cuttle: Parametric CAD for prototyping, producing, and procrastinating"
+tags: [project-writeup, cuttle, cad, programming, prototyping, javascript, creative-coding, makerspace]
+created: 2024-09-27
+updated: 2024-09-27
+---
 
 One of my primary creative outlets this year has been playing with the CNC laser cutter[^cutters] at my library's makerspace. It is the first CNC ("computer numerical control", i.e., computer-programmable) shop tool I've gotten comfortable and fluent with: while I've worked informally with plenty of *manual* shop tools for wood and metal, I've never previously bridged that programming/shop divide.[^attempt] Unsurprisingly, it is SO. MUCH. FUN.
 
@@ -22,9 +27,9 @@ There are several types of activity for which I've turned to Cuttle:
 
 - **Creation of physical laser-cutter objects.** This is the most straight-forward situation, and why I started using Cuttle in the first place: I have a set of shapes that I need to be able to cut with the laser cutter, in service of building a physical object. I build them in Cuttle, export them as SVG files, and then import and print them from the laser cutter.
 
-    Examples (illustrated in the following section): [decorative bookends](#bookends), [a doorbell chime cover](#a-cover-for-a-set-of-doorbell-chimes), and assorted [calibration tools](#a-handful-of-calibration-tools).
+    Examples (illustrated in the following section): [decorative bookends](#bookends), [a doorbell chime cover](#doorbell-chime-cover), and assorted [calibration tools](#a-handful-of-calibration-tools).
 
-- **Exploration of arbitrary patterns/shapes/concepts.** This situation is a natural result of Cuttle being fun to play with. When I see an interesting shape or pattern, I now think "hrm, how might I construct that?" and then I give it a try. Notably, instead of hard-coding specific dimensions or qualities of the item (number of sides, number of repeats, sizes of angles, etc), I attempt to parameterize them in different ways: instead of making a 6-sized shape, I'll make an `n`-sided shape and set `n` as a Cuttle variable. Then, once I have successfully completed the original item, I can play with those parameters to see what other interesting shapes or designs fall out. (In case it doesn't go without saying, there is no one way to parameterize a design! Therein lies the ~madness~ creativity.)
+- **Exploration of arbitrary patterns/shapes/concepts.** This situation is a natural result of Cuttle being fun to play with. When I see an interesting shape or pattern, I now think "hrm, how might I construct that?" and then I give it a try. Notably, instead of hard-coding specific dimensions or qualities of the item (number of sides, number of repeats, sizes of angles, etc), I attempt to parameterize them in different ways: instead of making a 6-sized shape, I'll make an `n`-sided shape and set `n` as a Cuttle variable. Then, once I have successfully completed the original item, I can play with those parameters to see what other interesting shapes or designs fall out. (In case it doesn't go without saying, there is no one way to parameterize a design! Therein lies the ~~madness~~ creativity.)
 
     Examples: [assorted pattern studies](#pattern-studies), [poem](#a-poem).
 
@@ -197,14 +202,3 @@ Cuttle isn't without flaws---but also, it is relatively new software, and is und
 [^limitations]: Sometimes large numbers of objects (or modifiers that I'm asking to do A Lot™) cause my browser to choke. Is that truly the fault of the software? I suspect that it's more that my approach to a given design needs rethinking, and I need to simplify it. So far I haven't run into anything so problematic that I've needed to ask for assistance, as it has been fast enough to redesign the offending part in an alternate way. Until further notice, let's assume that this browser choking is a me-issue and not a fundamental limitation of the software.
 
 ***A gallery of all my Cuttle work can be found [here](https://cuttle.xyz/@hannahilea). Thanks to the folks at the [The Hive](https://www.cambridgema.gov/Departments/cambridgepubliclibrary/Locations/mainlibrary/thehive), the Cambridge Public Library's makerspace, for their laser cutter trainings and assistance. Thanks to the team at Cuttle for building such an awesome tool.***
-
-
----
-### Footnotes
-
-<footnotes/>
-
---- 
-- created: 2024-09-27
-- last updated: 2024-09-27
-- tags: project-writeup, cuttle, cad, programming, prototyping, javascript, creative-coding, makerspace
