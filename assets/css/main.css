@@ -51,6 +51,11 @@ body {
   margin-bottom: 1em;
 }
 
+.navbar {
+  color: #03163f;
+  font-family: "Jura Regular";
+}
+
 .nav-link {
   font-family: "Jura Bold";
   text-decoration: underline dotted;
@@ -297,22 +302,22 @@ img.home-img {
 }
 
 /* Blog pages*/
-.navbar {
-  color: #03163f;
-  font-family: "Jura Regular";
-  margin-bottom: 1.6em;
-}
+.blog {
+  pre {
+    background: #eeeff1;
+    border: 2px solid #ddd;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+  }
 
-pre {
-  background: #eeeff1;
-  border: 2px solid #ddd;
-  page-break-inside: avoid;
-  font-family: monospace;
-  font-size: 14px;
-  line-height: 1.6;
-  max-width: 100%;
-  overflow: auto;
-  padding: 1em 1.5em;
+  .navbar {
+    margin-bottom: 1.6em;
+  }
 }
 
 .alert {
