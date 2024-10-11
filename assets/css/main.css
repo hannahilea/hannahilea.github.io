@@ -243,13 +243,22 @@ img.home-img {
 
 /* Project pages */
 .p5-project {
-  margin: 0 auto;
   height: 100%;
+  margin: 0;
+  display: flex;
+  flex-flow: column;
+  gap: 0;
   overflow: hidden;
 
   #project-header {
     margin: 1rem;
-    margin-bottom: .5rem
+    margin-bottom: .5rem;
+  }
+
+  #project-body {
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
   }
 
   .project-title {
@@ -274,6 +283,8 @@ img.home-img {
     top: 0;
     right: 0;
   }
+
+
 
   /* phones only! */
   @media (max-width: 550px) {
