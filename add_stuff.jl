@@ -73,6 +73,7 @@ function new_blog_post()
 
         mv(file, replace(file, ".template" => ""))
     end
+    mkdir(joinpath(dir, "assets"))
 
     @info "Adding new project to blog index"
     let
