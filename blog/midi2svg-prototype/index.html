@@ -1,82 +1,82 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <link rel="shortcut icon" type="image/png" href="../../assets/img/favicon.png" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TODO_TITLE</title>
+    <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
+  </head>
 
-<head>
-  <link rel="shortcut icon" type="image/png" href="../../assets/img/favicon.png" />
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TODO_TITLE</title>
-  <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
-  
-</head>
-
-<body>
-  <div class="main-container blog">
-    <nav class="blog-navbar" role="navigation">
-      @hannahilea:
-      <a class="nav-link" href="../.." >home</a> |
-      <a class="nav-link" href="../../projects">projects</a> |
-      <a class="nav-link" href="..">blog</a> |
-      <a class="nav-link" href="mailto:hannah.ilea.robertson+site@gmail.com">contact</a>
-    </nav>
-    <h1>TODO_TITLE</h1>
-<ul>
-<li><p>Motivation</p>
-<ul>
-<li>Didn’t want to punch by hand!</li>
-<li>Also, have seen videos by FOO and BAR, took the “automate it?” as a
-challenge</li>
-</ul></li>
-<li><p>Disclaimer: not the only person to do some form of automated
-punch card generation. Intentionally didn’t look this up before getting
-started, because it seemed like it would be fun and i didn’t want to be
-discouraged.</p>
-<ul>
-<li>Here are some other folks who’ve done similar (w/ differences)—e.g.,
-seem to focus on the “auto punch” aspect, where i’m more interested in
-“quality check the input (and adjust/error if it won’t work)” as well as
-the tactile part</li>
-</ul></li>
-<li><p>Try it out! You’ll need a music box to try out the result, but
-you don’t need laser-cutter access. If you have one of the music box
-kits, it comes with a hole punch for making your own music, and you can
-print these SVGs and then punch them by hand.</p></li>
-<li><p>This is a prototype!</p>
-<ul>
-<li>Wanted easiest way to try out the two primary cocmponents:
-<ol type="1">
-<li>midi to hole coordinates (plus a bit of sanity-checking)</li>
-<li>hole coordinates to printable sheet</li>
-</ol></li>
-</ul></li>
-</ul>
-<p>What’s cool about it? - tactile! - play your music
-forwards/backwards/upside down/ upside down and backwards</p>
-<p>What was fun for me about it? - Reaction from folks, contributions of
-arrangements - Presentation response: cursed vanessa carlton etc - Very
-easily extensible: originally built Cuttle SVG generation for one box,
-when i ordered another machine it was v easy to update existing code to
-support both boxes (feels good about initial implementation)</p>
-<ul>
-<li>Next steps (no promises):
-<ul>
-<li>Pull both steps together in single end-to-end site</li>
-<li>Better pull in warnings about physical limitations and crank
-speed</li>
-<li>Take in [foo] as input (would be v cool!)</li>
-<li>Hacky MIDI processing on my end could be replaced nicely with
-midi-to-csv, lol</li>
-</ul></li>
-</ul>
-<p><strong><em>Thanks to Hive/(folks who contributed
-songs)/s.</em></strong></p>
-    <hr>
-    <ul>
-      <li>created: 2024-10-04</li>
-      <li>last updated: 2024-10-04</li>
-      <li>tags: music, programming, cuttle, cad, laser-cutter, julia</li>
-    </ul>
-  </div>
-</body>
-
+  <body>
+    <div class="main-container blog">
+      <nav class="navbar" role="navigation">
+        @hannahilea:
+        <a class="nav-link" href="../..">home</a> | <a class="nav-link" href="../../projects">projects</a> |
+        <a class="nav-link" href="..">blog</a>
+      </nav>
+      <h1>TODO_TITLE</h1>
+      <ul>
+        <li>
+          <p>Motivation</p>
+          <ul>
+            <li>Didn’t want to punch by hand!</li>
+            <li>Also, have seen videos by FOO and BAR, took the “automate it?” as a challenge</li>
+          </ul>
+        </li>
+        <li>
+          <p>Disclaimer: not the only person to do some form of automated punch card generation. Intentionally didn’t look this up before getting started, because it seemed like it would be fun and i didn’t want to be discouraged.</p>
+          <ul>
+            <li>
+              Here are some other folks who’ve done similar (w/ differences)—e.g., seem to focus on the “auto punch” aspect, where i’m more interested in “quality check the input (and adjust/error if it won’t work)” as well as the tactile
+              part
+            </li>
+          </ul>
+        </li>
+        <li>
+          <p>
+            Try it out! You’ll need a music box to try out the result, but you don’t need laser-cutter access. If you have one of the music box kits, it comes with a hole punch for making your own music, and you can print these SVGs and
+            then punch them by hand.
+          </p>
+        </li>
+        <li>
+          <p>This is a prototype!</p>
+          <ul>
+            <li>
+              Wanted easiest way to try out the two primary cocmponents:
+              <ol type="1">
+                <li>midi to hole coordinates (plus a bit of sanity-checking)</li>
+                <li>hole coordinates to printable sheet</li>
+              </ol>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <p>What’s cool about it? - tactile! - play your music forwards/backwards/upside down/ upside down and backwards</p>
+      <p>
+        What was fun for me about it? - Reaction from folks, contributions of arrangements - Presentation response: cursed vanessa carlton etc - Very easily extensible: originally built Cuttle SVG generation for one box, when i ordered
+        another machine it was v easy to update existing code to support both boxes (feels good about initial implementation)
+      </p>
+      <ul>
+        <li>
+          Next steps (no promises):
+          <ul>
+            <li>Pull both steps together in single end-to-end site</li>
+            <li>Better pull in warnings about physical limitations and crank speed</li>
+            <li>Take in [foo] as input (would be v cool!)</li>
+            <li>Hacky MIDI processing on my end could be replaced nicely with midi-to-csv, lol</li>
+          </ul>
+        </li>
+      </ul>
+      <p>
+        <strong><em>Thanks to Hive/(folks who contributed songs)/s.</em></strong>
+      </p>
+      <hr />
+      <ul>
+        <li>created: 2024-10-04</li>
+        <li>last updated: 2024-10-04</li>
+        <li>tags: music, programming, cuttle, cad, laser-cutter, julia</li>
+      </ul>
+    </div>
+  </body>
 </html>
