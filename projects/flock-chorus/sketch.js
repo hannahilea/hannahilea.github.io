@@ -34,8 +34,7 @@ guiFolder.add(params, 'maxStartOffsetHz', 0, 600, 50).name("Start pitch max offs
 // guiFolder.add(params, 'volume', -80, -12, 1).name("Volume");
 
 function calculateCanvasHeight() {
-  elem = document.getElementById("project-header");
-  return windowHeight - parseInt(elem.offsetHeight) - parseInt(elem.offsetTop)
+  return windowHeight - document.getElementById("project-body").offsetTop;
 }
 
 function calculateCanvasYOffset() {
@@ -44,14 +43,16 @@ function calculateCanvasYOffset() {
 }
 
 function setup() {
-  let canvas = createCanvas(windowWidth, calculateCanvasHeight())
+  let canvasElement = document.getElementById("p5-canvas");
+  let canvas = createCanvas(windowWidth, calculateCanvasHeight(), canvasElement)
   canvas.mouseClicked(mouseClickedOnCanvas)
   Tone.start();
   flock = new Flock(); // Empty flock!
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, calculateCanvasHeight());
+  let canvasElement = document.getElementById("p5-canvas");
+  resizeCanvas(windowWidth, calculateCanvasHeight(), canvasElement);
 }
 
 function draw() {

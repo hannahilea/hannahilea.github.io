@@ -18,7 +18,8 @@ gui.open(false);
 gui.add(params, 'micSensitivity', 0.01, 30, 2);
 
 function setup() {
-  createCanvas(windowWidth, windowHeight)
+  let canvasElement = document.getElementById("p5-canvas");
+  createCanvas(windowWidth, getCanvasHeight(), canvasElement);
 
   // Create an Audio input
   mic = new p5.AudioIn();
@@ -28,8 +29,13 @@ function setup() {
   mic.start();
 }
 
+function getCanvasHeight() {
+  return 1 + windowHeight - document.getElementById("project-body").offsetTop;
+}
+
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  let canvasElement = document.getElementById("p5-canvas");
+  resizeCanvas(windowWidth, getCanvasHeight(), canvasElement);
 }
 
 function draw() {

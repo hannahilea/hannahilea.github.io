@@ -26,7 +26,8 @@ gui.add(params, "mode", ['ripple', 'x', 'burst', 'diagonal']);
 gui.addColor(params, "backgroundColor");
 
 function setup() {
-  createCanvas(windowWidth, windowHeight)
+  let canvasElement = document.getElementById("p5-canvas");
+  createCanvas(windowWidth, getCanvasHeight(), canvasElement)
   colorMode(HSL, 1.0);
 
   // Create an Audio input
@@ -37,8 +38,13 @@ function setup() {
   mic.start();
 }
 
+function getCanvasHeight() {
+  return 1 + windowHeight - document.getElementById("project-body").offsetTop;
+}
+
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  let canvasElement = document.getElementById("p5-canvas");
+  resizeCanvas(windowWidth, getCanvasHeight(), canvasElement);
 }
 
 function spawnParticles(volume) {
