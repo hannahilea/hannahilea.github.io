@@ -2,43 +2,56 @@
 <html lang="en">
 
 <head>
+  <link rel="shortcut icon" type="image/png" href="../../assets/img/favicon.png" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
+
+  <!-- Project-specific details -->
   <title>Yellow Scream</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lil-gui@0.19"></script>
-  <script>
-    var GUI = lil.GUI;
-  </script>
-  <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
-  <style>
-    canvas {
-      display: block;
-      position: absolute;
-      left: 0;
-      top: 10;
-    }
-
-  </style>
 </head>
 
-<body>
-  <nav class="projects-navbar" role="navigation">
-    <a href="../.." class="nav-link">@hannahilea</a> >
-    <a href="../../projects" class="nav-link">projects</a> > Yellow Scream (2024)
-  </nav>
-  <details class="projects-details">
-    <summary><strong>Details</strong></summary>
-    <p>Created while at the <a href="www.recurse.com">Recurse Center</a>, <i>Yellow Scream (2024)</i> is an homage to <a
-        href="https://walkerart.org/magazine/now-streaming-kim-beoms-yellow-scream-2012/">Kim Beom's <i>Yellow Scream
-          (2012)</i></a>:</br>
-      <iframe width="373" height="210" src="https://www.youtube-nocookie.com/embed/xesGkxslveo?si=cmL72QznsANbtTVq"
-        title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </p>
-    <p><i>Usage:</i> When prompted, grant microphone access, then yell.
-      If you are uninterested in yelling (?!?!?!?!), play the above video through your computer speakers.</p>
-  </details>
+
+<body class="p5-project">
+  <div id="project-header">
+
+    <nav class="navbar" role="navigation">
+      @hannahilea:
+      <a class="nav-link" href="../..">home</a> | <a class="nav-link" href="../../projects">projects</a> | <a
+        class="nav-link" href="..">blog</a>
+    </nav>
+
+    <h3 class="project-title">Yellow Scream (2024)</h3>
+    <details class="projects-details">
+      <summary>Details</summary>
+      <p>Created while at the <a href="www.recurse.com">Recurse Center</a>, <i>Yellow Scream (2024)</i> is an homage to
+        <a href="https://walkerart.org/magazine/now-streaming-kim-beoms-yellow-scream-2012/">Kim Beom's <i>Yellow Scream
+            (2012)</i></a>:</br>
+        <iframe width="373" height="210" src="https://www.youtube-nocookie.com/embed/xesGkxslveo?si=cmL72QznsANbtTVq"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </p>
+      <p><strong>Usage:</strong> When prompted, grant microphone access, then yell.
+        If you are uninterested in yelling (?!?!?!?!), play the above video through your computer speakers.</p>
+    </details>
+
+    <div id="gui-container"></div>
+    <noscript>
+      <br />
+      <div class="alert">
+        <summary class="alert-heading"> ⚠️ JavaScript required!</summary>
+        <p>If you're seeing this message, JavaScript is likely disabled in your browser; you'll need to enable it to
+          interact with this project.</p>
+      </div>
+    </noscript>
+  </div>
+  <div id="project-body">
+    <canvas id="p5-canvas"></canvas>
+  </div>
   <script src="./sketch.js"></script>
 </body>
 

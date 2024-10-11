@@ -5,20 +5,29 @@
 
 let mic;
 let livingParticles = [];
+let bUserHasInteracted = false;
 
 const params = {
-  micSensitivity: 4.0,
+  micSensitivity: 6.0,
   mode: 'ripple',
   backgroundColor: "darkblue",
 };
 
-const gui = new GUI();
+// Set up param gui
+const GUI = lil.GUI;
+const gui = new GUI({ autoPlace: false }).title("Parameters");
+gui.domElement.id = 'gui';
+document.getElementById("gui-container").appendChild(gui.domElement);
+gui.open(false);
+
+// Add params to param gui
 gui.add(params, 'micSensitivity', 0.01, 30, 2);
 gui.add(params, "mode", ['ripple', 'x', 'burst', 'diagonal']);
 gui.addColor(params, "backgroundColor");
 
 function setup() {
-  createCanvas(windowWidth, windowHeight)
+  let canvasElement = document.getElementById("p5-canvas");
+  createCanvas(windowWidth, getCanvasHeight(), canvasElement)
   colorMode(HSL, 1.0);
 
   // Create an Audio input
@@ -29,11 +38,19 @@ function setup() {
   mic.start();
 }
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+function getCanvasHeight() {
+  return 1 + windowHeight - document.getElementById("project-body").offsetTop;
 }
 
-function spawnParticles(volume, x, y) {
+function windowResized() {
+  let canvasElement = document.getElementById("p5-canvas");
+  resizeCanvas(windowWidth, getCanvasHeight(), canvasElement);
+}
+
+function spawnParticles(volume) {
+  let x = bUserHasInteracted ? Math.max(mouseX, 0) : width / 2;
+  let y = bUserHasInteracted ? Math.max(mouseY, 0) : height / 2;
+
   let numParticles = volume * 100;
   for (let i = 0; i < numParticles; i++) {
     let particle = { x: x, y: y, energy: volume, life: volume * 8.0 };
@@ -67,6 +84,9 @@ function spawnParticles(volume, x, y) {
 }
 
 function draw() {
+  if (!bUserHasInteracted && (mouseX != 0 || mouseY != 0)) {
+    bUserHasInteracted = true;
+  }
   background(params.backgroundColor);
 
   // https://stackoverflow.com/questions/55026293/google-chrome-javascript-issue-in-getting-user-audio-the-audiocontext-was-not
@@ -75,12 +95,7 @@ function draw() {
   // Get the overall volume (between 0 and 1.0)
   let vol = mic.getLevel() * params.micSensitivity;
   if (vol > 0.04) {
-    if (screen.width <= 480) {
-      // Hack to guess if on mobile....
-      spawnParticles(vol, width / 2, height / 2);
-    } else {
-      spawnParticles(vol, mouseX, mouseY);
-    }
+    spawnParticles(vol);
   }
 
   livingParticles = livingParticles.filter((p) => {
