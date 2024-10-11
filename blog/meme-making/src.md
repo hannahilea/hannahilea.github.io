@@ -109,7 +109,7 @@ Why? Because it is funny.
 
 My primary screenshot selection usage is actually more for taking screenshots of things I want to remember from otherwise ephemeral video call chats: charts, citations, quotes. I also keep a folder on my desktop of things that make me happy: comments, praise, and general goofiness from otherwise ephemeral chat situations (Zoom/Slack/group texts, etc).
 
-I also like it for making quick and goofy responses in conversations---a picture is worth a thousand words, etc.[^k] Things I have done with my hacky goofy images: frame it and gift it! Put it on a puzzle and send that puzzle to a friend! Print it in triplicate and tape it all over my team's meeting room!
+I also like it for making quick and goofy responses in conversations---a picture is worth a thousand words, etc.[^k] Things I have done with these images: frame it and gift it. Put it on a puzzle and sent that puzzle to a friend. Print it in triplicate and tape it all over my team's meeting room.
 
 [^llm]: And none of that LLM auto-generated image nonsense, please. This is all about using your human creativity!
 
