@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <link href=
+        'http://fonts.googleapis.com/css?family=Macondo+Swash+Caps|Jura:400,600'
+        rel='stylesheet' type='text/css'/>
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/legacyhannahstyle.css" />
+
+    <style type="text/css">
+        @font-face
+        {
+        font-family: celt;
+        src: url('thisfont.eot');
+          src: local('☺'),
+            url('thisfont.woff') format('woff'), url('thisfont.ttf')
+            format('truetype');
+        }
+
+        h1, h2
+        {font-family: celt, serif;
+          font-size:larger}
+    </style>
+
+    <title>MUMT621: Final Project</title>
+</head>
+
+<body>
+<div class="intro">
+    MUMT 621: Music Information Acquisition, Preservation, and Retrieval
+    <a class="subtle"
+    href="http://www.music.mcgill.ca/~ich/classes/mumt621_12/mumt621.html">
+    [course page]</a></br>
+
+    <strong>10 April 2012 :: Final Project</strong></br>
+
+    Hannah Robertson <a class="subtle" href="/">
+    [home page]</a></br>
+    </div>
+
+    <center><h3><strong>Final project:</strong></h3>
+    <h1 class="b">
+    Audio alignment for improved melody transcription of Irish traditional music</h1></center>
+</div>
+<hr style="width:60%"/>
+<div>
+    <h2>Documents</h2>
+    <ol>
+    <h3>Paper:
+    <a class="main" style="font-size:small; background-color:red; font-family:celt,serif"
+    href="robertson_project.pdf">[ PDF ]</a></h3>
+
+    <h3>Code (including audio):
+    <a class="main" style="font-size:small; background-color:red; font-family:celt,serif"
+    href="hannah_621code.zip">[ .zip ]</a></h3>
+<!-- 
+    <h3>Proposal:
+    <a class="main" style="font-size:small; font-family:celt,serif"
+    href="hannah_621proposal.pdf">[ PDF ]</a></h3> -->
+
+    <!-- <h3>Initial bibliography:
+    <a class="main"  style="font-size:small; font-family:celt,serif"
+    href="robertson_project_bibliography.pdf">[ PDF ]</a></h3> -->
+
+    <!-- <h3>Presentation:
+    <a href="robertson_project_slides.pdf">
+        <img style="vertical-align:text-top; border-style:solid;
+        border-width:5px; border-color:#484848" src="projectpic.001.png"
+        alt="Project slides (PDF)" width="200"/></a></h3>
+    </ol> -->
+</div>
+<hr style="width:60%"/>
+<div>
+    <h2>Audio - "The Mason's Apron"</h2>
+    <ul>
+        <p>The following tracks are all included in the code .zip, above.</p>
+        <p>The recording used here is by The Chieftains, on their album "An Irish Evening. Live at the Grand Opera House, Belfast." The musicians are Martin Fay (fiddle), Seán Keane (fiddle), Kevin Conneff (bodhran, vocals), Matt Molloy (flute), Paddy Moloney (pipes, whistle), Derek Bell (harp, tiompan, keyboards). The solo is by Matt Molloy (flute). Listen to additional versions of "Mason's Apron" at <a class="subtle"
+        href="http://www.irishtune.info/tune/1230/">www.irishtune.info</a>.</p>
+        <p>Note: The O'Neil's transcription is in the key of A; it has been transposed to G for the comparison here, since Matt Molloy plays it in G. Automated key invariance is left for a future exercise!</p>
+    <h3>Tracks</h3>
+
+    <table frame="hsides" cellpadding="5">
+    <tr>
+        <th>File</th>
+        <th>Audio</th>
+        <th>Section</th>
+        <th>Details</th>
+    </tr>
+    <tr>
+      <td>ma_midi800.wav</td>
+      <td><audio controls style="width:120px;"
+        src="audio/ma_midi800.wav"/></td>
+      <td>A1</td>
+      <td>Rendering of MIDI from O'Neil's transcription; 800 bpm.</td>
+    </tr>
+    <tr>
+      <td>ma_midi1000.wav</td>
+      <td><audio controls style="width:120px;"
+        src="audio/ma_midi1000.wav"/></td>
+      <td>A1</td>
+      <td>Rendering of MIDI from O'Neil's transcription; 1000 bpm.</td>
+    </tr>
+    <tr>
+      <td>molloyMA_A1r1.wav</td>
+      <td><audio controls style="width:120px;"
+        src="audio/molloyMA_A1r1.wav"/></td>
+      <td>A1r1 (@time)</td>
+      <td>Solo flute, first A section, first time through.</td>
+    </tr>
+    <tr>
+      <td>molloyMA_A1r2.wav</td>
+      <td><audio controls style="width:120px;"
+        src="audio/molloyMA_A1r2.wav"/></td>
+      <td>A1r2 (@time)</td>
+      <td>Solo flute, first A section, second time through.</td>
+    </tr>
+        <tr>
+      <td>molloyMA_A2r1.wav</td>
+      <td><audio controls style="width:120px;"
+        src="audio/molloyMA_A2r1.wav"/></td>
+      <td>A2r1 (@time)</td>
+      <td>Solo flute, *second A section, first time through.</td>
+    </tr>
+    <tr>
+      <td>molloyMA_A2r2.wav</td>
+      <td><audio controls style="width:120px;"
+        src="audio/molloyMA_A2r2.wav"/></td>
+      <td>A2r2 (@time)</td>
+      <td>Solo flute, *second A section, second time through.</td>
+    </tr>
+        <tr>
+      <td>chiefMA_A1r1.wav</td>
+      <td><audio controls style="width:120px;"
+        src="audio/chiefMA_A1r1.wav"/></td>
+      <td>A1r1 (@time)</td>
+      <td>Ensemble, first A section, first time through.</td>
+    </tr>
+    <tr>
+      <td>chiefMA_A1r2.wav</td>
+      <td><audio controls style="width:120px;"
+        src="audio/chiefMA_A1r2.wav"/></td>
+      <td>A1r2 (@time)</td>
+      <td>Ensemble, first A section, second time through.</td>
+    </tr>
+        <tr>
+      <td>chiefMA_A2r1.wav</td>
+      <td><audio controls style="width:120px;"
+        src="audio/chiefMA_A2r1.wav"/></td>
+      <td>A2r1 (@time)</td>
+      <td>Ensemble, second A section, first time through.</td>
+    </tr>
+    <tr>
+      <td>chiefMA_A2r2.wav</td>
+      <td><audio controls style="width:120px;"
+        src="audio/chiefMA_A2r2.wav"/></td>
+      <td>A2r2 (@time)</td>
+      <td>Ensemble, second A section, second time through.</td>
+    </tr>
+    </table>
+    *Note: If audio is not visible, try a different browser (e.g. Chrome).
+
+
+</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+
+<link
+href='http://fonts.googleapis.com/css?family=Macondo+Swash+Caps|Jura:400,600'
+    rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="/assets/css/legacyhannahstyle.css" />
+
+<style type="text/css">
+@font-face
+{
+font-family: celt;
+src: url('thisfont.eot');
+  src: local('☺'),
+    url('thisfont.woff') format('woff'), url('thisfont.ttf') format('truetype');
+}
+
+h1, h2, h3 .content
+{font-family: celt, serif}
+
+a.download:link
+{background-color:#dc241f;}
+a.download:hover
+{background-color:#989898;}
+</style>
+
+<title>MUMT618: Final Project</title>
+</head>
+
+<body>
+<div class="intro">
+MUMT 618: Computational Modeling of Musical Acoustic Systems
+<a class="subtle" href="http://www.music.mcgill.ca/~gary/618/">
+    [course page]</a></br>
+
+<strong>Winter 2012 :: Final Project</strong></br>
+
+Hannah Robertson
+<a class="subtle" href="/">[home page]</a></br>
+
+</div>
+<div class="content">
+<h1>Code and usage for stk::Fead&oacute;g (penny-whistle)</h1>
+
+<strong>Jump to:</strong></br>
+<a class='subtle' href="#inst">[ Installation ]</a>
+<a class='subtle' href="#use">[ Usage ]</a>
+<a class='subtle' href="#scores">[ Scores ]</a></br></br>
+<a class="main" href="stk_feadog.html">[ Project main page ]</a></br></br>
+<hr />
+<a name="inst"><h2>Installation</h2></a>
+<a class="main download" href="robertson618code.zip">
+    [ Download code ]</a>
+
+<p>To start, make sure you've installed the <a class="subtle" href="https://ccrma.stanford.edu/software/stk/information.html">Synthesis ToolKit in C++ (STK)</a>.</p>
+
+<p>This zip file contains two folders: "new_files" and "modified_stk_files."
+    Because STK already contains both whistle and flute classes, the
+    penny-whistle class is called Feadog, as fead&oacute;g means whistle in Irish.
+
+<p>From the "new_files" directory, compile with the following (after changing
+    the -L and -I paths to match your STK installation):</p>
+
+<p><code>g++ -D__MACOSX_CORE__ -L/.../stk-4.4.3/src -I/.../stk-4.4.3/include/ -o play_whistle play_whistle.cpp Feadog.cpp -lstk -lpthread -framework CoreAudio -framework CoreMIDI -framework CoreFoundation</code></p>
+
+<p>To make use of the STK demo programs, see <a class="subtle" href="#dem">below</a>.</p>
+
+<a name="use"><h2>Usage</h2></a>
+
+<p>From the "new_files" directory:</p>
+<code>./play_whistle scores/<scorefile> [-w <type#>] [-h <#> <#> <#> <#> <#> <#>]</code>
+
+<ul>
+    <li><code>scorefile</code> is a SKINI score file. For included scores, see <a class='subtle' href="#scores">below</a>; read about the SKINI (Synthesis ToolKit Instrument Network Interface) format <a class='subtle' href="https://ccrma.stanford.edu/software/stk/skini.html">here</a>.</li>
+    <li>The optional "-w #" flag indicates a whistle-type preset: "-w 1" is a low whistle; "-w 2" is a high whistle; any other integer will default to high whistle-type body. More presets may be added in the future.</li>
+    <li>The optional "-h" flag sets the hole spacing on the cylindrical body. The following list of six numbers are the (distance between each hole and its adjacent hole) over the length of the whistle and must sum to less than 1. For example, the first # is just the distance from the mouthpiece to the first hole over the length of the flute, the second number is the distance from the first hole to the second hole divided by the length of the flute, the third is the distance from the second to the third holes divided by the length of the flute, etc.</li>
+</ul>
+<p>If both the "-w" and "-h" flags are used, the hole spacing is applied to the instrument of build -w (hole radius, bore radius, cylinder length). Otherwise, a high whistle body is assumed.</p>
+
+<h3>Examples</h3>
+<ul>
+    <li>Try <code>./play_whistle scores/feadogtest.ski -w 2</code> and compare with <code>./play_whistle scores/feadogtest.ski -w 2 -h .27 .0481 .04 .0755 .01 .0808</code></li>
+    <li>Low whistle, slower piece: <code>./play_whistle scores/slow_demo.ski -w 1</code></li>
+    <li>High whistle, faster piece: <code>./play_whistle scores/fast_demo.ski -w 0</code></li>
+    <li>High whistle: <code>./play_whistle scores/last_demo.ski</code></li>
+</ul>
+
+<a name="dem"><h2>STK "Demo" functionality</h2></a>
+<p>To play with the penny-whistle from the demo classes, which allow both SKINI
+    and MIDI input/output (realtime and otherwise) and an interface to tweak
+    various instrument parameters, a few more (easy!) installation steps are
+    required.</p>
+<p>From the "new_files" directory:
+    <ol>
+        <li>Copy "Feadog.cpp" to the STK <code>src/</code> directory;</li>
+        <li>Copy "Feadog.h" to the STK <code>include/</code> directory;</li>
+        <li>Copy the files in "scores" to the STK <code>projects/demo/scores</code> directory.</li>
+    </ol>
+</p>
+<p>Replace the following STK files with their modified versions in "modified_stk_files":
+       <ol>
+        <li><code>projects/demo/tcl/Demo.tcl</code></li>
+        <li><code>projects/demo/utilities.cpp</code></li>
+        <li><code>project/demo/Makefile.in</code></li>
+    </ol>
+</p>
+<p>In the main STK directory, run <code>./configure</code>; in the stk/projects/demos directory, run <code>make clean</code> and then <code>make</code>. Now "Feadog" is available as an instrument choice in both the <code>./demo</code> and <code>./StkDemo</code> examples! For additional instructions on using these demo examples, see the official <a class="subtle" href="https://ccrma.stanford.edu/software/stk/usage.html#nort">STK usage page</a>.</p>
+
+
+<a name="scores"><h2>Sample SKINI files</h2></a>
+<p>The "scores" folder contains the following melodies, complete with expressive fingering speed adjustments; slow_demo.ski, fast_demo.ski, and last_demo.ski. In addition, the file scales_demo.ski is included; it runs through a major scale, one octave, at three speeds: slow, medium, and fast. Good for testing different hole spacing to check tuning. Because the MIDI note numbers in a SKINI file refer to fingerings on the whistle, these scales play from "all holes closed" to "all holes open" rather than from specific pitch to specific pitch. This means the tuning of the whistle effects the tuning of this file, making it a good file with which to test different hole spacings.</p>
+
+<a class='subtle' href="">[ Top ]</a>
+
+</body>
+</html>

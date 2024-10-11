@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <atom:link href="http://hannahilea.com/rss.xml" rel="self" type="application/rss+xml" />
+    <title>@hannahilea</title>
+    <link>https://hannahilea.com</link>
+    <description>Personal website of Hannah Robertson (`@hannahilea`)</description>
+    <language>en-us</language>
+    <image>
+      <title>@hannahilea</title>
+      <link>https://hannahilea.com</link>
+      <url>https://hannahilea.com/assets/img/avatar-smaller.jpeg</url>
+      <width>100</width>
+      <height>100</height>
+      <description>Avatar: Photo of stereo system with large googly eyes on top to look surprised</description>
+    </image>
+    <item>
+      <title>This website's structure: a meta post</title>
+      <pubDate>Fri, 17 May 2024 20:22:34 GMT</pubDate>
+      <link>https://hannahilea.com/blog/site-structure</link>
+      <guid>https://hannahilea.com/blog/site-structure</guid>
+      <description>The structure of this website motivated and described.</description>
+    </item>
+    <item>
+      <title>Clapping music for two flip-disc displays</title>
+      <pubDate>Sat, 14 September 2024 16:54:11 GMT</pubDate>
+      <link>https://hannahilea.com/blog/clapping-music-for-flip-disc-displays</link>
+      <guid>https://hannahilea.com/blog/clapping-music-for-flip-disc-displays</guid>
+      <description>Reich's Clapping Music performed on a pair of electromechanical flip-disc displays.</description>
+    </item>
+    <item>
+      <title>Titles of blog posts I might never write</title>
+      <pubDate>Wed, 18 September 2024 22:27:38 GMT</pubDate>
+      <link>https://hannahilea.com/blog/future-blog-posts</link>
+      <guid>https://hannahilea.com/blog/future-blog-posts</guid>
+      <description>Braindump of potential blog post titles for as-yet-unwritten pieces.</description>
+    </item>
+    <item>
+      <title>Dopamine-driven development (DDD), spite-driven development (SDD), and other DDs</title>
+      <pubDate>Fri, 20 September 2024 19:52:58 GMT</pubDate>
+      <link>https://hannahilea.com/blog/driven-developments</link>
+      <guid>https://hannahilea.com/blog/driven-developments</guid>
+      <description>Tongue-in-cheek definitions and description of various X-driven development techniques.</description>
+    </item>
+    <item>
+      <title>First things first: Make a list</title>
+      <pubDate>Sat, 21 September 2024 04:19:57 GMT</pubDate>
+      <link>https://hannahilea.com/blog/make-a-list</link>
+      <guid>https://hannahilea.com/blog/make-a-list</guid>
+      <description>The most important rule when making a list.</description>
+    </item>
+<item>
+      <title>Obsessed with Cuttle: Parametric CAD for prototyping, producing, and procrastinating</title>
+      <pubDate>Tue, 27 September 2024 04:32:59 GMT</pubDate>
+      <link>https://hannahilea.com/blog/cuttle-obsession</link>
+      <guid>https://hannahilea.com/blog/cuttle-obsession</guid>
+      <description>Write-up of a bunch of laser-cut projects I designed with Cuttle.</description>
+    </item>
+<!-- Add new post here -->
+  </channel>
+</rss>

@@ -2,43 +2,53 @@
 <html lang="en">
 
 <head>
+  <link rel="shortcut icon" type="image/png" href="../../assets/img/favicon.png" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
+
+  <!-- Project-specific details -->
   <title>Sketch: Sound ripples</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lil-gui@0.19"></script>
-  <script>
-    var GUI = lil.GUI;
-  </script>
-  <link rel="stylesheet" type="text/css" href="../../css/main.css" />
-  <style>
-    canvas {
-      display: block;
-      position: absolute;
-      left: 0;
-      top: 10;
-    }
-
-  </style>
 </head>
 
-<body>
-  <nav class="navbar" role="navigation"></nav>
-  <div class="underline">
-    <h4><a href="../../index.html">@hannahilea</a> > <a href="../../projects.html">projects</a> > Sketch: Sound ripples
-    </h4>
+
+<body class="p5-project">
+  <div id="project-header">
+
+    <nav class="navbar" role="navigation">
+      @hannahilea:
+      <a class="nav-link" href="../..">home</a> | <a class="nav-link" href="../../projects">projects</a> | <a
+        class="nav-link" href="..">blog</a>
+    </nav>
+
+    <h3 class="project-title">Sketch: Sound ripples</h3>
+    <details class="projects-details">
+      <summary>Details</summary>
+      <p>A creative coding exercise (prompt: <i>Particles, lots of them</i>), co-created with <a
+          href="https://hendersonreed.github.io/">Henderson Reed Hummel</a>
+        while at the <a href="www.recurse.com">Recurse Center</a></p>
+      <p><strong>Usage:</strong> When prompted, grant microphone access, then move your mouse (or drag your finger)
+        around the screen while
+        talking or making noise.</p>
+    </details>
+
+    <div id="gui-container"></div>
+    <noscript>
+      <br />
+      <div class="alert">
+        <summary class="alert-heading"> ⚠️ JavaScript required!</summary>
+        <p>If you're seeing this message, JavaScript is likely disabled in your browser; you'll need to enable it to
+          interact with this project.</p>
+      </div>
+    </noscript>
   </div>
-  </nav>
-  <details>
-    <summary>Details</summary>
-    <p>A creative coding excercise (prompt: <i>Particles, lots of them</i>), co-created with <a
-        href="https://hendersonreed.github.io/">Henderson Reed Hummel</a>
-      while at the <a href="www.recurse.com">Recurse Center</a></p>
-    <p><i>Usage:</i> When prompted, grant microphone access, then move your mouse around the screen while talking or
-      making noise.</p>
-  </details>
-
+  <div id="project-body">
+    <canvas id="p5-canvas"></canvas>
+  </div>
   <script src="./sketch.js"></script>
-
 </body>
 
 </html>

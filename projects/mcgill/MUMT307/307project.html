@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+
+<link
+    href='http://fonts.googleapis.com/css?family=Macondo+Swash+Caps|Jura:400,600'
+        rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../../../assets/css/legacyhannahstyle.css" />
+
+    <style type="text/css">
+    @font-face
+    {
+    font-family: celt;
+    src: url('thisfont.eot');
+  src: local('☺'),
+    url('thisfont.woff') format('woff'), url('thisfont.ttf') format('truetype');
+    }
+    h1, h2, h3 .content
+    {font-family: celt, serif}
+</style>
+
+<title>MUMT307: Final Project</title>
+</head>
+
+<body>
+<div class="intro">
+MUMT 307: Music & Audio Computing II <a class="subtle" href="http://www.music.mcgill.ca/~gary/307">[course page]</a></br>
+
+<strong>Winter 2012 :: Final Project</strong></br>
+
+Hannah Robertson
+<a class="subtle" href="/">[home page]</a></br>
+
+</div>
+<div class="content">
+<center>
+<h1>Mimicking the fipple sound in STK</h1>
+
+<a title="Photo credit: Chiff&Fipple" href="http://www.chiffandfipple.com/images/newfeadogs.jpg"><img src="http://www.chiffandfipple.com/images/newfeadogs.jpg" alt="whistlepix" width="200"></a></br></br>
+
+<strong>Jump to:</strong></br>
+<a class='subtle' href="#obj">[&nbsp;Objective&nbsp;]</a>
+<a class='subtle' href="#imp">[&nbsp;Implementation&nbsp;]</a>
+<a class='subtle' href="#challenges">[&nbsp;Challenges&nbsp;]</a>
+<a class='subtle' href="#future">[&nbsp;Future work&nbsp;]</a>
+<a class='subtle' href="#res">[&nbsp;Resources&nbsp;]</a>
+<a class='subtle' href="#bib">[&nbsp;Bibliography&nbsp;]</a></br>
+</center>
+<hr />
+<a name="obj"><h2>Objective</h2></a>
+<p>This project involved mimicking a fipple excitation source for a penny-whistle class in STK. The fipple is a type of mouthpiece found on penny-whistles (aka tin whistles), recorders, and other end-blown flutes. A fipple consists of a narrow windway called the flue that directs a thin stream of air across a blade, or labium lip. The induced pressure variation then excites resonances in a whistle body. Figure 1 shows a two-dimensional diagram of the fipple; the flue jet is on the left, the blade is the dark region on the top right. The sound is driven by air blown through the flue jet from left to right.</p>
+
+<center>
+<table class="image">
+<caption align="bottom"><strong>Figure 1: </strong>Two-dimensional diagram of fipple; <em>h</em> is the width of the flue jet; <em>W</em> is the flue channel width, which is distance between the flue exit and the blade; and <em>H</em> is the diameter of resonance tube (Verge et al. 1997).</caption>
+<tr><td><img src="pics/fipple.png" width="450"></td></tr>
+</table></center></br>
+
+<p>As discussed at length by Verge et al. in the context of recorders (1997), the physics and modeling of fipples is extremely complicated. Many factors affect the sound production in a fipple: jet oscillations, vortex shedding at the edge of the blade, and turbulence in the mouth of the instrument (Verge et al. 1997). When attempting to model the fipple, each of these factors must be carefully instantiated and fine-tuned in order to actually create realistic sound --- or any sound at all! For this reason, this project does not attempt to tackle all the variables that affect these factors independently. Instead, slight variations were made to the excitation method of the <a class="subtle" href="https://ccrma.stanford.edu/software/stk/classstk_1_1Flute.html">STK Flute class</a> and it was attached to a multi-hole penny-whistle resonator (created for <a class="subtle" href="../MUMT618/stk_feadog.html">MUMT 618</a>!). Since the end goal of this project was a realistic fipple sound for realtime playing, noise and jet variables were then selected to mimic slow and fast articulation in both low and high registers.</p>
+
+<p>In addition to modifications made directly to the penny-whistle class (stk::Feadog), this implementation can be tried with both SKINI scores and realtime MIDI input. An accompanying MaxMSP patch allows realtime MIDI variables to be modified and tweaked.</p>
+
+<strong>Try it for yourself:</strong>
+<a class="main download" href="307project_code.html">[ Code and usage ]</a></br>
+
+<a name="imp"><h2>Implementation</h2></a>
+<h3>Basics</h3>
+<p>The physics behind the fipple are complicated, due to the chaotic nature of the turbulence that occurs. Verge et al. (1997) derive an equation for the fipple coupled to a resonator with a single variable, where the pressure at any point in the system can be calculated relative to the incoming jet velocity <em>U<sub>j</sub></em>, and such that "during steady-state operation, the pressure source &Delta;<em>p</em> is the main driving mechanism, while during the early stages of the attack transient the sound production is dominated by the effects of the jet velocity fluctuations." This dynamic pressure source,
+    <center><img src="pics/pdiff.jpg" height="20"/>,</center>
+consists of the following terms:
+<ul>
+<li><em>&Delta;<strong>p<sub>jd</sub></em></strong> :</br> In general for steady-state operation, acoustic oscillations in the resonator (whistle body) are driven by the non-linear induced pressure difference across the mouth of the instrument (the region labeled <em>W</em> in Figure 1). This is called the sigmoid function, where for volume flow towards the blade <em>f</em>, gain <em>k</em>, and deviation of the air jet from directly hitting the blade <em>h</em>
+<center><em>F(f) = h + k</em> tanh(<em>f</em>)</center>
+(McIntyre et al. 1983). For this project, the sigmoid approximated with the polynomial x<sup>3</sup> - x, using the stk::JetTable class.
+</li>
+<li><em>&Delta;<strong>p<sub>a</sub></em></strong> and <em>&Delta;<strong>p<sub>tr</sub></em></strong> :</br> These terms have to do with vortex shedding as the air jet hits the blade edge, and depend on the jet velocity, the distance from the flue exit to the blade edge, the angle of the blade edge (and therefore what angle the air jet hits the blade), and pressure due to the incoming pressure wave that has been reflected back through the body of the whistle. They are incorporated into the jet delay ratio, which is discussed below, but are not directly implemented in this model, for simplification's sake.
+</li>
+<li><em>&Delta;<strong>p<sub>t</sub></em></strong> :</br>
+    This is the turbulence term, and is modeled with a noise envelope that is large for the attack of a note and much lower during steady state.
+</li>
+</ul></p>
+
+<h3>Block diagram</h3>
+<p>In general, this fipple model is based on the excitation input to Perry Cook's slide flute model (1992). Figure 2 shows the block diagram of his model, which has been implemented in <a class="subtle" href="https://ccrma.stanford.edu/software/stk/classstk_1_1Flute.html">stk::Flute</a>
+<center>.
+<table class="image">
+<caption align="bottom"><strong>Figure 2: </strong>Block diagram for a simple jet wind instrument model (Cook 1992).</caption>
+<tr><td><img src="pics/flutemodel.png" width="450"></td></tr>
+</table></center></br>
+The excitation portion of this model consists of the everything except the "1 Pole filter" and "dl", the main resonance delay line. These two items make up the resonator for Cook's model, and for this project are replaced by the multi-tone hole resonator created for the stk::Feadog class. The "*" terms to the right of dl2 make up the non-linear flue jet drive, the <em>&Delta;p<sub>jd</sub></em> term. "Noise gen" is the noise envelope discussed above as part of the remaining &Delta;p terms. "Amplitude envelope" is a term representing the amplitude  of the input velocity. This fipple model contains an additional filter to block dc reflection; it is located just before the "r" gain in Figure 2.</p>
+
+<p>In this fipple model, the delay line "dl2" represents the flue channel width (<em>W</em> in Figure 1), which is equivalent to the jet length, or distance air travels from the lips to the blade, in a transverse flute (Fletcher 1991). It is included in the model to account for the "phase shift along the air jet caused by the finite wave propagation speed" (Karjalainen et al. 1991). Empirical measures have shown the phase delay to be ~.25 the phase of  means that the delay line length must be </p>
+
+<p>While by definition the jet delay is fixed in a fipple mouthpiece -- it is impossible to change the distance from the flue exit to the blade, since the whole fipple is a solid piece of plastic, wood, or metal! -- the effects of increased jet length on the sound excitation are inversely proportional to the effects of increased jet velocity. Since jet velocity *is* variable in a fipple, the delay line is a useful modeling tool to represent the jet velocity. Longer jet lengths can be balanced by greater blowing pressure (jet velocity!), so the faster the jet velocity, the shorter the delay line needs to be, and the higher the output resonance.</p>
+
+<p>The jet delay is necessarily proportional to the delay in the resonator: even though the multi-tone hole penny-whistle model has a constant total delay line length, each note has its own ideal delay line length, which corresponds to the frequency of the sounding note, which of course has to do with the sum of the delay lines between the excitation source and the "open" holes. Rossing (1991) gives the average relation between the jet delay in meters <em>l</em> and the resonant frequency <em>f</em> in Hertz as
+<center><em>l</em> &asymp; 0.14<em>f </em><sup>-1/2</sup>,</center></br>
+which corresponds to an octave jump for every factor of 2 the pressure (or jet velocity) increases. For every set of fingerings, the penny-whistle can play two different octaves, where the jet delay delay line of the higher octave is half the delay line length of the lower octave.
+Setting the jet delay ratio much larger than this ratio mimics overblowing -- an interesting, if painful, effect!</p>
+
+<h3>Functions and variables</h3>
+<p>Several additional functions have been built into the stk::Feadog class to allow manipulation of fipple variables:
+<ul>
+    <li><strong>setJetReflection( coefficient )</strong>: Sets the "r" gain in the above diagram, therefore determining how much reflection from the resonator gets fed back into the excitation mechanism.</li>
+    <li><strong>setJustFingers( boolean )</strong>: Determines whether the jet delay ratio is set automatically, based on each fingered note, or manually.</li>
+    <li><strong>setJetDelay( ratio )</strong>: Manually sets the ratio of jet delay to delay associated with the desired (and currently fingered) note. </li>
+    <li><strong>setArticulation( articulationKey )</strong>: This allows switching between several pre-defined articulation types, and sets the amplitude envelope and noise gain.</li>
+</ul>
+</p>
+
+<a class='subtle' href="">[ Top ]</a>
+<a name="challenges"><h2>Challenges</h2></a>
+<p>There were two main challenges in this project. The first was figuring out what variables to focus on and what range of adjustments to allow the user. After starting out with too many variables, which quickly made tuning unwieldy and hard to predict, it was cut back to contain just the variables used for mouthpiece control in the stk::Flute class.</p>
+<p>The second challenge was finding combinations of the variables (noise, amplitude, and jet delay) that would give good, realistic sound, as even these few variables are tricky to manipulate dynamically. While it is possible to create more "realistic" whistle sounds than those created by the basic reed table excitation model (as in the BlowHole class) for specific steady states, this success goes out the window when the fipple model is combined with multiple tone holes and used to play multiple notes in a row. The transient behavior is not well behaved or controlled by this model, due both to the adverse filtering affects of the tone hole scattering junctions and the difficulty of selecting global delay line length ratios.</p>
+<p>Examples are provided with the code so that these behaviors can be played with both through a MaxMSP patch that allows interaction with the individual variables and demonstration SKINI files. To try it , see the <a class="main download" href="307project_code.html">code and usage </a> page.</p>
+
+<a class='subtle' href="">[ Top ]</a>
+<a name="future"><h2>Future work</h2></a>
+<p>The next step is hooking up air controller and mapping the musician breath input directly to the variables in this STK class. Unlike Boehm flutes, for which both air jet velocity and air jet direction must be taken into account (da Silva et al. 2005), only jet velocity need be measured for the fipple input, as air jet direction is based on the physical structure of the mouthpiece itself and so hard-coded into each model.</p>
+<p>Additional work could focus on adding variables to better map between the physical constants in a whistle build (slit width, distance between flue opening and blade, etc.) and the response of the model. Other work is currently being done to study the actual response of edgetone excitation methods; results from these studies could be incorporated into more realistic response of this model.</p>
+
+<a class='subtle' href="">[ Top ]</a>
+
+<a name="res"><h2>Resources</h2></a>
+<ul>
+    <li>Synthesis ToolKit in C++ (STK): <a class="subtle" href="https://ccrma.stanford.edu/software/stk/information.html">[ home ]</a></li>
+    <li>A comprehensive discussion of penny-whistle/fipple articulation and breath control: Larsen, G. 2003. <a class="subtle" href="http://books.google.ca/books?id=5tUZwCtYSp0C&printsec=frontcover&dq=grey+larsen&hl=en&sa=X&ei=uq2MT9mhCeru0gHV2rnbCQ&ved=0CDgQ6AEwAQ#v=onepage&q=grey%20larsen&f=false">The Essential Guide to Irish Flute and Tin Whistle.</a> Mel Bay Publications, Inc.
+</ul>
+
+<a name="bib"><h2>Bibliography</h2></a>
+<ul style="list-style-type:none" class="b">
+    <li>Cook, P. 1992. A meta-wind-instrument physical model, and a
+        meta-controller for real time performance control. In <em>Proceedings
+        of the ICMC</em>.
+        <a class="subtle" href="http://quod.lib.umich.edu/cgi/p/pod/dod-idx?c=icmc;idno=bbp2372.1992.072">[ PDF ]</a>
+    </li>
+</br>
+    <li>Fletcher, N. and T. Rossing. 1991. The Physics of Musical Instruments. Springer Verlag. 531-46.
+    </li>
+</br>
+    <li>Karjalain, M., U. Laine, T. Laakso, and V. V&auml;lim&auml;ki. 1991.
+        Transmission-line modeling and real-time synthesis of string and
+        woodwind instruments. In <em>Proceedings of the ICMC</em>.
+        <a class="subtle" href="http://quod.lib.umich.edu/cgi/p/pod/dod-idx?c=icmc;idno=bbp2372.1991.068">[ PDF ]</a>
+    </li>
+</br>
+    <li>McIntyre, M., R. Schumacher, and J. Woodhouse. 1983. On the oscillations of musical instruments. <em>Journal of the Acoustical Society of America</em>. 1325-45.</li>
+</br>
+    <li>da Silva, A.R., M. Wanderley, and G. Scavone. 2005. On the use of
+        flute air jet as a musical control variable. In <em>Proceedings of
+        the 2005 International Conference on New Interfaces for Musical
+        Expression</em>. 105-8.
+    </li>
+</br>
+    <li>V&auml;lim&auml;ki, V., R. H&auml;nninen, and M. Karjalainen. 1996. An Improved
+        digital waveguide model of a flute - Implementation issues. In
+        <em>Proceedings of ICMC</em>.
+        <a class="subtle" href="http://www.acoustics.hut.fi/~mak/PUB/ICMC96_flute.pdf">[ PDF ]</a>
+    </li>
+</br>
+    <li>Verge, M. P., A. Hirschberg, and R. Causs&eacute;. 1997. Sound
+        production in recorderlike instruments. II. A simulation model.
+        <em>Journal of the Acoustical Society of America</em>: 2925-39.
+    </li></br>
+</ul>
+<hr />
+<strong>Jump to:</strong></br>
+<a class='subtle' href="#obj">[&nbsp;Objective&nbsp;]</a>
+<a class='subtle' href="#imp">[&nbsp;Implementation&nbsp;]</a>
+<a class='subtle' href="#challenges">[&nbsp;Challenges&nbsp;]</a>
+<a class='subtle' href="#future">[&nbsp;Future work&nbsp;]</a>
+<a class='subtle' href="#res">[&nbsp;Resources&nbsp;]</a>
+<a class='subtle' href="#bib">[&nbsp;Bibliography&nbsp;]</a></br></br>
+
+</div>
+
+</body>
+</html>

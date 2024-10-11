@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+
+<link href='http://fonts.googleapis.com/css?family=Macondo+Swash+Caps|Jura:400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../../../assets/css/legacyhannahstyle.css" />
+
+<title>MUMT306: Final Project</title>
+
+</head>
+
+<body>
+<div class="intro">
+MUMT 306: Music & Audio Computing I <a class="subtle" href="http://www.music.mcgill.ca/~gary/306/index.html#Outline">[course page]</a></br>
+
+<strong>Fall 2011 :: Final Project</strong></br>
+
+Hannah Robertson <a class="subtle" href="hanahilea.com">[home page]</a></br>
+
+</div>
+
+<h2>Mood Typer:<br>
+A Max/MSP patch for real-time content-based text sonification</h2>
+
+<div>
+<h3>Objective</h3>
+<p>My project involved building a Max/MSP patch that creates a live musical soundtrack to accompany text, while the text is being typed. I wanted the music to be manipulated by the emotional content of the words used, such that descriptive writing would lead to interesting background accompaniment. To this end, a  dictionary look-up component stores and recalls information about the emotional content of a word; when that word is typed, the mood of the music is altered accordingly. The affected musical attributes are melodic content, rhythm, background chord structure, and speed; the sounds are MIDI controlled.
+</p>
+<img src="mainpic.jpg" width="500"><br>
+<a href="web.zip">Max/MSP source text: soundTyper patch, soundEditor patch, additional text and image files</a>
+
+
+<h3>Methodology</h3>
+<p>
+There were two main challenges in this project: (1) fitting together all the bits and components in Max/MSP in a relatively elegant, extensible way, and (2) figuring out how each mood should be mapped to the various musical settings. While the first challenge was mainly a technical one, the musical determination was non-trivial and could still use some improvements.
+</p>
+<h4>Patches</h4>
+<p> The main Max patch contains the text input box, the Thayer mood plot, and switches to turn on and off the rhythm, melodic line, and background accompaniment. It also links the smaller components. 
+</p><ul>
+<li><strong>Thayer plot:</strong> This is a pictslider that maps a word's coordinates to a location in the Thayer mood plot. A Thayer mood plot maps energy (low to high) against valence (negative to positive) to create four distinct mood regions: excited (high energy, positive valence), angry (high energy, negative valence), content (low energy, positive valence), and depressed (low energy, negative valence). The pointer moves around in this space based on the current mood of the song (determined by the mood content of the most recently matched word).</li>
+<li><strong>Text entry and word emotion content:</strong> <em>textEntry</em> determines that a word has been entered and then sends it to <em>wordMatch</em>, which runs it through a coll of known, pre-stored mood information. If the word is a match, its energy and valence coordinate information is sent out to 'quadrant,' as well as to update the speed of the soundtrack.</li>
+<li><strong>Quadrant matching</strong> Each time a new word is matched and its Thayer coordinates are updated, <em>quadrant</em> checks to see if the quadrant has been changed. If so, it sends a message to update the rhythm, mode, and background accompaniment components of the soundtrack. Note that the coordinates of the word can be read in two different modes: absolute and relative. "Absolute" updates the current mood coordinates to the exact mood coordinates of the word; "relative" shifts the current mood coordinates by the coordinates of the word. This is a subtle distinction, but an important one: word "excited" shifts the soundtrack mood absolutely, to the "excited" quadrant, while the word "happier" shifts the soundtrack mood relatively along the valence axis, meaning that the overall soundtrack mood might still be depressed or angry, but not as intensely as before. </li>
+<li><strong>Rhythm creation</strong> When the quadrant is changed, the rhythm loop is also changed to a preset pattern for that quadrant. In the future, more patterns can be added; for now, there is one pattern per quadrant, but two patterns for the "angry" quadrant to show how multiple patterns can be alternated.</li>
+<li><strong>Background creation</strong> When the quadrant is changed, the chord progression is changed, as is the intensity of the MIDI velocities and the speed of chord arpeggiation (from slow to high to chord hits).</li>
+<li><strong>Melody note choice</strong> When the quadrant is changed, the mode, or scale, is changed. This is done in <em>setMode</em> using a progression of tables; the mode table is then accessed by <em>melodyNote</em>, which chooses a random notes within the allowed mode every time a key is pressed.</li>
+<li><strong>Melody creation</strong> There are two melodic choices: Letter-Note and Letter-Musical. Letter note plays the note generated with each key press as soon as the key is pressed. Letter-Musical uses <em>melodyMake</em> to play only play on specific beats of a measure; it plays whatever note has been most recently generated with a key press on those beats and sends out silence the rest of the time.</li>
+</ul>
+<p></p>
+
+
+<h3>Results and challenges:</h3>
+<p>The results can best be determined by playing! Download the patch at the top of the page, and also download the patch that allows for dictionary updating, and have some fun!
+</p>
+<h4>Challenges</h4>
+<p>
+</p><ul>
+<li><strong>Plotting:</strong> I spent a lot of time figuring out how to store, retrieve, and plot coordinates using lcd; several days later I discovered pictslider, which effectively allowed for the same control with much, much, much less effort or complication.</li>
+<li><strong>Mapping: </strong> Originally I was going to have a variable and sliding scale within the moods themselves, but it quickly became unintelligibly complicated so I cut back to one "setting" per mood for each of the musical variables. It would be nice to add variability within each mood, especially based on how far from the origin the mood of the soundtrack is. An "angry" mood that is close to the origin should sound less angry than one that is at the far corner of the Thayer plot.</li>
+<li><strong>Change triggers: </strong>I had to make a lot of seemingly arbitrary choices about when things should update: when should chords change? When should a change in mood be triggered? Should the loops run their course before updating or update in the middle of a loop? Most of the decisions I made were based on "what sounded best at the time," but could be adjusted based on the typing context (fast, as in typing an email, or slow, as in typing along with narration).</li>
+</ul>
+<p></p>
+
+<h4>Future work</h4>
+<p>
+</p><ul>
+<li><strong>Sound:</strong> While MIDI made for easy testing, I'm not a huge fan of the MIDI synthesizer outputs in general, and would prefer to have a signal-based sound output in the future. There were enough other challenges involved with this project that I didn't have time to also work with the MSP portion extensively enough to make it sound effective, but in the future I'd like to work that in (or even add in pre-recorded musical loops).</li>
+<li><strong>Melody:</strong> I ended up focusing on musical background and rhythm, since they provide a very strong sense of mood, but I would like the melodic input to be more interesting and musical. Adding in rhythmic variation and pattern repetition will help with this.</li>
+<li><strong>A larger dictionary:</strong> Because the focus of the course was on musical production and control, I focused more on the Max mechanisms and the musical settings within this project than on building a full word-to-mood library. While I built a patch that allows a user to quickly and easily add words, it would be nice to have a larger starting pool.</li>
+</ul>
+<p></p>
+
+</div>
+
+</body></html>

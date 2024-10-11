@@ -21,7 +21,14 @@ const params = {
   numBristles: 5, 
 };
 
-const gui = new GUI();
+// Set up param gui
+const GUI = lil.GUI;
+const gui = new GUI({ autoPlace: false }).title("Parameters");
+gui.domElement.id = 'gui';
+document.getElementById("gui-container").appendChild(gui.domElement);
+gui.open(false);
+
+// Add params to param gui
 gui.add(params, 'screamThreshold', 0, 300, 5);
 gui.add(params, 'brushSpeed', 0.1, 5, 1);
 gui.add(params, 'brushWidth', 1, 100, 5);
@@ -29,7 +36,9 @@ gui.add(params, 'maxBrushYJitter', 0, .6, .1);
 gui.add(params, 'numBristles', 1, 100, 1);
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  let availableHeight = 1 + windowHeight - document.getElementById("project-body").offsetTop;
+  let canvasElement = document.getElementById("p5-canvas");
+  createCanvas(windowWidth, availableHeight, canvasElement);
   colorMode(RGB, 255);
 
   // Set up painting canvas
