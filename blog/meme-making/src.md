@@ -7,7 +7,7 @@ updated: 2024-10-11
 
 *Adapted from a non-programming talk given while at the [Recurse Center](https://www.recurse.com/).*
 
-A brief tutorial on taking and manipulating screenshots, so that you can quickly have fun making motivational quote images, custom Zulip/Slack emojis, templated memes, goofy "photoshop"-like composites, and whatever else your heart desires.
+A brief tutorial on taking and manipulating screenshots, so that you can quickly have fun making motivational quote images, custom Zulip/Slack emojis, templated memes, goofy "photoshop" composites, and whatever else your heart desires.
 
 !["I should buy a boat" meme of cat with text that reads "I should make a meme"](assets/cat.png)
 
@@ -51,7 +51,7 @@ with output
 
 ![Image of a bee overlaid with text that reads "I'm a bee"](assets/bee.png)
 
-[^you]: I'm not going to write up specific editors; there are almost certainly loads of tutorials for whatever computer/program you have access to, so use that! 
+[^you]: I'm not going to write up specific editors; there are almost certainly loads of tutorials for whatever computer/program you have access to, so use that! If you are a Preview user, these tools will all be in `View > Show Markup Toolbar`; the remove background tool is called "Instant Alpha".
 
 Go ahead and try a basic edit with your program of choice[^you]:
 
@@ -83,7 +83,7 @@ Especially delightful for workplace commentary. #TODO-add text to image
 
 ![Toy Story meme with text "screenshots/screenshots everywhere"](assets/screenshots.png)
 
-This use-case is especially excellent for rapid-response comments in video chats. Did you know you could paste images from your clipboard directly into Zoom? You can! 
+This use-case is especially excellent for rapid-response comments in video chats. Did you know you could paste images from your clipboard directly into a Zoom chat? You can! 
 
 
 ### Emoji for Slack/Zulip/etc
@@ -109,9 +109,9 @@ Why? Because it is funny.
 
 My primary screenshot selection usage is actually more for taking screenshots of things I want to remember from otherwise ephemeral video call chats: charts, citations, quotes. I also keep a folder on my desktop of things that make me happy: comments, praise, and general goofiness from otherwise ephemeral chat situations (Zoom/Slack/group texts, etc).
 
-I also like it for making quick and goofy responses in conversations---a picture is worth a thousand words, etc.[^k] Things I have done with these images: frame it and gift it. Put it on a puzzle and sent that puzzle to a friend. Print it in triplicate and tape it all over my team's meeting room.
+I also like it for responding in digital conversations---a picture is worth a thousand words, etc.[^k] Other things I have done with these images: frame it and gift it. Put it on a puzzle and sent that puzzle to a friend. Print it in triplicate and tape it all over my team's meeting room.
 
-[^llm]: And none of that LLM auto-generated image nonsense, please. This is all about using your human creativity!
+[^llm]: And none of that AI generative image nonsense, please. This is all about using your human creativity!
 
 [^k]: Bet you thought you were going to make it through the whole piece without me saying that!!
 
@@ -119,7 +119,7 @@ I also like it for making quick and goofy responses in conversations---a picture
 
 It should go without saying, but it is important, so I'm going to say it anyway: 
 
-1. **Respect assumptions of privacy!** E.g., no sharing Zoom screenshots (of people, slides, the chat) without their permission.
+1. **Respect assumptions of privacy!** E.g., no sharing Zoom screenshots of people, slides, or the chat without permission.
 
 2. **Be respectful in your choice of meme templates, text, and imagery.** Avoid -isms ([subtle](https://www.recurse.com/social-rules#no-subtle-isms) or otherwise), inadvertent microaggressions (such as [digital blackface](https://www.teenvogue.com/story/digital-blackface-reaction-gifs)), and [punching down](https://dictionary.cambridge.org/us/dictionary/english/punch-down).
 
