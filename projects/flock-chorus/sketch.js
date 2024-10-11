@@ -13,9 +13,14 @@ const params = {
   freqIncrement: .9,
 };
 
-const gui = new GUI( { autoPlace: true} ).title("Parameters");
+// Set up param gui
+const GUI = lil.GUI;
+const gui = new GUI({ autoPlace: false }).title("Parameters");
 gui.domElement.id = 'gui';
 document.getElementById("gui-container").appendChild(gui.domElement);
+gui.open(false);
+
+// Add params to param gui
 gui.add(params, 'worldWraps').name("Wrap world");
 const guiFolder = gui.addFolder('New boid spawn settings');
 guiFolder.add(params, 'targetFreqHz', 125, 2350, 5).name("Target pitch (Hz)");
@@ -29,8 +34,7 @@ guiFolder.add(params, 'maxStartOffsetHz', 0, 600, 50).name("Start pitch max offs
 // guiFolder.add(params, 'volume', -80, -12, 1).name("Volume");
 
 function calculateCanvasHeight() {
-  elem = document.getElementById("project-header");
-  return windowHeight - parseInt(elem.offsetHeight) - parseInt(elem.offsetTop)
+  return windowHeight - document.getElementById("project-body").offsetTop;
 }
 
 function calculateCanvasYOffset() {
@@ -39,14 +43,16 @@ function calculateCanvasYOffset() {
 }
 
 function setup() {
-  let canvas = createCanvas(windowWidth, calculateCanvasHeight())
+  let canvasElement = document.getElementById("p5-canvas");
+  let canvas = createCanvas(windowWidth, calculateCanvasHeight(), canvasElement)
   canvas.mouseClicked(mouseClickedOnCanvas)
   Tone.start();
   flock = new Flock(); // Empty flock!
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, calculateCanvasHeight());
+  let canvasElement = document.getElementById("p5-canvas");
+  resizeCanvas(windowWidth, calculateCanvasHeight(), canvasElement);
 }
 
 function draw() {
@@ -71,10 +77,10 @@ function mouseDragged(event) {
 
   // If not over the canvas, ignore
   // If over the GUI, ignore 
-  if (event.clientY > guiY && event.clientX < guiX && overCanvas){
+  if (event.clientY > guiY && event.clientX < guiX && overCanvas) {
     console.log("we did it, joe");
     flock.addBoid(new Boid(mouseX, mouseY));
-  }  
+  }
 }
 
 // Add a new boid into the System

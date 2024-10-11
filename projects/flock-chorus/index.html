@@ -2,34 +2,18 @@
 <html lang="en">
 
 <head>
+  <link rel="shortcut icon" type="image/png" href="../../assets/img/favicon.png" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
+
+  <!-- Project-specific details -->
   <title>Flock chorus</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lil-gui@0.19"></script>
   <script src="https://unpkg.com/tone"></script>
   <script>
-    const GUI = lil.GUI;
-  </script>
-  <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
-  <style>
-    #project-header {
-      margin: 1rem;
-    }
-
-    html,
-    body {
-      margin: 0;
-      height: 100%;
-      overflow: hidden
-    }
-
-    #gui_container {
-      position: fixed;
-      top: 0;
-      right: 0;
-    }
-
-  </style>
-  <script>
+    // Support testing Tone library in the details header
     function playNote() {
       // create a synth
       let osc = new Tone.Oscillator({
@@ -45,31 +29,53 @@
   </script>
 </head>
 
-<body>
+<body class="p5-project">
   <div id="project-header">
-    <div id="gui-container"></div>
-    <nav class="projects-navbar" role="navigation">
-      <a href="../.." class="nav-link">@hannahilea</a> >
-      <a href="../../projects" class="nav-link">projects</a> > Flock chorus
+
+    <nav class="navbar" role="navigation">
+      @hannahilea:
+      <a class="nav-link" href="../..">home</a> | <a class="nav-link" href="../../projects">projects</a> | <a
+        class="nav-link" href="..">blog</a>
     </nav>
+
+    <h3 class="project-title">Flock chorus</h3>
     <details class="projects-details">
-      <summary><strong>Details</strong></summary>
+      <summary>Details</summary>
       <p>Built for a web-based musical instrument hackathon while at the <a href="https://www.recurse.com">Recurse
           Center</a>. Built on top of the <a href="https://p5js.org/examples/simulate-flocking.html">p5 flocking
           demo</a>.
       </p>
-      <p><i>Usage:</i> Click screen to spawn <a href="https://en.wikipedia.org/wiki/Boids">boids</a>. Make sure your
-        computer sound
-        is on. (May not yet work on mobile.)</p>
-      <p><i>Warning:</i> If you add a gagillion boids, the page may get laggy or stop playing altogether. I'm pretty
-        sure this is a Tone.js limitation (well, a "my current usage of Tone.js" limitation, specifically!), and if you
-        have an idea of how to work around it, please let me know! In the meantime, simply refresh your screen to start
-        fresh (or un-toggle "wrap world" to let some of your flocks fly away).</p>
-      <button onclick="playNote()">Test sound! (refresh page to stop...)</button>
+      <p><strong>Usage:</strong> Click screen to spawn <a href="https://en.wikipedia.org/wiki/Boids">boids</a>. Make
+        sure your
+        computer sound is on.</p>
+
+      <div class="alert">
+        <summary class="alert-heading"> ⚠️ Warning</summary>
+        <p>If you add a gagillion boids, the page may get laggy or stop playing altogether. I'm pretty
+          sure this is a Tone.js limitation (well, a "my current usage of Tone.js" limitation, specifically!), and if
+          you
+          have an idea of how to work around it, please let me know! In the meantime, simply refresh your screen to
+          start
+          fresh (or un-toggle "wrap world" to let some of your flocks fly away).</p>
+      </div>
+
+      <button onclick="playNote()">Test sound!</button>
+      <p>(Refresh page to stop the test sound...)</p>
     </details>
+    <div id="gui-container"></div>
+    <noscript>
+      <br />
+      <div class="alert">
+        <summary class="alert-heading"> ⚠️ JavaScript required!</summary>
+        <p>If you're seeing this message, JavaScript is likely disabled in your browser; you'll need to enable it to
+          interact with this project.</p>
+      </div>
+    </noscript>
+  </div>
+  <div id="project-body">
+    <canvas id="p5-canvas"></canvas>
   </div>
   <script src="./sketch.js"></script>
-
 </body>
 
 </html>

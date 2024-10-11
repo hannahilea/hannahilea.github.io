@@ -28,7 +28,7 @@ function new_p5_project()
         str = replace(str, "{{ DIR_NAME }}" => dir_name)
         write(file, str)
     end
-    
+
     @info "Adding new project to project index"
     let
         index_path = joinpath("projects", "index.html")
@@ -58,12 +58,12 @@ function new_blog_post()
     @info "Creating new blog directory" blog_title dir_name
     cp(joinpath("blog", "__template"), dir)
     for file in readdir(dir; join=true)
-        if endswith(file, ".rss_blob.xml") || endswith(file, ".html.template") 
+        if endswith(file, ".rss_blob.xml") || endswith(file, ".html.template")
             rm(file)
             continue
         end
         startswith(basename(file), ".") && continue
-        
+
         @info "Updating $file..."
         str = read(file, String)
         str = replace(str, "{{ BLOG_TITLE }}" => blog_title)
@@ -88,13 +88,15 @@ function new_blog_post()
     let
         new_blob = read(joinpath("blog", "__template", ".rss_blob.xml"), String)
         pub_date = Dates.format(now(Dates.UTC), dateformat"e, d U yyyy HH:MM:SS ") * "GMT"
-        new_blob = replace(new_blob, "{{ BLOG_TITLE }}" => blog_title,
-                           "{{ PUB_DATE }}" => pub_date, "{{ BLOG_DIR }}" => dir_name)
+        new_blob = replace(new_blob,
+                           "{{ BLOG_TITLE }}" => blog_title,
+                           "{{ PUB_DATE }}" => pub_date,
+                           "{{ BLOG_DIR }}" => dir_name)
         str = read("rss.xml", String)
         i = findfirst(NEW_BLOG_COMMENT, str)
         isnothing(i) &&
             throw(ArgumentError("Oh no, $(NEW_BLOG_COMMENT) not found in $(index_path)"))
-        str = str[1:first(i)-1] * new_blob * str[(first(i)):end]
+        str = str[1:(first(i) - 1)] * new_blob * str[(first(i)):end]
         write("rss.xml", str)
     end
 

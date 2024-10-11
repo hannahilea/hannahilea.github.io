@@ -14,12 +14,18 @@ function preload() {
 }
 
 function setup() {
-  let c = createCanvas(windowWidth, windowHeight, WEBGL);
+  let canvasElement = document.getElementById("p5-canvas");
+  let c = createCanvas(windowWidth, getCanvasHeight(), WEBGL, canvasElement);
   c.mousePressed(playPauseSong);
 }
 
+function getCanvasHeight() {
+  return 1 + windowHeight - document.getElementById("project-body").offsetTop;
+}
+
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  let canvasElement = document.getElementById("p5-canvas");
+  resizeCanvas(windowWidth, getCanvasHeight(), canvasElement);
 }
 
 function playPauseSong() {
@@ -31,15 +37,17 @@ function playPauseSong() {
 }
 
 function draw() {
+  let y = Math.max(mouseY, 0);
+
   // Get our values!
-  rate = map(mouseY, 0, height, 0.5, 2);
+  rate = map(y, 0, height, 0.5, 2);
   let spinAmt;
   if (!mySound.isPlaying()) {
     spinAmt = 0;
-  } else if (mouseY < height / 2) {
-    spinAmt = map(mouseY, 0, height, 0.001, 0.03, true)
+  } else if (y < height / 2) {
+    spinAmt = map(y, 0, height, 0.001, 0.03, true)
   } else {
-    spinAmt = map(mouseY - height / 2, 0, height, 0.02, 0.3);
+    spinAmt = map(y - height / 2, 0, height, 0.02, 0.3);
   }
   pan = map(mouseX, 0, width, -1., 1.);
 
@@ -48,8 +56,8 @@ function draw() {
   let c2 = color(map(pan, -1, 1, 212, 251),
     map(pan, -1, 1, 20, 176),
     map(pan, -1, 1, 90, 51));
-  for (let y = -windowHeight / 2; y < windowHeight / 2; y++) {
-    n = map(y, -windowHeight / 2, windowHeight / 2, 0, 1);
+  for (let y = -height / 2; y < height / 2; y++) {
+    n = map(y, -height / 2, height / 2, 0, 1);
     let newc = lerpColor(c1, c2, n);
     stroke(newc);
     line(-windowWidth / 2, y, windowWidth / 2, y);
@@ -62,7 +70,7 @@ function draw() {
   noStroke();
   angle += spinAmt;
   texture(earthImg);
-  sphere(windowHeight * .35);
+  sphere(height * .35);
 
   // Update audio
   mySound.rate(rate);

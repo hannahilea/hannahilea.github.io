@@ -1,7 +1,5 @@
 // TODO: edit this blurb!
 // Original p5 sketch {{ co-created with FOO+link}}
-// as a creative coding project while at the 
-// Recurse Center (www.recurse.com/)
 
 let mic;
 
@@ -9,11 +7,19 @@ const params = {
   micSensitivity: 4.0,
 };
 
-const gui = new GUI();
+// Set up param gui
+const GUI = lil.GUI;
+const gui = new GUI({ autoPlace: false }).title("Parameters");
+gui.domElement.id = 'gui';
+document.getElementById("gui-container").appendChild(gui.domElement);
+gui.open(false);
+
+// Add params to param gui
 gui.add(params, 'micSensitivity', 0.01, 30, 2);
 
 function setup() {
-  createCanvas(windowWidth, windowHeight)
+  let canvasElement = document.getElementById("p5-canvas");
+  createCanvas(windowWidth, getCanvasHeight(), canvasElement);
 
   // Create an Audio input
   mic = new p5.AudioIn();
@@ -23,8 +29,13 @@ function setup() {
   mic.start();
 }
 
+function getCanvasHeight() {
+  return 1 + windowHeight - document.getElementById("project-body").offsetTop;
+}
+
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  let canvasElement = document.getElementById("p5-canvas");
+  resizeCanvas(windowWidth, getCanvasHeight(), canvasElement);
 }
 
 function draw() {

@@ -43,6 +43,7 @@ body {
   padding: .8em;
   max-width: 800px;
   align-self: center;
+  line-height: 150%;
 }
 
 .title {
@@ -50,11 +51,16 @@ body {
   margin-bottom: 1em;
 }
 
+.navbar {
+  color: #03163f;
+  font-family: "Jura Regular";
+}
+
 .nav-link {
   font-family: "Jura Bold";
   text-decoration: underline dotted;
   text-underline-offset: 3px;
-  color:#03163f;
+  color: #03163f;
 }
 
 .posts {
@@ -80,12 +86,9 @@ body {
   font-weight: bolder;
 }
 
-.blog {
-  line-height: 150%;
-}
-
 h1,
-h2, h3 {
+h2,
+h3 {
   font-weight: normal;
   margin: 0;
   font-family: "Jura Bold";
@@ -93,7 +96,7 @@ h2, h3 {
   margin-bottom: 3px;
 }
 
-.blog > h1 {
+.blog>h1 {
   line-height: 1.2em;
 }
 
@@ -101,7 +104,7 @@ a.footnote-ref {
   text-decoration: none;
 }
 
-a > sup {
+a>sup {
   vertical-align: baseline;
   position: relative;
   top: -0.4em;
@@ -114,7 +117,7 @@ a.footnote-back {
   text-underline-offset: .1em;
 }
 
-.footnotes > ol {
+.footnotes>ol {
   font-size: smaller;
 }
 
@@ -124,7 +127,7 @@ img {
 }
 
 a {
-  color:#03163f;
+  color: #03163f;
   text-decoration: underline dotted;
   text-underline-offset: 3px;
 }
@@ -136,15 +139,10 @@ a[href^="https://github.com/hannahilea"] {
   text-underline-offset: 3px;
 }
 
-[href^="#"]:not(.footnote-back, .footnote-ref){
+[href^="#"]:not(.footnote-back, .footnote-ref) {
   text-decoration: none;
   font-weight: bold;
   font-style: italic;
-}
-
-.navbar {
-  color:#03163f;
-  font-family: "Jura Regular";
 }
 
 .badge {
@@ -249,35 +247,78 @@ img.home-img {
 }
 
 /* Project pages */
-.projects-navbar {
-  font-family: "Jura Regular";
-  color:#03163f;
-  padding: 0 0 1em;
-}
+.p5-project {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-flow: column;
+  gap: 0;
+  overflow: hidden;
 
-.projects-details {
-  font-family: "OpenSans Light";
-  font-size:small;
+  #project-header {
+    margin: 1rem;
+    margin-bottom: .5rem;
+  }
+
+  #project-body {
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+  }
+
+  .project-title {
+    margin-bottom: .5rem
+  }
+
+  .navbar {
+    margin-bottom: .5em;
+  }
+
+  details {
+    font-family: "OpenSans Light";
+    font-size: smaller;
+  }
+
+  summary {
+    font-style: italic;
+  }
+
+  #gui-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+  }
+
+
+
+  /* phones only! */
+  @media (max-width: 550px) {
+    #gui-container {
+      position: fixed;
+      bottom: 0;
+      top: auto;
+    }
+  }
 }
 
 /* Blog pages*/
-.blog-navbar {
-  color:#03163f;
-  font-family: "Jura Regular";
-  margin-bottom: 1.6em;
-}
+.blog {
+  pre {
+    background: #eeeff1;
+    border: 2px solid #ddd;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+  }
 
-pre {
-  background: #eeeff1;
-  border: 2px solid #ddd;
-  page-break-inside: avoid;
-  font-family: monospace;
-  font-size: 14px;
-  line-height: 1.6;
-  max-width: 100%;
-  overflow: auto;
-  padding: 1em 1.5em;
-} 
+  .navbar {
+    margin-bottom: 1.6em;
+  }
+}
 
 .alert {
   border: none;
