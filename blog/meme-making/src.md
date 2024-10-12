@@ -70,7 +70,7 @@ Start with a pretty landscape; add a text box with your quote of choice.
 
 ![Photo of sunset over mountains, with quote reading "computer is mistaek" over top](assets/mistaek.png)
 
-Especially delightful for workplace commentary. #TODO-add text to image
+Especially delightful for workplace commentary.
 
 ### Traditional templated memes
 
