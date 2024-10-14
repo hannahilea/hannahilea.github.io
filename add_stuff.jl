@@ -70,7 +70,10 @@ function new_blog_post()
         str = replace(str, "{{ DATE }}" => date)
         str = replace(str, "{{ BLOG_DIR }}" => dir_name)
         write(file, str)
+
+        mv(file, replace(file, ".template" => ""))
     end
+    mkdir(joinpath(dir, "assets"))
 
     @info "Adding new project to blog index"
     let
