@@ -1,31 +1,242 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <link rel="shortcut icon" type="image/png" href="../../assets/img/favicon.png" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Clapping Music for flip-discs continued: Byte and variations</title>
+    <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
+  </head>
 
-<head>
-  <link rel="shortcut icon" type="image/png" href="../../assets/img/favicon.png" />
-  <title>Clapping Music for flip-discs continued: Byte and variations</title>
-  <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
-  <script type="module" src="../../assets/scripts/md-block.js"></script>
-</head>
-
-<body>
-  <div class="main-container">
-    <nav class="blog-navbar" role="navigation">
-      @hannahilea:
-      <a href="../.." class="nav-link">home</a> |
-      <a href="../../projects" class="nav-link">projects</a> |
-      <a href=".." class="nav-link">blog</a> |
-      <a href="mailto:hannah.ilea.robertson+site@gmail.com" class="nav-link">contact</a>
-    </nav>
-    <md-block src="./src.md" hlinks>
-      <noscript>
-        <div class="js-fallback-container">
-          <iframe class="js-fallback-desc" src="../js-fallback-description.html"></iframe>
-          <iframe class="js-fallback" src="./src.md"></iframe>
-        </div>
-      </noscript>
-    </md-block>
-  </div>
-</body>
-
+  <body>
+    <div class="main-container blog">
+      <nav class="navbar" role="navigation">
+        @hannahilea:
+        <a class="nav-link" href="../..">home</a> | <a class="nav-link" href="../../projects">projects</a> |
+        <a class="nav-link" href="..">blog</a>
+      </nav>
+      <h1>
+        <strong><em>Clapping Music</em></strong> for flip-discs continued: Byte and variations
+      </h1>
+      <h1 id="clapping-music-for-flip-discs-continued-byte-and-variations">
+        <strong><em>Clapping Music</em></strong> for flip-discs continued: Byte and variations
+      </h1>
+      <p>
+        In response to <a href="../clapping-music-for-flip-disc-displays/"><em>Clapping Music</em> for two flip-disc displays</a>, a reader <a href="https://lobste.rs/s/70ipvr/blog_clapping_music_for_two_flip_disc">commented</a>
+      </p>
+      <blockquote>
+        <p>
+          <em
+            >I’d love to see a version played on a single board, with the two performers represented by the left and right sides of the board. It would more closely match the layout of a typical performance (two people standing side by
+            side), and I think it would make it easier to see the phasing points.</em
+          >
+        </p>
+      </blockquote>
+      <p>Great idea—let’s do it!</p>
+      <p>[TODO-video]</p>
+      <p>Yep, quite pleasing. Thanks for the suggestion!</p>
+      <p style="text-align: center">***</p>
+      <p>The code changes required to support this performance were fairly minimal, and in the process of implementing them I accidentally stumbled into a nice illustration of how commands are sent to the boards. Let’s take a look!</p>
+      <h2 id="i-3-julia">I &lt;3 Julia</h2>
+      <p>First, the minimal code changes to support this new playback mode are a nice example of how easy it is to refactor Julia to be more generic.</p>
+      <p>If you’ll recall, we started with some code that looked like this:</p>
+      <div class="sourceCode" id="cb1">
+        <pre
+          class="sourceCode julia"
+        ><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">clapping_music</span>(sink_dots, sink_digits; pause<span class="op">=</span><span class="fl">0.15</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                         clap_pattern<span class="op">=</span><span class="dt">Bool</span>[<span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>],</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                         num_repeats<span class="op">=</span><span class="fl">12</span>, num_shifts<span class="op">=</span><span class="fu">length</span>(clap_pattern) <span class="op">+</span> <span class="fl">1</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                         num_dots_to_set<span class="op">=</span><span class="fl">28</span>, num_digits_to_set<span class="op">=</span><span class="fl">2</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    i_pattern_shift <span class="op">=</span> <span class="fl">0</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>num_shifts</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> _ <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>num_repeats, i_pattern <span class="kw">in</span> <span class="fu">eachindex</span>(clap_pattern)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>            clap_pattern[i_pattern] <span class="op">&amp;&amp;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                <span class="fu">write_to_sink</span>(sink_dots, <span class="fu">rand</span>(<span class="bn">0x00</span><span class="op">:</span><span class="bn">0x7F</span>, num_dots_to_set))</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>            clap_pattern[<span class="fu">mod1</span>(i_pattern <span class="op">+</span> i_pattern_shift, <span class="fu">length</span>(clap_pattern))] <span class="op">&amp;&amp;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                <span class="fu">write_to_sink</span>(sink_digits, <span class="fu">rand</span>(<span class="bn">0x00</span><span class="op">:</span><span class="bn">0x7F</span>, num_digits_to_set))</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>            <span class="fu">sleep</span>(pause)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">end</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        i_pattern_shift <span class="op">+=</span> <span class="fl">1</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre>
+      </div>
+      <p>I pulled out the “make a clap” piece (the first two lines in the inner for-loop) into their own arguments:</p>
+      <div class="sourceCode" id="cb2">
+        <pre
+          class="sourceCode julia"
+        ><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">clapping_music</span>(; clap_a<span class="op">=</span>() <span class="op">-&gt;</span> <span class="fu">print</span>(<span class="st">&quot;A&quot;</span>), clap_b<span class="op">=</span>() <span class="op">-&gt;</span> <span class="fu">print</span>(<span class="st">&quot;B&quot;</span>),</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                        pause<span class="op">=</span><span class="fl">0.15</span>, clap_pattern<span class="op">=</span><span class="dt">Bool</span>[<span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>],</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                        num_repeats<span class="op">=</span><span class="fl">12</span>, num_shifts<span class="op">=</span><span class="fu">length</span>(clap_pattern) <span class="op">+</span> <span class="fl">1</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    i_pattern_shift <span class="op">=</span> <span class="fl">0</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>num_shifts</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> _ <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>num_repeats, i_pattern <span class="kw">in</span> <span class="fu">eachindex</span>(clap_pattern)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>            clap_pattern[i_pattern] <span class="op">&amp;&amp;</span> <span class="fu">clap_a</span>()</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>            clap_pattern[<span class="fu">mod1</span>(i_pattern <span class="op">+</span> i_pattern_shift, <span class="fu">length</span>(clap_pattern))] <span class="op">&amp;&amp;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                <span class="fu">clap_b</span>()</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>            <span class="fu">sleep</span>(pause)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">end</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        i_pattern_shift <span class="op">+=</span> <span class="fl">1</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre>
+      </div>
+      <p>
+        This fully decouples a performance of <code>clapping_music</code> from the flip-disc boards—now you can play <em>Clapping Music</em> with any two clap functions that you want!<a
+          href="#fn1"
+          class="footnote-ref"
+          id="fnref1"
+          role="doc-noteref"
+          ><sup>1</sup></a
+        >
+        Your “claps” could trigger the playback of a cowbell sound or trigger a light to blink. You could even send one clap command to trigger a doorbell and another to flip an automated door lock, and make your home play clapping music!<a
+          href="#fn2"
+          class="footnote-ref"
+          id="fnref2"
+          role="doc-noteref"
+          ><sup>2</sup></a
+        >
+      </p>
+      <p>
+        The default behavior is to print a comment to the command line, which gives a lovely realtime-captioned<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> mashup of <em>Clapping Music</em> with
+        <a href="https://en.wikipedia.org/wiki/4%E2%80%B233%E2%80%B3">John Cage’s <em>4’33”</em></a
+        >:
+      </p>
+      <p>TODO-video</p>
+      <p>A post-hoc recap of that performance is even less interesting:</p>
+      <pre><code>AABBABABABABABABA [...] </code></pre>
+      <p>BACK TO OUR MISSION. To recreate the performance of the original post with this new refactoring, we call</p>
+      <div class="sourceCode" id="cb4">
+        <pre
+          class="sourceCode julia"
+        ><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>clap_a <span class="op">=</span> () <span class="op">-&gt;</span> <span class="fu">write_to_sink</span>(sink_dots, <span class="fu">rand</span>(<span class="bn">0x00</span><span class="op">:</span><span class="bn">0x7F</span>, <span class="fl">28</span>))</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>clap_b <span class="op">=</span> () <span class="op">-&gt;</span> <span class="fu">write_to_sink</span>(sink_digits, <span class="fu">rand</span>(<span class="bn">0x00</span><span class="op">:</span><span class="bn">0x7F</span>, <span class="fl">2</span>))</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Play it:</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">clapping_music</span>(; clap_a, clap_b)</span></code></pre>
+      </div>
+      <p>Setting up the newly proposed rendition is now trivially easy:</p>
+      <div class="sourceCode" id="cb5">
+        <pre
+          class="sourceCode julia"
+        ><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>board_state <span class="op">=</span> <span class="fu">zeros</span>(<span class="dt">UInt8</span>, <span class="fl">28</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>num_cols <span class="op">=</span> <span class="fl">10</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">clap_a!</span>()</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    board_state[<span class="fl">1</span><span class="op">:</span>num_cols] <span class="op">=</span> board_state[<span class="fl">1</span><span class="op">:</span>num_cols] <span class="op">.+</span> <span class="fu">rand</span>(<span class="bn">0x00</span><span class="op">:</span><span class="bn">0x7F</span>, num_cols)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">write_to_sink</span>(sink, board_state)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">clap_b!</span>()</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    board_state[(<span class="kw">end</span> <span class="op">-</span> num_cols <span class="op">+</span> <span class="fl">1</span>)<span class="op">:</span><span class="kw">end</span>] <span class="op">=</span> board_state[(<span class="kw">end</span> <span class="op">-</span> num_cols <span class="op">+</span> <span class="fl">1</span>)<span class="op">:</span><span class="kw">end</span>] <span class="op">.+</span> <span class="fu">rand</span>(<span class="bn">0x00</span><span class="op">:</span><span class="bn">0x7F</span>, num_cols)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">write_to_sink</span>(sink, board_state)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Play it:</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="fu">clapping_music</span>(; clap_a<span class="op">=</span>clap_a!, clap_b<span class="op">=</span>clap_b!)</span></code></pre>
+      </div>
+      <p>You’ll note that in this new variant, we keep track of—and update—the full state of the board. TODO-EXPLAIN OR DON’T DO THIS IF IT ISN”T NECESSARY</p>
+      <h2 id="a-cool-whoops">A cool whoops</h2>
+      <p>
+        It had been quite awhile since I set up the original library to send specific disc-on/disc-off commands to the displays, so I didn’t remember exactly how to do it—my first guess, before going back to read the code, ended up being
+        very wrong AND looking very cool AND providing an excellent demonstration of how information is sent to the boards in the first place.
+      </p>
+      <p>These are the claps I sent</p>
+      <pre><code>clap_a() TODO</code></pre>
+      <p>and this is what it looks like:</p>
+      <p>TODO-video.</p>
+      <p><img style="border: none" src="/assets/img/emojis/surprise-pikachu.png" alt="Surprise pikachu" /></p>
+      <p>What is going on?! Why does it look so cool? Why am I inadvertently counting the total number of claps that’ve been clapped, instead of setting a whole block of discs to random values?</p>
+      <p>Even though solving this for the originally intended clap patterns was straight-forward, the reason for these something something ones is cool, and illustrates the underlying organization of the serial command.</p>
+      <h2 id="what-does-a-byte-look-like-on-this-flip-disc-display">What does a byte look like on this flip-disc display?</h2>
+      <p>In these displays, one byte of data corresponds to one column of flip-disc board (see how each column contains 8 discs? BOOM, a byte!). Let’s send the values 1 through 64, one at a time, and see what happens:</p>
+      <p>[TODO-gif of flipdigits counting up with number counts if possible]</p>
+      <p>Cool, look familiar? If you have ever done any math or programming, you’ll likely notice that we’re counting in binary. For the fun of it, here is the equivalent counting-in-binary with fingers:</p>
+      <p>TODO-gif-finger-counting</p>
+      <p>There are 28 columns in this board, and therefore to fill in the first dot for each row in the board, we need to send 28 bytes with value 1:</p>
+      <p>[TODO-do it]</p>
+      <p>
+        The scheme is identical on the flip-digits display, except that one byte maps to one character. It’s harder to see the pattern here, as the individual segments that get flipped aren’t in a neat column, but it exists. As in the disc
+        board, byte value 0 maps to all
+      </p>
+      <p>[TODO-gif of flipdigits counting up THEN all set to 1]</p>
+      <p>
+        One other implementation fact is relevant here: something something we must send bytes up to and including the last column we want to set—we can’t just target a middle column and leave its preceding columns untouched.<a
+          href="#fn4"
+          class="footnote-ref"
+          id="fnref4"
+          role="doc-noteref"
+          ><sup>4</sup></a
+        >
+        We don’t, however, have to update all columns on the board—any remaining columns are left in their previous update state, regardless of whether that was on or off (white or black, flipped or unflipped).
+      </p>
+      <p>
+        This means that we have to be strategic about where our given claps are drawn on the board. One approach is to keep track of board state outside of the clapping, capture that state in each of the clap functions, and let the clap
+        update its own subset of discs and then redraw the full world. This is the approach I used at first.
+      </p>
+      <p>
+        Because I wanted each of my claps to own their own contiguous span of columns, I could avoid keeping track of state and instead make sure to always assign the the right-most set of columns to the clap_a function, such that when
+        clap_b is called it doesn’t overwrite clap_a’s columns. This is the approach I use now. It’s a nice approach, but won’t be sufficient when the next person invariable proposes the board be divided up like a chess board, with clap_a
+        given the black squares and clap_b given the white.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>
+      </p>
+      <h3 id="theme-and-variations">Theme and variations</h3>
+      <p>With the knowledge above, I had some fun playing with cool variations. Here they are:</p>
+      <p>{ AF requested “the littlest clap!”</p>
+      <div class="sourceCode" id="cb7">
+        <pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>clap_a <span class="op">=</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>clap_b <span class="op">=</span> </span></code></pre>
+      </div>
+      <p>TODO-VID }</p>
+      <p>{ Title:</p>
+      <div class="sourceCode" id="cb8">
+        <pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>clap_a <span class="op">=</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>clap_b <span class="op">=</span> </span></code></pre>
+      </div>
+      <p>TODO-VID }</p>
+      <p>{ Title:</p>
+      <div class="sourceCode" id="cb9">
+        <pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>clap_a <span class="op">=</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>clap_b <span class="op">=</span> </span></code></pre>
+      </div>
+      <p>TODO-VID } …</p>
+      <p>What next? Stay tuned!</p>
+      <p>
+        <strong>Code that generated these video examples lives <a href="TODO">here</a>.</strong>
+      </p>
+      <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+        <hr />
+        <h3 id="footnotes-title">Footnotes</h3>
+        <ol>
+          <li id="fn1">
+            <p>
+              Clapper beware: if your “clap” function is blocking (i.e., if it waits until the clap sound has been played to return to the main function call), you won’t get the desired dual-clap synchronicity. The synchronicity relies on
+              calls to <code>clap_a()</code> and <code>clap_b()</code> triggering an external clap production but then returning immediately, before the sound has a chance to happen. In the case of the flip dots displays used here, this
+              works out fine: the clap functions send a serial command to the boards (which is fast!) and then returns without waiting for the display board to <em>have been</em> update. Because this delay happens quickly relative to both
+              the duration of sound production and the timescale of the full piece, the two claps appear to happen simultaneously and on a beat. (There is, of course, a slight delay—but not one that matters on the timescale of the piece’s
+              BPM.)<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a>
+            </p>
+          </li>
+          <li id="fn2">
+            <p>
+              Due to the previous caveat, if you do make your “smart” home play <em>Clapping Music</em>, you’ll probably have to slow the piece down A LOT to allow for the production of each clap before moving on to the next. This sounds
+              pretty entertaining—if perhaps a great way to accidentally break your door…—and if you have a home you’d be willing to let me experiment on, let me know. :)<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a>
+            </p>
+          </li>
+          <li id="fn3">
+            <p>This opens up a whole awesome can of worms re: realtime audio visualization, but that’s for another time!<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+          <li id="fn4">
+            <p>help<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+          <li id="fn5">
+            <p>Go on, I dare you.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+        </ol>
+      </section>
+      <hr />
+      <ul>
+        <li>created: 2024-10-14</li>
+        <li>last updated: 2024-10-14</li>
+        <li>tags: project-writeup, electromechanical-display, raspberry-pi, music, programming, hardware, software, julia</li>
+      </ul>
+    </div>
+  </body>
 </html>

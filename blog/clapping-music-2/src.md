@@ -1,5 +1,13 @@
 # ***Clapping Music*** for flip-discs continued: Byte and variations
 
+---
+title: "***Clapping Music*** for flip-discs continued: Byte and variations"
+rawtitle: "Clapping Music for flip-discs continued: Byte and variations"
+tags: [project-writeup, electromechanical-display, raspberry-pi, music, programming, hardware, software, julia]
+created: 2024-10-14
+updated: 2024-10-14
+---
+
 In response to [*Clapping Music* for two flip-disc displays](../clapping-music-for-flip-disc-displays/), a reader [commented](https://lobste.rs/s/70ipvr/blog_clapping_music_for_two_flip_disc)
 
 > *I’d love to see a version played on a single board, with the two performers represented by the left and right sides of the board. It would more closely match the layout of a typical performance (two people standing side by side), and I think it would make it easier to see the phasing points.*
@@ -59,7 +67,7 @@ end
 ```
 This fully decouples a performance of `clapping_music` from the flip-disc boards---now you can play *Clapping Music* with any two clap functions that you want![^caveat] Your "claps" could trigger the playback of a cowbell sound or trigger a light to blink. You could even send one clap command to trigger a doorbell and another to flip an automated door lock, and make your home play clapping music![^caveat2] 
 
-The default behavior is to print a comment to the command line, which gives a lovely realtime-captioned[^caption] mashup of *Clapping Music* with [John Cage's *4'33'*](https://en.wikipedia.org/wiki/4%E2%80%B233%E2%80%B3):
+The default behavior is to print a comment to the command line, which gives a lovely realtime-captioned[^caption] mashup of *Clapping Music* with [John Cage's *4'33"*](https://en.wikipedia.org/wiki/4%E2%80%B233%E2%80%B3):
 
 TODO-video 
 
@@ -185,14 +193,3 @@ TODO-VID
 What next? Stay tuned!
 
 **Code that generated these video examples lives [here](TODO).**
-
----
-### Footnotes
-
-<footnotes/>
-
---- 
-- created: 2024-09-27
-- last updated: 2024-09-27
-- tags: project-writeup, electromechanical-display, raspberry-pi, music, programming, hardware, software, julia
-
