@@ -14,7 +14,7 @@ In response to [*Clapping Music* for two flip-disc displays](../clapping-music-f
 
 Great idea---let's do it!
 
-[TODO-video]
+[TODO-video-1]
 
 Yep, quite pleasing. Thanks for the suggestion!
 
@@ -22,7 +22,7 @@ Yep, quite pleasing. Thanks for the suggestion!
 
 The code changes required to support this performance were fairly minimal, and in the process of implementing them I accidentally stumbled into a nice illustration of how commands are sent to the boards. Let's take a look!
 
-## I <3 Julia
+## Clap refactor
 
 First, the minimal code changes to support this new playback mode are a nice example of how easy it is to refactor Julia to be more generic. 
 
@@ -30,9 +30,9 @@ If you'll recall, we started with some code that looked like this:
 
 ```julia
 function clapping_music(sink_dots, sink_digits; pause=0.15,
-                         clap_pattern=Bool[1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0],
-                         num_repeats=12, num_shifts=length(clap_pattern) + 1,
-                         num_dots_to_set=28, num_digits_to_set=2)
+                        clap_pattern=Bool[1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0],
+                        num_repeats=12, num_shifts=length(clap_pattern) + 1,
+                        num_dots_to_set=28, num_digits_to_set=2)
     i_pattern_shift = 0
     for _ in 1:num_shifts
         for _ in 1:num_repeats, i_pattern in eachindex(clap_pattern)
@@ -49,6 +49,7 @@ end
 
 I pulled out the "make a clap" piece (the first two lines in the inner for-loop) into their own arguments:
 
+TODO-make sure this matches the code
 ```julia
 function clapping_music(; clap_a=() -> print("A"), clap_b=() -> print("B"),
                         pause=0.15, clap_pattern=Bool[1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0],
@@ -69,7 +70,7 @@ This fully decouples a performance of `clapping_music` from the flip-disc boards
 
 The default behavior is to print a comment to the command line, which gives a lovely realtime-captioned[^caption] mashup of *Clapping Music* with [John Cage's *4'33"*](https://en.wikipedia.org/wiki/4%E2%80%B233%E2%80%B3):
 
-TODO-video 
+[TODO-video-2]
 
 A post-hoc recap of that performance is even less interesting:
 ```
@@ -86,6 +87,7 @@ clap_b = () -> write_to_sink(sink_digits, rand(0x00:0x7F, 2))
 # Play it:
 clapping_music(; clap_a, clap_b)
 ```
+...I'm not including a video here, you'll have to take my word that it's identical.
 
 Setting up the newly proposed rendition is now trivially easy:
 ```julia
@@ -106,11 +108,13 @@ end
 clapping_music(; clap_a=clap_a!, clap_b=clap_b!)
 ```
 
+[TODO-video-1abridged]
+
 You'll note that in this new variant, we keep track of---and update---the full state of the board. TODO-EXPLAIN OR DON'T DO THIS IF IT ISN"T NECESSARY
 
-[^caveat]: Clapper beware: if your "clap" function is blocking (i.e., if it waits until the clap sound has been played to return to the main function call), you won't get the desired dual-clap synchronicity. The synchronicity relies on calls to `clap_a()` and `clap_b()` triggering an external clap production but then returning immediately, before the sound has a chance to happen. In the case of the flip dots displays used here, this works out fine: the clap functions send a serial command to the boards (which is fast!) and then returns without waiting for the display board to *have been* update. Because this delay happens quickly relative to both the duration of sound production and the timescale of the full piece, the two claps appear to happen simultaneously and on a beat. (There is, of course, a slight delay---but not one that matters on the timescale of the piece's BPM.)
+[^caveat]: Clapper beware: if your "clap" function is blocking (i.e., if it waits until the clap sound has been played to return to the main function call), you won't get the desired dual-clap simultaneity. The simultaneity relies on calls to `clap_a()` and `clap_b()` triggering an external clap production and then returning immediately, before the sound has had a be produced. In the case of these flip dots displays, this works out fine: the clap functions send a serial command to the boards (which is fast!) and then returns without waiting for the display board to *have been* updated. The delay happens quickly relative to both the duration of sound production and the timescale of the full piece, so the two claps are perceived as happening simultaneously. (While there is a slight delay, it is not one that matters on the timescale of the piece's BPM.)
 
-[^caveat2]: Due to the previous caveat, if you do make your "smart" home play *Clapping Music*, you'll probably have to slow the piece down A LOT to allow for the production of each clap before moving on to the next. This sounds pretty entertaining---if perhaps a great way to accidentally break your door...---and if you have a home you'd be willing to let me experiment on, let me know. :) 
+[^caveat2]: Due to the previous caveat, if you do make your "smart" home play *Clapping Music*, you'll probably have to slow the piece down A LOT to allow for the production of each clap before moving on to the next. This sounds pretty entertaining---if perhaps a great way to accidentally break your door lock---and if you have a home you'd be willing to let me experiment on, let me know.:) 
 
 ## A cool whoops
 
