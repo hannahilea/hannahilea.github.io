@@ -144,13 +144,13 @@
           ><sup>4</sup></a
         >
       </p>
-      <p>[TODO-video-8]</p>
+      <p>Here’s what that yielded: [TODO-video-8]</p>
       <p><img style="border: none" src="/assets/img/emojis/surprise-pikachu.png" alt="Surprise pikachu" /></p>
       <p>
-        What is going on?! Why does it look so cool? Why (as computer-minded folks have likely recognized) am I counting the total number of claps that’ve been clapped over the course of the song, instead of setting a whole block of discs
-        to random values?
+        What is going on?! Why does it look so cool? Why—as those of you familiar with counting in binary have likely recognized—am I counting the total number of claps that’ve been clapped over the course of the song, instead of setting a
+        whole block of discs to random values?
       </p>
-      <p>Well, if I’d remembered the <code>write_to_sink</code> protocol, I’d have known that each of those indices I was updating was a whole <em>column</em> of the board. With that information</p>
+      <p>Well, if I’d remembered how I’d implemented the <code>write_to_sink</code> function, I’d have known that each of those indices I was updating was a whole <em>column</em> of the board. With that information</p>
       <h2 id="what-does-a-byte-look-like-on-this-flip-disc-display">What does a byte look like on this flip-disc display?</h2>
       <p>In these displays, one byte of data corresponds to one column of flip-disc board (see how each column contains 8 discs? BOOM, a byte!). Let’s send the values 1 through 64, one at a time, and see what happens:</p>
       <p>[TODO-gif of flipdigits counting up with number counts if possible]</p>

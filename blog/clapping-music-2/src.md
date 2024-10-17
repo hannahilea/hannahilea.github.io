@@ -127,13 +127,14 @@ end
 clapping_music(; clap_a=clap_a!, clap_b=clap_b!)
 ```
 
+Here's what that yielded:
 [TODO-video-8]
 
 <img style="border: none;" src="/assets/img/emojis/surprise-pikachu.png" alt="Surprise pikachu"/>
 
-What is going on?! Why does it look so cool? Why (as computer-minded folks have likely recognized) am I counting the total number of claps that've been clapped over the course of the song, instead of setting a whole block of discs to random values? 
+What is going on?! Why does it look so cool? Why---as those of you familiar with counting in binary have likely recognized---am I counting the total number of claps that've been clapped over the course of the song, instead of setting a whole block of discs to random values? 
 
-Well, if I'd remembered the `write_to_sink` protocol, I'd have known that each of those indices I was updating was a whole *column* of the board. With that information 
+Well, if I'd remembered how I'd implemented the `write_to_sink` function, I'd have known that each of those indices I was updating was a whole *column* of the board. With that information 
 
 
 

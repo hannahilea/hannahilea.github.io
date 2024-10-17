@@ -1,5 +1,4 @@
-# Generate content filmed for blog post
-# TODO add manifest
+# Generate examples for post
 
 using FlipBoard
 shared_srl = open_srl_iff_available(; portname="/dev/ttyS0", baudrate=57600)
