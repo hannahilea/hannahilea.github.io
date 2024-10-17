@@ -15,7 +15,7 @@ clapping_music(; clap_a, clap_b, num_repeats=2, num_shifts=4)
 # 1. New full clapping music
 board_state = zeros(UInt8, 28)
 function randomize_cols!(board_state, col_range) 
-    board_state[col_range] = rand(0x00:0x7F, length(col_range))
+    board_state[col_range] .= rand(0x00:0x7F, length(col_range))
     return board_state
 end
 
