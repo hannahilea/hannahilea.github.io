@@ -1,5 +1,3 @@
-# ***Clapping Music*** for flip-discs continued: Byte and variations
-
 ---
 title: "***Clapping Music*** for flip-discs continued: Byte and variations"
 rawtitle: "Clapping Music for flip-discs continued: Byte and variations"
@@ -8,7 +6,7 @@ created: 2024-10-14
 updated: 2024-10-14
 ---
 
-In response to [*Clapping Music* for two flip-disc displays](../clapping-music-for-flip-disc-displays/), a reader [commented](https://lobste.rs/s/70ipvr/blog_clapping_music_for_two_flip_disc)
+In response to previous post [*Clapping Music* for two flip-disc displays](../clapping-music-for-flip-disc-displays/), a reader [commented](https://lobste.rs/s/70ipvr/blog_clapping_music_for_two_flip_disc)
 
 > *I’d love to see a version played on a single board, with the two performers represented by the left and right sides of the board. It would more closely match the layout of a typical performance (two people standing side by side), and I think it would make it easier to see the phasing points.*
 
@@ -20,13 +18,11 @@ Yep, quite pleasing. Thanks for the suggestion!
 
 <p style="text-align:center">***</p>
 
-The code changes required to support this performance were fairly minimal, and in the process of implementing them I accidentally stumbled into a nice illustration of how commands are sent to the boards. Let's take a look!
+The code changes required to support this performance were fairly minimal, but in the process of implementing them I accidentally stumbled into a nice illustration of how commands are sent to the boards. Let's take a look!
 
 ## Clap refactor
 
-First, the minimal code changes to support this new playback mode are a nice example of how easy it is to refactor Julia to be more generic. 
-
-If you'll recall, we started with some code that looked like this:
+First, the minimal code changes to support this new playback mode. If you'll recall, we started with some code that looked like this:
 
 ```julia
 function clapping_music(sink_dots, sink_digits; pause=0.15,
@@ -47,28 +43,25 @@ function clapping_music(sink_dots, sink_digits; pause=0.15,
 end
 ```
 
-I pulled out the "make a clap" piece (the first two lines in the inner for-loop) into their own arguments:
-
-TODO-make sure this matches the code
+I moved the "make a clap" phrases (the first two lines of the inner for-loop) into input arguments:
 ```julia
 function clapping_music(; clap_a=() -> print("A"), clap_b=() -> print("B"),
                         pause=0.15, clap_pattern=Bool[1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0],
-                        num_repeats=12, num_shifts=length(clap_pattern) + 1)
+                        num_repeats=12, num_shifts=length(clap_pattern))
     i_pattern_shift = 0
-    for _ in 1:num_shifts
+    for _ in 0:num_shifts
         for _ in 1:num_repeats, i_pattern in eachindex(clap_pattern)
             clap_pattern[i_pattern] && clap_a()
-            clap_pattern[mod1(i_pattern + i_pattern_shift, length(clap_pattern))] &&
-                clap_b()
+            clap_pattern[mod1(i_pattern + i_pattern_shift, length(clap_pattern))] && clap_b()
             sleep(pause)
         end
         i_pattern_shift += 1
     end
 end
 ```
-This fully decouples a performance of `clapping_music` from the flip-disc boards---now you can play *Clapping Music* with any two clap functions that you want![^caveat] Your "claps" could trigger the playback of a cowbell sound or trigger a light to blink. You could even send one clap command to trigger a doorbell and another to flip an automated door lock, and make your home play clapping music![^caveat2] 
+This slight refactor fully decouples the implementation of `clapping_music` from the flip-disc boards---now you can play *Clapping Music* with any two clap functions that you want![^caveat] Your "claps" could trigger the playback of a cowbell sound or trigger a light to blink. You could even send one clap command to trigger a doorbell and another to flip an automated door lock, and make your home play clapping music![^caveat2] 
 
-The default behavior is to print a comment to the command line, which gives a lovely realtime-captioned[^caption] mashup of *Clapping Music* with [John Cage's *4'33"*](https://en.wikipedia.org/wiki/4%E2%80%B233%E2%80%B3):
+The default behavior is to print a comment to the command line, which gives a lovely realtime-captioned mashup of *Clapping Music* with [John Cage's *4'33"*](https://en.wikipedia.org/wiki/4%E2%80%B233%E2%80%B3):
 
 [TODO-video-2]
 
@@ -77,9 +70,7 @@ A post-hoc recap of that performance is even less interesting:
 AABBABABABABABABA [...] 
 ```
 
-[^caption]: This opens up a whole awesome can of worms re: realtime audio visualization, but that's for another time! 
-
-BACK TO OUR MISSION. To recreate the performance of the original post with this new refactoring, we call 
+*Back to the mission.* To recreate the dual-board performance of the original post with this new refactoring, we can do 
 ```julia 
 clap_a = () -> write_to_sink(sink_dots, rand(0x00:0x7F, 28))
 clap_b = () -> write_to_sink(sink_digits, rand(0x00:0x7F, 2))
@@ -87,52 +78,64 @@ clap_b = () -> write_to_sink(sink_digits, rand(0x00:0x7F, 2))
 # Play it:
 clapping_music(; clap_a, clap_b)
 ```
-...I'm not including a video here, you'll have to take my word that it's identical.
+...I'm not including a video of it here, you'll have to take my word that it's identical.
 
-Setting up the newly proposed rendition is now trivially easy:
+Running the newly proposed variant is now trivially easy:
 ```julia
 board_state = zeros(UInt8, 28)
-num_cols = 10
-
-function clap_a!()
-    board_state[1:num_cols] = board_state[1:num_cols] .+ rand(0x00:0x7F, num_cols)
-    return write_to_sink(sink, board_state)
+function randomize_cols!(board_state, col_range) 
+    board_state[col_range] = rand(0x00:0x7F, length(col_range))
+    return board_state
 end
 
-function clap_b!()
-    board_state[(end - num_cols + 1):end] = board_state[(end - num_cols + 1):end] .+ rand(0x00:0x7F, num_cols)
-    return write_to_sink(sink, board_state)
-end
+board_state = zeros(UInt8, 28)
+clap_left!() = write_to_sink(sink_dots, randomize_cols!(board_state, 1:10))
+clap_right!() = write_to_sink(sink_dots, randomize_cols!(board_state, 18:28))
 
 # Play it:
-clapping_music(; clap_a=clap_a!, clap_b=clap_b!)
+clapping_music(; clap_a=clap_left!, clap_b=clap_right!)
 ```
 
 [TODO-video-1abridged]
+(Here's an abridged version; the full version is at the top of this page.)
 
-You'll note that in this new variant, we keep track of---and update---the full state of the board. TODO-EXPLAIN OR DON'T DO THIS IF IT ISN"T NECESSARY
+You'll note that in this performance variant, we keep track of---and update---the full state of the board. This is necessary because of the split clap function definitions: a single update message to the board updates *all* discs on the board, so in order to not overwrite the "a" clap with the "b" clap, we need to update the board (via `write_to_sink`) with the entire state of the updated board; we can't just update a few pixels or columns at a time.[^think]
+
+[^think]: At least, I don't think that's possible given the current serial communication protocol specification; it's possible that *some* board configuration allows it, and I'm just not familiar with that setting. 
 
 [^caveat]: Clapper beware: if your "clap" function is blocking (i.e., if it waits until the clap sound has been played to return to the main function call), you won't get the desired dual-clap simultaneity. The simultaneity relies on calls to `clap_a()` and `clap_b()` triggering an external clap production and then returning immediately, before the sound has had a be produced. In the case of these flip dots displays, this works out fine: the clap functions send a serial command to the boards (which is fast!) and then returns without waiting for the display board to *have been* updated. The delay happens quickly relative to both the duration of sound production and the timescale of the full piece, so the two claps are perceived as happening simultaneously. (While there is a slight delay, it is not one that matters on the timescale of the piece's BPM.)
 
 [^caveat2]: Due to the previous caveat, if you do make your "smart" home play *Clapping Music*, you'll probably have to slow the piece down A LOT to allow for the production of each clap before moving on to the next. This sounds pretty entertaining---if perhaps a great way to accidentally break your door lock---and if you have a home you'd be willing to let me experiment on, let me know.:) 
 
-## A cool whoops
+## In which I ruin the illusion that I implemented the variant perfectly the first time I tried it
 
-It had been quite awhile since I set up the original library to send specific disc-on/disc-off commands to the displays, so I didn't remember exactly how to do it---my first guess, before going back to read the code, ended up being very wrong AND looking very cool AND providing an excellent demonstration of how information is sent to the boards in the first place. 
+It had been quite awhile since I set up the original library to send specific update commands to the displays, so I didn't remember exactly how it worked---my first guess, before going back to read the code, ended up being very wrong AND looking very cool. 
 
-These are the claps I sent
+Basically, what I thought the `write_to_sink` command was doing was setting a boolean state (white/black) for each disk, and therefore the value of a single disk would flip that disk.  I thought I was incrementing the boolean value of three discs for each clapper A (indices 12, 13, 14) and B (indices 15, 16, 17), such that each clap would flip the disc from black to white.[^code]
+
+[^code]: I neglected to keep track of the exact thing I tried (whoops!) but here's an equivalent implementation:
 ```
-clap_a() TODO
+board_state = zeros(UInt8, 28)
+function clap_a!()
+    board_state[12:14] = mod1.(board_state[12:14] .+ 1, 256)
+    return write_to_sink(sink_dots, board_state)
+end
+function clap_b!()
+    board_state[15:17] = mod1.(board_state[15:17] .+ 1, 256)
+    return write_to_sink(sink_dots, board_state)
+end
+clapping_music(; clap_a=clap_a!, clap_b=clap_b!)
 ```
-and this is what it looks like:
 
-TODO-video. 
+[TODO-video-8]
 
 <img style="border: none;" src="/assets/img/emojis/surprise-pikachu.png" alt="Surprise pikachu"/>
 
-What is going on?! Why does it look so cool? Why am I inadvertently counting the total number of claps that've been clapped, instead of setting a whole block of discs to random values? 
+What is going on?! Why does it look so cool? Why (as computer-minded folks have likely recognized) am I counting the total number of claps that've been clapped over the course of the song, instead of setting a whole block of discs to random values? 
 
-Even though solving this for the originally intended clap patterns was straight-forward, the reason for these something something ones is cool, and illustrates the underlying organization of the serial command.
+Well, if I'd remembered the `write_to_sink` protocol, I'd have known that each of those indices I was updating was a whole *column* of the board. With that information 
+
+
 
 ## What does a byte look like on this flip-disc display? 
 

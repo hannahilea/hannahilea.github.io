@@ -12,9 +12,6 @@ clap_a = () -> write_to_sink(sink_dots, rand(0x00:0x7F, 28))
 clap_b = () -> write_to_sink(sink_digits, rand(0x00:0x7F, 2))
 clapping_music(; clap_a, clap_b, num_repeats=2, num_shifts=4)
 
-# ...helper functions for repeated setting/clearing of board
-board_state = zeros(UInt8, 28)
-reset!() = write_to_sink(sink_dots, board_state .*= 0)
 
 # 1. New full clapping music
 board_state = zeros(UInt8, 28)
@@ -29,11 +26,12 @@ clap_right!() = write_to_sink(sink_dots, randomize_cols!(board_state, 18:28))
 
 # Play it (full): 
 # [TODO-video-1]
-clapping_music(; clap_a=clap_left!, clap_b=clap_right)
+clapping_music(; clap_a=clap_left!, clap_b=clap_right!)
 
 #...abridged:
 # [TODO-video-1abridged]
-reset!()
+board_state = zeros(UInt8, 28)
+clear(sink_dots)
 clapping_music(; clap_a=clap_left!, clap_b=clap_right!, num_repeats=2)
 
 #2. Default behavior: just printout
@@ -94,12 +92,12 @@ clear(sink_dots)
 board_state = zeros(UInt8, 28)
 
 function clap_a!()
-    board_state[12:14] = mod1.(board_state[12:14] .+ 1, 256)
+    board_state[12:14] = mod1.(board_state[12:14] .+ 1, 128)
     return write_to_sink(sink_dots, board_state)
 end
 
 function clap_b!()
-    board_state[15:17] = mod1.(board_state[15:17] .+ 1, 256)
+    board_state[15:17] = mod1.(board_state[15:17] .+ 1, 128)
     return write_to_sink(sink_dots, board_state)
 end
 
