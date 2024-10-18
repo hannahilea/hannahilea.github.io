@@ -2,8 +2,8 @@
 title: "***Clapping Music*** for one flip-disc display: Byte and variations"
 rawtitle: "Clapping Music for one flip-disc display: Byte and variations"
 tags: [project-writeup, electromechanical-display, raspberry-pi, music, programming, hardware, software, julia]
-created: 2024-10-14
-updated: 2024-10-14
+created: 2024-10-18
+updated: 2024-10-18
 ---
 
 In response to previous post [*Clapping Music* for two flip-disc displays](../clapping-music-for-flip-disc-displays/), a reader [commented](https://lobste.rs/s/70ipvr/blog_clapping_music_for_two_flip_disc)
