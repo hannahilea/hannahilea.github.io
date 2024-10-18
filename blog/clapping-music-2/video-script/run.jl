@@ -24,34 +24,28 @@ clap_left!() = write_to_sink(sink_dots, randomize_cols!(board_state, 1:10))
 clap_right!() = write_to_sink(sink_dots, randomize_cols!(board_state, 18:28))
 
 # Play it (full): 
-# [TODO-video-1]
 clapping_music(; clap_a=clap_left!, clap_b=clap_right!)
 
 #...abridged:
-# [TODO-video-1abridged]
 board_state = zeros(UInt8, 28)
 clear(sink_dots)
 clapping_music(; clap_a=clap_left!, clap_b=clap_right!, num_repeats=2)
 
 #2. Default behavior: just printout
-# [TODO-video-2]
 clapping_music(; num_repeats=1)
 
 #2b. Results to be copied in for default behavior
-# [TODO-video-2]
 clapping_music(; pause=0)
 
 # 3. Incrementing byte
 # helper_function
 # Let's look at byte---i.e., a column of the board---and watch it count up in bits:
-# [TODO-video-3]
 for x in 0x00:0x7F
     write_to_sink(sink_dots, [x])
     sleep(0.1)
 end
 
 # ...and now let's do the whole board, because it is cool (and so is the sweeping)
-# [TODO-video-4]
 for x in 0x00:0x7F
     write_to_sink(sink_dots, fill(x, 28))
     sleep(0.2)
@@ -60,7 +54,6 @@ end
 # One cool thing I discovered is that if you unset a disc before it has had to 
 # properly flip, you'll still hear the very quiet solenoid noise. As more discs 
 # are triggered, there is some breakthrough pixel visibility
-# [TODO-video-5]
 for x in 0x00:0x7F
     clear(sink_dots)
     sleep(0.2)
@@ -68,14 +61,12 @@ for x in 0x00:0x7F
 end
 
 # Make it shimmer!
-# [TODO-video-6]
 for _ in 1:30
     clear(sink_dots)
     write_to_sink(sink_dots, fill(0x7F, 10))
 end
 
 # ...does the speed at which the unset happens affect the volume?
-# [TODO-video-7]
 for s in 0.1:-0.001:0.0
     clear(sink_dots)
     sleep(s)
@@ -86,7 +77,6 @@ end
 # OKAY. Let's play some claping music variations
 
 # ...this was the first one I did, by mistake. Counting instead of clapping!
-# [TODO-video-8]
 clear(sink_dots)
 board_state = zeros(UInt8, 28)
 
@@ -103,7 +93,6 @@ end
 clapping_music(; clap_a=clap_a!, clap_b=clap_b!, num_repeats=2, num_shifts=1)
 
 # "THE LITTLEST CLAPPING HANDS" for really real? yes! (AF request)
-# Not going to video, but is cute
 clear(sink_dots)
 board_state = zeros(UInt8, 28)
 
