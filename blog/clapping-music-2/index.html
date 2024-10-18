@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" type="image/png" href="../../assets/img/favicon.png" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Clapping Music for one flip-disc display: Byte and variations</title>
+    <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
+  </head>
+
+  <body>
+    <div class="main-container blog">
+      <nav class="navbar" role="navigation">
+        @hannahilea:
+        <a class="nav-link" href="../..">home</a> | <a class="nav-link" href="../../projects">projects</a> |
+        <a class="nav-link" href="..">blog</a>
+      </nav>
+      <h1>
+        <strong><em>Clapping Music</em></strong> for one flip-disc display: Byte and variations
+      </h1>
+      <p>
+        In response to previous post <a href="../clapping-music-for-flip-disc-displays/"><em>Clapping Music</em> for two flip-disc displays</a>, a reader
+        <a href="https://lobste.rs/s/70ipvr/blog_clapping_music_for_two_flip_disc">commented</a>
+      </p>
+      <blockquote>
+        <p>
+          <em
+            >I’d love to see a version played on a single board, with the two performers represented by the left and right sides of the board. It would more closely match the layout of a typical performance (two people standing side by
+            side), and I think it would make it easier to see the phasing points.</em
+          >
+        </p>
+      </blockquote>
+      <p>Great idea—let’s do it!</p>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube-nocookie.com/embed/kva_p5HtEOg"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      >
+      </iframe>
+      <p>Quite pleasing. Thanks for the suggestion!</p>
+      <p style="text-align: center">***</p>
+      <p>The code changes to support this variation were fairly minimal, but in the process of implementing them I accidentally stumbled into a nice illustration of how commands are sent to the flip-disc board. Let’s take a look!</p>
+      <h2 id="clapping-anything-music"><del>Clapping</del> Anything Music</h2>
+      <p>First, the minimal code changes to support the new playback mode. If you’ll recall from the last post, our code that looked like this:</p>
+      <div class="sourceCode" id="cb1">
+        <pre
+          class="sourceCode julia"
+        ><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">clapping_music</span>(sink_dots, sink_digits; pause<span class="op">=</span><span class="fl">0.15</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                        clap_pattern<span class="op">=</span><span class="dt">Bool</span>[<span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>],</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                        num_repeats<span class="op">=</span><span class="fl">12</span>, num_shifts<span class="op">=</span><span class="fu">length</span>(clap_pattern) <span class="op">+</span> <span class="fl">1</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                        num_dots_to_set<span class="op">=</span><span class="fl">28</span>, num_digits_to_set<span class="op">=</span><span class="fl">2</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    i_pattern_shift <span class="op">=</span> <span class="fl">0</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>num_shifts</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> _ <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>num_repeats, i_pattern <span class="kw">in</span> <span class="fu">eachindex</span>(clap_pattern)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>            clap_pattern[i_pattern] <span class="op">&amp;&amp;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                <span class="fu">write_to_sink</span>(sink_dots, <span class="fu">rand</span>(<span class="bn">0x00</span><span class="op">:</span><span class="bn">0x7F</span>, num_dots_to_set))</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>            clap_pattern[<span class="fu">mod1</span>(i_pattern <span class="op">+</span> i_pattern_shift, <span class="fu">length</span>(clap_pattern))] <span class="op">&amp;&amp;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                <span class="fu">write_to_sink</span>(sink_digits, <span class="fu">rand</span>(<span class="bn">0x00</span><span class="op">:</span><span class="bn">0x7F</span>, num_digits_to_set))</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>            <span class="fu">sleep</span>(pause)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">end</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        i_pattern_shift <span class="op">+=</span> <span class="fl">1</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre>
+      </div>
+      <p>Pulling the “make a clap” phrases out into input arguments <code>clap_a</code> and <code>clap_b</code> fully decouples the performance from the flip-disc boards:</p>
+      <div class="sourceCode" id="cb2">
+        <pre
+          class="sourceCode julia"
+        ><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">clapping_music</span>(; clap_a<span class="op">=</span>() <span class="op">-&gt;</span> <span class="fu">print</span>(<span class="st">&quot;A&quot;</span>), clap_b<span class="op">=</span>() <span class="op">-&gt;</span> <span class="fu">print</span>(<span class="st">&quot;B&quot;</span>),</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                        pause<span class="op">=</span><span class="fl">0.15</span>, clap_pattern<span class="op">=</span><span class="dt">Bool</span>[<span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>],</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                        num_repeats<span class="op">=</span><span class="fl">12</span>, num_shifts<span class="op">=</span><span class="fu">length</span>(clap_pattern))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    i_pattern_shift <span class="op">=</span> <span class="fl">0</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span>num_shifts</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> _ <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>num_repeats, i_pattern <span class="kw">in</span> <span class="fu">eachindex</span>(clap_pattern)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>            clap_pattern[i_pattern] <span class="op">&amp;&amp;</span> <span class="fu">clap_a</span>()</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>            clap_pattern[<span class="fu">mod1</span>(i_pattern <span class="op">+</span> i_pattern_shift, <span class="fu">length</span>(clap_pattern))] <span class="op">&amp;&amp;</span> <span class="fu">clap_b</span>()</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>            <span class="fu">sleep</span>(pause)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">end</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        i_pattern_shift <span class="op">+=</span> <span class="fl">1</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre>
+      </div>
+      <p>
+        Now it can be used to perform <em>Clapping Music</em> with any two clap functions that you want: lights, sounds, motors, whatever you want.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
+        <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+      </p>
+      <p>
+        The default behavior is to print a comment to the command line, which gives a lovely realtime-captioned mashup of <em>Clapping Music</em> with
+        <a href="https://en.wikipedia.org/wiki/4%E2%80%B233%E2%80%B3">John Cage’s <em>4’33”</em></a
+        >:
+      </p>
+      <figure>
+        <img src="./assets/clapping.gif" alt="Animation of the letters “A” and “B” being typed in sequence" />
+      </figure>
+      <p>A transcription of the full performance is even less interesting:</p>
+      <div class="sourceCode" id="cb3">
+        <pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>julia<span class="op">&gt;</span> <span class="fu">clapping_music</span>()</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABAB</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABAB</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>ABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABAB</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>ABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABAB</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>ABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABAB</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>ABABABAABBAABABBAABBABAABBAABABBAABBABAABBAABABBAABBABAABBAABABBAABBABAABBAA</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>BABBAABBABAABBAABABBAABBABAABBAABABBAABBABAABBAABABBAABBABAABBAABABBAABBABAA</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>BBAABABBAABBABAABBAABABBAABBABAABBAABABBAABBAABABABABABABABBAABABABABABABABB</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>AABABABABABABABBAABABABABABABABBAABABABABABABABBAABABABABABABABBAABABABABABA</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>BABBAABABABABABABABBAABABABABABABABBAABABABABABABABBAABABABABABABABBAABABABA</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>BABABABBABABABAABBABABABABABABAABBABABABABABABAABBABABABABABABAABBABABABABAB</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>ABAABBABABABABABABAABBABABABABABABAABBABABABABABABAABBABABABABABABAABBABABAB</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>ABABABAABBABABABABABABAABBABABABABABABAABBABABABABAABABABABBABABABAABABABABB</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>ABABABAABABABABBABABABAABABABABBABABABAABABABABBABABABAABABABABBABABABAABABA</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>BABBABABABAABABABABBABABABAABABABABBABABABAABABABABBABABABAABABABABBABABABAA</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>BABABABBABABAABABABABABBAABBAABABABABABBAABBAABABABABABBAABBAABABABABABBAABB</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>AABABABABABBAABBAABABABABABBAABBAABABABABABBAABBAABABABABABBAABBAABABABABABB</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>AABBAABABABABABBAABBAABABABABABBAABBAABABABABABBAABBABAABBAABBABABABABAABBAA</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>BBABABABABAABBAABBABABABABAABBAABBABABABABAABBAABBABABABABAABBAABBABABABABAA</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>BBAABBABABABABAABBAABBABABABABAABBAABBABABABABAABBAABBABABABABAABBAABBABABAB</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>ABAABBAABBABABABAABABABABBABABABAABABABABBABABABAABABABABBABABABAABABABABBAB</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>ABABAABABABABBABABABAABABABABBABABABAABABABABBABABABAABABABABBABABABAABABABA</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>BBABABABAABABABABBABABABAABABABABBABABABAABABABABBABABABABABABABABABBAABABAB</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>ABABABABBAABABABABABABABBAABABABABABABABBAABABABABABABABBAABABABABABABABBAAB</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>ABABABABABABBAABABABABABABABBAABABABABABABABBAABABABABABABABBAABABABABABABAB</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>BAABABABABABABABBAABABAABBABABABABABABAABBABABABABABABAABBABABABABABABAABBAB</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>ABABABABABAABBABABABABABABAABBABABABABABABAABBABABABABABABAABBABABABABABABAA</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>BBABABABABABABAABBABABABABABABAABBABABABABABABAABBABABABABABAABABBAABBABAABB</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>AABABBAABBABAABBAABABBAABBABAABBAABABBAABBABAABBAABABBAABBABAABBAABABBAABBAB</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>AABBAABABBAABBABAABBAABABBAABBABAABBAABABBAABBABAABBAABABBAABBABAABBAABABBAA</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>BBABAABBAABABBAABBABAABBABABABABABABABABABABABABABABABABABABABABABABABABABAB</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>ABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABAB</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>ABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABABAB</span></code></pre>
+      </div>
+      <p>Anyway.</p>
+      <p>To recreate the dual-board performance of the original post, we do</p>
+      <div class="sourceCode" id="cb4">
+        <pre
+          class="sourceCode julia"
+        ><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>clap_a <span class="op">=</span> () <span class="op">-&gt;</span> <span class="fu">write_to_sink</span>(sink_dots, <span class="fu">rand</span>(<span class="bn">0x00</span><span class="op">:</span><span class="bn">0x7F</span>, <span class="fl">28</span>))</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>clap_b <span class="op">=</span> () <span class="op">-&gt;</span> <span class="fu">write_to_sink</span>(sink_digits, <span class="fu">rand</span>(<span class="bn">0x00</span><span class="op">:</span><span class="bn">0x7F</span>, <span class="fl">2</span>))</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Play it:</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">clapping_music</span>(; clap_a, clap_b)</span></code></pre>
+      </div>
+      <p>and the new single-board performance is generated with</p>
+      <div class="sourceCode" id="cb5">
+        <pre
+          class="sourceCode julia"
+        ><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">randomize_cols!</span>(board_state, col_range) </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    board_state[col_range] <span class="op">.=</span> <span class="fu">rand</span>(<span class="bn">0x00</span><span class="op">:</span><span class="bn">0x7F</span>, <span class="fu">length</span>(col_range))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> board_state</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>board_state <span class="op">=</span> <span class="fu">zeros</span>(<span class="dt">UInt8</span>, <span class="fl">28</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">clap_left!</span>() <span class="op">=</span> <span class="fu">write_to_sink</span>(sink_dots, <span class="fu">randomize_cols!</span>(board_state, <span class="fl">1</span><span class="op">:</span><span class="fl">10</span>))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">clap_right!</span>() <span class="op">=</span> <span class="fu">write_to_sink</span>(sink_dots, <span class="fu">randomize_cols!</span>(board_state, <span class="fl">18</span><span class="op">:</span><span class="fl">28</span>))</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Play it:</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">clapping_music</span>(; clap_a<span class="op">=</span>clap_left!, clap_b<span class="op">=</span>clap_right!)</span></code></pre>
+      </div>
+      <p>
+        You’ll note that this single-board implementation involves keeping track of—and updating—the full display state of the board throughout the duration of the piece (via <code>board_state</code>). This is necessary because a single
+        update of the display board updates <em>all</em> discs on the board, so we can’t update just a few columns with each clap.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Instead, we send the
+        complete desired state to the board each time we want the board to update.
+      </p>
+      <h2 id="binary-diversion">Binary diversion</h2>
+      <p>
+        I didn’t remember exactly how the “send update to boards” function worked—it had been awhile since I wrote it!—and my first guess, before going back to read the code, ended up not being what I intended BUT looking delightful
+        anyway:<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>
+      </p>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube-nocookie.com/embed/8QKFRVNFEag"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      >
+      </iframe>
+      <p>
+        As those of you familiar with counting <a href="https://en.wikipedia.org/wiki/Binary_number">in binary</a> have likely recognized, in this variation, for each the right and left clappers, we are counting the number of claps that
+        have been clapped thus far.
+      </p>
+      <p>In these displays, one byte of data corresponds to one column of flip-disc board. Let’s send bytes values 0 through 127 (i.e., 2<sup>7</sup>) one at a time, to illustrate:</p>
+      <div class="sourceCode" id="cb7">
+        <pre
+          class="sourceCode julia"
+        ><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> <span class="bn">0x00</span><span class="op">:</span><span class="bn">0x7F</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">write_to_sink</span>(sink_dots, [x])</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sleep</span>(<span class="fl">0.1</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code></pre>
+      </div>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube-nocookie.com/embed/5Lf2V4NYVUU"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      >
+      </iframe>
+      <p>For the fun of it, let’s do all columns at the same time:</p>
+      <div class="sourceCode" id="cb8">
+        <pre
+          class="sourceCode julia"
+        ><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> <span class="bn">0x00</span><span class="op">:</span><span class="bn">0x7F</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">write_to_sink</span>(sink_dots, <span class="fu">fill</span>(x, <span class="fl">28</span>))</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sleep</span>(<span class="fl">0.2</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code></pre>
+      </div>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube-nocookie.com/embed/eGSDterYIfg"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      >
+      </iframe>
+      <p>Given that knowledge, here’s the most basic “flip only one disc at a time” Clapping Music—aka, “The Littlest Clap”, as requested by AF:</p>
+      <div class="sourceCode" id="cb9">
+        <pre
+          class="sourceCode julia"
+        ><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>board_state <span class="op">=</span> <span class="fu">zeros</span>(<span class="dt">UInt8</span>, <span class="fl">28</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">clap_a!</span>()</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    board_state[<span class="fl">14</span>] <span class="op">=</span> board_state[<span class="fl">14</span>] <span class="op">==</span> <span class="fl">0</span> ? <span class="fl">1</span> <span class="op">:</span> <span class="fl">0</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">write_to_sink</span>(sink_dots, board_state)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">clap_b!</span>()</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    board_state[<span class="fl">15</span>] <span class="op">=</span> board_state[<span class="fl">15</span>] <span class="op">==</span> <span class="fl">0</span> ? <span class="fl">1</span> <span class="op">:</span> <span class="fl">0</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">write_to_sink</span>(sink_dots, board_state)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="fu">clapping_music</span>(; clap_a<span class="op">=</span>clap_a!, clap_b<span class="op">=</span>clap_b!, num_repeats<span class="op">=</span><span class="fl">2</span>, num_shifts<span class="op">=</span><span class="fl">1</span>)</span></code></pre>
+      </div>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube-nocookie.com/embed/gshXXb5DZN8"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      >
+      </iframe>
+      <p></p>
+      <h3 id="playtime">Playtime</h3>
+      <p>Here are another few examples of flip-disc behavior, because I think they’re fun.</p>
+      <h4 id="single-column-refresh-rate">Single column refresh rate</h4>
+      <p>Flipping a whole column on and off, with a decreasing amount of time between “off” and “on”:</p>
+      <div class="sourceCode" id="cb10">
+        <pre
+          class="sourceCode julia"
+        ><code class="sourceCode julia"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> s <span class="kw">in</span> <span class="fl">0.1</span><span class="op">:-</span><span class="fl">0.001</span><span class="op">:</span><span class="fl">0.0</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">clear</span>(sink_dots)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sleep</span>(s)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">write_to_sink</span>(sink_dots, <span class="fu">fill</span>(<span class="bn">0x7F</span>, <span class="fl">1</span>))</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sleep</span>(<span class="fl">.1</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code></pre>
+      </div>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube-nocookie.com/embed/ivAsLNm5KFw"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      >
+      </iframe>
+      <h4 id="shimmer">Shimmer</h4>
+      <p>Flipping a whole array off and on, with no pause in between—i.e., the board updates are sent faster than they can be (mechanically) fulfilled:</p>
+      <div class="sourceCode" id="cb11">
+        <pre
+          class="sourceCode julia"
+        ><code class="sourceCode julia"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">30</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">clear</span>(sink_dots)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">write_to_sink</span>(sink_dots, <span class="fu">fill</span>(<span class="bn">0x7F</span>, <span class="fl">10</span>))</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code></pre>
+      </div>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube-nocookie.com/embed/ZjCYiz2F4Tw"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      >
+      </iframe>
+      <h4 id="multicolumn-refresh-rate">Multicolumn refresh rate</h4>
+      <p>Flipping a set of counter columns on and off, again without enough time between requests for the board to fully update:</p>
+      <div class="sourceCode" id="cb12">
+        <pre
+          class="sourceCode julia"
+        ><code class="sourceCode julia"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> <span class="bn">0x00</span><span class="op">:</span><span class="bn">0x7F</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">clear</span>(sink_dots)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sleep</span>(<span class="fl">0.2</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">write_to_sink</span>(sink_dots, <span class="fu">fill</span>(x, <span class="fl">10</span>))</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code></pre>
+      </div>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube-nocookie.com/embed/rByTmhK6Zn8"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      >
+      </iframe>
+      <p style="text-align: center">***</p>
+      <p>That’s all for now!</p>
+      <p>
+        <strong>Code to generate all these examples lives <a href="./video-script/run.jl">here</a>. Have an idea for a cool demo but don’t have access to flip-disc boards? Send me a snippet of code and I’ll run it for you! </strong>
+      </p>
+      <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+        <hr />
+        <h3 id="footnotes-title">Footnotes</h3>
+        <ol>
+          <li id="fn1">
+            <p>
+              Clapper beware: if your “clap” function is blocking (i.e., if it waits until the clap sound has been played to return to the main function call), you won’t get the desired dual-clap simultaneity. The simultaneity relies on
+              calls to <code>clap_a()</code> and <code>clap_b()</code> triggering an external clap production and then returning immediately, before the sound has had a be produced. In the case of these flip dots displays, this works out
+              fine: the clap functions send a serial command to the boards (which is fast!) and then returns without waiting for the display board to <em>have been</em> updated. The delay happens quickly relative to both the duration of
+              sound production and the timescale of the full piece, so the two claps are perceived as happening simultaneously. While there is a slight delay, it is not one that matters on the timescale of the piece’s default tempo.<a
+                href="#fnref1"
+                class="footnote-back"
+                role="doc-backlink"
+                >↩︎</a
+              >
+            </p>
+          </li>
+          <li id="fn2">
+            <p>
+              Due to the previous caveat, if you do make your “smart” home play <em>Clapping Music</em>, you’ll probably have to slow the piece down A LOT to allow for the production of each clap before moving on to the next. This sounds
+              pretty entertaining—if perhaps a great way to accidentally break your door lock—and if you have a home you’d be willing to let me experiment on, let me know. MB, looking at you….<a
+                href="#fnref2"
+                class="footnote-back"
+                role="doc-backlink"
+                >↩︎</a
+              >
+            </p>
+          </li>
+          <li id="fn3">
+            <p>
+              At least, I don’t think that’s possible given the current serial communication protocol specification; it’s possible that <em>some</em> board configuration allows it, and I’m just not familiar with it.<a
+                href="#fnref3"
+                class="footnote-back"
+                role="doc-backlink"
+                >↩︎</a
+              >
+            </p>
+          </li>
+          <li id="fn4">
+            <p>I neglected to keep track of the exact thing I tried (whoops!) but I was aiming for a full-column result akin to the Littlest Clapping variant, above. Here’s an equivalent implementation:</p>
+            <div class="sourceCode" id="cb6">
+              <pre
+                class="sourceCode julia"
+              ><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>board_state <span class="op">=</span> <span class="fu">zeros</span>(<span class="dt">UInt8</span>, <span class="fl">28</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">clap_a!</span>()</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    board_state[<span class="fl">12</span><span class="op">:</span><span class="fl">14</span>] <span class="op">=</span> <span class="fu">mod1</span>.(board_state[<span class="fl">12</span><span class="op">:</span><span class="fl">14</span>] <span class="op">.+</span> <span class="fl">1</span>, <span class="fl">256</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">write_to_sink</span>(sink_dots, board_state)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">clap_b!</span>()</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    board_state[<span class="fl">15</span><span class="op">:</span><span class="fl">17</span>] <span class="op">=</span> <span class="fu">mod1</span>.(board_state[<span class="fl">15</span><span class="op">:</span><span class="fl">17</span>] <span class="op">.+</span> <span class="fl">1</span>, <span class="fl">256</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">write_to_sink</span>(sink_dots, board_state)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="fu">clapping_music</span>(; clap_a<span class="op">=</span>clap_a!, clap_b<span class="op">=</span>clap_b!)</span></code></pre>
+            </div>
+            <a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a>
+          </li>
+        </ol>
+      </section>
+      <hr />
+      <ul>
+        <li>created: 2024-10-14</li>
+        <li>last updated: 2024-10-14</li>
+        <li>tags: project-writeup, electromechanical-display, raspberry-pi, music, programming, hardware, software, julia</li>
+      </ul>
+    </div>
+  </body>
+</html>
