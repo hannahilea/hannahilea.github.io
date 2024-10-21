@@ -4,7 +4,6 @@ Pkg.add("Dates")
 using Dates
 
 const NEW_PROJ_COMMENT = "<!-- Add new project here -->"
-const NEW_BLOG_COMMENT = "<!-- Add new post here -->"
 
 # Some quick and brittle Julia utilities for adding new projects
 # Doesn't handle nested, only does new js projects
@@ -53,7 +52,6 @@ function new_blog_post()
 
     dir = joinpath("blog", dir_name)
     date = today()
-    date_pretty = Dates.format(today(), dateformat"d u yyyy")
 
     @info "Creating new blog directory" blog_title dir_name
     cp(joinpath("blog", "__template"), dir)
@@ -75,19 +73,7 @@ function new_blog_post()
     end
     mkdir(joinpath(dir, "assets"))
 
-    @info "Adding new project to blog index"
-    let
-        index_path = joinpath("blog", "index.html")
-        new_blob = """\n        <li><strong class="blog-date">$(date_pretty)</strong> <a class="blog-url" href="./$(dir_name)">$(blog_title)</a>        </li>"""
-        str = read(index_path, String)
-        i = findfirst(NEW_BLOG_COMMENT, str)
-        isnothing(i) &&
-            throw(ArgumentError("Oh no, $(NEW_BLOG_COMMENT) not found in $(index_path)"))
-        str = str[1:last(i)] * new_blob * str[(last(i) + 1):end]
-        write(index_path, str)
-    end
-
-    @info "Adding new project to blog index"
+    @info "Adding new project to rss feed"
     let
         new_blob = read(joinpath("blog", "__template", ".rss_blob.xml"), String)
         pub_date = Dates.format(now(Dates.UTC), dateformat"e, d U yyyy HH:MM:SS ") * "GMT"
