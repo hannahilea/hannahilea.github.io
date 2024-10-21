@@ -7,8 +7,7 @@ blog_dir = joinpath(@__DIR__, "..", "blog")
 blog_template = joinpath(blog_dir, "__template", "blog.html.template")
 blog_index_template = joinpath(blog_dir, "__template", "index.html.template")
 
-function convert_to_html(file, outfile; template=blog_template,
-                         overwrite_existing=false,)
+function convert_to_html(file, outfile; template=blog_template, overwrite_existing=false,)
     if !overwrite_existing && isfile(outfile)
         @warn "Output file already exists; not overwriting: $outfile"
         return nothing
@@ -104,7 +103,7 @@ function get_blog_metadata(md_file)
     delimiter = "ddddd"
     template_str = "data:text/plain;utf8,\$title\$$delimiter\$created\$$delimiter\$for(tags)\$\$tags\$\$sep\$,\$endfor\$"
     str = read(pipeline(`$(pandoc_jll.pandoc()) --template $(template_str) $(md_file)`), String)
-    str = replace(str, r".html$"=>"", "\n"=>" ")
+    str = replace(str, r".html$" => "", "\n" => " ")
     (title, date_str, tags) = split(str, delimiter; limit=3)
     return (; md_file, date_str, title, tags)
 end
@@ -116,6 +115,7 @@ function generate_blog_index(; overwrite_existing=false, template=blog_index_tem
         return nothing
     end
 
+    @info "Generating blog index..."
     metadata = []
     for dir in readdir(blog_dir; join=true)
         isfile(dir) && continue
@@ -123,10 +123,10 @@ function generate_blog_index(; overwrite_existing=false, template=blog_index_tem
 
         md_file = joinpath(dir, "src.md")
         m = get_blog_metadata(md_file)
-        
+
         push!(metadata, (; url="./" * basename(dir), m...))
     end
-    metadata = sort(metadata; by=(m)->m.date_str)
+    metadata = sort(metadata; by=(m) -> m.date_str, rev=true)
 
     blog_strs = map(metadata) do m
         date_pretty = Dates.format(Date(m.date_str), dateformat"d u yyyy")
@@ -137,7 +137,6 @@ function generate_blog_index(; overwrite_existing=false, template=blog_index_tem
     str = replace(str, "<!-- POSTS -->" => join(blog_strs, "\n"))
     write(outfile, str)
 
-    @info "...and formatting it"
     try
         run(`prettier $(outfile) --write --print-width 240`)
     catch
@@ -150,7 +149,7 @@ end
 # Run from commandline? 
 if abspath(PROGRAM_FILE) == @__FILE__
     if isempty(ARGS)
-        # generate_all_blogposts(; overwrite_existing=true)
+        generate_all_blogposts(; overwrite_existing=true)
         generate_blog_index(; overwrite_existing=true)
     elseif isfile(ARGS[1])
         generate_blog_html(ARGS[1]; overwrite_existing=true)
