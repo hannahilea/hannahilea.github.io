@@ -7,7 +7,7 @@ blog_dir = joinpath(@__DIR__, "..", "blog")
 blog_template = joinpath(blog_dir, "__template", "blog.html.template")
 blog_index_template = joinpath(blog_dir, "__template", "index.html.template")
 
-function convert_to_html(file, outfile; template=blog_template, overwrite_existing=false,)
+function convert_to_html(file, outfile; template=blog_template, overwrite_existing=false)
     if !overwrite_existing && isfile(outfile)
         @warn "Output file already exists; not overwriting: $outfile"
         return nothing
@@ -84,7 +84,7 @@ function generate_blog_html(md_file; overwrite_existing=true)
     catch
         @warn "Prettier not installed OR current html errors"
     end
-    return (; url=basename(md_file),)
+    return nothing
 end
 
 function generate_all_blogposts(; overwrite_existing=true)
