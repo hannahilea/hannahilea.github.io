@@ -1,9 +1,11 @@
 using Pkg
 Pkg.activate(@__DIR__)
 using pandoc_jll
+using Dates
 
 blog_dir = joinpath(@__DIR__, "..", "blog")
 blog_template = joinpath(blog_dir, "__template", "blog.html.template")
+blog_index_template = joinpath(blog_dir, "__template", "index.html.template")
 
 function convert_to_html(file, outfile; template=blog_template,
                          overwrite_existing=false,)
@@ -83,11 +85,10 @@ function generate_blog_html(md_file; overwrite_existing=true)
     catch
         @warn "Prettier not installed OR current html errors"
     end
-    return nothing
+    return (; url=basename(md_file),)
 end
 
 function generate_all_blogposts(; overwrite_existing=true)
-    metadata = []
     for dir in readdir(blog_dir; join=true)
         isfile(dir) && continue
         isequal(joinpath(blog_dir, "__template"), dir) && continue
@@ -96,21 +97,58 @@ function generate_all_blogposts(; overwrite_existing=true)
         md_file = joinpath(dir, "src.md")
         generate_blog_html(md_file; overwrite_existing)
     end
-    generate_blog_index(metadata)
     return nothing
 end
 
-function generate_blog_index(metadata)
-    #TODO
+function get_blog_metadata(md_file)
+    date_str = "2024-10-18"
+    date_pretty = Dates.format(Date(date_str), dateformat"d u yyyy")
+    return (; date_str, date_pretty, title="BAR", md_file)
+end
+
+function generate_blog_index(; overwrite_existing=false, template=blog_index_template)
+    outfile = joinpath(blog_dir, "index.html")
+    if !overwrite_existing && isfile(outfile)
+        @warn "Output file already exists; not overwriting: $outfile"
+        return nothing
+    end
+
+    metadata = []
+    for dir in readdir(blog_dir; join=true)
+        isfile(dir) && continue
+        isequal(joinpath(blog_dir, "__template"), dir) && continue
+
+        md_file = joinpath(dir, "src.md")
+        m = get_blog_metadata(md_file)
+        push!(metadata, (; url="./" * basename(dir), m...))
+    end
+
+    blog_strs = map(metadata) do m
+        return """<li><strong class="blog-date">$(m.date_pretty)</strong> <a class="blog-url" href="$(m.url)">$(m.title)</a></li>"""
+    end
+
+    str = read(template, String)
+    str = replace(str, "<!-- POSTS -->" => join(blog_strs, "\n"))
+    write(outfile, str)
+
+    @info "...and formatting it"
+    try
+        run(`prettier $(outfile) --write --print-width 240`)
+    catch
+        @warn "Prettier not installed OR current html errors"
+    end
+
     return nothing
 end
 
 # Run from commandline? 
 if abspath(PROGRAM_FILE) == @__FILE__
     if isempty(ARGS)
-        generate_all_blogposts(; overwrite_existing=true)
+        # generate_all_blogposts(; overwrite_existing=true)
+        generate_blog_index(; overwrite_existing=true)
     elseif isfile(ARGS[1])
         generate_blog_html(ARGS[1]; overwrite_existing=true)
+        generate_blog_index(; overwrite_existing=true)
     else
         @warn "Unknown argument $(ARGS[1])"
     end
