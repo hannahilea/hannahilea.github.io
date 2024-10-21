@@ -1,30 +1,39 @@
-<!doctype html>
+<!--Auto-generated! Make changes in index.html.template, not this file-->
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="shortcut icon" type="image/png" href="../../assets/img/favicon.png" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>$if(rawtitle)$$rawtitle$$else$$title$$endif$</title>
-    <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
-    $header$
-  </head>
 
-  <body>
-    <div class="main-container blog">
-      <nav class="navbar" role="navigation">
-        @hannahilea:
-        <a class="nav-link" href="../..">home</a> | 
-        <a class="nav-link" href="../../projects">projects</a> |
-        <a class="nav-link" href="..">blog</a>
-      </nav>
-      <h1>$title$</h1>
-$body$
-      <hr />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Hannah Robertson's blog" />
+  <meta name="author" content="Hannah Robertson" />
+  <link rel="shortcut icon" type="image/png" href="../assets/img/favicon.png" />
+  <link rel="stylesheet" type="text/css" href="../assets/css/main.css" />
+  <title>@hannahilea: blog</title>
+</head>
+
+<body>
+  <div class="main-container">
+    <nav class="navbar" role="navigation">
+      @hannahilea:
+      <a href=".." class="nav-link">home</a> |
+      <a href="../projects" class="nav-link">projects</a> |
+      <a href="../blog" class="nav-link">blog</a>
+    </nav>
+    <h1 class="title">Blog</h1>
+
+    <div class="posts">
       <ul>
-        <li>created: $created$</li>
-        <li>last updated: $updated$</li>
-        <li>tags: $for(tags)$$tags$$sep$, $endfor$</li>
+<!-- POSTS -->
       </ul>
     </div>
-  </body>
+
+    <div>
+      <a href="/rss.xml" rel="subscribe-rss">
+        <!-- Source: https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white -->
+        <img class="badge" src="../assets/img/rss-logo-styled.svg" alt="Subscribe to @hannahilea RSS feed" /></a>
+    </div>
+  </div>
+</body>
+
 </html>
