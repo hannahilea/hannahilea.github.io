@@ -3,11 +3,9 @@ Pkg.activate(@__DIR__)
 using pandoc_jll
 
 blog_dir = joinpath(@__DIR__, "..", "blog")
-blog_template = joinpath(blog_dir, "__template", "index.html.template")
+blog_template = joinpath(blog_dir, "__template", "blog.html.template")
 
-function convert_to_html(file,
-                         outfile;
-                         template=blog_template,
+function convert_to_html(file, outfile; template=blog_template,
                          overwrite_existing=false,)
     if !overwrite_existing && isfile(outfile)
         @warn "Output file already exists; not overwriting: $outfile"
@@ -89,6 +87,7 @@ function generate_blog_html(md_file; overwrite_existing=true)
 end
 
 function generate_all_blogposts(; overwrite_existing=true)
+    metadata = []
     for dir in readdir(blog_dir; join=true)
         isfile(dir) && continue
         isequal(joinpath(blog_dir, "__template"), dir) && continue
@@ -97,6 +96,12 @@ function generate_all_blogposts(; overwrite_existing=true)
         md_file = joinpath(dir, "src.md")
         generate_blog_html(md_file; overwrite_existing)
     end
+    generate_blog_index(metadata)
+    return nothing
+end
+
+function generate_blog_index(metadata)
+    #TODO
     return nothing
 end
 
