@@ -130,7 +130,7 @@ function generate_blog_index(; overwrite_existing=false, template=blog_index_tem
 
     blog_strs = map(metadata) do m
         date_pretty = Dates.format(Date(m.date_str), dateformat"d u yyyy")
-        return """<li><strong class="blog-date">$(date_pretty)</strong> <a class="blog-url" href="$(m.url)">$(m.title)\n</a>\n</li>"""
+        return """<li><strong class="blog-date">$(date_pretty)</strong> <a class="blog-url" href="$(m.url)">\n$(m.title)\n</a>\n</li>"""
     end
 
     str = read(template, String)
