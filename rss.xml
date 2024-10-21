@@ -56,6 +56,20 @@
       <guid>https://hannahilea.com/blog/cuttle-obsession</guid>
       <description>Write-up of a bunch of laser-cut projects I designed with Cuttle.</description>
     </item>
+    <item>
+      <title>Quick ‘n hacky meme making, for fun and no profit</title>
+      <pubDate>Fri, 11 October 2024 15:42:32 GMT</pubDate>
+      <link>https://hannahilea.com/blog/meme-making</link>
+      <guid>https://hannahilea.com/blog/meme-making</guid>
+      <description>Tutorial on turning screenshots into goofy shareable images.</description>
+    </item>
+    <item>
+      <title>Clapping Music for one flip-disc display: Byte and variations</title>
+      <pubDate>Mon, 18 October 2024 18:20:22 GMT</pubDate>
+      <link>https://hannahilea.com/blog/clapping-music-2</link>
+      <guid>https://hannahilea.com/blog/clapping-music-2</guid>
+      <description>Reich's Clapping Music performed on a single of electromechanical flip-disc display.</description>
+    </item>
 <!-- Add new post here -->
   </channel>
 </rss>
