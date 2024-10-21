@@ -101,9 +101,12 @@ function generate_all_blogposts(; overwrite_existing=true)
 end
 
 function get_blog_metadata(md_file)
-    date_str = "2024-10-18"
-    date_pretty = Dates.format(Date(date_str), dateformat"d u yyyy")
-    return (; date_str, date_pretty, title="BAR", md_file)
+    delimiter = "ddddd"
+    template_str = "data:text/plain;utf8,\$title\$$delimiter\$created\$$delimiter\$for(tags)\$\$tags\$\$sep\$,\$endfor\$"
+    str = read(pipeline(`$(pandoc_jll.pandoc()) --template $(template_str) $(md_file)`), String)
+    str = replace(str, r".html$"=>"", "\n"=>" ")
+    (title, date_str, tags) = split(str, delimiter; limit=3)
+    return (; md_file, date_str, title, tags)
 end
 
 function generate_blog_index(; overwrite_existing=false, template=blog_index_template)
@@ -120,11 +123,14 @@ function generate_blog_index(; overwrite_existing=false, template=blog_index_tem
 
         md_file = joinpath(dir, "src.md")
         m = get_blog_metadata(md_file)
+        
         push!(metadata, (; url="./" * basename(dir), m...))
     end
+    metadata = sort(metadata; by=(m)->m.date_str)
 
     blog_strs = map(metadata) do m
-        return """<li><strong class="blog-date">$(m.date_pretty)</strong> <a class="blog-url" href="$(m.url)">$(m.title)</a></li>"""
+        date_pretty = Dates.format(Date(m.date_str), dateformat"d u yyyy")
+        return """<li><strong class="blog-date">$(date_pretty)</strong> <a class="blog-url" href="$(m.url)">$(m.title)</a></li>"""
     end
 
     str = read(template, String)
