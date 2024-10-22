@@ -7,6 +7,11 @@
     <title>$if(rawtitle)$$rawtitle$$else$$title$$endif$</title>
     <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
     $header$
+$if(highlighting-css)$
+<style>
+    $highlighting-css$
+    </style> 
+$endif$
   </head>
 
   <body>
