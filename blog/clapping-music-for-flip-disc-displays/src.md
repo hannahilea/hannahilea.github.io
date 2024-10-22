@@ -88,7 +88,7 @@ The resultant performance sounds pretty cool:
 
 Playing around with different clap patterns is also fun:
 
-```
+```julia
 # Variant A
 clap_pattern = Bool[1, 0, 0, 1, 1, 1]
 pause=0.12
@@ -99,7 +99,7 @@ num_digits_to_set=4
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ciV0xh-zSWQ?si=fdVteWLUc9NTKnWA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
-```
+```julia
 # Variant B
 clap_pattern = Bool[1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0]
 pause=0.15
