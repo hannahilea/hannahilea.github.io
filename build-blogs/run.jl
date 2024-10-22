@@ -130,7 +130,16 @@ function generate_blog_index(; overwrite_existing=false, template=blog_index_tem
 
     blog_strs = map(metadata) do m
         date_pretty = Dates.format(Date(m.date_str), dateformat"d u yyyy")
-        return """<li><strong class="blog-date">$(date_pretty)</strong> <a class="blog-url" href="$(m.url)">\n$(m.title)\n</a>\n</li>"""
+        tags = replace(m.tags, "," => ", ")
+        return """
+        <tr>
+            <td>$(date_pretty)</td>
+            <td class="date" hidden>$(m.date_str)</td>
+            <td class="title"><a class="blog-url" href="$(m.url)">$(m.title)</a>
+                <!-- <p class="blog-tags">Tags: $tags </p> -->
+            </td>
+          </tr>
+          """
     end
 
     str = read(template, String)
@@ -149,7 +158,7 @@ end
 # Run from commandline? 
 if abspath(PROGRAM_FILE) == @__FILE__
     if isempty(ARGS)
-        generate_all_blogposts(; overwrite_existing=true)
+       # generate_all_blogposts(; overwrite_existing=true)
         generate_blog_index(; overwrite_existing=true)
     elseif isfile(ARGS[1])
         generate_blog_html(ARGS[1]; overwrite_existing=true)

@@ -9,7 +9,52 @@
   <meta name="author" content="Hannah Robertson" />
   <link rel="shortcut icon" type="image/png" href="../assets/img/favicon.png" />
   <link rel="stylesheet" type="text/css" href="../assets/css/main.css" />
+    <!-- TODO: move to assets -->
+  <script src="../assets/scripts/list.min.js"></script>
+
   <title>@hannahilea: blog</title>
+  <!-- TODO: move to css -->
+  <style>
+    .sort.asc::after {
+      content: "▼";
+      padding-left: 3px;
+    }
+
+    .sort.desc::after {
+      content: "▲";
+      padding-left: 3px
+    }
+
+    .search {
+      float: top;
+    }
+
+    td th {
+      padding: 6px;
+      text-align: left;
+      vertical-align: top;
+      word-wrap: break-word;
+    }
+
+    tr td:first-child {
+      width: 1%;
+      white-space: nowrap;
+
+    table {
+      border-collapse: collapse;
+      margin-bottom: 10px;
+      width: 100%;
+      
+    }
+
+    thead {
+      border-bottom: 1px solid #dbdbdb;
+      border-bottom: 1px solid var(--border);
+    }
+  }
+
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 </head>
 
 <body>
@@ -22,11 +67,21 @@
     </nav>
     <h1 class="title">Blog</h1>
 
-    <div class="posts">
-      <ul>
-<!-- POSTS -->
-      </ul>
+    <div id="post-list">
+      <table>
+        <thead>
+          <tr>
+            <th class="sort desc" data-sort="date" data-default-order='desc'>Date</th>
+            <th class="sort" data-sort="title">Title</th>
+          </tr>
+        </thead>
+        <!-- IMPORTANT, class="list" have to be at tbody -->
+        <tbody class="list">
+          <!-- POSTS -->
+        </tbody>
+      </table>
     </div>
+    <script src="table-niceties.js"></script>
 
     <div>
       <a href="/rss.xml" rel="subscribe-rss">
