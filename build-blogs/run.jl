@@ -12,10 +12,12 @@ function convert_to_html(file, outfile; template=blog_template, overwrite_existi
         @warn "Output file already exists; not overwriting: $outfile"
         return nothing
     end
-    cmd = pipeline(`$(pandoc_jll.pandoc()) --template $template $file -o $outfile`)
-    @debug "About to run pandoc" cmd
+    cmd = pipeline(`$(pandoc_jll.pandoc()) --template $template -o $outfile $file `)
+    # @debug "About to run pandoc" cmd
     run(pipeline(cmd))
 
+    # run(pipeline(`$(pandoc_jll.pandoc()) --list-highlight-languages`))
+   
     # For now, do a very brittle tuning of properties!
     # In future, turn this into a pandoc plugin 
     str = read(outfile, String)
