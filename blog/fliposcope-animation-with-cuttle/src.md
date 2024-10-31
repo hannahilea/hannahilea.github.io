@@ -37,9 +37,15 @@ For my own use of parallax in animation, I used [Cuttle](https://cuttle.xyz/) a 
 
 [^template1]: This prototype template is [here](https://cuttle.xyz/@hannahilea/Prototype-Parallax-animation-M6sxlTXsZYTz); play with it!
 
-In the polished Cuttle implementation, I sketched out and uploaded a couple of background layers (the background ocean, the foreground shore) and a main character (the seagull). I ended up giving the gull independently-moving legs---just rotating the gull back and forth didn't give it the movement I wanted: I cropped the legs from the original sketch, and then added them in as their own objects and gave those objects a rotation of a few degrees for every frame increment.
+In the polished Cuttle implementation, I sketched out and uploaded a couple of background layers (the background ocean, the foreground shore) and a main character (the seagull). 
 
-This is what the output of the full animation looked like in the final project:
+!["TODO"](./assets/raw-1.jpg)
+!["TODO"](./assets/raw-2.jpg)
+!["TODO"](./assets/raw-3.jpg)
+
+I ended up giving the gull independently-moving legs---just rotating the gull back and forth didn't give it the movement I wanted: I cropped the legs from the original sketch, and then added them in as their own objects and gave those objects a rotation of a few degrees for every frame increment.
+
+This is what the full digital animation looked like in the resultant Cuttle project:
 
 !["TODO"](./assets/gull-cuttle.gif)
 
@@ -52,9 +58,12 @@ While Fliposcope provides a conversion tool for formatting a short video (or set
 
 [^foreshadowing]: Foreshadowing! 
 
+!["TODO"](TODO-SCREENSHOT)
+
 I then printed the frames onto the stickers[^trivializing], put on some good music, and painted them with watercolor paints.
 
-[TODO-photo of painting]
+!["TODO"](./assets/paint-1a.jpg)
+!["TODO"](./assets/paint-1b.jpg)
 
 [^trivializing]: I'm sparing you the saga where I went back and forth and back and forth with my printer to convince it to print the correct margins AND print the full page. Lots of holding a printed proof sheet up and sticker sheet stack up to the light to check whether the margins were correct.... 
 
@@ -62,15 +71,19 @@ I then printed the frames onto the stickers[^trivializing], put on some good mus
 
 After the paint had dried, I put the stickers on the flaps, put the flaps in the Fliposcope spool, and hey presto! A running gull!
 
-[TODO-sad backwards video]
+!["TODO"](./assets/back-gull.gif)
 
 Womp womp---my gull was running  backwards. 😭
 
 ## Running with the Gull~~s~~, forwards edition
 
-I ~~sulked a bit,~~ fixed up my Cuttle template, reviewed that fix several times, reprinted all the stickers, re*painted* all the stickers, re-stuck all the stickers, and hey presto! A running gull!
+I ~~sulked a bit,~~ fixed up my Cuttle template, reviewed that fix several times, reprinted all the stickers, re*painted* all the stickers, 
 
-[TODO-forward video]
+!["TODO"](./assets/paint-2.jpg)
+
+re-stuck all the stickers, and hey presto! A running gull!
+
+!["TODO"](./assets/forward-gull.gif)
 
 Huzzah!
 
