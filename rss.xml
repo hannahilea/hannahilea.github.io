@@ -70,6 +70,13 @@
       <guid>https://hannahilea.com/blog/clapping-music-2</guid>
       <description>Reich's Clapping Music performed on a single of electromechanical flip-disc display.</description>
     </item>
+    <item>
+      <title>Scurrying seagull: CAD-assisted Fliposcope animation</title>
+      <pubDate>Thu, 31 October 2024 20:57:00 GMT</pubDate>
+      <link>https://hannahilea.com/blog/seagull-fliposcope-animation-with-cuttle</link>
+      <guid>https://hannahilea.com/blog/seagull-fliposcope-animation-with-cuttle</guid>
+      <description>Write-up of a Fliposcope animation created via hand-drawn, watercolored images and animation in Cuttle.</description>
+    </item>
 <!-- Add new post here -->
   </channel>
 </rss>
