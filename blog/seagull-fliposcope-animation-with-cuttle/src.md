@@ -21,7 +21,7 @@ Fliposcope is a mechanical flipbook kit produced by artists [Marvel & Rosen](htt
 For my birthday my parents gifted me one of these kits, and I've been sitting on it for awhile, ~~paralyzed by indecision and perfectionism~~ waiting for inspiration to strike. And here we are!
 
 
-## Paralaxxing in Cuttle
+## Parallaxxing in Cuttle
 
 I wanted my flipbook to use drawings I'd made myself, but I also did not want to hand-draw 40 frames of an incrementally shifting scene. Parallax (and programming) to the rescue! 
 
