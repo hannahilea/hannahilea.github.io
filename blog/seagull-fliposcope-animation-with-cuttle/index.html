@@ -17,7 +17,10 @@
         <a class="nav-link" href="..">blog</a>
       </nav>
       <h1>Scurrying seagull: CAD-assisted Fliposcope animation</h1>
-      <p>[TODO-gif of it working!]</p>
+      <figure>
+        <img src="./assets/forward-gull.gif" alt="“Moving image of seagull running forwards down the beach”" />
+      </figure>
+      <p style="text-align: center">***</p>
       <p>
         It is no secret that I like mechanical displays.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> While scheming to realize my
         <a href="https://en.wikipedia.org/wiki/Split-flap_display">split-flap display</a> dreams, I encountered <a href="https://www.fliposcope.com/about">Fliposcope</a>.
@@ -120,7 +123,7 @@
       </blockquote>
       <p>For my birthday my parents gifted me one of these kits, and I’ve been sitting on it for awhile, <del>paralyzed by indecision and perfectionism</del> waiting for inspiration to strike. And here we are!</p>
       <h2 id="paralaxxing-in-cuttle">Paralaxxing in Cuttle</h2>
-      <p>I wanted my resultant animation to use drawings I’d made myself, but I also did not want to hand-draw 40 frames of an incrementally shifting scene. Parallax to the rescue!</p>
+      <p>I wanted my flipbook to use drawings I’d made myself, but I also did not want to hand-draw 40 frames of an incrementally shifting scene. Parallax (and programming) to the rescue!</p>
       <blockquote>
         <p>
           <em>Parallax: the apparent displacement or the difference in apparent direction of an object as seen from two different points not on a straight line with the object.</em> [<a
@@ -145,14 +148,16 @@
         <img src="../cuttle-obsession/assets/parallax.gif" alt="“Animation of Cuttle template with sketch of gnome dancing”" />
       </figure>
       <p>In the polished Cuttle implementation, I sketched out and uploaded a couple of background layers (the background ocean, the foreground shore) and a main character (the seagull).</p>
-      <p><img src="./assets/raw-1.jpg" alt="“TODO”" /> <img src="./assets/raw-2.jpg" alt="“TODO”" /> <img src="./assets/raw-3.jpg" alt="“TODO”" /></p>
-      <p>
-        I ended up giving the gull independently-moving legs—just rotating the gull back and forth didn’t give it the movement I wanted: I cropped the legs from the original sketch, and then added them in as their own objects and gave those
-        objects a rotation of a few degrees for every frame increment.
-      </p>
-      <p>This is what the full digital animation looked like in the resultant Cuttle project:</p>
       <figure>
-        <img src="./assets/gull-cuttle.gif" alt="“TODO”" />
+        <img src="./assets/raw-drawings.png" alt="“Sketches of seagull, beach, and horizon”" />
+      </figure>
+      <p>
+        Just rotating the gull back and forth didn’t give the gull the movement I wanted, so I ended up giving it independently-moving legs: I cropped the legs from the original sketch, and then added them in as their own objects and gave
+        those objects a rotation of a few degrees for every frame increment.
+      </p>
+      <p>This is what the final animation looked like in Cuttle:</p>
+      <figure>
+        <img src="./assets/gull-cuttle.gif" alt="“Screenshot of animated seagull running”" />
       </figure>
       <h2 id="digital-frames-to-physical-frames">Digital frames to physical frames</h2>
       <p>
@@ -165,30 +170,34 @@
         myself. I set up a Cuttle object that formatted my frames <del>correctly</del><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> for the sticker paper.
       </p>
       <figure>
-        <img src="TODO-SCREENSHOT" alt="“TODO”" />
+        <img src="./assets/sticker-template.png" alt="“Screenshot of single sticker sheet template”" />
       </figure>
       <p>
-        I then printed the frames onto the stickers<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a
-        >, put on some good music, and painted them with watercolor paints.
+        I then printed the frames onto the stickers,<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> put on some good music, and painted them with watercolor paints.
       </p>
-      <p><img src="./assets/paint-1a.jpg" alt="“TODO”" /> <img src="./assets/paint-1b.jpg" alt="“TODO”" /></p>
+      <figure>
+        <img src="./assets/paint-1b.jpg" alt="“Photo of unpainted sticker sheets”" />
+      </figure>
+      <figure>
+        <img src="./assets/paint-1a.jpg" alt="“Photo of painted sticker sheets”" />
+      </figure>
       <h2 id="running-with-the-gulls">Running with the Gull<del>s</del></h2>
       <p>After the paint had dried, I put the stickers on the flaps, put the flaps in the Fliposcope spool, and hey presto! A running gull!</p>
       <figure>
-        <img src="./assets/back-gull.gif" alt="“TODO”" />
+        <img src="./assets/back-gull.gif" alt="“Moving image of seagull running backwards down the beach”" />
       </figure>
       <p>Womp womp—my gull was running backwards. 😭</p>
       <h2 id="running-with-the-gulls-forwards-edition">Running with the Gull<del>s</del>, forwards edition</h2>
       <p>I <del>sulked a bit,</del> fixed up my Cuttle template, reviewed that fix several times, reprinted all the stickers, re<em>painted</em> all the stickers,</p>
       <figure>
-        <img src="./assets/paint-2.jpg" alt="“TODO”" />
+        <img src="./assets/paint-2.jpg" alt="“Photo of painted sticker sheet of gulls”" />
       </figure>
       <p>re-stuck all the stickers, and hey presto! A running gull!</p>
       <figure>
-        <img src="./assets/forward-gull.gif" alt="“TODO”" />
+        <img src="./assets/forward-gull.gif" alt="“Moving image of seagull running forwards down the beach”" />
       </figure>
       <p>Huzzah!</p>
-      <h2 id="lessons-learned">Lessons learned</h2>
+      <h2 id="conclusion">Conclusion</h2>
       <p>Overall, the challenging pieces of this project were:</p>
       <ol type="1">
         <li>Staying motivated to repaint 40 frames of running gull, after I realized I’d botched the first round, and</li>
@@ -196,14 +205,14 @@
       </ol>
       <p>
         Additionally, the relatively low-resolution 40-frame setup of the Fliposcope meant that my parallax animation was less obvious than I would have preferred, as a full loop of each layer had to fit into 40 frames. If I make another,
-        I’ll probably simplify the background layer and remove any significant objects from it (i.e., not include the sailboat or cloud clusters). If you make your own—and I encourage you to do so!—keep this in mind when you draw your
+        I’ll probably simplify the background layer and remove any significant objects from it (i.e., not include the sailboat or cloud clusters). If you make your own—and I encourage you to do so!—keep this in mind when you design your own
         layers.
       </p>
       <p>Would it have been faster to just draw everything by hand from the start? Perhaps! But that is besides the point.</p>
       <p>
         <strong
           ><em
-            >Want to make your own Fliposcope following this approach? My Cuttle template and instructions are <a href="https://cuttle.xyz/@hannahilea/Fliposcope-animation-generator-gk5ac9Em7rwa">here</a>. Thanks to the Fliposcope team for
+            >Want to make your own Fliposcope following this approach? My Cuttle template and instructions are <a href="https://cuttle.xyz/@hannahilea/Fliposcope-parallax-animation-gk5ac9Em7rwa">here</a>. Thanks to the Fliposcope team for
             developing the kit, and to my parents for gifting it to me!</em
           ></strong
         >
@@ -217,20 +226,16 @@
           </li>
           <li id="fn2">
             <p>
-              If you haven’t encountered the term parallax before, it’s worth <a href="https://en.wikipedia.org/wiki/Parallax">reading more</a>; among other applications, astronomer
-              <a href="https://en.wikipedia.org/wiki/Henrietta_Swan_Leavitt">Henrietta Swan Leavitt</a> used it in the early 1900s to calibrate her discoveries for measuring large (very large!) distances across the universe.<a
-                href="#fnref2"
-                class="footnote-back"
-                role="doc-backlink"
-                >↩︎</a
-              >
+              If you haven’t encountered the term parallax before, it’s worth <a href="https://en.wikipedia.org/wiki/Parallax">reading more</a> about its applications. One of my favorites is astronomer
+              <a href="https://en.wikipedia.org/wiki/Henrietta_Swan_Leavitt">Henrietta Swan Leavitt</a> using stellar parallax in the early 1900s to calibrate her discoveries for measuring large (very large!) distances across the
+              universe.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a>
             </p>
           </li>
           <li id="fn3">
             <p>This prototype template is <a href="https://cuttle.xyz/@hannahilea/Prototype-Parallax-animation-M6sxlTXsZYTz">here</a>; play with it!<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p>
           </li>
           <li id="fn4">
-            <p>Foreshadowing!<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p>
+            <p>Foreshadowing! (The photo is actually the correct template, I forgot to take a photo of the incorrect one.)<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p>
           </li>
           <li id="fn5">
             <p>

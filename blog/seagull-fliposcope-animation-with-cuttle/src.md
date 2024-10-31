@@ -6,7 +6,9 @@ updated: 2024-10-31
 header: "<script async src=\"https://www.instagram.com/embed.js\"><\/script>"
 ---
 
-[TODO-gif of it working!]
+!["Moving image of seagull running forwards down the beach"](./assets/forward-gull.gif)
+
+<p style="text-align: center">***</p>
 
 It is no secret that I like mechanical displays.[^blogslink] While scheming to realize my [split-flap display](https://en.wikipedia.org/wiki/Split-flap_display) dreams, I encountered [Fliposcope](https://www.fliposcope.com/about). 
 
@@ -21,7 +23,7 @@ For my birthday my parents gifted me one of these kits, and I've been sitting on
 
 ## Paralaxxing in Cuttle
 
-I wanted my resultant animation to use drawings I'd made myself, but I also did not want to hand-draw 40 frames of an incrementally shifting scene. Parallax to the rescue! 
+I wanted my flipbook to use drawings I'd made myself, but I also did not want to hand-draw 40 frames of an incrementally shifting scene. Parallax (and programming) to the rescue! 
 
 > *Parallax: the apparent displacement or the difference in apparent direction of an object as seen from two different points not on a straight line with the object.*   [[Merriam-Webster](https://www.merriam-webster.com/dictionary/parallax)]
 
@@ -29,7 +31,7 @@ Basically, relative motion between different objects or scenes provides informat
 
 Parallax is a broadly applicable phenomenon,[^broad] and is commonly exploited in animation: moving background and foreground content at different speeds to add depth to a scene. Once you start recognizing it, you'll see it everywhere: in cartoons and video games and real life, when staring out the window of a moving vehicle. 
 
-[^broad]: If you haven't encountered the term parallax before, it's worth [reading more](https://en.wikipedia.org/wiki/Parallax); among other applications, astronomer [Henrietta Swan Leavitt](https://en.wikipedia.org/wiki/Henrietta_Swan_Leavitt) used it in the early 1900s to calibrate her discoveries for measuring large (very large!) distances across the universe.
+[^broad]: If you haven't encountered the term parallax before, it's worth [reading more](https://en.wikipedia.org/wiki/Parallax) about its applications. One of my favorites is astronomer [Henrietta Swan Leavitt](https://en.wikipedia.org/wiki/Henrietta_Swan_Leavitt) using stellar parallax in the early 1900s to calibrate her discoveries for measuring large (very large!) distances across the universe.
 
 For my own use of parallax in animation, I used [Cuttle](https://cuttle.xyz/) a web-based parametric CAD software that I love and have written about [previously](../cuttle-obsession/). Here is my initial proof-of-concept prototype:[^template1]
 
@@ -39,15 +41,13 @@ For my own use of parallax in animation, I used [Cuttle](https://cuttle.xyz/) a 
 
 In the polished Cuttle implementation, I sketched out and uploaded a couple of background layers (the background ocean, the foreground shore) and a main character (the seagull). 
 
-!["TODO"](./assets/raw-1.jpg)
-!["TODO"](./assets/raw-2.jpg)
-!["TODO"](./assets/raw-3.jpg)
+!["Sketches of seagull, beach, and horizon"](./assets/raw-drawings.png)
 
-I ended up giving the gull independently-moving legs---just rotating the gull back and forth didn't give it the movement I wanted: I cropped the legs from the original sketch, and then added them in as their own objects and gave those objects a rotation of a few degrees for every frame increment.
+Just rotating the gull back and forth didn't give the gull the movement I wanted, so I ended up giving it independently-moving legs: I cropped the legs from the original sketch, and then added them in as their own objects and gave those objects a rotation of a few degrees for every frame increment.
 
-This is what the full digital animation looked like in the resultant Cuttle project:
+This is what the final animation looked like in Cuttle:
 
-!["TODO"](./assets/gull-cuttle.gif)
+!["Screenshot of animated seagull running"](./assets/gull-cuttle.gif)
 
 ## Digital frames to physical frames 
 
@@ -56,14 +56,16 @@ A single animation frame is split horizontally across two stickers (the top half
 
 While Fliposcope provides a conversion tool for formatting a short video (or set of frames) to be printed onto the kit's sticker-sheets, I figured I was already far enough down the Cuttle path that I might as well do that piece myself. I set up a Cuttle object that formatted my frames ~~correctly~~[^foreshadowing] for the sticker paper.
 
-[^foreshadowing]: Foreshadowing! 
+[^foreshadowing]: Foreshadowing! (The photo is actually the correct template, I forgot to take a photo of the incorrect one.)
 
-!["TODO"](TODO-SCREENSHOT)
+!["Screenshot of single sticker sheet template"](./assets/sticker-template.png)
 
-I then printed the frames onto the stickers[^trivializing], put on some good music, and painted them with watercolor paints.
+I then printed the frames onto the stickers,[^trivializing] put on some good music, and painted them with watercolor paints.
 
-!["TODO"](./assets/paint-1a.jpg)
-!["TODO"](./assets/paint-1b.jpg)
+!["Photo of unpainted sticker sheets"](./assets/paint-1b.jpg)
+
+!["Photo of painted sticker sheets"](./assets/paint-1a.jpg)
+
 
 [^trivializing]: I'm sparing you the saga where I went back and forth and back and forth with my printer to convince it to print the correct margins AND print the full page. Lots of holding a printed proof sheet up and sticker sheet stack up to the light to check whether the margins were correct.... 
 
@@ -71,7 +73,7 @@ I then printed the frames onto the stickers[^trivializing], put on some good mus
 
 After the paint had dried, I put the stickers on the flaps, put the flaps in the Fliposcope spool, and hey presto! A running gull!
 
-!["TODO"](./assets/back-gull.gif)
+!["Moving image of seagull running backwards down the beach"](./assets/back-gull.gif)
 
 Womp womp---my gull was running  backwards. 😭
 
@@ -79,23 +81,23 @@ Womp womp---my gull was running  backwards. 😭
 
 I ~~sulked a bit,~~ fixed up my Cuttle template, reviewed that fix several times, reprinted all the stickers, re*painted* all the stickers, 
 
-!["TODO"](./assets/paint-2.jpg)
+!["Photo of painted sticker sheet of gulls"](./assets/paint-2.jpg)
 
 re-stuck all the stickers, and hey presto! A running gull!
 
-!["TODO"](./assets/forward-gull.gif)
+!["Moving image of seagull running forwards down the beach"](./assets/forward-gull.gif)
 
 Huzzah!
 
-## Lessons learned
+## Conclusion
 
 Overall, the challenging pieces of this project were:
 
 1. Staying motivated to repaint 40 frames of running gull, after I realized I'd botched the first round, and
 2. Configuring print settings for printing accurately to the sticker paper from my not-that-great secondhand printer.
 
-Additionally, the relatively low-resolution 40-frame setup of the Fliposcope meant that my parallax animation was less obvious than I would have preferred, as a full loop of each layer had to fit into 40 frames. If I make another, I'll probably simplify the background layer and remove any significant objects from it (i.e., not include the sailboat or cloud clusters). If you make your own---and I encourage you to do so!---keep this in mind when you draw your layers. 
+Additionally, the relatively low-resolution 40-frame setup of the Fliposcope meant that my parallax animation was less obvious than I would have preferred, as a full loop of each layer had to fit into 40 frames. If I make another, I'll probably simplify the background layer and remove any significant objects from it (i.e., not include the sailboat or cloud clusters). If you make your own---and I encourage you to do so!---keep this in mind when you design your own layers. 
 
 Would it have been faster to just draw everything by hand from the start? Perhaps! But that is besides the point.
 
-***Want to make your own Fliposcope following this approach? My Cuttle template and instructions are [here](https://cuttle.xyz/@hannahilea/Fliposcope-animation-generator-gk5ac9Em7rwa). Thanks to the Fliposcope team for developing the kit, and  to my parents for gifting it to me!***
+***Want to make your own Fliposcope following this approach? My Cuttle template and instructions are [here](https://cuttle.xyz/@hannahilea/Fliposcope-parallax-animation-gk5ac9Em7rwa). Thanks to the Fliposcope team for developing the kit, and  to my parents for gifting it to me!***
