@@ -101,11 +101,11 @@ end
 
 function get_blog_metadata(md_file)
     delimiter = "ddddd"
-    template_str = "data:text/plain;utf8,\$title\$$delimiter\$created\$$delimiter\$for(tags)\$\$tags\$\$sep\$,\$endfor\$"
+    template_str = "data:text/plain;utf8,\$title\$$delimiter\$created\$$delimiter\$type\$$delimiter\$for(tags)\$\$tags\$\$sep\$,\$endfor\$"
     str = read(pipeline(`$(pandoc_jll.pandoc()) --template $(template_str) $(md_file)`), String)
     str = replace(str, r".html$" => "", "\n" => " ")
-    (title, date_str, tags) = split(str, delimiter; limit=3)
-    return (; md_file, date_str, title, tags)
+    (title, date_str, type, tags) = split(str, delimiter; limit=4)
+    return (; md_file, date_str, title, type, tags)
 end
 
 function generate_blog_index(; overwrite_existing=false, template=blog_index_template)
@@ -132,14 +132,20 @@ function generate_blog_index(; overwrite_existing=false, template=blog_index_tem
     # fits into table
     blog_strs = map(metadata) do m
         date_pretty = Dates.format(Date(m.date_str), dateformat"d u yyyy")
-        tags = replace(m.tags, "," => ", ")
+        tags = "#" * replace(m.tags, "," => " #")
+
         return """
         <tr>
             <td class="date date-pretty">$(date_pretty)</td>
             <td class="date-raw" hidden>$(m.date_str)</td>
-            <td class="title-raw" hidden>$(m.title)</a></td>
-            <td class="title"><a class="blog-url" href="$(m.url)">$(m.title)</a>
-                <!-- <p class="blog-tags">Tags: $tags </p> -->
+            <td class="title-raw" hidden>$(m.title)</td>
+            <td class="title">
+                <a class="blog-url" href="$(m.url)">$(m.title)</a>
+                <div class="details">
+                    <a class="blog-url" href="$(m.url)"><img class="thumbnail" src="$(m.url)/assets/thumbnail.png"/></a>
+                    <p class="blog-tags">$(m.type) <br>
+                    <em>$tags</em> </p>
+                </div>
             </td>
           </tr>
           """

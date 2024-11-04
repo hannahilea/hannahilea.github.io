@@ -73,6 +73,8 @@ function new_blog_post()
         mv(file, replace(file, ".template" => ""))
     end
     mkdir(joinpath(dir, "assets"))
+    cp(joinpath("assets", "img", "emojis", "surprise-pikachu.png"),
+       joinpath(dir, "assets", "thumbnail.png"))
 
     @info "Adding new project to rss feed"
     let

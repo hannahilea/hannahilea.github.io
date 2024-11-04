@@ -1,5 +1,6 @@
 ---
 title: "Titles of blog posts I might never write"
+type: Musing
 tags: [brainstorm, metawriting]
 created: 2024-09-18
 updated: 2024-10-11

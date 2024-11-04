@@ -394,7 +394,7 @@ img.home-img {
   font-family: "Jura Bold";
 }
 
-/* For blog, project index pages */ 
+/* For blog, project index pages */
 .index-page {
   .date {
     font-weight: normal;
@@ -460,8 +460,24 @@ img.home-img {
     font-size: larger;
   }
 
-  tbody tr:nth-child(even) {
+  tbody tr:nth-child(odd) {
     background-color: #f2f2f2;
   }
-  
+
+  .details {
+    display: flex;
+    flex-direction: row;
+
+    .thumbnail {
+      margin: .5em .5em 0 0;
+      width: 90px;
+      height: 90px;
+      border: .1px solid black;
+    }
+
+    .blog-tags {
+      font-size: smaller;
+      /* font-style: italic; */
+    }
+  }
 }
