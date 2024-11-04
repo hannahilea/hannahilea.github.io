@@ -12,11 +12,13 @@ In response to previous post [*Clapping Music* for two flip-disc displays](../cl
 
 Great idea---let's do it!
 
+<div class="centered-children">
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/kva_p5HtEOg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
 Quite pleasing. Thanks for the suggestion!
 
-<p style="text-align:center">***</p>
+<div class="centered-children"><p>***</p></div>
 
 The code changes to support this variation were fairly minimal, but in the process of implementing them I accidentally stumbled into a nice illustration of how commands are sent to the flip-disc board. Let's take a look!
 
@@ -142,7 +144,9 @@ You'll note that this single-board implementation involves keeping track of---an
 
 I didn't remember exactly how the "send update to boards" function worked---it had been awhile since I wrote it!---and my first guess, before going back to read the code, ended up not being what I intended BUT looking delightful anyway:[^code]
 
+<div class="centered-children">
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/8QKFRVNFEag" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
 As those of you familiar with counting [in binary](https://en.wikipedia.org/wiki/Binary_number) have likely recognized, in this variation, for each the right and left clappers, we are counting the number of claps that have been clapped thus far.
 
@@ -154,7 +158,8 @@ for x in 0x00:0x7F
     sleep(0.1)
 end
 ```
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/5Lf2V4NYVUU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div class="centered-children">
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/5Lf2V4NYVUU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
 
 For the fun of it, let's do all columns at the same time:
 ```julia
@@ -163,7 +168,8 @@ for x in 0x00:0x7F
     sleep(0.2)
 end
 ```
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/eGSDterYIfg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div class="centered-children">
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/eGSDterYIfg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
 
 Given that knowledge, here's the most basic "flip only one disc at a time" Clapping Music---aka, "The Littlest Clap", as requested by AF:
 ```julia
@@ -181,7 +187,9 @@ end
 
 clapping_music(; clap_a=clap_a!, clap_b=clap_b!, num_repeats=2, num_shifts=1)
 ```
+<div class="centered-children">
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/gshXXb5DZN8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
 <p></p>
 ### Playtime
@@ -200,7 +208,9 @@ for s in 0.1:-0.001:0.0
     sleep(.1)
 end
 ```
+<div class="centered-children">
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ivAsLNm5KFw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
 #### Shimmer
 
@@ -212,8 +222,9 @@ for _ in 1:30
     write_to_sink(sink_dots, fill(0x7F, 10))
 end
 ```
-
+<div class="centered-children">
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ZjCYiz2F4Tw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
 
 #### Multicolumn refresh rate
@@ -227,10 +238,12 @@ for x in 0x00:0x7F
     write_to_sink(sink_dots, fill(x, 10))
 end
 ```
+<div class="centered-children">
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rByTmhK6Zn8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
 
-<p style="text-align:center">***</p>
+<div class="centered-children"><p>***</p></div>
 
 That's all for now!
 
