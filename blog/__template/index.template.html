@@ -1,4 +1,4 @@
-<!--Auto-generated! Make changes in index.html.template, not this file-->
+<!--Auto-generated! Make changes in index.template.html, not this file-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,11 +9,13 @@
   <meta name="author" content="Hannah Robertson" />
   <link rel="shortcut icon" type="image/png" href="../assets/img/favicon.png" />
   <link rel="stylesheet" type="text/css" href="../assets/css/main.css" />
+  <script src="../assets/scripts/list.min.js"></script>
+
   <title>@hannahilea: blog</title>
 </head>
 
 <body>
-  <div class="main-container">
+  <div class="main-container index-page">
     <nav class="navbar" role="navigation">
       @hannahilea:
       <a href=".." class="nav-link">home</a> |
@@ -22,12 +24,30 @@
     </nav>
     <h1 class="title">Blog</h1>
 
-    <div class="posts">
-      <ul>
-<!-- POSTS -->
-      </ul>
+    <div id="post-list">
+      <table>
+        <thead>
+          <tr>
+            <!-- <th class="sort desc" data-sort="date-pretty">Date pretty</th> -->
+            <th class="sort desc" data-sort="date-raw" data-default-order='desc'>Date</th>
+            <th class="sort" data-sort="title-raw">Title</th>
+          </tr>
+        </thead>
+        <!-- IMPORTANT, class="list" have to be at tbody -->
+        <tbody class="list">
+          <!-- POSTS -->
+        </tbody>
+      </table>
     </div>
+    <script>
+      var options = {
+        valueNames: ['date-raw', 'date-pretty', 'title', 'title-raw', 'tags']
+      };
 
+      var blogList = new List('post-list', options);
+    </script>
+
+  <br/>
     <div>
       <a href="/rss.xml" rel="subscribe-rss">
         <!-- Source: https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white -->

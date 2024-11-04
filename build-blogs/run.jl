@@ -4,8 +4,8 @@ using pandoc_jll
 using Dates
 
 blog_dir = joinpath(@__DIR__, "..", "blog")
-blog_template = joinpath(blog_dir, "__template", "blog.html.template")
-blog_index_template = joinpath(blog_dir, "__template", "index.html.template")
+blog_template = joinpath(blog_dir, "__template", "blog.template.html")
+blog_index_template = joinpath(blog_dir, "__template", "index.template.html")
 
 function convert_to_html(file, outfile; template=blog_template, overwrite_existing=false)
     if !overwrite_existing && isfile(outfile)
@@ -128,9 +128,21 @@ function generate_blog_index(; overwrite_existing=false, template=blog_index_tem
     end
     metadata = sort(metadata; by=(m) -> m.date_str, rev=true)
 
+    # See blog/__template/index.template.html for how this 
+    # fits into table
     blog_strs = map(metadata) do m
         date_pretty = Dates.format(Date(m.date_str), dateformat"d u yyyy")
-        return """<li><strong class="blog-date">$(date_pretty)</strong> <a class="blog-url" href="$(m.url)">\n$(m.title)\n</a>\n</li>"""
+        tags = replace(m.tags, "," => ", ")
+        return """
+        <tr>
+            <td class="date date-pretty">$(date_pretty)</td>
+            <td class="date-raw" hidden>$(m.date_str)</td>
+            <td class="title-raw" hidden>$(m.title)</a></td>
+            <td class="title"><a class="blog-url" href="$(m.url)">$(m.title)</a>
+                <!-- <p class="blog-tags">Tags: $tags </p> -->
+            </td>
+          </tr>
+          """
     end
 
     str = read(template, String)

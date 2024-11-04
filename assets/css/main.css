@@ -63,11 +63,6 @@ body {
   color: #03163f;
 }
 
-.posts {
-  margin-bottom: 2.6em;
-  line-height: 2;
-}
-
 .project-section {
   margin-bottom: 3em;
 }
@@ -75,11 +70,6 @@ body {
 .project-name {
   font-weight: normal;
   font-family: "Jura Bold";
-}
-
-.blog-date {
-  font-weight: normal;
-  font-family: "Jura Regular";
 }
 
 .blog-url {
@@ -402,4 +392,76 @@ img.home-img {
 .alert-heading {
   font-weight: bold;
   font-family: "Jura Bold";
+}
+
+/* For blog, project index pages */ 
+.index-page {
+  .date {
+    font-weight: normal;
+    font-family: "Jura Regular";
+    text-align: right;
+  }
+
+  .sort.asc::after {
+    content: "▼";
+    padding-left: 3px;
+    padding-right: 3px;
+    font-size: small
+  }
+
+  .sort.desc::after {
+    content: "▲";
+    padding-left: 3px;
+    padding-right: 3px;
+    font-size: small;
+  }
+
+  .search {
+    float: top;
+  }
+
+  td th {
+    padding: 6px;
+    text-align: left;
+    vertical-align: top;
+    word-wrap: break-word;
+  }
+
+  tr td:first-child {
+    width: 1%;
+    white-space: nowrap;
+
+    table {
+      border-collapse: collapse;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+
+    thead {
+      border-bottom: 1px solid #dbdbdb;
+      border-bottom: 1px solid var(--border);
+    }
+  }
+
+  td,
+  th {
+    padding: 6px;
+    text-align: left;
+    vertical-align: top;
+    word-wrap: break-word;
+  }
+
+  th {
+    font-weight: normal;
+    margin: 0;
+    font-family: "Jura Bold";
+    padding-bottom: 2px;
+    margin-bottom: 3px;
+    font-size: larger;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
 }
