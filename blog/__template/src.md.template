@@ -1,6 +1,6 @@
 ---
 title: "{{ BLOG_TITLE }}"
-type: TODO-e.g.-musings-project-write-up-tutorial-etc
+type: TODO-e.g.-musing-project-write-up-tutorial-etc
 tags: [TODO]
 created: {{ DATE }}
 updated: {{ DATE }}

@@ -1,6 +1,6 @@
 --- 
 title: "Dopamine-driven development (DDD), spite-driven development (SDD), and other DDs"
-type: Musings
+type: Musing
 tags: [brainstorm, techspeak]
 created: 2024-09-20
 updated: 2024-09-20
