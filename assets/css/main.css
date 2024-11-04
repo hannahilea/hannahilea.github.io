@@ -319,14 +319,11 @@ img.home-img {
     margin-bottom: 1.6em;
   }
 
-  .insta {
+  .centered-children {
     display: flex;
     flex-direction: column;
     width: 100%;
-  }
-
-  .instagram-media {
-    align-self: center;
+    align-items: center;
   }
 
   img {
