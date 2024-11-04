@@ -61,7 +61,7 @@ You can see that the bookends each play with that design in a different way---no
 
 ![Side-by-side photo of decorated bookend faceplates with their original CAD rendering](assets/bookends-cad.png)
 
-<div class="centered-children"><p>***</p></div>
+<p style="text-align:center">***</p>
 
 ### Doorbell chime cover
 
@@ -81,7 +81,7 @@ I also had to cut a bunch of test pieces to see how thin I could get the lines o
 
 ![A set of decorative strips cut in different widths](assets/chime-test.jpg)
 
-<div class="centered-children"><p>***</p></div>
+<p style="text-align:center">***</p>
 
 ### Punch cards for music boxes!
 
@@ -95,7 +95,7 @@ This was a project I've wanted to do for a long time: automatically generate and
 
 These music box rolls are an example of using Cuttle to prototype: rather than building out an end-to-end MIDI-to-SVG pipeline (`midi2svg`!), I instead converted MIDI to note index coordinates in an external Julia script, and then plugged the output coordinates of that script into a Cuttle template. This allowed me to spend my development time easily tweaking print parameters (hole spacing, metadata engraving, roll pagination, etc) with immediate visual feedback. When I turn it into an end-to-end system in the future, I won't include Cuttle in the pipeline, and I knew that from the start, but it still made the development process easier and faster for me than it would have been otherwise.
 
-<div class="centered-children"><p>***</p></div>
+<p style="text-align:center">***</p>
 
 ### Card display for a truck-loving kid
 
@@ -111,7 +111,7 @@ The aspect of this project that the recipient was most excited about was that th
 
 [^remember]: "...and remember that music other than *Helper Cars* exists," I thought, to no avail! 
 
-<div class="centered-children"><p>***</p></div>
+<p style="text-align:center">***</p>
 
 ### A handful of calibration tools
 
@@ -121,7 +121,7 @@ The aspect of this project that the recipient was most excited about was that th
 
 Most of these were in support of some other project, either public or non, for learning how to appropriately tune the laser cutter across different materials. You can see the ones where I thought I was engraving words but was actually cutting all the way through the material (whoops!), and also the ones where I scrawled on them to be able to later map back to various print settings.
 
-<div class="centered-children"><p>***</p></div>
+<p style="text-align:center">***</p>
 
 ### Weaving cartoon
 
@@ -131,7 +131,7 @@ Most of these were in support of some other project, either public or non, for l
 
 My mom is a weaver; she asked me to make a "weaving cartoon" (i.e., a mock-up) in service of potentially weaving a site-specific piece. (What she requested was a very basic hacky photoshop collage...instead I had some fun in Cuttle. Overkill!)
 
-<div class="centered-children"><p>***</p></div>
+<p style="text-align:center">***</p>
 
 ### Pattern studies
 
@@ -167,7 +167,7 @@ And an alternate set of variations:
 [^guess]: I'll give you one guess what with... 
 
 
-<div class="centered-children"><p>***</p></div>
+<p style="text-align:center">***</p>
 
 ### Animating parallax
 
@@ -177,7 +177,7 @@ And an alternate set of variations:
 
 I wanted to test out a basic animation with parallax, in service of a future flip book-type application. It worked! Onward to images that take longer than 3 minutes to draw...
 
-<div class="centered-children"><p>***</p></div>
+<p style="text-align:center">***</p>
 
 ### A poem!
 
@@ -191,7 +191,7 @@ I'm actually really pleased with how this one turned out, and it makes me want t
 
 [^discord]: You can find me over in the [Cuttle Discord server](https://cuttle.xyz/discord), at the handle `@hannahilea` (naturally!).
 
-<div class="centered-children"><p>***</p></div>
+<p style="text-align:center">***</p>
 
 ## Wrap-up
 

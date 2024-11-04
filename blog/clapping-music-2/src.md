@@ -18,7 +18,7 @@ Great idea---let's do it!
 
 Quite pleasing. Thanks for the suggestion!
 
-<div class="centered-children"><p>***</p></div>
+<p style="text-align:center">***</p>
 
 The code changes to support this variation were fairly minimal, but in the process of implementing them I accidentally stumbled into a nice illustration of how commands are sent to the flip-disc board. Let's take a look!
 
@@ -243,7 +243,7 @@ end
 </div>
 
 
-<div class="centered-children"><p>***</p></div>
+<p style="text-align:center">***</p>
 
 That's all for now!
 
