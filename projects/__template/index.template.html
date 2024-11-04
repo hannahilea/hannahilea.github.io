@@ -1,0 +1,171 @@
+<!--Auto-generated! Make changes in index.template.html, not this file-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Hannah Robertson's projects" />
+  <meta name="author" content="Hannah Robertson" />
+  <link rel="shortcut icon" type="image/png" href="../assets/img/favicon.png" />
+  <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+  <script src="../assets/scripts/list.min.js"></script>
+
+  <title>@hannahilea: projects</title>
+</head>
+
+<body>
+  <div class="main-container index-page">
+    <nav class="navbar" role="navigation">
+      @hannahilea:
+      <a href=".." class="nav-link">home</a> |
+      <a href="../projects" class="nav-link">projects</a> |
+      <a href="../blog" class="nav-link">blog</a>
+    </nav>
+    <h1 class="title">Projects</h1>
+
+    <div class="alert">
+      <!-- <details> -->
+      <summary class="alert-heading"> ⚠️ This site is under active development</summary>
+      <p>If there's something here you'd like to know more about sooner rather than later, reach out and I'll
+        prioritize it accordingly!</p>
+      <!-- </details> -->
+    </div>
+
+    <nav>
+      <p> <em>Jump to:</em> <a href="#virtual-gallery">Virtual Gallery</a>, <a href="#physical-gallery">Physical
+          Gallery</a>,
+        <a href="#academic">Academic</a>, <a href="#professional">Professional</a>
+
+      </p>
+      <br>
+    </nav>
+
+    <div>
+      <div class="project-section">
+        <h2 id="virtual-gallery">Virtual Gallery</h2>
+        <em>One-off creative coding projects, often small and interactive.</em><br>
+        <div id="virtual-gallery-list">
+          <table>
+            <thead>
+             <!-- <tr>
+                 <th class="sort desc" data-sort="date-pretty">Date pretty</th>
+                <th class="sort desc" data-sort="date-raw" data-default-order="desc">Date</th>
+                <th class="sort" data-sort="title-raw">Title</th>
+              </tr> -->
+            </thead>
+            <!-- IMPORTANT, class="list" has to be at tbody -->
+            <tbody class="list">
+              <!-- POSTS-virtual-gallery -->
+            </tbody>
+          </table>
+        </div>
+        <script>
+          var options = {
+            valueNames: ["year", "title", "tags"],
+          };
+          var blogList = new List("virtual-gallery-list", options);
+        </script>
+        
+      </div>
+      <div class="project-section">
+        <h2 id="physical-gallery">Physical Gallery</h2>
+        
+        <em>Projects with a physical component.</em>
+       
+
+        <div id="physical-gallery-list">
+          <table>
+            <thead>
+             <!-- <tr>
+                 <th class="sort desc" data-sort="date-pretty">Date pretty</th>
+                <th class="sort desc" data-sort="date-raw" data-default-order="desc">Date</th>
+                <th class="sort" data-sort="title-raw">Title</th>
+              </tr> -->
+            </thead>
+            <!-- IMPORTANT, class="list" has to be at tbody -->
+            <tbody class="list">
+              <!-- POSTS-physical-gallery -->
+            </tbody>
+          </table>
+        </div>
+        <script>
+          var options = {
+            valueNames: ["year", "title", "tags"],
+          };
+          var blogList = new List("physical-gallery-list", options);
+        </script>
+
+      </div>
+      <div class="project-section">
+        <h2 id="professional">Professional</h2>
+        <em>Public-facing employment artifacts.</em>
+        
+        <div id="professional-list">
+          <table>
+            <thead>
+             <!-- <tr>
+                 <th class="sort desc" data-sort="date-pretty">Date pretty</th>
+                <th class="sort desc" data-sort="date-raw" data-default-order="desc">Date</th>
+                <th class="sort" data-sort="title-raw">Title</th>
+              </tr> -->
+            </thead>
+            <!-- IMPORTANT, class="list" has to be at tbody -->
+            <tbody class="list">
+             <!-- POSTS-professional -->
+            </tbody>
+          </table>
+        </div>
+        <script>
+          var options = {
+            valueNames: ["year", "title", "tags"],
+          };
+          var blogList = new List("virtual-gallery-list", options);
+        </script>
+
+
+
+      </div>
+      <div class="project-section">
+        <h2 id="academic">Academic</h2>
+        <em>Public-facing coursework from a MA in Music Technology at <a href="http://www.mcgill.ca">McGill University</a>.</em>
+        
+          <div id="academic-list">
+            <table>
+              <thead>
+               <!-- <tr>
+                   <th class="sort desc" data-sort="date-pretty">Date pretty</th>
+                  <th class="sort desc" data-sort="date-raw" data-default-order="desc">Date</th>
+                  <th class="sort" data-sort="title-raw">Title</th>
+                </tr> -->
+              </thead>
+              <!-- IMPORTANT, class="list" has to be at tbody -->
+              <tbody class="list">
+                
+                <!-- POSTS-academic -->
+  
+              </tbody>
+            </table>
+          </div>
+          <script>
+            var options = {
+              valueNames: ["year", "title", "tags"],
+            };
+            var blogList = new List("academic-list", options);
+          </script>
+      </div>
+    </div>
+
+    <hr>
+    <nav class="navbar" role="navigation">
+      @hannahilea:
+      <a href=".." class="nav-link">home</a> |
+      <a href="../projects" class="nav-link">projects</a> |
+      <a href="../blog" class="nav-link">blog</a>
+    </nav>
+  </div>
+
+</body>
+
+</html>

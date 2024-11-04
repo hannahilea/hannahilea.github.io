@@ -1,0 +1,69 @@
+virtual-gallery:
+  - project:
+    url:
+    year:
+    description: 
+    write-up: 
+  - project:
+    url:
+    year:
+    description: 
+    write-up: 
+  - project:
+    url:
+    year:
+    description: 
+    write-up: 
+
+physical-gallery:
+  - project:
+    url:
+    year:
+    description: 
+    write-up: 
+  - project:
+    url:
+    year:
+    description: 
+    write-up: 
+  - project:
+    url:
+    year:
+    description: 
+    write-up: 
+
+professional:
+  - project:
+    url:
+    year:
+    description: 
+    write-up: 
+
+  - project:
+    url:
+    year:
+    description: 
+    write-up: 
+    
+  - project:
+    url:
+    year:
+    description: 
+    write-up: 
+
+academic:
+  - project:
+    url:
+    year:
+    description: 
+    write-up: 
+  - project:
+    url:
+    year:
+    description: 
+    write-up: 
+  - project:
+    url:
+    year:
+    description: 
+    write-up: 
