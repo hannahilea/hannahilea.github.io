@@ -8,12 +8,13 @@
   <meta name="author" content="Hannah Robertson" />
   <link rel="shortcut icon" type="image/png" href="../assets/img/favicon.png" />
   <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+  <script src="../assets/scripts/list.min.js"></script>
 
   <title>@hannahilea: projects</title>
 </head>
 
 <body>
-  <div class="main-container">
+  <div class="main-container index-page">
     <nav class="navbar" role="navigation">
       @hannahilea:
       <a href=".." class="nav-link">home</a> |
@@ -42,59 +43,140 @@
     <div>
       <div class="project-section">
         <h2 id="virtual-gallery">Virtual Gallery</h2>
-        <!-- ADD photo thumnails -->
-        One-off creative coding projects, often small and interactive.
-        <ul>
-          <!-- Add new project here -->
-          <li><a class="project-name" href="./flock-chorus">
-              Flock chorus
-            </a>
-            <p>Built during a musical instrument hackathon while at the <a href="https://www.recurse.com">Recurse
-                Center</a>.</p>
-          </li>
-          <li><a class="project-name" href="https://github.com/hannahilea/htmlophone-chrome-extension">
-              Chrome extension: HTMLophone!
-            </a>
-            <p>Sonify any website's DOM! Built as a creative
-              coding exercise while at the <a href="https://www.recurse.com">Recurse Center</a>.</p>
-          </li>
-          <li><a class="project-name" href="https://github.com/hannahilea/cat-friend-chrome-extension">
-              Chrome extension: Cat Friend!
-            </a>
-            <p>Enjoy the experience of programming while a cat waves its tail in front of your screen! Built as a
+        <em>One-off creative coding projects, often small and interactive.</em><br>
+        <div id="virtual-gallery-list">
+          <table>
+            <thead>
+             <!-- <tr>
+                 <th class="sort desc" data-sort="date-pretty">Date pretty</th>
+                <th class="sort desc" data-sort="date-raw" data-default-order="desc">Date</th>
+                <th class="sort" data-sort="title-raw">Title</th>
+              </tr> -->
+            </thead>
+            <!-- IMPORTANT, class="list" has to be at tbody -->
+            <tbody class="list">
+              <!-- Add new project here -->
+              <tr>
+                <td class="date">2024</td>
+                <td class="title">
+                  <a class="blog-url" href="./flock-chorus">Flock chorus</a>
+                  <div class="details">
+                    <a class="blog-url" href="./flock-chorus"><img class="thumbnail" src="./flock-chorus/assets/thumbnail.png" /></a>
+                    <p class="blog-tags">
+                      Built during a musical instrument hackathon while at the <a href="https://www.recurse.com">Recurse
+                        Center</a>.
+                      <!-- <em>#todo</em> -->
+                    </p>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="date">2024</td>
+                <td class="title">
+                  <a class="blog-url" href="https://github.com/hannahilea/htmlophone-chrome-extension">Chrome extension: HTMLophone!</a>
+                  <div class="details">
+                    <a class="blog-url" href="https://github.com/hannahilea/htmlophone-chrome-extension"><img class="thumbnail" src="./assets/htmlophone-thumbnail.png" /></a>
+                    <p class="blog-tags">
+                      Sonify any website's DOM! Built as a creative
+              coding exercise while at the <a href="https://www.recurse.com">Recurse Center</a>.
+                      <!-- <em>#todo</em> -->
+                    </p>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="date">2024</td>
+                <td class="title">
+                  <a class="blog-url" href="https://github.com/hannahilea/cat-friend-chrome-extension">Chrome extension: Cat Friend!</a>
+                  <div class="details">
+                    <a class="blog-url" href="https://github.com/hannahilea/cat-friend-chrome-extension"><img class="thumbnail" src="./assets/catfriend-thumbnail.png" /></a>
+                    <p class="blog-tags">
+                      Enjoy the experience of programming while a cat waves its tail in front of your screen! Built as a
               creative
-              coding exercise while at the <a href="https://www.recurse.com">Recurse Center</a>.</p>
-          </li>
-          <li><a class="project-name" href="./wonderful-world">
-              Sketch: Wonderful world
-            </a>
-            <p>Adapted from a creative coding exercise (prompt: <i>What a wonderful world</i>),
+              coding exercise while at the <a href="https://www.recurse.com">Recurse Center</a>.
+                      <!-- <em>#todo</em> -->
+                    </p>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="date">2024</td>
+                <td class="title">
+                  <a class="blog-url" href="./wonderful-world">Sketch: Wonderful world</a>
+                  <div class="details">
+                    <a class="blog-url" href="./wonderful-world"><img class="thumbnail" src="./wonderful-world/assets/thumbnail.png" /></a>
+                    <p class="blog-tags">
+                      Adapted from a creative coding exercise (prompt: <i>What a wonderful world</i>),
               co-created with David Brooks while at the <a href="https://www.recurse.com">Recurse
-                Center</a>.</p>
-          </li>
-          <li><a class="project-name" href="./yellow-scream">
-              Yellow Scream (2024)
-            </a>
-            <p>An homage to <a href="https://walkerart.org/magazine/now-streaming-kim-beoms-yellow-scream-2012/">Kim
-                Beom's <i>Yellow Scream
-                  (2012)</i></a></p>
-          </li>
-          <li><a class="project-name" href="./sound-ripple-sketch">
-              Sketch: Sound ripples
-            </a>
-            <p>A creative coding exercise (prompt: <i>Particles, lots of them</i>), co-created with <a
+                Center</a>.
+                      <!-- <em>#todo</em> -->
+                    </p>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="date">2024</td>
+                <td class="title">
+                  <a class="blog-url" href="./yellow-scream">Yellow Scream (2024)</a>
+                  <div class="details">
+                    <a class="blog-url" href="./yellow-scream"><img class="thumbnail" src="./yellow-scream/assets/thumbnail.png" /></a>
+                    <p class="blog-tags">
+                      An homage to <a href="https://walkerart.org/magazine/now-streaming-kim-beoms-yellow-scream-2012/">Kim
+                        Beom's <i>Yellow Scream
+                          (2012)</i></a>.
+                      <!-- <em>#todo</em> -->
+                    </p>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="date">2024</td>
+                <td class="title">
+                  <a class="blog-url" href="./sound-ripple-sketch">Sketch: Sound ripples</a>
+                  <div class="details">
+                    <a class="blog-url" href="./sound-ripple-sketch"><img class="thumbnail" src="./sound-ripple-sketch/assets/thumbnail.png" /></a>
+                    <p class="blog-tags">
+                      A creative coding exercise (prompt: <i>Particles, lots of them</i>), co-created with <a
                 href="https://hendersonreed.github.io/">Henderson Reed Hummel</a>
-              while at the <a href="https://www.recurse.com">Recurse Center</a></p>
-          </li>
-          <li>
-            <p class="project-name">The Itinerant Mixer</p>
-            <p>Project for Music Hack Day Boston 2014, as written up by Evolver.fm in <a
+              while at the <a href="https://www.recurse.com">Recurse Center</a>.
+                      <!-- <em>#todo</em> -->
+                    </p>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="date">2014</td>
+                <td class="title">
+                  The Itinerant Mixer
+                  <div class="details">
+                    <img class="thumbnail" src="./assets/itinerant-mixer-thumbnail.png" />
+                    <p class="blog-tags">
+                      Project for Music Hack Day Boston 2014, as written up by Evolver.fm in <a
                 href="https://web.archive.org/web/20200325075459/https://evolver.fm/2014/11/24/itinerant-mixer/"><em>The
-                  Itinerant Mixer: Fun, Slick, and More Than a Toy </em></a>
-          </li>
-        </ul>
-        </li>
-        </ul>
+                  Itinerant Mixer: Fun, Slick, and More Than a Toy </em></a>.<br>
+                  Currently offline.
+                      <!-- <em>#todo</em> -->
+                    </p>
+                  </div>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+        <script>
+          var options = {
+            valueNames: ["year", "title", "tags"],
+          };
+          var blogList = new List("virtual-gallery-list", options);
+        </script>
+        
       </div>
       <div class="project-section">
         <h2 id="physical-gallery">Physical Gallery</h2>
@@ -137,6 +219,105 @@
             <p class="project-name">Mini books (+script)</p><em>Write-up TBD</em>
           </li>
         </ul>
+
+
+        <div id="virtual-gallery-list">
+          <table>
+            <thead>
+             <!-- <tr>
+                 <th class="sort desc" data-sort="date-pretty">Date pretty</th>
+                <th class="sort desc" data-sort="date-raw" data-default-order="desc">Date</th>
+                <th class="sort" data-sort="title-raw">Title</th>
+              </tr> -->
+            </thead>
+            <!-- IMPORTANT, class="list" has to be at tbody -->
+            <tbody class="list">
+              <!-- Add new project here -->
+              <tr>
+                <td class="date">2024</td>
+                <td class="title">
+                  <a class="blog-url" href="./flock-chorus">Flock chorus</a>
+                  <div class="details">
+                    <a class="blog-url" href="./flock-chorus"><img class="thumbnail" src="./flock-chorus/assets/thumbnail.png" /></a>
+                    <p class="blog-tags">
+                      Built during a musical instrument hackathon while at the <a href="https://www.recurse.com">Recurse
+                        Center</a>.
+                      <!-- <em>#todo</em> -->
+                    </p>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="date">YEAR</td>
+                <td class="title">
+                  <a class="blog-url" href="./URL">TITLE</a>
+                  <div class="details">
+                    <a class="blog-url" href="./URL"><img class="thumbnail" src="./URL/assets/thumbnail.png" /></a>
+                    <p class="blog-tags">
+                      DESCRIPTION
+                      <!-- <em>#todo</em> -->
+                    </p>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="date">YEAR</td>
+                <td class="title">
+                  <a class="blog-url" href="./URL">TITLE</a>
+                  <div class="details">
+                    <a class="blog-url" href="./URL"><img class="thumbnail" src="./URL/assets/thumbnail.png" /></a>
+                    <p class="blog-tags">
+                      DESCRIPTION
+                      <!-- <em>#todo</em> -->
+                    </p>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="date">YEAR</td>
+                <td class="title">
+                  <a class="blog-url" href="./URL">TITLE</a>
+                  <div class="details">
+                    <a class="blog-url" href="./URL"><img class="thumbnail" src="./URL/assets/thumbnail.png" /></a>
+                    <p class="blog-tags">
+                      DESCRIPTION
+                      <!-- <em>#todo</em> -->
+                    </p>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="date">YEAR</td>
+                <td class="title">
+                  <a class="blog-url" href="./URL">TITLE</a>
+                  <div class="details">
+                    <a class="blog-url" href="./URL"><img class="thumbnail" src="./URL/assets/thumbnail.png" /></a>
+                    <p class="blog-tags">
+                      DESCRIPTION
+                      <!-- <em>#todo</em> -->
+                    </p>
+                  </div>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+        <script>
+          var options = {
+            valueNames: ["year", "title", "tags"],
+          };
+          var blogList = new List("virtual-gallery-list", options);
+        </script>
+
+
+
+
+
       </div>
       <div class="project-section">
         <h2 id="professional">Professional</h2>
@@ -219,6 +400,104 @@
           </li>
         </ul>
         </ul>
+
+
+
+        <div id="virtual-gallery-list">
+          <table>
+            <thead>
+             <!-- <tr>
+                 <th class="sort desc" data-sort="date-pretty">Date pretty</th>
+                <th class="sort desc" data-sort="date-raw" data-default-order="desc">Date</th>
+                <th class="sort" data-sort="title-raw">Title</th>
+              </tr> -->
+            </thead>
+            <!-- IMPORTANT, class="list" has to be at tbody -->
+            <tbody class="list">
+              <!-- Add new project here -->
+              <tr>
+                <td class="date">2024</td>
+                <td class="title">
+                  <a class="blog-url" href="./flock-chorus">Flock chorus</a>
+                  <div class="details">
+                    <a class="blog-url" href="./flock-chorus"><img class="thumbnail" src="./flock-chorus/assets/thumbnail.png" /></a>
+                    <p class="blog-tags">
+                      Built during a musical instrument hackathon while at the <a href="https://www.recurse.com">Recurse
+                        Center</a>.
+                      <!-- <em>#todo</em> -->
+                    </p>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="date">YEAR</td>
+                <td class="title">
+                  <a class="blog-url" href="./URL">TITLE</a>
+                  <div class="details">
+                    <a class="blog-url" href="./URL"><img class="thumbnail" src="./URL/assets/thumbnail.png" /></a>
+                    <p class="blog-tags">
+                      DESCRIPTION
+                      <!-- <em>#todo</em> -->
+                    </p>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="date">YEAR</td>
+                <td class="title">
+                  <a class="blog-url" href="./URL">TITLE</a>
+                  <div class="details">
+                    <a class="blog-url" href="./URL"><img class="thumbnail" src="./URL/assets/thumbnail.png" /></a>
+                    <p class="blog-tags">
+                      DESCRIPTION
+                      <!-- <em>#todo</em> -->
+                    </p>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="date">YEAR</td>
+                <td class="title">
+                  <a class="blog-url" href="./URL">TITLE</a>
+                  <div class="details">
+                    <a class="blog-url" href="./URL"><img class="thumbnail" src="./URL/assets/thumbnail.png" /></a>
+                    <p class="blog-tags">
+                      DESCRIPTION
+                      <!-- <em>#todo</em> -->
+                    </p>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="date">YEAR</td>
+                <td class="title">
+                  <a class="blog-url" href="./URL">TITLE</a>
+                  <div class="details">
+                    <a class="blog-url" href="./URL"><img class="thumbnail" src="./URL/assets/thumbnail.png" /></a>
+                    <p class="blog-tags">
+                      DESCRIPTION
+                      <!-- <em>#todo</em> -->
+                    </p>
+                  </div>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+        <script>
+          var options = {
+            valueNames: ["year", "title", "tags"],
+          };
+          var blogList = new List("virtual-gallery-list", options);
+        </script>
+
+
+
       </div>
       <div class="project-section">
         <h2 id="academic">Academic</h2>
@@ -288,6 +567,101 @@
               </ul>
             </li>
           </ul>
+
+          <div id="virtual-gallery-list">
+            <table>
+              <thead>
+               <!-- <tr>
+                   <th class="sort desc" data-sort="date-pretty">Date pretty</th>
+                  <th class="sort desc" data-sort="date-raw" data-default-order="desc">Date</th>
+                  <th class="sort" data-sort="title-raw">Title</th>
+                </tr> -->
+              </thead>
+              <!-- IMPORTANT, class="list" has to be at tbody -->
+              <tbody class="list">
+                <!-- Add new project here -->
+                <tr>
+                  <td class="date">2024</td>
+                  <td class="title">
+                    <a class="blog-url" href="./flock-chorus">Flock chorus</a>
+                    <div class="details">
+                      <a class="blog-url" href="./flock-chorus"><img class="thumbnail" src="./flock-chorus/assets/thumbnail.png" /></a>
+                      <p class="blog-tags">
+                        Built during a musical instrument hackathon while at the <a href="https://www.recurse.com">Recurse
+                          Center</a>.
+                        <!-- <em>#todo</em> -->
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+  
+                <tr>
+                  <td class="date">YEAR</td>
+                  <td class="title">
+                    <a class="blog-url" href="./URL">TITLE</a>
+                    <div class="details">
+                      <a class="blog-url" href="./URL"><img class="thumbnail" src="./URL/assets/thumbnail.png" /></a>
+                      <p class="blog-tags">
+                        DESCRIPTION
+                        <!-- <em>#todo</em> -->
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+  
+                <tr>
+                  <td class="date">YEAR</td>
+                  <td class="title">
+                    <a class="blog-url" href="./URL">TITLE</a>
+                    <div class="details">
+                      <a class="blog-url" href="./URL"><img class="thumbnail" src="./URL/assets/thumbnail.png" /></a>
+                      <p class="blog-tags">
+                        DESCRIPTION
+                        <!-- <em>#todo</em> -->
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+  
+                <tr>
+                  <td class="date">YEAR</td>
+                  <td class="title">
+                    <a class="blog-url" href="./URL">TITLE</a>
+                    <div class="details">
+                      <a class="blog-url" href="./URL"><img class="thumbnail" src="./URL/assets/thumbnail.png" /></a>
+                      <p class="blog-tags">
+                        DESCRIPTION
+                        <!-- <em>#todo</em> -->
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+  
+                <tr>
+                  <td class="date">YEAR</td>
+                  <td class="title">
+                    <a class="blog-url" href="./URL">TITLE</a>
+                    <div class="details">
+                      <a class="blog-url" href="./URL"><img class="thumbnail" src="./URL/assets/thumbnail.png" /></a>
+                      <p class="blog-tags">
+                        DESCRIPTION
+                        <!-- <em>#todo</em> -->
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+  
+              </tbody>
+            </table>
+          </div>
+          <script>
+            var options = {
+              valueNames: ["year", "title", "tags"],
+            };
+            var blogList = new List("virtual-gallery-list", options);
+          </script>
+
+
       </div>
     </div>
     </ul>
