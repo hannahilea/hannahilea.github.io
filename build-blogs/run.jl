@@ -133,7 +133,7 @@ function generate_blog_index(; overwrite_existing=false, template=blog_index_tem
         tags = replace(m.tags, "," => ", ")
         return """
         <tr>
-            <td>$(date_pretty)</td>
+            <td class="date">$(date_pretty)</td>
             <td class="date" hidden>$(m.date_str)</td>
             <td class="title"><a class="blog-url" href="$(m.url)">$(m.title)</a>
                 <!-- <p class="blog-tags">Tags: $tags </p> -->

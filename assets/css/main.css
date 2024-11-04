@@ -77,11 +77,6 @@ body {
   font-family: "Jura Bold";
 }
 
-.blog-date {
-  font-weight: normal;
-  font-family: "Jura Regular";
-}
-
 .blog-url {
   font-weight: bolder;
 }
@@ -404,7 +399,13 @@ img.home-img {
   font-family: "Jura Bold";
 }
 
+/* For blog, project index pages */ 
 .index-page {
+  .date {
+    font-weight: normal;
+    font-family: "Jura Regular";
+  }
+
   .sort.asc::after {
     content: "▼";
     padding-left: 3px;
@@ -442,5 +443,16 @@ img.home-img {
     }
   }
 
+  td,
+  th {
+    padding: 6px;
+    text-align: left;
+    vertical-align: top;
+    word-wrap: break-word;
+  }
 
+  tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
 }
