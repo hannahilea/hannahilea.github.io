@@ -4,8 +4,8 @@ using pandoc_jll
 using Dates
 
 blog_dir = joinpath(@__DIR__, "..", "blog")
-blog_template = joinpath(blog_dir, "__template", "blog.html.template")
-blog_index_template = joinpath(blog_dir, "__template", "index.html.template")
+blog_template = joinpath(blog_dir, "__template", "blog.template.html")
+blog_index_template = joinpath(blog_dir, "__template", "index.template.html")
 
 function convert_to_html(file, outfile; template=blog_template, overwrite_existing=false)
     if !overwrite_existing && isfile(outfile)

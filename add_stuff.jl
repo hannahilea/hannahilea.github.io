@@ -57,7 +57,7 @@ function new_blog_post()
     @info "Creating new blog directory" blog_title dir_name
     cp(joinpath("blog", "__template"), dir)
     for file in readdir(dir; join=true)
-        if endswith(file, ".rss_blob.xml") || endswith(file, ".html.template")
+        if endswith(file, ".rss_blob.xml") || endswith(file, ".template.html")
             rm(file)
             continue
         end
