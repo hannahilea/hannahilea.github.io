@@ -319,6 +319,20 @@ img.home-img {
     margin-bottom: 1.6em;
   }
 
+  .centered-children {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #03163f;
+  }
+
   .blog-table {
     padding: 1em;
     border: 1px solid #dbdbdb;
@@ -370,6 +384,7 @@ img.home-img {
   th {
     width: 90%;
   }
+
   th:first-of-type {
     width: 10%;
   }
@@ -387,11 +402,4 @@ img.home-img {
 .alert-heading {
   font-weight: bold;
   font-family: "Jura Bold";
-}
-
-.blog img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border: 1px solid #03163f;
 }

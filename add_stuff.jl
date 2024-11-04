@@ -4,6 +4,7 @@ Pkg.add("Dates")
 using Dates
 
 const NEW_PROJ_COMMENT = "<!-- Add new project here -->"
+const NEW_BLOG_COMMENT = "<!-- Add new post here -->"
 
 # Some quick and brittle Julia utilities for adding new projects
 # Doesn't handle nested, only does new js projects
