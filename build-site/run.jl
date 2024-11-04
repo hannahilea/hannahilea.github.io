@@ -169,11 +169,13 @@ if abspath(PROGRAM_FILE) == @__FILE__
     if isempty(ARGS)
         generate_all_blogposts(; overwrite_existing=true)
         generate_blog_index(; overwrite_existing=true)
-    elseif isfile(ARGS[1])
+    elseif isfile(ARGS[1]) && endswith(ARGS[1], ".md")
         generate_blog_html(ARGS[1]; overwrite_existing=true)
         generate_blog_index(; overwrite_existing=true)
+    elseif isfile(ARGS[1]) || isequal(ARGS[1], "projects")
+        generate_projects_index(; overwrite_existing=true)
     else
-        @warn "Unknown argument $(ARGS[1])"
+        @warn "Unknown/unsupported arguments"
     end
     return nothing
 end
