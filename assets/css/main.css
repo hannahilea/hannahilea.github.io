@@ -403,3 +403,44 @@ img.home-img {
   font-weight: bold;
   font-family: "Jura Bold";
 }
+
+.index-page {
+  .sort.asc::after {
+    content: "▼";
+    padding-left: 3px;
+  }
+
+  .sort.desc::after {
+    content: "▲";
+    padding-left: 3px;
+  }
+
+  .search {
+    float: top;
+  }
+
+  td th {
+    padding: 6px;
+    text-align: left;
+    vertical-align: top;
+    word-wrap: break-word;
+  }
+
+  tr td:first-child {
+    width: 1%;
+    white-space: nowrap;
+
+    table {
+      border-collapse: collapse;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+
+    thead {
+      border-bottom: 1px solid #dbdbdb;
+      border-bottom: 1px solid var(--border);
+    }
+  }
+
+
+}
