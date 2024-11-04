@@ -404,16 +404,21 @@ img.home-img {
   .date {
     font-weight: normal;
     font-family: "Jura Regular";
+    text-align: right;
   }
 
   .sort.asc::after {
     content: "▼";
     padding-left: 3px;
+    padding-right: 3px;
+    font-size: small
   }
 
   .sort.desc::after {
     content: "▲";
     padding-left: 3px;
+    padding-right: 3px;
+    font-size: small;
   }
 
   .search {
@@ -449,6 +454,15 @@ img.home-img {
     text-align: left;
     vertical-align: top;
     word-wrap: break-word;
+  }
+
+  th {
+    font-weight: normal;
+    margin: 0;
+    font-family: "Jura Bold";
+    padding-bottom: 2px;
+    margin-bottom: 3px;
+    font-size: larger;
   }
 
   tbody tr:nth-child(even) {
