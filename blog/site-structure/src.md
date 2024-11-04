@@ -1,6 +1,7 @@
 ---
 title: "This website's structure: A meta post"
-tags: project-write-up, webdev, programming, metawriting
+type: Project write-up
+tags: [webdev, programming, metawriting]
 created: 2024-05-17
 updated: 2024-05-17
 ---

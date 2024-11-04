@@ -1,6 +1,7 @@
 ---
 title: "Quick ‘n hacky meme making, for fun and no profit"
-tags: [tutorial, joy]
+type: Tutorial
+tags: [joy, computer-literacy]
 created: 2024-10-11
 updated: 2024-10-11
 ---

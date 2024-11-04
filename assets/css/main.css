@@ -476,7 +476,7 @@ img.home-img {
 
     .blog-tags {
       font-size: smaller;
-      font-style: italic;
+      /* font-style: italic; */
     }
   }
 }

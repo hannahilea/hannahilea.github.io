@@ -1,7 +1,8 @@
 ---
 title: "***Clapping Music*** for one flip-disc display: Byte and variations"
 rawtitle: "Clapping Music for one flip-disc display: Byte and variations"
-tags: [project-write-up, electromechanical-display, raspberry-pi, music, programming, hardware, software, julia]
+type: Project write-up
+tags: [electromechanical-display, raspberry-pi, music, programming, hardware, software, julia]
 created: 2024-10-18
 updated: 2024-10-18
 ---
