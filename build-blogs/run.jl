@@ -128,13 +128,16 @@ function generate_blog_index(; overwrite_existing=false, template=blog_index_tem
     end
     metadata = sort(metadata; by=(m) -> m.date_str, rev=true)
 
+    # See blog/__template/index.template.html for how this 
+    # fits into table
     blog_strs = map(metadata) do m
         date_pretty = Dates.format(Date(m.date_str), dateformat"d u yyyy")
         tags = replace(m.tags, "," => ", ")
         return """
         <tr>
-            <td class="date">$(date_pretty)</td>
-            <td class="date" hidden>$(m.date_str)</td>
+            <td class="date-pretty">$(date_pretty)</td>
+            <td class="date-raw" hidden>$(m.date_str)</td>
+            <td class="title-raw" hidden>$(m.title)</a></td>
             <td class="title"><a class="blog-url" href="$(m.url)">$(m.title)</a>
                 <!-- <p class="blog-tags">Tags: $tags </p> -->
             </td>

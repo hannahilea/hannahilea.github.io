@@ -28,8 +28,9 @@
       <table>
         <thead>
           <tr>
-            <th class="sort desc" data-sort="date" data-default-order='desc'>Date</th>
-            <th class="sort" data-sort="title">Title</th>
+            <!-- <th class="sort desc" data-sort="date-pretty">Date pretty</th> -->
+            <th class="sort desc" data-sort="date-raw" data-default-order='desc'>Date</th>
+            <th class="sort" data-sort="title-raw">Title</th>
           </tr>
         </thead>
         <!-- IMPORTANT, class="list" have to be at tbody -->
@@ -38,7 +39,14 @@
         </tbody>
       </table>
     </div>
-    <script src="table-niceties.js"></script>
+    <!-- <script src="table-niceties.js"></script> -->
+    <script>
+      var options = {
+        valueNames: ['date-raw', 'date-pretty', 'title', 'title-raw', 'tags']
+      };
+
+      var blogList = new List('post-list', options);
+    </script>
 
     <div>
       <a href="/rss.xml" rel="subscribe-rss">

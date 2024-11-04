@@ -15,6 +15,10 @@
             "match": "blog/__template/.*$",
             "cmd": "echo 'A __template file has been saved ${file}.'; julia build-blogs/run.jl"
         },
+        {
+            "match": "build-blogs/.*$",
+            "cmd": "echo 'A file in `build-blogs` has been saved ${file}.'; julia build-blogs/run.jl"
+        },
         ]
     }
 }
