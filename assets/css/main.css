@@ -319,8 +319,13 @@ img.home-img {
     margin-bottom: 1.6em;
   }
 
+  .insta {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
   .instagram-media {
-    display: block;
     align-self: center;
   }
 
@@ -382,14 +387,10 @@ img.home-img {
   th {
     width: 90%;
   }
+
   th:first-of-type {
     width: 10%;
   }
-}
-
-.blog.main-container {
-  display: flex;
-  flex-direction: column;
 }
 
 .alert {
@@ -405,4 +406,3 @@ img.home-img {
   font-weight: bold;
   font-family: "Jura Bold";
 }
-
