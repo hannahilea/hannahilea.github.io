@@ -133,6 +133,7 @@ function generate_blog_index(; overwrite_existing=false, template=blog_index_tem
     blog_strs = map(metadata) do m
         date_pretty = Dates.format(Date(m.date_str), dateformat"d u yyyy")
         tags = "#" * replace(m.tags, "," => " #")
+
         return """
         <tr>
             <td class="date date-pretty">$(date_pretty)</td>
@@ -141,7 +142,7 @@ function generate_blog_index(; overwrite_existing=false, template=blog_index_tem
             <td class="title">
                 <a class="blog-url" href="$(m.url)">$(m.title)</a>
                 <div class="details">
-                    <img class="thumbnail" src="$(m.url)/assets/thumbnail.png"/>
+                    <a class="blog-url" href="$(m.url)"><img class="thumbnail" src="$(m.url)/assets/thumbnail.png"/></a>
                     <p class="blog-tags">$(m.type) <br>
                     <em>$tags</em> </p>
                 </div>
