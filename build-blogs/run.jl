@@ -142,7 +142,7 @@ function generate_blog_index(; overwrite_existing=false, template=blog_index_tem
                 <a class="blog-url" href="$(m.url)">$(m.title)</a>
                 <div class="details">
                     <img class="thumbnail" src="$(m.url)/assets/thumbnail.png"/>
-                    <p class="blog-tags">$(m.type) </br>
+                    <p class="blog-tags">$(m.type) <br>
                     <em>$tags</em> </p>
                 </div>
             </td>
@@ -166,7 +166,7 @@ end
 # Run from commandline? 
 if abspath(PROGRAM_FILE) == @__FILE__
     if isempty(ARGS)
-        # generate_all_blogposts(; overwrite_existing=true)
+        #generate_all_blogposts(; overwrite_existing=true)
         generate_blog_index(; overwrite_existing=true)
     elseif isfile(ARGS[1])
         generate_blog_html(ARGS[1]; overwrite_existing=true)
