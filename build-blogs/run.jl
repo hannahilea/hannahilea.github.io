@@ -137,9 +137,13 @@ function generate_blog_index(; overwrite_existing=false, template=blog_index_tem
         <tr>
             <td class="date date-pretty">$(date_pretty)</td>
             <td class="date-raw" hidden>$(m.date_str)</td>
-            <td class="title-raw" hidden>$(m.title)</a></td>
-            <td class="title"><a class="blog-url" href="$(m.url)">$(m.title)</a>
-                <!-- <p class="blog-tags">Tags: $tags </p> -->
+            <td class="title-raw" hidden>$(m.title)</td>
+            <td class="title">
+                <a class="blog-url" href="$(m.url)">$(m.title)</a>
+                <div class="details">
+                    <img class="thumbnail" src="$(m.url)/assets/thumbnail.png"/>
+                    <p class="blog-tags">Tags: $tags </p>
+                </div>
             </td>
           </tr>
           """
@@ -161,7 +165,7 @@ end
 # Run from commandline? 
 if abspath(PROGRAM_FILE) == @__FILE__
     if isempty(ARGS)
-        generate_all_blogposts(; overwrite_existing=true)
+        # generate_all_blogposts(; overwrite_existing=true)
         generate_blog_index(; overwrite_existing=true)
     elseif isfile(ARGS[1])
         generate_blog_html(ARGS[1]; overwrite_existing=true)

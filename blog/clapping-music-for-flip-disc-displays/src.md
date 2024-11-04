@@ -1,7 +1,7 @@
 ---
 title: "***Clapping Music*** for two flip-disc displays"
 rawtitle: "Clapping Music for two flip-disc displays"
-tags: [project-writeup, electromechanical-display, raspberry-pi, music, programming, hardware, software, julia]
+tags: [project-write-up, electromechanical-display, raspberry-pi, music, programming, hardware, software, julia]
 created: 2024-09-14
 updated: 2024-09-14
 header: "<script async src=\"https://www.instagram.com/embed.js\"><\/script>"

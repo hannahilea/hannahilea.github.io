@@ -1,6 +1,6 @@
 --- 
 title: "Obsessed with Cuttle: Parametric CAD for prototyping, producing, and procrastinating"
-tags: [project-writeup, cuttle, cad, programming, prototyping, javascript, creative-coding, makerspace]
+tags: [project-write-up, cuttle, cad, programming, prototyping, javascript, creative-coding, makerspace]
 created: 2024-09-27
 updated: 2024-09-27
 ---

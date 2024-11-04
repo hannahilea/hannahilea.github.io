@@ -464,4 +464,19 @@ img.home-img {
     background-color: #f2f2f2;
   }
 
+  .details {
+    display: flex;
+    flex-direction: row;
+
+    .thumbnail {
+      padding: .5em .5em 0 0;
+      width: 90px;
+      height: 90px;
+    }
+
+    .blog-tags {
+      font-size: smaller;
+      font-style: italic;
+    }
+  }
 }
