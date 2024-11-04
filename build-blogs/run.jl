@@ -161,7 +161,7 @@ end
 # Run from commandline? 
 if abspath(PROGRAM_FILE) == @__FILE__
     if isempty(ARGS)
-       # generate_all_blogposts(; overwrite_existing=true)
+        generate_all_blogposts(; overwrite_existing=true)
         generate_blog_index(; overwrite_existing=true)
     elseif isfile(ARGS[1])
         generate_blog_html(ARGS[1]; overwrite_existing=true)
