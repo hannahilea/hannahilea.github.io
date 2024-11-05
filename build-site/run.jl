@@ -183,18 +183,22 @@ function generate_project_index(; overwrite_existing=false, template=PROJECT_IND
     for key in keys(all_projects)  
         proj_strs = map(all_projects[key]) do p
             url = get(p, "url", "")
+            name = get(p, "project", "")
             description = get(p, "description", "")
-            blogs = get(p, "blogs", []) #TODO: join into string!
-            tags = "#" * join(get(p, "tags", ""), " #")
+            blogs = ""  #get(p, "blogs", []) #TODO: join into string! #TODO
+            tags =  "" #"#" * join(get(p, "tags", ""), " #") #TODO
             thumbnail_url = get(p, "thumbnail_url", "")
+
+            url_prefix = (isnothing(url) || isempty(url)) ? "<strong>" : "<a class=\"blog-url\" href=\"$(url)\">"
+            url_suffix = (isnothing(url) || isempty(url)) ? "</strong>" : "</a>"
 
             return """
             <tr>
                 <td class="year date">$(get(p, "year", ""))</td>
                 <td class="title">
-                    <a class="blog-url" href="$(url)">$(get(p, "name", ""))</a>
+                    $(url_prefix)$name$(url_suffix)
                     <div class="details">
-                        <a class="blog-url" href="$(url)"><img class="thumbnail" src="$(thumbnail_url)"/></a>
+                        $(url_prefix)<img class="thumbnail" src="$(thumbnail_url)"/>$(url_suffix)
                         <p class="blog-tags">$(description) 
                         <br><em>$tags</em> 
                         <br>$blogs </p>

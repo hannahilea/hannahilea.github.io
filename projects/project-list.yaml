@@ -1,69 +1,131 @@
 virtual-gallery:
-  - project:
+  - project: Flock chorus
+    url: ./flock-chorus
+    year: 2024
+    description:
+      'Built during a musical instrument hackathon while at the <a href="https://www.recurse.com">Recurse
+      Center</a>.'
+
+  - project: "Chrome extension: HTMLophone!"
+    url: "https://github.com/hannahilea/htmlophone-chrome-extension"
+    year: 2024
+    description: 'Sonify any website''s DOM! Built as a creative
+      coding exercise while at the <a href="https://www.recurse.com">Recurse Center</a>.'
+
+  - project: "Chrome extension: Cat Friend!"
+    url: "https://github.com/hannahilea/cat-friend-chrome-extension"
+    year: 2024
+    description:
+      'Enjoy the experience of programming while a cat waves its tail in front of your screen! Built as a
+      creative coding exercise while at the <a href="https://www.recurse.com">Recurse Center</a>.'
+
+  - project: "Sketch: Wonderful world"
+    url: "./wonderful-world"
+    year: 2024
+    description:
+      'Adapted from a creative coding exercise (prompt: <i>What a wonderful world</i>),
+      co-created with David Brooks while at the <a href="https://www.recurse.com">Recurse
+      Center</a>.'
+
+  - project: Yellow Scream (2024)
+    url: "./yellow-scream"
+    year: 2024
+    description:
+      'An interactive homage to <a href="https://walkerart.org/magazine/now-streaming-kim-beoms-yellow-scream-2012/">Kim
+      Beom''s <i>Yellow Scream (2012)</i></a>.'
+
+  - project: "Sketch: Sound ripples"
+    url: "./sound-ripple-sketch"
+    year: 2024
+    description:
+      'A creative coding exercise (prompt: <i>Particles, lots of them</i>), co-created with <a
+      href="https://hendersonreed.github.io/">Henderson Reed Hummel</a>
+      while at the <a href="https://www.recurse.com">Recurse Center</a>.'
+
+  - project: <strong>The Itinerant Mixer</strong>
     url:
-    year:
-    description: 
-    write-up: 
-  - project:
-    url:
-    year:
-    description: 
-    write-up: 
-  - project:
-    url:
-    year:
-    description: 
-    write-up: 
+    year: 2014
+    description:
+      'Project for Music Hack Day Boston 2014, as written up by Evolver.fm in <a
+      href="https://web.archive.org/web/20200325075459/https://evolver.fm/2014/11/24/itinerant-mixer/"><em>The
+      Itinerant Mixer: Fun, Slick, and More Than a Toy </em></a>. <br>Site currently offline.'
 
 physical-gallery:
-  - project:
-    url:
-    year:
+  - project: Music box punch card generation
+    year: 2024
     description: 
-    write-up: 
-  - project:
-    url:
-    year:
+      'With a <a href="https://github.com/hannahilea/music-box-punch-cards">Julia script</a> followed by a <a
+      href="https://cuttle.xyz/@hannahilea/Music-roll-punchcards-for-music-boxes-iTT4lnLVNL5f">Cuttle
+      template</a>, transform MIDI-notated music into music roll SVGs, which can then be cut with a laser
+      cutter. <em>Write-up TBD.</em>'
+
+  - project: HPGL.jl
+    url: "https://github.com/hannahilea/HPGL.jl"
+    year: 2024
     description: 
-    write-up: 
-  - project:
-    url:
-    year:
+      'Realtime audio visualization via pen plotter'
+
+  - project: FlipDotsPi
+    url: "https://github.com/hannahilea/FlipDotsPi"
+    year: 2024
     description: 
-    write-up: 
+      'Two electromagnetic flip-disc displays used as a persistent realtime weather display. 
+      Additionally used to play Steve Reich''s <em>Clapping Music</em>, as discussed in blog post <a
+      href="../blog/clapping-music-for-flip-disc-displays/">Clapping Music for two flip-disc displays</a>.'
+
+  - project: Assorted 2D CAD projects in Cuttle.xyz
+    url: "https://cuttle.xyz/@hannahilea"
+    year: 2024
+    description: 'Includes custom bookends, CAD pattern studies, and more, all designed in <a
+                href="https://cuttle.xyz">Cuttle</a>. Described in blog post <a
+                href="../blog/cuttle-obsession/">Obsessed with Cuttle: Parametric CAD for prototyping, producing, and
+                procrastinating</a>.'
+
+  - project: Musidex
+    url:
+    year: 2023
+    description: '<em>Write-up TBD</em>'
+
+  - project: Mix of the Month club [2021]
+    url: https://hannahilea.com/2021-mix-of-the-month-club/
+    year: 2021
+    description: '<em>Write-up TBD</em>'
+
+  - project: Mini books (+script)
+    url:
+    year: 2022-3
+    description: '<em>Write-up TBD</em>'
+
+
 
 professional:
   - project:
     url:
     year:
-    description: 
-    write-up: 
+    description:
 
   - project:
     url:
     year:
-    description: 
-    write-up: 
-    
+    description:
+
   - project:
     url:
     year:
-    description: 
-    write-up: 
+    description:
 
 academic:
   - project:
     url:
     year:
-    description: 
-    write-up: 
+    description:
+
   - project:
     url:
     year:
-    description: 
-    write-up: 
+    description:
+
   - project:
     url:
     year:
-    description: 
-    write-up: 
+    description:
