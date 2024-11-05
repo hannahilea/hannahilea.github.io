@@ -73,7 +73,7 @@ physical-gallery:
       Additionally used to play Steve Reich''s <em>Clapping Music</em>, as discussed in blog post <a
       href="../blog/clapping-music-for-flip-disc-displays/">Clapping Music for two flip-disc displays</a>.'
 
-  - project: Assorted 2D CAD projects in Cuttle.xyz
+  - project: Laser-cut CAD projects
     url: "https://cuttle.xyz/@hannahilea"
     year: 2024
     description: 'Includes custom bookends, CAD pattern studies, and more, all designed in <a
@@ -96,36 +96,19 @@ physical-gallery:
     year: 2022-3
     description: '<em>Write-up TBD</em>'
 
+professional-beacon:
+  - project: FDA 510(k) clearance for SleepStageML
+    url: "https://www.prnewswire.com/news-releases/beacon-biosignals-expands-sleep-analysis-capabilities-with-fda-clearance-of-sleepstageml-302100595.html?tc=eml_cleartime"
+    year: 2024
 
+  - project: TransformSpecifications.jl library
+    url: https://github.com/beacon-biosignals/TransformSpecifications.jl
+    year: 2023
 
-professional:
-  - project:
+  - project: Poster for American Epilepsy Society conference
     url:
-    year:
-    description:
+    year: 2022
 
-  - project:
+  - project: Poster for Women in Data Science conference
     url:
-    year:
-    description:
-
-  - project:
-    url:
-    year:
-    description:
-
-academic:
-  - project:
-    url:
-    year:
-    description:
-
-  - project:
-    url:
-    year:
-    description:
-
-  - project:
-    url:
-    year:
-    description:
+    year: 2020

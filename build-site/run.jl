@@ -180,6 +180,8 @@ function generate_project_index(; overwrite_existing=false, template=PROJECT_IND
     @info "Generating project index..."
     all_projects = YAML.load_file(input_data)
 
+    is_present = x -> !(isnothing(x) || isempty(x))
+
     for key in keys(all_projects)  
         proj_strs = map(all_projects[key]) do p
             url = get(p, "url", "")
@@ -189,8 +191,20 @@ function generate_project_index(; overwrite_existing=false, template=PROJECT_IND
             tags =  "" #"#" * join(get(p, "tags", ""), " #") #TODO
             thumbnail_url = get(p, "thumbnail_url", "")
 
-            url_prefix = (isnothing(url) || isempty(url)) ? "<strong>" : "<a class=\"blog-url\" href=\"$(url)\">"
-            url_suffix = (isnothing(url) || isempty(url)) ? "</strong>" : "</a>"
+            url_prefix = is_present(url) ? "<a class=\"blog-url\" href=\"$(url)\">" : "<strong>"
+            url_suffix = is_present(url) ?  "</a>" : "</strong>"
+
+            thumbnail_str = isempty(thumbnail_url) ? "" : """$(url_prefix)<img class="thumbnail" src="$(thumbnail_url)"/>$(url_suffix)"""
+
+            details_str = ""
+            if is_present(tags) || is_present(blogs) || is_present(description)
+                # @info "why" tags blogs description is_present(tags) is_present(blogs) is_present(description)
+                details_str = """
+                          <p class="blog-tags">$(description) 
+                          <br><em>$tags</em> 
+                          <br>$blogs </p>
+                          """
+            end
 
             return """
             <tr>
@@ -198,10 +212,8 @@ function generate_project_index(; overwrite_existing=false, template=PROJECT_IND
                 <td class="title">
                     $(url_prefix)$name$(url_suffix)
                     <div class="details">
-                        $(url_prefix)<img class="thumbnail" src="$(thumbnail_url)"/>$(url_suffix)
-                        <p class="blog-tags">$(description) 
-                        <br><em>$tags</em> 
-                        <br>$blogs </p>
+                        $(thumbnail_str)
+                        $(details_str)
                     </div>
                 </td>
             </tr>
