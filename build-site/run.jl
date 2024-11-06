@@ -106,7 +106,8 @@ end
 function get_blog_metadata(md_file)
     delimiter = "ddddd"
     template_str = "data:text/plain;utf8,\$title\$$delimiter\$created\$$delimiter\$type\$$delimiter\$for(tags)\$\$tags\$\$sep\$,\$endfor\$"
-    str = read(pipeline(`$(pandoc_jll.pandoc()) --template $(template_str) $(md_file)`), String)
+    str = read(pipeline(`$(pandoc_jll.pandoc()) --template $(template_str) $(md_file)`),
+               String)
     str = replace(str, r".html$" => "", "\n" => " ")
     (title, date_str, type, tags) = split(str, delimiter; limit=4)
     return (; md_file, date_str, title, type, tags)
@@ -182,29 +183,28 @@ function generate_project_index(; overwrite_existing=false, template=PROJECT_IND
 
     is_present = x -> !(isnothing(x) || isempty(x))
 
-    for key in keys(all_projects)  
+    for key in keys(all_projects)
         proj_strs = map(all_projects[key]) do p
             url = get(p, "url", "")
             name = get(p, "project", "")
             description = get(p, "description", "")
-            blogs = ""  #get(p, "blogs", []) #TODO: join into string! #TODO
-            tags =  "" #"#" * join(get(p, "tags", ""), " #") #TODO
+            blog_str = get(p, "blogs", "")
+            tag_str = get(p, "tags", "")
             thumbnail_url = get(p, "thumbnail_url", "")
 
-            url_prefix = is_present(url) ? "<a class=\"blog-url\" href=\"$(url)\">" : "<strong>"
-            url_suffix = is_present(url) ?  "</a>" : "</strong>"
+            url_prefix = is_present(url) ? "<a class=\"blog-url\" href=\"$(url)\">" :
+                         "<strong>"
+            url_suffix = is_present(url) ? "</a>" : "</strong>"
 
-            thumbnail_str = isempty(thumbnail_url) ? "" : """$(url_prefix)<img class="thumbnail" src="$(thumbnail_url)"/>$(url_suffix)"""
+            thumbnail_str = is_present(thumbnail_url) ?
+                            """$(url_prefix)<img class="thumbnail" src="$(thumbnail_url)"/>$(url_suffix)""" :
+                            ""
 
-            details_str = ""
-            if is_present(tags) || is_present(blogs) || is_present(description)
-                # @info "why" tags blogs description is_present(tags) is_present(blogs) is_present(description)
-                details_str = """
+            details_str = is_present(description) ? """
                           <p class="blog-tags">$(description) 
-                          <br><em>$tags</em> 
-                          <br>$blogs </p>
-                          """
-            end
+                          $(tag_str)
+                          $(blog_str)</p>
+                          """ : ""
 
             return """
             <tr>
