@@ -9,15 +9,19 @@
         // },
         {
             "match": "blog/.*/src.md$",
-            "cmd": "echo 'I am a .md file ${file}.'; julia build-blogs/run.jl ${file}"
+            "cmd": "echo 'I am a .md file ${file}.'; julia --startup-file=no build-site/run.jl ${file}"
         },
         {
             "match": "blog/__template/.*$",
-            "cmd": "echo 'A __template file has been saved ${file}.'; julia build-blogs/run.jl"
+            "cmd": "echo 'A blog template file has been saved ${file}.'; julia --startup-file=no build-site/run.jl"
         },
         {
-            "match": "build-blogs/.*$",
-            "cmd": "echo 'A file in `build-blogs` has been saved ${file}.'; julia build-blogs/run.jl"
+            "match": "projects/__template/.*$",
+            "cmd": "echo 'A project template file has been saved ${file}.'; julia --startup-file=no build-site/run.jl projects"
+        },
+        {
+            "match": "projects/project-list.yaml",
+            "cmd": "echo 'A project template file has been saved ${file}.'; julia --startup-file=no build-site/run.jl projects"
         },
         ]
     }

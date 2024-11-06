@@ -2,12 +2,16 @@ using Pkg
 Pkg.activate(@__DIR__)
 using pandoc_jll
 using Dates
+using YAML
 
-blog_dir = joinpath(@__DIR__, "..", "blog")
-blog_template = joinpath(blog_dir, "__template", "blog.template.html")
-blog_index_template = joinpath(blog_dir, "__template", "index.template.html")
+BLOG_DIR = joinpath(@__DIR__, "..", "blog")
+BLOG_TEMPLATE = joinpath(BLOG_DIR, "__template", "blog.template.html")
+BLOG_INDEX_TEMPLATE = joinpath(BLOG_DIR, "__template", "index.template.html")
 
-function convert_to_html(file, outfile; template=blog_template, overwrite_existing=false)
+PROJECT_DIR = joinpath(@__DIR__, "..", "projects")
+PROJECT_INDEX_TEMPLATE = joinpath(PROJECT_DIR, "__template", "index.template.html")
+
+function convert_to_html(file, outfile; template=BLOG_TEMPLATE, overwrite_existing=false)
     if !overwrite_existing && isfile(outfile)
         @warn "Output file already exists; not overwriting: $outfile"
         return nothing
@@ -88,9 +92,9 @@ function generate_blog_html(md_file; overwrite_existing=true)
 end
 
 function generate_all_blogposts(; overwrite_existing=true)
-    for dir in readdir(blog_dir; join=true)
+    for dir in readdir(BLOG_DIR; join=true)
         isfile(dir) && continue
-        isequal(joinpath(blog_dir, "__template"), dir) && continue
+        isequal(joinpath(BLOG_DIR, "__template"), dir) && continue
         # contains(dir, "list") || continue
 
         md_file = joinpath(dir, "src.md")
@@ -102,14 +106,15 @@ end
 function get_blog_metadata(md_file)
     delimiter = "ddddd"
     template_str = "data:text/plain;utf8,\$title\$$delimiter\$created\$$delimiter\$type\$$delimiter\$for(tags)\$\$tags\$\$sep\$,\$endfor\$"
-    str = read(pipeline(`$(pandoc_jll.pandoc()) --template $(template_str) $(md_file)`), String)
+    str = read(pipeline(`$(pandoc_jll.pandoc()) --template $(template_str) $(md_file)`),
+               String)
     str = replace(str, r".html$" => "", "\n" => " ")
     (title, date_str, type, tags) = split(str, delimiter; limit=4)
     return (; md_file, date_str, title, type, tags)
 end
 
-function generate_blog_index(; overwrite_existing=false, template=blog_index_template)
-    outfile = joinpath(blog_dir, "index.html")
+function generate_blog_index(; overwrite_existing=false, template=BLOG_INDEX_TEMPLATE)
+    outfile = joinpath(BLOG_DIR, "index.html")
     if !overwrite_existing && isfile(outfile)
         @warn "Output file already exists; not overwriting: $outfile"
         return nothing
@@ -117,9 +122,9 @@ function generate_blog_index(; overwrite_existing=false, template=blog_index_tem
 
     @info "Generating blog index..."
     metadata = []
-    for dir in readdir(blog_dir; join=true)
+    for dir in readdir(BLOG_DIR; join=true)
         isfile(dir) && continue
-        isequal(joinpath(blog_dir, "__template"), dir) && continue
+        isequal(joinpath(BLOG_DIR, "__template"), dir) && continue
 
         md_file = joinpath(dir, "src.md")
         m = get_blog_metadata(md_file)
@@ -164,16 +169,81 @@ function generate_blog_index(; overwrite_existing=false, template=blog_index_tem
     return nothing
 end
 
+function generate_project_index(; overwrite_existing=false, template=PROJECT_INDEX_TEMPLATE)
+    input_data = joinpath(PROJECT_DIR, "project-list.yaml")
+    outfile = joinpath(PROJECT_DIR, "index.html")
+    if !overwrite_existing && isfile(outfile)
+        @warn "Output file already exists; not overwriting: $outfile"
+        return nothing
+    end
+    index_str = read(template, String)
+
+    @info "Generating project index..."
+    all_projects = YAML.load_file(input_data)
+
+    is_present = x -> !(isnothing(x) || isempty(x))
+
+    for key in keys(all_projects)
+        proj_strs = map(all_projects[key]) do p
+            url = get(p, "url", "")
+            name = get(p, "project", "")
+            description = get(p, "description", "")
+            blog_str = get(p, "blogs", "")
+            tag_str = get(p, "tags", "")
+            thumbnail_url = get(p, "thumbnail_url", "")
+
+            url_prefix = is_present(url) ? "<a class=\"project-url\" href=\"$(url)\">" :
+                         "<strong>"
+            url_suffix = is_present(url) ? "</a>" : "</strong>"
+
+            thumbnail_str = is_present(thumbnail_url) ?
+                            """$(url_prefix)<img class="thumbnail" src="$(thumbnail_url)"/>$(url_suffix)""" :
+                            ""
+
+            details_str = is_present(description) ? """
+                          <p class="blog-tags">$(description) 
+                          $(tag_str)
+                          $(blog_str)</p>
+                          """ : ""
+
+            return """
+            <tr>
+                <td class="year date">$(get(p, "year", ""))</td>
+                <td class="title">
+                    $(url_prefix)$name$(url_suffix)
+                    <div class="details">
+                        $(thumbnail_str)
+                        $(details_str)
+                    </div>
+                </td>
+            </tr>
+            """
+        end
+        index_str = replace(index_str, "<!-- POSTS-$key -->" => join(proj_strs, "\n"))
+    end
+    write(outfile, index_str)
+
+    try
+        run(`prettier $(outfile) --write --print-width 360`)
+    catch
+        @warn "Prettier not installed OR current html errors"
+    end
+
+    return nothing
+end
+
 # Run from commandline? 
 if abspath(PROGRAM_FILE) == @__FILE__
     if isempty(ARGS)
         generate_all_blogposts(; overwrite_existing=true)
         generate_blog_index(; overwrite_existing=true)
-    elseif isfile(ARGS[1])
+    elseif isfile(ARGS[1]) && endswith(ARGS[1], ".md")
         generate_blog_html(ARGS[1]; overwrite_existing=true)
         generate_blog_index(; overwrite_existing=true)
+    elseif isfile(ARGS[1]) || isequal(ARGS[1], "projects")
+        generate_project_index(; overwrite_existing=true)
     else
-        @warn "Unknown argument $(ARGS[1])"
+        @warn "Unknown/unsupported arguments"
     end
     return nothing
 end
