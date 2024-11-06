@@ -1,6 +1,7 @@
 ---
 title: "First things first: Make a list"
-tags: [musings, devtips, DDD]
+type: Musing
+tags: [devtips, DDD]
 created: 2024-09-21
 updated: 2024-09-21
 ---

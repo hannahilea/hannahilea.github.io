@@ -1,52 +1,214 @@
-<!DOCTYPE html>
+<!--Auto-generated! Make changes in index.template.html, not this file-->
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Hannah Robertson's blog" />
+    <meta name="author" content="Hannah Robertson" />
+    <link rel="shortcut icon" type="image/png" href="../assets/img/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/main.css" />
+    <script src="../assets/scripts/list.min.js"></script>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Hannah Robertson's blog" />
-  <meta name="author" content="Hannah Robertson" />
-  <link rel="shortcut icon" type="image/png" href="../assets/img/favicon.png" />
-  <link rel="stylesheet" type="text/css" href="../assets/css/main.css" />
-  <title>@hannahilea: blog</title>
-</head>
+    <title>@hannahilea: blog</title>
+  </head>
 
-<body>
-  <div class="main-container">
-    <nav class="navbar" role="navigation">
-      @hannahilea:
-      <a href=".." class="nav-link">home</a> |
-      <a href="../projects" class="nav-link">projects</a> |
-      <a href="../blog" class="nav-link">blog</a>
-    </nav>
-    <h1 class="title">Blog</h1>
+  <body>
+    <div class="main-container index-page">
+      <nav class="navbar" role="navigation">
+        @hannahilea:
+        <a href=".." class="nav-link">home</a> | <a href="../projects" class="nav-link">projects</a> |
+        <a href="../blog" class="nav-link">blog</a>
+      </nav>
+      <h1 class="title">Blog</h1>
 
-    <div class="posts">
-      <ul>
-        <!-- Add new post here -->
-        <li><strong class="blog-date">27 Sep 2024</strong> <a class="blog-url" href="./cuttle-obsession">Obsessed with Cuttle: Parametric CAD for prototyping, producing, and procrastinating</a>        </li>
-        <li><strong class="blog-date">21 Sep 2024</strong> <a class="blog-url" href="./make-a-list">First things first: Make a list</a>        </li>
-        <li><strong class="blog-date">20 Sep 2024</strong> <a class="blog-url"
-            href="./driven-developments">Dopamine-driven development (DDD), spite-driven development (SDD), and other
-            DDs</a> </li>
-        <li><strong class="blog-date">18 Sep 2024</strong> <a class="blog-url" href="./future-blog-posts">Titles of
-            blog posts I might never write</a> </li>
-        <li><strong class="blog-date">14 Sep 2024</strong> <a class="blog-url"
-            href="./clapping-music-for-flip-disc-displays"><em>Clapping Music</em> for two flip-disc
-            displays</a>
-        </li>
-        <li><strong class="blog-date">17 May 2024</strong> <a class="blog-url" href="./site-structure">This website’s
-            structure: A meta post</a>
-        </li>
-      </ul>
+      <div id="post-list">
+        <table>
+          <thead>
+            <tr>
+              <!-- <th class="sort desc" data-sort="date-pretty">Date pretty</th> -->
+              <th class="sort desc" data-sort="date-raw" data-default-order="desc">Date</th>
+              <th class="sort" data-sort="title-raw">Title</th>
+            </tr>
+          </thead>
+          <!-- IMPORTANT, class="list" have to be at tbody -->
+          <tbody class="list">
+            <tr>
+              <td class="date date-pretty">31 Oct 2024</td>
+              <td class="date-raw" hidden>2024-10-31</td>
+              <td class="title-raw" hidden>Scurrying seagull: CAD-assisted Fliposcope animation</td>
+              <td class="title">
+                <a class="blog-url" href="./seagull-fliposcope-animation-with-cuttle">Scurrying seagull: CAD-assisted Fliposcope animation</a>
+                <div class="details">
+                  <a class="blog-url" href="./seagull-fliposcope-animation-with-cuttle"><img class="thumbnail" src="./seagull-fliposcope-animation-with-cuttle/assets/thumbnail.png" /></a>
+                  <p class="blog-tags">
+                    Project write-up <br />
+                    <em>#art #cuttle #cad #programming #split-flap</em>
+                  </p>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="date date-pretty">18 Oct 2024</td>
+              <td class="date-raw" hidden>2024-10-18</td>
+              <td class="title-raw" hidden>
+                <strong><em>Clapping Music</em></strong> for one flip-disc display: Byte and variations
+              </td>
+              <td class="title">
+                <a class="blog-url" href="./clapping-music-2"
+                  ><strong><em>Clapping Music</em></strong> for one flip-disc display: Byte and variations</a
+                >
+                <div class="details">
+                  <a class="blog-url" href="./clapping-music-2"><img class="thumbnail" src="./clapping-music-2/assets/thumbnail.png" /></a>
+                  <p class="blog-tags">
+                    Project write-up <br />
+                    <em>#electromechanical-display #raspberry-pi #music #programming #hardware #software #julia</em>
+                  </p>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="date date-pretty">11 Oct 2024</td>
+              <td class="date-raw" hidden>2024-10-11</td>
+              <td class="title-raw" hidden>Quick ’n hacky meme making, for fun and no profit</td>
+              <td class="title">
+                <a class="blog-url" href="./meme-making">Quick ’n hacky meme making, for fun and no profit</a>
+                <div class="details">
+                  <a class="blog-url" href="./meme-making"><img class="thumbnail" src="./meme-making/assets/thumbnail.png" /></a>
+                  <p class="blog-tags">
+                    Tutorial <br />
+                    <em>#joy #computer-literacy</em>
+                  </p>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="date date-pretty">27 Sep 2024</td>
+              <td class="date-raw" hidden>2024-09-27</td>
+              <td class="title-raw" hidden>Obsessed with Cuttle: Parametric CAD for prototyping, producing, and procrastinating</td>
+              <td class="title">
+                <a class="blog-url" href="./cuttle-obsession">Obsessed with Cuttle: Parametric CAD for prototyping, producing, and procrastinating</a>
+                <div class="details">
+                  <a class="blog-url" href="./cuttle-obsession"><img class="thumbnail" src="./cuttle-obsession/assets/thumbnail.png" /></a>
+                  <p class="blog-tags">
+                    Project write-up <br />
+                    <em>#cuttle #cad #programming #prototyping #javascript #creative-coding #makerspace</em>
+                  </p>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="date date-pretty">21 Sep 2024</td>
+              <td class="date-raw" hidden>2024-09-21</td>
+              <td class="title-raw" hidden>First things first: Make a list</td>
+              <td class="title">
+                <a class="blog-url" href="./make-a-list">First things first: Make a list</a>
+                <div class="details">
+                  <a class="blog-url" href="./make-a-list"><img class="thumbnail" src="./make-a-list/assets/thumbnail.png" /></a>
+                  <p class="blog-tags">
+                    Musing <br />
+                    <em>#devtips #DDD</em>
+                  </p>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="date date-pretty">20 Sep 2024</td>
+              <td class="date-raw" hidden>2024-09-20</td>
+              <td class="title-raw" hidden>Dopamine-driven development (DDD), spite-driven development (SDD), and other DDs</td>
+              <td class="title">
+                <a class="blog-url" href="./driven-developments">Dopamine-driven development (DDD), spite-driven development (SDD), and other DDs</a>
+                <div class="details">
+                  <a class="blog-url" href="./driven-developments"><img class="thumbnail" src="./driven-developments/assets/thumbnail.png" /></a>
+                  <p class="blog-tags">
+                    Musing <br />
+                    <em>#brainstorm #techspeak</em>
+                  </p>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="date date-pretty">18 Sep 2024</td>
+              <td class="date-raw" hidden>2024-09-18</td>
+              <td class="title-raw" hidden>Titles of blog posts I might never write</td>
+              <td class="title">
+                <a class="blog-url" href="./future-blog-posts">Titles of blog posts I might never write</a>
+                <div class="details">
+                  <a class="blog-url" href="./future-blog-posts"><img class="thumbnail" src="./future-blog-posts/assets/thumbnail.png" /></a>
+                  <p class="blog-tags">
+                    Musing <br />
+                    <em>#brainstorm #metawriting</em>
+                  </p>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="date date-pretty">14 Sep 2024</td>
+              <td class="date-raw" hidden>2024-09-14</td>
+              <td class="title-raw" hidden>
+                <strong><em>Clapping Music</em></strong> for two flip-disc displays
+              </td>
+              <td class="title">
+                <a class="blog-url" href="./clapping-music-for-flip-disc-displays"
+                  ><strong><em>Clapping Music</em></strong> for two flip-disc displays</a
+                >
+                <div class="details">
+                  <a class="blog-url" href="./clapping-music-for-flip-disc-displays"><img class="thumbnail" src="./clapping-music-for-flip-disc-displays/assets/thumbnail.png" /></a>
+                  <p class="blog-tags">
+                    Project write-up <br />
+                    <em>#electromechanical-display #raspberry-pi #music #programming #hardware #software #julia</em>
+                  </p>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="date date-pretty">17 May 2024</td>
+              <td class="date-raw" hidden>2024-05-17</td>
+              <td class="title-raw" hidden>This website’s structure: A meta post</td>
+              <td class="title">
+                <a class="blog-url" href="./site-structure">This website’s structure: A meta post</a>
+                <div class="details">
+                  <a class="blog-url" href="./site-structure"><img class="thumbnail" src="./site-structure/assets/thumbnail.png" /></a>
+                  <p class="blog-tags">
+                    Project write-up <br />
+                    <em>#webdev #programming #metawriting</em>
+                  </p>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <script>
+        var options = {
+          valueNames: ["date-raw", "date-pretty", "title", "title-raw", "tags"],
+        };
+
+        var blogList = new List("post-list", options);
+      </script>
+
+      <br />
+      <div>
+        <a href="/rss.xml" rel="subscribe-rss">
+          <!-- Source: https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white -->
+          <img class="badge" src="../assets/img/rss-logo-styled.svg" alt="Subscribe to @hannahilea RSS feed"
+        /></a>
+      </div>
+
+      <hr />
+      <nav class="navbar" role="navigation">
+        @hannahilea:
+        <a href=".." class="nav-link">home</a> | <a href="../projects" class="nav-link">projects</a> |
+        <a href="../blog" class="nav-link">blog</a>
+      </nav>
     </div>
-
-    <div>
-      <a href="/rss.xml" rel="subscribe-rss">
-        <!-- Source: https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white -->
-        <img class="badge" src="../assets/img/rss-logo-styled.svg" alt="Subscribe to @hannahilea RSS feed" /></a>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>

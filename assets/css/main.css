@@ -63,11 +63,6 @@ body {
   color: #03163f;
 }
 
-.posts {
-  margin-bottom: 2.6em;
-  line-height: 2;
-}
-
 .project-section {
   margin-bottom: 3em;
 }
@@ -75,11 +70,6 @@ body {
 .project-name {
   font-weight: normal;
   font-family: "Jura Bold";
-}
-
-.blog-date {
-  font-weight: normal;
-  font-family: "Jura Regular";
 }
 
 .blog-url {
@@ -318,6 +308,76 @@ img.home-img {
   .navbar {
     margin-bottom: 1.6em;
   }
+
+  .centered-children {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #03163f;
+  }
+
+  .blog-table {
+    padding: 1em;
+    border: 1px solid #dbdbdb;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  table caption {
+    text-align: left;
+  }
+
+  td,
+  th {
+    padding: 6px;
+    text-align: left;
+    vertical-align: top;
+    word-wrap: break-word;
+  }
+
+  thead {
+    border-bottom: 1px solid #dbdbdb;
+    /* border-bottom: 1px solid var(--border); */
+  }
+
+  tfoot {
+    border-top: 1px solid #dbdbdb;
+    /* border-top: 1px solid var(--border); */
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #efefef;
+    background-color: var(--background);
+  }
+
+  tbody tr:nth-child(even) button {
+    background-color: #f7f7f7;
+    background-color: var(--background-alt);
+  }
+
+  tbody tr:nth-child(even) button:hover {
+    background-color: #fff;
+    background-color: var(--background-body);
+  }
+
+  th {
+    width: 90%;
+  }
+
+  th:first-of-type {
+    width: 10%;
+  }
 }
 
 .alert {
@@ -334,9 +394,95 @@ img.home-img {
   font-family: "Jura Bold";
 }
 
-.blog img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border: 1px solid #03163f;
+/* For blog, project index pages */
+.index-page {
+  .date {
+    font-weight: normal;
+    font-family: "Jura Regular";
+    text-align: right;
+  }
+
+  .sort.asc::after {
+    content: "▼";
+    padding-left: 3px;
+    padding-right: 3px;
+    font-size: small
+  }
+
+  .sort.desc::after {
+    content: "▲";
+    padding-left: 3px;
+    padding-right: 3px;
+    font-size: small;
+  }
+
+  .search {
+    float: top;
+  }
+
+  td th {
+    padding: 6px;
+    text-align: left;
+    vertical-align: top;
+    word-wrap: break-word;
+  }
+
+  tr td:first-child {
+    width: 1%;
+    white-space: nowrap;
+
+    table {
+      border-collapse: collapse;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+
+    thead {
+      border-bottom: 1px solid #dbdbdb;
+      border-bottom: 1px solid var(--border);
+    }
+  }
+
+  td,
+  th {
+    padding: 6px;
+    text-align: left;
+    vertical-align: top;
+    word-wrap: break-word;
+  }
+
+  th {
+    font-weight: normal;
+    margin: 0;
+    font-family: "Jura Bold";
+    padding-bottom: 2px;
+    margin-bottom: 3px;
+    font-size: larger;
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+  }
+
+  a.project-url, a.blog-url {
+    color: #03163f;
+    font-weight: bold;
+  }
+
+  .details {
+    display: flex;
+    flex-direction: row;
+
+    .thumbnail {
+      margin: .5em .5em 0 0;
+      width: 90px;
+      height: 90px;
+      border: .1px solid black;
+    }
+
+    .blog-tags {
+      font-size: smaller;
+      /* font-style: italic; */
+    }
+  }
 }

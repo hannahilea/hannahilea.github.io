@@ -1,13 +1,14 @@
 ---
 title: "Titles of blog posts I might never write"
+type: Musing
 tags: [brainstorm, metawriting]
 created: 2024-09-18
-updated: 2024-09-24
+updated: 2024-10-11
 ---
 
 ...but maybe I will! 
 
-My tech writing these days follows DDD (Dopamine-Driven Development), which means that if you tell me what you want to read from me, I will be that much more likely to write it.
+My tech writing these days follows DDD ([Dopamine-Driven Development](../driven-developments/)), which means that if you tell me what you want to read from me, I will be that much more likely to write it.
 
 Without further ado, some things I could write *right now[^footnote1]*:
 
@@ -19,7 +20,7 @@ Without further ado, some things I could write *right now[^footnote1]*:
 - *Small Tales* | On building a bookshelf of your favorite reads, in miniature, for when you have limited bookshelf space or a limited book budget.
 - *Mobiles! For that new tiny human in your extended universe*
 - *Easy inter-room trolling: OSX's `say`, a bluetooth speaker, and you*
-- *Quick and easy meme-making, for fun and no profit*[^footnote3a]
+- ~~*Quick and easy meme-making, for fun and no profit*[^footnote3a]~~ [EDIT 10/11/24: [Written](../meme-making/)!]
 - *How do I do a creative coding?*[^footnote3b]
 - *Mix of the Month Clubs for the 2020s* | Mixtapes are my love language, but no one has a cd player anymore (not to mention a disc drive, or a cassette player). What's a fellow to do?
 - *Message in a bottle, or, the US Postal Service is way more fun than most people know it is*

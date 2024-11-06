@@ -67,7 +67,7 @@ function draw() {
   // console.log(vol);
   if (vol > params.screamThreshold && !isPainting) {
     // Start a stroke
-    x = random(width);
+    x = random(windowWidth);
     y = random(height);
 
     bristleColors = [];
@@ -102,4 +102,25 @@ function drawBrushIncrement() {
   }
 }
 
-// Adjust individual bristle speed and/or starting point
+// TODO - Adjust individual bristle speed and/or starting point
+
+function saveMasterpiece() {
+  let cnv = document.getElementById("p5-canvas");
+  let date = new Date().toISOString().split("T")[0];
+  let filename = 'YellowScream-' + date + ".png";
+  saveCanvas(cnv, filename, 'png' );
+}
+
+function getCanvasHeight() {
+  return 1 + windowHeight - document.getElementById("project-body").offsetTop;
+}
+
+function resetCanvas() {
+  let cnv = document.getElementById("p5-canvas");
+
+  let details = document.getElementsByClassName("projects-details")[0];
+  details.open = false;
+
+  resizeCanvas(windowWidth, getCanvasHeight(), cnv);
+  background("#E8E7D7");
+}

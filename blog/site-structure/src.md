@@ -1,6 +1,7 @@
 ---
 title: "This website's structure: A meta post"
-tags: project-writeup, webdev, programming, metawriting
+type: Project write-up
+tags: [webdev, programming, metawriting]
 created: 2024-05-17
 updated: 2024-05-17
 ---
@@ -26,7 +27,7 @@ Now that I've been working with it and adding projects to it for a few months, t
 ## Structure
 
 The structure is pretty basic:
-```
+```bash
 .
 ├── README.md
 ├── add_stuff.jl
@@ -49,7 +50,7 @@ There are also some top-level style folders that I've excluded here, as they wil
 ### Blog subdirectories
 
 The structure of each blog subdirectory `<blog-n>` is
-```
+```bash
 .
 ├── index.html
 └── src.md
@@ -63,7 +64,7 @@ Why this approach? Writing markdown feels much more natural to me than writing h
 The structure of each project subdirectory `<project-n>` depends on the type of project, as many projects are not hosted directly on the site at all: some link out to external repositories or sites, etc.
 
 That said, for a common type of project that I've been building lately, namely, self-contained creative coding sketches, the structure looks like:
-```
+```bash
 .
 ├── index.html
 └── sketch.js
