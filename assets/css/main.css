@@ -464,6 +464,11 @@ img.home-img {
     background-color: #f2f2f2;
   }
 
+  a.project-url, a.blog-url {
+    color: #03163f;
+    font-weight: bold;
+  }
+
   .details {
     display: flex;
     flex-direction: row;

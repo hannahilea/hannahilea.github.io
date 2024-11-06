@@ -192,7 +192,7 @@ function generate_project_index(; overwrite_existing=false, template=PROJECT_IND
             tag_str = get(p, "tags", "")
             thumbnail_url = get(p, "thumbnail_url", "")
 
-            url_prefix = is_present(url) ? "<a class=\"blog-url\" href=\"$(url)\">" :
+            url_prefix = is_present(url) ? "<a class=\"project-url\" href=\"$(url)\">" :
                          "<strong>"
             url_suffix = is_present(url) ? "</a>" : "</strong>"
 

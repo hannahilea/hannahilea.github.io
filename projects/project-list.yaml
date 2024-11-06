@@ -37,7 +37,6 @@ virtual-gallery:
       'Interactive audio visualization.'
 
   - project: <strong>The Itinerant Mixer</strong>
-    url:
     year: 2014
     description:
       'Interactive spacial mixing soundstage; site currently offline. 
@@ -46,11 +45,10 @@ virtual-gallery:
       Itinerant Mixer: Fun, Slick, and More Than a Toy </em></a>.'
 
 physical-gallery:
-  - project: Fliposcope animated seagull with parallax
-    url:
-    year: 2022-3
+  - project: 'Scurrying seagull Fliposcope'
+    year: 2024
     description:       
-      'Mechanical flipbook, created with the help of CAD software <a href="https://cuttle.xyz">Cuttle</a>.
+      'Parallax-based mechanical flipbook animation, created with the help of CAD software <a href="https://cuttle.xyz">Cuttle</a>.
       <br>Described in blog post <a href="../blog/seagull-fliposcope-animation-with-cuttle/">Scurrying seagull: CAD-assisted Fliposcope animation</a>.'
 
   - project: Music box punch card generation
