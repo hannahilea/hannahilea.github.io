@@ -1,5 +1,6 @@
 ---
-title: "Yellow Scream (2024)"
+title: "***Yellow Scream*** (2024)"
+rawtitle: "Yellow Scream (2024)"
 type: Project write-up
 tags: [art, interactive, creative-coding, p5.js]
 created: 2024-11-06
@@ -14,9 +15,9 @@ At some point in grad school, I encountered what is now one of my favorite works
 
 *Yellow Scream* became one of my go-to frustration regulators: if I was feeling off, I'd watch the video and invariably feel better.[^greg] 
 
-Earlier this year[^rc] I watched the video and then wanted to do some of my OWN yellow screaming, so I made a little site for yell-painting a digital canvas:
+Earlier this year[^rc] I watched the video and then wanted to do some of my *own* screaming, so I made a little site for yell-painting a digital canvas:
 
-<p style="font-size:larger; text-align:center"><a href="../../projects/yellow-scream/">Yellow Scream (2024)</a></p>
+<p style="font-size:larger; text-align:center"><a href="../../projects/yellow-scream/">*Yellow Scream* (2024)</a></p>
 
 <a href="../../projects/yellow-scream/">![](./assets/yellow.gif)</a>
 
