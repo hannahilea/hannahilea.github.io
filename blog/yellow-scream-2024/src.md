@@ -7,6 +7,8 @@ created: 2024-11-06
 updated: 2024-11-06
 ---
 
+![Screenshot of artist in front of yellow-painted canvas with caption "First let's put some screams of unbearable confusion in the unpainted areas of the canvas"](./assets/still-1.png)
+
 At some point in grad school, I encountered what is now one of my favorite works of art in the whole world: [Kim Beom](https://en.wikipedia.org/wiki/Kim_Beom)'s *Yellow Scream (2012)*. I'll let the piece speak for itself---if you don't watch the whole thing, at least jump to ~5:45 for a few seconds, and then skip around the rest of the recording:
 
 <div class="centered-children">
@@ -19,7 +21,7 @@ Earlier this year[^rc] I watched the video and then wanted to do some of my *own
 
 <p style="font-size:larger; text-align:center"><a href="../../projects/yellow-scream/">*Yellow Scream* (2024)</a></p>
 
-<a href="../../projects/yellow-scream/">![](./assets/yellow.gif)</a>
+<a href="../../projects/yellow-scream/">![Animated screenshot of digital painting on canvas](./assets/yellow.gif)</a>
 
 
 <p style="text-align: center">***</p>
@@ -29,8 +31,8 @@ Are you also feeling off? Why not [give yelling a try]("../../projects/yellow-sc
 
 > *Prepare some lemon yellow on your palette, and let's put in some anguished screaming to it.*
 
-![](./assets/still-2.png)
-![](./assets/still-3.png)
+![Screenshot of palette with caption "Prepare some lemon yellow on your palette"](./assets/still-2.png)
+![Screenshot of palette with caption "and let's put in some anguished screaming to it"](./assets/still-3.png)
 
 [^greg]: A labmate friend shared this yellow-as-stress-relief journey with me; I remember one day in particular when I went over to his desk to instigate a Timmies run, and found that his intense concentration wasn't focussed on programming, he was watching *Yellow Scream*....
 
