@@ -1,9 +1,9 @@
 ---
-title: "***Clapping Music*** for one flip-disc display: Byte and variations"
+title: '<strong><em>Clapping Music</em></strong> for one flip-disc display: Byte and variations'
 rawtitle: "Clapping Music for one flip-disc display: Byte and variations"
 type: Project write-up
 tags: [electromechanical-display, raspberry-pi, music, programming, hardware, software, julia]
-description: Reich's Clapping Music performed on a single electromechanical flip-disc display.
+description: 'Reich''s Clapping Music performed on a single electromechanical flip-disc display.'
 created: 2024-10-18
 updated: 2024-10-18
 published: Mon, 18 October 2024 18:20:22 GMT

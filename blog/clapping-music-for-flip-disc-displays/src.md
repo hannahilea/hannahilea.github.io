@@ -1,12 +1,12 @@
 ---
-title: "***Clapping Music*** for two flip-disc displays"
-rawtitle: "Clapping Music for two flip-disc displays"
+title: '<strong><em>Clapping Music</em></strong> for two flip-disc displays'
+rawtitle: 'Clapping Music for two flip-disc displays'
 type: Project write-up
 tags: [electromechanical-display, raspberry-pi, music, programming, hardware, software, julia]
-description: Reich's Clapping Music performed on a pair of electromechanical flip-disc displays.
+description: 'Reich''s Clapping Music performed on a pair of electromechanical flip-disc displays.'
 created: 2024-09-14
 updated: 2024-09-14
-header: '<script async src=\"https://www.instagram.com/embed.js\"><\/script>'
+header: '<script async src="https://www.instagram.com/embed.js"></script>'
 published: Sat, 14 September 2024 16:54:11 GMT
 ---
 
