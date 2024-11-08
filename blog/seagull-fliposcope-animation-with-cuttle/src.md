@@ -1,12 +1,12 @@
 ---
 title: "Scurrying seagull: CAD-assisted Fliposcope animation"
-dirname: seagull-fliposcope-animation-with-cuttle
 type: Project write-up
 tags: [art, cuttle, cad, programming, split-flap]
-description: TODO
+description: Write-up of a Fliposcope animation created via hand-drawn, watercolored images and animation in Cuttle.
 created: 2024-10-31
 updated: 2024-10-31
-header: "<script async src=\"https://www.instagram.com/embed.js\"><\/script>"
+header: '<script async src=\"https://www.instagram.com/embed.js\"><\/script>'
+published: Thu, 31 October 2024 20:57:00 GMT
 ---
 
 !["Moving image of seagull running forwards down the beach"](./assets/forward-gull.gif)

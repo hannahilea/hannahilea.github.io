@@ -1,11 +1,11 @@
 ---
 title: "This website's structure: A meta post"
-dirname: site-structure
 type: Project write-up
 tags: [webdev, programming, metawriting]
-description: TODO
+description: The structure of this website motivated and described.
 created: 2024-05-17
 updated: 2024-05-17
+published: Fri, 17 May 2024 20:22:34 GMT
 ---
 
 While doing a batch at the [Recurse Center](https://www.recurse.com), I revived my personal website—the very site you are almost certainly looking at Right Now!

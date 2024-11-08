@@ -1,11 +1,11 @@
 ---
 title: "Quick ‘n hacky meme making, for fun and no profit"
-dirname: meme-making
 type: Tutorial
 tags: [joy, computer-literacy]
-description: TODO
+description: Tutorial on turning screenshots into goofy shareable images.
 created: 2024-10-11
 updated: 2024-10-11
+published: Fri, 11 October 2024 15:42:32 GMT
 ---
 
 *Adapted from a non-programming talk given while at the [Recurse Center](https://www.recurse.com/).*

@@ -1,11 +1,11 @@
 --- 
 title: "Dopamine-driven development (DDD), spite-driven development (SDD), and other DDs"
-dirname: driven-developments
 type: Musing
 tags: [brainstorm, techspeak]
-description: TODO
+description: Tongue-in-cheek definitions and description of various X-driven development techniques.
 created: 2024-09-20
 updated: 2024-09-20
+published: Fri, 20 September 2024 19:52:58 GMT
 ---
 
 A few weeks ago, [Recurser](https://www.recurse.com/about) friend Nicole Tietz-Sokolskaya

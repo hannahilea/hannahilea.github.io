@@ -4,12 +4,17 @@ using pandoc_jll
 using Dates
 using YAML
 
-BLOG_DIR = joinpath(@__DIR__, "..", "blog")
-BLOG_TEMPLATE = joinpath(BLOG_DIR, "__template", "blog.template.html")
-BLOG_INDEX_TEMPLATE = joinpath(BLOG_DIR, "__template", "index.template.html")
+const BLOG_DIR = joinpath(@__DIR__, "..", "blog")
+const BLOG_TEMPLATE = joinpath(BLOG_DIR, "__template", "blog.template.html")
+const BLOG_INDEX_TEMPLATE = joinpath(BLOG_DIR, "__template", "index.template.html")
 
-PROJECT_DIR = joinpath(@__DIR__, "..", "projects")
-PROJECT_INDEX_TEMPLATE = joinpath(PROJECT_DIR, "__template", "index.template.html")
+const PROJECT_DIR = joinpath(@__DIR__, "..", "projects")
+const PROJECT_INDEX_TEMPLATE = joinpath(PROJECT_DIR, "__template", "index.template.html")
+
+const RSS_FILE = joinpath(@__DIR__, "..", "rss.xml")
+const RSS_TEMPLATE = joinpath(BLOG_DIR, "__template", "rss.template.xml")
+
+get_warning(file)  = "<!--Auto-generated! Make changes in $(basename(file)), not this file-->\n"
 
 function convert_to_html(file, outfile; template=BLOG_TEMPLATE, overwrite_existing=false)
     if !overwrite_existing && isfile(outfile)
@@ -103,14 +108,12 @@ function generate_all_blogposts(; overwrite_existing=true)
     return nothing
 end
 
-function get_blog_metadata(md_file)
-    delimiter = "ddddd"
-    template_str = "data:text/plain;utf8,\$title\$$delimiter\$created\$$delimiter\$type\$$delimiter\$dirname\$$delimiter\$description\$$delimiter\$for(tags)\$\$tags\$\$sep\$,\$endfor\$"
-    str = read(pipeline(`$(pandoc_jll.pandoc()) --template $(template_str) $(md_file)`),
-               String)
-    str = replace(str, r".html$" => "", "\n" => " ")
-    (title, date_str, type, dirname, description, tags) = split(str, delimiter; limit=6)
-    return (; md_file, date_str, title, type, dirname, description, tags)
+function get_blog_metadata(md_file) 
+    yaml_dict = YAML.load_file(md_file)
+    yaml_dict["tags"] = join(yaml_dict["tags"], ",")
+    yaml_dict["date_str"] = string(yaml_dict["created"])
+    yaml_dict["title"] = haskey(yaml_dict, "rawtitle") ? yaml_dict["rawtitle"] : yaml_dict["title"]
+    return NamedTuple(Symbol(k) => v for (k,v) in yaml_dict)
 end
 
 function generate_blog_index(; overwrite_existing=false, template=BLOG_INDEX_TEMPLATE)
@@ -121,24 +124,7 @@ function generate_blog_index(; overwrite_existing=false, template=BLOG_INDEX_TEM
     end
 
     @info "Generating blog index..."
-    metadata = []
-    for dir in readdir(BLOG_DIR; join=true)
-        isfile(dir) && continue
-        isequal(joinpath(BLOG_DIR, "__template"), dir) && continue
-
-        md_file = joinpath(dir, "src.md")
-        m = get_blog_metadata(md_file)
-
-        if !isequal(m.dirname, basename(dir))
-            throw(ErrorException("Blog metadata `dirname` ($(m.dirname)) doesn't match its directory ($(basename(dir))!"))
-        end
-
-        push!(metadata, (; url="./" * basename(dir), m...))
-    end
-    metadata = sort(metadata; by=(m) -> m.date_str, rev=true)
-
-    # See blog/__template/index.template.html for how this 
-    # fits into table
+    metadata = get_all_blog_metadata()
     blog_strs = map(metadata) do m
         date_pretty = Dates.format(Date(m.date_str), dateformat"d u yyyy")
         tags = "#" * replace(m.tags, "," => " #")
@@ -162,6 +148,7 @@ function generate_blog_index(; overwrite_existing=false, template=BLOG_INDEX_TEM
 
     str = read(template, String)
     str = replace(str, "<!-- POSTS -->" => join(blog_strs, "\n"))
+    str = get_warning(template) * str
     write(outfile, str)
 
     try
@@ -170,6 +157,48 @@ function generate_blog_index(; overwrite_existing=false, template=BLOG_INDEX_TEM
         @warn "Prettier not installed OR current html errors"
     end
 
+    return nothing
+end
+
+function get_all_blog_metadata()
+    metadata = []
+    for dir in readdir(BLOG_DIR; join=true)
+        isfile(dir) && continue
+        isequal(joinpath(BLOG_DIR, "__template"), dir) && continue
+
+        md_file = joinpath(dir, "src.md")
+        m = get_blog_metadata(md_file)
+        push!(metadata, (; url="./" * basename(dir), dir=basename(dir), m...))
+    end
+    metadata = sort(metadata; by=(m) -> m.date_str, rev=true)
+    return metadata
+end
+
+function generate_rss_feed(; overwrite_existing=false, template=RSS_TEMPLATE)
+    outfile = RSS_FILE
+    if !overwrite_existing && isfile(outfile)
+        @warn "Output file already exists; not overwriting: $outfile"
+        return nothing
+    end
+
+    @info "Generating RSS feed..."
+    metadata = get_all_blog_metadata()
+    blog_strs = map(reverse(metadata)) do m
+        # title = isempty(m.rawtitle) ? m.title : m.rawtitle
+        return """    <item>
+                  <title>$(m.title)</title>
+                  <pubDate>$(m.published)</pubDate>
+                  <link>https://hannahilea.com/blog/$(basename(m.url))</link>
+                  <guid>https://hannahilea.com/blog/$(basename(m.url))</guid>
+                  <description>$(m.description)</description>
+                </item>
+            """
+    end
+
+    str = read(template, String)
+    str = replace(str, "<!-- POSTS -->" => join(blog_strs, "\n"))
+    str = get_warning(template) * str
+    write(outfile, str)
     return nothing
 end
 
@@ -241,13 +270,16 @@ if abspath(PROGRAM_FILE) == @__FILE__
     if isempty(ARGS)
         generate_all_blogposts(; overwrite_existing=true)
         generate_blog_index(; overwrite_existing=true)
+        generate_rss_feed(; overwrite_existing=true)
     elseif isfile(ARGS[1]) && endswith(ARGS[1], ".md")
         generate_blog_html(ARGS[1]; overwrite_existing=true)
         generate_blog_index(; overwrite_existing=true)
+        generate_rss_feed(; overwrite_existing=true)
     elseif isfile(ARGS[1]) || isequal(ARGS[1], "projects")
         generate_project_index(; overwrite_existing=true)
     else
         @warn "Unknown/unsupported arguments"
     end
+    @info "Complete"
     return nothing
 end
