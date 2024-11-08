@@ -1,7 +1,9 @@
 ---
 title: "Quick ‘n hacky meme making, for fun and no profit"
+dirname: meme-making
 type: Tutorial
 tags: [joy, computer-literacy]
+description: TODO
 created: 2024-10-11
 updated: 2024-10-11
 ---

@@ -1,7 +1,9 @@
 ---
 title: "Scurrying seagull: CAD-assisted Fliposcope animation"
+dirname: seagull-fliposcope-animation-with-cuttle
 type: Project write-up
 tags: [art, cuttle, cad, programming, split-flap]
+description: TODO
 created: 2024-10-31
 updated: 2024-10-31
 header: "<script async src=\"https://www.instagram.com/embed.js\"><\/script>"

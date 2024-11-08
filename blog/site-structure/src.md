@@ -1,7 +1,9 @@
 ---
 title: "This website's structure: A meta post"
+dirname: site-structure
 type: Project write-up
 tags: [webdev, programming, metawriting]
+description: TODO
 created: 2024-05-17
 updated: 2024-05-17
 ---

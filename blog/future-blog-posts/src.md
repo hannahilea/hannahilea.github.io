@@ -1,7 +1,9 @@
 ---
 title: "Titles of blog posts I might never write"
+dirname: future-blog-posts
 type: Musing
 tags: [brainstorm, metawriting]
+description: TODO
 created: 2024-09-18
 updated: 2024-10-11
 ---

@@ -105,12 +105,12 @@ end
 
 function get_blog_metadata(md_file)
     delimiter = "ddddd"
-    template_str = "data:text/plain;utf8,\$title\$$delimiter\$created\$$delimiter\$type\$$delimiter\$for(tags)\$\$tags\$\$sep\$,\$endfor\$"
+    template_str = "data:text/plain;utf8,\$title\$$delimiter\$created\$$delimiter\$type\$$delimiter\$dirname\$$delimiter\$description\$$delimiter\$for(tags)\$\$tags\$\$sep\$,\$endfor\$"
     str = read(pipeline(`$(pandoc_jll.pandoc()) --template $(template_str) $(md_file)`),
                String)
     str = replace(str, r".html$" => "", "\n" => " ")
-    (title, date_str, type, tags) = split(str, delimiter; limit=4)
-    return (; md_file, date_str, title, type, tags)
+    (title, date_str, type, dirname, description, tags) = split(str, delimiter; limit=6)
+    return (; md_file, date_str, title, type, dirname, description, tags)
 end
 
 function generate_blog_index(; overwrite_existing=false, template=BLOG_INDEX_TEMPLATE)
@@ -128,6 +128,10 @@ function generate_blog_index(; overwrite_existing=false, template=BLOG_INDEX_TEM
 
         md_file = joinpath(dir, "src.md")
         m = get_blog_metadata(md_file)
+
+        if !isequal(m.dirname, basename(dir))
+            throw(ErrorException("Blog metadata `dirname` ($(m.dirname)) doesn't match its directory ($(basename(dir))!"))
+        end
 
         push!(metadata, (; url="./" * basename(dir), m...))
     end

@@ -1,7 +1,9 @@
 ---
 title: "First things first: Make a list"
+dirname: make-a-list
 type: Musing
 tags: [devtips, DDD]
+description: TODO
 created: 2024-09-21
 updated: 2024-09-21
 ---
