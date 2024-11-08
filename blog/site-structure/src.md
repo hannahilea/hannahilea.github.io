@@ -1,5 +1,5 @@
 ---
-title: 'This website''s structure: A meta post'
+title: 'This website’s structure: A meta post'
 type: Project write-up
 tags: [webdev, programming, metawriting]
 description: The structure of this website motivated and described.

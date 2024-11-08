@@ -29,7 +29,7 @@ virtual-gallery:
     year: 2024
     description:
       'Interactive homage to <a href="https://walkerart.org/magazine/now-streaming-kim-beoms-yellow-scream-2012/">Kim
-      Beom''s <em>Yellow Scream (2012)</em></a>. <br>Described in blog post <a href="../blog/yellow-scream-2024/"><em>Yellow Scream</em> (2024)</a>.'
+      Beom’s <em>Yellow Scream (2012)</em></a>. <br>Described in blog post <a href="../blog/yellow-scream-2024/"><em>Yellow Scream</em> (2024)</a>.'
 
   - project: "Sketch: Sound ripples"
     url: "./sound-ripple-sketch"

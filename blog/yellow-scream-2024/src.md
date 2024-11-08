@@ -3,7 +3,7 @@ title: '<strong><em>Yellow Scream</em></strong> (2024)'
 rawtitle: "Yellow Scream (2024)"
 type: Project write-up
 tags: [art, interactive, creative-coding, p5.js]
-description: 'Interactive homage to Kim Beom''s Yellow Scream (2012).'
+description: 'Interactive homage to Kim Beom’s Yellow Scream (2012).'
 created: 2024-11-06
 updated: 2024-11-06
 published: Thu, 7 November 2024 23:14:22 GMT

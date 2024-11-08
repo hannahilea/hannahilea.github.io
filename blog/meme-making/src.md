@@ -1,5 +1,5 @@
 ---
-title: 'Quick ''n hacky meme making, for fun and no profit'
+title: 'Quick ’n hacky meme making, for fun and no profit'
 type: Tutorial
 tags: [joy, computer-literacy]
 description: Tutorial on turning screenshots into goofy shareable images.
