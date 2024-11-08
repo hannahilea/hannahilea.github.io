@@ -1,3 +1,4 @@
+<!--Auto-generated! Make changes in rss.template.xml, not this file-->
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
@@ -15,18 +16,18 @@
       <description>Avatar: Photo of stereo system with large googly eyes on top to look surprised</description>
     </image>
     <item>
-      <title>This website's structure: a meta post</title>
+      <title>This website’s structure: A meta post</title>
       <pubDate>Fri, 17 May 2024 20:22:34 GMT</pubDate>
       <link>https://hannahilea.com/blog/site-structure</link>
       <guid>https://hannahilea.com/blog/site-structure</guid>
       <description>The structure of this website motivated and described.</description>
     </item>
     <item>
-      <title>Clapping music for two flip-disc displays</title>
+      <title>Clapping Music for two flip-disc displays</title>
       <pubDate>Sat, 14 September 2024 16:54:11 GMT</pubDate>
       <link>https://hannahilea.com/blog/clapping-music-for-flip-disc-displays</link>
       <guid>https://hannahilea.com/blog/clapping-music-for-flip-disc-displays</guid>
-      <description>Reich's Clapping Music performed on a pair of electromechanical flip-disc displays.</description>
+      <description>Reich’s Clapping Music performed on a pair of electromechanical flip-disc displays.</description>
     </item>
     <item>
       <title>Titles of blog posts I might never write</title>
@@ -49,15 +50,15 @@
       <guid>https://hannahilea.com/blog/make-a-list</guid>
       <description>The most important rule when making a list.</description>
     </item>
-<item>
+    <item>
       <title>Obsessed with Cuttle: Parametric CAD for prototyping, producing, and procrastinating</title>
       <pubDate>Tue, 27 September 2024 04:32:59 GMT</pubDate>
       <link>https://hannahilea.com/blog/cuttle-obsession</link>
       <guid>https://hannahilea.com/blog/cuttle-obsession</guid>
-      <description>Write-up of a bunch of laser-cut projects I designed with Cuttle.</description>
+      <description>Write-up of a bunch of laser-cut projects designed with Cuttle.</description>
     </item>
     <item>
-      <title>Quick ‘n hacky meme making, for fun and no profit</title>
+      <title>Quick ’n hacky meme making, for fun and no profit</title>
       <pubDate>Fri, 11 October 2024 15:42:32 GMT</pubDate>
       <link>https://hannahilea.com/blog/meme-making</link>
       <guid>https://hannahilea.com/blog/meme-making</guid>
@@ -68,7 +69,7 @@
       <pubDate>Mon, 18 October 2024 18:20:22 GMT</pubDate>
       <link>https://hannahilea.com/blog/clapping-music-2</link>
       <guid>https://hannahilea.com/blog/clapping-music-2</guid>
-      <description>Reich's Clapping Music performed on a single of electromechanical flip-disc display.</description>
+      <description>Reich’s Clapping Music performed on a single electromechanical flip-disc display.</description>
     </item>
     <item>
       <title>Scurrying seagull: CAD-assisted Fliposcope animation</title>
@@ -82,8 +83,8 @@
       <pubDate>Thu, 7 November 2024 23:14:22 GMT</pubDate>
       <link>https://hannahilea.com/blog/yellow-scream-2024</link>
       <guid>https://hannahilea.com/blog/yellow-scream-2024</guid>
-      <description>Project write-up for interactive homage to Kim Beom's "Yellow Scream".</description>
-    </item> 
-<!-- Add new post here -->
+      <description>Interactive homage to Kim Beom’s Yellow Scream (2012).</description>
+    </item>
+
   </channel>
 </rss>

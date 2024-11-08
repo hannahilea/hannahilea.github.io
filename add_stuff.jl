@@ -53,6 +53,7 @@ function new_blog_post()
 
     dir = joinpath("blog", dir_name)
     date = today()
+    pub_date = Dates.format(now(Dates.UTC), dateformat"e, d U yyyy HH:MM:SS ") * "GMT"
 
     @info "Creating new blog directory" blog_title dir_name
     cp(joinpath("blog", "__template"), dir)
@@ -67,6 +68,7 @@ function new_blog_post()
         str = read(file, String)
         str = replace(str, "{{ BLOG_TITLE }}" => blog_title)
         str = replace(str, "{{ DATE }}" => date)
+        str = replace(str, "{{ PUB_DATE }}" => pub_date)
         str = replace(str, "{{ BLOG_DIR }}" => dir_name)
         write(file, str)
 
@@ -75,22 +77,6 @@ function new_blog_post()
     mkdir(joinpath(dir, "assets"))
     cp(joinpath("assets", "img", "emojis", "surprise-pikachu.png"),
        joinpath(dir, "assets", "thumbnail.png"))
-
-    @info "Adding new project to rss feed"
-    let
-        new_blob = read(joinpath("blog", "__template", ".rss_blob.xml"), String)
-        pub_date = Dates.format(now(Dates.UTC), dateformat"e, d U yyyy HH:MM:SS ") * "GMT"
-        new_blob = replace(new_blob,
-                           "{{ BLOG_TITLE }}" => blog_title,
-                           "{{ PUB_DATE }}" => pub_date,
-                           "{{ BLOG_DIR }}" => dir_name)
-        str = read("rss.xml", String)
-        i = findfirst(NEW_BLOG_COMMENT, str)
-        isnothing(i) &&
-            throw(ArgumentError("Oh no, $(NEW_BLOG_COMMENT) not found in $(index_path)"))
-        str = str[1:(first(i) - 1)] * new_blob * str[(first(i)):end]
-        write("rss.xml", str)
-    end
 
     @info "Do ctrl+f TODO to find regions to update for newly added project!"
 end
