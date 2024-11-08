@@ -112,7 +112,7 @@ function get_blog_metadata(md_file)
     yaml_dict = YAML.load_file(md_file)
     yaml_dict["tags"] = join(yaml_dict["tags"], ",")
     yaml_dict["date_str"] = string(yaml_dict["created"])
-    yaml_dict["title"] = haskey(yaml_dict, "rawtitle") ? yaml_dict["rawtitle"] : yaml_dict["title"]
+    yaml_dict["rawtitle"] = haskey(yaml_dict, "rawtitle") ? yaml_dict["rawtitle"] : yaml_dict["title"]
     return NamedTuple(Symbol(k) => v for (k,v) in yaml_dict)
 end
 
@@ -184,9 +184,8 @@ function generate_rss_feed(; overwrite_existing=false, template=RSS_TEMPLATE)
     @info "Generating RSS feed..."
     metadata = get_all_blog_metadata()
     blog_strs = map(reverse(metadata)) do m
-        # title = isempty(m.rawtitle) ? m.title : m.rawtitle
         return """    <item>
-                  <title>$(m.title)</title>
+                  <title>$(m.rawtitle)</title>
                   <pubDate>$(m.published)</pubDate>
                   <link>https://hannahilea.com/blog/$(basename(m.url))</link>
                   <guid>https://hannahilea.com/blog/$(basename(m.url))</guid>
