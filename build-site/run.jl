@@ -28,6 +28,7 @@ function convert_to_html(file, outfile; template=BLOG_TEMPLATE, overwrite_existi
     # For now, do a very brittle tuning of properties!
     # In future, turn this into a pandoc plugin 
     str = read(outfile, String)
+    str = replace(str, "{{ BLOG_DIR }}" => basename(dirname(file)))
     str = tweak_html!!(str)
     write(outfile, str)
 
