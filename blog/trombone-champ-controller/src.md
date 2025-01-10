@@ -3,8 +3,8 @@ title: 'Slidey Doots: Making a Trombone Champ controller from a slide whistle'
 type: project-write-up
 tags: [TODO]
 description: 'TODO'
-created: 2024-12-05
-updated: 2024-12-05
+created: 2025-1-09
+updated: 2025-1-09
 published: Thu, 5 December 2024 15:54:52 GMT
 ---
 
@@ -74,7 +74,7 @@ We then did the requisite soldering, and topped the whole shebang off with some 
 
 Finally, we coupled the slide potentiometer's knob to the slide of the whistle with hot glue. Perhaps we'll make a cleaned-up version in the future.[^feelings] 
 
-![Photo of completed slide whistle controller](assets/progress-3.jpg)TODO
+![Photo of completed slide whistle controller](assets/progress-3.jpg)
 
 [^feelings]: Disclaimer on her behalf: Alex wanted to make it a much more professional, beautifully wired version of this controller, but I convinced her that it was a quasi-hacky prototype so string and electrical tape and visibly disorganized wires were totally fine for now. I take full responsibility for its current lack of polish!
 
@@ -121,7 +121,7 @@ while True:
 
 ```
 
-The full script is [here](https://github.com/hannahilea/TromboneChampController/blob/main/code.py). There's some extra functionality in the actual implementation to disable sending mouse commands from the controller if the onboard Feather button has been pressed, but otherwise the pseudocode is basically it.
+The full script is [here](https://github.com/hannahilea/slide-whistle-trombone-champ-controller/blob/main/code.py). There's some extra functionality in the actual implementation to disable sending mouse commands from the controller if the onboard Feather button has been pressed, but otherwise the pseudocode is basically it.
 
 The trickiest part of the software implementation was something I didn't end up needing to write at all: because of how we'd put the Feather in the breadboard, our connection between the input pins and the sensors was tenuous at best, which lead to a voltage jump in the potentiometer while the button was pressed. At the time we didn't realize that the cause was the breadboard/Feather connection, so I thought I was going to have to program around it, and spent a fair amount of time thinking about how I might do that (definitely doable, just an annoying exercise in bookkeeping!). Then as soon as we soldered everything together we discovered that the jump was gone, and figured out that the breadboard connection had been tenuous. Huzzah!
 
@@ -163,4 +163,4 @@ Do you have follow-up ideas? Do you know me IRL and want to play some doots? Let
 TODO-video: using the controller to scroll up and down a website and add items to a cart 
 
 
-***The code for this controller---including set-up instructions---is available [on GitHub](https://github.com/hannahilea/TromboneChampController). Thanks to MC and SS for playtesting, WT for putting up with us playtesting, and [Holy Wow Studios](https://www.holywowstudios.com/) for creating this ~~cursed~~ delightful game.***
+***The code for this controller---including set-up instructions---is available [on GitHub](https://github.com/hannahilea/slide-whistle-trombone-champ-controller). Thanks to MC and SS for playtesting, WT for putting up with us playtesting, and [Holy Wow Studios](https://www.holywowstudios.com/) for creating this ~~cursed~~ delightful game.***
