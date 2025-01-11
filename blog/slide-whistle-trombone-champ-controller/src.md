@@ -31,7 +31,7 @@ Co-created with Alex Ferguson, this latest submission to the DIY Trombone Champ 
 
 [^bystanders]: Bystanders, roommates, and pets may disagree.
 
-*NB: This is one of those projects that I started, didn't touch for a year, and then recently picked up to finish. In that time, Trombone Champ released a Nintendo Switch variant and a virtual reality variant, both of which provide more movement-based control options than those available when I started. I've also seen [3D printed controllers](https://www.reddit.com/r/trombonechamp/comments/xq54hn/comment/iq7g8i8/) as well as some [made from real trombones](https://www.youtube.com/watch?v=uzNMawGSed8). Excellent! The more Trombone Champ, the merrier.[^bystanders]*
+*NB: This is one of those projects that I started, didn't touch for a year, and then recently picked up to finish. In that time, Trombone Champ released a Nintendo Switch variant and a virtual reality variant, both of which provide more movement-based control options than those available when I started. I've also seen [3D printed controllers](https://www.reddit.com/r/trombonechamp/comments/xq54hn/trombone_champ_hero_i_made_a_trombone_controller/) as well as some [made from real trombones](https://www.youtube.com/watch?v=uzNMawGSed8). Excellent! The more Trombone Champ, the merrier.[^bystanders]*
 
 ### General approach
 
