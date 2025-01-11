@@ -298,7 +298,6 @@ img.home-img {
     border: 2px solid #ddd;
     page-break-inside: avoid;
     font-family: monospace;
-    font-size: 14px;
     line-height: 1.6;
     max-width: 100%;
     overflow: auto;
@@ -378,6 +377,17 @@ img.home-img {
   th:first-of-type {
     width: 10%;
   }
+
+  /* phones only! */
+  @media (max-width: 550px) {
+    iframe[src*="youtube"] {
+      width: 100% !important;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  } 
 }
 
 .alert {
