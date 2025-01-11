@@ -134,7 +134,7 @@ while True:
 
 The full script is [here](https://github.com/hannahilea/slide-whistle-trombone-champ-controller/blob/main/code.py). There's some extra functionality in the actual implementation to temporarily disable sending mouse commands from the controller, but otherwise this pseudocode is basically it.
 
-With this code, once the Feather is powered, it automatically broadcasts itself as an available Bluetooth peripheral and is ready for pairing. Once connected, moving the slide whistle's slide back and forth causes the mouse to travel up and down the screen vertically. Clicking the putton does a left click wherever the cursor happens to be located.
+With this code, once the Feather is powered, it automatically broadcasts itself as an available Bluetooth peripheral and is ready for pairing. Once connected, moving the slide whistle's slide back and forth causes the mouse to travel up and down the screen vertically. Clicking the button does a left click wherever the cursor happens to be located.
 
 To play Trombone Champ, all we need to do is to open the game as usual. Of course, you don't need to have Trombone Champ open for the controller to function---e.g., you can also use it to scroll through a website:
 
