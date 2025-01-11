@@ -47,7 +47,7 @@ virtual-gallery:
 
 physical-gallery:
   - project: Slide whistle Trombone Champ controller
-    url: https://hannahilea.com/slide-whistle-trombone-champ-controller/
+    url: https://github.com/hannahilea/slide-whistle-trombone-champ-controller
     year: 2025
     thumbnail_url: "../blog/slide-whistle-trombone-champ-controller/assets/thumbnail.png"
     description:
