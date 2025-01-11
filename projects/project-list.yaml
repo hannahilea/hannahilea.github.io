@@ -46,12 +46,12 @@ virtual-gallery:
       Itinerant Mixer: Fun, Slick, and More Than a Toy </em></a>.'
 
 physical-gallery:
-  - project: Slide whistle as Trombone Champ controller
+  - project: Slide whistle Trombone Champ controller
     url: https://hannahilea.com/slide-whistle-trombone-champ-controller/
     year: 2025
     thumbnail_url: "../blog/slide-whistle-trombone-champ-controller/assets/thumbnail.png"
     description:
-      'Wireless controller for the game Trombone Champ, built with a slide whistle.
+      'Wireless controller for the game Trombone Champ, built from a slide whistle!
       <br>Described in blog post <a href="../blog/slide-whistle-trombone-champ-controller/">Slidey doots: Slide whistle as Trombone Champ controller</a>.'
 
 
