@@ -54,7 +54,6 @@ physical-gallery:
       'Wireless controller for the game Trombone Champ, built from a slide whistle!
       <br>Described in blog post <a href="../blog/slide-whistle-trombone-champ-controller/">Slidey doots: Slide whistle as Trombone Champ controller</a>.'
 
-
   - project: "Scurrying seagull Fliposcope"
     year: 2024
     thumbnail_url: "../blog/seagull-fliposcope-animation-with-cuttle/assets/thumbnail.png"
