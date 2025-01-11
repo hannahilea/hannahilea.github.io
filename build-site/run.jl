@@ -137,11 +137,7 @@ function generate_blog_index(; overwrite_existing=false, template=BLOG_INDEX_TEM
             <td class="title-raw" hidden>$(m.title)</td>
             <td class="title">
                 <a class="blog-url" href="$(m.url)">$(m.title)</a>
-                <div class="details">
-                    <a class="blog-url" href="$(m.url)"><img class="thumbnail" src="$(m.url)/assets/thumbnail.png"/></a>
-                    <p class="blog-tags">$(m.type) <br>
-                    <em>$tags</em> </p>
-                </div>
+
             </td>
           </tr>
           """

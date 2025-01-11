@@ -31,7 +31,7 @@ As a result, my partner gifted me a pair of [AlphaZeta](https://flipdots.com/en/
 
 <p align="center"><img src="assets/weather.jpg" alt="Static image of two flip-disc displays, one reading '71 + sun icon', the other reading '6 sep friday'"></p>
 
-Our display has been running for nearly three years at this point, with only minimal intervention (i.e., manual restarts after the power goes off.[^footnote2] It makes me so happy! Two unexpected benefits:
+Our display has been running for nearly three years at this point, with only minimal intervention (i.e., manual restarts after the power goes off[^footnote2]). It makes me so happy! Two unexpected benefits:
 
 1. My internal mapping of temperature (Farenheit) to garments of clothing I should put on before going outside? MUCH better. 
 2. Passive awareness of clock time, as the ***shickshick*** update on the hour/half hour is a nice reminder that I need to jump into that meeting/head out to the bus/consider going to bed.
