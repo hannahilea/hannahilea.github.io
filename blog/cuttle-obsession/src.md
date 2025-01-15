@@ -5,7 +5,7 @@ tags: [cuttle, cad, programming, prototyping, javascript, creative-coding, maker
 description: Write-up of a bunch of laser-cut projects designed with Cuttle.
 created: 2024-09-27
 updated: 2024-09-27
-published: Tue, 27 September 2024 04:32:59 GMT
+published: Fri, 27 Sep 2024 04:32:59 GMT
 ---
 
 One of my primary creative outlets this year has been playing with the CNC laser cutter[^cutters] at my library's makerspace. It is the first CNC ("computer numerical control", i.e., computer-programmable) shop tool I've gotten comfortable and fluent with: while I've worked informally with plenty of *manual* shop tools for wood and metal, I've never previously bridged that programming/shop divide.[^attempt] Unsurprisingly, it is SO. MUCH. FUN.

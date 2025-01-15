@@ -7,7 +7,7 @@ description: 'Reich’s Clapping Music performed on a pair of electromechanical 
 created: 2024-09-14
 updated: 2024-09-14
 header: '<script async src="https://www.instagram.com/embed.js"></script>'
-published: Sat, 14 September 2024 16:54:11 GMT
+published: Sat, 14 Sep 2024 16:54:11 GMT
 ---
 
 I present unto you: Steve Reich's ***Clapping Music***, as performed by a pair of flip-disc displays:

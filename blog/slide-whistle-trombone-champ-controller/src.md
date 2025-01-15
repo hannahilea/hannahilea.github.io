@@ -5,7 +5,7 @@ tags: [interactive, music, gaming, microcontroller, programming]
 description: 'Project write-up of turning a slide whistle into a wireless controller for the video game Trombone Champ.'
 created: 2025-1-10
 updated: 2025-1-10
-published: Fri, 10 January 2025 16:17:00 GMT
+published: Fri, 10 Jan 2025 16:17:00 GMT
 ---
 
 My initial response to the 2022 video game [Trombone Champ](https://www.trombonechamp.com/) was a simple HELL. YES. 

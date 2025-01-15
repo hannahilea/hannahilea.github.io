@@ -6,7 +6,7 @@ description: Write-up of a Fliposcope animation created via hand-drawn, watercol
 created: 2024-10-31
 updated: 2024-10-31
 header: '<script async src="https://www.instagram.com/embed.js"></script>'
-published: Thu, 31 October 2024 20:57:00 GMT
+published: Thu, 31 Oct 2024 20:57:00 GMT
 ---
 
 !["Moving image of seagull running forwards down the beach"](./assets/forward-gull.gif)

@@ -5,7 +5,7 @@ tags: [brainstorm, techspeak]
 description: Tongue-in-cheek definitions and description of various X-driven development techniques.
 created: 2024-09-20
 updated: 2024-09-20
-published: Fri, 20 September 2024 19:52:58 GMT
+published: Fri, 20 Sep 2024 19:52:58 GMT
 ---
 
 A few weeks ago, [Recurser](https://www.recurse.com/about) friend Nicole Tietz-Sokolskaya

@@ -6,7 +6,7 @@ tags: [art, interactive, creative-coding, p5.js]
 description: 'Interactive homage to Kim Beom’s Yellow Scream (2012).'
 created: 2024-11-06
 updated: 2024-11-06
-published: Thu, 7 November 2024 23:14:22 GMT
+published: Thu, 7 Nov 2024 23:14:22 GMT
 ---
 
 ![Screenshot of artist in front of yellow-painted canvas with caption "First let's put some screams of unbearable confusion in the unpainted areas of the canvas"](./assets/still-1.png)
