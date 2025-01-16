@@ -5,7 +5,7 @@ tags: [autobibliography, musings]
 description: 'Link round-up'  
 created: 2025-01-15
 updated: 2025-01-15
-published: Thu, 16 Jan 2025 09:30:00 EST
+published: Thu, 16 Jan 2025 10:23:00 EST
 header: '<script async src="https://www.instagram.com/embed.js"></script>'
 ---
 
