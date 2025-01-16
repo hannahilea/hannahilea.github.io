@@ -193,7 +193,6 @@ function generate_rss_feed(; overwrite_existing=false, template=RSS_TEMPLATE)
 
     str = read(template, String)
     str = replace(str, "<!-- POSTS -->" => join(blog_strs, ""))
-    str = get_warning(template) * str
     write(outfile, str)
     return nothing
 end

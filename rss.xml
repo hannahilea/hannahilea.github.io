@@ -1,4 +1,3 @@
-<!--Auto-generated! Make changes in rss.template.xml, not this file-->
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
@@ -24,70 +23,70 @@
     </item>
     <item>
       <title>Clapping Music for two flip-disc displays</title>
-      <pubDate>Sat, 14 September 2024 16:54:11 GMT</pubDate>
+      <pubDate>Sat, 14 Sep 2024 16:54:11 GMT</pubDate>
       <link>https://hannahilea.com/blog/clapping-music-for-flip-disc-displays</link>
       <guid>https://hannahilea.com/blog/clapping-music-for-flip-disc-displays</guid>
       <description>Reich’s Clapping Music performed on a pair of electromechanical flip-disc displays.</description>
     </item>
     <item>
       <title>Titles of blog posts I might never write</title>
-      <pubDate>Wed, 18 September 2024 22:27:38 GMT</pubDate>
+      <pubDate>Wed, 18 Sep 2024 22:27:38 GMT</pubDate>
       <link>https://hannahilea.com/blog/future-blog-posts</link>
       <guid>https://hannahilea.com/blog/future-blog-posts</guid>
       <description>Braindump of potential blog post titles for as-yet-unwritten pieces.</description>
     </item>
     <item>
       <title>Dopamine-driven development (DDD), spite-driven development (SDD), and other DDs</title>
-      <pubDate>Fri, 20 September 2024 19:52:58 GMT</pubDate>
+      <pubDate>Fri, 20 Sep 2024 19:52:58 GMT</pubDate>
       <link>https://hannahilea.com/blog/driven-developments</link>
       <guid>https://hannahilea.com/blog/driven-developments</guid>
       <description>Tongue-in-cheek definitions and description of various X-driven development techniques.</description>
     </item>
     <item>
       <title>First things first: Make a list</title>
-      <pubDate>Sat, 21 September 2024 04:19:57 GMT</pubDate>
+      <pubDate>Sat, 21 Sep 2024 04:19:57 GMT</pubDate>
       <link>https://hannahilea.com/blog/make-a-list</link>
       <guid>https://hannahilea.com/blog/make-a-list</guid>
       <description>The most important rule when making a list.</description>
     </item>
     <item>
       <title>Obsessed with Cuttle: Parametric CAD for prototyping, producing, and procrastinating</title>
-      <pubDate>Tue, 27 September 2024 04:32:59 GMT</pubDate>
+      <pubDate>Fri, 27 Sep 2024 04:32:59 GMT</pubDate>
       <link>https://hannahilea.com/blog/cuttle-obsession</link>
       <guid>https://hannahilea.com/blog/cuttle-obsession</guid>
       <description>Write-up of a bunch of laser-cut projects designed with Cuttle.</description>
     </item>
     <item>
       <title>Quick ’n hacky meme making, for fun and no profit</title>
-      <pubDate>Fri, 11 October 2024 15:42:32 GMT</pubDate>
+      <pubDate>Fri, 11 Oct 2024 15:42:32 GMT</pubDate>
       <link>https://hannahilea.com/blog/meme-making</link>
       <guid>https://hannahilea.com/blog/meme-making</guid>
       <description>Tutorial on turning screenshots into goofy shareable images.</description>
     </item>
     <item>
       <title>Clapping Music for one flip-disc display: Byte and variations</title>
-      <pubDate>Mon, 18 October 2024 18:20:22 GMT</pubDate>
+      <pubDate>Fri, 18 Oct 2024 18:20:22 GMT</pubDate>
       <link>https://hannahilea.com/blog/clapping-music-2</link>
       <guid>https://hannahilea.com/blog/clapping-music-2</guid>
       <description>Reich’s Clapping Music performed on a single electromechanical flip-disc display.</description>
     </item>
     <item>
       <title>Scurrying seagull: CAD-assisted Fliposcope animation</title>
-      <pubDate>Thu, 31 October 2024 20:57:00 GMT</pubDate>
+      <pubDate>Thu, 31 Oct 2024 20:57:00 GMT</pubDate>
       <link>https://hannahilea.com/blog/seagull-fliposcope-animation-with-cuttle</link>
       <guid>https://hannahilea.com/blog/seagull-fliposcope-animation-with-cuttle</guid>
       <description>Write-up of a Fliposcope animation created via hand-drawn, watercolored images and animation in Cuttle.</description>
     </item>
     <item>
       <title>Yellow Scream (2024)</title>
-      <pubDate>Thu, 7 November 2024 23:14:22 GMT</pubDate>
+      <pubDate>Thu, 7 Nov 2024 23:14:22 GMT</pubDate>
       <link>https://hannahilea.com/blog/yellow-scream-2024</link>
       <guid>https://hannahilea.com/blog/yellow-scream-2024</guid>
       <description>Interactive homage to Kim Beom’s Yellow Scream (2012).</description>
     </item>
     <item>
       <title>Slidey doots: Slide whistle as Trombone Champ controller</title>
-      <pubDate>Fri, 10 January 2025 16:17:00 GMT</pubDate>
+      <pubDate>Fri, 10 Jan 2025 16:17:00 GMT</pubDate>
       <link>https://hannahilea.com/blog/slide-whistle-trombone-champ-controller</link>
       <guid>https://hannahilea.com/blog/slide-whistle-trombone-champ-controller</guid>
       <description>Project write-up of turning a slide whistle into a wireless controller for the video game Trombone Champ.</description>

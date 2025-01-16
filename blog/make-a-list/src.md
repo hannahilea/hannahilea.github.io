@@ -5,7 +5,7 @@ tags: [devtips, DDD]
 description: The most important rule when making a list.
 created: 2024-09-21
 updated: 2024-09-21
-published: Sat, 21 September 2024 04:19:57 GMT
+published: Sat, 21 Sep 2024 04:19:57 GMT
 ---
 
 To-do list:

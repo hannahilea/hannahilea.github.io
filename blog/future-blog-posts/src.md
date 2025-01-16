@@ -5,7 +5,7 @@ tags: [brainstorm, metawriting]
 description: Braindump of potential blog post titles for as-yet-unwritten pieces.
 created: 2024-09-18
 updated: 2024-10-11
-published: Wed, 18 September 2024 22:27:38 GMT
+published: Wed, 18 Sep 2024 22:27:38 GMT
 ---
 
 ...but maybe I will! 

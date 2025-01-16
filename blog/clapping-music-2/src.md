@@ -6,7 +6,7 @@ tags: [electromechanical-display, raspberry-pi, music, programming, hardware, so
 description: 'Reich’s Clapping Music performed on a single electromechanical flip-disc display.'
 created: 2024-10-18
 updated: 2024-10-18
-published: Mon, 18 October 2024 18:20:22 GMT
+published: Fri, 18 Oct 2024 18:20:22 GMT
 ---
 
 In response to previous post [*Clapping Music* for two flip-disc displays](../clapping-music-for-flip-disc-displays/), a reader [commented](https://lobste.rs/s/70ipvr/blog_clapping_music_for_two_flip_disc)
