@@ -387,7 +387,7 @@ img.home-img {
     img {
       max-width: 100%;
     }
-  } 
+  }
 }
 
 .alert {
@@ -406,6 +406,21 @@ img.home-img {
 
 /* For blog, project index pages */
 .index-page {
+  a.button {
+    background-color: #0843c3;
+    border: none;
+    color: white;
+    padding: 2px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: top;
+    font-size: smaller;
+    font-family: "Jura Bold";
+    cursor: pointer;
+    margin: auto;
+  }
+
   .date {
     font-weight: normal;
     font-family: "Jura Regular";
@@ -474,7 +489,8 @@ img.home-img {
     background-color: #f2f2f2;
   }
 
-  a.project-url, a.blog-url {
+  a.project-url,
+  a.blog-url {
     color: #03163f;
     font-weight: bold;
   }
