@@ -45,7 +45,7 @@ Right. Now that I've gotten this current list out of my head, maybe I'll be able
 
 [^footnote1]: Not included: any hypothetical projects I have not yet done.
 
-[^footnote2]: Also, this list only includes a few of the as-yet-undocumented [projects](https://www.hannahilea.com/projects-site) from my backlog, but anything on that page is fair game for a DDD request.
+[^footnote2]: Also, this list only includes a few of the as-yet-undocumented [projects](../../projects) from my backlog, but anything on that page is fair game for a DDD request.
 
 [^footnote3a]: This already exists in slide form from my batch at RC, so :just: needs to be edited appropriately.
 
