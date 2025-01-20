@@ -25,10 +25,18 @@ function convert_to_html(file, outfile; template=BLOG_TEMPLATE, overwrite_existi
     @debug "About to run pandoc" cmd
     run(pipeline(cmd))
 
+    # Get date and format it 
+    date_pretty = let
+        yaml_dict = YAML.load_file(file)
+        str = string(yaml_dict["created"])
+        Dates.format(Date(str), dateformat"d u yyyy")
+    end
+
     # For now, do a very brittle tuning of properties!
     # In future, turn this into a pandoc plugin 
     str = read(outfile, String)
     str = replace(str, "{{ BLOG_DIR }}" => basename(dirname(file)))
+    str = replace(str, "{{ BLOG_DATE }}" => date_pretty)
     str = tweak_html!!(str)
     write(outfile, str)
 

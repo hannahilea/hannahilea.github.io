@@ -308,6 +308,10 @@ img.home-img {
     margin-bottom: 1.6em;
   }
 
+  .date {
+    font-family: "Jura Regular"
+  }
+
   .centered-children {
     display: flex;
     flex-direction: column;
