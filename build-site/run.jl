@@ -75,7 +75,19 @@ function tweak_html!!(text)
         return line
     end
     lines = filter(!ismissing, lines)
-    return join(lines, "\n")
+    all_text = join(lines, "\n")
+
+    # linking to an external page (i.e., not within the site)? open in a new tab 
+    words = split(all_text, " ")
+    phrases = map(words) do word 
+        contains(word, "href=") || return word
+        contains(word, "href=\"#") && return word
+        contains(word, "href=\"https://www.hannahilea.com") && return word
+        contains(word, "href=\".") && return word
+        str = "target=\"_blank\" rel=\"noreferrer noopener\""
+        return replace(word, "href="=> "$str href=")
+    end
+    return join(phrases, " ")
 end
 
 function generate_blog_html(md_file; overwrite_existing=true)

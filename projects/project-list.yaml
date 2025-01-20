@@ -3,7 +3,7 @@ virtual-gallery:
     url: ./flock-chorus
     thumbnail_url: "./thumbnails/flock.png"
     year: 2024
-    description: 'Interactive <a href="https://en.wikipedia.org/wiki/Boids">boids</a>-based virtual instrument.'
+    description: 'Interactive <a target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Boids">boids</a>-based virtual instrument.'
 
   - project: "Chrome extension: HTMLophone!"
     url: "https://github.com/hannahilea/htmlophone-chrome-extension"
@@ -28,7 +28,7 @@ virtual-gallery:
     thumbnail_url: "./thumbnails/yellow.png"
     year: 2024
     description:
-      'Interactive homage to <a href="https://walkerart.org/magazine/now-streaming-kim-beoms-yellow-scream-2012/">Kim
+      'Interactive homage to <a target="_blank" rel="noreferrer noopener" href="https://walkerart.org/magazine/now-streaming-kim-beoms-yellow-scream-2012/">Kim
       Beom’s <em>Yellow Scream (2012)</em></a>. <br>Described in blog post <a href="../blog/yellow-scream-2024/"><em>Yellow Scream</em> (2024)</a>.'
 
   - project: "Sketch: Sound ripples"
@@ -41,8 +41,7 @@ virtual-gallery:
     thumbnail_url: "./thumbnails/itinerant-mixer.png"
     year: 2014
     description: 'Interactive spacial mixing soundstage; site currently offline.
-      Built at Music Hack Day Boston 2014; written up by Evolver.fm in <a
-      href="https://web.archive.org/web/20200325075459/https://evolver.fm/2014/11/24/itinerant-mixer/"><em>The
+      Built at Music Hack Day Boston 2014; written up by Evolver.fm in <a target="_blank" rel="noreferrer noopener" href="https://web.archive.org/web/20200325075459/https://evolver.fm/2014/11/24/itinerant-mixer/"><em>The
       Itinerant Mixer: Fun, Slick, and More Than a Toy </em></a>.'
 
 physical-gallery:
@@ -58,7 +57,7 @@ physical-gallery:
     year: 2024
     thumbnail_url: "../blog/seagull-fliposcope-animation-with-cuttle/assets/thumbnail.png"
     description:
-      'Parallax-based mechanical flipbook animation, created with the help of CAD software <a href="https://cuttle.xyz">Cuttle</a>.
+      'Parallax-based mechanical flipbook animation, created with the help of CAD software <a target="_blank" rel="noreferrer noopener" href="https://cuttle.xyz">Cuttle</a>.
       <br>Described in blog post <a href="../blog/seagull-fliposcope-animation-with-cuttle/">Scurrying seagull: CAD-assisted Fliposcope animation</a>.'
 
   - project: Music box punch card generation
@@ -66,8 +65,8 @@ physical-gallery:
     year: 2024
     description:
       'Transform MIDI-notated music into music roll SVGs, which can then be cut with a laser
-      cutter. Two-stage prototype; MIDI conversion in <a href="https://github.com/hannahilea/music-box-punch-cards">Julia</a> followed by SVG generation in <a
-      href="https://cuttle.xyz/@hannahilea/Music-roll-punchcards-for-music-boxes-iTT4lnLVNL5f">Cuttle</a>.<br> <em>Blog post pending.</em>'
+      cutter. Two-stage prototype; MIDI conversion in <a target="_blank" rel="noreferrer noopener" href="https://github.com/hannahilea/music-box-punch-cards">Julia</a> followed by SVG generation in <a
+      target="_blank" rel="noreferrer noopener" href="https://cuttle.xyz/@hannahilea/Music-roll-punchcards-for-music-boxes-iTT4lnLVNL5f">Cuttle</a>.<br> <em>Blog post pending.</em>'
 
   - project: HPGL.jl
     url: "https://github.com/hannahilea/HPGL.jl"
@@ -80,7 +79,7 @@ physical-gallery:
     thumbnail_url: "./thumbnails/cuttle.png"
     year: 2024
     description:
-      'Gallery of items designed with 2D CAD software <a href="https://cuttle.xyz">Cuttle</a>. Includes custom bookends, pattern studies, and more.
+      'Gallery of items designed with 2D CAD software <a target="_blank" rel="noreferrer noopener" href="https://cuttle.xyz">Cuttle</a>. Includes custom bookends, pattern studies, and more.
       Described in blog post <a
       href="../blog/cuttle-obsession/">Obsessed with Cuttle: Parametric CAD for prototyping, producing, and
       procrastinating</a>.'
@@ -113,4 +112,3 @@ physical-gallery:
     thumbnail_url: "./thumbnails/mix-month.png"
     year: 2021
     description: "A postcard club! Each month, postcards linking to a custom playlist were mailed to recipients."
-

@@ -35,7 +35,7 @@ Champ."
         <a class="nav-link" href="..">blog</a>
       </nav>
       <h1>Slidey doots: Slide whistle as Trombone Champ controller</h1>
-      <p>My initial response to the 2022 video game <a href="https://www.trombonechamp.com/">Trombone Champ</a> was a simple HELL. YES.</p>
+      <p>My initial response to the 2022 video game <a target="_blank" rel="noreferrer noopener" href="https://www.trombonechamp.com/">Trombone Champ</a> was a simple HELL. YES.</p>
       <div class="centered-children">
         <iframe
           width="560"
@@ -81,8 +81,14 @@ Champ."
         <em
           >NB: This is one of those projects that I started, didn’t touch for a year, and then recently picked up to finish. In that time, Trombone Champ released a Nintendo Switch variant and a virtual reality variant, both of which
           provide more movement-based control options than those available when I started. I’ve also seen
-          <a href="https://www.reddit.com/r/trombonechamp/comments/xq54hn/trombone_champ_hero_i_made_a_trombone_controller/">3D printed controllers</a> as well as some
-          <a href="https://www.youtube.com/watch?v=uzNMawGSed8">made from real trombones</a>. Excellent! The more Trombone Champ, the merrier.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></em
+          <a target="_blank" rel="noreferrer noopener" href="https://www.reddit.com/r/trombonechamp/comments/xq54hn/trombone_champ_hero_i_made_a_trombone_controller/">3D printed controllers</a> as well as some
+          <a target="_blank" rel="noreferrer noopener" href="https://www.youtube.com/watch?v=uzNMawGSed8">made from real trombones</a>. Excellent! The more Trombone Champ, the merrier.<a
+            href="#fn2"
+            class="footnote-ref"
+            id="fnref2"
+            role="doc-noteref"
+            ><sup>2</sup></a
+          ></em
         >
       </p>
       <h3 id="general-approach">General approach</h3>
@@ -115,9 +121,9 @@ Champ."
       <h3 id="components">Components</h3>
       <p>To meet our requirements, we selected the following components:</p>
       <ul>
-        <li><strong>Controller body</strong>: a cheap <a href="https://www.amazon.com/Syhood-Whistle-Instrument-Whistles-Birthday/dp/B0CDLGXSZS">slide whistle</a>,</li>
-        <li><strong>Microcontroller</strong>: an <a href="https://www.adafruit.com/product/4062">Adafruit Feather Express</a>, powered by a basic external USB power brick,</li>
-        <li><strong>Slide position sensor</strong>: a <a href="https://www.adafruit.com/product/4219">linear slide potentiometer</a>, its knob coupled to the whistle slide with hot glue, and</li>
+        <li><strong>Controller body</strong>: a cheap <a target="_blank" rel="noreferrer noopener" href="https://www.amazon.com/Syhood-Whistle-Instrument-Whistles-Birthday/dp/B0CDLGXSZS">slide whistle</a>,</li>
+        <li><strong>Microcontroller</strong>: an <a target="_blank" rel="noreferrer noopener" href="https://www.adafruit.com/product/4062">Adafruit Feather Express</a>, powered by a basic external USB power brick,</li>
+        <li><strong>Slide position sensor</strong>: a <a target="_blank" rel="noreferrer noopener" href="https://www.adafruit.com/product/4219">linear slide potentiometer</a>, its knob coupled to the whistle slide with hot glue, and</li>
         <li><strong>Sound production trigger</strong>: a basic momentary button.</li>
       </ul>
       <p>
@@ -165,8 +171,8 @@ Champ."
       </p>
       <h2 id="programming">Programming</h2>
       <p>
-        I used <a href="https://learn.adafruit.com/ble-hid-keyboard-buttons-with-circuitpython/ble-keyboard-buttons">this Adafruit tutorial</a> as a starting point for sending sensor inputs as human interface device (HID) mouse commands
-        over Bluetooth. CircuitPython libraries for both HID and Bluetooth made this setup fairly straightforward.
+        I used <a target="_blank" rel="noreferrer noopener" href="https://learn.adafruit.com/ble-hid-keyboard-buttons-with-circuitpython/ble-keyboard-buttons">this Adafruit tutorial</a> as a starting point for sending sensor inputs as human
+        interface device (HID) mouse commands over Bluetooth. CircuitPython libraries for both HID and Bluetooth made this setup fairly straightforward.
       </p>
       <p>The run loop looks something like this pseudocode:</p>
       <pre><code># Setup 
@@ -204,8 +210,8 @@ while True:
             button_is_pressed = button_state
 </code></pre>
       <p>
-        The full script is <a href="https://github.com/hannahilea/slide-whistle-trombone-champ-controller/blob/main/code.py">here</a>. There’s some extra functionality in the actual implementation to temporarily disable sending mouse
-        commands from the controller, but otherwise this pseudocode is basically it.
+        The full script is <a target="_blank" rel="noreferrer noopener" href="https://github.com/hannahilea/slide-whistle-trombone-champ-controller/blob/main/code.py">here</a>. There’s some extra functionality in the actual implementation
+        to temporarily disable sending mouse commands from the controller, but otherwise this pseudocode is basically it.
       </p>
       <p>
         With this code, once the Feather is powered, it automatically broadcasts itself as an available Bluetooth peripheral and is ready for pairing. Once connected, moving the slide whistle’s slide back and forth causes the mouse to
@@ -304,8 +310,9 @@ while True:
       <p>
         <strong
           ><em
-            >The code for this controller—including set-up instructions—is available <a href="https://github.com/hannahilea/slide-whistle-trombone-champ-controller">on GitHub</a>. Thanks to MC and SS for playtesting, WT for putting up with
-            us playtesting(!), and <a href="https://www.holywowstudios.com/">Holy Wow Studios</a> for creating this <del>cursed</del> delightful game in the first place.</em
+            >The code for this controller—including set-up instructions—is available <a target="_blank" rel="noreferrer noopener" href="https://github.com/hannahilea/slide-whistle-trombone-champ-controller">on GitHub</a>. Thanks to MC and
+            SS for playtesting, WT for putting up with us playtesting(!), and <a target="_blank" rel="noreferrer noopener" href="https://www.holywowstudios.com/">Holy Wow Studios</a> for creating this <del>cursed</del> delightful game in
+            the first place.</em
           ></strong
         >
       </p>
@@ -323,7 +330,9 @@ while True:
             <p>Have you <em>seen</em> brass players clear the spit from their instruments?! It’s gross, yo.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p>
           </li>
           <li id="fn4">
-            <p><a href="https://www.youtube.com/watch?v=BA-g8YYPKVo">To quote Mr. Banks</a>, “with tuppence for paper and strings…”<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p>
+            <p>
+              <a target="_blank" rel="noreferrer noopener" href="https://www.youtube.com/watch?v=BA-g8YYPKVo">To quote Mr. Banks</a>, “with tuppence for paper and strings…”<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a>
+            </p>
           </li>
           <li id="fn5">
             <p>
@@ -336,7 +345,10 @@ while True:
           </li>
           <li id="fn7">
             <p>
-              I have spent <em>so</em> much time browsing <a href="https://learn.adafruit.com/">Adafruit tutorials</a> this year. Truly one of the sites I’m most grateful for.<a href="#fnref7" class="footnote-back" role="doc-backlink"
+              I have spent <em>so</em> much time browsing <a target="_blank" rel="noreferrer noopener" href="https://learn.adafruit.com/">Adafruit tutorials</a> this year. Truly one of the sites I’m most grateful for.<a
+                href="#fnref7"
+                class="footnote-back"
+                role="doc-backlink"
                 >↩︎</a
               >
             </p>
