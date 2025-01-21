@@ -98,6 +98,13 @@
       <guid>https://hannahilea.com/blog/autobibliography-1</guid>
       <description>Link round-up</description>
     </item>
+    <item>
+      <title>Task documentation: FFmpeg timelapse generation</title>
+      <pubDate>Tue, 21 Jan 2025 11:40:00 EST</pubDate>
+      <link>https://hannahilea.com/blog/ffmpeg-video-timelapse</link>
+      <guid>https://hannahilea.com/blog/ffmpeg-video-timelapse</guid>
+      <description>TODO</description>
+    </item>
 
   </channel>
 </rss>
