@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" type="image/png" href="../../assets/img/favicon.png" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="og:title" content="Video timelapses with FFmpeg" />
+    <meta
+      property="og:description"
+      content="Documentation for
+straightforward video editing task."
+    />
+    <meta property="og:url" content="https://www.hannahilea.com/blog/video-timelapses-with-ffmpeg" />
+    <meta property="og:image" content="https://www.hannahilea.com/blog/video-timelapses-with-ffmpeg/assets/thumbnail.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:height" content="300" />
+    <meta property="og:type" content="website" />
+
+    <title>Video timelapses with FFmpeg</title>
+    <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
+  </head>
+
+  <body>
+    <div class="main-container blog">
+      <nav class="navbar" role="navigation">
+        @hannahilea:
+        <a class="nav-link" href="../..">home</a> | <a class="nav-link" href="../../projects">projects</a> |
+        <a class="nav-link" href="..">blog</a>
+      </nav>
+
+      <h1>Video timelapses with FFmpeg</h1>
+      <div class="date">21 Jan 2025</div>
+      <p>An artist friend took videos of her art creation process and asked for assistance converting them into per-artwork timelapse recordings. Let’s document the steps for my future self!</p>
+      <h4 id="task">Task</h4>
+      <ul>
+        <li>Trim videos to region(s) with activity—one timelapse per resultant artwork</li>
+        <li>Speed up 4x</li>
+        <li>Remove audio</li>
+        <li>Within a single recording, remove subsection(s) with no activity</li>
+      </ul>
+      <p>
+        For the given recordings, finding the cut points for the first and last steps could easily be done manually.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
+      </p>
+      <h4 id="prerequisite">Prerequisite</h4>
+      <p>Install commandline video editing tool <a target="_blank" rel="noreferrer noopener" href="https://www.ffmpeg.org/">FFmpeg</a>.</p>
+      <h4 id="steps">Steps</h4>
+      <p>After viewing a recording and making note of the timestamps around a specific artwork’s creation (in this example, 00:25:16 to 00:42:34):</p>
+      <pre><code># Trim into new file, remove audio
+ffmpeg -i INPUT.mp4 -ss 00:25:16 -to 00:42:34 -c:v copy -c:a copy -an ARTWORK_A.mp4
+
+# Speed it up into a 4x timelapse, update framerate=60fps, rotate 90 degrees
+ffmpeg -i ARTWORK_A.mp4 -vf &quot;setpts=PTS/4,fps=60,transpose=2&quot; ARTWORK_A_4x.mp4
+
+# Trim out region with inactivity (00:03:39 to 00:04:17)
+ffmpeg -i ARTWORK_A_4x.mp4 -vf  &quot;select=&#39;not(between(t,219,257))&#39;,setpts=N/FRAME_RATE/TB&quot; ARTWORK_A_4x_trimmed.mp4</code></pre>
+      <ul>
+        <li>
+          <p>
+            This recording happened to be filmed vertically but needed to be flipped to horizontal; if that flip isn’t necessary, exclude the <code>transpose=2</code> argument from the second processing step. (For whatever reason, doing
+            this transpose is realllllly slow. Wasn’t worth investigating here, but be warned.)
+          </p>
+        </li>
+        <li><p>The region with inactivity was found manually (within ARTWORK_A_4x.mp4), and then converted into seconds. It could alternatively be found and excluded as part of the first step.</p></li>
+        <li>
+          <p>
+            Note that these steps generate intermediate videos <code>ARTWORK_A.mp4</code> and <code>ARTWORK_A_4x.mp4</code> as well as output video <code>ARTWORK_A_4x_trimmed.mp4</code>. That was intentional, to give the friend the
+            different types of output for other use-cases. If those intermediate videos aren’t desired, the various steps can be combined.
+          </p>
+        </li>
+      </ul>
+      <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+        <hr />
+        <h3 id="footnotes-title">Footnotes</h3>
+        <ol>
+          <li id="fn1">
+            <p>
+              If the recordings were longer (or if there were more of them), I’d probably automate that step—I considered it here, because it would be fun, and then decided that it failed xkcd’s
+              <a target="_blank" rel="noreferrer noopener" href="https://xkcd.com/1205/">Is It Worth the Time</a> test:
+              <a target="_blank" rel="noreferrer noopener" href="https://xkcd.com/1205/"><img src="https://imgs.xkcd.com/comics/is_it_worth_the_time.png" /></a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a>
+            </p>
+          </li>
+        </ol>
+      </section>
+      <hr />
+      <ul class="date">
+        <li>Created: 2025-01-21</li>
+        <li>Last updated: 2025-01-21</li>
+        <li>Type: Task documentation</li>
+        <li>Tags: ffmpeg, instructions, editing, task</li>
+      </ul>
+    </div>
+  </body>
+</html>
