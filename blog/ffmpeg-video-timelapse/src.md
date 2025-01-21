@@ -1,8 +1,8 @@
 ---
-title: 'Task documentation: FFmpeg timelapse generation'
+title: 'Realtime video to timelapse with FFmpeg'
 type: Task documentation
 tags: [ffmpeg, instructions, editing, task]
-description: 'TODO'
+description: 'Task documentation for converting videos to trimmed timelapse videos'
 created: 2025-01-21
 updated: 2025-01-21
 published: Tue, 21 Jan 2025 11:40:00 EST

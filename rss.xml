@@ -99,11 +99,11 @@
       <description>Link round-up</description>
     </item>
     <item>
-      <title>Task documentation: FFmpeg timelapse generation</title>
+      <title>Realtime video to timelapse with FFmpeg</title>
       <pubDate>Tue, 21 Jan 2025 11:40:00 EST</pubDate>
       <link>https://hannahilea.com/blog/ffmpeg-video-timelapse</link>
       <guid>https://hannahilea.com/blog/ffmpeg-video-timelapse</guid>
-      <description>TODO</description>
+      <description>Task documentation for converting videos to trimmed timelapse videos</description>
     </item>
 
   </channel>
