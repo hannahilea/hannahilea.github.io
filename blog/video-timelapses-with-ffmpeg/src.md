@@ -1,11 +1,11 @@
 ---
-title: 'Realtime video to timelapse with FFmpeg'
+title: 'Video timelapses with FFmpeg'
 type: Task documentation
 tags: [ffmpeg, instructions, editing, task]
-description: 'Task documentation for converting videos to trimmed timelapse videos'
+description: 'Documentation for straightforward video editing task.'
 created: 2025-01-21
 updated: 2025-01-21
-published: Tue, 21 Jan 2025 11:40:00 EST
+published: Tue, 21 Jan 2025 11:58:00 EST
 ---
 
 An artist friend took videos of her art creation process and asked for assistance converting them into per-artwork timelapse recordings. Let's document the steps for my future self!
