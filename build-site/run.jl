@@ -92,6 +92,7 @@ function tweak_html!!(text)
     phrases = map(words) do word 
         contains(word, "href=") || return word
         contains(word, "href=\"#") && return word
+        contains(word, "href=\"/") && return word
         contains(word, "href=\"https://www.hannahilea.com") && return word
         contains(word, "href=\".") && return word
         str = "target=\"_blank\" rel=\"noreferrer noopener\""
