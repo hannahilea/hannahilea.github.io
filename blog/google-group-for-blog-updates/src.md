@@ -1,5 +1,5 @@
 ---
-title: 'Support email subscription to blog updates'
+title: 'Setting up email notifications for new blog posts'
 rawtitle: TODO-or-delete
 type: TODO-e.g.-musing-project-write-up-tutorial-etc
 tags: [meta, website, bodge]
@@ -9,13 +9,19 @@ updated: 2025-01-21
 published: Tue, 21 Jan 2025 12:00:41 EST
 ---
 
-So, say you want to know when I've written new blog posts, but you don't want to have to manually check my site every few hours (or every day, or every week, or once a month). What do you do? 
+So, say you want to know when I've written new blog posts, but you don't want to have to manually check my site every few hours (or every day, or every week, or once a month). What do you do?[^iff]
 
-One option: you could **subscribe to my RSS feed**! RSS is a really cool technology that is both (a) available to everyone, regardless of tech knowledge and (b) hidden behind a `m Y s T e R i O u S` acronym that likely makes it seem (to yon average layperson) like something Secret and Technical, meant only for Computers and the People Who Know Secret Computer Stuff.[^secret]
+[^iff]: If you already know the answer to this, then you aren't the intended audience for RSS portion of this post! Stick around for the how-to part, maybe?
+
+One option: you could **subscribe to my RSS feed**! RSS is a really cool technology that is both (a) available to everyone, regardless of tech knowledge and (b) hidden behind a ` m Y s T e R i O u S ` acronym that likely makes it seem (to yon average layperson) like something Secret and Technical, meant only for Computers and the People Who Know Secret Computer Stuff.[^secret]
 
 [^secret]: To be clear, I do not believe in Secret Computer Stuff, I believe the only thing standing between you and some Arcane Knowledge is having that knowledge explained in an intentionally accessible way, and that everyone is responsible for explaining their own shit.
 
 A new option: you can **sign up for my mailing list**, such that you'll get an email when a new post is published!
+<div class="centered-children">
+<div class="blog-footer">
+<a class="button" href="http://groups.google.com/group/hannahilea-blog-rss" target="_blank" rel="noreferrer noopener">Subscribe via email</a>
+</div></div>
 
 If all you want is to subscribe, you can stop reading here...but I'd encourage you to at least read the following section about RSS, so that you know what is available to you (and why it is neither mysterious nor challenging to use)! 
 
