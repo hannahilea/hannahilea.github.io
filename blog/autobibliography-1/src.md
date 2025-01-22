@@ -93,7 +93,7 @@ header: '<script async src="https://www.instagram.com/embed.js"></script>'
     ```
     <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/2MxKLBOkCxpK2m2kyQJiGT?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     
-    I like it for both background and active listening; it would make an excellent roadtrip companion.I've been listening chronologically, but you can start with any episode and it'll be great. (You don't have to take [my word for it](https://joyzine.org/2023/06/09/radio-review-add-to-playlist-bbc-radio-4-interview-with-presenter-jeffrey-boakye/))! 
+    I like it for both background and active listening; it would make an excellent roadtrip companion.I've been listening chronologically, but you can start with any episode and it'll be great. (You don't have to take [my word for it](https://joyzine.org/2023/06/09/radio-review-add-to-playlist-bbc-radio-4-interview-with-presenter-jeffrey-boakye/)!) 
 
 
 <br>
@@ -112,7 +112,7 @@ header: '<script async src="https://www.instagram.com/embed.js"></script>'
 
     >*But don’t get distracted by that; I didn’t know at the time.*
 
-    A timely read for anyone at (or looking for) a job, not limited to programmers (h/t IR).
+    A timely read for anyone at (or looking for) a job, not limited to programmers. (h/t IR)
 
 - **Martha Well's 2017 World Fantasy Awards speech [*Unbury the Future*](https://reactormag.com/unbury-the-future-martha-wells-full-speech-from-the-2017-world-fantasy-awards/)**:
 

@@ -7,6 +7,7 @@ using YAML
 const BLOG_DIR = joinpath(@__DIR__, "..", "blog")
 const BLOG_TEMPLATE = joinpath(BLOG_DIR, "__template", "blog.template.html")
 const BLOG_INDEX_TEMPLATE = joinpath(BLOG_DIR, "__template", "index.template.html")
+const BLOG_FOOTER = read(joinpath(BLOG_DIR, "__template", "blog-footer.html"), String)
 
 const PROJECT_DIR = joinpath(@__DIR__, "..", "projects")
 const PROJECT_INDEX_TEMPLATE = joinpath(PROJECT_DIR, "__template", "index.template.html")
@@ -37,6 +38,7 @@ function convert_to_html(file, outfile; template=BLOG_TEMPLATE, overwrite_existi
     str = read(outfile, String)
     str = replace(str, "{{ BLOG_DIR }}" => basename(dirname(file)))
     str = replace(str, "{{ BLOG_DATE }}" => date_pretty)
+    str = replace(str, "{{ BLOG_FOOTER }}" => BLOG_FOOTER)
     str = tweak_html!!(str)
     write(outfile, str)
 
@@ -90,6 +92,7 @@ function tweak_html!!(text)
     phrases = map(words) do word 
         contains(word, "href=") || return word
         contains(word, "href=\"#") && return word
+        contains(word, "href=\"/") && return word
         contains(word, "href=\"https://www.hannahilea.com") && return word
         contains(word, "href=\".") && return word
         str = "target=\"_blank\" rel=\"noreferrer noopener\""
@@ -165,6 +168,7 @@ function generate_blog_index(; overwrite_existing=false, template=BLOG_INDEX_TEM
 
     str = read(template, String)
     str = replace(str, "<!-- POSTS -->" => join(blog_strs, "\n"))
+     str = replace(str, "{{ BLOG_FOOTER }}" => BLOG_FOOTER)
     str = get_warning(template) * str
     write(outfile, str)
 
