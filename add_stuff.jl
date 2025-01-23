@@ -56,13 +56,11 @@ function new_blog_post()
     pub_date = Dates.format(now(), dateformat"e, d u yyyy HH:MM:SS ") * "EST"
 
     @info "Creating new blog directory" blog_title dir_name
-    cp(joinpath("blog", "__template"), dir)
-    for file in readdir(dir; join=true)
-        if endswith(file, ".rss.xml") || endswith(file, ".template.html")
-            rm(file)
-            continue
-        end
-        startswith(basename(file), ".") && continue
+    mkpath(dir)
+
+    let 
+        file = joinpath(dir, "src.md")
+        cp(joinpath("blog", "__template", "src.md.template"), file)
 
         @info "Updating $file..."
         str = read(file, String)
@@ -71,12 +69,10 @@ function new_blog_post()
         str = replace(str, "{{ PUB_DATE }}" => pub_date)
         str = replace(str, "{{ BLOG_DIR }}" => dir_name)
         write(file, str)
-
-        mv(file, replace(file, ".template" => ""))
     end
     mkdir(joinpath(dir, "assets"))
-    cp(joinpath("assets", "img", "emojis", "surprise-pikachu.png"),
-       joinpath(dir, "assets", "thumbnail.png"))
+    # cp(joinpath("assets", "img", "emojis", "surprise-pikachu.png"),
+    #    joinpath(dir, "assets", "thumbnail.png"))
 
     @info "Do ctrl+f TODO to find regions to update for newly added project!"
 end
