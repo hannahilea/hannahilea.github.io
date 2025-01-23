@@ -1,6 +1,6 @@
 ---
 title: 'This website’s structure: A meta post'
-type: Project write-up
+type: Infrastructure documentation
 tags: [webdev, programming, metawriting]
 description: The structure of this website motivated and described.
 created: 2024-05-17

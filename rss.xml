@@ -105,6 +105,13 @@
       <guid>https://hannahilea.com/blog/video-timelapses-with-ffmpeg</guid>
       <description>Documentation for straightforward video editing task.</description>
     </item>
+    <item>
+      <title>RSS to inbox: Setting up a mailing list for blog updates</title>
+      <pubDate>Tue, 23 Jan 2025 12:56:00 EST</pubDate>
+      <link>https://hannahilea.com/blog/google-group-for-blog-updates</link>
+      <guid>https://hannahilea.com/blog/google-group-for-blog-updates</guid>
+      <description>Instructions for how to set up a mailing list to receive notifications about new posts, using RSS, IFTTT, and Google Groups.</description>
+    </item>
 
   </channel>
 </rss>
