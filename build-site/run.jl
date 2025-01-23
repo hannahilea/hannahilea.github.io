@@ -93,8 +93,9 @@ function tweak_html!!(text)
         contains(word, "href=") || return word
         contains(word, "href=\"#") && return word
         contains(word, "href=\"/") && return word
-        contains(word, "href=\"https://www.hannahilea.com") && return word
+        startswith(word, "href=\"https://www.hannahilea.com") && return word
         contains(word, "href=\".") && return word
+        contains(word, "href=\"{") && return word
         str = "target=\"_blank\" rel=\"noreferrer noopener\""
         return replace(word, "href="=> "$str href=")
     end
