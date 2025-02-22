@@ -112,6 +112,13 @@
       <guid>https://hannahilea.com/blog/google-group-for-blog-updates</guid>
       <description>Instructions for how to set up a mailing list to receive notifications about new posts, using RSS, IFTTT, and Google Groups.</description>
     </item>
+    <item>
+      <title>Pen Plotter diaries, chapter 1: LY Drawbot set up</title>
+      <pubDate>Sat, 22 Feb 2025 12:35:38 EST</pubDate>
+      <link>https://hannahilea.com/blog/drawbot-plotter-setup</link>
+      <guid>https://hannahilea.com/blog/drawbot-plotter-setup</guid>
+      <description>Setting up an LY Drawbot, from assembly to basic SVG plotting</description>
+    </item>
 
   </channel>
 </rss>
