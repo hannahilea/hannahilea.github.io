@@ -16,7 +16,7 @@ header: '<script async src="https://www.instagram.com/embed.js"></script>'
 [^quadrant]: I feel like there's probably some nice [quadrant matrix](https://psychology.stackexchange.com/questions/22038/what-is-this-type-of-graph-called) to be made here, but I'll leave that for another time. 
 
 --- 
-<br>
+
 
 ## Short and sweet 
 - **Shing Yin Khor's [*Make Little Guys: a (very brief) manifesto*](https://www.patreon.com/posts/make-little-guys-112268885)**
@@ -41,7 +41,6 @@ header: '<script async src="https://www.instagram.com/embed.js"></script>'
 
     Read the write-up, and then go and [generate some really really good random numbers of your own](https://rrgrng.org/)!
 
-<br>
 
 ## Read/listen/play
 
@@ -96,7 +95,6 @@ header: '<script async src="https://www.instagram.com/embed.js"></script>'
     I like it for both background and active listening; it would make an excellent roadtrip companion.I've been listening chronologically, but you can start with any episode and it'll be great. (You don't have to take [my word for it](https://joyzine.org/2023/06/09/radio-review-add-to-playlist-bbc-radio-4-interview-with-presenter-jeffrey-boakye/)!) 
 
 
-<br>
 
 ## On being a conscientious human
 
@@ -122,7 +120,6 @@ header: '<script async src="https://www.instagram.com/embed.js"></script>'
 
     >*We have to unearth that buried history.*
 
-<br>
 
 ## Intense but worth it
 
@@ -130,7 +127,6 @@ header: '<script async src="https://www.instagram.com/embed.js"></script>'
 
     I don't feel equipped to add commentary to this one right now, but I am glad I read it.
 
-<br>
 
 ## Light and fluffy
 
