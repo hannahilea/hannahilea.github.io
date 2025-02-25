@@ -1,11 +1,11 @@
 ---
-title: 'LY Drawbot setup: From a box of parts to drawing an SVG'
+title: 'LY Drawbot setup: From a box of parts to drawing SVGs'
 type: tutorial
-tags: [hardware, pen-plotter, cnc]
-description: 'Setting up an LY Drawbot, from assembly to basic SVG plotting'
-created: 2025-02-24
-updated: 2025-02-24
-published: Mon, 24 Feb 2025 20:00:00 EST
+tags: [hardware, pen-plotter, cnc, documentation]
+description: 'Write-up of getting started with a CNC pen plotter'
+created: 2025-02-25
+updated: 2025-02-25
+published: Tue, 25 Feb 2025 15:00:00 EST
 ---
 
 I recently acquired and assembled a pen plotter!
