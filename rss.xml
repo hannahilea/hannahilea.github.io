@@ -112,6 +112,13 @@
       <guid>https://hannahilea.com/blog/google-group-for-blog-updates</guid>
       <description>Instructions for how to set up a mailing list to receive notifications about new posts, using RSS, IFTTT, and Google Groups.</description>
     </item>
+    <item>
+      <title>LY Drawbot setup: From a box of parts to drawing SVGs</title>
+      <pubDate>Tue, 25 Feb 2025 15:00:00 EST</pubDate>
+      <link>https://hannahilea.com/blog/ly-drawbot-setup</link>
+      <guid>https://hannahilea.com/blog/ly-drawbot-setup</guid>
+      <description>Write-up of getting started with a CNC pen plotter</description>
+    </item>
 
   </channel>
 </rss>
