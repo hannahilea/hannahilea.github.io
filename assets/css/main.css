@@ -392,6 +392,12 @@ img.home-img {
       max-width: 100%;
     }
   }
+
+  h2,
+  h3 {
+    margin-top: 1.5em;
+    margin-bottom: .5em;
+  }
 }
 
 .alert {
