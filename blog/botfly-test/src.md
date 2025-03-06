@@ -67,7 +67,7 @@ For the sake of you, dear reader, I am not including a single photo of a botfly 
 
 ## Case study: A HackerNews botfly
 
-The situation that prompted the creation of this test: a [HackerNews (HN)](https://news.ycombinator.com/news) user is automatically cross-posting content to HN from a smaller tech community's feed ([lobste.rs](https://lobste.rs/)). Within minutes of a new post being made to lobste.rs, this account reposts it to HackerNews. This account does interact manually in the community at well, leaving the occasional non-automated comment.[^hn] [^hn2]
+The situation that prompted the creation of this test: a [HackerNews (HN)](https://news.ycombinator.com/news) user is automatically cross-posting content to HN from a smaller tech community's feed ([lobste.rs](https://lobste.rs/)). Within minutes of a new post being made to lobste.rs, this account reposts it to HackerNews. This account does interact manually in the community as well, leaving the occasional non-automated comment.[^hn] [^hn2]
 
 [^hn]: It doesn't succeed in cross-posting all posts; whether that is because it is only programmed to cross-post a selection of posts, or someone else (automated or not) previously posted the same link to HN, but it reposts enough (and quickly enough!) to convince me that it is highly unlikely to be fully or partially manual behavior.
 
@@ -173,7 +173,7 @@ If the user wants to course-correct, they could do a few things:[^course]
 
     Or if it is more than just annoying---causing harm or otherwise violating community practices---take it to a mod.
 
-    Or make sure the rest of the community is aware that a user that they have been *responding* to as if it were an individual human posting
+    Or make sure the rest of the community is aware of the behavior.
 
     ...or obsess about it and then write up a ridiculous number of words about the situation and then delete most of them and turn the remainder into a set of criteria that you share as a blog post, thereby soothing your peevish soul?
 
