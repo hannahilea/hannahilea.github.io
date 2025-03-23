@@ -4,11 +4,18 @@ type: Task documentation
 tags: [ffmpeg, instructions, editing, task]
 description: 'Documentation for straightforward video editing task.'
 created: 2025-01-21
-updated: 2025-01-21
+updated: 2025-03-23
 published: Tue, 21 Jan 2025 11:58:00 EST
 ---
 
-An artist friend took videos of her art creation process and asked for assistance converting them into per-artwork timelapse recordings. Let's document the steps for my future self!
+An artist friend took videos of her art creation process and asked for assistance converting them into per-artwork timelapse recordings. Here's one of them, post-conversion:
+
+<div class="centered-children">
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/fED_LFzGWjA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+
+Let's document the steps for my future self!
 
 #### Task
 
