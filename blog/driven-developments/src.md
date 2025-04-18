@@ -58,8 +58,8 @@ Need I define this one? Everyone I've mentioned it to has their own example of i
 The overarching theme is one of 
 
 > They said that I couldn't do it, so I went and did it
->
-> -- Connor Price
+><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- Connor Price
 
 and/or "I am doing this to prove them (the great them) wrong", and/or "they said not to do it this way so I did it this way", and/or "I warned you that this will go badly and you said to do it anyway" , and/or ... you get the picture. 
 
