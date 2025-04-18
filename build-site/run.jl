@@ -128,6 +128,7 @@ function generate_all_blogposts(; overwrite_existing=true)
         # contains(dir, "list") || continue
 
         md_file = joinpath(dir, "src.md")
+        isfile(md_file) || continue
         generate_blog_html(md_file; overwrite_existing)
     end
     return nothing
@@ -189,6 +190,7 @@ function get_all_blog_metadata()
         isequal(joinpath(BLOG_DIR, "__template"), dir) && continue
 
         md_file = joinpath(dir, "src.md")
+        isfile(md_file) || continue
         m = get_blog_metadata(md_file)
         push!(metadata, (; url="./" * basename(dir), dir=basename(dir), m...))
     end
