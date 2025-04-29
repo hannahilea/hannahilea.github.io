@@ -30,7 +30,8 @@ For my birthday my parents gifted me one of these kits, and I've been sitting on
 
 I wanted my flipbook to use drawings I'd made myself, but I also did not want to hand-draw 40 frames of an incrementally shifting scene. Parallax (and programming) to the rescue! 
 
-> *Parallax: the apparent displacement or the difference in apparent direction of an object as seen from two different points not on a straight line with the object.*   [[Merriam-Webster](https://www.merriam-webster.com/dictionary/parallax)]
+> *Parallax: the apparent displacement or the difference in apparent direction of an object as seen from two different points not on a straight line with the object.*   
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- [Merriam-Webster](https://www.merriam-webster.com/dictionary/parallax)
 
 Basically, relative motion between different objects or scenes provides information about how far away their respective contents are from one another and the viewer. If you look out the window of a train, the foreground view changes rapidly---trees whip by!---while the background view changes slowly: those mountains in the distance don't change much at all for long periods of time. 
 

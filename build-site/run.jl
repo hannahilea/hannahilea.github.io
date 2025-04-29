@@ -96,6 +96,7 @@ function tweak_html!!(text)
         startswith(word, "href=\"https://www.hannahilea.com") && return word
         contains(word, "href=\".") && return word
         contains(word, "href=\"{") && return word
+        startswith(word, "raw_href=") && return word[5:end]
         str = "target=\"_blank\" rel=\"noreferrer noopener\""
         return replace(word, "href="=> "$str href=")
     end
@@ -128,6 +129,7 @@ function generate_all_blogposts(; overwrite_existing=true)
         # contains(dir, "list") || continue
 
         md_file = joinpath(dir, "src.md")
+        isfile(md_file) || continue
         generate_blog_html(md_file; overwrite_existing)
     end
     return nothing
@@ -189,6 +191,7 @@ function get_all_blog_metadata()
         isequal(joinpath(BLOG_DIR, "__template"), dir) && continue
 
         md_file = joinpath(dir, "src.md")
+        isfile(md_file) || continue
         m = get_blog_metadata(md_file)
         push!(metadata, (; url="./" * basename(dir), dir=basename(dir), m...))
     end

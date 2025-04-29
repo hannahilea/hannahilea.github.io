@@ -99,17 +99,17 @@ How does this user's automated behavior in the HN community score?
 [^ranking]: [According to HN](https://news.ycombinator.com/newsfaq.html),
 
     > **How are stories ranked?**
-
+    > <br>
     > The basic algorithm divides points by a power of the time since a story was submitted. Comments in threads are ranked the same way.
-
+    > <br><br>
     > Other factors affecting rank include user flags, anti-abuse software, software which demotes overheated discussions, account or site weighting, and moderator action.
-
+    > <br><br>
     > **How is a user's karma calculated?**
-
+    > <br>
     > Roughly, the number of upvotes on their posts minus the number of downvotes. These don't match up exactly. Some votes are dropped by anti-abuse software.
-
+    > <br><br>
     > **Do posts by users with more karma rank higher?**
-
+    > <br>
     > No.
 
     I would love to know more about how the algorithm works, because I once saw this user's cross-post immediately land in 2nd place on the front page, within minutes of being posted, which must have been exceedingly good luck (my seeing it happen, that is, despite only looking into the cross-posting behavior on a couple of occasions).
@@ -153,7 +153,7 @@ If the user wants to course-correct, they could do a few things:[^course]
 
     Specifically, I agree with HN's [community user guidance](https://news.ycombinator.com/newsguidelines.html):
 
-    > "HN is a community—--users should have an identity that others can relate to."
+    > HN is a community—--users should have an identity that others can relate to.
 
     I think this applies to any other community that is based around conversational human interactions.
 

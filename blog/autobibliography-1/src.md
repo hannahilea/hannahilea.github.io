@@ -24,9 +24,9 @@ header: '<script async src="https://www.instagram.com/embed.js"></script>'
     From one of the most inspirational makers themself:
     
     > *Make little guys out of clay, out of wood, out of felt, out of iron, out of paper, out of pixels and code, but little guys have to be the work of your hands and the work of your heart.*
-
+    > <br><br>
     > *A little guy made without heart is uninhabited and will not have the correct little guy energy.*
-
+    > <br><br>
     > *You'll know.*
 
 
@@ -37,7 +37,7 @@ header: '<script async src="https://www.instagram.com/embed.js"></script>'
 - **Sam Wlody's ["really really good random number generator (rrgrng)"
 ](https://swlody.dev/Posts/really-really-good-random-number-generator-(rrgrng))**
 
-    >*"Computers are busy taking over people’s jobs with AI, so it’s important that humans even the playing field and start stealing jobs from computers at things that they are historically good at, like choosing random numbers."*
+    >*Computers are busy taking over people’s jobs with AI, so it’s important that humans even the playing field and start stealing jobs from computers at things that they are historically good at, like choosing random numbers.*
 
     Read the write-up, and then go and [generate some really really good random numbers of your own](https://rrgrng.org/)!
 
@@ -100,14 +100,14 @@ header: '<script async src="https://www.instagram.com/embed.js"></script>'
 
 - **Hazel Weakly's [*You Have One Voice*](https://hazelweakly.me/blog/you-have-one-voice/)**:
 
-    > *"Tech is not a vacuum, nor is it apolitical; regardless of how objective we might want to make an analysis of technology, the people who build it and use it and think about it remain. Those people are going to find part of their identity in the tech that they use, and that is a feature of humanity, not a bug. We should lean into that! It’s awesome! But it also means that when we belittle and attack technology, we are inevitably attacking groups of identities that choose to associate with that technology."*
+    > *Tech is not a vacuum, nor is it apolitical; regardless of how objective we might want to make an analysis of technology, the people who build it and use it and think about it remain. Those people are going to find part of their identity in the tech that they use, and that is a feature of humanity, not a bug. We should lean into that! It’s awesome! But it also means that when we belittle and attack technology, we are inevitably attacking groups of identities that choose to associate with that technology.*
 
     The whole thing is excellent.
 
 - **Caleb Hearth's [*Don't Get Distracted*](https://calebhearth.com/dont-get-distracted)**:
 
     >*I’m going to tell you about how I took a job building software to kill people.*
-
+    > <br><br>
     >*But don’t get distracted by that; I didn’t know at the time.*
 
     A timely read for anyone at (or looking for) a job, not limited to programmers. (h/t IR)
@@ -117,7 +117,7 @@ header: '<script async src="https://www.instagram.com/embed.js"></script>'
     Another unfortunately timely read.
 
     >*Book burning draws too much attention. In science fiction and fantasy, in comics, in media fandom, everybody was always here, but we have been disappeared over and over again. We stumble on ourselves in old books and magazines and fanzines, fading print, grainy black and white photos, 16 millimeter film, archives of abandoned GeoCities web sites. We remember again that we were here, they were here, I saw them, I knew them.*
-
+    > <br><br>  
     >*We have to unearth that buried history.*
 
 
