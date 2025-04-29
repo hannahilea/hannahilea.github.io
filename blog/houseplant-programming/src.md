@@ -1,11 +1,11 @@
 ---
 title: 'An ode to houseplant programming 🪴'
 type: Musing
-tags: [houseplant-programming]
-description: 'Waxing poetic about a new descriptor for hyperlocal software development'
-created: 2025-04-3
-updated: 2025-04-3
-published: Fri, 3 Apr 2025 15:19:51 EST
+tags: [phytoid, houseplant-programming]
+description: 'Waxing poetic about hyperlocal phytoid software development'
+created: 2025-04-28
+updated: 2025-04-28
+published: Mon, 28 Apr 2025 23:00:00 EST
 ---
 
 [Recurse Center (RC)](https://www.recurse.com/) peer [Ryan](https://rygoldstein.com) recently coined a phrase that I instantly fell in love with: *houseplant programming*.
@@ -28,67 +28,23 @@ At the risk of overexplaining and thus cheapening the analogy, I feel the need t
 </figure>
 </div>
 
-## TODO-TITLE
-
-TODO-add an example (here or later)
-
-
-## Programmer as horticulturalist
-
-Before we get to the self-reflective bit, here is a non-exhaustive list of parallels between houseplants and houseplant programs:
-
-- **A happy home**: I love having both plants and homemade projects in my living space. Sharing a space with them reminds me of things that I like about the world and myself. Exhibit A: Some of my houseplants. Exhibit B: One of my houseplant programming installations.
-
-<div class="centered-children">
-TODO-images
-<figure>
-<img src="./assets/fig-a.jpg" alt="TODO" />
-<figcaption style="text-align:right;font-size:smaller">Fig. A: One of my home's houseplant corrals.</figcaption>
-</figure>
-
-<figure>
-<img src="./assets/fig-b.jpg" alt="TODO" />
-<figcaption style="text-align:right;font-size:smaller">Fig. B: My home's flipdots installation, an example of houseplant programming.</figcaption>
-</figure>
-</div>
-
-- **Longevity**: Like my plants, I love my little projects and I want them to thrive, and I baby them a little bit to get them started. But also, if they don't work out? It isn't a big deal, into ~~the great compost bin in the sky~~ Github they go, where a hard-won line or two may be ~~composted~~ recycled into a future project. 
-
-- **Giftability**: It is delightful to ~~cultivate~~ program something for someone else, taking into account their ~~light~~ wifi configuration and willingness to ~~water regularly~~ debug future problems.
-
-- **Pet toxicity**: Just like some plants, some projects are practically poisonous to my cat and---if the cat had her way---should be rehomed with a pet-free pal.
-
-    <div class="centered-children">
-    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Un1VF6QwQ7E?si=TEJnxtiWZ5pBCiUU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-
-- **Propagation**: Clippings! I love to propagate my plants and share them with friends. Do you want a pilea or a spider plant or a nice philodendron? Let me know, I'll hook you up! Do you want to set up [your own pen plotter](../ly-drawbot-setup/) or make some quick and easy [screenshot memes](../meme-making/)? Awesome, I've written up my instructions and will do my best to set you up for success when you run/build/program your own self. 
-
-  And also, once that plant/code has taken up residence in your home, it is no longer my responsibility. I'd love to hear about what you did to help it thrive, and if it starts looking sad I'll gladly help you think through what might help, but if it never thrives I'm probably not going to lose sleep over it. 
-
-  Besides, once you've gotten as far as propogating the code/plant I've given you? You know about as much about the situation as I do---maybe more!---and now we can learn about the next steps together. Collaboration is one of my favorite aspects of both gardening and programming.
-
-- **Universalization**: I don't necessarily care to engineer my houseplants to grow in every environment---and similarly, I don't feel a need to make my houseplant code fully generalizable! While I would love to know what you did to make a propogated plant flourish in your home, and if those are changes I could apply , I'll happily do so---but I am not necessarily going to do that work on my own, absent some larger goal.
-
-- **Knowledge sharing**: I love reading about other people's houseplant projects. Do I want to take code cuttings for my own home? Occasionally! But mostly I just want to wander around and admire them, and hear about the woes encountered when figuring out how to help the code/plants thrive. I do not need to propogate someone's houseplant in my own home order to admire it, or just to learn from them that maybe I should consider a different watering scheme or fertilizer for my own existing plants. Same goes for their houseplant code. 
-
-- **Capitalism**: One person's houseplants are another person's plant nursery. One person's houseplant code is another person's B2B SAAS product. Enough said.
-
-- **Bugs**: Soil gnats. Where do they even come from?! It is unknowable. Similarly, smetimes my weather station shows me the icon for snow, even though it is currently April and the temperature isn't predicted to dip below 32. ¯\\\_(ツ)\_/¯ [^snowflake]
-
-    TODO-image-snowflake
-
-[^snowflake]: Okay, this one's not inherently specific to houseplant code! But the things I'm willing to do for my houseplants are different than the things I'd do for plants I was entrusted with professionally. Similarly, I am perfectly happy hacking together a janky working pipeline, waiting to see what breaks, and manually restarting a system that goes down. On a job? Nope, there'd probably be monitoring and tests and nice documentation for whoever needed to know how to provide care in my absence.
-
 ## When "It works on my machine" is the goal, not the excuse
 
-Things I have found myself saying about my projects, almost apologetically:
+Things I have found myself saying about some personal projects, almost apologetically:
 
 - It works for me, but...
 - It's held together with [string and electrical tape and visibly disorganized wires](../slide-whistle-trombone-champ-controller/)...
 - I have to do [manual restarts after the power goes off](../clapping-music-for-flip-disc-displays/)...
 
-In the world of houseplant programming[^potted] none of these statements are apology-worthy. In a workplace, about a project that is intended for productionization and mass dissemination? Sure, production-ready code---code that does a job, or provides the infrastructure for a job---needs to be some flavor of robust and tested and reliable. For a project that lives in my house and does what I need it to and periodically needs a little extra help? No biggie.
+In the world of houseplant programming none of these statements are apology-worthy. In a workplace, about a project that is intended for productionization[^productionization] and mass dissemination? Sure, production-ready code---code that has a job, or provides the infrastructure for a job---needs to be some flavor of robust and tested and reliable. For a project that lives in my house and does what I need it to and periodically needs a little extra help? No worries.
+
+[^productionization]: What is "production code"? Everyone seems to have their own non-standardized definition, but in general, it is code that is being actively used by someone other than its creator, such that some flavor of stability and uptime is expected. 
+
+    Or, my favorite definition, by way of Reddit:
+
+    > "Production code has a phone number to call when it breaks"
+    <span class="source">[[source]](https://www.reddit.com/r/datascience/comments/16jdvsn/what_does_production_code_mean_to_you)</span>
+
 
 [^potted]: Should it be "houseplant programming" or "houseplant programming 🪴"? Unless Ryan weighs in definitively, I'll keep using the two interchangeably.
 
@@ -104,69 +60,129 @@ Strong "Everything I do is the attitude of an award winner because I have won an
 
 Any code is production ready, if you redefine the scope of your production environment! 
 
+## Properties of houseplants, programmatic and chlorophyllous
+
+Before we get to the self-reflective bit,[^escape] here is a non-exhaustive list of parallels between my houseplants and my houseplant programs:
+
+[^escape]: As if you didn't know that was coming!
+
+- **A happy home**: I love having both plants and homemade projects in my living space. Sharing a space with them reminds me of things that I like about the world and about myself. 
+
+<div class="centered-children">
+<figure>
+<img src="./assets/plants.png" alt="Photo of a shelf full of plants." />
+<figcaption style="text-align:center;font-size:smaller">Exhibit A: Happy houseplants on a happy houseplant shelf.</figcaption>
+</figure>
+
+<figure>
+<img src="./assets/flipdots.png" alt="Photo of a flipdisc display with the number 73 and a sun symbol displayed." />
+<figcaption style="text-align:center;font-size:smaller">Exhibit B: Happy flipdisc installation on a happy flipdisc shelf.</figcaption>
+</figure>
+
+<figure>
+<img src="./assets/xbar.png" alt="Screenshot of computer menu with one line per emoji: duck, book, microscope, trophy." />
+<figcaption style="text-align:center;font-size:smaller">Exhibit C: Happy [xbar](https://github.com/matryer/xbar#get-started)-based utilities for launching common tasks and starting music playback, on a happy menu bar on my laptop.</figcaption>
+</figure>
+</div>
+
+- **Longevity**: Like my plants, I love my little projects and I want them to thrive, and I baby them a little bit to get them started. But also, if they don't work out? It isn't a big deal, into ~~the great compost bin in the sky~~ Github they go, where a hard-won line or two may be ~~composted~~ recycled into a future project. 
+
+<div class="centered-children">
+<figure>
+<img src="./assets/cat.png" alt="Photo of ceramic cat planter containing spider plant." />
+<figcaption style="text-align:center;font-size:smaller">This cat once had a cactus tail. Now it has a spiderplant tail.</figcaption>
+</figure>
+</div>
+
+- **Propagation**: Clippings! I love to propagate my plants and share them with friends. Do you want a pilea or a spider plant or a nice philodendron? Let me know, I'll hook you up! Similarly, do you want to set up [your own pen plotter](../ly-drawbot-setup/) or make some quick and easy [screenshot memes](../meme-making/)? Awesome, I try to document and share the code and steps for recreating most of my projects.
+
+  That said, once a plant/code has taken up residence in your home, it is no longer my responsibility. While I'd love to hear about what you did to help it thrive, and if it starts looking sad I'll gladly help you think through what might help, if it never thrives I'm probably not going to lose sleep over it. 
+
+  Besides, once you've gotten as far as propogating the code/plant I've given you, you'll know about as much about the situation as I do---maybe more---and now we can explore the next steps together.
+
+- **Pet toxicity**: Just like some plants, some projects are practically poisonous to my cat and---if the cat had her way---should be rehomed with a pet-free pal.
+
+<div class="centered-children">
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Un1VF6QwQ7E?si=TEJnxtiWZ5pBCiUU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+- **Universalization**: I don't care to engineer my houseplants to thrive in every environment---and similarly, I don't feel a need to make my houseplant code fully generalizable, until there is a more specific reason to do so.
+
+- **Knowledge sharing**: I love reading about other people's houseplant projects. While I occasionally take code cuttings for my own home, mostly I just want to wander around and admire their houseplants and learn more about the woes they encountered when figuring out how to help their code/plants thrive. 
+
+  I do not need to propagate someone's houseplant [code] in my own home order to admire it; I can learn to consider a different fertilizer or communication protocol without transplanting their program into my own home.
+
+- **Capitalism**: One person's houseplants are another person's plant nursery. One person's houseplant code is another person's B2B SaaS product. Enough said.
+
+- **Bugs**: Soil gnats. Where do they even come from?! It is unknowable. 
+
+  Sometimes my weather station shows me the icon for snow, even though it is currently April and the temperature isn't predicted to dip below 32. ¯\\\_(ツ)\_/¯ [^snowflake]
+
+[^snowflake]: Okay, so bugs aren't inherently specific to houseplant code, but still...
+
+- **Fun**: It is really, really fun to grow plants.[^except1] It is really really fun to write code.[^except2]
+
+[^except1]: Except when it isn't.
+[^except2]: Except when computer is mistaek.
+
 ## Not an idea, not yet a Platonic ideal
 
-While I build software as a career, I also like to muck about with code in service of other goals. When sharing those other projects, it has taken me a long time be able to talk about what my code does do without adding a zillion caveats about what the code *does not* do.
+While I build software as a career, I also like to muck about with code in service of other goals. When sharing those other projects it has taken me a long time be able to talk about what my code does do without adding a zillion caveats about what the code *does not* do.[^whoops]
 
-Why? I think somewhere along the line I picked up the unhealthy---and false!---assumption that it wasn't worth sharing my code unless it was ready to be reused easily by whoever was able to access it---specifically, not sharing that code until it was "production ready," for some arbitrary and ever-growing version of "production" that I never *quite* fully defined for myself.[^perfectionism]
+[^whoops]: I'm actively trying to cut down, both for my current self and for my younger self. My younger self didn't have the confidence of concrete professional proof that something she'd done meant she no longer had to prove herself so much---but she had just as much to share, and I wish she'd felt more empowered to take up more space in the world, rather than feeling cowed by the folks whe was impressed by all around her.
+
+Why? I think somewhere along the line I picked up the unhealthy---and false!---assumption that it wasn't worth sharing my code until it was ready to be reused easily by whoever was able to access it---specifically, not sharing that code until it was "production ready," for some arbitrary and ever-growing definition of "production" that I never *quite* fully defined for myself.[^perfectionism]
 
 [^perfectionism]: If this is something you resonate with, I encourage you to look up "perfectionism" and some techniques for remedying it. Ditto "capitalism". 🙃
 
-The ~~silliest~~ most insidious part of this polished-or-nothing approach is that I've never felt it towards other people's projects or code, only my own. I've loved hearing and reading about other people's ideas and attempts, regardless of whether the things they build could be reproduced or even if they resulted in any concrete output at all.
+In the last year or so when presenting personal projects I've taken to saying that they're prototypes. Prototyping is a thing that makes sense to many folks in the field---it involves a first pass at trying to build something, with output that *won't* be optimized, might be hacked together with glue and dreams, and possibly even "only works on my machine". But it's proof that it is worth spending more time on something, or *not* worth spending more time on something.[^kids]
 
-I've been actively working against this personal bias for several years now.
-One thing that I've found really helps me is having clear, predefined terminology for my current phases of activity. Even if I then have to define those term for someone who isn't yet familiar with them, merely having the terms in the first place provides an emotional safety net.[^rebranding]
-And thus, in the last year or so when presenting personal projects I've taken to saying that they're prototypes.
+[^kids]: As the kids say, fail fast.
 
-[^rebranding]: It may seem trite, but rebranding really has done wonders for my happiness---and therefore continued momentum---as a programmer. It feels bad to be monologing about a confusing situation, but [rubber ducking](TODO)? Great! I'm not necessarily thrilled to be slogging through cleaning up documentation, but I'm pretty happy to have [increased the bus factor](TODO)! 
+The thing is, a lot of the personal projects I've built are *not* prototypes, even if they share a lot of the same characteristics of a prototype: while they are a first-ish pass at bringing an idea to life, and they *could* be turned into a more generalizable or generic Thing, they're never designed to be more than that first pass with its context-specific configuration. 
 
-The thing is, a lot of the personal projects I've built are *not* prototypes, even if they share a lot of the same characteristics of a prototype: they are a first-ish pass at bringing an idea to life, they *could* be turned into a more generalizable or generic Thing, they probably involve some context-specific configuration or defaults, and they're sometimes held together [with string and gluetack](../slide-whistle-trombone-champ-controller/).
-
-While rebranding some of the projects I've built as "prototypes" has helped me feel better about sharing something not totally polished or fully documented with the world, I've also felt like the term somehow devalues what I've built. Sure, sometimes what I've built *is* a prototype! But sometimes, it's just a [weird little guy](https://www.patreon.com/posts/make-little-guys-112268885) of an idea, and doesn't need to be any more than what it already is. Just existing is enough,and I'm not necessarily interested in developing it into a less-weird less-little guy!
+While rebranding some of the projects I've built as "prototypes" helped me feel better about sharing something not totally polished, I've also felt like the term somehow devalues what I've built. Sure, sometimes what I've built *is* a prototype! But often, it isn't. It's a first pass, sure, but it's just a [weird little guy](https://www.patreon.com/posts/make-little-guys-112268885) of an idea, and doesn't need to promise to be any more than what it already is. Just existing is enough,and I'm not necessarily interested in developing it into a less-weird less-little guy!
 
 Thus: houseplant programming. Tiny software for just myself.
 
-## Bouquet programming 💐
+## Epilogue: Bouquet programming 💐
 
-I'm going to spare us all a further brainstorm of plant/code parallels, with the exception of one spin-off term: bouquet programming 💐. 
+I'm going to spare us all a further brainstorm of plant/code parallels, with the exception of one spin-off term: *bouquet programming* 💐. 
 
-I'm hereby defining bouquet programming as one-off code that is written for one specific user *to support one specific use-case*, in a non-recurring way. By definition, it needs no maintainance and is purely provided as documented proof of what once was living. Examples of bouquet programming: an analysis script in support of a one-time plot, a scrappy proof-of-concept or a [minimal reproducible example](https://en.wikipedia.org/wiki/Minimal_reproducible_example) written in service of a one-off use-case, etc. 
+I'm hereby defining bouquet programming as one-off code that is written for one specific user *to support one specific use-case*, in a non-recurring way. By definition, it needs no maintenance and simply provides proof of what once was one run. Examples of bouquet programming: an analysis script in support of a one-time plot, a scrappy proof-of-concept or a [minimal reproducible example](https://en.wikipedia.org/wiki/Minimal_reproducible_example).
 
-Bouquet programming is still worth writing home about (!) and sharing generously in the same ways as houseplant programming---or agricultural programming!---but is even *less* likely to work out-of-the-box than houseplant code, even if rerun by the same person who originally programmed it.
+Bouquet programming is still worth writing home about (!) and sharing generously in the same ways as houseplant programming---or agricultural programming!---but is even *less* likely to work off-the-shelf for a new application than houseplant code is, even if rerun by the same person who originally programmed it.
 
-Examples of my own bouquet code: a script I used to scrape book cover images for generating miniature book covers, code run in service of helping a friend [prepare timelapse videos of her marbling process](../video-timelapses-with-ffmpeg/), etc.
+Examples of my own bouquet code: a script I used to scrape book cover images for generating miniature book covers as part of a physical gift, code run in service of helping a friend [prepare timelapse videos of her marbling process](../video-timelapses-with-ffmpeg/), etc.
 
-While building bouquet projects, I still try to program with an eye towards future reproduction or generalization, while attempting to follow the [You Ain't Gonna Need It (YAGNI)](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it) principle as much as possible.
+<div class="centered-children">
+<figure>
+<img src="./assets/musidex.png" alt="Photo of rolodex with rainbow cards, open to a page with a QR code and an album cover." />
+<figcaption style="text-align:center;font-size:smaller">My Musidex, for which I wrote a semi-reusable script to convert a set of playlists into a set of album art, metadata, and QR code stickers.</figcaption>
+</figure>
+</div>
 
-[<img alt="Static Badge" src="https://img.shields.io/badge/&#x1F490;%20Bouquet%20-x?style=flat&label=Project%20type&color=1E1E1D">](https://www.hannahilea.com/blog/houseplant-programming)
+## Bonus: Garden stakes for horticulturalist programmers
 
-Source: TODO-fix updated url
+I made a status badge for houseplant repos---feel free to use it!
+
+[<img style="border:none" alt="Static Badge" src="https://img.shields.io/badge/%F0%9F%AA%B4%20Houseplant%20-x?style=flat&label=Project%20type&color=1E1E1D">](https://www.hannahilea.com/blog/houseplant-programming)
+
 ```
-<a href="https://www.hannahilea.com/blog/houseplant-programming">
-  <img alt="Static Badge" src="https://img.shields.io/badge/&#x1F490;%20Bouquet%20-x?style=flat&amp;label=Project%20type&amp;color=1E1E1D">
-</a>
-```
-
-### Further reading
-
-I quite enjoyed the sources Ryan cited in the original coinage, and encourage you to take a read. 
-
-TODO-update these link texts
-TODO-quote them
-- [https://www.inkandswitch.com/local-first/](https://www.inkandswitch.com/local-first/ )
-- [https://maggieappleton.com/home-cooked-software/](https://maggieappleton.com/home-cooked-software/)
-
-
-I made myself a status badge for my houseplant repos. Feel free to use it!
-
-[<img alt="Static Badge" src="https://img.shields.io/badge/%F0%9F%AA%B4%20Houseplant%20-x?style=flat&label=Project%20type&color=1E1E1D">](https://www.hannahilea.com/blog/houseplant-programming)
-
-Source: TODO-fix updated url
-```
-<a href="https://www.hannahilea.com/blog/houseplant-programming">
+<a raw_href="https://www.hannahilea.com/blog/houseplant-programming">
   <img alt="Static Badge" src="https://img.shields.io/badge/%F0%9F%AA%B4%20Houseplant%20-x?style=flat&amp;label=Project%20type&amp;color=1E1E1D">
 </a>
 ```
 
-***Thanks to [Ryan](TODO) for the coinage and Alex for introducing me to strategies for recognizing and countering perfectionism.***
+And a bonus badge for bouquet programming:
+
+[<img style="border:none" alt="Static Badge" src="https://img.shields.io/badge/&#x1F490;%20Bouquet%20-x?style=flat&label=Project%20type&color=1E1E1D">](https://www.hannahilea.com/blog/houseplant-programming)
+
+```
+<a raw_href="https://www.hannahilea.com/blog/houseplant-programming">
+  <img alt="Static Badge" src="https://img.shields.io/badge/&#x1F490;%20Bouquet%20-x?style=flat&amp;label=Project%20type&amp;color=1E1E1D">
+</a>
+```
+
+***Thanks to [Ryan](https://rygoldstein.com) for the coinage and to AF for introducing me to strategies for recognizing and countering perfectionism.***
 
