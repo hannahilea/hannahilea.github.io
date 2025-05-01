@@ -110,7 +110,7 @@ Before we get to the self-reflective bit,[^escape] here is a non-exhaustive list
 
 - **Knowledge sharing**: I love reading about other people's houseplant projects. While I occasionally take code cuttings for my own home, mostly I just want to wander around and admire their houseplants and learn more about the woes they encountered when figuring out how to help their code/plants thrive. 
 
-  I do not need to propagate someone's houseplant [code] in my own home order to admire it; I can learn to consider a different fertilizer or communication protocol without transplanting their program into my own home.
+  I do not need to propagate someone's houseplant [code] in my own home in order to admire it; I can learn to consider a different fertilizer or communication protocol without transplanting their program into my own home.
 
 - **Capitalism**: One person's houseplants are another person's plant nursery. One person's houseplant code is another person's B2B SaaS product. Enough said.
 
@@ -129,7 +129,7 @@ Before we get to the self-reflective bit,[^escape] here is a non-exhaustive list
 
 While I build software as a career, I also like to muck about with code in service of other goals. When sharing those other projects it has taken me a long time be able to talk about what my code does do without adding a zillion caveats about what the code *does not* do.[^whoops]
 
-[^whoops]: I'm actively trying to cut down, both for my current self and for my younger self. My younger self didn't have the confidence of concrete professional proof that something she'd done meant she no longer had to prove herself so much---but she had just as much to share, and I wish she'd felt more empowered to take up more space in the world, rather than feeling cowed by the folks whe was impressed by all around her.
+[^whoops]: I'm actively trying to cut down, both for my current self and for my younger self. My younger self didn't have the confidence of concrete professional proof that something she'd done meant she no longer had to prove herself so much---but she had just as much to share, and I wish she'd felt more empowered to take up more space in the world, rather than feeling cowed by the folks she was impressed by all around her.
 
 Why? I think somewhere along the line I picked up the unhealthy---and false!---assumption that it wasn't worth sharing my code until it was ready to be reused easily by whoever was able to access it---specifically, not sharing that code until it was "production ready," for some arbitrary and ever-growing definition of "production" that I never *quite* fully defined for myself.[^perfectionism]
 
