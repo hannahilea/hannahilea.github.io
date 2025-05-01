@@ -4,7 +4,7 @@ type: Musing
 tags: [phytoid, houseplant-programming]
 description: 'Waxing poetic about hyperlocal phytoid software development'
 created: 2025-04-28
-updated: 2025-04-28
+updated: 2025-05-1
 published: Mon, 28 Apr 2025 23:00:00 EST
 ---
 
