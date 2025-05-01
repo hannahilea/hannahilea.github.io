@@ -4,7 +4,7 @@ type: Musing
 tags: [phytoid, houseplant-programming]
 description: 'Waxing poetic about hyperlocal phytoid software development'
 created: 2025-04-28
-updated: 2025-04-28
+updated: 2025-05-1
 published: Mon, 28 Apr 2025 23:00:00 EST
 ---
 
@@ -23,7 +23,7 @@ At the risk of overexplaining and thus cheapening the analogy, I feel the need t
 
 <div class="centered-children">
 <figure>
-<img style="max-width:600px" src="./assets/larsson.jpg" alt="Painting of person with long hair watering many plants in a sunny window." />
+<img style="max-width:100vw" src="./assets/larsson.jpg" alt="Painting of person with long hair watering many plants in a sunny window." />
 <figcaption style="text-align:right;font-size:smaller"><a href="https://commons.wikimedia.org/wiki/File:Blomsterf%C3%B6nstret_av_Carl_Larsson_1894.jpg">Blomsterfönstret</a> by Carl Larsson, 1895. Public domain via Wikimedia Commons.</figcaption>
 </figure>
 </div>
@@ -110,7 +110,7 @@ Before we get to the self-reflective bit,[^escape] here is a non-exhaustive list
 
 - **Knowledge sharing**: I love reading about other people's houseplant projects. While I occasionally take code cuttings for my own home, mostly I just want to wander around and admire their houseplants and learn more about the woes they encountered when figuring out how to help their code/plants thrive. 
 
-  I do not need to propagate someone's houseplant [code] in my own home order to admire it; I can learn to consider a different fertilizer or communication protocol without transplanting their program into my own home.
+  I do not need to propagate someone's houseplant [code] in my own home in order to admire it; I can learn to consider a different fertilizer or communication protocol without transplanting their program into my own home.
 
 - **Capitalism**: One person's houseplants are another person's plant nursery. One person's houseplant code is another person's B2B SaaS product. Enough said.
 
@@ -129,7 +129,7 @@ Before we get to the self-reflective bit,[^escape] here is a non-exhaustive list
 
 While I build software as a career, I also like to muck about with code in service of other goals. When sharing those other projects it has taken me a long time be able to talk about what my code does do without adding a zillion caveats about what the code *does not* do.[^whoops]
 
-[^whoops]: I'm actively trying to cut down, both for my current self and for my younger self. My younger self didn't have the confidence of concrete professional proof that something she'd done meant she no longer had to prove herself so much---but she had just as much to share, and I wish she'd felt more empowered to take up more space in the world, rather than feeling cowed by the folks whe was impressed by all around her.
+[^whoops]: I'm actively trying to cut down, both for my current self and for my younger self. My younger self didn't have the confidence of concrete professional proof that something she'd done meant she no longer had to prove herself so much---but she had just as much to share, and I wish she'd felt more empowered to take up more space in the world, rather than feeling cowed by the folks she was impressed by all around her.
 
 Why? I think somewhere along the line I picked up the unhealthy---and false!---assumption that it wasn't worth sharing my code until it was ready to be reused easily by whoever was able to access it---specifically, not sharing that code until it was "production ready," for some arbitrary and ever-growing definition of "production" that I never *quite* fully defined for myself.[^perfectionism]
 
@@ -149,7 +149,7 @@ Thus: houseplant programming. Tiny software for just myself.
 
 I'm going to spare us all a further brainstorm of plant/code parallels, with the exception of one spin-off term: *bouquet programming* 💐. 
 
-I'm hereby defining bouquet programming as one-off code that is written for one specific user *to support one specific use-case*, in a non-recurring way. By definition, it needs no maintenance and simply provides proof of what once was one run. Examples of bouquet programming: an analysis script in support of a one-time plot, a scrappy proof-of-concept or a [minimal reproducible example](https://en.wikipedia.org/wiki/Minimal_reproducible_example).
+I'm hereby defining bouquet programming as one-off code that is written for one specific user *to support one specific use-case*, in a non-recurring way. By definition, it needs no maintenance and simply provides proof of what once was run. Examples of bouquet programming: an analysis script in support of a one-time plot, a scrappy proof-of-concept or a [minimal reproducible example](https://en.wikipedia.org/wiki/Minimal_reproducible_example).
 
 Bouquet programming is still worth writing home about (!) and sharing generously in the same ways as houseplant programming---or agricultural programming!---but is even *less* likely to work off-the-shelf for a new application than houseplant code is, even if rerun by the same person who originally programmed it.
 
