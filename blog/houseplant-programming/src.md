@@ -23,7 +23,7 @@ At the risk of overexplaining and thus cheapening the analogy, I feel the need t
 
 <div class="centered-children">
 <figure>
-<img style="max-width:600px" src="./assets/larsson.jpg" alt="Painting of person with long hair watering many plants in a sunny window." />
+<img style="max-width:100vw" src="./assets/larsson.jpg" alt="Painting of person with long hair watering many plants in a sunny window." />
 <figcaption style="text-align:right;font-size:smaller"><a href="https://commons.wikimedia.org/wiki/File:Blomsterf%C3%B6nstret_av_Carl_Larsson_1894.jpg">Blomsterfönstret</a> by Carl Larsson, 1895. Public domain via Wikimedia Commons.</figcaption>
 </figure>
 </div>
@@ -149,7 +149,7 @@ Thus: houseplant programming. Tiny software for just myself.
 
 I'm going to spare us all a further brainstorm of plant/code parallels, with the exception of one spin-off term: *bouquet programming* 💐. 
 
-I'm hereby defining bouquet programming as one-off code that is written for one specific user *to support one specific use-case*, in a non-recurring way. By definition, it needs no maintenance and simply provides proof of what once was one run. Examples of bouquet programming: an analysis script in support of a one-time plot, a scrappy proof-of-concept or a [minimal reproducible example](https://en.wikipedia.org/wiki/Minimal_reproducible_example).
+I'm hereby defining bouquet programming as one-off code that is written for one specific user *to support one specific use-case*, in a non-recurring way. By definition, it needs no maintenance and simply provides proof of what once was run. Examples of bouquet programming: an analysis script in support of a one-time plot, a scrappy proof-of-concept or a [minimal reproducible example](https://en.wikipedia.org/wiki/Minimal_reproducible_example).
 
 Bouquet programming is still worth writing home about (!) and sharing generously in the same ways as houseplant programming---or agricultural programming!---but is even *less* likely to work off-the-shelf for a new application than houseplant code is, even if rerun by the same person who originally programmed it.
 
