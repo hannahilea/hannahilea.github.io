@@ -36,7 +36,7 @@ Are you also feeling off? Why not [give yelling a try]("../../projects/yellow-sc
 ![Screenshot of palette with caption "Prepare some lemon yellow on your palette"](./assets/still-2.png)
 ![Screenshot of palette with caption "and let's put in some anguished screaming to it"](./assets/still-3.png)
 
-[^greg]: A labmate friend shared this yellow-as-stress-relief journey with me; I remember one day in particular when I went over to his desk to instigate a Timmies run, and found that his intense concentration wasn't focussed on programming, he was watching *Yellow Scream*....
+[^greg]: A labmate friend shared this yellow-as-stress-relief journey with me; I remember one day in particular when I went over to his desk to instigate a Timmies run, and found that his intense concentration wasn't focused on programming, he was watching *Yellow Scream*....
 
 [^rc]: I happened to be attending the [Recurse Center](http://www.recurse.com/) at the time, and the Thursday presentation where I shared it was one of the highlights of my batch. I just looked through my screenshots of the hype/enthusiasm/joy in that Zoom chat and am now [re-]filled with warm fuzzies.
 
