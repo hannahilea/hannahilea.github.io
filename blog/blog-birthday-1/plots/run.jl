@@ -4,10 +4,12 @@ using WordCloud
 using Images
 using CairoMakie
 using CairoMakie: Axis
+using Git
 
 const ASSET_DIR = joinpath(@__DIR__, "..", "assets")
 const SITE_ROOT = joinpath(@__DIR__, "..", "..", "..")
 const BLOG_DIR = joinpath(SITE_ROOT, "blog")
+const git = Git.git()
 
 function process_md(path)
     yaml_dict = YAML.load_file(path)
@@ -15,6 +17,8 @@ function process_md(path)
     date_pretty = let
         Dates.format(Date(string(date)), dateformat"d u yyyy")
     end
+
+    tags = join(yaml_dict["tags"], " ")
 
     contents = let
         lines = readlines(replace(path, "src.md" => "index.html"))
@@ -29,7 +33,7 @@ function process_md(path)
         c = replace(c, "\n" => " ")
         html2text(c)
     end
-    return (; contents, date, date_pretty, name=basename(dirname(path)))
+    return (; contents, tags, date, date_pretty, name=basename(dirname(path)))
 end
 
 # 1. Collect all the metadata from each markdown post 
@@ -37,14 +41,7 @@ src_files = filter!(isfile, joinpath.(readdir(BLOG_DIR; join=true), "src.md"))
 md_files = map(process_md, src_files)
 
 # 2. Create a word cloud for each post 
-function wordcloud_from_post(text, id; asset_dir=ASSET_DIR)
-    # words = lowercase.(text)
-    words = text
-
-    # stopwords_extra = ["↩︎"]
-
-    # See https://github.com/guo-yong-zhi/WordCloud-Gallery/blob/main/README.md 
-    # for styling options
+function wordcloud_from_post(words, id; asset_dir=ASSET_DIR)
     wc = paintcloud(words;
                     mask=shape(box, 500, 400; cornerradius=2),
                     masksize=:original,
@@ -52,10 +49,8 @@ function wordcloud_from_post(text, id; asset_dir=ASSET_DIR)
                     backgroundcolor="linen",
                     angles=(0, 45, 90),
                     fonts=["Tahoma"],
-                    stopwords_extra,
                     density=0.7,
                     maxnum=500)
-    # display(wc)
     save(joinpath(asset_dir, "wc-$(id).png"), wc)
     return wc
 end
@@ -71,7 +66,7 @@ wordcloud_from_post(join(f.contents for f in md_files), "combo")
 ys = [length(f.contents) for f in md_files]
 
 # okay this is dumb, but it seems like makie and date-based axes don't play 
-# nice. so do the dumb thing.
+# nice? so do the dumb thing.
 daily = collect(Date(2024, 5, 1):Day(1):Date(2025, 6, 1))
 xs = [findfirst(==(f.date), daily) for f in md_files]
 monthly = collect(Date(2024, 5, 1):Month(1):Date(2025, 6, 1))
@@ -102,12 +97,61 @@ ax = Axis(f[1, 1];
           xticks=(monthly_ticks, monthly_labels),
           xticklabelrotation=0.3)
 barplot!(ax, xs, ys;
-         strokewidth=.5,
+         strokewidth=0.5,
          strokecolor=:white,
          width=3,
          color="#000080",);
-# f
 save(joinpath(ASSET_DIR, "timeline.png"), f)
 
+# 4. Make a wordcloud chart for tags 
+tags = let
+    t = split(join((f.tags for f in md_files), " "), " ")
+    # WordCloud.jl is goofy about plurals, and treats .js like a plural 
+    # I don't have time to fix it at the source, so here's a workaround
+    map(x -> x == "p5.js" ? "'p5.js'" : x, t)
+end
+wc = paintcloud(tags;
+                mask=shape(box, 500, 300; cornerradius=2),
+                masksize=:original,
+                colors=:rainbow,
+                backgroundcolor="linen",
+                angles=(0),
+                fonts=["Tahoma"])
+save(joinpath(ASSET_DIR, "wc-tags.png"), wc)
 
-# 4. Make some more plots!
+# 5. Make a plot based on git commits 
+# ...not actually sharing this one because I don't love the styling and don't have 
+# additional interesting narrative around it.
+
+logs = split(chomp(read(`$git log main --date=short --pretty='format:%ad %s' --since="2024-05-01"`,
+                        String)), "\n")
+commits = map(logs) do log
+    return date_str, subj = split(log, " "; limit=2)
+end
+
+# We're using the same daily and monthly info as the above plot!
+commit_xs = [findfirst(==(first(c)), string.(daily)) for c in commits]
+commit_ys = [1 for _ in commit_xs]
+
+f = Figure(; size=(800, 150))
+ax = Axis(f[1, 1];
+          title="Timeline of www.hannahilea.com changes",
+          xlabel="Contribution date",
+          xticks=(monthly_ticks, monthly_labels),
+          xticklabelrotation=0.3)
+hideydecorations!(ax)
+
+vlines!(ax, commit_xs;
+        #  marker=:vline,
+        #  markersize=5,
+        #  strokecolor=:white,
+        #  strokewidth=1,
+        color="#000080", label="Contribution");
+vlines!(ax, xs;
+        color=:tomato,
+        #  marker=:vline,
+        #  markersize=10,
+        #  strokewidth=3,
+        #  color=RGBA(1, 0, 0, 0),
+        label="Publish");
+# save(joinpath(ASSET_DIR, "timeline-multi.png"), f);

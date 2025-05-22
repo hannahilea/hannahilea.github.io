@@ -1,7 +1,7 @@
 ---
-title: 'Happy birthday to this blog: Thoughts and plots!'
+title: 'Happy birthday to this blog---thoughts and plots!'
 type: musing
-tags: [TODO]
+tags: [meta, data-viz, writing-on-writing]
 description: 'TODO'
 created: 2025-05-20
 updated: 2025-05-20
@@ -35,26 +35,38 @@ header: '<style>
 </style>'
 ---
 
-It has been almost exactly a year since I finished my batch at the Recurse Center, and a little over a year since I started ~~doing stuff and bragging about it~~ writing about my projects publicly on this site. 
+It has been almost exactly a year since I finished my batch at the Recurse Center, and a little over a year since I started ~~doing stuff and bragging about it~~ sharing and writing up my projects publicly on this site. 
 
 I wasn't sure that I'd want to---or manage to---write consistently, much less publish, but I actually kind of have?
 
 ## Some plots, in no particular order
 
 <div class="plots">
-TODO-time series on blog post
-
-TODO-plot on charles's IBP analysis
-
-TODO-plot scatter date v number of words
-
 ![Plot of wordcount per blog post over time](assets/timeline.png)
+
+My first post, a meta-post on the site itself, was on May 19 last year. Then crickets, for months.
+
+What changed in mid-September---why nothing for months, and then a whole cluster of posts? That was directly attributable to a September 2 hang with [cceckamn](TODO) and [shae](TODO), who asked a bunch of questions about my flipdots project and then strongly encouraged me to write about it. As you can see, having even just that one post up unblocked the dam, so to speak. 
+
+What happened in November? Some family visits, some travel, some being sick. Some working on projects but not writing about them. It's also interesting (to me!) to see my publication rate decelerate towards the end of January as my job hunt and some contracting work---and later, employment---ramped up. I've continued to attend a weekly writing group that's helped keep at least a little continued writing momentum. 
+
+That said, I don't actually believe that "time spent writing" correlates to "number of words published" or "timing of words published"; my writing timing these days is still pretty scattered and unpredictable, which is something I'm actively frustrated by and focusing on. I don't have a great way to show that here, so you'll have to take my word for it.
+
+***
+
+What have I been writing about? Good question. I haven't really figured out my tag game here[^tags], so this wordcloud of tags from all the posts isn't necessarily a *great* view into it, but it is *a* view:
+
+[^tags]: Not the least of which is the fact that you can't currently search the site a per-tag basis. Yet! 
+
+![Wordcloud plot for all post tags.](assets/wc-tags.png)
+
+A wordcloud of all the words in all the posts provides a more verbose but not necessarily better (!) view: 
 
 [![Wordcloud plot for all posts combined.](assets/wc-combo.png)](..)
 
 </div>
 
-Per-post wordclouds: 
+...and per-post wordclouds: 
 <div class="wordclouds">
 [![Wordcloud plot for Site Structure post.](assets/wc-1-site-structure.png)](../site-structure/)
 [![Wordcloud plot for Clapping Music post.](assets/wc-2-clapping-music-for-flip-disc-displays.png)](../clapping-music-for-flip-disc-displays/)
@@ -87,9 +99,7 @@ Per-post wordclouds:
 - Having a dedicated cheerleading squad to encourage the writing-up of projects has been key. Hat tip especially to Charles and Shae, but also any number of Recursers (and others!) who've chatted about an in-progress project with me and encouraged me to write it up. Shae and Charles were the impetus for my first post on FlipDots, which got such a great reception that it provided the dopamine runway for the next several posts. Shae's mantra is "Do something, brag about it" which is a good mantra, but he also embodies "When your friends do things, brag about them" (and/or, encourage them to brag about themselves) which I've found particularly useful when it comes to writing.
 - Having a dedicated and enthusiastic audience. Most of my posts are written with at least one specific person in mind who I think would appreciate the project---a different person based on the post!---and while it has been fun to share with them, it has also been affirming to feedback from folks in the RC Zulip. Sure, I write for me, but I don't *only* write for me.
 - My original goal with the structure of the website was to allow me to write posts in markdown, publish them myself, and get out of my own way---and I'll say that has worked out pretty well. I have spent relatively little time changing out the structure or function of the site itself, relative to the time I've spent writing/editing. Through a rough Vibes measurement, I've managed to follow cceckman's investment blogging protocol (IBP) (https://cceckman.com/writing/publish-then-program/) pretty well. 
-  I don't have a great way to assess this, as numbers of commits and numbers of lines changed in service of PRs are both kind of flaky measures here, but looking at a rough plot and taking my word that FOO, _____
-
-- It wasn't the point of the thing, but I did learn some stuff about CSS and javascript and RSS feeds, in order to set this site up. Which feels good! 
+- Weekly writing group has been lovely. 
 
 ### The neutral
 
@@ -117,6 +127,3 @@ Even if I never publish another post to this site, I feel good about how much I'
 Last but not least, thank you for reading! 
 
 [^start] Not sure how to start? I recommend [tinylogger](www.tinylogger.com)! I use it to drafting my posts and then move them to a separate site to publish, but it supports publishing directly from there!
-
-
-***Thanks to TODO.***
