@@ -1,0 +1,8 @@
+[deps]
+CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
+Git = "d7ba0133-e1db-5d97-8f8c-041e4b3a1eb2"
+ImageInTerminal = "d8c32880-2388-543b-8c61-d9f865259254"
+Images = "916415d5-f1e6-5110-898d-aaa5f9f070e0"
+WordCloud = "6385f0a0-cb03-45b6-9089-4e0acc74b26b"
+YAML = "ddb6d928-2868-570f-bddf-ab3f9cf99eb6"
