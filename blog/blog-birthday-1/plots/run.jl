@@ -37,7 +37,8 @@ function process_md(path)
     end
     wordcount = length(contents)
     footnotecount = length(collect(eachmatch(r"↩︎", contents)))
-    return (; contents, wordcount, footnotecount, tags, date, date_pretty, name=basename(dirname(path)))
+    return (; contents, wordcount, footnotecount, tags, date, date_pretty,
+            name=basename(dirname(path)))
 end
 
 # 1. Collect all the metadata from each markdown post 
@@ -62,7 +63,6 @@ end
 sort!(md_files; by=x -> x.date)
 for (i, f) in enumerate(md_files)
     @info f.name
-    i < 18 && continue
     wordcloud_from_post(f.contents, "$i-$(f.name)")
 end
 wordcloud_from_post(join(f.contents for f in md_files), "combo")
@@ -147,17 +147,9 @@ ax = Axis(f[1, 1];
 hideydecorations!(ax)
 
 vlines!(ax, commit_xs;
-        #  marker=:vline,
-        #  markersize=5,
-        #  strokecolor=:white,
-        #  strokewidth=1,
         color="#000080", label="Contribution");
 vlines!(ax, xs;
         color=:tomato,
-        #  marker=:vline,
-        #  markersize=10,
-        #  strokewidth=3,
-        #  color=RGBA(1, 0, 0, 0),
         label="Publish");
 # save(joinpath(ASSET_DIR, "timeline-multi.png"), f);
 
@@ -177,10 +169,11 @@ end
 all_content = join((f.contents for f in md_files), " ")
 ex_count = length(collect(eachmatch(r"!", all_content)))
 per_count = length(collect(eachmatch(r".", all_content)))
-@info "Punctiation:" ex_count per_count ratio=(per_count/ex_count)
+@info "Punctiation:" ex_count per_count ratio = (per_count / ex_count)
 
-for f in sort(md_files; by=x->x.date)
-    ratio = Int(round(length(collect(eachmatch(r".", f.contents))) / length(collect(eachmatch(r"!", f.contents)))))
+for f in sort(md_files; by=x -> x.date)
+    ratio = Int(round(length(collect(eachmatch(r".", f.contents))) /
+                      length(collect(eachmatch(r"!", f.contents)))))
     # @info f.date_pretty ratio f.name
     println(ratio)
 end
