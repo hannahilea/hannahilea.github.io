@@ -1,3 +1,5 @@
+# Script for generating the plots for blog-birthday-1 post
+
 using Dates
 using YAML
 using WordCloud
@@ -33,7 +35,9 @@ function process_md(path)
         c = replace(c, "\n" => " ")
         html2text(c)
     end
-    return (; contents, tags, date, date_pretty, name=basename(dirname(path)))
+    wordcount = length(contents)
+    footnotecount = length(collect(eachmatch(r"↩︎", contents)))
+    return (; contents, wordcount, footnotecount, tags, date, date_pretty, name=basename(dirname(path)))
 end
 
 # 1. Collect all the metadata from each markdown post 
@@ -58,6 +62,7 @@ end
 sort!(md_files; by=x -> x.date)
 for (i, f) in enumerate(md_files)
     @info f.name
+    i < 18 && continue
     wordcloud_from_post(f.contents, "$i-$(f.name)")
 end
 wordcloud_from_post(join(f.contents for f in md_files), "combo")
@@ -155,3 +160,27 @@ vlines!(ax, xs;
         #  color=RGBA(1, 0, 0, 0),
         label="Publish");
 # save(joinpath(ASSET_DIR, "timeline-multi.png"), f);
+
+# 6. Some stats 
+for f in sort(md_files; by=x -> x.wordcount)
+    @info f.wordcount f.name
+end
+
+footnotes = [length(collect(eachmatch(r"↩︎", f.contents))) for f in md_files]
+
+for f in sort(md_files; by=x -> x.footnotecount)
+    @info f.footnotecount f.name
+end
+
+@info "Total words: $(sum(x -> x.wordcount, md_files))"
+
+all_content = join((f.contents for f in md_files), " ")
+ex_count = length(collect(eachmatch(r"!", all_content)))
+per_count = length(collect(eachmatch(r".", all_content)))
+@info "Punctiation:" ex_count per_count ratio=(per_count/ex_count)
+
+for f in sort(md_files; by=x->x.date)
+    ratio = Int(round(length(collect(eachmatch(r".", f.contents))) / length(collect(eachmatch(r"!", f.contents)))))
+    # @info f.date_pretty ratio f.name
+    println(ratio)
+end
