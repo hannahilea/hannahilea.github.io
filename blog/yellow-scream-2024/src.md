@@ -29,7 +29,7 @@ Earlier this year[^rc] I watched the video and then wanted to do some of my *own
 <p style="text-align: center">***</p>
 
 Today feels like an apt day to share both the original performance piece and my interactive homage to it.
-Are you also feeling off? Why not [give yelling a try]("../../projects/yellow-scream/")! To quote Kim Beom, 
+Are you also feeling off? Why not [give yelling a try](../../projects/yellow-scream/)! To quote Kim Beom, 
 
 > *Prepare some lemon yellow on your palette, and let's put in some anguished screaming to it.*
 
