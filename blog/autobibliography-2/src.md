@@ -5,7 +5,7 @@ tags: [autobibliography, musings]
 description: 'Link round-up'
 created: 2025-05-22
 updated: 2025-05-22
-published: Thu, 22 May 2025 20:30:00 EST
+published: Thu, 22 May 2025 20:45:00 EST
 header: '<script async src="https://www.instagram.com/embed.js"></script>'
 ---
 
@@ -23,7 +23,7 @@ header: '<script async src="https://www.instagram.com/embed.js"></script>'
 
     You are a young girl visiting your grandparents on their Mediterranean island for the week. You run around taking photos of birds, cleaning up trash, and advocating for environmental restoration.
 
-    It is beautiful and calming to look at and listen to, and easy to play. This was my second time through, and it was just as delightful as the first. If you are a person who doesn't consider themselves a game person, Alba may change your mind.
+    It is beautiful and calming to look at and listen to, and easy to play. This was my second time through, and it was just as delightful as the first. If you are a person who doesn't consider themselves a game person, Alba may change your mind. (h/t DK)
     
 <div class="centered-children">
 <iframe
@@ -40,7 +40,7 @@ header: '<script async src="https://www.instagram.com/embed.js"></script>'
 
 - **Online word game [Pedantle](https://pedantle.certitudes.org/)** (and **[Cemantle](https://cemantle.certitudes.org/)**)
 
-    This game is the daily bane of my existence, in a good way. Every day, there's a new Wikipedia page to identify, word by grueling word. The healthy way to play is to stop when you've guessed the Wikipedia page. Or you can keep going to try to guess *all* the words. 🙃 Luckily, there's only one new entry to guess every 24 hours?
+    This game is the daily bane of my existence, in a good way. Every day, there's a new Wikipedia page to identify, word by grueling word. The healthy way to play is to stop when you've guessed the Wikipedia page. Or you can keep going to try to guess *all* the words. 🙃 Luckily, there's only one new entry to guess every 24 hours? (h/t ÉV)
 
     ![Animated gif of playing the game Cemantle, guessing words to fill in an otherwise empty template for filling in each word of the day's wikipedia entry](./assets/cemantle.gif)
 
@@ -62,7 +62,7 @@ header: '<script async src="https://www.instagram.com/embed.js"></script>'
     > playing several scenes where you’ll answer questions, then wrapping with a short debrief. Read
     > these instructions aloud as you work through the larp.
     
-    Who wouldn't want to be *Totinos, a Frog therapist*?! If you know me irl and want to play, let's make it happen!
+    Who wouldn't want to be *Totinos, a Frog therapist*?! If you know me irl and want to play, let's make it happen! (h/t EM)
 
 
 ## Small delights
@@ -108,6 +108,8 @@ header: '<script async src="https://www.instagram.com/embed.js"></script>'
     > **3. WHAT HAPPENS WHEN YOU EAT TOO MANY FROGS**</br>
     > **4. BAD RELATIONSHIPS AND SMALL PONDS**</br>
     > **5. "COUGH UP THAT FROG,” HE SAID TO THE MIRROR**</br>
+
+    (h/t ÉV)
 
 - **Victoria Kirst's [*How to draw a cover: An essay against AI art*](https://vrklovespaper.substack.com/p/how-to-draw-a-cover-an-essay-against)**
 
