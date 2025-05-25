@@ -2,7 +2,7 @@
 // Original p5 sketch https://editor.p5js.org/hannahilea/sketches/gVy8QHQkv
 
 const params = {
-  // micSensitivity: 4.0, #TODO REPLACE
+  windRatio: 1.0,
 };
 
 // Set up param gui
@@ -13,81 +13,93 @@ document.getElementById("gui-container").appendChild(gui.domElement);
 gui.open(false);
 
 // Add params to param gui
-// gui.add(params, 'micSensitivity', 0.01, 30, 2); #TODO
+gui.add(params, 'windRatio', 0.01, 80.0, 1).name("Wind speed");
 
-let mobiles = []
+let strands = []
 // let colors = ['red', 'yellow', 'yellow', 'blue', 'blue', 'blue']
 let colors = ['DeepSkyBlue', 'MediumBlue', 'MediumBlue', 'MediumBlue', 'gold', 'goldenRod']
 
 function setup() {
   let canvasElement = document.getElementById("p5-canvas");
-  createCanvas(windowWidth, getCanvasHeight(), WEBGL, canvasElement);
+  createCanvas(windowWidth, calculateCanvasHeight(), WEBGL, canvasElement);
   
-  let s = new Mobile(0);
-  fillMobile(s);
-  mobiles.push(s);
+  let s = new Strand(0);
+  fillStrand(s);
+  strands.push(s);
 }
 
-function getCanvasHeight() {
-  return 1 + windowHeight - document.getElementById("project-body").offsetTop;
+function calculateCanvasHeight() {
+  return windowHeight - document.getElementById("project-body").offsetTop;
+}
+
+function calculateCanvasYOffset() {
+  elem = document.getElementById("project-header");
+  return parseInt(elem.offsetHeight) + parseInt(elem.offsetTop)
 }
 
 function windowResized() {
   let canvasElement = document.getElementById("p5-canvas");
-  resizeCanvas(windowWidth, getCanvasHeight(), canvasElement);
+  resizeCanvas(windowWidth, calculateCanvasHeight(), canvasElement);
 
-  for (let i = 0; i < mobiles.length; i++) {
-     fillMobile(mobiles[i]) 
+  for (let i = 0; i < strands.length; i++) {
+     fillStrand(strands[i]) 
   }
 }
 
 function draw() {
   background('linen');
-  for (let i = 0; i < mobiles.length; i++) {
-    drawMobile(mobiles[i]);
+  for (let i = 0; i < strands.length; i++) {
+    drawStrand(strands[i]);
   }
 }
 
-function mouseClicked() {
-  console.log(mouseX);
-  let s = new Mobile(mouseX - windowWidth/2);
-  fillMobile(s);
-  mobiles.push(s);
+function mouseClicked(event) {
+  let overCanvas = event.clientY > calculateCanvasYOffset();
+  if (overCanvas) {
+    console.log("here we are");
+    console.log(mouseX);
+    let s = new Strand(mouseX - windowWidth/2);
+    fillStrand(s);
+    strands.push(s);
+  }
 }
 
-function doubleClicked() {
-  mobiles = [];
+function doubleClicked(event) {
+  let overCanvas = event.clientY > calculateCanvasYOffset();
+  if (overCanvas) {
+    strands = []; // Clear strands
+  }
 }
 
-function Mobile(x) {
+function Strand(x) {
   this.pieces = [];
   this.x = x;
   this.yEmpty = random(8, 14);
 }
 
-function fillMobile(mobile) {
-  while (mobile.yEmpty < windowWidth) {
+function fillStrand(strand) {
+  while (strand.yEmpty < windowWidth) {
     if (random(1, 10) > 0) {
-      addCircle(mobile, random(20, 50), random(colors));
+      addCircle(strand, random(20, 50), random(colors));
     } else {
-      addConcentric(mobile, random(20, 50), random(colors), random(colors));
+      addConcentric(strand, random(20, 50), random(colors), random(colors));
     }
   }
 }
 
-function addCircle(mobile, radius, colorFill) {
+function addCircle(strand, radius, colorFill) {
   // console.log("CIRCLE!")
-  mobile.pieces.push(new Piece(mobile.yEmpty + radius, radius, colorFill, 0))
-  mobile.yEmpty += 2 * radius;
-  mobile.yEmpty += random(10, 20);
+  strand.pieces.push(new Piece(strand.yEmpty + radius, radius, colorFill, 0))
+  strand.yEmpty += 2 * radius;
+  strand.yEmpty += random(10, 20);
 }
 
-function addConcentric(mobile, radius, colorFillOuter, colorFillInner) {
+function addConcentric(strand, radius, colorFillOuter, colorFillInner) {
   // console.log("CONCENTRIC!")
-  mobile.pieces.push(new Piece(mobile.yEmpty + radius, radius, colorFillOuter, 2 + radius/2))
-  mobile.pieces.push(new Piece(mobile.yEmpty + radius, -2 + radius/2, colorFillInner, 0))
-  mobile.yEmpty += 2 * radius;
-  mobile.yEmpty += random(10, 20);
+  strand.pieces.push(new Piece(strand.yEmpty + radius, radius, colorFillOuter, 2 + radius/2))
+  strand.pieces.push(new Piece(strand.yEmpty + radius, -2 + radius/2, colorFillInner, 0))
+  strand.yEmpty += 2 * radius;
+  strand.yEmpty += random(10, 20);
 }
 
 function Piece(yCenter, radius, colorFill, innerRadius) {
@@ -98,18 +110,18 @@ function Piece(yCenter, radius, colorFill, innerRadius) {
   this.rotateRatio = random(0.001, 0.01)
 }
 
-function drawMobile(mobile) {
+function drawStrand(strand) {
   stroke('navy');
-  line(mobile.x, -windowHeight/2, mobile.x, windowHeight/2);
+  line(strand.x, -windowHeight/2, strand.x, windowHeight/2);
   noStroke();
   
-  for (let i = 0; i < mobile.pieces.length; i++) {
-    let p = mobile.pieces[i];
+  for (let i = 0; i < strand.pieces.length; i++) {
+    let p = strand.pieces[i];
     // console.log(p)
     
     push();
-    translate(mobile.x, 0);
-    rotateY(frameCount * p.rotateRatio);
+    translate(strand.x, 0);
+    rotateY(frameCount * p.rotateRatio * params.windRatio);
     if (p.innerRadius > 0) {
       beginClip({ invert: true })
       circle(0, p.yCenter - windowHeight/2, p.innerRadius * 2);
