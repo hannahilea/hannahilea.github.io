@@ -1,9 +1,9 @@
 virtual-gallery:
-  - project: Vertical Mobile
-    url: ./vertical-mobile
-    thumbnail_url: "./thumbnails/TODO.png"
+  - project: "Sketch: Circle strands"
+    url: ./circle-strands
+    thumbnail_url: "./thumbnails/circle-strand.png"
     year: 2025
-    description: 'Interactive hanging mobile visualization.'
+    description: 'Interactive wind mobile.'
 
   - project: Flock chorus
     url: ./flock-chorus
