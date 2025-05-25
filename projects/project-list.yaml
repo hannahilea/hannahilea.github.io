@@ -1,4 +1,10 @@
 virtual-gallery:
+  - project: Vertical Mobile
+    url: ./vertical-mobile
+    thumbnail_url: "./thumbnails/TODO.png"
+    year: 2025
+    description: 'Interactive hanging mobile visualization.'
+
   - project: Flock chorus
     url: ./flock-chorus
     thumbnail_url: "./thumbnails/flock.png"
