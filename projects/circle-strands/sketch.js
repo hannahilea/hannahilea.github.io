@@ -91,7 +91,7 @@ function Strand(x) {
 }
 
 function fillStrand(strand) {
-  while (strand.yEmpty < windowWidth) {
+  while (strand.yEmpty < calculateCanvasHeight()) {
     if (random(1, 100) > params.concentricRatio) {
       addCircle(strand, random(20, 50), random(colors));
     } else {
