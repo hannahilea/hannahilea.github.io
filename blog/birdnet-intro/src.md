@@ -26,7 +26,7 @@ Thanks to the [BirdNET model](https://birdnet.cornell.edu/) trained and released
 
 ![Screenshot of bird detection bar chart from May 6](./assets/may6.png)
 
-We can see that the House Sparrows (*Passer domesticus*) chorp from dawn to dusk, [5am-6pm); that a Blue Jay (*Cyanocitta cristata*) shows up around 4pm and just does *not* stop hollering for about an hour; and that our American Robin (*Turdus migratorius*) friends make a brief stopover shortly after 5am.
+We can see that the House Sparrows (*Passer domesticus*) chorp from dawn to dusk, 5am-6pm; that a Blue Jay (*Cyanocitta cristata*) shows up around 4pm and just does *not* stop hollering for about an hour; and that our American Robin (*Turdus migratorius*) friends make a brief stopover shortly after 5am.
 
 In contrast, a month before---on April 6---there was a much larger American Robin and Blue Jay presence, while the sparrows had not yet come into their own (read: set up their nests in the trees nearby):
 

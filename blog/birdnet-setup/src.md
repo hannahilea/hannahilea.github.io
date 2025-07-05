@@ -16,6 +16,11 @@ header: '<style>
 
 ---
 
+<br>
+<div class="alert">
+<summary class="alert-heading">Want to know the background to this project?<br> <a class="recipe-button" href="../birdnet-intro/">Click here to read an introduction!</a></summary>
+</div>
+
 
 The individual steps were sourced from existing documentation---that I'll cite when used!---but this guide exists because I haven't found a similar single source of truth with this level of minutia. 
 
