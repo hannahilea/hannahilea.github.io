@@ -89,9 +89,9 @@ While we're at it with the definitions:
 
 - An **[Arduino](https://en.wikipedia.org/wiki/Arduino)** is a different flavor of small computer, also regularly used by hobbyists. While this project runs on a Pi, folks often reasonably assume it is running on an Arduino. At the end of the day, both a Raspberry Pi and an Arduino are tiny bundles of computing power that can be programmed to perform tasks.
 
-## BirdNET-Pi installation requirements
+## Project requirements
 
-My custom BirdNET-Pi setup is a [houseplant programming 🪴](../houseplant-programming/) project with the following initial requirements:
+My BirdNET-Pi setup is a [houseplant programming 🪴](../houseplant-programming/) project with the following initial requirements:
 
 - Accomplish "microphone out window, listen to birds" as directly as possible, without consideration towards future weatherproofing or battery-powered installations.
 
@@ -111,15 +111,27 @@ My custom BirdNET-Pi setup is a [houseplant programming 🪴](../houseplant-prog
 
 [^shitty]: My dad was the first recipient; while I know he *could* do the debugging himself, it isn't a particularly kind thing to give someone the gift of a non-functional computer and the frustration of trying to make it function... Happy Father's Day! 🥳
 
-On a meta level, I had an additional requirement that I document everything well enough that the set-up would be easy to trivially rerun for additional installations.
+On a meta level, I had an additional requirement to document everything well enough that the set-up would be trivially easy to repeat for additional installations.
+
+The resultant installation accomplishes all of these requirements, and while its presentation can hardly be called sophisticated, it sure does work---and has continued to work, without additional intervention.
+
+<div class="centered-children">
+<figure>
+    <img src="./assets/mic.png" alt="Photo of microphone in dirty window ledge" />
+    <figcaption style="font-size:smaller; max-width:400px">Such elegance!</figcaption>
+    </figure>
+
+<figure>
+<img src="./assets/installation.png" alt="Photo of microcontroller taped to a wall" />
+<figcaption style="font-size:smaller; max-width:400px">Such grace!</figcaption>
+</figure>
+</div>
 
 <p style="text-align:center">***</p>
 
+Note that there is nothing particularly novel about my instructions as compared to the instructions provided by the BirdNet-Pi onboarding documentation---except that they are far more verbose, include the extra system administration tasks necessary for the "make it giftable" requirements, and bake in some small fixes needed to support longer-running installations on a Pi Zero (e.g., log file configuration).
+
 Loads of other people have cool write-ups about their own setups, specific to their own requirements, and if your use-case differs from mine I encourage you to seek those out---or create (and write up) your own!
-
-Oh, and a disclaimer: why haven't I converted this whole shebang---well, everything after the hardware setup---into a single script that can Just™ be run directly, or opened a pull request against the original BirdNET-Pi repo to modify the existing setup script to that effect? Time, mostly. It's on my list as a follow-up task; in the meantime, the instructions are useable as-is.[^next]
-
-[^next]: Okay, I'll admit it: I am **super** self-conscious about having spent the time documenting some kinda silly steps (like "run this, wait until it fails, then do X") instead of spending that time making a single clean installation script that doesn't require so much manual mucking about. HOWEVER. As I keep reminding myself, these are the steps I followed, figuring out parts of it was annoying time-consuming, and the goal here is sharing the "how I reproduce my own workflow" steps that *I* follow when setting up a new BirdNet-Pi. The work to update things upstream is important, but it is a secondary, orthogonal task to sharing what I currently have working. So I tell myself. :) Houseplant programming!
 
 ## What does the BirdNET-Pi application...do?
 
@@ -131,6 +143,13 @@ How does the classification pipeline work?
 
 - Each recording is first converted into a spectrogram---a picture of the sounds over time---and that spectrogram is fed into the BirdNet model.
 
+<div class="centered-children">
+<figure>
+    <img src="./assets/spectrogram.png" alt="Spectrogram of detection recording" />
+    <figcaption style="font-size:smaller; max-width:400px">Spectrogram of an American Robin vocalization.</figcaption>
+    </figure>
+</div>
+
 - The BirdNet model outputs the probabilities that the spectrogram contains various sounds produced by a various bird species and by humans (e.g., speech).
 - If there are human sounds detected with a probability above a certain customizable threshold, the recording is thrown out for privacy reasons.
 - If there are no human sounds detected and there *are* bird sounds detected, the recording is saved, the spectrogram is saved, and an entry with that detection is added to a database on the Pi.
@@ -139,6 +158,14 @@ How does the classification pipeline work?
 ...that's it!
 
 The website then pulls data from that database to display the most recent detections, the recordings and spectrograms of those detections, and the daily summary graphs.
+
+
+<div class="centered-children">
+<figure>
+<img src="./assets/ipad-display.jpg" alt="Photo of ipad on wall, ipad is displaying the BirdNet-Pi website" />
+<figcaption style="font-size:smaller; max-width:400px">The BirdNet-Pi application's website, displayed on the semi-permanent viewing station my parents set up on an old iPad.</figcaption>
+</figure>
+</div>
 
 ## Privacy considerations
 

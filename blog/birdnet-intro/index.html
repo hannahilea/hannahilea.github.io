@@ -167,8 +167,8 @@ window, monitor birds!"
           </p>
         </li>
       </ul>
-      <h2 id="birdnet-pi-installation-requirements">BirdNET-Pi installation requirements</h2>
-      <p>My custom BirdNET-Pi setup is a <a href="../houseplant-programming/">houseplant programming 🪴</a> project with the following initial requirements:</p>
+      <h2 id="project-requirements">Project requirements</h2>
+      <p>My BirdNET-Pi setup is a <a href="../houseplant-programming/">houseplant programming 🪴</a> project with the following initial requirements:</p>
       <ul>
         <li><p>Accomplish “microphone out window, listen to birds” as directly as possible, without consideration towards future weatherproofing or battery-powered installations.</p></li>
         <li><p>Relatively cheap to make, i.e., should run on the cheapest viable Raspberry Pi model—the Zero (~$15), rather than the flagship series ($35-$80+)—and with a cheap microphone.</p></li>
@@ -191,13 +191,24 @@ window, monitor birds!"
           </ul>
         </li>
       </ul>
-      <p>On a meta level, I had an additional requirement that I document everything well enough that the set-up would be easy to trivially rerun for additional installations.</p>
+      <p>On a meta level, I had an additional requirement to document everything well enough that the set-up would be trivially easy to repeat for additional installations.</p>
+      <p>The resultant installation accomplishes all of these requirements, and while its presentation can hardly be called sophisticated, it sure does work—and has continued to work, without additional intervention.</p>
+      <div class="centered-children">
+        <figure>
+          <img src="./assets/mic.png" alt="Photo of microphone in dirty window ledge" />
+          <figcaption style="font-size: smaller; max-width: 400px">Such elegance!</figcaption>
+        </figure>
+        <figure>
+          <img src="./assets/installation.png" alt="Photo of microcontroller taped to a wall" />
+          <figcaption style="font-size: smaller; max-width: 400px">Such grace!</figcaption>
+        </figure>
+      </div>
       <p style="text-align: center">***</p>
-      <p>Loads of other people have cool write-ups about their own setups, specific to their own requirements, and if your use-case differs from mine I encourage you to seek those out—or create (and write up) your own!</p>
       <p>
-        Oh, and a disclaimer: why haven’t I converted this whole shebang—well, everything after the hardware setup—into a single script that can Just™ be run directly, or opened a pull request against the original BirdNET-Pi repo to modify
-        the existing setup script to that effect? Time, mostly. It’s on my list as a follow-up task; in the meantime, the instructions are useable as-is.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>
+        Note that there is nothing particularly novel about my instructions as compared to the instructions provided by the BirdNet-Pi onboarding documentation—except that they are far more verbose, include the extra system administration
+        tasks necessary for the “make it giftable” requirements, and bake in some small fixes needed to support longer-running installations on a Pi Zero (e.g., log file configuration).
       </p>
+      <p>Loads of other people have cool write-ups about their own setups, specific to their own requirements, and if your use-case differs from mine I encourage you to seek those out—or create (and write up) your own!</p>
       <h2 id="what-does-the-birdnet-pi-applicationdo">What does the BirdNET-Pi application…do?</h2>
       <p>
         The BirdNET-Pi application has two components: a classification pipeline that constantly analyzes recorded audio for bird sounds, and a small web server that hosts a website that visualizes those detections. The website also lets
@@ -209,15 +220,27 @@ window, monitor birds!"
           <p>The microphone is always on, and a continuous series of <em>x</em>-duration recordings are captured, where <em>x</em> is 15 seconds by default.</p>
         </li>
         <li><p>Each recording is first converted into a spectrogram—a picture of the sounds over time—and that spectrogram is fed into the BirdNet model.</p></li>
-        <li><p>The BirdNet model outputs the probabilities that the spectrogram contains various sounds produced by a various bird species and by humans (e.g., speech).</p></li>
-        <li><p>If there are human sounds detected with a probability above a certain customizable threshold, the recording is thrown out for privacy reasons.</p></li>
-        <li>
-          <p>If there are no human sounds detected and there <em>are</em> bird sounds detected, the recording is saved, the spectrogram is saved, and an entry with that detection is added to a database on the Pi.</p>
-        </li>
-        <li><p>When new data is added to the database, the day’s summary graph is regenerated.</p></li>
+      </ul>
+      <div class="centered-children">
+        <figure>
+          <img src="./assets/spectrogram.png" alt="Spectrogram of detection recording" />
+          <figcaption style="font-size: smaller; max-width: 400px">Spectrogram of an American Robin vocalization.</figcaption>
+        </figure>
+      </div>
+      <ul>
+        <li>The BirdNet model outputs the probabilities that the spectrogram contains various sounds produced by a various bird species and by humans (e.g., speech).</li>
+        <li>If there are human sounds detected with a probability above a certain customizable threshold, the recording is thrown out for privacy reasons.</li>
+        <li>If there are no human sounds detected and there <em>are</em> bird sounds detected, the recording is saved, the spectrogram is saved, and an entry with that detection is added to a database on the Pi.</li>
+        <li>When new data is added to the database, the day’s summary graph is regenerated.</li>
       </ul>
       <p>…that’s it!</p>
       <p>The website then pulls data from that database to display the most recent detections, the recordings and spectrograms of those detections, and the daily summary graphs.</p>
+      <div class="centered-children">
+        <figure>
+          <img src="./assets/ipad-display.jpg" alt="Photo of ipad on wall, ipad is displaying the BirdNet-Pi website" />
+          <figcaption style="font-size: smaller; max-width: 400px">The BirdNet-Pi application’s website, displayed on the semi-permanent viewing station my parents set up on an old iPad.</figcaption>
+        </figure>
+      </div>
       <h2 id="privacy-considerations">Privacy considerations</h2>
       <p>
         I am generally a privacy and spyware-conscious person, and my background is in audio signal analysis; I do not have (and do not ever plan to have) any of the always-listening “assistants” running in my spaces. And yet, I willingly
@@ -229,7 +252,7 @@ window, monitor birds!"
           <strong>This is an always on microphone! Running in your home! Make sure that <em>everyone in your home</em> is on board with that</strong>, and agrees on where to install it (i.e., where the microphone will be located).
           <ul>
             <li>
-              If you have visitors who will be anywhere near where your microphone is, <strong>make sure that those guests know about it also</strong>.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>
+              If you have visitors who will be anywhere near where your microphone is, <strong>make sure that those guests know about it also</strong>.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>
             </li>
           </ul>
         </li>
@@ -259,11 +282,11 @@ window, monitor birds!"
       </ul>
       <p>
         In sum, If you trust the people who have access to your Wi-Fi network, and disclose the presence of the microphone to anyone who would otherwise have a reasonable expectation of privacy in a space, you’re good to go.<a
-          href="#fn6"
+          href="#fn5"
           class="footnote-ref"
-          id="fnref6"
+          id="fnref5"
           role="doc-noteref"
-          ><sup>6</sup></a
+          ><sup>5</sup></a
         >
       </p>
       <h2 id="next-steps-output-interpretation-and-other-errant-thoughts">Next steps, output interpretation, and other errant thoughts</h2>
@@ -319,20 +342,12 @@ window, monitor birds!"
             </p>
           </li>
           <li id="fn4">
-            <p>
-              Okay, I’ll admit it: I am <strong>super</strong> self-conscious about having spent the time documenting some kinda silly steps (like “run this, wait until it fails, then do X”) instead of spending that time making a single
-              clean installation script that doesn’t require so much manual mucking about. HOWEVER. As I keep reminding myself, these are the steps I followed, figuring out parts of it was annoying time-consuming, and the goal here is
-              sharing the “how I reproduce my own workflow” steps that <em>I</em> follow when setting up a new BirdNet-Pi. The work to update things upstream is important, but it is a secondary, orthogonal task to sharing what I currently
-              have working. So I tell myself. :) Houseplant programming!<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a>
-            </p>
+            <p>This is something that I wish folks with Alexas/Google Homes/etc in their spaces would also proactively disclose, but here we are.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p>
           </li>
           <li id="fn5">
-            <p>This is something that I wish folks with Alexas/Google Homes/etc in their spaces would also proactively disclose, but here we are.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p>
-          </li>
-          <li id="fn6">
             <p>
               If you don’t trust the people who have access to a Wi-Fi network, do not configure your BirdNET-Pi to connect to it!! Have it connect to your phone hotspot or something. Or, don’t install a BirdNET-Pi there at all.<a
-                href="#fnref6"
+                href="#fnref5"
                 class="footnote-back"
                 role="doc-backlink"
                 >↩︎</a
