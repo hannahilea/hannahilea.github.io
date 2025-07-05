@@ -5,8 +5,7 @@ tags: [birb-creeping, ecoacoustics, hardware, community, houseplant-programming]
 description: 'Stick microphone out window, monitor birds!'
 created: 2025-07-4
 updated: 2025-07-4
-published: Fri, 4 July 2025 22:30:00 EST
-draft: undraft after preview
+published: Fri, 7 July 2025 23:00:00 EST
 header: '<style>
 .blog {
   img {
@@ -39,7 +38,7 @@ A month after---on June 6---the sparrows persist, but their babies had fledged, 
 
 Over the last several months I have been fairly consistently ~~chorping~~ talking with folks about this installation, which is how I know that a bunch of other people would love to set up BirdNET-Pis of their own, for themselves or others.
 
-To that end, I have written up my setup instructions for you, person who wants to set up your own bird listening station as quickly and cheaply as possible! To make set-up as straight-forward as possible, I detailed *exactly* what I did to set mine up, in a borderline-too-verbose way. I assume no prerequisite computer knowledge beyond a basic "uses a computer as part of daily living" starting point. I look forward to hearing about the [birb](https://www.audubon.org/magazine/when-bird-birb-extremely-important-guide) friends yelling around *your* homes. 
+To that end, I have written up my setup instructions for you, person who wants to set up your own bird listening station as quickly and cheaply as possible! To make set-up as straight-forward as possible, I detailed *exactly* what I did to set mine up, in a borderline-too-verbose way. I assume no prerequisite computer knowledge beyond a basic "uses a computer as part of daily living" starting point. I look forward to hearing about the [birb](https://www.audubon.org/magazine/when-bird-birb-extremely-important-guide) friends yelling around *your* homes.
 
 The rest of this post provides some background and motivation for the decisions I made in my set-up, including cost, [lack of] robustness, and privacy concerns. The set-up instructions themselves can be found [here](../birdnet-setup/).
 
@@ -53,7 +52,7 @@ During the [Recurse Center](https://www.recurse.com)'s 2024 *Never Graduate Week
 <span class="source">[[source]](https://subject.space/projects-static/winter-bird-cycles)</span>
 </div>
 
-I was sold! 
+I was sold!
 
 I set up my first BirdNET-Pi installation as a gift for my dad,[^day] which necessitated testing it out my own window. When I packed it up to send it off, I acutely missed spying on my new sparrow friends.
 
@@ -71,9 +70,9 @@ Let's take a pause to clarify some terminology that I found confusing when I got
 
     Note that the BirdNET model is similar to---but not the same as---the model that powers the also-excellent **[Merlin Bird ID](https://merlin.allaboutbirds.org/)** birdsong identification phone app. While Merlin is also built from the Cornell Ornithology Lab(!), as I understand it the models are trained on different data, and do not necessarily use the same ML architecture. Similar overall goal, different model, different name!
 
-- **[BirdNET-Pi](https://github.com/Nachtzuster/BirdNET-Pi))** is the name of a specific application built to run the `BirdNET` model on a [Raspberry Pi](https://www.raspberrypi.com/) computer. It was initially developed by GitHub user [`mcguirepr89`](https://github.com/mcguirepr89/BirdNET-Pi) and is now maintained by [`Nachtzuster`](https://github.com/Nachtzuster/BirdNET-Pi), along with support from the open-source community of programmers. My set-up uses the Nachtzuster fork.[^distinction] 
+- **[BirdNET-Pi](https://github.com/Nachtzuster/BirdNET-Pi)** is the name of a specific application built to run the BirdNET model on a [Raspberry Pi](https://www.raspberrypi.com/) computer. It was initially developed by [Patrick McGuire](https://github.com/mcguirepr89/BirdNET-Pi) and is now maintained by GitHub user ['Nachtzuster'](https://github.com/Nachtzuster/BirdNET-Pi), along with support from the open-source community of programmers. My set-up uses the Nachtzuster fork.[^distinction]
 
-[^distinction] This is an important distinction if you're reading the repository's documentation or looking up help elsewhere on the internet! The links tend to bounce between the `mcguirepr89` and `Nachtzuster` repos without warning, and it is very easy to spend time in a debugging hole while inadvertently reading docs or code for the opposite fork. Be ye warned!
+    [^distinction]: This is an important distinction if you're reading the repository's documentation or looking up help elsewhere on the internet! The links tend to bounce between the 'mcguirepr89' and 'Nachtzuster' repos without warning, and it is very easy to spend time in a debugging hole while inadvertently reading docs or code for the opposite fork. Be ye warned!
 
     In general, if you talk about BirdNET out in the world, you will need to specify that you mean *BirdNET-Pi* or folks may think you're talking about BirdNET phone application.
 
@@ -100,7 +99,7 @@ My custom BirdNET-Pi setup is a [houseplant programming 🪴](../houseplant-prog
 
 - Be as privacy-conscious as possible for an always-on microphone, i.e., make use of configuration choices that mitigate privacy concerns.
 
-- Result in an installation that can trivially be gifted to someone else who has an interest in birds and doesn't necessarily need or want to learn the ins and outs of this specific monitoring system.[^shitty] 
+- Result in an installation that can trivially be gifted to someone else who has an interest in birds and doesn't necessarily need or want to learn the ins and outs of this specific monitoring system.[^shitty]
 
     More specifically, after the initial set-up by me, the installation will:
 
@@ -112,7 +111,7 @@ My custom BirdNET-Pi setup is a [houseplant programming 🪴](../houseplant-prog
 
 [^shitty]: My dad was the first recipient; while I know he *could* do the debugging himself, it isn't a particularly kind thing to give someone the gift of a non-functional computer and the frustration of trying to make it function... Happy Father's Day! 🥳
 
-On a meta level, I had an additional requirement that I document everything well enough that the set-up would be easy to trivially rerun for additional installations. 
+On a meta level, I had an additional requirement that I document everything well enough that the set-up would be easy to trivially rerun for additional installations.
 
 <p style="text-align:center">***</p>
 
@@ -120,19 +119,23 @@ Loads of other people have cool write-ups about their own setups, specific to th
 
 Oh, and a disclaimer: why haven't I converted this whole shebang---well, everything after the hardware setup---into a single script that can Just™ be run directly, or opened a pull request against the original BirdNET-Pi repo to modify the existing setup script to that effect? Time, mostly. It's on my list as a follow-up task; in the meantime, the instructions are useable as-is.[^next]
 
-[^next]: Okay, I'll admit it: I am **super** self-conscious about having spent the time documenting some kinda silly steps (like "run this, wait until it fails, then do X") instead of spending that time making a single clean installation script that doesn't require so much manual mucking about. HOWEVER. As I keep reminding myself, these are the steps I followed, figuring out parts of it was annoying time-consuming, and the goal here is sharing the "how I reproduce my own workflow" steps that *I* follow when setting up a new BirdNet-Pi. The work to update things upstream is important, but it is a secondary, orthogonal task to sharing what I currently have working. So I tell myself. :) Houseplant programming! 
+[^next]: Okay, I'll admit it: I am **super** self-conscious about having spent the time documenting some kinda silly steps (like "run this, wait until it fails, then do X") instead of spending that time making a single clean installation script that doesn't require so much manual mucking about. HOWEVER. As I keep reminding myself, these are the steps I followed, figuring out parts of it was annoying time-consuming, and the goal here is sharing the "how I reproduce my own workflow" steps that *I* follow when setting up a new BirdNet-Pi. The work to update things upstream is important, but it is a secondary, orthogonal task to sharing what I currently have working. So I tell myself. :) Houseplant programming!
 
 ## What does the BirdNET-Pi application...do?
 
 The BirdNET-Pi application has two components: a classification pipeline that constantly analyzes recorded audio for bird sounds, and a small web server that hosts a website that visualizes those detections. The website also lets users configure the application's various settings.
 
-How does the classification pipeline work? 
-    - The microphone is always on, and a continuous series of `x`-length recordings are captured, where `x` is 15 seconds by default.
-    - Each recording is first converted into a spectrogram---a picture of the sounds over time---and that spectrogram is fed into the BirdNet model.
-    - The BirdNet model outputs the probabilities that the spectrogram contains various sounds produced by a various bird species and by humans (e.g., speech).
-    - If there are human sounds detected with a probability above a certain customizable threshold, the recording is thrown out for privacy reasons.
-    - If there are no human sounds detected and there *are* bird sounds detected, the recording is saved, the spectrogram is saved, and an entry with that detection is added to a database on the Pi.
-    - When new data is added to the database, the day's summary graph is regenerated.  
+How does the classification pipeline work?
+
+- The microphone is always on, and a continuous series of _x_-duration recordings are captured, where _x_ is 15 seconds by default.
+
+- Each recording is first converted into a spectrogram---a picture of the sounds over time---and that spectrogram is fed into the BirdNet model.
+
+- The BirdNet model outputs the probabilities that the spectrogram contains various sounds produced by a various bird species and by humans (e.g., speech).
+- If there are human sounds detected with a probability above a certain customizable threshold, the recording is thrown out for privacy reasons.
+- If there are no human sounds detected and there *are* bird sounds detected, the recording is saved, the spectrogram is saved, and an entry with that detection is added to a database on the Pi.
+- When new data is added to the database, the day's summary graph is regenerated.
+
 ...that's it!
 
 The website then pulls data from that database to display the most recent detections, the recordings and spectrograms of those detections, and the daily summary graphs.
@@ -147,7 +150,7 @@ Here are the considerations I made, which you should probably consider before in
     - If you have visitors who will be anywhere near where your microphone is, **make sure that those guests know about it also**.[^disclosure]
 - Unless your  Wi-Fi network is configured to allow inbound access, **there is no connection between the outside web and your birdnet-pi device** This means that the only people who have access to the recordings made on the device are people who you've given both the password to your Wi-Fi network and the password to the Raspberry Pi. Once able to access both those systems, a user will have access to both the realtime audio being recorded onto the device and the audio stored because it has a detected birdcall in it; no recordings are stored for audio that has no bird detection in it OR that does have a bird detection but additionally has a human sound detection in it.
     - BirdNET-Pi supports the option to publish detections (audio and classifications both, I think?) to the outside web, but enabling it requires extra effort on your part; it is not something you might accidentally enable it. I have not enabled this feature for myself yet.
-- Where possible, I've made application configuration settings that **prioritize disabling services that can inadvertently be creepy**. My installation is in an area inhabited and frequented by humans, so I default disabled the "live listening" function, and I bump up the privacy threshold that excludes audio for having human detections in it, to err on the side of not having any talking end up in the saved audio recordings that contain bird detections. 
+- Where possible, I've made application configuration settings that **prioritize disabling services that can inadvertently be creepy**. My installation is in an area inhabited and frequented by humans, so I default disabled the "live listening" function, and I bump up the privacy threshold that excludes audio for having human detections in it, to err on the side of not having any talking end up in the saved audio recordings that contain bird detections.
     - It is possible for vocalizations with human voice in the background to sneak through, despite this threshold setting. You will know that this is happening if you listen back to recorded bird detections and hear human voice in the background at all! If you notice it happening, go into your settings and increase the threshold by a notch. (The current as-set-above value has been sufficient for my installation, which is in a well-populated neighborhood with constant foot traffic and me-talking-on-the-porch noise, but definitely don't assume all recordings are free from human speech without validating that first.)
 
 In sum, If you trust the people who have access to your Wi-Fi network, and disclose the presence of the microphone to anyone who would otherwise have a reasonable expectation of privacy in a space, you're good to go.[^network]

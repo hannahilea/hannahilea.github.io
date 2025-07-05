@@ -304,6 +304,15 @@ img.home-img {
     padding: 1em 1.5em;
   }
 
+  p code {
+    background: #eeeff1;
+    border: 2px solid #ddd;
+    page-break-inside: avoid;
+    font-family: monospace;
+    overflow: auto;
+    padding: .25em;
+  }
+
   .navbar {
     margin-bottom: 1.6em;
   }
@@ -413,6 +422,18 @@ img.home-img {
   h3 {
     margin-top: 1.5em;
     margin-bottom: .5em;
+  }
+
+  .recipe-button {
+    font: bold Arial;
+    text-decoration: none;
+    background-color: #EEEEEE;
+    color: #333333;
+    padding: 2px 6px 2px 6px;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
   }
 }
 
