@@ -153,6 +153,7 @@ function generate_blog_index(; overwrite_existing=false, template=BLOG_INDEX_TEM
     @info "Generating blog index..."
     metadata = get_all_blog_metadata()
     blog_strs = map(metadata) do m
+        haskey(m, :draft) && return ""
         date_pretty = Dates.format(Date(m.date_str), dateformat"d u yyyy")
         tags = "#" * replace(m.tags, "," => " #")
 
@@ -209,6 +210,7 @@ function generate_rss_feed(; overwrite_existing=false, template=RSS_TEMPLATE)
     @info "Generating RSS feed..."
     metadata = get_all_blog_metadata()
     blog_strs = map(reverse(metadata)) do m
+        haskey(m, :draft) && return ""
         return """    <item>
                   <title>$(m.rawtitle)</title>
                   <pubDate>$(m.published)</pubDate>
