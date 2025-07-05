@@ -65,7 +65,7 @@ A bit later in the year, my parents requested a second installation (!), so that
 
 Let's take a pause to clarify some terminology that I found confusing when I got started:
 
-- **[BirdNET](https://birdnet.cornell.edu/)** is the name of a machine learning model trained to identify the presence of specific bird calls in short segments of audio. It was trained by the Ornithology Lab.
+- **[BirdNET](https://birdnet.cornell.edu/)** is the name of a classifier model trained to identify the presence of specific bird calls in short segments of audio. It was trained by the Ornithology Lab.
 
     The model can be used in a variety of different applications, including the phone app [BirdNET Sound ID App](https://birdnet.cornell.edu/). The model is made available via [BirdNET-Analyzer](https://github.com/birdnet-team/BirdNET-Analyzer), and licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/), which means that you can only use it for non-commercial purposes.
 
@@ -186,6 +186,48 @@ In sum, If you trust the people who have access to your Wi-Fi network, and discl
 [^network]: If you don't trust the people who have access to a  Wi-Fi network, do not configure your BirdNET-Pi to connect to it!! Have it connect to your phone hotspot or something. Or, don't install a BirdNET-Pi there at all.
 
 [^disclosure]: This is something that I wish folks with Alexas/Google Homes/etc in their spaces would also proactively disclose, but here we are.
+
+## Additional BirdNET-Pi benefits
+
+1. Delighting one's corespondents with astute avian analyses:
+
+<div class="centered-children">
+<figure>
+    <img style="max-width:350px" src="./assets/me-text.png" alt="Screenshot of text message accompanying photo of birdnet plot: 'Turdus migratorius really going to town these dayss'" />
+</figure>
+</div>
+
+
+2. Getting notifications about new visitors:
+
+<div class="centered-children">
+<figure>
+    <img style="max-width:350px" src="./assets/phone-alert.jpeg" alt="Screenshot of phone lock screen with notifications about newly-detected hawk and flicker calls" />
+</figure>
+</div>
+
+3. Receiving messages like this from other BirdNET-Pi hosts:
+<div class="centered-children">
+
+    <figure>
+        <img style="max-width:350px" src="./assets/mom1.png" alt="Screenshot of message from 'Mom': Wow! I just saw a ruby crowned kinglet in the backyard today! Birdnet kept saying it was there but I finally saw it :)" />
+    </figure>
+
+    and 
+
+    <figure>
+        <img style="max-width:350px" src="./assets/mom2.png" alt="Screenshot of message from 'Mom': I just heard a sandhill crane and bird net confirmed it!" />
+    </figure>
+
+    and 
+
+
+    <figure>
+        <img style="max-width:350px" src="./assets/dad1.png" alt="Screenshot of message from 'Dad': Birdnet seems by unable to load on either iPad or phone, just freezes while loading. We’ve restarted the arduino (sp), anything else easy to try? Wireless network seems ok. No rush but when you get a chance. Did mom tell you it logged a Cooper’s hawk then she saw it in a tree outside the window?" />
+    </figure>
+</div>
+
+...okay, well, that last one is just to give you a dose of reality. We've since diagnosed and fixed that issue, and are back successfully detecting birds at our respective homes. And a Cooper's hawk is pretty cool!
 
 ## Next steps, output interpretation, and other errant thoughts
 
