@@ -55,7 +55,8 @@ window, monitor birds!"
         <del>birb creeper</del> citizen scientist to set up a <del>spy ring for snooping on birbs</del> passive acoustic monitoring station!
       </p>
       <p>
-        Thanks to the <a target="_blank" rel="noreferrer noopener" href="https://birdnet.cornell.edu/">BirdNET model</a> trained and released by the Cornell Lab of Ornithology, and the
+        Thanks to the <a target="_blank" rel="noreferrer noopener" href="https://birdnet.cornell.edu/">BirdNET model</a> trained and released by the
+        <a target="_blank" rel="noreferrer noopener" href="https://www.birds.cornell.edu/home/">Cornell Lab of Ornithology</a>, and the
         <a target="_blank" rel="noreferrer noopener" href="https://github.com/Nachtzuster/BirdNET-Pi">BirdNET-Pi</a> application built on top of it by an open-source community, it is easier than ever to become the bird voyeur you were born
         to be. For example, here’s what I measured on May 6, from the microphone just outside my window in a semi-urban neighborhood:
       </p>
@@ -88,7 +89,7 @@ window, monitor birds!"
         <a href="../birdnet-setup/">here</a>.
       </p>
       <h2 id="brief-background-and-motivation">Brief background and motivation</h2>
-      <p>While I’ve been aware of the excellent ecoacoustics work coming out of the Cornell Ornithology Lab for years now, I only encountered the BirdNET project about a year ago.</p>
+      <p>While I’ve been aware of the excellent ecoacoustics work coming out of the Cornell Lab of Ornithology for years now, I only encountered the BirdNET project about a year ago.</p>
       During the <a target="_blank" rel="noreferrer noopener" href="https://www.recurse.com">Recurse Center</a>’s 2024 <em>Never Graduate Week</em>,
       <a target="_blank" rel="noreferrer noopener" href="https://subject.space/">Logan Williams</a> presented on
       <a target="_blank" rel="noreferrer noopener" href="https://subject.space/projects-static/winter-bird-cycles/"><em>Bird signs and cycles, February, 2024</em></a
@@ -104,7 +105,7 @@ window, monitor birds!"
         I set up my first BirdNET-Pi installation as a gift for my dad,<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> which necessitated testing it out my own window. When I packed it up to send it off,
         I acutely missed spying on my new sparrow friends.
       </p>
-      <p>A bit later in the year, my parents requested a second installation, so that they could monitor birds on the other side of the yard(!). I decided to set one up for my home at the same time. All three are currently in use!</p>
+      <p>A bit later in the year, my parents requested a second installation (!), so that they could monitor birds on the other side of the yard. I decided to set one up for my home at the same time. All three are currently in use!</p>
       <h2 id="terminology-birdnet-vs-birdnet-pi">Terminology: BirdNET vs BirdNET-Pi</h2>
       <p>Let’s take a pause to clarify some terminology that I found confusing when I got started:</p>
       <ul>
@@ -121,7 +122,7 @@ window, monitor birds!"
           </p>
           <p>
             Note that the BirdNET model is similar to—but not the same as—the model that powers the also-excellent
-            <strong><a target="_blank" rel="noreferrer noopener" href="https://merlin.allaboutbirds.org/">Merlin Bird ID</a></strong> birdsong identification phone app. While Merlin is also built from the Cornell Ornithology Lab(!), as I
+            <strong><a target="_blank" rel="noreferrer noopener" href="https://merlin.allaboutbirds.org/">Merlin Bird ID</a></strong> birdsong identification phone app. While Merlin is also built by the Cornell Lab of Ornithology, as I
             understand it the models are trained on different data, and do not necessarily use the same ML architecture. Similar overall goal, different model, different name!
           </p>
         </li>
@@ -274,8 +275,8 @@ window, monitor birds!"
           <ul>
             <li>
               It is possible for vocalizations with human voice in the background to sneak through, despite this threshold setting. You will know that this is happening if you listen back to recorded bird detections and hear human voice in
-              the background at all! If you notice it happening, go into your settings and increase the threshold by a notch. (The current as-set-above value has been sufficient for my installation, which is in a well-populated neighborhood
-              with constant foot traffic and me-talking-on-the-porch noise, but definitely don’t assume all recordings are free from human speech without validating that first.)
+              the background at all! If you notice it happening, go into your settings and increase the threshold by a notch. (The configured value has been sufficient for my installation, which is in a well-populated neighborhood with
+              constant foot traffic and me-talking-on-the-porch noise, but definitely don’t assume all recordings are free from human speech without validating that first.)
             </li>
           </ul>
         </li>

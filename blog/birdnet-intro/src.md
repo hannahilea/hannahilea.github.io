@@ -23,7 +23,7 @@ header: '<style>
 
 It's summer here in the greater Boston area, and a little too hot, and my bird neighbors are *yelling*, as they have been since early spring. Yours too? Sounds like the perfect time for any good ~~birb creeper~~ citizen scientist to set up a ~~spy ring for snooping on birbs~~ passive acoustic monitoring station!
 
-Thanks to the [BirdNET model](https://birdnet.cornell.edu/) trained and released by the Cornell Lab of Ornithology, and the [BirdNET-Pi](https://github.com/Nachtzuster/BirdNET-Pi) application built on top of it by an open-source community, it is easier than ever to become the bird voyeur you were born to be. For example, here's what I measured on May 6, from the microphone just outside my window in a semi-urban neighborhood:
+Thanks to the [BirdNET model](https://birdnet.cornell.edu/) trained and released by the [Cornell Lab of Ornithology](https://www.birds.cornell.edu/home/), and the [BirdNET-Pi](https://github.com/Nachtzuster/BirdNET-Pi) application built on top of it by an open-source community, it is easier than ever to become the bird voyeur you were born to be. For example, here's what I measured on May 6, from the microphone just outside my window in a semi-urban neighborhood:
 
 ![Screenshot of bird detection bar chart from May 6](./assets/may6.png)
 
@@ -45,7 +45,7 @@ The rest of this post provides some background and motivation for the decisions 
 
 ## Brief background and motivation
 
-While I've been aware of the excellent ecoacoustics work coming out of the Cornell Ornithology Lab for years now, I only encountered the BirdNET project about a year ago.
+While I've been aware of the excellent ecoacoustics work coming out of the Cornell Lab of Ornithology for years now, I only encountered the BirdNET project about a year ago.
 
 During the [Recurse Center](https://www.recurse.com)'s 2024 *Never Graduate Week*, [Logan Williams](https://subject.space/) presented on [*Bird signs and cycles, February, 2024*](https://subject.space/projects-static/winter-bird-cycles/), a beautiful and compelling interactive visualization he created from recordings captured by his own BirdNET-Pi installation.
 <div class="centered-children">
@@ -57,7 +57,7 @@ I was sold!
 
 I set up my first BirdNET-Pi installation as a gift for my dad,[^day] which necessitated testing it out my own window. When I packed it up to send it off, I acutely missed spying on my new sparrow friends.
 
-A bit later in the year, my parents requested a second installation, so that they could monitor birds on the other side of the yard(!). I decided to set one up for my home at the same time. All three are currently in use!
+A bit later in the year, my parents requested a second installation (!), so that they could monitor birds on the other side of the yard. I decided to set one up for my home at the same time. All three are currently in use!
 
 [^day]: A Father's Day present---belatedly delivered in August!
 
@@ -69,7 +69,7 @@ Let's take a pause to clarify some terminology that I found confusing when I got
 
     The model can be used in a variety of different applications, including the phone app [BirdNET Sound ID App](https://birdnet.cornell.edu/). The model is made available via [BirdNET-Analyzer](https://github.com/birdnet-team/BirdNET-Analyzer), and licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/), which means that you can only use it for non-commercial purposes.
 
-    Note that the BirdNET model is similar to---but not the same as---the model that powers the also-excellent **[Merlin Bird ID](https://merlin.allaboutbirds.org/)** birdsong identification phone app. While Merlin is also built from the Cornell Ornithology Lab(!), as I understand it the models are trained on different data, and do not necessarily use the same ML architecture. Similar overall goal, different model, different name!
+    Note that the BirdNET model is similar to---but not the same as---the model that powers the also-excellent **[Merlin Bird ID](https://merlin.allaboutbirds.org/)** birdsong identification phone app. While Merlin is also built by the Cornell Lab of Ornithology, as I understand it the models are trained on different data, and do not necessarily use the same ML architecture. Similar overall goal, different model, different name!
 
 - **[BirdNET-Pi](https://github.com/Nachtzuster/BirdNET-Pi)** is the name of a specific application built to run the BirdNET model on a [Raspberry Pi](https://www.raspberrypi.com/) computer. It was initially developed by [Patrick McGuire](https://github.com/mcguirepr89/BirdNET-Pi) and is now maintained by GitHub user ['Nachtzuster'](https://github.com/Nachtzuster/BirdNET-Pi), along with support from the open-source community of programmers. My set-up uses the Nachtzuster fork.[^distinction]
 
@@ -179,7 +179,7 @@ Here are the considerations I made, which you should probably consider before in
 - Unless your  Wi-Fi network is configured to allow inbound access, **there is no connection between the outside web and your birdnet-pi device** This means that the only people who have access to the recordings made on the device are people who you've given both the password to your Wi-Fi network and the password to the Raspberry Pi. Once able to access both those systems, a user will have access to both the realtime audio being recorded onto the device and the audio stored because it has a detected birdcall in it; no recordings are stored for audio that has no bird detection in it OR that does have a bird detection but additionally has a human sound detection in it.
     - BirdNET-Pi supports the option to publish detections (audio and classifications both, I think?) to the outside web, but enabling it requires extra effort on your part; it is not something you might accidentally enable it. I have not enabled this feature for myself yet.
 - Where possible, I've made application configuration settings that **prioritize disabling services that can inadvertently be creepy**. My installation is in an area inhabited and frequented by humans, so I default disabled the "live listening" function, and I bump up the privacy threshold that excludes audio for having human detections in it, to err on the side of not having any talking end up in the saved audio recordings that contain bird detections.
-    - It is possible for vocalizations with human voice in the background to sneak through, despite this threshold setting. You will know that this is happening if you listen back to recorded bird detections and hear human voice in the background at all! If you notice it happening, go into your settings and increase the threshold by a notch. (The current as-set-above value has been sufficient for my installation, which is in a well-populated neighborhood with constant foot traffic and me-talking-on-the-porch noise, but definitely don't assume all recordings are free from human speech without validating that first.)
+    - It is possible for vocalizations with human voice in the background to sneak through, despite this threshold setting. You will know that this is happening if you listen back to recorded bird detections and hear human voice in the background at all! If you notice it happening, go into your settings and increase the threshold by a notch. (The configured value has been sufficient for my installation, which is in a well-populated neighborhood with constant foot traffic and me-talking-on-the-porch noise, but definitely don't assume all recordings are free from human speech without validating that first.)
 
 In sum, If you trust the people who have access to your Wi-Fi network, and disclose the presence of the microphone to anyone who would otherwise have a reasonable expectation of privacy in a space, you're good to go.[^network]
 
