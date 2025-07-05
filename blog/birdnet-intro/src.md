@@ -6,6 +6,7 @@ description: 'Stick microphone out window, monitor birds!'
 created: 2025-07-4
 updated: 2025-07-4
 published: Fri, 7 July 2025 23:00:00 EST
+draft: 
 header: '<style>
 .blog {
   img {
@@ -118,12 +119,12 @@ The resultant installation accomplishes all of these requirements, and while its
 <div class="centered-children">
 <figure>
     <img src="./assets/mic.png" alt="Photo of microphone in dirty window ledge" />
-    <figcaption style="font-size:smaller; max-width:400px">Such elegance!</figcaption>
+    <figcaption style="font-size:smaller">Such elegance! (Yes, I do shut the window with the microphone there. No, it probably isn't great for the microphone wire.)</figcaption>
     </figure>
 
 <figure>
-<img src="./assets/installation.png" alt="Photo of microcontroller taped to a wall" />
-<figcaption style="font-size:smaller; max-width:400px">Such grace!</figcaption>
+<img src="./assets/installation.png" alt="Photo of Raspberry Pi Zero 2 W taped to my wall" />
+<figcaption style="font-size:smaller">Such grace!</figcaption>
 </figure>
 </div>
 
@@ -146,7 +147,7 @@ How does the classification pipeline work?
 <div class="centered-children">
 <figure>
     <img src="./assets/spectrogram.png" alt="Spectrogram of detection recording" />
-    <figcaption style="font-size:smaller; max-width:400px">Spectrogram of an American Robin vocalization.</figcaption>
+    <figcaption style="font-size:smaller">Spectrogram of an American Robin vocalization.</figcaption>
     </figure>
 </div>
 
@@ -163,7 +164,7 @@ The website then pulls data from that database to display the most recent detect
 <div class="centered-children">
 <figure>
 <img src="./assets/ipad-display.jpg" alt="Photo of ipad on wall, ipad is displaying the BirdNet-Pi website" />
-<figcaption style="font-size:smaller; max-width:400px">The BirdNet-Pi application's website, displayed on the semi-permanent viewing station my parents set up on an old iPad.</figcaption>
+<figcaption style="font-size:smaller">The BirdNet-Pi application's website, displayed on the semi-permanent viewing station my parents set up on an old iPad.</figcaption>
 </figure>
 </div>
 
