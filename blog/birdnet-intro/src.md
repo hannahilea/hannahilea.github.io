@@ -3,9 +3,9 @@ title: 'Introduction: Running BirdNET-Pi on a Raspberry Pi Zero 2 W'
 type: tutorial
 tags: [birb-creeping, ecoacoustics, hardware, community, houseplant-programming]
 description: 'Stick microphone out window, monitor birds!'
-created: 2025-07-4
-updated: 2025-07-4
-published: Fri, 7 July 2025 23:00:00 EST
+created: 2025-07-5
+updated: 2025-07-5
+published: Sat, 5 July 2025 23:00:00 EST
 header: '<style>
 .blog {
   img {
@@ -117,12 +117,12 @@ The resultant installation accomplishes all of these requirements, and while its
 
 <div class="centered-children">
 <figure>
-    <img src="./assets/mic.png" alt="Photo of microphone in dirty window ledge" />
+    <img src="./assets/mic.png" alt="Photo of microphone in dirty windowsill" />
     <figcaption style="font-size:smaller">Such elegance! (Yes, I do shut the window with the microphone there. No, it probably isn't great for the microphone wire.)</figcaption>
     </figure>
 
 <figure>
-<img src="./assets/installation.png" alt="Photo of Raspberry Pi Zero 2 W taped to my wall" />
+<img src="./assets/installation.png" alt="Photo of Raspberry Pi Zero 2 W taped to a wall" />
 <figcaption style="font-size:smaller">Such grace!</figcaption>
 </figure>
 </div>

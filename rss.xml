@@ -148,15 +148,15 @@
       <description>Link round-up</description>
     </item>
     <item>
-      <title>Instructions: Running BirdNET-Pi on a Raspberry Pi Zero 2 W</title>
-      <pubDate>Fri, 7 July 2025 23:00:05 EST</pubDate>
+      <title>Set up BirdNET-Pi on a Raspberry Pi Zero 2 W</title>
+      <pubDate>Sat, 5 July 2025 23:00:05 EST</pubDate>
       <link>https://hannahilea.com/blog/birdnet-setup</link>
       <guid>https://hannahilea.com/blog/birdnet-setup</guid>
-      <description>Step by step instructions for setting up an installation.</description>
+      <description>Step by step instructions; companion piece to BirdNET-Pi introduction piece.</description>
     </item>
     <item>
       <title>Introduction: Running BirdNET-Pi on a Raspberry Pi Zero 2 W</title>
-      <pubDate>Fri, 7 July 2025 23:00:00 EST</pubDate>
+      <pubDate>Sat, 5 July 2025 23:00:00 EST</pubDate>
       <link>https://hannahilea.com/blog/birdnet-intro</link>
       <guid>https://hannahilea.com/blog/birdnet-intro</guid>
       <description>Stick microphone out window, monitor birds!</description>
