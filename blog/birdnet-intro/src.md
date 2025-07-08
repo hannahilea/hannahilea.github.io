@@ -1,11 +1,11 @@
 ---
-title: 'Introduction: Running BirdNET-Pi on a Raspberry Pi Zero 2 W'
+title: 'Intro to BirdNET-Pi: On surveilling my feathered friends (and how you can too)'
 type: tutorial
-tags: [birb-creeping, ecoacoustics, hardware, community, houseplant-programming]
-description: 'Stick microphone out window, monitor birds!'
-created: 2025-07-5
-updated: 2025-07-5
-published: Sat, 5 July 2025 23:00:00 EST
+tags: [birb-creeping, ecoacoustics, hardware, community, houseplant-programming, passive-acoustic-monitoring]
+description: 'Stick microphone out window, catch chorps.'
+created: 2025-07-8
+updated: 2025-07-8
+published: Tue, 8 July 2025 23:00:00 EST
 header: '<style>
 .blog {
   img {
@@ -16,8 +16,8 @@ header: '<style>
 ---
 
 <br>
-<div class="alert">
-<summary class="alert-heading">Want to skip the chatter?<br> <a class="recipe-button" href="../birdnet-setup/">Click here to go directly to my BirdNET-Pi set up instructions!</a></summary>
+<div class="alert" style="background:#e8ebf5; padding: .5em;">
+<summary class="alert-heading">Looking for my instructions? Here: [Set up BirdNET-Pi on a Raspberry Pi Zero 2 W](../birdnet-setup/) 🐦‍⬛</summary>
 </div>
 
 It's summer here in the greater Boston area, and a little too hot, and my bird neighbors are *yelling*, as they have been since early spring. Yours too? Sounds like the perfect time for any good ~~birb creeper~~ citizen scientist to set up a ~~spy ring for snooping on birbs~~ passive acoustic monitoring station!
@@ -238,9 +238,9 @@ Once yours is up and running? Be as vocal about the cool things you're learning 
 
 <p style="text-align:center">***</p>
 
-My set-up instructions can be found [**here**](../birdnet-setup/)!
-
-<p style="text-align:center">***</p>
+<div class="alert" style="background:#e8ebf5; padding: .5em;">
+<summary class="alert-heading">My set-up instructions can be found here: [Set up BirdNET-Pi on a Raspberry Pi Zero 2 W](../birdnet-setup/) 🐦‍⬛</summary>
+</div>
 
 ***I am grateful to the folks at the Cornell Lab of Ornithology and elsewhere who spent time and energy building the various stages of this detection system, and who took on the tasks of data collection, data curation, model training, model evaluation, model open-sourcing, application development, application maintenance, and documentation.***
 

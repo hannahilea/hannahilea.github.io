@@ -1,11 +1,11 @@
 ---
 title: 'Set up BirdNET-Pi on a Raspberry Pi Zero 2 W'
 type: tutorial
-tags: [birb-creeping, ecoacoustics, hardware, community, houseplant-programming]
-description: 'Step by step instructions; companion piece to BirdNET-Pi introduction piece.'
-created: 2025-07-5
-updated: 2025-07-5
-published: Sat, 5 July 2025 23:00:05 EST
+tags: [birb-creeping, ecoacoustics, hardware, community, houseplant-programming, passive-acoustic-monitoring]
+description: 'Step by step instructions for monitoring your yellingist feathered neighbors.'
+created: 2025-07-8
+updated: 2025-07-8
+published: Tue, 8 July 2025 23:00:05 EST
 header: '<style>
 .blog {
   img {
@@ -17,8 +17,8 @@ header: '<style>
 ---
 
 <br>
-<div style="background:#e8ebf5; padding: .5em;">
-***Before you step through these instructions, read the introduction to this project [here](../birdnet-intro/)! It covers background and motivation, along with BirdNET and BirdNET-Pi resources.***
+<div class="alert" style="background:#e8ebf5; padding: .5em;">
+<summary class="alert-heading">Before you step through these instructions, first read [Intro to BirdNET-Pi: On surveilling my feathered friends (and how you can too)](../birdnet-intro/) 🐦‍⬛</summary>
 </div>
 
 The goal of these instructions is to make it trivially easy to get a new BirdNET-Pi installation up and running on a Raspberry Pi Zero 2 W.
