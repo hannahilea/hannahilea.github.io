@@ -17,30 +17,34 @@ header: '<style>
 
 <br>
 <div class="alert" style="background:#e8ebf5; padding: .5em;">
-<summary class="alert-heading">Looking for my instructions? Here: [Set up BirdNET-Pi on a Raspberry Pi Zero 2 W](../birdnet-setup/) 🐦‍⬛</summary>
+<summary class="alert-heading">Instructions are here: [Set up BirdNET-Pi on a Raspberry Pi Zero 2 W](../birdnet-setup/) 🐦‍⬛</summary>
 </div>
 
 It's summer here in the greater Boston area, and a little too hot, and my bird neighbors are *yelling*, as they have been since early spring. Yours too? Sounds like the perfect time for any good ~~birb creeper~~ citizen scientist to set up a ~~spy ring for snooping on birbs~~ passive acoustic monitoring station!
 
-Thanks to the [BirdNET model](https://birdnet.cornell.edu/) trained and released by the [Cornell Lab of Ornithology](https://www.birds.cornell.edu/home/), and the [BirdNET-Pi](https://github.com/Nachtzuster/BirdNET-Pi) application built on top of it by an open-source community, it is easier than ever to become the bird voyeur you were born to be. For example, here's what I measured on May 6, from the microphone just outside my window in a semi-urban neighborhood:
+Thanks to the [BirdNET model](https://birdnet.cornell.edu/) trained and released by the [Cornell Lab of Ornithology](https://www.birds.cornell.edu/home/) and the [BirdNET-Pi](https://github.com/Nachtzuster/BirdNET-Pi) application built on top of it by an open-source community, it is easier than ever to become the bird voyeur you were born to be. For example, here's what I measured on May 6, from the microphone just outside my window in a semi-urban neighborhood:
 
 ![Screenshot of bird detection bar chart from May 6](./assets/may6.png)
 
-We can see that the House Sparrows (*Passer domesticus*) chorp from dawn to dusk, 5am-6pm; that a Blue Jay (*Cyanocitta cristata*) shows up around 4pm and just does *not* stop hollering for about an hour; and that our American Robin (*Turdus migratorius*) friends make a brief stopover shortly after 5am.
+We can see that the House Sparrows (*Passer domesticus*) chorp from dawn to dusk, 5am-6pm; that a Blue Jay (*Cyanocitta cristata*) shows up around 4pm and just does not stop hollering for about an hour; and that our American Robin (*Turdus migratorius*) friends make a brief stopover shortly after 5am.
 
-In contrast, a month before---on April 6---there was a much larger American Robin and Blue Jay presence, while the sparrows had not yet come into their own (read: set up their nests in the trees nearby):
+In contrast, a month before---on April 6---there was a much larger American Robin and Blue Jay presence, while the sparrows had not yet come into their own:[^read]
+
+[^read]: Read: set up their nests in the trees nearby.
 
 ![Screenshot of bird detection bar chart from April 6](./assets/april6.png)
 
-A month after---on June 6---the sparrows persist, but their babies had fledged, so the jay was back to asserting its auditory dominance:
+A month after---on June 6---the sparrows persist but their babies have fledged, so the jay is back to asserting its auditory dominance:
 
 ![Screenshot of bird detection bar chart from June 6](./assets/june6.png)
 
-Over the last several months I have been fairly consistently ~~chorping~~ talking with folks about this installation, which is how I know that a bunch of other people would love to set up BirdNET-Pis of their own, for themselves or others.
+Over the last several months I have been fairly consistently ~~chorping~~ talking with folks about this installation, which is how I know that a bunch of other people would love to set up bird monitoring systems of their own, for themselves or others.
 
-To that end, I have written up my setup instructions for you, person who wants to set up your own bird listening station as quickly and cheaply as possible! To make set-up as straight-forward as possible, I detailed *exactly* what I did to set mine up, in a borderline-too-verbose way. I assume no prerequisite computer knowledge beyond a basic "uses a computer as part of daily living" starting point. I look forward to hearing about the [birb](https://www.audubon.org/magazine/when-bird-birb-extremely-important-guide) friends yelling around *your* homes.
+To that end, I have written up my BirdNET-Pi setup instructions for you, person who wants to set up your own bird listening station as quickly and cheaply as possible! To make set-up as straight-forward as possible, I detailed *exactly* what I did to set mine up, in a borderline-too-verbose way. I assume no prerequisite computer knowledge beyond a basic "uses a computer as part of daily living" starting point. I look forward to hearing about the [birb](https://www.audubon.org/magazine/when-bird-birb-extremely-important-guide) friends yelling around *your* homes.
 
-The rest of this post provides some background and motivation for the decisions I made in my set-up, including cost, [lack of] robustness, and privacy concerns. The set-up instructions themselves can be found [here](../birdnet-setup/).
+The rest of this post provides some background and motivation for the decisions I made in my set-up, including cost, [lack of] robustness, and privacy concerns. The set-up instructions themselves can be found here: [Set up BirdNET-Pi on a Raspberry Pi Zero 2 W](../birdnet-setup/).
+
+TODO-HERE
 
 ## Brief background and motivation
 
@@ -239,7 +243,7 @@ Once yours is up and running? Be as vocal about the cool things you're learning 
 <p style="text-align:center">***</p>
 
 <div class="alert" style="background:#e8ebf5; padding: .5em;">
-<summary class="alert-heading">My set-up instructions can be found here: [Set up BirdNET-Pi on a Raspberry Pi Zero 2 W](../birdnet-setup/) 🐦‍⬛</summary>
+<summary class="alert-heading">My instructions can be found here: [Set up BirdNET-Pi on a Raspberry Pi Zero 2 W](../birdnet-setup/) 🐦‍⬛</summary>
 </div>
 
 ***I am grateful to the folks at the Cornell Lab of Ornithology and elsewhere who spent time and energy building the various stages of this detection system, and who took on the tasks of data collection, data curation, model training, model evaluation, model open-sourcing, application development, application maintenance, and documentation.***
