@@ -40,17 +40,17 @@ A month after---on June 6---the sparrows persist but their babies have fledged, 
 
 Over the last several months I have been fairly consistently ~~chorping~~ talking with folks about this installation, which is how I know that a bunch of other people would love to set up bird monitoring systems of their own, for themselves or others.
 
-To that end, I have written up my BirdNET-Pi setup instructions for you, person who wants to set up your own bird listening station as quickly and cheaply as possible! To make set-up as straight-forward as possible, I detailed *exactly* what I did to set mine up, in a borderline-too-verbose way. I assume no prerequisite computer knowledge beyond a basic "uses a computer as part of daily living" starting point. I look forward to hearing about the [birb](https://www.audubon.org/magazine/when-bird-birb-extremely-important-guide) friends yelling around *your* homes.
+To that end, I have written up my BirdNET-Pi setup instructions for you, person who wants to set up your own bird listening station as quickly and cheaply as possible! To make set-up as straight-forward as possible, I detailed *exactly* what I did to set mine up, in a borderline-too-verbose way. I assume no prerequisite computer knowledge beyond a basic "uses a computer as part of daily living" starting point. I look forward to hearing about the [birb](https://www.audubon.org/magazine/when-bird-birb-extremely-important-guide) friends yelling around *your* homes!
 
-The rest of this post provides some background and motivation for the decisions I made in my set-up, including cost, [lack of] robustness, and privacy concerns. The set-up instructions themselves can be found here: [Set up BirdNET-Pi on a Raspberry Pi Zero 2 W](../birdnet-setup/).
+<div class="alert" style="background:#e8ebf5; padding: .5em;">
+<summary class="alert-heading">Instructions: [Set up BirdNET-Pi on a Raspberry Pi Zero 2 W](../birdnet-setup/) 🐦‍⬛</summary>
+</div>
 
-TODO-HERE
+The rest of *this* post includes background on the BirdNET project and context around my particular installation---including cost, intentional [lack of] robustness, and privacy concerns.
 
 ## Brief background and motivation
 
-While I've been aware of the excellent ecoacoustics work coming out of the Cornell Lab of Ornithology for years now, I only encountered the BirdNET project about a year ago.
-
-During the [Recurse Center](https://www.recurse.com)'s 2024 *Never Graduate Week*, [Logan Williams](https://subject.space/) presented on [*Bird signs and cycles, February, 2024*](https://subject.space/projects-static/winter-bird-cycles/), a beautiful and compelling interactive visualization he created from recordings captured by his own BirdNET-Pi installation.
+While I've been aware of the excellent ecoacoustics work coming out of the Cornell Lab of Ornithology for a while now, I only encountered the BirdNET project about a year ago. During the [Recurse Center](https://www.recurse.com)'s 2024 *Never Graduate Week*, [Logan Williams](https://subject.space/) presented on [*Bird signs and cycles, February, 2024*](https://subject.space/projects-static/winter-bird-cycles/), a beautiful and compelling interactive visualization he created from recordings captured with his own BirdNET-Pi installation.
 <div class="centered-children">
 ![Screenshot of radial visualization of bird detections.](./assets/logan-screenshot.png)
 <span class="source">[[source]](https://subject.space/projects-static/winter-bird-cycles)</span>
@@ -58,9 +58,9 @@ During the [Recurse Center](https://www.recurse.com)'s 2024 *Never Graduate Week
 
 I was sold!
 
-I set up my first BirdNET-Pi installation as a gift for my dad,[^day] which necessitated testing it out my own window. When I packed it up to send it off, I acutely missed spying on my new sparrow friends.
+I set up my first BirdNET-Pi installation as a gift for my dad,[^day] which necessitated testing it out my own window. When I packed it up to send it off I acutely missed spying on my new sparrow friends.
 
-A bit later in the year, my parents requested a second installation (!), so that they could monitor birds on the other side of the yard. I decided to set one up for my home at the same time. All three are currently in use!
+Later in the year my parents requested a second installation (!) so that they could monitor birds on the other side of their yard. I decided to set one up for my home at the same time. All three are still actively in use!
 
 [^day]: A Father's Day present---belatedly delivered in August!
 
@@ -236,14 +236,14 @@ In sum, If you trust the people who have access to your Wi-Fi network, and discl
 
 You will be unsurprised to learn that I have a lot of follow-up ideas about potential next steps, ways to investigate and tune the installation settings for a specific site, ways to make the installation more robust, and privacy considerations. In the interest of getting these instructions published ASAP, I'm going to save those thoughts---plus output interpretation---for a future post. Suffice it to say, they exist!
 
-If you use my instructions---or are otherwise inspired to set up a BirdNET-Pi of your own---please let me know! If you know me in real life and want assistance or company while you run through a set up, or want me to just set one up for you, let me know. I'd love to help!
+If you use these instructions---or are otherwise inspired to set up a BirdNET-Pi of your own---please let me know! If you know me in real life and want assistance or company while you run through a set up, or want me to just set one up for you, let me know. I'd love to help!
 
 Once yours is up and running? Be as vocal about the cool things you're learning about your bird neighbors as *my* bluejay neighbor is at 4am of a spring morning. 🙃
 
 <p style="text-align:center">***</p>
 
 <div class="alert" style="background:#e8ebf5; padding: .5em;">
-<summary class="alert-heading">My instructions can be found here: [Set up BirdNET-Pi on a Raspberry Pi Zero 2 W](../birdnet-setup/) 🐦‍⬛</summary>
+<summary class="alert-heading">One last time, a link to my instructions: [Set up BirdNET-Pi on a Raspberry Pi Zero 2 W](../birdnet-setup/) 🐦‍⬛</summary>
 </div>
 
 ***I am grateful to the folks at the Cornell Lab of Ornithology and elsewhere who spent time and energy building the various stages of this detection system, and who took on the tasks of data collection, data curation, model training, model evaluation, model open-sourcing, application development, application maintenance, and documentation.***
