@@ -460,13 +460,15 @@ For each additional network you want to add, paste the following:
 
 ### Task 7: Physical installation
 
+TODO-HERE
+
 Time to stick that microphone out a window!
 
 While you *could* just unplug your Pi, it's safer for the Pi (less chance of something going wrong!) to intentionally power it down first. While SSH'd onto the Pi, do `sudo shutdown`.[^say]
 
 [^say]: Do as I say, not as I do---I generally just unplug it. YMMV!
 
-Now go find a window and stick your microphone out it! I've included some photos of my own setup as inspiration. Once the microphone can access the great outoors (presumably, somewhere where you've heard at least one bird recently!), plug it into the remaining micro-USB port on the Pi. Plug the pi into whatever outlet is accessible, and wait! 
+Now go find a window and stick your microphone out it! I've included some photos of my own setup as inspiration. Once the microphone can access the great outoors (presumably, somewhere where you've heard at least one bird recently!), plug it into the remaining micro-USB port on the Pi. Plug the Pi into whatever outlet is accessible, and wait! 
 
 In your choice of microphone location, be mindful of whether anything will get wet if it rains (bad!), especially if that thing is the Pi (very very bad! do not do this). As an example, here is what my installation looks like:
 
@@ -484,7 +486,7 @@ In your choice of microphone location, be mindful of whether anything will get w
 </figure>
 </div>
 
-Once powered, the analysis service and web server will start right away, and it will autoconnect to the  Wi-Fi network that you configured it for, which means that you will be able to see what it's doing via `foo.local` on another device (phone, laptop) as long as that device is on the same  Wi-Fi network.
+Once powered, the analysis service and web server will start right away, and the Pi will autoconnect to the  Wi-Fi network that you configured it for, which means that you will be able to see what it's doing via `foo.local` on another device (phone, laptop) as long as that device is on the same  Wi-Fi network.
 
 Once your BirdNET-Pi is up and running, anyone connected to your home  Wi-Fi network can view the latest birds at `birdnet-foo.local`. Anyone connected to your tailscale network can see the same via `birdnet-foo.TODO`.
 
