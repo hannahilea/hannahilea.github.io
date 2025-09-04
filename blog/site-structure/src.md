@@ -4,7 +4,6 @@ type: Infrastructure documentation
 tags: [webdev, programming, metawriting]
 description: The structure of this website motivated and described.
 created: 2024-05-17
-updated: 2024-05-17
 published: Fri, 17 May 2024 20:22:34 GMT
 ---
 

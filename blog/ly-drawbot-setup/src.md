@@ -4,7 +4,6 @@ type: tutorial
 tags: [hardware, pen-plotter, cnc, documentation]
 description: 'Write-up of getting started with a CNC pen plotter'
 created: 2025-02-25
-updated: 2025-02-25
 published: Tue, 25 Feb 2025 15:00:00 EST
 ---
 

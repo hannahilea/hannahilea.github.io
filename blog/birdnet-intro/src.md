@@ -4,7 +4,6 @@ type: tutorial
 tags: [birb-creeping, ecoacoustics, hardware, community, houseplant-programming]
 description: 'Stick microphone out window, monitor birds!'
 created: 2025-07-4
-updated: 2025-07-4
 published: Fri, 7 July 2025 23:00:00 EST
 draft: 
 header: '<style>

@@ -4,7 +4,6 @@ type: Link round-up
 tags: [autobibliography, musings]
 description: 'Link round-up'
 created: 2025-05-22
-updated: 2025-05-22
 published: Thu, 22 May 2025 20:45:00 EST
 header: '<script async src="https://www.instagram.com/embed.js"></script>'
 ---
