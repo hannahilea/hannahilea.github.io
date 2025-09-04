@@ -5,288 +5,219 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="og:title" content="Dopamine-driven development
-(DDD), spite-driven development (SDD), and other DDs"/>
-    <meta property="og:description" content="Tongue-in-cheek definitions
-and description of various X-driven development techniques."/>
-    <meta property="og:url" content="https://www.hannahilea.com/blog/driven-developments"/>
-    <meta property="og:image" content="https://www.hannahilea.com/blog/driven-developments/assets/thumbnail.png">
+    <meta
+      property="og:title"
+      content="Dopamine-driven development
+(DDD), spite-driven development (SDD), and other DDs"
+    />
+    <meta
+      property="og:description"
+      content="Tongue-in-cheek definitions
+and description of various X-driven development techniques."
+    />
+    <meta property="og:url" content="https://www.hannahilea.com/blog/driven-developments" />
+    <meta property="og:image" content="https://www.hannahilea.com/blog/driven-developments/assets/thumbnail.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="300" />
     <meta property="og:image:height" content="300" />
     <meta property="og:type" content="website" />
 
-    <title>Dopamine-driven development (DDD), spite-driven development
-(SDD), and other DDs</title>
+    <title>Dopamine-driven development (DDD), spite-driven development (SDD), and other DDs</title>
     <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
-    
   </head>
 
   <body>
     <div class="main-container blog">
       <nav class="navbar" role="navigation">
         @hannahilea:
-        <a class="nav-link" href="../..">home</a> | 
-        <a class="nav-link" href="../../projects">projects</a> |
+        <a class="nav-link" href="../..">home</a> | <a class="nav-link" href="../../projects">projects</a> |
         <a class="nav-link" href="..">blog</a>
       </nav>
-      
-      <h1>Dopamine-driven development (DDD), spite-driven development
-(SDD), and other DDs</h1>
+
+      <h1>Dopamine-driven development (DDD), spite-driven development (SDD), and other DDs</h1>
       <div class="date">20 Sep 2024</div>
-<p>A few weeks ago, <a target="_blank" rel="noreferrer noopener" href="https://www.recurse.com/about">Recurser</a>
-friend Nicole Tietz-Sokolskaya published <a
-target="_blank" rel="noreferrer noopener" href="https://ntietz.com/blog/making-progress-with-content-driven-development">Making
-progress on side projects with content-driven development</a>, an
-excellent write-up about Doing Stuff in order to be able to Share About
-Having Done Stuff™. You should read it!</p>
-<p>Unfortunately for me, her denomination of “Content-driven
-development” tripped some switch in my brain, and since then a rotating
-slate of “X-driven development” variations have taken over. I started
-with obsessing over spite-driven development (SDD), am currently on a
-dopamine-driven development (DDD) kick, and have (today) shifted to a
-rapidly changing moment-by-moment characterization of my actions:
-feed-the-cat-driven development (FCDD)! Coffee-shop-driven development
-(CSDD)! Beat-the-rain-home-driven development (BRHDD)! Perhaps writing
-about it will help me keep the situation in check, before it becomes my
-whole personality?<a href="#fn1" class="footnote-ref" id="fnref1"
-role="doc-noteref"><sup>1</sup></a> We can only hope. In the meantime, I
-am writing this post following muffin-driven development (MDD).<a
-href="#fn2" class="footnote-ref" id="fnref2"
-role="doc-noteref"><sup>2</sup></a></p>
-<h2 id="what-is-a-driven-development-anyway">What is a “driven
-development”, anyway?</h2>
-<p>Many software engineers (and possibly <em>only</em> software
-engineers?) are familiar with a process called <a
-target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Test-driven_development"><em>test-driven
-development</em> (TDD)</a>. TDD is the OG “driven development”: it
-defines both a specific approach to writing code (write a failing test,
-see that it fails, write the code to make the test pass, write the next
-failing test, repeat ad nauseam) and a general approach to software
-development that emphasizes testing <em>units of behavior</em> rather
-than units of code.<a href="#fn3" class="footnote-ref" id="fnref3"
-role="doc-noteref"><sup>3</sup></a></p>
-<p>TDD is part of the gestalt; there’s a reason Nicole’s “content-driven
-development” was so mentally sticky, and that when I have said
-“spite-driven development” to a number of software folks, I have
-immediately been regaled with their own relevant experiences, no
-additional explanation necessary.</p>
-<p>As far as I’m aware, the “<em>X</em>-driven development” pattern
-isn’t a widespread naming approach. There are at least a couple less
-prevalent software engineering practices pattern-matched on TDD in
-definition and naming, but nothing sweeping.</p>
-<p>Also, there’s no reason this needs to be a software engineering
-thing: in the same way that test-driven development can be applied to
-any number of other non-software domains (devising a rubric for your
-students’ end-of-unit essays; picking a metric with which to evaluate
-your microbiology experiment; etc)<a href="#fn4" class="footnote-ref"
-id="fnref4" role="doc-noteref"><sup>4</sup></a>, there’s no reason any
-other DD shouldn’t also bridge the nominal engineering/non-engineering
-boundary.</p>
-<h2 id="proposed-driven-development-criteria">Proposed “driven
-development” criteria</h2>
-<p>While it’s fun to turn basically any noun into a DD (see also:
-muffin-driven development!), I think the DDs that most resonate with me
-(and feel like actual techniques) meet at least some of the following
-requirements:</p>
-<ol type="1">
-<li>Leads to (and/or actively motivates) effort on the part of the
-practitioner, i.e. some action/unit of progress/etc must occur as a
-result of the technique that would not occur absent it, and/or</li>
-<li>Provide a thought framework for reinterpreting a goal in a way that
-makes it achievable, and/or</li>
-<li>Provides an operating scaffold for working through steps towards
-that goal.</li>
-</ol>
-<p>In short, “<em>X</em>-driven development” must aid the practitioner
-in making desired progress towards some goal, by means of <em>X</em>. If
-<em>X</em> is driving your development, you are practicing
-<em>X</em>DD.</p>
-<p>Like TDD, there’s a time and a place for each approach, and multiple
-DDs can be used simultaneously.</p>
-<h2 id="x-driven-development-examples">X-driven development
-examples</h2>
-<p>Some DDs I’ve identified as using most often myself, in no particular
-order:</p>
-<h4 id="dopamine-driven-development-ddd">Dopamine-driven development
-(DDD)</h4>
-<p>If you accomplish a task in a particular way, you will be given some
-combination of attention, recognition, and/or praise; if you break it
-down further into specific subtasks, you’ll maximize the amount or type
-of praise per unit of work. DDD is a super-technique that overlaps with
-many niche driven-developments; for example, Nicole’s content-driven
-development can be a subtype of dopamine-driven development.</p>
-<h4 id="checkbox-driven-development-chdd">Checkbox-driven development
-(ChDD)</h4>
-<p>Another flavor of DDD, but one where the tasks are known relatively
-well up front so that they can be written down ahead of time and then
-checked off systematically. ChDD encourages breaking tasks down into
-stupidly small units, so that progress through the list feels smooth and
-positively reinforcing. See also: <a href="../make-a-list">First things
-first: Make a list</a>.</p>
-<h4 id="procrastination-driven-development-pdd">Procrastination-driven
-development (PDD)</h4>
-<p>This is a dangerous one if unrecognized, as it is a variation of DDD
-that runs counter to the most important task on your task list. If
-wielded strategically, however, it can be used to make progress towards
-two separate goals, by avoiding one in service of the other and then
-switching back as the next task up becomes less desirable. For example,
-instead of doing my laundry, I am stalling by editing this post.</p>
-<h4 id="spite-driven-development-sdd">Spite-driven development
-(SDD)</h4>
-<p>Need I define this one? Everyone I’ve mentioned it to has their own
-example of it; I’ve love to just list those here, but they were
-discussed confidentially SO ask your friends about this. They will
-surely have their own examples.</p>
-<p>The overarching theme is one of</p>
-<blockquote>
-<p>They said that I couldn’t do it, so I went and did it <br>         –
-Connor Price</p>
-</blockquote>
-<p>and/or “I am doing this to prove them (the great them) wrong”, and/or
-“they said not to do it this way so I did it this way”, and/or “I warned
-you that this will go badly and you said to do it anyway” , and/or … you
-get the picture.</p>
-<p>If you have never experienced SDD, congrats, you must be
-exceptionally forgiving (or exceptionally disengaged, in a probably good
-way!). Also, consider giving it a go sometime, it can be pretty fun!</p>
-<p>If you realize that you’re practicing SDD regularly, you may want to
-consider an attitude readjustment or a job and/or community change.</p>
-<h4 id="speedrun-driven-development-srdd">Speedrun-driven development
-(SrDD)</h4>
-<p>You’ve learned a new skill! Congrats! Now you apply it as quickly as
-possible to everything you can pattern match against.</p>
-<p>SrDD is a subtype of DDD, and can pair nicely with SDD on occasion.
-For example, I once spent a Certain Amount of Time (on the order of
-days) investigating how a particular type of audio artifact (click) was
-being introduced by one of my team’s algorithms; it took me a while to
-understand the underlying pattern, but once I did I was able to solve a
-bunch of similar bugs (both filed and un-filed) in a relatively short
-period of time. Whew. Exhilarating!</p>
-<h4 id="swear-driven-development-swdd">Swear-driven development
-(SwDD)</h4>
-<p>Welp, the deadline is tomorrow, regardless of how long you gave
-yourself to work on it. Better cut some scope, cut some expectations,
-and use the power of pure adrenaline—and some well-timed expletives—to
-Get. It. Done. Also encountered if you have limited time booked on a
-piece of equipment, and need to (random crazy example) cut a certain
-number of pieces on the laser cutter in a too-short amount of time. (Can
-pair nicely with content-driven development, if the task involves some
-flavor of presentation.) If wielded adeptly, can stem from initial
-anti-patterns such as hanger-driven development, and
-under-the-thumb-of-capitalism-driven development.</p>
-<h4 id="dancing-driven-development-ddd">Dancing-driven development
-(DDD)</h4>
-<p>You’re feeling sluggish about working on a fairly mundane and
-repetitive task, but you put on a jam and now you can’t help but power
-through it. Often involves head-bobbing and chair dancing; can be
-counter-productive if the music is too good, so an effective
-practitioner must balance the chosen music against the current task.</p>
-<h4 id="service-driven-development-srvdd">Service-driven development
-(SrvDD)</h4>
-<p>Someone in your community needs or wants something, and you know how
-to make it happen for them! For me, this often shows up when making a
-present or acting as tech support. When used as the target of PDD, SrvDD
-can be a double-edged sword. (Alternative name: love-driven development
-(LDD).)</p>
-<p style="text-align:center">
-***
-</p>
-<p>…and those are my big ones! I’ve found it useful to classify my
-motivations like this; it has been helping me provide a sanity-check
-about the goal of a given task, as well as help me recognize when I’ve
-unintentionally gone off-task. I’ve also found that DD terminology does
-a nice job of succinctly communicating my current state to others. It’ll
-be interesting to see if I feel like using the terminology longer term,
-or if it’s just a short-term meme.</p>
-<p>I’ve started using DDD and SDD conversationally, and folks in my
-circles have run with it in delightful ways—both by sharing their own
-examples of spite-driven development (it’s the one that seems to stand
-out!!) and by coining new “driven development” techniques. Keep ’em
-coming!</p>
-<h2 id="faqs">FAQs</h2>
-<p><strong>Q:</strong> <em>Ooh, I have a great idea for a DD! What
-now?</em><br> <strong>A:</strong> Bring it to life by using it! And/or
-write it up in a blog post of your own (and share the link with me,
-please)!</p>
-<p><strong>Q:</strong> <em>Okay, but I have a job to do. What about,
-like, paycheck-driven development? Or healthcare-driven
-development?</em><br> <strong>A:</strong> Those are great DDs if they
-work for you! Personally I find that I usually need a more specific
-technique to drive my efforts on an minute-by-minute basis, but it’s all
-context dependent.</p>
-<p><strong>Q:</strong> <em>It seems like an awful lot of these overlap,
-or maybe are even exactly the same, with a different name. Or like you’d
-use multiple at once.</em><br> <strong>A:</strong> That isn’t a
-question, but you’re totally right. For example, I am often powered by
-both DDD and TDD, with an occasional background smattering of SDD! I
-contain multitudes. You probably do too.</p>
-<p><strong>Q:</strong> <em>I have a really cool idea for one:
-string-theory driven development! But the acronym is…not ideal. What
-gives?</em><br> <strong>A:</strong> That’s on you, friend. I have
-confidence that you can use a trusty thesaurus to find an alternate
-name. Or don’t, and own it!</p>
-<section id="footnotes" class="footnotes footnotes-end-of-document"
-role="doc-endnotes">
-<hr />
-<h3 id="footnotes-title">Footnotes</h3>
-<ol>
-<li id="fn1"><p>Get-it-out-of-my-brain-driven development (GIOMBDD)<a
-href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>I chose a time to make <a
-target="_blank" rel="noreferrer noopener" href="https://smittenkitchen.com/2020/10/morning-glory-breakfast-cake">muffins</a>
-that cut a liiiiiiittle too close to the Publication Accountabilibuddies
-session I frequent, such that I am only now coming off the adrenaline of
-getting them in the oven in time. The next step is to write as much as
-possible before the oven timer goes off. How will I know I’m done? There
-will be words on my page AND a muffin to consume. Muffin-driven
-development!<a href="#fnref2" class="footnote-back"
-role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>I’ve found that many engineers seem to have strong
-opinions about whether TDD is “good or not,” which is a generalization
-that I don’t think is particularly useful. I also think TDD hate is
-often misdirected and comes after not following the actual practices!
-Early in my career, the company I worked at brought in a coach to give
-the engineering team a multi-day TDD workshop. At the time I was too
-junior to have strong opinions about it; now that I’ve experienced a
-bunch of different software development goals and contextual
-environments, I feel strongly that is extremely useful in the right
-contexts, and extremely not useful in others.<a href="#fnref3"
-class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>Okay okay, I would not necessarily take TDD
-<em>literally</em> in many domains—but it is certainly possible to think
-through the “what-ifs” to understand what a failing case would look
-like, and then what a successful case looks like. And it seems like
-(from the <a
-target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Test-driven_development">TDD
-wikipedia page</a>) this cross-domain adoption is something that folks
-already do. Good!<a href="#fnref4" class="footnote-back"
-role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
+      <p>
+        A few weeks ago, <a target="_blank" rel="noreferrer noopener" href="https://www.recurse.com/about">Recurser</a> friend Nicole Tietz-Sokolskaya published
+        <a target="_blank" rel="noreferrer noopener" href="https://ntietz.com/blog/making-progress-with-content-driven-development">Making progress on side projects with content-driven development</a>, an excellent write-up about Doing
+        Stuff in order to be able to Share About Having Done Stuff™. You should read it!
+      </p>
+      <p>
+        Unfortunately for me, her denomination of “Content-driven development” tripped some switch in my brain, and since then a rotating slate of “X-driven development” variations have taken over. I started with obsessing over spite-driven
+        development (SDD), am currently on a dopamine-driven development (DDD) kick, and have (today) shifted to a rapidly changing moment-by-moment characterization of my actions: feed-the-cat-driven development (FCDD)! Coffee-shop-driven
+        development (CSDD)! Beat-the-rain-home-driven development (BRHDD)! Perhaps writing about it will help me keep the situation in check, before it becomes my whole personality?<a
+          href="#fn1"
+          class="footnote-ref"
+          id="fnref1"
+          role="doc-noteref"
+          ><sup>1</sup></a
+        >
+        We can only hope. In the meantime, I am writing this post following muffin-driven development (MDD).<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+      </p>
+      <h2 id="what-is-a-driven-development-anyway">What is a “driven development”, anyway?</h2>
+      <p>
+        Many software engineers (and possibly <em>only</em> software engineers?) are familiar with a process called
+        <a target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Test-driven_development"><em>test-driven development</em> (TDD)</a>. TDD is the OG “driven development”: it defines both a specific approach to writing
+        code (write a failing test, see that it fails, write the code to make the test pass, write the next failing test, repeat ad nauseam) and a general approach to software development that emphasizes testing
+        <em>units of behavior</em> rather than units of code.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>
+      </p>
+      <p>
+        TDD is part of the gestalt; there’s a reason Nicole’s “content-driven development” was so mentally sticky, and that when I have said “spite-driven development” to a number of software folks, I have immediately been regaled with
+        their own relevant experiences, no additional explanation necessary.
+      </p>
+      <p>
+        As far as I’m aware, the “<em>X</em>-driven development” pattern isn’t a widespread naming approach. There are at least a couple less prevalent software engineering practices pattern-matched on TDD in definition and naming, but
+        nothing sweeping.
+      </p>
+      <p>
+        Also, there’s no reason this needs to be a software engineering thing: in the same way that test-driven development can be applied to any number of other non-software domains (devising a rubric for your students’ end-of-unit essays;
+        picking a metric with which to evaluate your microbiology experiment; etc)<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a
+        >, there’s no reason any other DD shouldn’t also bridge the nominal engineering/non-engineering boundary.
+      </p>
+      <h2 id="proposed-driven-development-criteria">Proposed “driven development” criteria</h2>
+      <p>While it’s fun to turn basically any noun into a DD (see also: muffin-driven development!), I think the DDs that most resonate with me (and feel like actual techniques) meet at least some of the following requirements:</p>
+      <ol type="1">
+        <li>Leads to (and/or actively motivates) effort on the part of the practitioner, i.e. some action/unit of progress/etc must occur as a result of the technique that would not occur absent it, and/or</li>
+        <li>Provide a thought framework for reinterpreting a goal in a way that makes it achievable, and/or</li>
+        <li>Provides an operating scaffold for working through steps towards that goal.</li>
+      </ol>
+      <p>In short, “<em>X</em>-driven development” must aid the practitioner in making desired progress towards some goal, by means of <em>X</em>. If <em>X</em> is driving your development, you are practicing <em>X</em>DD.</p>
+      <p>Like TDD, there’s a time and a place for each approach, and multiple DDs can be used simultaneously.</p>
+      <h2 id="x-driven-development-examples">X-driven development examples</h2>
+      <p>Some DDs I’ve identified as using most often myself, in no particular order:</p>
+      <h4 id="dopamine-driven-development-ddd">Dopamine-driven development (DDD)</h4>
+      <p>
+        If you accomplish a task in a particular way, you will be given some combination of attention, recognition, and/or praise; if you break it down further into specific subtasks, you’ll maximize the amount or type of praise per unit of
+        work. DDD is a super-technique that overlaps with many niche driven-developments; for example, Nicole’s content-driven development can be a subtype of dopamine-driven development.
+      </p>
+      <h4 id="checkbox-driven-development-chdd">Checkbox-driven development (ChDD)</h4>
+      <p>
+        Another flavor of DDD, but one where the tasks are known relatively well up front so that they can be written down ahead of time and then checked off systematically. ChDD encourages breaking tasks down into stupidly small units, so
+        that progress through the list feels smooth and positively reinforcing. See also: <a href="../make-a-list">First things first: Make a list</a>.
+      </p>
+      <h4 id="procrastination-driven-development-pdd">Procrastination-driven development (PDD)</h4>
+      <p>
+        This is a dangerous one if unrecognized, as it is a variation of DDD that runs counter to the most important task on your task list. If wielded strategically, however, it can be used to make progress towards two separate goals, by
+        avoiding one in service of the other and then switching back as the next task up becomes less desirable. For example, instead of doing my laundry, I am stalling by editing this post.
+      </p>
+      <h4 id="spite-driven-development-sdd">Spite-driven development (SDD)</h4>
+      <p>
+        Need I define this one? Everyone I’ve mentioned it to has their own example of it; I’ve love to just list those here, but they were discussed confidentially SO ask your friends about this. They will surely have their own examples.
+      </p>
+      <p>The overarching theme is one of</p>
+      <blockquote>
+        <p>
+          They said that I couldn’t do it, so I went and did it <br />
+                  – Connor Price
+        </p>
+      </blockquote>
+      <p>
+        and/or “I am doing this to prove them (the great them) wrong”, and/or “they said not to do it this way so I did it this way”, and/or “I warned you that this will go badly and you said to do it anyway” , and/or … you get the picture.
+      </p>
+      <p>If you have never experienced SDD, congrats, you must be exceptionally forgiving (or exceptionally disengaged, in a probably good way!). Also, consider giving it a go sometime, it can be pretty fun!</p>
+      <p>If you realize that you’re practicing SDD regularly, you may want to consider an attitude readjustment or a job and/or community change.</p>
+      <h4 id="speedrun-driven-development-srdd">Speedrun-driven development (SrDD)</h4>
+      <p>You’ve learned a new skill! Congrats! Now you apply it as quickly as possible to everything you can pattern match against.</p>
+      <p>
+        SrDD is a subtype of DDD, and can pair nicely with SDD on occasion. For example, I once spent a Certain Amount of Time (on the order of days) investigating how a particular type of audio artifact (click) was being introduced by one
+        of my team’s algorithms; it took me a while to understand the underlying pattern, but once I did I was able to solve a bunch of similar bugs (both filed and un-filed) in a relatively short period of time. Whew. Exhilarating!
+      </p>
+      <h4 id="swear-driven-development-swdd">Swear-driven development (SwDD)</h4>
+      <p>
+        Welp, the deadline is tomorrow, regardless of how long you gave yourself to work on it. Better cut some scope, cut some expectations, and use the power of pure adrenaline—and some well-timed expletives—to Get. It. Done. Also
+        encountered if you have limited time booked on a piece of equipment, and need to (random crazy example) cut a certain number of pieces on the laser cutter in a too-short amount of time. (Can pair nicely with content-driven
+        development, if the task involves some flavor of presentation.) If wielded adeptly, can stem from initial anti-patterns such as hanger-driven development, and under-the-thumb-of-capitalism-driven development.
+      </p>
+      <h4 id="dancing-driven-development-ddd">Dancing-driven development (DDD)</h4>
+      <p>
+        You’re feeling sluggish about working on a fairly mundane and repetitive task, but you put on a jam and now you can’t help but power through it. Often involves head-bobbing and chair dancing; can be counter-productive if the music
+        is too good, so an effective practitioner must balance the chosen music against the current task.
+      </p>
+      <h4 id="service-driven-development-srvdd">Service-driven development (SrvDD)</h4>
+      <p>
+        Someone in your community needs or wants something, and you know how to make it happen for them! For me, this often shows up when making a present or acting as tech support. When used as the target of PDD, SrvDD can be a
+        double-edged sword. (Alternative name: love-driven development (LDD).)
+      </p>
+      <p style="text-align: center">***</p>
+      <p>
+        …and those are my big ones! I’ve found it useful to classify my motivations like this; it has been helping me provide a sanity-check about the goal of a given task, as well as help me recognize when I’ve unintentionally gone
+        off-task. I’ve also found that DD terminology does a nice job of succinctly communicating my current state to others. It’ll be interesting to see if I feel like using the terminology longer term, or if it’s just a short-term meme.
+      </p>
+      <p>
+        I’ve started using DDD and SDD conversationally, and folks in my circles have run with it in delightful ways—both by sharing their own examples of spite-driven development (it’s the one that seems to stand out!!) and by coining new
+        “driven development” techniques. Keep ’em coming!
+      </p>
+      <h2 id="faqs">FAQs</h2>
+      <p>
+        <strong>Q:</strong> <em>Ooh, I have a great idea for a DD! What now?</em><br />
+        <strong>A:</strong> Bring it to life by using it! And/or write it up in a blog post of your own (and share the link with me, please)!
+      </p>
+      <p>
+        <strong>Q:</strong> <em>Okay, but I have a job to do. What about, like, paycheck-driven development? Or healthcare-driven development?</em><br />
+        <strong>A:</strong> Those are great DDs if they work for you! Personally I find that I usually need a more specific technique to drive my efforts on an minute-by-minute basis, but it’s all context dependent.
+      </p>
+      <p>
+        <strong>Q:</strong> <em>It seems like an awful lot of these overlap, or maybe are even exactly the same, with a different name. Or like you’d use multiple at once.</em><br />
+        <strong>A:</strong> That isn’t a question, but you’re totally right. For example, I am often powered by both DDD and TDD, with an occasional background smattering of SDD! I contain multitudes. You probably do too.
+      </p>
+      <p>
+        <strong>Q:</strong> <em>I have a really cool idea for one: string-theory driven development! But the acronym is…not ideal. What gives?</em><br />
+        <strong>A:</strong> That’s on you, friend. I have confidence that you can use a trusty thesaurus to find an alternate name. Or don’t, and own it!
+      </p>
+      <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+        <hr />
+        <h3 id="footnotes-title">Footnotes</h3>
+        <ol>
+          <li id="fn1">
+            <p>Get-it-out-of-my-brain-driven development (GIOMBDD)<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+          <li id="fn2">
+            <p>
+              I chose a time to make <a target="_blank" rel="noreferrer noopener" href="https://smittenkitchen.com/2020/10/morning-glory-breakfast-cake">muffins</a> that cut a liiiiiiittle too close to the Publication Accountabilibuddies
+              session I frequent, such that I am only now coming off the adrenaline of getting them in the oven in time. The next step is to write as much as possible before the oven timer goes off. How will I know I’m done? There will be
+              words on my page AND a muffin to consume. Muffin-driven development!<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a>
+            </p>
+          </li>
+          <li id="fn3">
+            <p>
+              I’ve found that many engineers seem to have strong opinions about whether TDD is “good or not,” which is a generalization that I don’t think is particularly useful. I also think TDD hate is often misdirected and comes after
+              not following the actual practices! Early in my career, the company I worked at brought in a coach to give the engineering team a multi-day TDD workshop. At the time I was too junior to have strong opinions about it; now that
+              I’ve experienced a bunch of different software development goals and contextual environments, I feel strongly that is extremely useful in the right contexts, and extremely not useful in others.<a
+                href="#fnref3"
+                class="footnote-back"
+                role="doc-backlink"
+                >↩︎</a
+              >
+            </p>
+          </li>
+          <li id="fn4">
+            <p>
+              Okay okay, I would not necessarily take TDD <em>literally</em> in many domains—but it is certainly possible to think through the “what-ifs” to understand what a failing case would look like, and then what a successful case
+              looks like. And it seems like (from the <a target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Test-driven_development">TDD wikipedia page</a>) this cross-domain adoption is something that folks
+              already do. Good!<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a>
+            </p>
+          </li>
+        </ol>
+      </section>
       <hr />
       <ul class="date">
         <li>Created: 2024-09-20</li>
-        <li>Last updated: 2024-09-20</li>
         <li>Type: Musing</li>
         <li>Tags: brainstorm, techspeak</li>
       </ul>
-<div class="blog-footer">
-    <a href="/rss.xml" rel="subscribe-rss">
-        <!-- Source: https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white -->
-        <img class="badge" src="/assets/img/rss-logo-styled.svg" alt="Subscribe to @hannahilea RSS feed" /></a>
-    <a class="button" target="_blank" rel="noreferrer noopener" href="http://groups.google.com/group/hannahilea-blog-rss" target="_blank"
-        rel="noreferrer noopener">Subscribe via email</a>
+      <div class="blog-footer">
+        <a href="/rss.xml" rel="subscribe-rss">
+          <!-- Source: https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white -->
+          <img class="badge" src="/assets/img/rss-logo-styled.svg" alt="Subscribe to @hannahilea RSS feed"
+        /></a>
+        <a class="button" target="_blank" rel="noreferrer noopener" href="http://groups.google.com/group/hannahilea-blog-rss" target="_blank" rel="noreferrer noopener">Subscribe via email</a>
 
-    <hr>
-    <nav class="navbar" role="navigation">
-        @hannahilea:
-        <a href="/" class="nav-link">home</a> |
-        <a href="/projects" class="nav-link">projects</a> |
-        <a href="/blog" class="nav-link">blog</a>
-    </nav>
-</div>
-
+        <hr />
+        <nav class="navbar" role="navigation">
+          @hannahilea:
+          <a href="/" class="nav-link">home</a> | <a href="/projects" class="nav-link">projects</a> |
+          <a href="/blog" class="nav-link">blog</a>
+        </nav>
+      </div>
     </div>
   </body>
 </html>

@@ -4,7 +4,6 @@ type: Tutorial
 tags: [joy, computer-literacy]
 description: Tutorial on turning screenshots into goofy shareable images.
 created: 2024-10-11
-updated: 2024-10-11
 published: Fri, 11 Oct 2024 15:42:32 GMT
 ---
 

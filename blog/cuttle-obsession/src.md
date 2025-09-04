@@ -4,7 +4,6 @@ type: Project write-up
 tags: [cuttle, cad, programming, prototyping, javascript, creative-coding, makerspace]
 description: Write-up of a bunch of laser-cut projects designed with Cuttle.
 created: 2024-09-27
-updated: 2024-09-27
 published: Fri, 27 Sep 2024 04:32:59 GMT
 ---
 

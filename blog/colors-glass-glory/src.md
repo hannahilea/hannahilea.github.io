@@ -4,7 +4,6 @@ type: Project write-up
 tags: mosaics, all-the-colors, reduce-reuse-recycle
 description: 'In which a delightful rainbow of glass tiles are turned into mosaic magnets and a GLADOMOSAIK'
 created: 2025-08-29
-updated: 2025-08-29
 published: Fri, 29 Aug 2025 12:45:00 EST
 header: '<style>
 .column3 {
