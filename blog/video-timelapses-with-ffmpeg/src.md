@@ -4,7 +4,6 @@ type: Task documentation
 tags: [ffmpeg, instructions, editing, task]
 description: 'Documentation for straightforward video editing task.'
 created: 2025-01-21
-updated: 2025-03-23
 published: Tue, 21 Jan 2025 11:58:00 EST
 ---
 

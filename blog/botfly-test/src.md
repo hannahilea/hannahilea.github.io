@@ -4,7 +4,6 @@ type: Musing
 tags: [spite-driven-development, bechdel-test]
 description: 'Assessment criteria for bot behavior: is it transparent, prosocial, and unselfish?'
 created: 2025-03-3
-updated: 2025-03-3
 published: Tue, 3 Mar 2025 17:45:00 EST
 ---
 

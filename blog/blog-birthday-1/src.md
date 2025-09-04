@@ -4,7 +4,6 @@ type: musing
 tags: [meta, data-viz, writing-on-writing]
 description: 'A light retrospective, a bar plot, and a bunch of word clouds walk into a room.'
 created: 2025-05-22
-updated: 2025-05-22
 published: Thu, 22 May 2025 14:30:00 EST
 header: '<style>
 .wordclouds {

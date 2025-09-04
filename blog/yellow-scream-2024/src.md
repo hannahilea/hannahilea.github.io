@@ -5,7 +5,6 @@ type: Project write-up
 tags: [art, interactive, creative-coding, p5.js]
 description: 'Interactive homage to Kim Beom’s Yellow Scream (2012).'
 created: 2024-11-06
-updated: 2024-11-06
 published: Thu, 7 Nov 2024 23:14:22 GMT
 ---
 
