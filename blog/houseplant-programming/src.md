@@ -36,7 +36,7 @@ Things I have found myself saying about some personal projects, almost apologeti
 - It's held together with [string and electrical tape and visibly disorganized wires](../slide-whistle-trombone-champ-controller/)...
 - I have to do [manual restarts after the power goes off](../clapping-music-for-flip-disc-displays/)...
 
-In the world of houseplant programming none of these statements are apology-worthy. In a workplace, about a project that is intended for productionization[^productionization] and mass dissemination? Sure, production-ready code---code that has a job, or provides the infrastructure for a job---needs to be some flavor of robust and tested and reliable. For a project that lives in my house and does what I need it to and periodically needs a little extra help? No worries.
+In the world of houseplant programming none of these statements are apology-worthy.[^potted] In a workplace, about a project that is intended for productionization[^productionization] and mass dissemination? Sure, production-ready code---code that has a job, or provides the infrastructure for a job---needs to be some flavor of robust and tested and reliable. For a project that lives in my house and does what I need it to and periodically needs a little extra help? No worries.
 
 [^productionization]: What is "production code"? Everyone seems to have their own non-standardized definition, but in general, it is code that is being actively used by someone other than its creator, such that some flavor of stability and uptime is expected. 
 
@@ -98,9 +98,9 @@ Before we get to the self-reflective bit,[^escape] here is a non-exhaustive list
 
   That said, once a plant/code has taken up residence in your home, it is no longer my responsibility. While I'd love to hear about what you did to help it thrive, and if it starts looking sad I'll gladly help you think through what might help, if it never thrives I'm probably not going to lose sleep over it. 
 
-  Besides, once you've gotten as far as propogating the code/plant I've given you, you'll know about as much about the situation as I do---maybe more---and now we can explore the next steps together.
+  Besides, once you've gotten as far as propagating the code/plant I've given you, you'll know about as much about the situation as I do---maybe more---and now we can explore the next steps together.
 
-- **Pet toxicity**: Just like some plants, some projects are practically poisonous to my cat and---if the cat had her way---should be rehomed with a pet-free pal.
+- **Pet toxicity**: Just like some plants, [some projects](../clapping-music-for-flip-disc-displays/) are practically poisonous to my cat and---if the cat had her way---should be rehomed with a pet-free pal.
 
 <div class="centered-children">
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Un1VF6QwQ7E?si=TEJnxtiWZ5pBCiUU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
