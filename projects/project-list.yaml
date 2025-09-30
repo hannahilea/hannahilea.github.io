@@ -51,6 +51,21 @@ virtual-gallery:
       Itinerant Mixer: Fun, Slick, and More Than a Toy </em></a>.'
 
 physical-gallery:
+  - project: Button-box timer
+    url: https://github.com/hannahilea/button-box-timer
+    year: 2025
+    thumbnail_url: "../blog/button-box-timer/assets/green.png"
+    description:
+      'Self-contained timer to preempt sedentary desk habits through button-pushing.
+      <br>Described in blog post <a href="../blog/button-box-timer/">Button-box timer</a>.'
+
+  - project: Mosaic table and magnetic tiles
+    year: 2025
+    thumbnail_url: "../blog/colors-glass-glory/assets/var-final.png"
+    description:
+      'Art project! No tech used, programming or otherwise.
+      <br>Described in blog post <a href="../blog/colors-glass-glory/">Colors! Glass! Glory!</a>.'
+
   - project: Slide whistle Trombone Champ controller
     url: https://github.com/hannahilea/slide-whistle-trombone-champ-controller
     year: 2025
