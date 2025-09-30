@@ -5,7 +5,6 @@ type: TODO-e.g.-musing-project-write-up-tutorial-etc
 tags: [TODO]
 description: 'TODO'
 created: {{ DATE }}
-updated: {{ DATE }}
 published: {{ PUB_DATE }}
 ---
 

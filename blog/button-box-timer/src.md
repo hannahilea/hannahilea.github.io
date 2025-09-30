@@ -4,8 +4,7 @@ type: project-write-up
 tags: [hardware, houseplant-programming]
 description: 'A simple box with one button and one job: reminding me to push that button.'
 created: 2025-09-29
-updated: 2025-09-29
-published: Mon, 29 Sep 2025 22:35:58 EST
+published: Mon, 29 Sep 2025 23:50:00 EST
 ---
 
 This weekend I built a little timer box to hang up next to my desk. It has one job: to gently remind me to be less sedentary, using colored LEDs to signal that its button has not been pressed recently. It lives far enough away from my seat that I cannot press it without standing up.
