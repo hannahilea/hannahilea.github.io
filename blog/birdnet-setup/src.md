@@ -114,7 +114,7 @@ In this task, we'll install an operating system (OS) on the Raspberry Pi Zero 2 
 
     ...select **`SAVE`**!
 
-5. You'll be reprompted to "Apply OS customization settings?" This time select `YES`. You might get a scary looking message asking you to confirm that any existing data on the card will be overwritten; select `YES` to continue. If prompted for a password, use the password for the computer you're running the configuration from---not any of the passwords we've now set for the Pi. 
+5. You'll be reprompted to "Apply OS customization settings?" This time select `YES`. You might get a scary-looking message asking you to confirm that any existing data on the card will be overwritten; select `YES` to continue. If prompted for a password, use the password for the computer you're running the configuration from---not any of the passwords we've now set for the Pi. 
 
     The Raspberry Pi Imager will now proceed to write the operating system and configuration settings to your microSD card! It may take a few minutes, but the progress bar will tell you when its done, and the microSD card will be automatically disconnected from your computer ("ejected") once the writing is complete. At that point it will be safe to remove the card from the writer.
 
@@ -342,9 +342,9 @@ For the following steps, use whatever browser on your computer you prefer---Chro
     
         This service the Species Stats tab, which is unusably slow on the Raspberry Pi Zero. Might as well turn it off, since we can't use it!
 
-    For both these services, be sure to select `Disable` instead of `Stop`; the former will persist after reboot, the latter will only halt the service until reboot. It might take a 
+    For both these services, be sure to select `Disable` instead of `Stop`; the former will persist after reboot, the latter will only halt the service until reboot.
 
-    Note that it may take a few seconds to a minute for each setting to update after being clicked; that's to be expected! Your Pi is working very hard to analyze birds and handle website requests at the same time! Have patience. If you're taken to a different screen with a black terminal on it, just go back to `Tools > Services` to confirm that those services are now disabled. It should look like this once complete:
+    It may take a few seconds to a minute for each setting to update after you've clicked its button; that's to be expected! Your Pi is working very hard to analyze birds and handle website requests at the same time. Have patience! If you're taken to a different screen with a black terminal on it, just go back to `Tools > Services` to confirm that those services are now disabled. It should look like this once complete:
 
     ![Screenshot of services page](./assets/site-services.png)
 
@@ -353,6 +353,8 @@ For the following steps, use whatever browser on your computer you prefer---Chro
     You can use [this site](https://www.latlong.net/) or in Google Maps, right click on a location to see its latitude and longitude:
 
     ![Screenshot of map of Newfoundland, with a white overlay containing its latitude and longitude.](./assets/lat-long.png)
+
+    Make sure to choose relatively accurate settings here; I think the species detection is influenced by the geographic location from which the recordings are made. 
 
 5. In `Tools > Settings > Advanced Settings`---found at the bottom of the basic `Tools > Settings` page---set:
 
@@ -503,7 +505,7 @@ Here are some photos of my own setup, for inspiration. You'll note that it is so
 </figure>
 </div>
 
-Once powered, both the analysis service and web server will start right away, and the Pi will autoconnect to the Wi-Fi network for which you configured it. This means that you will be able to see the BirdNet-Pi website that your Pi is serving by going to the address `birdnet-<pi_identifier>.local` in a web browser on another device---phone, laptop---that is connected to the same Wi-Fi network!
+Once powered, both the analysis service and web server will start right away, and the Pi will autoconnect to the Wi-Fi network for which you configured it. This means that you will be able to see the BirdNET-Pi website that your Pi is serving by going to the address `birdnet-<pi_identifier>.local` in a web browser on another device---phone, laptop---that is connected to the same Wi-Fi network!
 
 Optional niceties:
 
@@ -512,8 +514,8 @@ Optional niceties:
 
 <div class="centered-children">
 <figure>
-<img src="../birdnet-intro/assets/ipad-display.jpg" alt="Photo of ipad on wall, ipad is displaying the BirdNet-Pi website"/>
-<figcaption style="font-size:smaller">The BirdNet-Pi application's website, displayed on the semi-permanent viewing station my parents set up on an old iPad.</figcaption>
+<img src="../birdnet-intro/assets/ipad-display.jpg" alt="Photo of ipad on wall, ipad is displaying the BirdNET-Pi website"/>
+<figcaption style="font-size:smaller">The BirdNET-Pi application's website, displayed on the semi-permanent viewing station my parents set up on an old iPad.</figcaption>
 </figure>
 </div>
 
@@ -554,20 +556,20 @@ If you are ever unable to load your Pi's website from another device, or SSH ont
 
 1. **Is the Pi plugged into power?** If so, its green light will be flashing.
 2. **Is the Pi able to access the wireless network** it was configured to run on? i.e., is that network accessible and can you connect to it with another device (i.e., your phone, a laptop, etc)?
-3. (If you _aren't_ running Tailscale) **Is the device you're trying to view the website from connected to the *same network as the BirdNet-Pi*?** In my experience, this is the most common failure mode! 
+3. (If you _aren't_ running Tailscale) **Is the device you're trying to view the website from connected to the *same network as the BirdNET-Pi*?** In my experience, this is the most common failure mode! 
     - If you aren't on the same network, the website won't be viewable. Double-check that the viewing device isn't inadvertently connected to the `_5G` variant of your Wi-Fi network.
     - Also think about whether you configured your Pi to connect to multiple networks. If you did, are they both accessible to the Pi? If so, make sure you try both networks from your viewing device.
 4. (If you _are_ running Tailscale) **Does the device you're trying to view the website from have Tailscale enabled**, and is it part of the same network that the Pi was added to? Double-check that you're attempting to connect to the application's `.ts.net` URL rather than the `.local` URL.
 5. **Can you connect to the Pi via SSH?** If the Pi is powered and connected to the Wi-Fi, this will be possible.
 
-If you set up a BirdNet-Pi for someone else, and discover once in their space that you set up their Wi-Fi password incorrectly (or forgot to set it up at all!), never fear! Update the name of your phone and the password of its hotspot to mirror that of the Wi-Fi network you first used to set up the Pi. Then, once you've ~~tricked the Pi into connecting to your phone~~ connected to the Pi through your hotspot, update the Pi with the correct configuration for the new Wi-Fi network.[^ugh]
+If you set up a BirdNET-Pi for someone else, and discover once in their space that you set up their Wi-Fi password incorrectly (or forgot to set it up at all!), never fear! Update the name of your phone and the password of its hotspot to mirror that of the Wi-Fi network you first used to set up the Pi. Then, once you've ~~tricked the Pi into connecting to your phone~~ connected to the Pi through your hotspot, update the Pi with the correct configuration for the new Wi-Fi network.[^ugh]
 
 [^ugh]: Ask me how I figured this one out. 🙃
 [^storage]: This won't happen for a long time unless you're somewhere where the birds yell _constantly_ and you have a smaller SD card than the one recommended above.
 
 ## Finally
 
-We have now left the happy harbor of this basic installation document. If you're running into further issues, search around in some of the issues and discussion in the [BirdNet-Pi GitHub repository](https://github.com/Nachtzuster/BirdNET-Pi), or message me, or both.
+We have now left the happy harbor of this basic installation document. If you're running into further issues, search around in some of the issues and discussion in the [BirdNET-Pi GitHub repository](https://github.com/Nachtzuster/BirdNET-Pi), or message me, or both.
 
 Oh, one last thing: it's probably a good idea to copy your database off the Pi periodically! I don't do this yet, but I should, because if the SD card dies there's no way to recover your data. There's a "backup" button somewhere in the website, perhaps buried in the settings page, which will save everything (database, recordings) onto your local machine. If I end up doing something different than that in the future, I'll update here accordingly.
 
@@ -575,4 +577,4 @@ If you use these instructions---or they otherwise inspire you to set up a BirdNE
 
 [^fear]: I am worried that if something goes wrong while someone is trying these instructions, and they are new to this type of computer work, that they will assume the fault is theirs and then be disinclined to try similar projects in the future. The fault is not yours! The fault is nobody's! But also, maybe there are ways I could clarify the instructions to help unstick you, or maybe something about one of these dependencies changed and the instructions legitimately do not work anymore. I want to know about it, in either case!! Please tell me, and please do not assume the problem is on your end.
 
-***Thanks to AF for all the things: assistance in editing for clarity and comprehension, doing a run-through of the instructions to make sure they work (they did! she set up a BirdNet-Pi!), and kindly prodding me into finally posting this guide. It had only been sitting in draft form for six months, after all...***
+***Thanks to AF for all the things: assistance in editing for clarity and comprehension, doing a run-through of the instructions to make sure they work (they did! she set up a BirdNET-Pi!), and kindly prodding me into finally posting this guide. It had only been sitting in draft form for six months, after all...***
