@@ -59,7 +59,7 @@ Here are the items you'll need, with prices at time of writing:
 - Access to **an SD card writer** [ [MicroCenter, $18](https://www.microcenter.com/product/467960/iogear-superspeed-usb-30-sd-microsd-card-reader-writer) ], if there isn't one already built into your computer.
     - The step that requires an SD card writer is relatively brief and first on the list, so you could easily get away with borrowing a friend's rather than buying your own---especially if you set up a BirdNET-Pi for them while you're at it!
 
-Total cost: ~$60, not including the SD card writer.
+Total cost: ~$65, not including the SD card writer.
 
 [^sd]: Fun fact, SD card choice *really* matters if you're working with infrasound, e.g., if you're detecting bat sounds rather than bird sounds---some brands of SD card generate a hum at the same frequency as bats. The more you know!
 
