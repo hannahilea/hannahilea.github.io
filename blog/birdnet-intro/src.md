@@ -21,7 +21,7 @@ header: '<style>
 
 It's autumn here in the greater Boston area, and my bird neighbors have finally calmed down from all their summer yelling. Yours too? Sounds like the perfect time for any good ~~birb creeper~~ citizen scientist to set up a ~~spy ring for snooping on birbs~~ passive acoustic monitoring station!
 
-It is easier than ever to become the bird voyeur you were born to be, thanks to the [BirdNET model](https://birdnet.cornell.edu/) trained and released by the [Cornell Lab of Ornithology](https://www.birds.cornell.edu/home/) and the [BirdNET-Pi](https://github.com/Nachtzuster/BirdNET-Pi) application built on top of it by an open-source community. I've set up a couple of these now, for both myself and my parents; our BirdNET-Pi's have been both an ongoing source of joy and a connection point with folks around us.
+It is easier than ever to become the bird voyeur you were born to be, thanks to the [BirdNET model](https://birdnet.cornell.edu/) trained and released by the [Cornell Lab of Ornithology](https://www.birds.cornell.edu/home/) and the [BirdNET-Pi](https://github.com/Nachtzuster/BirdNET-Pi) application built on top of it by an open-source community. I've set up several of these now, for both myself and my parents; our BirdNET-Pi's have been both an ongoing source of joy and a connection point with folks around us.
 
 For example, here's what I measured on May 6, from the microphone just outside my window in a semi-urban neighborhood:
 
