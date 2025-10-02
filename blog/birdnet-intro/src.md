@@ -3,8 +3,8 @@ title: 'Intro to BirdNET-Pi: On surveilling my feathered friends (and how you ca
 type: tutorial
 tags: [birb-creeping, ecoacoustics, hardware, community, houseplant-programming, passive-acoustic-monitoring]
 description: 'Stick microphone out window, catch chorps.'
-created: 2025-10-1
-published: Wed, 1 October 2025 23:00:00 EST
+created: 2025-10-2
+published: Thu, 2 October 2025 10:30:00 EST
 header: '<style>
 .blog {
   img {

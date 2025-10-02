@@ -3,8 +3,8 @@ title: 'Set up BirdNET-Pi on a Raspberry Pi Zero 2 W'
 type: tutorial
 tags: [birb-creeping, ecoacoustics, hardware, community, houseplant-programming, passive-acoustic-monitoring]
 description: 'Step by step instructions for monitoring your yellingist feathered neighbors.'
-created: 2025-10-1
-published: Wed, 1 October 2025 23:01:00 EST
+created: 2025-10-2
+published: Thu, 2 October 2025 10:31:00 EST
 header: '<style>
 .blog {
   img {
