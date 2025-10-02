@@ -21,7 +21,7 @@ header: '<style>
 </div>
 
 The goal of these instructions is to make it trivially easy to get a new BirdNET-Pi installation up and running on a Raspberry Pi Zero 2 W.
-The instructions are intentionally verbose, written for folks who use computers but don't consider themselves programmers, and anyone who has never worked with a Raspberry Pi before. If you fit this description but find that the instructions fall short, please let me know!
+The instructions are intentionally verbose, written for folks who use computers but don't necessarily consider themselves programmers, as well as for anyone who has never worked with a Raspberry Pi before. If you fit this description but find that the instructions fall short, please let me know! Also, I hope you have fun with it. 
 
 ## One-time setup
 
@@ -35,7 +35,8 @@ Here are the tasks we'll be stepping through:
 - Optional:
     - [5: Install Tailscale for remote monitoring ⤵](#task-5-optional-install-tailscale-for-remote-monitoring)
     - [6: Support additional Wi-Fi networks ⤵](#task-6-optional-support-additional-wi-fi-networks)
-- 7: [Physical installation ⤵](#task-7-physical-installation)
+- [7: Physical installation ⤵](#task-7-physical-installation)
+- [8: Website exploration ⤵](#task-8-website-exploration)
 
 While it may look like there's a lot here, it is a straight-forward "a lot," without implicit steps that require leaving this page. Don't be nervous---you've got this!
 
@@ -101,7 +102,7 @@ In this task, we'll install an operating system (OS) on the Raspberry Pi Zero 2 
         - This will be the username and password for the Raspberry Pi. I use `birbwatcher` as the username for all of mine, so that's what you'll see in my screenshots. Make sure to write these values down somewhere, as you'll need them whenever you want to log into your Pi!
 
     - Configure wireless LAN: **`<your_current_wifi_network_name>`** / **`<your_current_wifi_network_password>`**
-        - Important note 1: This must be the  Wi-Fi network name ("SSID") and password for the  Wi-Fi network your computer is *currently using*, and that you'll be using for the rest of the Pi setup. If you're setting this device up for someone else, there'll be a separate step to additionally add *their*  Wi-Fi network info later; for now, this should be yours.
+        - Important note 1: This must be the Wi-Fi network name ("SSID") and password for the Wi-Fi network your computer is *currently using*, and that you'll be using for the rest of the Pi setup. If you're setting this device up for someone else, there'll be a separate step to additionally add *their* Wi-Fi network info later; for now, this should be yours.
         - Important note 2: If you have a 5 GHz option network (e.g., `MyFunWifiNetwork` and `MyFunWifiNetwork_5G`, do NOT use the 5G one! At time of writing, Raspberry Pi Zero 2 W's do not support it.)
     - Make sure the time zone is correct for wherever your BirdNET-Pi will be installed.
 
@@ -167,16 +168,16 @@ If your SSH connection drops at any time---your internet chokes, you decide it's
 
 </details>
 
-### Task 3:  BirdNET-Pi application installation
+### Task 3: BirdNET-Pi application installation
 
-Okay. You've set up the Pi, you've ssh'd onto the Pi---it's time to add  the "BirdNET" part of BirdNET-Pi!
+Okay. You've set up the Pi, you've ssh'd onto the Pi---it's time to add the "BirdNET" part of BirdNET-Pi!
 
 In this task, we'll download and run the installer for the BirdNET-Pi application and then change some of the Pi's configuration for storage limits, restart behavior, and logging. Some of the following is going to seem a little silly, but it works. ¯\\\_(ツ)\_/¯ Bear with me! 
 
 > *If you're prompted for a password at any point in this task, use the `<pi_password>` you set previously.*
 
 1. In your remote terminal---that is, a terminal window in which you've SSH'd onto your Pi---run
-    
+
     ```
     sudo nano /etc/rc.local
     ```
@@ -184,7 +185,7 @@ In this task, we'll download and run the installer for the BirdNET-Pi applicatio
     
     Using your arrow keys and keyboard as with a regular text editor, 
     Edit the file so its contents are exactly as follows:
-    
+
     ```
     #!/bin/sh -e
     iw wlan0 set power_save off
@@ -244,10 +245,10 @@ In this task, we'll download and run the installer for the BirdNET-Pi applicatio
     ```
     A bunch of text will print out to the screen, as various files and dependencies are copied onto the Pi. You don't have to pay attention to that text---you just have to wait and wait, *until the installation fails*. This may take a long time, on the order of tens of minutes.
 
-    That's right: eventually, **the installation script you just ran will fail(!)** with a "No space left on device" error.  That's expected! You want it to happen![^expected]
+    That's right: eventually, **the installation script you just ran will fail(!)** with a "No space left on device" error. That's expected! You want it to happen![^expected]
 
     ![Screenshot of failure message.](./assets/screenshot-failure.png)
-    
+
     [^expected]: The installer was designed for the non-"Pi Zero" Raspberry Pi computer, which has more space. 
 
 7. Okay, let's fix the out-of-space error. Run the following:
@@ -266,10 +267,10 @@ In this task, we'll download and run the installer for the BirdNET-Pi applicatio
     This step is slow, as lots of things happen during installation. Be patient!
 
     This time the installation script should succeed. You'll know it has succeeded because the Pi will reboot, which will close your SSH connection. 
-    
+
     If it does NOT succeed, i.e., you still get a failure message when you run that `curl` command, repeat the commands in this step. Try this a couple times before giving up and emailing me that my instructions did not work for you![^runthrough]
-    
-    [^runthrough]: :) In AF's run-through of these instructions, it succeeded on the third try. On _my_ several run-throughs, I didn't need those additional retries. ¯\\\_(ツ)\_/¯ What can I say, omputer is mistaek.
+
+    [^runthrough]: :) In AF's run-through of these instructions, it succeeded on the third try. On _my_ several run-throughs, I didn't need those additional retries. ¯\\\_(ツ)\_/¯ What can I say, computer is mistaek.
 
     ![Screenshot of failure message.](./assets/screenshot-success.png)
 
@@ -284,7 +285,7 @@ In this task, we'll download and run the installer for the BirdNET-Pi applicatio
     sudo nano /etc/systemd/journald.conf
     ```
     which will dump you into yet another file in your text editor!
-    
+
     Use the arrow keys to scroll down to the line that says `#SystemMaxUse=` and remove the `#` to change the line to be `SystemMaxUse=200M`
 
     ![Screenshot of journal config with requisite change made.](./assets/screenshot-journal.png)
@@ -332,7 +333,7 @@ For the following steps, use whatever browser on your computer you prefer---Chro
 
 
     1. Click **`Disable`** in **`Live Audio Stream`**. 
-    
+
         This step optional---you *could* leave it enabled. I disable mine for two reasons:
         - I don't want the ability to hear the recorded audio stream live, so it is a waste of compute power to leave it on and possibly slow everything else down; and
         - This "feature" makes it too easy to accidentally wander into a privacy violation. 
@@ -364,7 +365,7 @@ For the following steps, use whatever browser on your computer you prefer---Chro
 
 ### Task 5 (Optional): Install Tailscale for remote monitoring
 
-If you're gifting this BirdNET-Pi to someone else who wants you to act as tech support for their installation, or you want to be able to check on your own installation while you're not connected to your home Wi-Fi network, you can add your Pi to a [Tailscale](https://tailscale.com/) network---basically, it acts as a virtual private network for your various devices. 
+If you're gifting this BirdNET-Pi to someone else who wants you to act as tech support for their installation, or you want to be able to check on your own installation while you're not connected to your home Wi-Fi network, you can add your Pi to a [Tailscale](https://tailscale.com/) network---basically, it acts as a virtual private network for your various devices. This is an optional task!
 
 <details><summary>***Click to see instructions***</summary>
 
@@ -411,7 +412,7 @@ If you're gifting this BirdNET-Pi to someone else who wants you to act as tech s
     ssh <pi_username>@birdnet-<pi_identifier>
     ```
 
-    Note the lack of `.local` at the end of the host name!  E.g. over Tailscale I now do `ssh birbwatcher@birdnet-hannex` instead of `ssh birbwatcher@birdnet-hannex.local`.
+    Note the lack of `.local` at the end of the host name! E.g. over Tailscale I now do `ssh birbwatcher@birdnet-hannex` instead of `ssh birbwatcher@birdnet-hannex.local`.
 
 8. Similarly, you can view the Pi's website via your Tailscale network, so that you no longer have to be on the same wireless network as the Pi! You'll still need to do this from a machine that is part of your Tailscale network---this url won't work from a machine that isn't, i.e., you can't just give the URL to a friend and expect it to work.
 
@@ -431,9 +432,7 @@ If you are giving the Pi to someone else, and only want it to be available on yo
 
 ### Task 6 (Optional): Support additional Wi-Fi networks
 
-TODO-HERE
-
-There may be multiple  Wi-Fi networks to which you want the Pi to auto-connect when in range. For example, when I set up a BirdNET-Pi for someone else, I want it to recognize my home network---during setup, and for quality checking before I send it off!---as well as the network of the home I'm sending it to. Perhaps you additionally want to allow your Pi to connect to your phone's hotspot, so that you can take it with you on various outdoor adventures?[^adventure] [^hotspot]
+Want to configure your Pi to connect to additional Wi-Fi networks? When I set up a BirdNET-Pi for someone else, I want it to recognize my home network during setup, and for quality checking before I send it off(!), but I also want it to auto-connect to the network of its recipient. Similarly, you could configure your Pi to connect to your phone's hotspot, so that you can take it with you on various outdoor adventures.[^adventure] [^hotspot] This is an optional task!
 
 [^adventure]: Simply replace the wall plug with a portable USB battery pack, and hey presto, off you go!
 [^hotspot]: Note that if your phone's name (and therefore your hotspot name) is anything other than alphanumeric, these instructions may not work. Ask me and my phone named `🐙🐙🐙` how I figured this one out, and how long I struggled before giving up. 😅
@@ -480,48 +479,36 @@ For each additional network you want to add, paste the following:
 
 ### Task 7: Physical installation
 
-TODO-HERE
-
 Time to stick that microphone out a window!
 
-While you *could* just unplug your Pi, it's safer for the Pi (less chance of something going wrong!) to intentionally power it down first. While SSH'd onto the Pi, do `sudo shutdown`.[^say]
+While you *could* just unplug your Pi, it's safer for the Pi to intentionally power it down first---less chance of something going wrong![^say] While SSH'd onto the Pi, do `sudo shutdown`.
 
 [^say]: Do as I say, not as I do---I generally just unplug it. YMMV!
 
-Now go find a window and stick your microphone out it! I've included some photos of my own setup as inspiration. Once the microphone can access the great outoors (presumably, somewhere where you've heard at least one bird recently!), plug it into the remaining micro-USB port on the Pi. Plug the Pi into whatever outlet is accessible, and wait! 
+Now go find a window, and stick your microphone out it! You'll need to choose a window near a power outlet. Once the microphone is in the great outdoors---ideally, somewhere where you've heard at least one bird recently!---plug it into the second micro-USB port on the Pi. Plug the Pi into the outlet, and wait! In your choice of microphone location, be mindful of whether anything will get wet if it rains (bad!), especially if that thing is the Pi (very very bad! do not do this). 
 
-In your choice of microphone location, be mindful of whether anything will get wet if it rains (bad!), especially if that thing is the Pi (very very bad! do not do this). As an example, here is what my installation looks like:
+Here are some photos of my own setup, for inspiration. You'll note that it is sophisticated and bespoke, perfectly tailored to its environs.
 
 <div class="centered-children">
 <figure>
 <img src="../birdnet-intro/assets/installation.png" alt="Photo of Raspberry Pi Zero 2 W taped to a wall"/>
-<figcaption style="font-size:smaller">My exceptionally professional looking setup. Note the piece of white tape for sticking the Pi to the wall, and the piece of black tape, for covering up the Pi's bright green light, which otherwise is annoyingly bright at night.</figcaption>
+<figcaption style="font-size:smaller">My exceptionally professional setup. Note the piece of white tape for sticking the Pi to the wall, and the piece of black tape, for covering up the Pi's bright green light, which otherwise is annoyingly bright at night.</figcaption>
 </figure>
 </div>
 
 <div class="centered-children">
 <figure>
 <img src="../birdnet-intro/assets/mic.png" alt="Photo of microphone in dirty windowsill"/>
-<figcaption style="font-size:smaller">A view of the microphone, and also of my exceedingly dirty inner window frame. I was so horrified by this photo that I considered cleaning it out and taking a new photo. As you can see, I did not do that. Also, I just slide the window shut over top of the wire; the window isn't so snug that it is a problem. We did a similarly half-assed installation out of my parents' window, which was also sufficient for bird detection!</figcaption>
+<figcaption style="font-size:smaller">A view of the microphone, and also of my exceedingly dirty inner window frame. I was so horrified by this photo that I considered cleaning it out and taking a new photo. As you can see, I did not do that. Also, I just slide the window shut over top of the wire; the window isn't so snug that it is a problem. We did a similarly half-assed installation out of my parents' window. Both have proven sufficient for bird detection!</figcaption>
 </figure>
 </div>
 
-Once powered, the analysis service and web server will start right away, and the Pi will autoconnect to the  Wi-Fi network that you configured it for, which means that you will be able to see what it's doing via `foo.local` on another device (phone, laptop) as long as that device is on the same  Wi-Fi network.
-
-Once your BirdNET-Pi is up and running, anyone connected to your home  Wi-Fi network can view the latest birds at `birdnet-foo.local`. Anyone connected to your tailscale network can see the same via `birdnet-foo.TODO`.
-
-Click around to explore what's visible to you; note that the TODO and TODO tabs won't show anything, since we disabled those services (above). Until you've detected a few birds, the app will seem pretty boring and janky, but leave the microphone plugged in for a bit and then recheck it! The page may be a bit slow to load---remember that this site is being served entirely from that little Raspberry Pi Zero you just set up, and in addition to making the website you're trying to view, it is also constantly recording and analyzing sound. It's doing the best it can.
-
-## Daily usage
-
-To view the website being broadcast by your Pi, http://birdnet-foo.local. To access this site, you'll need to be on the same Wi-Fi network that your Pi is connected to.
-
-If you did the optional Tailscale installation, you can additionally view your site at http://birdnet-foo.<TODO>.ts.net/.
+Once powered, both the analysis service and web server will start right away, and the Pi will autoconnect to the Wi-Fi network for which you configured it. This means that you will be able to see the BirdNet-Pi website that your Pi is serving by going to the address `birdnet-<pi_identifier>.local` in a web browser on another device---phone, laptop---that is connected to the same Wi-Fi network!
 
 Optional niceties:
 
-- Put up a sign in your home with a link to the site, to show visitors how to connect to your  Wi-Fi and then view your birds
-- If you have an old display of some sort, you can set up a semi-permanent viewing station. My parents mounted an old iPad near the window with the BirdNET installation, and set its default landing page to view your BirdNET-Pi detections.[^display]
+- Put up a sign in your home with a link to the site, to show visitors how to connect to your Wi-Fi and then view your birds
+- If you have an old display of some sort, you can set up a semi-permanent viewing station. My parents mounted an old iPad near the window with their (first 😅) BirdNET installation, and set its default landing page to view their BirdNET-Pi detections.[^display]
 
 <div class="centered-children">
 <figure>
@@ -530,36 +517,62 @@ Optional niceties:
 </figure>
 </div>
 
-[^display]: With the visualization installation, the BirdNET went from being a background afterthought of being an active obsession---when an issue with logging brought down their installation a few months back, they went into bird monitoring withdrawal while I worked to fix it.
+[^display]: With the visualization installation, the BirdNET went from being a background afterthought of being an active obsession---when an issue with logging brought down their installation last year they seemingly went into bird-monitoring withdrawal while I worked to get it running again.
 
-### System administration details
+### Task 8: Website exploration
 
-Your BirdNET-Pi is now running! Awesome! Congrats! Uh...what if something goes wrong?
+You're basically done; this task is merely an "acquaint yourself with the web application" stretch goal!
 
-- If your power goes out, or your  Wi-Fi router resets, the Pi will automatically reconnect and start back up.
-- If your Pi is unable to connect to the  Wi-Fi for whatever reason, BirdNET will continue to run its detection and analysis; you just won't be able to connect to it (i.e., see the website for your installation) until the Pi has connected to the  Wi-Fi again.
-- If your internet is out but your  Wi-Fi router is still running, you'll still be able to see your Pi's website
-- If you are unable to load your Pi's website from another device, check the following (in roughly this order):
-    1. Is the Pi plugged into power? Is the green light on it flashing (to indicate that it is powered)?
-    2. Is the Pi able to access the wireless network it was configured to run on? i.e., is that network accessible and can you connect to it with another device (i.e., your phone, a laptop, etc)?
-    3. (If you aren't running tailscale) Is the device you're trying to view the website from connected to the *same network as the device is*? This is the gotcha question...if they aren't on the same network, the website won't be viewable. (This means if your phone is on the 5g home network and your Pi is on the regular network, you won't be able to view the website.)
-    4. (If you are running tailscale) Does the device you're trying to view the website from have tailscale enabled? Are you loading the site through its tailscale address (TODO) rather than FOO.local (TODO)?
-    5. Can you connect to the Pi via ssh? If the Pi is powered and connected to the  Wi-Fi,
-- If you set the device up for someone else and it turns out you set up their  Wi-Fi password incorrectly, use your phone to create a hotspot with the same credentials of the  Wi-Fi network you were on when you first set up the Pi (i.e., your home network, if you set this up for someone else) to get onto the Pi.[^hotspot]
+Click around your site---`birdnet-<pi_identifier>.local`---to explore what's visible to you; note that the "Live Audio" and "Species Stats" links won't show anything, since we disabled those services earlier. The page may be a bit slow to load---remember that this site is being served entirely from that little Raspberry Pi Zero you just set up, and in addition to making the website you're trying to view, it is also constantly recording and analyzing sound. It's doing the best it can.[^us]
+
+[^us]: Just like the rest of us.
+
+Until your Pi has detected a few birds, your website will seem pretty boring and sparse. But not for long! Leave the microphone plugged in for a bit and then recheck your site.
+
+Also, remember that once your BirdNET-Pi is up and running, anyone connected to your home Wi-Fi network (and _only_ folks connected to your home Wi-Fi network) can view your latest birds at that same `birdnet-<pi_identifier>.local` URL! 
+
+If you set up Tailscale, you'll be able to visit your site on any other device connected to your Tailscale network. To figure out the URL through which to do this, go to your Tailscale dashboard and copy the machine's IP address into your browser. If you feel that a string of numbers isn't quite pleasing enough for you, you can click the arrow next to the IP address to access a human-readable domain address, which will look something like `birdnet-<pi_identifier>.<random>-<words>.ts.net` . 
+
+## Daily usage: System administration details
+
+Your BirdNET-Pi is now running! Awesome! Congrats! 
+
+Here is a list of things worth knowing, in no particular order: 
+
+- When powered, your Pi will automatically record audio and analyze it for bird calls.
+- When powered, your Pi will automatically attempt to connect to its configured Wi-Fi network.
+- If the BirdNET-Pi cannot connect to the Wi-Fi network (the network is not available for whatever reason), it will still record and analyze audio.
+    - While you won't be able to connect to it---i.e., see the website for your installation---until your Pi has Wi-Fi connectivity again, you won't have missed any detections in the meantime. 
+- The website run on BirdNET-Pi's does not need Internet connectivity. If your Wi-Fi router is running, you'll be able to see your Pi's website, regardless of whether your router is connected to the internet or not.
 - Once the Pi begins to run out of storage space, which won't happen for a long time,[^storage] the oldest recordings will be deleted to make space for newer recordings.
-    - You can preempt this "loss" by periodically moving older recordings off the device to a different storage location.
+    - If you care about this, you can preempt this loss by periodically moving older recordings off the device to a different storage location.
+    - The database records of those recordings will not be deleted, just the recordings---so you may not care about preserving them, as you will still have a record of the detections and their times and species, etc.
 
-[^hotspot]: Ask me how I figured this one out. 🙃
+Uh...but what if something goes wrong? 
+
+If you are ever unable to load your Pi's website from another device, or SSH onto it, check the following (in roughly this order):
+
+1. **Is the Pi plugged into power?** If so, its green light will be flashing.
+2. **Is the Pi able to access the wireless network** it was configured to run on? i.e., is that network accessible and can you connect to it with another device (i.e., your phone, a laptop, etc)?
+3. (If you _aren't_ running Tailscale) **Is the device you're trying to view the website from connected to the *same network as the BirdNet-Pi*?** In my experience, this is the most common failure mode! 
+    - If you aren't on the same network, the website won't be viewable. Double-check that the viewing device isn't inadvertently connected to the `_5G` variant of your Wi-Fi network.
+    - Also think about whether you configured your Pi to connect to multiple networks. If you did, are they both accessible to the Pi? If so, make sure you try both networks from your viewing device.
+4. (If you _are_ running Tailscale) **Does the device you're trying to view the website from have Tailscale enabled**, and is it part of the same network that the Pi was added to? Double-check that you're attempting to connect to the application's `.ts.net` URL rather than the `.local` URL.
+5. **Can you connect to the Pi via SSH?** If the Pi is powered and connected to the Wi-Fi, this will be possible.
+
+If you set up a BirdNet-Pi for someone else, and discover once in their space that you set up their Wi-Fi password incorrectly (or forgot to set it up at all!), never fear! Update the name of your phone and the password of its hotspot to mirror that of the Wi-Fi network you first used to set up the Pi. Then, once you've ~~tricked the Pi into connecting to your phone~~ connected to the Pi through your hotspot, update the Pi with the correct configuration for the new Wi-Fi network.[^ugh]
+
+[^ugh]: Ask me how I figured this one out. 🙃
 [^storage]: This won't happen for a long time unless you're somewhere where the birds yell _constantly_ and you have a smaller SD card than the one recommended above.
-
-We have now left the happy harbor of this basic installation document  so if you're hitting issues here, search around in some of the resource docs below, or message me or something...
-
-- Data backup:
-    - It's probably a good idea to copy your database off the Pi periodically. I don't do this, but I should, because if the SD card dies there's no way to recover your data. TODO-instructions
-    - Also more minimal instructions sans recordings.
 
 ## Finally
 
-If you use these instructions---or are otherwise inspired to set up a BirdNET-Pi of your own---please let me know! If anything is unclear or broken, **please tell me**. If you know me in real life and want assistance or company while you run through a set up, or just want me to just set one up for you, let me know. I'd love to help!
+We have now left the happy harbor of this basic installation document. If you're running into further issues, search around in some of the issues and discussion in the [BirdNet-Pi GitHub repository](https://github.com/Nachtzuster/BirdNET-Pi), or message me, or both.
 
-***Thanks to AF for assistance in editing for clarity and comprehension!***
+Oh, one last thing: it's probably a good idea to copy your database off the Pi periodically! I don't do this yet, but I should, because if the SD card dies there's no way to recover your data. There's a "backup" button somewhere in the website, perhaps buried in the settings page, which will save everything (database, recordings) onto your local machine. If I end up doing something different than that in the future, I'll update here accordingly.
+
+If you use these instructions---or they otherwise inspire you to set up a BirdNET-Pi of your own---please let me know! If anything is unclear or broken, **please tell me**.[^fear] If you know me in real life and want assistance or company while you run through a set up, or just want me to just set one up for you, let me know. I'd love to help!
+
+[^fear]: I am worried that if something goes wrong while someone is trying these instructions, and they are new to this type of computer work, that they will assume the fault is theirs and then be disinclined to try similar projects in the future. The fault is not yours! The fault is nobody's! But also, maybe there are ways I could clarify the instructions to help unstick you, or maybe something about one of these dependencies changed and the instructions legitimately do not work anymore. I want to know about it, in either case!! Please tell me, and please do not assume the problem is on your end.
+
+***Thanks to AF for all the things: assistance in editing for clarity and comprehension, doing a run-through of the instructions to make sure they work (they did! she set up a BirdNet-Pi!), and kindly prodding me into finally posting this guide. It had only been sitting in draft form for six months, after all...***
