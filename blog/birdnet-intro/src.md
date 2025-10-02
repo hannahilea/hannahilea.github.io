@@ -1,8 +1,8 @@
 ---
-title: 'Intro to BirdNET-Pi: On surveilling my feathered friends (and how you can too)'
+title: 'Intro to BirdNET-Pi: Eavesdropping on my feathered friends (and how you can, too!)'
 type: tutorial
 tags: [birb-creeping, ecoacoustics, hardware, community, houseplant-programming, passive-acoustic-monitoring]
-description: 'Stick microphone out window, catch chorps.'
+description: 'Stick microphone out window, catch chorps, feel joy.'
 created: 2025-10-2
 published: Thu, 2 October 2025 10:30:00 EST
 header: '<style>
@@ -19,7 +19,7 @@ header: '<style>
 <summary class="alert-heading">Instructions are here: [Set up BirdNET-Pi on a Raspberry Pi Zero 2 W](../birdnet-setup/) 🐦‍⬛</summary>
 </div>
 
-It's autumn here in the greater Boston area, and my bird neighbors have finally calmed down from all the yelling they've been doing since early spring. Yours too? Sounds like the perfect time for any good ~~birb creeper~~ citizen scientist to set up a ~~spy ring for snooping on birbs~~ passive acoustic monitoring station!
+It's autumn here in the greater Boston area, and my bird neighbors have finally calmed down from all their summer yelling. Yours too? Sounds like the perfect time for any good ~~birb creeper~~ citizen scientist to set up a ~~spy ring for snooping on birbs~~ passive acoustic monitoring station!
 
 It is easier than ever to become the bird voyeur you were born to be, thanks to the [BirdNET model](https://birdnet.cornell.edu/) trained and released by the [Cornell Lab of Ornithology](https://www.birds.cornell.edu/home/) and the [BirdNET-Pi](https://github.com/Nachtzuster/BirdNET-Pi) application built on top of it by an open-source community. I've set up a couple of these now, for both myself and my parents; our BirdNET-Pi's have been both an ongoing source of joy and a connection point with folks around us.
 
@@ -260,4 +260,4 @@ Once yours is up and running? Be as vocal about the cool things you're learning 
 
     For posterity, here is that original opening line, so that you can appreciate what could have been:
 
-    > It's spring here in the greater Boston area, and my bird neighbors are going fucking *nuts*.
+    > It's late spring here in the greater Boston area, and my bird neighbors are going fucking *nuts*.

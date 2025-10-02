@@ -17,7 +17,7 @@ header: '<style>
 
 <br>
 <div class="alert" style="background:#e8ebf5; padding: .5em;">
-<summary class="alert-heading">Before you step through these instructions, first read [Intro to BirdNET-Pi: On surveilling my feathered friends (and how you can too)](../birdnet-intro/) 🐦‍⬛</summary>
+<summary class="alert-heading">Before you step through these instructions, first read [Intro to BirdNET-Pi: Eavesdropping on my feathered (and how you can, too!)](../birdnet-intro/) 🐦‍⬛</summary>
 </div>
 
 The goal of these instructions is to make it trivially easy to get a new BirdNET-Pi installation up and running on a Raspberry Pi Zero 2 W.
