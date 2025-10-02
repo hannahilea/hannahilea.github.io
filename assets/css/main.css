@@ -443,7 +443,8 @@ img.home-img {
   padding-left: .5em;
   flex: 0 1 auto;
   margin-bottom: 2em;
-  font-size: smaller;
+  /* font-size: smaller; */
+  font-family: "Jura Regular";
 }
 
 .alert-heading {

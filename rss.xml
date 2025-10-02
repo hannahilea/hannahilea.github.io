@@ -161,6 +161,20 @@
       <guid>https://hannahilea.com/blog/button-box-timer</guid>
       <description>A simple box with one button and one job: reminding me to push that button.</description>
     </item>
+    <item>
+      <title>Intro to BirdNET-Pi: Eavesdropping on my feathered friends (and how you can, too!)</title>
+      <pubDate>Thu, 2 October 2025 10:30:00 EST</pubDate>
+      <link>https://hannahilea.com/blog/birdnet-intro</link>
+      <guid>https://hannahilea.com/blog/birdnet-intro</guid>
+      <description>Stick microphone out window, catch chorps, feel joy.</description>
+    </item>
+    <item>
+      <title>Set up BirdNET-Pi on a Raspberry Pi Zero 2 W</title>
+      <pubDate>Thu, 2 October 2025 10:31:00 EST</pubDate>
+      <link>https://hannahilea.com/blog/birdnet-setup</link>
+      <guid>https://hannahilea.com/blog/birdnet-setup</guid>
+      <description>Step by step instructions for monitoring your yellingist feathered neighbors.</description>
+    </item>
 
   </channel>
 </rss>

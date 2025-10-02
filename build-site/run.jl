@@ -1,5 +1,6 @@
 using Pkg
 Pkg.activate(@__DIR__)
+Pkg.instantiate()
 using pandoc_jll
 using Dates
 using YAML
@@ -196,7 +197,7 @@ function get_all_blog_metadata()
         m = get_blog_metadata(md_file)
         push!(metadata, (; url="./" * basename(dir), dir=basename(dir), m...))
     end
-    metadata = sort(metadata; by=(m) -> m.date_str, rev=true)
+    sort!(metadata; by=(m) -> (m.date_str, m.published), rev=true)
     return metadata
 end
 

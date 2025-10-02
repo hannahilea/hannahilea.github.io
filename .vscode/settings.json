@@ -24,5 +24,8 @@
             "cmd": "echo 'A project template file has been saved ${file}.'; julia --startup-file=no build-site/run.jl projects"
         },
         ]
-    }
+    },
+    "cSpell.words": [
+        "Imager"
+    ]
 }
