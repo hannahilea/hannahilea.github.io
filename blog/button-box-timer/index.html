@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" type="image/png" href="../../assets/img/favicon.png" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="og:title" content="Button-box timer" />
+    <meta
+      property="og:description"
+      content="A simple box with one
+button and one job: reminding me to push that button."
+    />
+    <meta property="og:url" content="https://www.hannahilea.com/blog/button-box-timer" />
+    <meta property="og:image" content="https://www.hannahilea.com/blog/button-box-timer/assets/thumbnail.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:height" content="300" />
+    <meta property="og:type" content="website" />
+
+    <title>Button-box timer</title>
+    <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
+  </head>
+
+  <body>
+    <div class="main-container blog">
+      <nav class="navbar" role="navigation">
+        @hannahilea:
+        <a class="nav-link" href="../..">home</a> | <a class="nav-link" href="../../projects">projects</a> |
+        <a class="nav-link" href="..">blog</a>
+      </nav>
+
+      <h1>Button-box timer</h1>
+      <div class="date">29 Sep 2025</div>
+      <p>
+        This weekend I built a little timer box to hang up next to my desk. It has one job: to gently remind me to be less sedentary, using colored LEDs to signal that its button has not been pressed recently. It lives far enough away from
+        my seat that I cannot press it without standing up.
+      </p>
+      <figure>
+        <img src="./assets/green.png" alt="Photo of brick wall with small cardboard box on it; box has single button and single green light glowing." />
+      </figure>
+      <p>
+        I installed it today, and so far so good: it is unobtrusive enough that it isn’t distracting, obvious enough that it reminded me to stand up on several different occasions, and pleasing to push. Also, it turns out that it feels nice
+        to stretch semi-regularly. Who could have predicted?
+      </p>
+      <figure>
+        <img src="./assets/yellow.png" alt="Same photo as before, but with yellow light illuminated" />
+      </figure>
+      <p>
+        I <a target="_blank" rel="noreferrer noopener" href="https://github.com/hannahilea/button-box-timer">wrote up the instructions</a>, if you want to make one yourself! It is a straight-forward electronics project so would make a good
+        starter project for anyone relatively new to hardware. It runs on an <a target="_blank" rel="noreferrer noopener" href="https://www.adafruit.com/product/3500">Adafruit Trinket M0</a> microcontroller, programmed in CircuitPython.
+      </p>
+      <figure>
+        <img src="./assets/breadboard.jpeg" alt="Photo of electronics breadboard with various wires and buttons attached." />
+      </figure>
+      <p>
+        The timer is easily customizable in both function and form. As far as function goes, mine counts up—green to yellow to red—but perhaps you want yours to count down? It could just as easily be a reminder of when a minimum allowable
+        amount of time has passed, e.g., to signal that it is now safe to take more motrin or to give the cat more treats.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
+      </p>
+      <figure>
+        <img src="./assets/timer.gif" alt="Animated gif of timer box’s button being pushed and cycling through green, yellow, and red LEDs" />
+      </figure>
+      <p>
+        As far as form, mine uses a fun <a target="_blank" rel="noreferrer noopener" href="https://www.adafruit.com/product/3490">arcade-style button</a> that I’ve had lying around for a while; yours could use whatever button or sensor you
+        have—or something that catches your fancy upon <a target="_blank" rel="noreferrer noopener" href="https://www.adafruit.com/category/235">browsing</a>. I built it into a cardboard box, because that’s what I had on hand. This timer
+        would work just as nicely in a custom enclosure, a repurposed little tin, or some more sculptural element. Go wild!
+      </p>
+      <figure>
+        <img src="./assets/box-open.jpeg" alt="Photo of electronics in open cardboard box" />
+      </figure>
+      <p>Or just use a little cardboard box that you’ve colored with a Sharpie.</p>
+      <figure>
+        <img src="./assets/box-closed.jpeg" alt="Close-up photo of timer box, with one button and three LEDs" />
+      </figure>
+      <p>
+        <strong
+          ><em
+            >Instructions for building your own button-box timer (including a component list and code) are <a target="_blank" rel="noreferrer noopener" href="https://github.com/hannahilea/button-box-timer">here</a>. Let me know if you make
+            one!</em
+          ></strong
+        >
+      </p>
+      <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+        <hr />
+        <h3 id="footnotes-title">Footnotes</h3>
+        <ol>
+          <li id="fn1">
+            <p>Trick question, the cat can <em>always</em> be given more treats. (This message endorsed by Cosmo.)<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+        </ol>
+      </section>
+      <hr />
+      <ul class="date">
+        <li>Created: 2025-09-29</li>
+        <li>Type: project-write-up</li>
+        <li>Tags: hardware, houseplant-programming</li>
+      </ul>
+      <div class="blog-footer">
+        <a href="/rss.xml" rel="subscribe-rss">
+          <!-- Source: https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white -->
+          <img class="badge" src="/assets/img/rss-logo-styled.svg" alt="Subscribe to @hannahilea RSS feed"
+        /></a>
+        <a class="button" target="_blank" rel="noreferrer noopener" href="http://groups.google.com/group/hannahilea-blog-rss" target="_blank" rel="noreferrer noopener">Subscribe via email</a>
+
+        <hr />
+        <nav class="navbar" role="navigation">
+          @hannahilea:
+          <a href="/" class="nav-link">home</a> | <a href="/projects" class="nav-link">projects</a> |
+          <a href="/blog" class="nav-link">blog</a>
+        </nav>
+      </div>
+    </div>
+  </body>
+</html>

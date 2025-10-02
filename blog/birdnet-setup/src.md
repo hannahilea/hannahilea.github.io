@@ -3,8 +3,8 @@ title: 'Set up BirdNET-Pi on a Raspberry Pi Zero 2 W'
 type: tutorial
 tags: [birb-creeping, ecoacoustics, hardware, community, houseplant-programming, passive-acoustic-monitoring]
 description: 'Step by step instructions for monitoring your yellingist feathered neighbors.'
-created: 2025-09-5
-published: Fri, 9 September 2025 23:01:00 EST
+created: 2025-10-1
+published: Wed, 1 October 2025 23:01:00 EST
 header: '<style>
 .blog {
   img {
@@ -27,15 +27,15 @@ The instructions are intentionally verbose, written for folks who use computers 
 
 Here are the tasks we'll be stepping through:
 
-- 0: Acquire components
-- 1: Initial Raspberry Pi Zero 2 W set up
-- 2: SSH time---talk to the Pi
-- 3: BirdNET-Pi application installation
-- 4: Configure the BirdNET-Pi application
+- [0: Acquire components ⤵](#task-0-acquire-components)
+- [1: Initial Raspberry Pi Zero 2 W set up ⤵](#task-1-initial-raspberry-pi-zero-2-w-set-up)
+- [2: SSH time---talk to the Pi ⤵](#task-2-ssh-timetalk-to-the-pi)
+- [3: BirdNET-Pi application installation ⤵](#task-3-birdnet-pi-application-installation)
+- [4: Configure the BirdNET-Pi application ⤵](#task-4-configure-the-birdnet-pi-application)
 - Optional:
-    - 5: Install Tailscale for remote monitoring
-    - 6: Support additional Wi-Fi networks
-- 7: Physical installation
+    - [5: Install Tailscale for remote monitoring ⤵](#task-5-optional-install-tailscale-for-remote-monitoring)
+    - [6: Support additional Wi-Fi networks ⤵](#task-6-optional-support-additional-wi-fi-networks)
+- 7: [Physical installation ⤵](#task-7-physical-installation)
 
 While it may look like there's a lot here, it is a straight-forward "a lot," without implicit steps that require leaving this page. Don't be nervous---you've got this!
 
@@ -45,9 +45,9 @@ Also: I ran this setup from my personal computer, which happens to be a Mac. If 
 
 Here are the items you'll need, with prices at time of writing:
 
-- **Raspberry Pi Zero 2 W** [ [Adafruit, $15](https://www.adafruit.com/product/5291) | [MicroCenter, $18](https://www.microcenter.com/product/683270/raspberry-pi-raspberry-pi-zero-w-2-with-headers)]
+- **Raspberry Pi Zero 2 W** [ [Adafruit, $19](https://www.adafruit.com/product/5291) | [MicroCenter, $18](https://www.microcenter.com/product/683270/raspberry-pi-raspberry-pi-zero-w-2-with-headers)]
     - With or without headers, it doesn't matter; we won't use them.
-- **USB lavalier microphone** [ [Amazon, $19](https://www.amazon.com/gp/product/B08RYC5435) plus [USB 2.0-to-micro adapter, $4](https://www.amazon.com/dp/B01C6032G0)]
+- **USB lavalier microphone** [ [Amazon, $19](https://www.amazon.com/gp/product/B08RYC5435) plus [USB 2.0-to-micro adapter, $5](https://www.amazon.com/dp/B01C6032G0)]
     - The microphone will plug into a **micro USB port** on the Pi; if you get a different mic than this one, double-check the plug or get an adapter for it.
 - **Power adapter, 5V 2.5A or 3A, Micro USB** [ [MicroCenter, $12](https://www.microcenter.com/product/510437/micro-connectors-micro-usb-5v-25a-power-adapter-with-on-off-switch-for-raspberry-pi) | [Amazon, $12](https://www.amazon.com/dp/B07CVH21NC) ]
     - The power adapter will connect to a **micro USB port** on the Pi; if you buy a different adapter than this one, double-check the plug or get an adapter for it.
@@ -56,9 +56,9 @@ Here are the items you'll need, with prices at time of writing:
     - You could probably get away with less memory, but don't skimp and get an off-brand card; this is the component that actually matters.[^sd]
 
 - Access to **an SD card writer** [ [MicroCenter, $18](https://www.microcenter.com/product/467960/iogear-superspeed-usb-30-sd-microsd-card-reader-writer) ], if there isn't one already built into your computer.
-    - The step that requires an SD card writer is relatively brief and first on the list, so you could easily get away with borrowing a friend's, rather than buying your own---especially if you set up a BirdNET-Pi for them while you're at it!
+    - The step that requires an SD card writer is relatively brief and first on the list, so you could easily get away with borrowing a friend's rather than buying your own---especially if you set up a BirdNET-Pi for them while you're at it!
 
-***Total cost: ~$60, not including the SD card writer***
+Total cost: ~$60, not including the SD card writer.
 
 [^sd]: Fun fact, SD card choice *really* matters if you're working with infrasound, e.g., if you're detecting bat sounds rather than bird sounds---some brands of SD card generate a hum at the same frequency as bats. The more you know!
 
@@ -74,13 +74,18 @@ In this task, we'll install an operating system (OS) on the Raspberry Pi Zero 2 
 
 3. Open the Raspberry Pi Imager application, and make the following selections:
     - Raspberry Pi Device: **Raspberry Pi Zero 2 W**
-    - Operating System: **Raspberry Pi OS (Legacy, 64-bit) LITE**
-        - This option may be nested under the "Raspberry Pi OS (other)" folder and require a little bit of searching; also, it may be called "Raspberry Pi OS LITE (Legacy, 64-bit)". 
+    - Operating System: **Raspberry Pi OS Lite (64-bit)**, "A port of Debian Bookworm with no desktop environment".
+        - This option may be nested under the "Raspberry Pi OS (other)" folder and require a little bit of searching. 
+
+    ![Screenshot of Operating System selection dialog](./assets/pi-image-0.png)
+
     - Storage: **Generic - SD/MicroSD Media**, which is the microSD card that's currently in the writer
+
+    Your resultant selection screen should look like this: 
 
     ![Screenshot of selection dialog, with choices matching those described in the above text](./assets/pi-image-1.png)
 
-    ...**`NEXT`**!
+    ...select **`NEXT`**!
 
 4. You'll be prompted to optionally "Apply OS customization settings?" Select **`EDIT SETTINGS`**
 
@@ -96,7 +101,8 @@ In this task, we'll install an operating system (OS) on the Raspberry Pi Zero 2 
         - This will be the username and password for the Raspberry Pi. I use `birbwatcher` as the username for all of mine, so that's what you'll see in my screenshots. Make sure to write these values down somewhere, as you'll need them whenever you want to log into your Pi!
 
     - Configure wireless LAN: **`<your_current_wifi_network_name>`** / **`<your_current_wifi_network_password>`**
-        - Important: this must be the  Wi-Fi network name ("SSID") and password for the  Wi-Fi network your computer is *currently using*, and that you'll be using for the rest of the Pi setup. If you're setting this device up for someone else, there'll be a separate step to additionally add *their*  Wi-Fi network info later; for now, this should be yours.
+        - Important note 1: This must be the  Wi-Fi network name ("SSID") and password for the  Wi-Fi network your computer is *currently using*, and that you'll be using for the rest of the Pi setup. If you're setting this device up for someone else, there'll be a separate step to additionally add *their*  Wi-Fi network info later; for now, this should be yours.
+        - Important note 2: If you have a 5 GHz option network (e.g., `MyFunWifiNetwork` and `MyFunWifiNetwork_5G`, do NOT use the 5G one! At time of writing, Raspberry Pi Zero 2 W's do not support it.)
     - Make sure the time zone is correct for wherever your BirdNET-Pi will be installed.
 
     ![Screenshot of selection dialog, with choices matching those described in the above text.](./assets/pi-image-2.png)
@@ -105,7 +111,7 @@ In this task, we'll install an operating system (OS) on the Raspberry Pi Zero 2 
 
     ![Screenshot of additional selection dialog, with choices matching those described in the above text.](./assets/pi-image-3.png)
 
-    ...**`SAVE`**!
+    ...select **`SAVE`**!
 
 5. You'll be reprompted to "Apply OS customization settings?" This time select `YES`. You might get a scary looking message asking you to confirm that any existing data on the card will be overwritten; select `YES` to continue. If prompted for a password, use the password for the computer you're running the configuration from---not any of the passwords we've now set for the Pi. 
 
@@ -138,9 +144,10 @@ Once your Pi is powered on, **as long as your personal computer is on the same W
 
     ![Screenshot of ssh connection window.](./assets/ssh.png)
 
-3. If prompted to continue connecting, type `yes` and hit `enter`.
+2. If prompted to continue connecting, type `yes` and hit `enter`.
+    - If you just hit `enter` without typing `yes`, you will not be connected, and it might get confusing. Try step 1 again, and this time type `yes` at the prompt!
 
-2. When prompted for a password, type the `<pi_password>` from above (without the angle brackets!!) and hit `enter`.
+3. When prompted for a password, type the `<pi_password>` from above (without the angle brackets!!) and hit `enter`.
 
 ...that's it, you're on! Any commands you type into this terminal window will now be running *on your Raspberry Pi*. 😮 If you want to close the SSH connection? Simply type `exit` and hit `enter`, or close the terminal's application window by clicking on the X in the corner of the window. 
 
@@ -235,7 +242,9 @@ In this task, we'll download and run the installer for the BirdNET-Pi applicatio
     ```
     curl -s https://raw.githubusercontent.com/Nachtzuster/BirdNET-Pi/main/newinstaller.sh | bash
     ```
-    A bunch of text will print out to the scree, as various files and dependencies are copied onto the Pi. You don't have to pay attention to that text---you just have to wait and wait, until the installation fails. That's write: eventually, **the installation script you just ran will fail(!)** with a "No space left on device" error.  That's expected! You want it to happen![^expected]
+    A bunch of text will print out to the screen, as various files and dependencies are copied onto the Pi. You don't have to pay attention to that text---you just have to wait and wait, *until the installation fails*. This may take a long time, on the order of tens of minutes.
+
+    That's right: eventually, **the installation script you just ran will fail(!)** with a "No space left on device" error.  That's expected! You want it to happen![^expected]
 
     ![Screenshot of failure message.](./assets/screenshot-failure.png)
     
@@ -256,7 +265,11 @@ In this task, we'll download and run the installer for the BirdNET-Pi applicatio
 
     This step is slow, as lots of things happen during installation. Be patient!
 
-    This time the installation script should succeed. You'll know it has succeeded because the Pi will reboot, which will close your SSH connection.
+    This time the installation script should succeed. You'll know it has succeeded because the Pi will reboot, which will close your SSH connection. 
+    
+    If it does NOT succeed, i.e., you still get a failure message when you run that `curl` command, repeat the commands in this step. Try this a couple times before giving up and emailing me that my instructions did not work for you![^runthrough]
+    
+    [^runthrough]: :) In AF's run-through of these instructions, it succeeded on the third try. On _my_ several run-throughs, I didn't need those additional retries. ¯\\\_(ツ)\_/¯ What can I say, omputer is mistaek.
 
     ![Screenshot of failure message.](./assets/screenshot-success.png)
 
@@ -272,7 +285,7 @@ In this task, we'll download and run the installer for the BirdNET-Pi applicatio
     ```
     which will dump you into yet another file in your text editor!
     
-    Use the arrow keys to scroll down to the line that says `#SystemMaxUse=` and change it to `SystemMaxUse=200M`
+    Use the arrow keys to scroll down to the line that says `#SystemMaxUse=` and remove the `#` to change the line to be `SystemMaxUse=200M`
 
     ![Screenshot of journal config with requisite change made.](./assets/screenshot-journal.png)
 
@@ -357,6 +370,8 @@ If you're gifting this BirdNET-Pi to someone else who wants you to act as tech s
 
 1. [Sign up](https://login.tailscale.com/admin/welcome) for a Tailscale account, if you don't already have one.
 
+    You do not need to do anything other than choose (or make) an account to sign in with. You don't need to bother following their steps to "add a first device" unless you want to, you can do it later.
+
 2. In your terminal, SSH onto the Pi and install Tailscale by running
 
     ```
@@ -376,7 +391,7 @@ If you're gifting this BirdNET-Pi to someone else who wants you to act as tech s
     ```
     sudo tailscale up
     ```
-    This will result in a prompt with a URL link to click. Follow that `command`-click that link or paste it into your browser! It will ask you to agree to connect this new device to your Tailscale network. 
+    This will result in a prompt with a URL link to click. Follow that link by `command`-clicking it or pasting it into your browser! It will ask you to agree to connect this new device to your Tailscale network; follow through with whatever verification steps it asks you to do.
 
     > Note that if you want to connect the device to *someone else's* Tailscale network, you'll need to send *them* the generated URL and have them authorize it with their own Tailscale account. 
 
@@ -434,7 +449,8 @@ For each additional network you want to add, paste the following:
         type wifi \
         wifi.ssid "<NETWORK-NAME>" \
         wifi-sec.key-mgmt wpa-psk \
-        wifi-sec.psk "<NETWORK-PASSWORD>"
+        wifi-sec.psk "<NETWORK-PASSWORD>" \
+        connection.id "wifi-<NETWORK-NAME>"
     ```
 
     e.g., for a network named `SuperBoringNetwork381` with password `reallysecurepassword`:
@@ -444,7 +460,8 @@ For each additional network you want to add, paste the following:
         type wifi \
         wifi.ssid "SuperBoringNetwork381" \
         wifi-sec.key-mgmt wpa-psk \
-        wifi-sec.psk "reallysecurepassword"
+        wifi-sec.psk "reallysecurepassword" \
+        connection.id "wifi-SuperBoringNetwork381"
     ```
 
 2. Reload the configuration: `sudo nmcli connection reload`
@@ -452,7 +469,11 @@ For each additional network you want to add, paste the following:
 3. ...that's it! You can check to see what networks are now set up with 
 
     ```
-    nmcli device wifi list
+    nmcli connection show
+    ```
+    which will show a list of all the networks you've configured. To look at the specifics of a specific network you've set up, do
+    ```
+    nmcli connection show "wifi-<NETWORK-NAME>"
     ```
 
 </details>

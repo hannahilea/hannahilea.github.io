@@ -31,7 +31,7 @@ for monitoring your yellingist feathered neighbors."/>
       </nav>
       
       <h1>Set up BirdNET-Pi on a Raspberry Pi Zero 2 W</h1>
-      <div class="date">5 Sep 2025</div>
+      <div class="date">1 Oct 2025</div>
 <br>
 <div class="alert" style="background:#e8ebf5; padding: .5em;">
 <summary class="alert-heading">
@@ -49,17 +49,26 @@ find that the instructions fall short, please let me know!</p>
 <h2 id="one-time-setup">One-time setup</h2>
 <p>Here are the tasks we’ll be stepping through:</p>
 <ul>
-<li>0: Acquire components</li>
-<li>1: Initial Raspberry Pi Zero 2 W set up</li>
-<li>2: SSH time—talk to the Pi</li>
-<li>3: BirdNET-Pi application installation</li>
-<li>4: Configure the BirdNET-Pi application</li>
+<li><a href="#task-0-acquire-components">0: Acquire components
+⤵</a></li>
+<li><a href="#task-1-initial-raspberry-pi-zero-2-w-set-up">1: Initial
+Raspberry Pi Zero 2 W set up ⤵</a></li>
+<li><a href="#task-2-ssh-timetalk-to-the-pi">2: SSH time—talk to the Pi
+⤵</a></li>
+<li><a href="#task-3-birdnet-pi-application-installation">3: BirdNET-Pi
+application installation ⤵</a></li>
+<li><a href="#task-4-configure-the-birdnet-pi-application">4: Configure
+the BirdNET-Pi application ⤵</a></li>
 <li>Optional:
 <ul>
-<li>5: Install Tailscale for remote monitoring</li>
-<li>6: Support additional Wi-Fi networks</li>
+<li><a
+href="#task-5-optional-install-tailscale-for-remote-monitoring">5:
+Install Tailscale for remote monitoring ⤵</a></li>
+<li><a href="#task-6-optional-support-additional-wi-fi-networks">6:
+Support additional Wi-Fi networks ⤵</a></li>
 </ul></li>
-<li>7: Physical installation</li>
+<li>7: <a href="#task-7-physical-installation">Physical installation
+⤵</a></li>
 </ul>
 <p>While it may look like there’s a lot here, it is a straight-forward
 “a lot,” without implicit steps that require leaving this page. Don’t be
@@ -71,7 +80,7 @@ match what you see, but the steps are the same.</p>
 <p>Here are the items you’ll need, with prices at time of writing:</p>
 <ul>
 <li><strong>Raspberry Pi Zero 2 W</strong> [ <a
-target="_blank" rel="noreferrer noopener" href="https://www.adafruit.com/product/5291">Adafruit, $15</a> | <a
+target="_blank" rel="noreferrer noopener" href="https://www.adafruit.com/product/5291">Adafruit, $19</a> | <a
 target="_blank" rel="noreferrer noopener" href="https://www.microcenter.com/product/683270/raspberry-pi-raspberry-pi-zero-w-2-with-headers">MicroCenter,
 $18</a>]
 <ul>
@@ -80,7 +89,7 @@ $18</a>]
 <li><strong>USB lavalier microphone</strong> [ <a
 target="_blank" rel="noreferrer noopener" href="https://www.amazon.com/gp/product/B08RYC5435">Amazon, $19</a> plus
 <a target="_blank" rel="noreferrer noopener" href="https://www.amazon.com/dp/B01C6032G0">USB 2.0-to-micro adapter,
-$4</a>]
+$5</a>]
 <ul>
 <li>The microphone will plug into a <strong>micro USB port</strong> on
 the Pi; if you get a different mic than this one, double-check the plug
@@ -114,12 +123,11 @@ $18</a> ], if there isn’t one already built into your computer.
 <ul>
 <li>The step that requires an SD card writer is relatively brief and
 first on the list, so you could easily get away with borrowing a
-friend’s, rather than buying your own—especially if you set up a
+friend’s rather than buying your own—especially if you set up a
 BirdNET-Pi for them while you’re at it!</li>
 </ul></li>
 </ul>
-<p><strong><em>Total cost: ~$60, not including the SD card
-writer</em></strong></p>
+<p>Total cost: ~$60, not including the SD card writer.</p>
 <h3 id="task-1-initial-raspberry-pi-zero-2-w-set-up">Task 1: Initial
 Raspberry Pi Zero 2 W set up</h3>
 <p>In this task, we’ll install an operating system (OS) on the Raspberry
@@ -139,23 +147,31 @@ Imager</a></p></li>
 selections:</p>
 <ul>
 <li>Raspberry Pi Device: <strong>Raspberry Pi Zero 2 W</strong></li>
-<li>Operating System: <strong>Raspberry Pi OS (Legacy, 64-bit)
-LITE</strong>
+<li>Operating System: <strong>Raspberry Pi OS Lite (64-bit)</strong>, “A
+port of Debian Bookworm with no desktop environment”.
 <ul>
 <li>This option may be nested under the “Raspberry Pi OS (other)” folder
-and require a little bit of searching; also, it may be called “Raspberry
-Pi OS LITE (Legacy, 64-bit)”.</li>
+and require a little bit of searching.</li>
 </ul></li>
+</ul>
+<figure>
+<img src="./assets/pi-image-0.png"
+alt="Screenshot of Operating System selection dialog" />
+
+
+</figure>
+<ul>
 <li>Storage: <strong>Generic - SD/MicroSD Media</strong>, which is the
 microSD card that’s currently in the writer</li>
 </ul>
+<p>Your resultant selection screen should look like this:</p>
 <figure>
 <img src="./assets/pi-image-1.png"
 alt="Screenshot of selection dialog, with choices matching those described in the above text" />
 
 
 </figure>
-<p>…<strong><code>NEXT</code></strong>!</p></li>
+<p>…select <strong><code>NEXT</code></strong>!</p></li>
 <li><p>You’ll be prompted to optionally “Apply OS customization
 settings?” Select <strong><code>EDIT SETTINGS</code></strong></p>
 <figure>
@@ -196,12 +212,16 @@ Pi!</li>
 <strong><code>&lt;your_current_wifi_network_name&gt;</code></strong> /
 <strong><code>&lt;your_current_wifi_network_password&gt;</code></strong>
 <ul>
-<li>Important: this must be the Wi-Fi network name (“SSID”) and password
-for the Wi-Fi network your computer is <em>currently using</em>, and
-that you’ll be using for the rest of the Pi setup. If you’re setting
-this device up for someone else, there’ll be a separate step to
-additionally add <em>their</em> Wi-Fi network info later; for now, this
-should be yours.</li>
+<li>Important note 1: This must be the Wi-Fi network name (“SSID”) and
+password for the Wi-Fi network your computer is <em>currently
+using</em>, and that you’ll be using for the rest of the Pi setup. If
+you’re setting this device up for someone else, there’ll be a separate
+step to additionally add <em>their</em> Wi-Fi network info later; for
+now, this should be yours.</li>
+<li>Important note 2: If you have a 5 GHz option network (e.g.,
+<code>MyFunWifiNetwork</code> and <code>MyFunWifiNetwork_5G</code>, do
+NOT use the 5G one! At time of writing, Raspberry Pi Zero 2 W’s do not
+support it.)</li>
 </ul></li>
 <li>Make sure the time zone is correct for wherever your BirdNET-Pi will
 be installed.</li>
@@ -223,7 +243,7 @@ alt="Screenshot of additional selection dialog, with choices matching those desc
 
 
 </figure>
-<p>…<strong><code>SAVE</code></strong>!</p></li>
+<p>…select <strong><code>SAVE</code></strong>!</p></li>
 <li><p>You’ll be reprompted to “Apply OS customization settings?” This
 time select <code>YES</code>. You might get a scary looking message
 asking you to confirm that any existing data on the card will be
@@ -291,7 +311,12 @@ alt="Screenshot of ssh connection window." />
 
 </figure></li>
 <li><p>If prompted to continue connecting, type <code>yes</code> and hit
-<code>enter</code>.</p></li>
+<code>enter</code>.</p>
+<ul>
+<li>If you just hit <code>enter</code> without typing <code>yes</code>,
+you will not be connected, and it might get confusing. Try step 1 again,
+and this time type <code>yes</code> at the prompt!</li>
+</ul></li>
 <li><p>When prompted for a password, type the
 <code>&lt;pi_password&gt;</code> from above (without the angle
 brackets!!) and hit <code>enter</code>.</p></li>
@@ -417,11 +442,13 @@ it:</p>
 it. In your remote terminal, start the BirdNET-Pi installation script by
 running</p>
 <pre><code>curl -s https://raw.githubusercontent.com/Nachtzuster/BirdNET-Pi/main/newinstaller.sh | bash</code></pre>
-<p>A bunch of text will print out to the scree, as various files and
+<p>A bunch of text will print out to the screen, as various files and
 dependencies are copied onto the Pi. You don’t have to pay attention to
-that text—you just have to wait and wait, until the installation fails.
-That’s write: eventually, <strong>the installation script you just ran
-will fail(!)</strong> with a “No space left on device” error. That’s
+that text—you just have to wait and wait, <em>until the installation
+fails</em>. This may take a long time, on the order of tens of
+minutes.</p>
+<p>That’s right: eventually, <strong>the installation script you just
+ran will fail(!)</strong> with a “No space left on device” error. That’s
 expected! You want it to happen!<a href="#fn2" class="footnote-ref"
 id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <figure>
@@ -441,6 +468,11 @@ patient!</p>
 <p>This time the installation script should succeed. You’ll know it has
 succeeded because the Pi will reboot, which will close your SSH
 connection.</p>
+<p>If it does NOT succeed, i.e., you still get a failure message when
+you run that <code>curl</code> command, repeat the commands in this
+step. Try this a couple times before giving up and emailing me that my
+instructions did not work for you!<a href="#fn3" class="footnote-ref"
+id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
 <figure>
 <img src="./assets/screenshot-success.png"
 alt="Screenshot of failure message." />
@@ -460,8 +492,8 @@ to use: run</p>
 <pre><code>sudo nano /etc/systemd/journald.conf</code></pre>
 <p>which will dump you into yet another file in your text editor!</p>
 <p>Use the arrow keys to scroll down to the line that says
-<code>#SystemMaxUse=</code> and change it to
-<code>SystemMaxUse=200M</code></p>
+<code>#SystemMaxUse=</code> and remove the <code>#</code> to change the
+line to be <code>SystemMaxUse=200M</code></p>
 <figure>
 <img src="./assets/screenshot-journal.png"
 alt="Screenshot of journal config with requisite change made." />
@@ -613,7 +645,10 @@ as a virtual private network for your various devices.</p>
 </summary>
 <ol type="1">
 <li><p><a target="_blank" rel="noreferrer noopener" href="https://login.tailscale.com/admin/welcome">Sign up</a>
-for a Tailscale account, if you don’t already have one.</p></li>
+for a Tailscale account, if you don’t already have one.</p>
+<p>You do not need to do anything other than choose (or make) an account
+to sign in with. You don’t need to bother following their steps to “add
+a first device” unless you want to, you can do it later.</p></li>
 <li><p>In your terminal, SSH onto the Pi and install Tailscale by
 running</p>
 <pre><code>sudo apt-get install apt-transport-https
@@ -628,9 +663,10 @@ installation.)</p></li>
 <li><p>To connect your Pi to your Tailscale network, run</p>
 <pre><code>sudo tailscale up</code></pre>
 <p>This will result in a prompt with a URL link to click. Follow that
-<code>command</code>-click that link or paste it into your browser! It
-will ask you to agree to connect this new device to your Tailscale
-network.</p>
+link by <code>command</code>-clicking it or pasting it into your
+browser! It will ask you to agree to connect this new device to your
+Tailscale network; follow through with whatever verification steps it
+asks you to do.</p>
 <blockquote>
 <p>Note that if you want to connect the device to <em>someone
 else’s</em> Tailscale network, you’ll need to send <em>them</em> the
@@ -708,9 +744,9 @@ someone else, I want it to recognize my home network—during setup, and
 for quality checking before I send it off!—as well as the network of the
 home I’m sending it to. Perhaps you additionally want to allow your Pi
 to connect to your phone’s hotspot, so that you can take it with you on
-various outdoor adventures?<a href="#fn3" class="footnote-ref"
-id="fnref3" role="doc-noteref"><sup>3</sup></a> <a href="#fn4"
-class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+various outdoor adventures?<a href="#fn4" class="footnote-ref"
+id="fnref4" role="doc-noteref"><sup>4</sup></a> <a href="#fn5"
+class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
 <details>
 <summary>
 <strong><em>Click to see instructions</em></strong>
@@ -722,19 +758,24 @@ class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
     type wifi \
     wifi.ssid &quot;&lt;NETWORK-NAME&gt;&quot; \
     wifi-sec.key-mgmt wpa-psk \
-    wifi-sec.psk &quot;&lt;NETWORK-PASSWORD&gt;&quot;</code></pre>
+    wifi-sec.psk &quot;&lt;NETWORK-PASSWORD&gt;&quot; \
+    connection.id &quot;wifi-&lt;NETWORK-NAME&gt;&quot;</code></pre>
 <p>e.g., for a network named <code>SuperBoringNetwork381</code> with
 password <code>reallysecurepassword</code>:</p>
 <pre><code>sudo nmcli connection add \
     type wifi \
     wifi.ssid &quot;SuperBoringNetwork381&quot; \
     wifi-sec.key-mgmt wpa-psk \
-    wifi-sec.psk &quot;reallysecurepassword&quot;</code></pre></li>
+    wifi-sec.psk &quot;reallysecurepassword&quot; \
+    connection.id &quot;wifi-SuperBoringNetwork381&quot;</code></pre></li>
 <li><p>Reload the configuration:
 <code>sudo nmcli connection reload</code></p></li>
 <li><p>…that’s it! You can check to see what networks are now set up
 with</p>
-<pre><code>nmcli device wifi list</code></pre></li>
+<pre><code>nmcli connection show</code></pre>
+<p>which will show a list of all the networks you’ve configured. To look
+at the specifics of a specific network you’ve set up, do
+<code>nmcli connection show "wifi-&lt;NETWORK-NAME&gt;"</code></p></li>
 </ol>
 </details>
 <h3 id="task-7-physical-installation">Task 7: Physical installation</h3>
@@ -743,8 +784,8 @@ with</p>
 <p>While you <em>could</em> just unplug your Pi, it’s safer for the Pi
 (less chance of something going wrong!) to intentionally power it down
 first. While SSH’d onto the Pi, do <code>sudo shutdown</code>.<a
-href="#fn5" class="footnote-ref" id="fnref5"
-role="doc-noteref"><sup>5</sup></a></p>
+href="#fn6" class="footnote-ref" id="fnref6"
+role="doc-noteref"><sup>6</sup></a></p>
 <p>Now go find a window and stick your microphone out it! I’ve included
 some photos of my own setup as inspiration. Once the microphone can
 access the great outoors (presumably, somewhere where you’ve heard at
@@ -809,8 +850,8 @@ how to connect to your Wi-Fi and then view your birds</li>
 <li>If you have an old display of some sort, you can set up a
 semi-permanent viewing station. My parents mounted an old iPad near the
 window with the BirdNET installation, and set its default landing page
-to view your BirdNET-Pi detections.<a href="#fn6" class="footnote-ref"
-id="fnref6" role="doc-noteref"><sup>6</sup></a></li>
+to view your BirdNET-Pi detections.<a href="#fn7" class="footnote-ref"
+id="fnref7" role="doc-noteref"><sup>7</sup></a></li>
 </ul>
 <div class="centered-children">
 <figure>
@@ -858,11 +899,11 @@ connected to the Wi-Fi,</li>
 up their Wi-Fi password incorrectly, use your phone to create a hotspot
 with the same credentials of the Wi-Fi network you were on when you
 first set up the Pi (i.e., your home network, if you set this up for
-someone else) to get onto the Pi.<a href="#fn7" class="footnote-ref"
-id="fnref7" role="doc-noteref"><sup>7</sup></a></li>
+someone else) to get onto the Pi.<a href="#fn8" class="footnote-ref"
+id="fnref8" role="doc-noteref"><sup>8</sup></a></li>
 <li>Once the Pi begins to run out of storage space, which won’t happen
-for a long time,<a href="#fn8" class="footnote-ref" id="fnref8"
-role="doc-noteref"><sup>8</sup></a> the oldest recordings will be
+for a long time,<a href="#fn9" class="footnote-ref" id="fnref9"
+role="doc-noteref"><sup>9</sup></a> the oldest recordings will be
 deleted to make space for newer recordings.
 <ul>
 <li>You can preempt this “loss” by periodically moving older recordings
@@ -902,30 +943,35 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>The installer was designed for the non-“Pi Zero”
 Raspberry Pi computer, which has more space.<a href="#fnref2"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Simply replace the wall plug with a portable USB battery
-pack, and hey presto, off you go!<a href="#fnref3" class="footnote-back"
+<li id="fn3"><p>:) In AF’s run-through of these instructions, it
+succeeded on the third try. On <em>my</em> several run-throughs, I
+didn’t need those additional retries. ¯\_(ツ)_/¯ What can I say, omputer
+is mistaek.<a href="#fnref3" class="footnote-back"
 role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>Ask me how I figured this one out. 🙃<a href="#fnref4"
+<li id="fn4"><p>Simply replace the wall plug with a portable USB battery
+pack, and hey presto, off you go!<a href="#fnref4" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Ask me how I figured this one out. 🙃<a href="#fnref5"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>Do as I say, not as I do—I generally just unplug it.
-YMMV!<a href="#fnref5" class="footnote-back"
+<li id="fn6"><p>Do as I say, not as I do—I generally just unplug it.
+YMMV!<a href="#fnref6" class="footnote-back"
 role="doc-backlink">↩︎</a></p></li>
-<li id="fn6"><p>With the visualization installation, the BirdNET went
+<li id="fn7"><p>With the visualization installation, the BirdNET went
 from being a background afterthought of being an active obsession—when
 an issue with logging brought down their installation a few months back,
 they went into bird monitoring withdrawal while I worked to fix it.<a
-href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn7"><p>Ask me how I figured this one out. 🙃<a href="#fnref7"
+href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>Ask me how I figured this one out. 🙃<a href="#fnref8"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn8"><p>This won’t happen for a long time unless you’re
+<li id="fn9"><p>This won’t happen for a long time unless you’re
 somewhere where the birds yell <em>constantly</em> and you have a
-smaller SD card than the one recommended above.<a href="#fnref8"
+smaller SD card than the one recommended above.<a href="#fnref9"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
       <hr />
       <ul class="date">
-        <li>Created: 2025-09-5</li>
+        <li>Created: 2025-10-1</li>
         <li>Type: tutorial</li>
         <li>Tags: birb-creeping, ecoacoustics, hardware, community, houseplant-programming, passive-acoustic-monitoring</li>
       </ul>
