@@ -52,7 +52,7 @@ Here are the items you'll need, with prices at time of writing:
     - The microphone will plug into a **micro USB port** on the Pi; if you get a different mic than this one, double-check the plug or get an adapter for it.
 - **Power adapter, 5V 2.5A or 3A, Micro USB** [ [MicroCenter, $12](https://www.microcenter.com/product/510437/micro-connectors-micro-usb-5v-25a-power-adapter-with-on-off-switch-for-raspberry-pi) | [Amazon, $12](https://www.amazon.com/dp/B07CVH21NC) ]
     - The power adapter will connect to a **micro USB port** on the Pi; if you buy a different adapter than this one, double-check the plug or get an adapter for it.
-    - You could alternatively use a rechargable power brick instead of a wall wart, although you'd have to remember to charge it (and wouldn't be detect birds during recharging...).
+    - You could alternatively use a rechargable power brick instead of a wall wart, although you'd have to remember to charge it (and wouldn't be detecting birds during recharging...).
 - **SanDisk 64GB Extreme microSDXC (64GB)** [ [MicroCenter, $17 for two](https://www.microcenter.com/product/675331/sandisk-64gb-ultra-microsdxc-class-10-u1-a1-flash-memory-card-with-adapter-(2-pack)) | [Amazon, $12](https://www.amazon.com/gp/product/B07FCMBLV6) ]
     - You could probably get away with less memory, but don't skimp and get an off-brand card; this is the component that actually matters.[^sd]
 
@@ -132,7 +132,7 @@ In this task, we'll "SSH onto the Pi", i.e., send commands to it from another co
 
 Why do we do this? In the previous task we chose the "Lite" operating system for our Pi, which means we configured the Pi to run in "headless" mode---i.e., without a dedicated monitor, keyboard, or mouse. To interact with the Pi in the absence of those peripherals, we connect to it remotely over a wireless network, using a communication protocol called the [Secure Shell Protocol (SSH)](https://en.wikipedia.org/wiki/Secure_Shell). 
 
-Once your Pi is powered on, **as long as your personal computer is on the same Wi-Fi network you configured the Pi to connect to** you'll be able to SSH onto it from your personal computer. (I've put that bit in bold because it is mission critical!)
+Once your Pi is powered on, **as long as your personal computer is on the same Wi-Fi network you configured the Pi to connect to**, you'll be able to SSH onto it from your personal computer. (I've put that bit in bold because it is mission critical!)
 
 > *When a step says "run", that means to type or copy the given text into the terminal and then hit the `Enter` or `Return` key.*
 
@@ -340,7 +340,7 @@ For the following steps, use whatever browser on your computer you prefer---Chro
     
     2. Click **`Disable`** in **`Streamlit Statistics`**. 
     
-        This service the Species Stats tab, which is unusably slow on the Raspberry Pi Zero. Might as well turn it off, since we can't use it!
+        This service powers the Species Stats tab, which involves making some additionally summary and analysis plots, but is unusably slow on the Raspberry Pi Zero. Might as well turn it off, since we can't use it!
 
     For both these services, be sure to select `Disable` instead of `Stop`; the former will persist after reboot, the latter will only halt the service until reboot.
 
@@ -577,4 +577,4 @@ If you use these instructions---or they otherwise inspire you to set up a BirdNE
 
 [^fear]: I am worried that if something goes wrong while someone is trying these instructions, and they are new to this type of computer work, that they will assume the fault is theirs and then be disinclined to try similar projects in the future. The fault is not yours! The fault is nobody's! But also, maybe there are ways I could clarify the instructions to help unstick you, or maybe something about one of these dependencies changed and the instructions legitimately do not work anymore. I want to know about it, in either case!! Please tell me, and please do not assume the problem is on your end.
 
-***Thanks to AF for all the things: assistance in editing for clarity and comprehension, doing a run-through of the instructions to make sure they work (they did! she set up a BirdNET-Pi!), and kindly prodding me into finally posting this guide. It had only been sitting in draft form for six months, after all...***
+***Thanks to AF for all the things: assistance in editing for clarity and comprehension, doing a run-through of the instructions to make sure they work (they did! she set up a BirdNET-Pi!), and kindly prodding me into finally posting this guide. It had only been sitting in draft form for six months, after all... And additional thanks to my mom for "the final goose" (her words!) to get this published.***
