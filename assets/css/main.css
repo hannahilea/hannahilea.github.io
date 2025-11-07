@@ -483,6 +483,55 @@ img.home-img {
     height: 3px;
     border-bottom: 1px solid #0843c3
   }
+
+  p.meta-buttons {
+    text-align: center;
+  }
+
+  a.basic-alignment {
+    width: 43%;
+    position: absolute;
+    top: 0px;
+    vertical-align: baseline;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  p.meta {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    box-sizing: border-box;
+    min-height: 2em;
+    margin-bottom: .5em;
+  }
+
+  a.right {
+    text-align: right;
+    right: 1em;
+  }
+
+  a.left {
+    text-align: left;
+    left: 1em;
+  }
+
+  .right:before {
+    content: "»";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    right: -0.5em;
+  }
+
+  .left:before {
+    content: "«";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    left: -1em;
+  }
 }
 
 /* For blog, project index pages */
