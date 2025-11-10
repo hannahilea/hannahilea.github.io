@@ -52,10 +52,10 @@ window, catch chorps, feel joy."
         <del>spy ring for snooping on birbs</del> passive acoustic monitoring station!
       </p>
       <p>
-        It is easier than ever to become the bird voyeur you were born to be, thanks to the <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://birdnet.cornell.edu/">BirdNET model</a> trained
-        and released by the <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://www.birds.cornell.edu/home/">Cornell Lab of Ornithology</a> and the
-        <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://github.com/Nachtzuster/BirdNET-Pi">BirdNET-Pi</a> application built on top of it by an open-source community. I’ve set up several
-        of these now, for both myself and my parents; our BirdNET-Pi’s have been both an ongoing source of joy and a connection point with folks around us.
+        It is easier than ever to become the bird voyeur you were born to be, thanks to the <a target="_blank" rel="noreferrer noopener" href="https://birdnet.cornell.edu/">BirdNET model</a> trained and released by the
+        <a target="_blank" rel="noreferrer noopener" href="https://www.birds.cornell.edu/home/">Cornell Lab of Ornithology</a> and the
+        <a target="_blank" rel="noreferrer noopener" href="https://github.com/Nachtzuster/BirdNET-Pi">BirdNET-Pi</a> application built on top of it by an open-source community. I’ve set up several of these now, for both myself and my
+        parents; our BirdNET-Pi’s have been both an ongoing source of joy and a connection point with folks around us.
       </p>
       <p>For example, here’s what I measured on May 6, from the microphone just outside my window in a semi-urban neighborhood:</p>
       <figure>
@@ -89,24 +89,22 @@ window, catch chorps, feel joy."
         <summary class="alert-heading">Instructions: <a href="../birdnet-setup/">Set up BirdNET-Pi on a Raspberry Pi Zero 2 W</a> 🐦‍⬛</summary>
       </div>
       <p>
-        I look forward to hearing about the <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://www.audubon.org/magazine/when-bird-birb-extremely-important-guide">birb</a> friends yelling
-        around <em>your</em> homes! The rest of <em>this</em> post includes background on the BirdNET project and context around my particular installation—including cost, intentional [lack of] robustness, and privacy concerns.
+        I look forward to hearing about the <a target="_blank" rel="noreferrer noopener" href="https://www.audubon.org/magazine/when-bird-birb-extremely-important-guide">birb</a> friends yelling around <em>your</em> homes! The rest of
+        <em>this</em> post includes background on the BirdNET project and context around my particular installation—including cost, intentional [lack of] robustness, and privacy concerns.
       </p>
       <h2 id="brief-background-and-motivation">Brief background and motivation</h2>
       <p>
         I’ve been aware of the excellent ecoacoustics work coming out of the Cornell Lab of Ornithology for a while, but I only encountered the BirdNET project about a year and a half ago. During the
-        <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://www.recurse.com">Recurse Center</a>’s 2024 <em>Never Graduate Week</em>,
-        <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://subject.space/">Logan Williams</a> presented
-        <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://subject.space/projects-static/winter-bird-cycles/"><em>Bird signs and cycles, February, 2024</em></a
+        <a target="_blank" rel="noreferrer noopener" href="https://www.recurse.com">Recurse Center</a>’s 2024 <em>Never Graduate Week</em>,
+        <a target="_blank" rel="noreferrer noopener" href="https://subject.space/">Logan Williams</a> presented
+        <a target="_blank" rel="noreferrer noopener" href="https://subject.space/projects-static/winter-bird-cycles/"><em>Bird signs and cycles, February, 2024</em></a
         >, a beautiful and compelling interactive visualization he created from recordings captured with his own BirdNET-Pi installation.
       </p>
       <div class="centered-children">
         <p>
-          <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://subject.space/projects-static/winter-bird-cycles"
-            ><img src="./assets/logan-screenshot.png" alt="Screenshot of radial visualization of bird detections."
-          /></a>
+          <a target="_blank" rel="noreferrer noopener" href="https://subject.space/projects-static/winter-bird-cycles"><img src="./assets/logan-screenshot.png" alt="Screenshot of radial visualization of bird detections." /></a>
           <span class="source"
-            ><a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://subject.space/projects-static/winter-bird-cycles">[Logan Williams: <em>Bird signs and cycles, February, 2024</em>]</a></span
+            ><a target="_blank" rel="noreferrer noopener" href="https://subject.space/projects-static/winter-bird-cycles">[Logan Williams: <em>Bird signs and cycles, February, 2024</em>]</a></span
           >
         </p>
       </div>
@@ -123,30 +121,33 @@ window, catch chorps, feel joy."
       <ul>
         <li>
           <p>
-            <strong><a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://birdnet.cornell.edu/">BirdNET</a></strong> is the name of a classifier model trained to identify the presence of
-            specific bird calls in short segments of audio. It was trained by the Ornithology Lab.
+            <strong><a target="_blank" rel="noreferrer noopener" href="https://birdnet.cornell.edu/">BirdNET</a></strong> is the name of a classifier model trained to identify the presence of specific bird calls in short segments of audio.
+            It was trained by the Ornithology Lab.
           </p>
           <p>
-            The BirdNET model is similar to—but not the same as—the model that powers the also-excellent
-            <strong><a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://merlin.allaboutbirds.org/">Merlin Bird ID</a></strong> birdsong identification phone app. Merlin is also built by the
-            Cornell Lab of Ornithology, but as I understand it the models are trained on different data, and don’t necessarily use the same ML architecture. Similar overall goal, different model, different name!
+            The BirdNET model is similar to—but not the same as—the model that powers the also-excellent <strong><a target="_blank" rel="noreferrer noopener" href="https://merlin.allaboutbirds.org/">Merlin Bird ID</a></strong> birdsong
+            identification phone app. Merlin is also built by the Cornell Lab of Ornithology, but as I understand it the models are trained on different data, and don’t necessarily use the same ML architecture. Similar overall goal,
+            different model, different name!
           </p>
           <p>
-            The isolated BirdNET model is made available via <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://github.com/birdnet-team/BirdNET-Analyzer">BirdNET-Analyzer</a>, and licensed
-            under a
-            <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
-              >Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)</a
-            >, which means that you can only use it for non-commercial purposes. It is the underlying engine for a variety of different applications, including the phone app
-            <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://birdnet.cornell.edu/">BirdNET Sound ID App</a>.
+            The isolated BirdNET model is made available via <a target="_blank" rel="noreferrer noopener" href="https://github.com/birdnet-team/BirdNET-Analyzer">BirdNET-Analyzer</a>, and licensed under a
+            <a target="_blank" rel="noreferrer noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)</a>, which means that you
+            can only use it for non-commercial purposes. It is the underlying engine for a variety of different applications, including the phone app
+            <a target="_blank" rel="noreferrer noopener" href="https://birdnet.cornell.edu/">BirdNET Sound ID App</a>.
           </p>
         </li>
         <li>
           <p>
-            <strong><a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://github.com/Nachtzuster/BirdNET-Pi">BirdNET-Pi</a></strong> is the name of a specific application built to run the
-            BirdNET model on a <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://www.raspberrypi.com/">Raspberry Pi</a> computer. It was initially developed by
-            <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://github.com/mcguirepr89/BirdNET-Pi">Patrick McGuire</a> and is now maintained by GitHub user
-            <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://github.com/Nachtzuster/BirdNET-Pi">‘Nachtzuster’</a>, along with support from the open-source community of programmers. My
-            set-up uses the Nachtzuster fork.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>
+            <strong><a target="_blank" rel="noreferrer noopener" href="https://github.com/Nachtzuster/BirdNET-Pi">BirdNET-Pi</a></strong> is the name of a specific application built to run the BirdNET model on a
+            <a target="_blank" rel="noreferrer noopener" href="https://www.raspberrypi.com/">Raspberry Pi</a> computer. It was initially developed by
+            <a target="_blank" rel="noreferrer noopener" href="https://github.com/mcguirepr89/BirdNET-Pi">Patrick McGuire</a> and is now maintained by GitHub user
+            <a target="_blank" rel="noreferrer noopener" href="https://github.com/Nachtzuster/BirdNET-Pi">‘Nachtzuster’</a>, along with support from the open-source community of programmers. My set-up uses the Nachtzuster fork.<a
+              href="#fn3"
+              class="footnote-ref"
+              id="fnref3"
+              role="doc-noteref"
+              ><sup>3</sup></a
+            >
           </p>
           <p>In general, if you talk about BirdNET out in the world, you will need to specify that you mean <em>BirdNET-Pi</em> or folks may think you’re talking about BirdNET phone application.</p>
           <p>
@@ -159,15 +160,14 @@ window, catch chorps, feel joy."
       <ul>
         <li>
           <p>
-            A <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Raspberry_Pi"><strong>Raspberry Pi</strong></a> is a brand of small and inexpensive computer. It comes
-            in <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://www.raspberrypi.com/news/raspberry-pi-product-series-explained/">different models</a>. I.e., in the same way that Apple has
-            the Mac, Macbook Air, Macbook Pro, etc, there is the basic Raspberry Pi flagship series, the Pi Zero, the Pi Pico, etc.
+            A <a target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Raspberry_Pi"><strong>Raspberry Pi</strong></a> is a brand of small and inexpensive computer. It comes in
+            <a target="_blank" rel="noreferrer noopener" href="https://www.raspberrypi.com/news/raspberry-pi-product-series-explained/">different models</a>. I.e., in the same way that Apple has the Mac, Macbook Air, Macbook Pro, etc, there
+            is the basic Raspberry Pi flagship series, the Pi Zero, the Pi Pico, etc.
           </p>
         </li>
         <li>
           <p>
-            The <strong><a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/">Raspberry Pi Zero 2 W</a></strong> is the specific model of
-            Raspberry Pi that I use for this project.
+            The <strong><a target="_blank" rel="noreferrer noopener" href="https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/">Raspberry Pi Zero 2 W</a></strong> is the specific model of Raspberry Pi that I use for this project.
           </p>
           <ul>
             <li>The <strong>W</strong> means it has built-in Wi-Fi capabilities.</li>
@@ -176,9 +176,8 @@ window, catch chorps, feel joy."
         </li>
         <li>
           <p>
-            An <strong><a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Arduino">Arduino</a></strong> is a different flavor of small computer, also regularly used by
-            hobbyists. While this project runs on a Pi, folks often reasonably assume it is running on an Arduino. At the end of the day, both a Raspberry Pi and an Arduino are tiny bundles of computing power that can be programmed to
-            perform tasks.
+            An <strong><a target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Arduino">Arduino</a></strong> is a different flavor of small computer, also regularly used by hobbyists. While this project runs on a
+            Pi, folks often reasonably assume it is running on an Arduino. At the end of the day, both a Raspberry Pi and an Arduino are tiny bundles of computing power that can be programmed to perform tasks.
           </p>
         </li>
       </ul>
@@ -372,21 +371,14 @@ window, catch chorps, feel joy."
       <p>
         <strong
           ><em
-            >Thanks also to mcguirepr89 and Nachtzuster for BirdNET-Pi creation and stewardship; <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://subject.space/">Logan Williams</a> for
-            introducing me to BirdNET-Pi in the first place; DK for the word “chorp”; <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://cceckman.com/">CCE</a> both for the friendly
-            encouragement to write this post in the first place and assistance in figuring out that one Wi-Fi Configuration Situation™; and AF for helping it actually get out the door.<a
-              href="#fn9"
-              class="footnote-ref"
-              id="fnref9"
-              role="doc-noteref"
-              ><sup>9</sup></a
-            ></em
+            >Thanks also to mcguirepr89 and Nachtzuster for BirdNET-Pi creation and stewardship; <a target="_blank" rel="noreferrer noopener" href="https://subject.space/">Logan Williams</a> for introducing me to BirdNET-Pi in the first
+            place; DK for the word “chorp”; <a target="_blank" rel="noreferrer noopener" href="https://cceckman.com/">CCE</a> both for the friendly encouragement to write this post in the first place and assistance in figuring out that one
+            Wi-Fi Configuration Situation™; and AF for helping it actually get out the door.<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a></em
           ></strong
         >
       </p>
       <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
         <hr />
-        <h3 id="footnotes-title">Footnotes</h3>
         <h3 id="footnotes-title">Footnotes</h3>
         <ol>
           <li id="fn1">
@@ -452,7 +444,7 @@ window, catch chorps, feel joy."
             <!-- Source: https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white -->
             <img class="badge" src="/assets/img/rss-logo-styled.svg" alt="Subscribe to @hannahilea RSS feed"
           /></a>
-          <a class="button" target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="http://groups.google.com/group/hannahilea-blog-rss" target="_blank" rel="noreferrer noopener">Subscribe via email</a>
+          <a class="button" target="_blank" rel="noreferrer noopener" href="http://groups.google.com/group/hannahilea-blog-rss" target="_blank" rel="noreferrer noopener">Subscribe via email</a>
         </div>
         <p class="breadcrumbs">
           <a class="basic-alignment right" href="/blog/./birdnet-setup" title="Next: Set up BirdNET-Pi on a Raspberry Pi Zero 2 W">Set up BirdNET-Pi on a Raspberry Pi Zero 2 W</a>

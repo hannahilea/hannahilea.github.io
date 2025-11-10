@@ -52,17 +52,21 @@ end
 
 function get_breadcrumbs_details(file; metadata)
     blog_prev = ""
-    blog_next = ""
+    blog_next = " "
     i_blog = findfirst(m -> m.md_file == file, metadata)
     if i_blog > 1 
+        # All posts except first
         url = metadata[i_blog - 1].url
         title = metadata[i_blog - 1].title
         blog_prev = """<a class="basic-alignment left" href="/blog/$url" title="Previous: $title">$title</a>"""
     end
     if i_blog < length(metadata)
+        # All posts except last
         url = metadata[i_blog + 1].url
         title = metadata[i_blog + 1].title
         blog_next = """<a class="basic-alignment right" href="/blog/$url" title="Next: $title">$title</a>"""
+    else 
+        blog_next =  """<a class="basic-alignment right" href="/blog/"></a>"""
     end
     return blog_prev, blog_next
 end

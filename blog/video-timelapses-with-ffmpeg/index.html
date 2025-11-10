@@ -58,7 +58,7 @@ straightforward video editing task."
         For the given recordings, finding the cut points for the first and last steps could easily be done manually.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
       </p>
       <h4 id="prerequisite">Prerequisite</h4>
-      <p>Install commandline video editing tool <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://www.ffmpeg.org/">FFmpeg</a>.</p>
+      <p>Install commandline video editing tool <a target="_blank" rel="noreferrer noopener" href="https://www.ffmpeg.org/">FFmpeg</a>.</p>
       <h4 id="steps">Steps</h4>
       <p>After viewing a recording and making note of the timestamps around a specific artwork’s creation (in this example, 00:25:16 to 00:42:34):</p>
       <pre><code># Trim into new file, remove audio
@@ -87,14 +87,12 @@ ffmpeg -i ARTWORK_A_4x.mp4 -vf  &quot;select=&#39;not(between(t,219,257))&#39;,s
       <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
         <hr />
         <h3 id="footnotes-title">Footnotes</h3>
-        <h3 id="footnotes-title">Footnotes</h3>
         <ol>
           <li id="fn1">
             <p>
               If the recordings were longer (or if there were more of them), I’d probably automate that step—I considered it here, because it would be fun, and then decided that it failed xkcd’s
-              <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://xkcd.com/1205/">Is It Worth the Time</a> test:
-              <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://xkcd.com/1205/"><img src="https://imgs.xkcd.com/comics/is_it_worth_the_time.png" /></a
-              ><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a>
+              <a target="_blank" rel="noreferrer noopener" href="https://xkcd.com/1205/">Is It Worth the Time</a> test:
+              <a target="_blank" rel="noreferrer noopener" href="https://xkcd.com/1205/"><img src="https://imgs.xkcd.com/comics/is_it_worth_the_time.png" /></a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a>
             </p>
           </li>
         </ol>
@@ -111,7 +109,7 @@ ffmpeg -i ARTWORK_A_4x.mp4 -vf  &quot;select=&#39;not(between(t,219,257))&#39;,s
             <!-- Source: https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white -->
             <img class="badge" src="/assets/img/rss-logo-styled.svg" alt="Subscribe to @hannahilea RSS feed"
           /></a>
-          <a class="button" target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="http://groups.google.com/group/hannahilea-blog-rss" target="_blank" rel="noreferrer noopener">Subscribe via email</a>
+          <a class="button" target="_blank" rel="noreferrer noopener" href="http://groups.google.com/group/hannahilea-blog-rss" target="_blank" rel="noreferrer noopener">Subscribe via email</a>
         </div>
         <p class="breadcrumbs">
           <a class="basic-alignment right" href="/blog/./google-group-for-blog-updates" title="Next: RSS to inbox: Setting up a mailing list for blog updates">RSS to inbox: Setting up a mailing list for blog updates</a>
