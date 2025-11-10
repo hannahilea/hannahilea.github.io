@@ -219,7 +219,10 @@ website motivated and described."
 
       <h1>This website’s structure: A meta post</h1>
       <div class="date">17 May 2024</div>
-      <p>While doing a batch at the <a target="_blank" rel="noreferrer noopener" href="https://www.recurse.com">Recurse Center</a>, I revived my personal website—the very site you are almost certainly looking at Right Now!</p>
+      <p>
+        While doing a batch at the <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://www.recurse.com">Recurse Center</a>, I revived my personal website—the very site you are almost
+        certainly looking at Right Now!
+      </p>
       <p><img style="border: none" src="/assets/img/emojis/surprise-pikachu.png" alt="surprise-pikachu" /></p>
       <h2 id="motivation">Motivation</h2>
       <p>I had two goals for this site at the outset:</p>
@@ -261,7 +264,7 @@ website motivated and described."
       </div>
       <p>
         There are also some top-level style folders that I’ve excluded here, as they will likely be reshuffled at some point. (Want to see the full source? You’re
-        <a target="_blank" rel="noreferrer noopener" href="https://github.com/hannahilea/hannahilea.github.io/">in luck</a>.)
+        <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://github.com/hannahilea/hannahilea.github.io/">in luck</a>.)
       </p>
       <h3 id="blog-subdirectories">Blog subdirectories</h3>
       <p>The structure of each blog subdirectory <code>&lt;blog-n&gt;</code> is</p>
@@ -273,7 +276,7 @@ website motivated and described."
       <p>
         <code>src.md</code> contains the full content of a blogpost, written in markdown. <code>index.html</code> is identical across blog posts and contains no specialized content; it exists simply to contain the results of converting
         <code>src.md</code> to html, which is performed with the
-        <a target="_blank" rel="noreferrer noopener" href="https://md-block.verou.me/"><code>md-block.js</code></a>
+        <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://md-block.verou.me/"><code>md-block.js</code></a>
         library.
       </p>
       <p>
@@ -290,12 +293,14 @@ website motivated and described."
       </div>
       <p>where the index contains no little specialized content except a description of the project, and the content of the sketch lives in <code>sketch.js</code>.</p>
       <p>
-        This structure has made it trivially easy to transfer javascript sketches to this site from sandbox environments like the <a target="_blank" rel="noreferrer noopener" href="https://editor.p5js.org/"><code>p5.js</code></a> editor.
+        This structure has made it trivially easy to transfer javascript sketches to this site from sandbox environments like the
+        <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://editor.p5js.org/"><code>p5.js</code></a> editor.
       </p>
       <h2 id="site-hosting-and-deployment">Site hosting and deployment</h2>
       <p>
-        I build, host, and deploy the site using <a target="_blank" rel="noreferrer noopener" href="https://pages.github.com/">GitHub Pages</a>. Thanks, GitHub! You can look at the
-        <a target="_blank" rel="noreferrer noopener" href="https://github.com/hannahilea/hannahilea.github.io/blob/main/.github/workflows/static.yml">GitHub Action</a> I use to deploy, but there is nothing custom or personal about it.
+        I build, host, and deploy the site using <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://pages.github.com/">GitHub Pages</a>. Thanks, GitHub! You can look at the
+        <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://github.com/hannahilea/hannahilea.github.io/blob/main/.github/workflows/static.yml">GitHub Action</a> I use to deploy, but there is
+        nothing custom or personal about it.
       </p>
       <h2 id="adding-new-content">Adding new content</h2>
       <p>
@@ -303,7 +308,7 @@ website motivated and described."
         reasons I did it this way. :))
       </p>
       <p>
-        The top-level <a target="_blank" rel="noreferrer noopener" href="https://github.com/hannahilea/hannahilea.github.io/blob/main/add_stuff.jl"><code>add_stuff.jl</code></a>
+        The top-level <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://github.com/hannahilea/hannahilea.github.io/blob/main/add_stuff.jl"><code>add_stuff.jl</code></a>
         file is a commandline Julia script that (1) generates a new subdirectory, based on files in the corresponding
         <code>__template</code> subdirectory; (2) adds it to the relevant list in the corresponding project/blog index.html; and (3) (in the case of blogs) adds it to the rss feed. (Okay, this last item isn’t actually implemented yet, but
         it will be shortly.)
@@ -325,7 +330,9 @@ website motivated and described."
       <p>And finally if you, erstwhile reader, are a Web Person™ who thinks I’ve made an egregious error in approach or wants to propose some additional tweaks/improvements, do let me know!</p>
       <p>
         <strong
-          ><em>Thanks to <a target="_blank" rel="noreferrer noopener" href="https://teresaibarra.com">Teresa Ibarra</a>, whose site (and assistance!) I used as an initial starting point.</em></strong
+          ><em
+            >Thanks to <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://teresaibarra.com">Teresa Ibarra</a>, whose site (and assistance!) I used as an initial starting point.</em
+          ></strong
         >
       </p>
       <hr />
@@ -334,18 +341,18 @@ website motivated and described."
         <li>Type: Infrastructure documentation</li>
         <li>Tags: webdev, programming, metawriting</li>
       </ul>
-      <div class="blog-footer">
-        <p class="breadcrumbs">
-          <a class="basic-alignment right" href="/blog/./clapping-music-for-flip-disc-displays" title="Next: <strong><em>Clapping Music</em></strong> for two flip-disc displays"
-            ><strong><em>Clapping Music</em></strong> for two flip-disc displays</a
-          >
-        </p>
-        <p class="link-buttons">
+      <footer>
+        <div class="link-buttons">
           <a href="/rss.xml" rel="subscribe-rss">
             <!-- Source: https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white -->
             <img class="badge" src="/assets/img/rss-logo-styled.svg" alt="Subscribe to @hannahilea RSS feed"
           /></a>
-          <a class="button" target="_blank" rel="noreferrer noopener" href="http://groups.google.com/group/hannahilea-blog-rss" target="_blank" rel="noreferrer noopener">Subscribe via email</a>
+          <a class="button" target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="http://groups.google.com/group/hannahilea-blog-rss" target="_blank" rel="noreferrer noopener">Subscribe via email</a>
+        </div>
+        <p class="breadcrumbs">
+          <a class="basic-alignment right" href="/blog/./clapping-music-for-flip-disc-displays" title="Next: <strong><em>Clapping Music</em></strong> for two flip-disc displays"
+            ><strong><em>Clapping Music</em></strong> for two flip-disc displays</a
+          >
         </p>
         <hr />
         <nav class="navbar" role="navigation">
@@ -353,7 +360,7 @@ website motivated and described."
           <a href="/" class="nav-link">home</a> | <a href="/projects" class="nav-link">projects</a> |
           <a href="/blog" class="nav-link">blog</a>
         </nav>
-      </div>
+      </footer>
     </div>
   </body>
 </html>

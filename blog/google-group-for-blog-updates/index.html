@@ -45,7 +45,9 @@ IFTTT, and Google Groups."
       A new option: you can sign up for my mailing list, such that you’ll get an email when a new post is published:
       <div class="centered-children">
         <div class="blog-footer">
-          <p><a class="button" target="_blank" rel="noreferrer noopener" href="http://groups.google.com/group/hannahilea-blog-rss" target="_blank" rel="noreferrer noopener">Subscribe via email</a></p>
+          <p>
+            <a class="button" target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="http://groups.google.com/group/hannahilea-blog-rss" target="_blank" rel="noreferrer noopener">Subscribe via email</a>
+          </p>
         </div>
       </div>
       <p>If you have your own site, and want to add a similar subscription option—i.e., email notifications whenever you update your RSS feed, without paying some external service to handle it for you—the rest of this post is for you.</p>
@@ -59,19 +61,25 @@ IFTTT, and Google Groups."
         <li>Known up-front cost (ideally free!) with no surprise charges</li>
       </ol>
       <p>
-        There are <a target="_blank" rel="noreferrer noopener" href="https://buttondown.com/alternatives">various services</a> that offer email subscriptions, but I didn’t find one that met all of the above requirements. The closest I came
-        was “requirements 1-4 met, and free below a minimum subscriber number,” but the potential for surprise costs was a deal-breaker.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+        There are <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://buttondown.com/alternatives">various services</a> that offer email subscriptions, but I didn’t find one that met all of
+        the above requirements. The closest I came was “requirements 1-4 met, and free below a minimum subscriber number,” but the potential for surprise costs was a deal-breaker.<a
+          href="#fn2"
+          class="footnote-ref"
+          id="fnref2"
+          role="doc-noteref"
+          ><sup>2</sup></a
+        >
       </p>
       <p>Instead, I chained together the free tiers of two existing services on top of my (pre-existing) RSS feed:</p>
       <ul>
-        <li>For a mailing list with self-serve membership, I made a <a target="_blank" rel="noreferrer noopener" href="https://support.google.com/groups/answer/46601">Google Group</a>.</li>
+        <li>For a mailing list with self-serve membership, I made a <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://support.google.com/groups/answer/46601">Google Group</a>.</li>
         <li>To notify the world at large that a new post has been published, I update my RSS feed.</li>
-        <li>To check for new posts and send an email to the group when one is published, I use <a target="_blank" rel="noreferrer noopener" href="https://ifttt.com/">IFTTT</a>.</li>
+        <li>To check for new posts and send an email to the group when one is published, I use <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://ifttt.com/">IFTTT</a>.</li>
       </ul>
       <p>
         I like that this approach decouples the “new post triggers action” component from the “subscribed group of people” component, as it means I can swap out the specific implementation choices for either without having to swap out both.
-        For example, I considered setting up a <a target="_blank" rel="noreferrer noopener" href="https://docs.github.com/en/actions">GithubAction</a> to watch for new posts, rather than using IFTTT. I decided against it for now—based
-        purely on the setup time it would require!—but in the future I could easily make that change without touching the membership component.
+        For example, I considered setting up a <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://docs.github.com/en/actions">GithubAction</a> to watch for new posts, rather than using
+        IFTTT. I decided against it for now—based purely on the setup time it would require!—but in the future I could easily make that change without touching the membership component.
       </p>
       <p>My choice of specific external services leads to a few limitations that I’ve deemed acceptable for now:</p>
       <ul>
@@ -99,8 +107,8 @@ IFTTT, and Google Groups."
         <li><p>Signed up for a new Gmail account, and set that account to forward any incoming mail to my primary email. (I don’t expect it to get messages, but if it does, I’d like to know about them!)</p></li>
         <li>
           <p>
-            <a target="_blank" rel="noreferrer noopener" href="https://support.google.com/groups/answer/2464926">Created a Google Group</a> from my normal google account, and then locked down everything in it that wasn’t “allow new users to
-            subscribe/unsubscribe” and “allow my new account to send messages on behalf of the group”. Specifically:
+            <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://support.google.com/groups/answer/2464926">Created a Google Group</a> from my normal google account, and then locked down
+            everything in it that wasn’t “allow new users to subscribe/unsubscribe” and “allow my new account to send messages on behalf of the group”. Specifically:
           </p>
           <ol type="1">
             <li><p>Updated my membership settings to receive messages (I want to receive the same set of messages that my subscribers receive, so that I can see if there’s anything wonky happening)</p></li>
@@ -124,19 +132,19 @@ IFTTT, and Google Groups."
           </ol>
         </li>
         <li>
-          <p>Signed up for an <a target="_blank" rel="noreferrer noopener" href="https://ifttt.com/">IFTTT</a> account using the new email</p>
+          <p>Signed up for an <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://ifttt.com/">IFTTT</a> account using the new email</p>
         </li>
         <li>
           <p>In IFTTT, created and enabled an IFTTT applet (i.e., automation) with the following settings:</p>
           <ul>
             <li>
-              Trigger: <a target="_blank" rel="noreferrer noopener" href="https://ifttt.com/feed/details">New feed item</a>
+              Trigger: <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://ifttt.com/feed/details">New feed item</a>
               <ul>
                 <li>Feed URL: <code>https://www.hannahilea.com/rss.xml</code></li>
               </ul>
             </li>
             <li>
-              Action: <a target="_blank" rel="noreferrer noopener" href="https://ifttt.com/gmail/details">Send an email (Gmail-specific variant)</a>
+              Action: <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://ifttt.com/gmail/details">Send an email (Gmail-specific variant)</a>
               <ul>
                 <li>Gmail account: <code>new email account</code></li>
                 <li>To address: <code>&lt;new google group&gt;@googlegroups.com</code></li>
@@ -175,12 +183,16 @@ IFTTT, and Google Groups."
       <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
         <hr />
         <h3 id="footnotes-title">Footnotes</h3>
+        <h3 id="footnotes-title">Footnotes</h3>
         <ol>
           <li id="fn1">
             <p>
-              Unfamiliar with RSS? Check out <a target="_blank" rel="noreferrer noopener" href="https://cuene.com/2023/03/07/a-gentle-explainer-for-the-ever-obscure-rss/">“A Gentle Explainer for the Ever Obscure RSS”</a> and
-              <a target="_blank" rel="noreferrer noopener" href="https://riverside.fm/blog/what-is-an-rss-feed">“What is an RSS Feed: Complete Beginners Guide”</a>. I’ve been using the
-              <a target="_blank" rel="noreferrer noopener" href="https://feedly.com/">Feedly</a> aggregator and am fairly happy with it.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a>
+              Unfamiliar with RSS? Check out
+              <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://cuene.com/2023/03/07/a-gentle-explainer-for-the-ever-obscure-rss/">“A Gentle Explainer for the Ever Obscure RSS”</a> and
+              <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://riverside.fm/blog/what-is-an-rss-feed">“What is an RSS Feed: Complete Beginners Guide”</a>. I’ve been using the
+              <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://feedly.com/">Feedly</a> aggregator and am fairly happy with it.<a href="#fnref1" class="footnote-back" role="doc-backlink"
+                >↩︎</a
+              >
             </p>
           </li>
           <li id="fn2">
@@ -204,17 +216,17 @@ IFTTT, and Google Groups."
         <li>Type: Infrastructure documentation</li>
         <li>Tags: meta, website, documentation</li>
       </ul>
-      <div class="blog-footer">
-        <p class="breadcrumbs">
-          <a class="basic-alignment right" href="/blog/./ly-drawbot-setup" title="Next: LY Drawbot setup: From a box of parts to drawing SVGs">LY Drawbot setup: From a box of parts to drawing SVGs</a>
-          <a class="basic-alignment left" href="/blog/./video-timelapses-with-ffmpeg" title="Previous: Video timelapses with FFmpeg">Video timelapses with FFmpeg</a>
-        </p>
-        <p class="link-buttons">
+      <footer>
+        <div class="link-buttons">
           <a href="/rss.xml" rel="subscribe-rss">
             <!-- Source: https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white -->
             <img class="badge" src="/assets/img/rss-logo-styled.svg" alt="Subscribe to @hannahilea RSS feed"
           /></a>
-          <a class="button" target="_blank" rel="noreferrer noopener" href="http://groups.google.com/group/hannahilea-blog-rss" target="_blank" rel="noreferrer noopener">Subscribe via email</a>
+          <a class="button" target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="http://groups.google.com/group/hannahilea-blog-rss" target="_blank" rel="noreferrer noopener">Subscribe via email</a>
+        </div>
+        <p class="breadcrumbs">
+          <a class="basic-alignment right" href="/blog/./ly-drawbot-setup" title="Next: LY Drawbot setup: From a box of parts to drawing SVGs">LY Drawbot setup: From a box of parts to drawing SVGs</a>
+          <a class="basic-alignment left" href="/blog/./video-timelapses-with-ffmpeg" title="Previous: Video timelapses with FFmpeg">Video timelapses with FFmpeg</a>
         </p>
         <hr />
         <nav class="navbar" role="navigation">
@@ -222,7 +234,7 @@ IFTTT, and Google Groups."
           <a href="/" class="nav-link">home</a> | <a href="/projects" class="nav-link">projects</a> |
           <a href="/blog" class="nav-link">blog</a>
         </nav>
-      </div>
+      </footer>
     </div>
   </body>
 </html>

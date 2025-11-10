@@ -41,16 +41,16 @@ with a CNC pen plotter"
         <img src="./assets/output.gif" alt="Animated gif of pen robot drawing squares." />
       </figure>
       <p>
-        It’s an <a target="_blank" rel="noreferrer noopener" href="https://www.aliexpress.us/item/2251832781162574.html">LY Drawbot</a>, size A4, controlled by an Arduino. More generically, it is a type of computer numerical control
-        <a target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Numerical_control">(CNC)</a> machine that uses a
-        <a target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Cartesian_coordinate_robot">Cartesian coordinate system</a>:
+        It’s an <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://www.aliexpress.us/item/2251832781162574.html">LY Drawbot</a>, size A4, controlled by an Arduino. More generically, it is a
+        type of computer numerical control <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Numerical_control">(CNC)</a> machine that uses a
+        <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Cartesian_coordinate_robot">Cartesian coordinate system</a>:
       </p>
       <figure>
         <img src="./assets/assembled.jpg" alt="Photo of LY Drawbot pen plotter." />
       </figure>
       <p>
-        <a target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/G-code">G-Code</a> commands are used to move the plotter pen to specified coordinates at specified speeds, as well as control the pen’s height, which
-        determines whether the pen makes a mark as it is moved around.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
+        <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/G-code">G-Code</a> commands are used to move the plotter pen to specified coordinates at specified speeds, as
+        well as control the pen’s height, which determines whether the pen makes a mark as it is moved around.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
       </p>
       <p>
         In this post I describe how I got my LY Drawbot assembled and running, as well as provide some observations and next steps for exploration. Thanks to some excellent pre-existing documentation the build itself isn’t particularly long
@@ -62,8 +62,9 @@ with a CNC pen plotter"
         one I could find was this LY Drawbot, from AliExpress, which was in-budget but felt risky in terms of quality or assembly effort.
       </p>
       <p>
-        Luckily, I then found Pierre Paslier’s 2020 write-up <a target="_blank" rel="noreferrer noopener" href="https://www.generativehut.com/post/ly-drawbot-a-70-pen-plotter">“LY Drawbot, a $70 pen plotter”</a>. Pierre vouched for this
-        model being “a good fit if you’re a maker on a budget and you’re not afraid of troubleshooting.” Excellent! That is, in fact, me.
+        Luckily, I then found Pierre Paslier’s 2020 write-up
+        <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://www.generativehut.com/post/ly-drawbot-a-70-pen-plotter">“LY Drawbot, a $70 pen plotter”</a>. Pierre vouched for this model being “a
+        good fit if you’re a maker on a budget and you’re not afraid of troubleshooting.” Excellent! That is, in fact, me.
       </p>
       <p>
         I put in my order—$122 including shipping—and eight days later it arrived in the mail.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>
@@ -74,7 +75,7 @@ with a CNC pen plotter"
       <h2 id="hardware-assembly">Hardware assembly</h2>
       <p>
         This part was super fun, and relatively easy. I’m not going to detail the assembly much—if you’re assembling your own, do as I did and follow
-        <a target="_blank" rel="noreferrer noopener" href="https://www.generativehut.com/post/ly-drawbot-a-70-pen-plotter">Pierre’s write-up</a>!
+        <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://www.generativehut.com/post/ly-drawbot-a-70-pen-plotter">Pierre’s write-up</a>!
       </p>
       <figure>
         <img src="./assets/screws.jpg" alt="Photo of rows of baggies of different screw sizes." />
@@ -139,8 +140,9 @@ with a CNC pen plotter"
       <ol type="1">
         <li>
           <p>
-            Installed the CH340 drivers on my laptop (OSX), following the Sparkfun instructions <a target="_blank" rel="noreferrer noopener" href="https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/">here</a>. My laptop
-            immediately and automatically restarted upon their installation, which was distressing.
+            Installed the CH340 drivers on my laptop (OSX), following the Sparkfun instructions
+            <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/">here</a>. My laptop immediately and automatically restarted upon
+            their installation, which was distressing.
           </p>
           <p>Now that I’m rereading those instructions, it seems the drivers were actually pre-installed on my current machine, so my [re-]install was extraneous! Whoops.</p>
         </li>
@@ -151,7 +153,7 @@ with a CNC pen plotter"
           </p>
         </li>
         <li>
-          <p>Installed <a target="_blank" rel="noreferrer noopener" href="https://winder.github.io/ugs_website/download/">Universal Gcode Sender (UGS)</a></p>
+          <p>Installed <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://winder.github.io/ugs_website/download/">Universal Gcode Sender (UGS)</a></p>
         </li>
       </ol>
       <h2 id="its-alive">It’s alive!</h2>
@@ -172,8 +174,9 @@ with a CNC pen plotter"
       </figure>
       <h2 id="plotting-svgs">Plotting SVGs</h2>
       <p>
-        Plotting individual images via UGS was similarly straightforward—and extra fun, due to <a target="_blank" rel="noreferrer noopener" href="https://olivia.website">Olivia</a>’s collaborative assistance. We used
-        <a target="_blank" rel="noreferrer noopener" href="https://sameer.github.io/svg2gcode/">an online tool to convert an SVG to G-Code</a>, then uploaded and plotted the G-code from UGS:
+        Plotting individual images via UGS was similarly straightforward—and extra fun, due to <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://olivia.website">Olivia</a>’s collaborative
+        assistance. We used <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://sameer.github.io/svg2gcode/">an online tool to convert an SVG to G-Code</a>, then uploaded and plotted the
+        G-code from UGS:
       </p>
       <div class="centered-children">
         <iframe
@@ -191,16 +194,17 @@ with a CNC pen plotter"
       <h2 id="multicolor-plotting">Multicolor plotting</h2>
       <p>
         Before moving on to my list of “level up” tasks, I wanted to draw one intentional multicolor piece. I really like
-        <a target="_blank" rel="noreferrer noopener" href="https://collections.vam.ac.uk/item/O221321/schotter-print-nees-georg/">Georg Nees’ “Schotter”</a>, so used Antoine Beyelers’
-        <a target="_blank" rel="noreferrer noopener" href="https://whisk.rs/">parametric “Schotter” implementation</a> to generate a set of six slightly-varying SVG images, using a different random seed for each image.
+        <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://collections.vam.ac.uk/item/O221321/schotter-print-nees-georg/">Georg Nees’ “Schotter”</a>, so used Antoine Beyelers’
+        <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://whisk.rs/">parametric “Schotter” implementation</a> to generate a set of six slightly-varying SVG images, using a different random
+        seed for each image.
       </p>
       <figure>
         <img src="./assets/whiskrs.png" alt="Screenshot of program that outputs Schotter series." />
       </figure>
       <p>
         I <a href="https://products.aspose.app/words/rotate/svg#">rotated</a><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> and
-        <a target="_blank" rel="noreferrer noopener" href="https://sameer.github.io/svg2gcode/">converted</a> each SVG to G-code, and then plotted each one sequentially with UGS, with the same starting coordinates each time. I stopped
-        between each file to switch the pen’s color. To keep from having to swap out pens and adjust their relative heights each time, I used a pen that contains multiple color cartridges.
+        <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://sameer.github.io/svg2gcode/">converted</a> each SVG to G-code, and then plotted each one sequentially with UGS, with the same
+        starting coordinates each time. I stopped between each file to switch the pen’s color. To keep from having to swap out pens and adjust their relative heights each time, I used a pen that contains multiple color cartridges.
       </p>
       <div class="centered-children">
         <iframe
@@ -262,7 +266,10 @@ with a CNC pen plotter"
         <li><p>Send serial commands to the plotter interactively from the commandline, on a realtime one-command-at-a-time basis.</p></li>
         <li><p>Send serial commands to plotter from the browser, so that I can plot p5.js code directly. I have done a bit of reading so am medium confident this is doable!</p></li>
         <li>
-          <p>Adapt my realtime sound visualization from plotting HPGL commands for HP plotters (<a target="_blank" rel="noreferrer noopener" href="https://github.com/hannahilea/HPGL.jl">HPGL.jl</a>) to plotting G-Code on this plotter!</p>
+          <p>
+            Adapt my realtime sound visualization from plotting HPGL commands for HP plotters (<a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://github.com/hannahilea/HPGL.jl">HPGL.jl</a>)
+            to plotting G-Code on this plotter!
+          </p>
         </li>
         <li>
           <p>
@@ -280,12 +287,13 @@ with a CNC pen plotter"
         <strong
           ><em
             >Thanks to Alex for the pen holder fix and general enthusiasm; Olivia for her SVGsploration companionship; and Pierre Paslier for the excellent
-            <a target="_blank" rel="noreferrer noopener" href="https://www.generativehut.com/post/ly-drawbot-a-70-pen-plotter">write-up</a> that sold me on this plotter in the first place.</em
+            <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://www.generativehut.com/post/ly-drawbot-a-70-pen-plotter">write-up</a> that sold me on this plotter in the first place.</em
           ></strong
         >
       </p>
       <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
         <hr />
+        <h3 id="footnotes-title">Footnotes</h3>
         <h3 id="footnotes-title">Footnotes</h3>
         <ol>
           <li id="fn1">
@@ -347,19 +355,19 @@ with a CNC pen plotter"
         <li>Type: tutorial</li>
         <li>Tags: hardware, pen-plotter, cnc, documentation</li>
       </ul>
-      <div class="blog-footer">
+      <footer>
+        <div class="link-buttons">
+          <a href="/rss.xml" rel="subscribe-rss">
+            <!-- Source: https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white -->
+            <img class="badge" src="/assets/img/rss-logo-styled.svg" alt="Subscribe to @hannahilea RSS feed"
+          /></a>
+          <a class="button" target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="http://groups.google.com/group/hannahilea-blog-rss" target="_blank" rel="noreferrer noopener">Subscribe via email</a>
+        </div>
         <p class="breadcrumbs">
           <a class="basic-alignment right" href="/blog/./botfly-test" title="Next: The Botfly Test: Characterizing parasitic automated behavior in online communities"
             >The Botfly Test: Characterizing parasitic automated behavior in online communities</a
           >
           <a class="basic-alignment left" href="/blog/./google-group-for-blog-updates" title="Previous: RSS to inbox: Setting up a mailing list for blog updates">RSS to inbox: Setting up a mailing list for blog updates</a>
-        </p>
-        <p class="link-buttons">
-          <a href="/rss.xml" rel="subscribe-rss">
-            <!-- Source: https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white -->
-            <img class="badge" src="/assets/img/rss-logo-styled.svg" alt="Subscribe to @hannahilea RSS feed"
-          /></a>
-          <a class="button" target="_blank" rel="noreferrer noopener" href="http://groups.google.com/group/hannahilea-blog-rss" target="_blank" rel="noreferrer noopener">Subscribe via email</a>
         </p>
         <hr />
         <nav class="navbar" role="navigation">
@@ -367,7 +375,7 @@ with a CNC pen plotter"
           <a href="/" class="nav-link">home</a> | <a href="/projects" class="nav-link">projects</a> |
           <a href="/blog" class="nav-link">blog</a>
         </nav>
-      </div>
+      </footer>
     </div>
   </body>
 </html>

@@ -313,9 +313,9 @@ img.home-img {
     padding: .25em;
   }
 
-  .navbar {
+  /* .navbar {
     margin-bottom: 1.6em;
-  }
+  } */
 
   .date {
     font-family: "Jura Regular"
@@ -452,7 +452,8 @@ img.home-img {
   font-family: "Jura Bold";
 }
 
-.blog-footer {
+.blog > footer,
+.index-page > footer {
   display: block;
 
   a.button {
@@ -484,58 +485,46 @@ img.home-img {
     border-bottom: 1px solid #0843c3
   }
 
-  p.meta-buttons {
-    text-align: center;
-  }
-
-  a.basic-alignment {
-    width: 43%;
-    position: absolute;
-    top: 0px;
-    vertical-align: baseline;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  p.link-buttons {
+  div.link-buttons {
     text-align: center;
   }
 
   p.breadcrumbs {
-    margin: 0;
-    padding: 0;
-    position: relative;
-    box-sizing: border-box;
-    min-height: 2em;
-    margin-bottom: .5em;
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    justify-content: space-between;
   }
 
   a.right {
     text-align: right;
     right: 1em;
-  }
-
-  a.left {
-    text-align: left;
-    left: 1em;
+    padding-right: 0em;
+    padding-left: 1em;
+    position: relative;
   }
 
   .right:before {
     content: "»";
-    width: 0px;
-    height: 0px;
     position: absolute;
-    right: -0.5em;
+    right: -.5em;
+    width: 0;
+    height: 0;
+  }
+
+  a.left {
+    text-align: left;
+    position: relative;
+    left: 1em;
+    padding-left: 0em;
+    padding-right: 1em;
   }
 
   .left:before {
-    content: "«";
-    width: 0px;
-    height: 0px;
-    position: absolute;
+    content: "« ";
     left: -1em;
-  }
+    position: absolute;
+  } 
 }
 
 /* For blog, project index pages */
