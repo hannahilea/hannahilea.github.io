@@ -452,7 +452,8 @@ img.home-img {
   font-family: "Jura Bold";
 }
 
-.blog-footer {
+.blog > footer,
+.index-page > footer {
   display: block;
 
   a.button {
@@ -483,6 +484,47 @@ img.home-img {
     height: 3px;
     border-bottom: 1px solid #0843c3
   }
+
+  div.link-buttons {
+    text-align: center;
+  }
+
+  p.breadcrumbs {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  a.right {
+    text-align: right;
+    right: 1em;
+    padding-right: 0em;
+    padding-left: 1em;
+    position: relative;
+  }
+
+  .right:before {
+    content: "»";
+    position: absolute;
+    right: -.5em;
+    width: 0;
+    height: 0;
+  }
+
+  a.left {
+    text-align: left;
+    position: relative;
+    left: 1em;
+    padding-left: 0em;
+    padding-right: 1em;
+  }
+
+  .left:before {
+    content: "« ";
+    left: -1em;
+    position: absolute;
+  } 
 }
 
 /* For blog, project index pages */
