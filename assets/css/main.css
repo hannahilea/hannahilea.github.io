@@ -498,7 +498,11 @@ img.home-img {
     padding: 0;
   }
 
-  p.meta {
+  p.link-buttons {
+    text-align: center;
+  }
+
+  p.breadcrumbs {
     margin: 0;
     padding: 0;
     position: relative;
