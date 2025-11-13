@@ -175,6 +175,13 @@
       <guid>https://hannahilea.com/blog/birdnet-setup</guid>
       <description>Step by step instructions for monitoring your yellingist feathered neighbors.</description>
     </item>
+    <item>
+      <title>Learning to learn how to play with electronics</title>
+      <pubDate>Thu, 20 Nov 2025 23:58:00 EST</pubDate>
+      <link>https://hannahilea.com/blog/how-to-hardware</link>
+      <guid>https://hannahilea.com/blog/how-to-hardware</guid>
+      <description>A journey of a thousand doofy hardware projects starts with a single Adafruit blink</description>
+    </item>
 
   </channel>
 </rss>
