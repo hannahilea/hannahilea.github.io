@@ -51,9 +51,14 @@ function convert_to_html(file, outfile; metadata, template=BLOG_TEMPLATE, overwr
 end
 
 function get_breadcrumbs_details(file; metadata)
-    blog_prev = ""
-    blog_next = " "
-    i_blog = findfirst(m -> m.md_file == file, metadata)
+    blog_prev = """<a class="basic-alignment left" href="/blog/"></a>"""
+    blog_next = """<a class="basic-alignment right" href="/blog/"></a>"""
+    file_dir = replace(file, ".io/blog/" => ".io/build-site/../blog/")
+    i_blog = findfirst(m -> m.md_file == file_dir, metadata)
+    if isnothing(i_blog)
+        @warn "Uh oh, weird" file file_dir first(metadata).md_file
+        return blog_prev, blog_next
+    end
     if i_blog > 1 
         # All posts except first
         url = metadata[i_blog - 1].url
@@ -65,8 +70,6 @@ function get_breadcrumbs_details(file; metadata)
         url = metadata[i_blog + 1].url
         title = metadata[i_blog + 1].title
         blog_next = """<a class="basic-alignment right" href="/blog/$url" title="Next: $title">$title</a>"""
-    else 
-        blog_next =  """<a class="basic-alignment right" href="/blog/"></a>"""
     end
     return blog_prev, blog_next
 end
