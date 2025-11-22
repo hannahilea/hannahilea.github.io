@@ -323,6 +323,7 @@ if abspath(PROGRAM_FILE) == @__FILE__
     elseif isfile(ARGS[1]) && endswith(ARGS[1], ".md")
         metadata = get_all_blog_metadata()
         generate_blog_html(ARGS[1]; metadata, overwrite_existing=true)
+        generate_blog_html(metadata[end-1].md_file; metadata, overwrite_existing=true)
         generate_blog_index(metadata; overwrite_existing=true)
         generate_rss_feed(metadata; overwrite_existing=true)
     elseif isfile(ARGS[1]) || isequal(ARGS[1], "projects")

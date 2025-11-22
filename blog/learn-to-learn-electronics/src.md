@@ -32,9 +32,9 @@ _The initial writing of this list was time-boxed; I have a lot of additional tho
 
 [^doable]: [Doable, eh?](https://www.youtube.com/watch?v=aR5AU3azhyc&t=242s) No but really, having someone to say "no you don't have to worry about electrocuting yourself by doing that. Really. It's fine." is _invaluable_.
 
-* Another important piece for me has been gaining intuition around how other people approach projects, what types of components they use, what they treat as easy and hard, what items they build themselves vs purchase, etc. For this, I have found Instagram really useful---I follow a bunch of maker people. Ditto the RSS feeds of maker blogs.[^makers]
+* Another important piece for me has been gaining intuition around how other people approach projects, what types of components they use, what they treat as easy and hard, what items they build themselves vs purchase, etc. For this, I have found Instagram really useful---I follow a bunch of maker people. Ditto the RSS feeds of maker blogs.
 
-[^makers]: Stay tuned for an upcoming assemblage of makers who inspire me, perhaps?
+  * My list of many of these maker folks is [here](../autobibliography-3/).
 
 * There are lots of ways to connect components to microcontrollers: breadboards, soldering to wires, soldering to prototyping boards, designing a custom PCB. Each is fiddly in its own way. That's okay! Recognize that most tutorials will gloss right over the "connect components to microcontroller" part, and so you'll need to get comfortable planning extra time for it until you're practiced in whichever approaches you prefer. Currently, I use breadboards and then solder to prototyping boards.
 
