@@ -18,7 +18,7 @@ const RSS_TEMPLATE = joinpath(BLOG_DIR, "__template", "rss.template.xml")
 
 get_warning(file)  = "<!--Auto-generated! Make changes in $(basename(file)), not this file-->\n"
 
-function convert_to_html(file, outfile; template=BLOG_TEMPLATE, overwrite_existing=false)
+function convert_to_html(file, outfile; metadata, template=BLOG_TEMPLATE, overwrite_existing=false)
     if !overwrite_existing && isfile(outfile)
         @warn "Output file already exists; not overwriting: $outfile"
         return nothing
@@ -37,13 +37,41 @@ function convert_to_html(file, outfile; template=BLOG_TEMPLATE, overwrite_existi
     # For now, do a very brittle tuning of properties!
     # In future, turn this into a pandoc plugin 
     str = read(outfile, String)
-    str = replace(str, "{{ BLOG_DIR }}" => basename(dirname(file)))
-    str = replace(str, "{{ BLOG_DATE }}" => date_pretty)
-    str = replace(str, "{{ BLOG_FOOTER }}" => BLOG_FOOTER)
+    str = replace(str, "{{ BLOG_DIR }}" => basename(dirname(file)),
+                        "{{ BLOG_DATE }}" => date_pretty,
+                        "{{ BLOG_FOOTER }}" => BLOG_FOOTER)
+
+    blog_prev, blog_next = get_breadcrumbs_details(file; metadata)
+    str = replace(str, "{{ BLOG_RIGHT_BREADCRUMB }}" => blog_prev,
+                       "{{ BLOG_LEFT_BREADCRUMB }}" => blog_next)
     str = tweak_html!!(str)
     write(outfile, str)
 
     return nothing
+end
+
+function get_breadcrumbs_details(file; metadata)
+    blog_prev = """<a class="basic-alignment left" href="/blog/"></a>"""
+    blog_next = """<a class="basic-alignment right" href="/blog/"></a>"""
+    file_dir = replace(file, ".io/blog/" => ".io/build-site/../blog/")
+    i_blog = findfirst(m -> m.md_file == file_dir, metadata)
+    if isnothing(i_blog)
+        @warn "Uh oh, weird" file file_dir first(metadata).md_file
+        return blog_prev, blog_next
+    end
+    if i_blog > 1 
+        # All posts except first
+        url = metadata[i_blog - 1].url
+        title = metadata[i_blog - 1].title
+        blog_prev = """<a class="basic-alignment left" href="/blog/$url" title="Previous: $title">$title</a>"""
+    end
+    if i_blog < length(metadata)
+        # All posts except last
+        url = metadata[i_blog + 1].url
+        title = metadata[i_blog + 1].title
+        blog_next = """<a class="basic-alignment right" href="/blog/$url" title="Next: $title">$title</a>"""
+    end
+    return blog_prev, blog_next
 end
 
 function tweak_html!!(text)
@@ -104,7 +132,7 @@ function tweak_html!!(text)
     return join(phrases, " ")
 end
 
-function generate_blog_html(md_file; overwrite_existing=true)
+function generate_blog_html(md_file; metadata, overwrite_existing)
     if !isfile(md_file)
         @warn "Expected blog source file not found: `$(md_file)`; skipping"
         return nothing
@@ -112,7 +140,7 @@ function generate_blog_html(md_file; overwrite_existing=true)
 
     @info "Converting $(basename(dirname(md_file)))..."
     html_outfile = replace(md_file, "src.md" => "index.html")
-    convert_to_html(md_file, html_outfile; overwrite_existing)
+    convert_to_html(md_file, html_outfile; metadata, overwrite_existing)
 
     @info "...and formatting it"
     try
@@ -123,15 +151,9 @@ function generate_blog_html(md_file; overwrite_existing=true)
     return nothing
 end
 
-function generate_all_blogposts(; overwrite_existing=true)
-    for dir in readdir(BLOG_DIR; join=true)
-        isfile(dir) && continue
-        isequal(joinpath(BLOG_DIR, "__template"), dir) && continue
-        # contains(dir, "list") || continue
-
-        md_file = joinpath(dir, "src.md")
-        isfile(md_file) || continue
-        generate_blog_html(md_file; overwrite_existing)
+function generate_all_blogposts(metadata; overwrite_existing=true)
+    for m in metadata
+        generate_blog_html(m.md_file; metadata, overwrite_existing)
     end
     return nothing
 end
@@ -144,7 +166,7 @@ function get_blog_metadata(md_file)
     return NamedTuple(Symbol(k) => v for (k,v) in yaml_dict)
 end
 
-function generate_blog_index(; overwrite_existing=false, template=BLOG_INDEX_TEMPLATE)
+function generate_blog_index(metadata; overwrite_existing=false, template=BLOG_INDEX_TEMPLATE)
     outfile = joinpath(BLOG_DIR, "index.html")
     if !overwrite_existing && isfile(outfile)
         @warn "Output file already exists; not overwriting: $outfile"
@@ -152,8 +174,7 @@ function generate_blog_index(; overwrite_existing=false, template=BLOG_INDEX_TEM
     end
 
     @info "Generating blog index..."
-    metadata = get_all_blog_metadata()
-    blog_strs = map(metadata) do m
+    blog_strs = map(reverse(metadata)) do m
         haskey(m, :draft) && return ""
         date_pretty = Dates.format(Date(m.date_str), dateformat"d u yyyy")
         tags = "#" * replace(m.tags, "," => " #")
@@ -173,7 +194,9 @@ function generate_blog_index(; overwrite_existing=false, template=BLOG_INDEX_TEM
 
     str = read(template, String)
     str = replace(str, "<!-- POSTS -->" => join(blog_strs, "\n"))
-     str = replace(str, "{{ BLOG_FOOTER }}" => BLOG_FOOTER)
+    str = replace(str, "{{ BLOG_FOOTER }}" => BLOG_FOOTER)
+    str = replace(str, "{{ BLOG_LEFT_BREADCRUMB }}" => "", 
+                       "{{ BLOG_RIGHT_BREADCRUMB }}" => "")
     str = get_warning(template) * str
     write(outfile, str)
 
@@ -195,13 +218,13 @@ function get_all_blog_metadata()
         md_file = joinpath(dir, "src.md")
         isfile(md_file) || continue
         m = get_blog_metadata(md_file)
-        push!(metadata, (; url="./" * basename(dir), dir=basename(dir), m...))
+        push!(metadata, (; md_file, url="./" * basename(dir), dir=basename(dir), m...))
     end
-    sort!(metadata; by=(m) -> (m.date_str, m.published), rev=true)
+    sort!(metadata; by=(m) -> (m.date_str, m.published), rev=false)
     return metadata
 end
 
-function generate_rss_feed(; overwrite_existing=false, template=RSS_TEMPLATE)
+function generate_rss_feed(metadata; overwrite_existing=false, template=RSS_TEMPLATE)
     outfile = RSS_FILE
     if !overwrite_existing && isfile(outfile)
         @warn "Output file already exists; not overwriting: $outfile"
@@ -209,8 +232,7 @@ function generate_rss_feed(; overwrite_existing=false, template=RSS_TEMPLATE)
     end
 
     @info "Generating RSS feed..."
-    metadata = get_all_blog_metadata()
-    blog_strs = map(reverse(metadata)) do m
+    blog_strs = map(metadata) do m
         haskey(m, :draft) && return ""
         return """    <item>
                   <title>$(m.rawtitle)</title>
@@ -294,13 +316,16 @@ end
 # Run from commandline? 
 if abspath(PROGRAM_FILE) == @__FILE__
     if isempty(ARGS)
-        generate_all_blogposts(; overwrite_existing=true)
-        generate_blog_index(; overwrite_existing=true)
-        generate_rss_feed(; overwrite_existing=true)
+        metadata = get_all_blog_metadata()
+        generate_all_blogposts(metadata; overwrite_existing=true)
+        generate_blog_index(metadata; overwrite_existing=true)
+        generate_rss_feed(metadata; overwrite_existing=true)
     elseif isfile(ARGS[1]) && endswith(ARGS[1], ".md")
-        generate_blog_html(ARGS[1]; overwrite_existing=true)
-        generate_blog_index(; overwrite_existing=true)
-        generate_rss_feed(; overwrite_existing=true)
+        metadata = get_all_blog_metadata()
+        generate_blog_html(ARGS[1]; metadata, overwrite_existing=true)
+        generate_blog_html(metadata[end-1].md_file; metadata, overwrite_existing=true)
+        generate_blog_index(metadata; overwrite_existing=true)
+        generate_rss_feed(metadata; overwrite_existing=true)
     elseif isfile(ARGS[1]) || isequal(ARGS[1], "projects")
         generate_project_index(; overwrite_existing=true)
     else

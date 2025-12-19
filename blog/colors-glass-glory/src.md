@@ -27,7 +27,7 @@ header: '<style>
 </style>'
 ---
 
-<img style="max-width:100%" alt="Photo of rainbow tile pattern along a brown metal railing" src="./assets/sliver-daylight.png"></img>
+<img style="max-width:100%" alt="Photo of rainbow tile pattern along a brown metal railing" src="./assets/sliver-daylight.png"/>
 
 At the beginning of the summer I came into some treasure, artistically speaking: a friend of a friend was clearing out vast quantities of material samples from her architecture studio, and invited her community to come and salvage what they wanted from her ~~piles of treasures~~ discard pile. Tile, flooring, wall treatments, wood, shingles---each with an array of colors and treatments. Imagine a garage sale, made up of only the type of object you are most interested in, and where everything is free. It was *magnificent*.
 
@@ -69,20 +69,20 @@ Inspired by a set of multicolor fridge magnets my mom got me during college that
 
 ...which I then stuck onto my apartment's steel porch railing. Bam, art installation!
 
-<img style="max-width:100%" alt="Photo of rainbow tile pattern along a brown metal railing" src="./assets/tada.png"></img>
+<img style="max-width:100%" alt="Photo of rainbow tile pattern along a brown metal railing" src="./assets/tada.png"/>
 
 They look *so* good, have fascinating interactions with light at different times of day, and make me happy whenever I see them out the window. Also, they are fun to play with.
 
-<img style="max-width:100%" alt="Close up of mosaic magnets" src="./assets/cool-1.png"></img>
+<img style="max-width:100%" alt="Close up of mosaic magnets" src="./assets/cool-1.png"/>
 
-<img style="max-width:100%" alt="Close up of a few mosaic magnets with dramatic sunset light" src="./assets/light1.png"></img>
+<img style="max-width:100%" alt="Close up of a few mosaic magnets with dramatic sunset light" src="./assets/light1.png"/>
 
-<img style="max-width:100%" alt="Photo of rainbow mosaic railing at night" src="./assets/nightlight.jpeg"></img>
+<img style="max-width:100%" alt="Photo of rainbow mosaic railing at night" src="./assets/nightlight.jpeg"/>
 
 
 One of my favorite patterns thus far was made by Alex's dad, using the greens and blues; I liked his pattern so much that I replicated it in the remaining warm colors. 
 
-<img style="max-width:100%" alt="Photo of wavey mosaic pattern" src="./assets/nothing.png"></img>
+<img style="max-width:100%" alt="Photo of wavey mosaic pattern" src="./assets/nothing.png"/>
 
 I'm excited to see how the next porch visitor chooses to rearrange them!
 
@@ -118,13 +118,13 @@ I glued it all down. A few days later---after the adhesive cured---it was grout 
 
 <div class="row">
 <div class="column3">
-<img src="./assets/cement-during.png" alt="Photo of sloppy cement during grouting" style="width:100%">
+<img src="./assets/cement-during.png" alt="Photo of sloppy cement during grouting" style="width:100%"/>
 </div>
 <div class="column3">
-<img src="./assets/grout2.png" alt="Photo of dried cement during grouting" style="width:100%">
+<img src="./assets/grout2.png" alt="Photo of dried cement during grouting" style="width:100%"/>
 </div>
 <div class="column3">
-<img src="./assets/grout3.png" alt="Photo of cleaned up dried cement after grouting" style="width:100%">
+<img src="./assets/grout3.png" alt="Photo of cleaned up dried cement after grouting" style="width:100%"/>
 </div>
 </div>
 
@@ -189,4 +189,4 @@ Stay tuned, I guess!
 
 ***Thank you thank you thank you to CL for all the colorful materials, which were the creative spark I needed to jump-start my summer!***
 
-<p><img style="max-width:100%" alt="Photo of magnetic mosaics at night" src="./assets/sliver-nightlight.jpeg"></img><p>
+<p><img style="max-width:100%" alt="Photo of magnetic mosaics at night" src="./assets/sliver-nightlight.jpeg"/><p>
