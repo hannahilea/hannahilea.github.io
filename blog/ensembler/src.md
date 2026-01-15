@@ -50,13 +50,13 @@ Ensembler profiles include:
 
 - Instrument(s): acoustic, electric, vocalist type, etc.
 
-- Musical activities of interest: sight-reading, pre-preparing notated scores, improvising, playing from lead sheets or charts, playing traditional non-notated repetoire, etc.
+- Musical activities of interest: sight-reading, pre-preparing notated scores, improvising, playing from lead sheets or charts, playing traditional non-notated repertoire, etc.
 
 - Relative skill level for each combination of instrument and activity
 
 - Genres of interest
 
-- Logicstic concerns, e.g., ability to host an ensemble session or willingness to travel to another place to play; need for piano or amplifier access; etc.
+- Logistic concerns, e.g., ability to host an ensemble session or willingness to travel to another place to play; need for piano or amplifier access; etc.
 
 An Ensembler can set up as many sub-profiles as are relevant, i.e., one profile for each advanced proficiency clarinet, one for beginner xylophone sight-reading, one for basic piano accompaniment for a vocalist singing show tunes, etc.
 
@@ -64,7 +64,7 @@ An Ensembler can set up as many sub-profiles as are relevant, i.e., one profile 
 > </br></br>
 > —*Ensembler musician (french horn)*
 
-> "Moving to a new city used to be so isolating: it would take me years to find my way into the hidden musician networks to find people to play with. Now I can be playing duets with a new acquaintance across the street before I've even unpacked my dishes."
+> "Moving to a new city used to be so isolating: it would take me years to find my way into the hidden musician networks to find people to play with. Now I can be jamming with a new acquaintance across the street before I've even unpacked my dishes."
 > </br></br>
 > —*Ensembler musician (woodwinds)*
 
@@ -76,19 +76,19 @@ An Ensembler can set up as many sub-profiles as are relevant, i.e., one profile 
 
 Some of the many features include:
 
-- Set up multiple profiles, for folks who play multiple instruments at various levels;
+- Set up multiple profiles, for folks who play multiple instruments at various levels
 
-- Bookmark musicians you've enjoyed playing with in the past, to be notified of their current jam availability;
+- Bookmark musicians you've enjoyed playing with in the past, to be notified of their current jam availability
 
-- Assemble multi-player ensembles of any combination, by specifically searching to fill specific instruments or roles; e.g., a rock band with a vocalist, a piano quintet, etc.;
+- Assemble multi-player ensembles of any combination, by specifically searching to fill specific instruments or roles; e.g., a rock band with a vocalist, a piano quintet, etc.
 
-- Search based on specific instrument or for more generic musical properties, i.e., anyone with a concert Eb instrument for a specific book of duets, anyone who plays a rhythm instrument, anyone who plays an acoustic instrument, etc.;
+- Search based on specific instrument or for more generic musical properties, i.e., anyone with a concert Eb instrument for a specific book of duets, anyone who plays a rhythm instrument, anyone who plays an acoustic instrument, etc.
 
-- Restrict potential matches to those within your known sphere, e.g., only people with whom you have a mutual Ensembler in common or (for younger players) those who share a professional music teacher in common;
+- Restrict potential matches to those within your known sphere, e.g., only people with whom you have a mutual Ensembler in common or (for younger players) those who share a professional music teacher in common
 
-- Add matches to your pool of on-demand "Play ASAP" players, for when you have a sudden urge to play some music and want to broadcast that availability to pre-matched Ensemblers. 
+- Add matches to your pool of on-demand "Play ASAP" players, for when you have a sudden urge to play some music and want to broadcast that availability to pre-matched Ensemblers
 
-- Live geographic updating, so that the pool of available players always matches your current location.
+- Live geographic updating, so that the pool of available players always matches your current location
 
 > "These days when I travel, I always bring my fiddle along---thanks to Ensembler, I'm always able to find someone to teach me a local favorite tune!"
 > </br></br>
@@ -97,9 +97,9 @@ Some of the many features include:
 
 Other features facilitate the logistics of meeting:
 
-- Ability to feature by musicians who have necessary instruments or equiptment available to borrow, e.g., a piano or drumset, or amplifier on site;
+- Ability to feature by musicians who have necessary instruments or equipment available to borrow, e.g., a piano or drumset, or amplifier on site
 
-- Ability to match with local venues that offer their space for music playing, at a set fee, for those without private practice space access.
+- Ability to match with local venues that offer their space for music playing, at a set fee, for those without private practice space access
 
 > "I'm not a musician myself, but I used to love listening to my kids practice. Now that I've made my living room piano available on Ensembler, my neighbors stop by to sing show tunes and practice their sonatas. My home feels lively again."
 > </br></br>
@@ -109,13 +109,13 @@ Other features facilitate the logistics of meeting:
 
 While Ensembler facilitates connections for the casual musician, the app is no less useful for professional and semi-professional musicians---and includes features specifically targeted for their needs:
 
-- *Gig match*: Post your gig, find players to join your ensemble.
+- *Gig match*: Post your gig, find players to join your ensemble
 
 - *Substitute finder*: Need a sub to sit in for your rehearsal or show? Find qualified folks here!
 
-- *References*: Share recommendations with other professional musicians in your network.
+- *References*: Share recommendations with other professional musicians in your network
 
-- *Composition play-throughs*: Easily assemble an ensemble to preview your current composition or arrangement work-in-progress.
+- *Composition play-throughs*: Easily assemble an ensemble to preview your current composition or arrangement work-in-progress
 
 > "I no longer need to be a part of 17 different Facebook groups called 'Pit Orchestra Musicians (Boston)'!"
 > </br></br>
@@ -126,21 +126,21 @@ While Ensembler facilitates connections for the casual musician, the app is no l
 
 The following features will be released in the upcoming months:
 
-- *Broadcast or join pre-scheduled events!* Our bandleader feature supports forming larger ensembles---set a time and place, then open your music session to the broader community. 
+- *Broadcast or join pre-scheduled events!* Our bandleader feature supports forming larger ensembles---set a time and place, then open your music session to the broader community
 
 - *Venue availability* feature: Are you a community space or business with an open room that could be used by one or more musicians for solo or group practice, on a part-time basis? Make your space available to ensembles!
 
-- *Sheet music subscription service*: Link your account to existing sheet music providers to receive event-relevant recommendations for sheet music for your given ensemble and expertise. 
+- *Sheet music subscription service*: Link your account to existing sheet music providers to receive event-relevant recommendations for sheet music for your given ensemble and expertise
 
-- *Commission arrangements for your specific ensemble*: Can't find a tuba, piccolo, oboe trio arrangement of "Make a man out of you" as a bossa nova instrumental? Want to tailor-written piece for your tin whistle quartet? Use our network of music composers and arrangers to commission a custom work![^ai]
+- *Commission arrangements for your specific ensemble*: Can't find a tuba, piccolo, oboe trio arrangement of "Make a man out of you" as a bossa nova instrumental? Want tailor-written pieces for your tin whistle quartet? Use our network of music composers and arrangers to commission a custom work![^ai]
 
 [^ai]: No generative AI or LLMs will be used in the creation of these arrangements, nor in any other part of the Ensembler ecosystem. Use of generative AI devalues the skillsets of the composers and arrangers in our community; as a site by and for musicians, it will not be part of the Ensembler ecosystem in any way.
 
-- *Instrument exchange*: Do you have an instrument that you're looking to borrow, share, sell, donate, or trade? We facilitate that here, as well as connecting with other pre-existing instrument resale sites.
+- *Instrument exchange*: Do you have an instrument that you're looking to borrow, share, sell, donate, or trade? We facilitate that here, as well as connecting with other pre-existing instrument resale sites
 
-- *Teacher connections*: Is there a specific skill you'd like to learn? Get matched with Ensemblers who offer either paid lessons or lesson swaps: learn to play crans from them and teach them how to cross the break on their clarinet.
+- *Teacher connections*: Is there a specific skill you'd like to learn? Get matched with Ensemblers who offer either paid lessons or lesson swaps: learn to play crans from them and teach them how to cross the break on their clarinet
 
-- *Calendar integration*: Invite your Ensembler matches to play based on your mutual calendar availability.
+- *Calendar integration*: Invite your Ensembler matches to play based on your mutual calendar availability
 
 > "I used to be envious of the folks who assembled pick-up bands for Porchfest every year; now I don't have time to be envious, I'm too busy debating what songs my own band will play...and whose porch will have the best acoustics!"
 > </br></br>
