@@ -138,7 +138,7 @@ The following features will be released in the upcoming months:
 
 - *Instrument exchange*: Do you have an instrument that you're looking to borrow, share, sell, donate, or trade? We facilitate that here, as well as connecting with other pre-existing instrument resale sites
 
-- *Teacher connections*: Is there a specific skill you'd like to learn? Get matched with Ensemblers who offer either paid lessons or lesson swaps: learn to play crans from them and teach them how to cross the break on their clarinet
+- *Teacher connections*: Is there a specific skill you'd like to learn? Get matched with Ensemblers who offer either paid lessons or lesson swaps: learn to play crans and rolls on your flute from them and teach them how to cross the break on their clarinet
 
 - *Calendar integration*: Invite your Ensembler matches to play based on your mutual calendar availability
 
