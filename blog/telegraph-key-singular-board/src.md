@@ -67,7 +67,7 @@ One of my favorite aspects of the Telegraph Key(singular)board has been other pe
 
 I am very, very pleased with how this project turned out, and how usable and portable my key(singular)board is. 
 
-If I were cooler, I would have typed this blog post with it. Fortunately for this post's legibility, I did not do that. On the other hand, I'd probably be better at Morse if I had!
+If I were cooler, I would have typed this blog post with it. Fortunately for this post's legibility, I did not do that. On the other hand, I'd probably be better at Morse code if I had!
 
 ***Instructions for building your own Key(singular)board are [here](https://github.com/hannahilea/telegraph-key-singular-board).[^trivial] Let me know if you make one!***
 
