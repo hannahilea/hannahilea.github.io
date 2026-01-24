@@ -7,6 +7,9 @@ let mic;
 let x;
 let y;
 let yellowColor;
+let yellowColor2;
+let bristleColors;
+let bristleSeed;
 let isPainting = false;
 let currentbrushWidth;
 
@@ -15,6 +18,7 @@ const params = {
   screamThreshold: 10,
   brushWidth: 80,
   maxBrushYJitter: 0.2,
+  numBristles: 5, 
 };
 
 // Set up param gui
@@ -29,6 +33,7 @@ gui.add(params, 'screamThreshold', 0, 300, 5);
 gui.add(params, 'brushSpeed', 0.1, 5, 1);
 gui.add(params, 'brushWidth', 1, 100, 5);
 gui.add(params, 'maxBrushYJitter', 0, .6, .1);
+gui.add(params, 'numBristles', 1, 100, 1);
 
 function setup() {
   let availableHeight = 1 + windowHeight - document.getElementById("project-body").offsetTop;
@@ -55,6 +60,7 @@ function setup() {
 function draw() {
   // https://stackoverflow.com/questions/55026293/google-chrome-javascript-issue-in-getting-user-audio-the-audiocontext-was-not
   getAudioContext().resume();
+  noStroke();
 
   // Get the overall volume (between 0 and 1.0)
   let vol = mic.getLevel() * 1000;
@@ -63,12 +69,19 @@ function draw() {
     // Start a stroke
     x = random(windowWidth);
     y = random(height);
-    yellowColor = color(255, 204 + random(-10, 100), 0);
+
+    bristleColors = [];
+    let baseGreen = 204 + random(-10, 100);
+    for (let i=0; i < params.numBristles; i++) {
+      bristleColors.push(color(255, baseGreen + random(-5, 5), 0));
+    // yellowColor = color(255, 204 + random(-10, 100), 0);
+    // yellowColor2 = color(255, 204 + random(-10, 100), 0);
+    }
+    console.log(bristleColors);
     isPainting = true;
-    currentbrushWidth = params.brushWidth + random(-1.0, 1.0);
+    currentbrushWidth = params.brushWidth + random(-1.0, 1.0); // TODO-future: tweak random amount
   } else if (vol > params.screamThreshold && isPainting) {
     // Continuing a stroke
-
     x -= params.brushSpeed;
     y += random(-params.maxBrushYJitter, params.maxBrushYJitter);
   } else if (isPainting) {
@@ -77,11 +90,19 @@ function draw() {
   }
 
   if (isPainting) {
-    fill(yellowColor);
-    noStroke();
-    square(x, y, currentbrushWidth, 0);
+    drawBrushIncrement();
   }
 }
+
+function drawBrushIncrement() {
+  let bristleWidth = currentbrushWidth / bristleColors.length;
+  for (let i=0; i < bristleColors.length; i++) {
+    fill(bristleColors[i]);
+    square(x, y + i * bristleWidth, bristleWidth, 0);
+  }
+}
+
+// TODO - Adjust individual bristle speed and/or starting point
 
 function saveMasterpiece() {
   let cnv = document.getElementById("p5-canvas");
