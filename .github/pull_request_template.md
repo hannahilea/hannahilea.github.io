@@ -1,4 +1,6 @@
 - [ ] content done
+- [ ] no TODOs
+- [ ] title etc is correct
 - [ ] slug is correct
 - [ ] date is correct
-
+- [ ] iff project, added to projects/

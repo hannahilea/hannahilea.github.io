@@ -3,7 +3,7 @@ virtual-gallery:
     url: ./circle-strands
     thumbnail_url: "./thumbnails/circle-strand.png"
     year: 2025
-    description: 'Interactive wind mobile.'
+    description: "Interactive wind mobile."
 
   - project: Flock chorus
     url: ./flock-chorus
@@ -51,6 +51,14 @@ virtual-gallery:
       Itinerant Mixer: Fun, Slick, and More Than a Toy </em></a>.'
 
 physical-gallery:
+  - project: Telegraph Key(singular)board
+    url: https://github.com/hannahilea/telegraph-key-singular-board
+    year: 2026
+    thumbnail_url: "../blog/telegraph-key-singular-board/assets/square.png"
+    description:
+      'Wireless Bluetooth Morse keyboard constructed from a telegraph key.
+      <br>Described in blog post <a href="../blog/telegraph-key-singular-board/">Telegraph Key(singular)board: Morse for the modern era</a>.'
+
   - project: Button-box timer
     url: https://github.com/hannahilea/button-box-timer
     year: 2025
@@ -62,8 +70,7 @@ physical-gallery:
   - project: Mosaic table and magnetic tiles
     year: 2025
     thumbnail_url: "../blog/colors-glass-glory/assets/var-final.png"
-    description:
-      'Art project! No tech used, programming or otherwise.
+    description: 'Art project! No tech used, programming or otherwise.
       <br>Described in blog post <a href="../blog/colors-glass-glory/">Colors! Glass! Glory!</a>.'
 
   - project: Slide whistle Trombone Champ controller
