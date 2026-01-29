@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" type="image/png" href="../../assets/img/favicon.png" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="og:title" content="From BongoBoard to BongoBored" />
+    <meta
+      property="og:description"
+      content="For sale: DK BongoBoard,
+never drummed"
+    />
+    <meta property="og:url" content="https://www.hannahilea.com/blog/bongoboard-to-bongobored" />
+    <meta property="og:image" content="https://www.hannahilea.com/blog/bongoboard-to-bongobored/assets/thumbnail.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:height" content="300" />
+    <meta property="og:type" content="website" />
+
+    <title>From BongoBoard to BongoBored</title>
+    <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
+  </head>
+
+  <body>
+    <div class="main-container blog">
+      <nav class="navbar" role="navigation">
+        @hannahilea:
+        <a class="nav-link" href="../..">home</a> | <a class="nav-link" href="../../projects">projects</a> |
+        <a class="nav-link" href="..">blog</a>
+      </nav>
+
+      <h1>From BongoBoard to BongoBored</h1>
+      <div class="date">29 Jan 2026</div>
+      <p>
+        Not all projects are winners! Here is a write-up of <a target="_blank" rel="noreferrer noopener" href="https://github.com/hannahilea/BongoBoard">BongoBoard</a>, a project in which I have fully<a
+          href="#fn1"
+          class="footnote-ref"
+          id="fnref1"
+          role="doc-noteref"
+          ><sup>1</sup></a
+        >
+        lost interest.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+      </p>
+      <p>
+        <strong><em>tldr; I turned a DonkeyKong BongoFoo into a wireless Bluetooth keyboard. The hardware is done, the software basics are in place, and I now have zero interest in making it feel fun and then using it.</em></strong>
+      </p>
+      <h2 id="what">What?</h2>
+      <ul>
+        <li>
+          A set of <a target="_blank" rel="noreferrer noopener" href="https://nintendo.fandom.com/wiki/DK_Bongos">DK Bongos</a>,<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> disassembled and reassembled
+          into a wireless Bluetooth keyboard, thanks to an <a target="_blank" rel="noreferrer noopener" href="https://learn.adafruit.com/introducing-the-adafruit-nrf52840-feather">Adafruit Feather</a> microcontroller. This keyboard has four
+          buttons—two in each drum head—and a microphone. The buttons are currently mapped to the keyboard direction arrows but can be remapped (in code) into more sophisticated keystroke outputs.
+        </li>
+      </ul>
+      <h2 id="why">Why?</h2>
+      <ul>
+        <li>
+          Because it tickled my fancy: I find the concept of “drumming” input into a computer hilarious.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>
+        </li>
+        <li>
+          Because I could. Thanks to having recently built a <a href="../slide-whistle-trombone-champ-controller/">slidewhistle-based Trombone Champ controller</a>, I knew that the physical construction was something I could now do
+          relatively easily, and I wanted to practice those skills.
+        </li>
+        <li>Why not?!</li>
+      </ul>
+      <h2 id="who">Who?</h2>
+      <ul>
+        <li>Me.</li>
+        <li>AF, who one midnight told me that a drum-inspired video game controller existed for a drumming-based video game.</li>
+        <li>A stranger on ebay who wouldn’t cancel an order made at midnight.</li>
+        <li>A friend with the elbow grease and determination to unscrew a bunch of proprietary screws without a proprietary screwdriver, and who offered advice towards attempting to salvage the onboard microphone.</li>
+        <li>Some friends who helped brainstorm fun use cases for the BongoBoard when the DKBongos had not yet been Adafruitified.</li>
+      </ul>
+      <h2 id="what-for">What for?</h2>
+      <p>A handful of use-cases for which the BongoBoard would be fun:</p>
+      <ul>
+        <li>Play tetris? Drum tetris! <em>Challenge mode: play along with the theme song. Even more challenging mode: don’t play along with the theme song.</em></li>
+        <li>
+          Type messages? Drum messages!
+          <em
+            >Use ever-popular Morse code, or use the BongoBoard-specific B4, the latest in <a target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/T9_(predictive_text)">T9-inspired</a> predictive text
+            drumnology!</em
+          >
+        </li>
+        <li>Drum <a target="_blank" rel="noreferrer noopener" href="https://play2048.co/">2048</a>! (h/t OBR)</li>
+        <li>Play <del>Drummy</del> Flappy Bird!</li>
+        <li>Control a <a href="../ly-drawbot-setup/">pen plotter</a>!</li>
+        <li>
+          A beat poetry-style game, trading drum phrases with spoken phrases with the same beats. (h/t GH ) TODO-look up who<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>
+        </li>
+        <li>TODO (h/t E)</li>
+      </ul>
+      <h2 id="how">How?</h2>
+      <ol type="1">
+        <li>
+          <p>Opened DKTODO <img src="./assets/photo.png" alt="TODO: Photo" /></p>
+        </li>
+        <li>
+          <p>Cut wires foo <img src="./assets/photo.png" alt="TODO: Photo" /></p>
+        </li>
+        <li>
+          <p>Soldered wires from buttons to AdafruitFoo <img src="./assets/photo.png" alt="TODO: Photo" /></p>
+        </li>
+        <li>
+          <p>Attempted to use the original onboard mic, which acts as a “clap” detector in the DKBongos game <img src="./assets/photo.png" alt="TODO: Photo" /></p>
+        </li>
+        <li>
+          <p>
+            Failed at the onboard mic salvage sidequest and soldered on basic electret mic instead<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> <img src="./assets/photo.png" alt="TODO: Photo" />
+          </p>
+        </li>
+        <li>
+          <p>
+            Set up the adafruit FOO and wrote code to read in the button state and send it out as a BT keyboard stroke. (Code and set-up for the software is documented <a target="_blank" rel="noreferrer noopener" href="TODO-LINK">here</a>).
+            <img src="./assets/photo.png" alt="TODO: Photo" />
+          </p>
+        </li>
+        <li>
+          <p>Did a little drumming. Realized that I had exactly zero interest in spending time making the drummed keystrokes feel satisfying in the context of any import . <img src="./assets/photo.png" alt="TODO: Photo" /></p>
+        </li>
+      </ol>
+      <h2 id="parting-thoughts">Parting thoughts</h2>
+      <ul>
+        <li><p>This project was more fun to imagine than it was to see through.</p></li>
+        <li><p>In the future, I might try to separate the “what would I do if I was going to do it” stage from the “do I actually want to have done it?” stage.</p></li>
+        <li><p>On the other hand, it was pretty cool to say to myself “I want to build this thing” and then…be able to build it. Even though I later lost interest.</p></li>
+        <li>
+          <p>
+            BongoBoard got me a lot of conversational mileage, which was a plus. One of my favorite parts of building silly things is getting to talk about building silly things with other people, who have lovely silly ideas of their own.
+          </p>
+        </li>
+        <li>
+          <p>
+            I have some strong feelings about the types of “repurpose X into Y” projects that I enjoy making. It isn’t enough for a button to just act as a button—there needs to be a higher connection point. E.g., as it stands, the
+            BongoBoard is four buttons in a <del>trench coat</del> plastic housing. It can be used to do anything that four buttons can do. That doesn’t feel satisfying to me, though—I need it to serve its drum-function in addition to
+            acting as buttons. Drumming that results in art? Great. Drumming that results in communication? Great. Drumming that is an integral part of playing a game? Great. (Drumming that is just drumming? Why bother with the BongoBoard
+            at all?)
+          </p>
+        </li>
+        <li>
+          <p>
+            Getting the physical part of a project like this going is ~20% of the project: spending time on a nice-feeling resultant controller is the other 80%. (This is no surprise to anyone who has worked with a UX designer!) Often that
+            effort is worth it to me. For this project? Nope!
+          </p>
+        </li>
+        <li>
+          <p>
+            One thing that I don’t like about this project is that the physical controller does not feel or look aesthetically pleasing to me. If it was a little nicer (wood? metal? etc) or was slightly smaller, or both, I would be more
+            inclined to keep it around and spend a couple hours giving it at least one pleasing use-case.
+          </p>
+          <ul>
+            <li>
+              For example, this <a href="../telegraph-key-singular-board/">Telegraph Key(singular)board</a> is a simplified (single-key) version of the BongoBoard, but its form factor is so much more satisfying that it is a joy to have
+              around and use. While the BongoBoard feels relatively sturdy for the plastic drum that it is, it doesn’t quite have the necessary je ne sais quoi.
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <p>
+        I kind of want this thing out of my home? I have limited space, and it does not bring me joy. If you want to take it from its current state and turn it into something delightful,<a
+          href="#fn7"
+          class="footnote-ref"
+          id="fnref7"
+          role="doc-noteref"
+          ><sup>7</sup></a
+        >
+        <a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> drop me a line and we can figure out a transfer.
+      </p>
+      <figure>
+        <img src="./assets/animal-the-muppets.gif" alt="Animated gif of Animal from the Muppets playing the bongos" />
+      </figure>
+      <p>
+        <strong><em>Thanks to AF for the inspiration, various pals for the brainstorming, and MF for the teardown aid and mic mentorship.</em></strong>
+      </p>
+      <p>
+        <strong
+          ><em>Code and instructions for AdaFoo setup are <a target="_blank" rel="noreferrer noopener" href="https://github.com/hannahilea/BongoBoard">here</a>.</em></strong
+        >
+      </p>
+      <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+        <hr />
+        <h3 id="footnotes-title">Footnotes</h3>
+        <ol>
+          <li id="fn1">
+            <p>
+              Welllllll almost fully! I will say that in the process of writing the “potential usage” section I got a bit excited again, and considered at the very least porting over my
+              <a href="../telegraph-key-singular-board/">Morse keyboard code</a> into the BongoBoard. I had to remind myself that this project has been sitting in abeyance for nearly a year for a reason, and that reason is “even though it
+              <em>would</em> be cool, there are other things I’d rather be doing with my time.”<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a>
+            </p>
+          </li>
+          <li id="fn2">
+            <p>Now that this is published, I can move it out of my mental “projects in progress” queue and move on. Phew.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+          <li id="fn3">
+            <p>
+              For the uninitiated, DK Bongos are a video game controller built by Nintendo for a series of Donkey Kong rhythm games—games where you drum your way through the jungle, for example. Or so I have been led to believe—I have never
+              actually played a game on DK Bongos, as video games were not a part of my youth.
+            </p>
+            <figure>
+              <img src="./assets/photo.png" alt="TODO: Photo" />
+            </figure>
+            <a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a>
+          </li>
+          <li id="fn4">
+            <p>TODO-meme-of-always-have<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+          <li id="fn5">
+            <p>This is one I think would be especially cool—and most time-consuming!—to actually implement.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+          <li id="fn6">
+            <p>
+              What is an electret microphone? Great question! You won’t regret reading this comprehensive Open Music Labs write-up for the answer:
+              <a target="_blank" rel="noreferrer noopener" href="http://www.openmusiclabs.com/learning/sensors/electret-microphones/">Electret Microphones</a>.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a>
+            </p>
+          </li>
+          <li id="fn7">
+            <p>
+              Perhaps you have a use-case that will be especially silly when drummed? Or one of the ideas I noted above tickles your fancy? Maybe you’ll want to paint it, or bedazzle it, or otherwise jazz it up? Or just use it in its analog
+              form and do some drumming!<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a>
+            </p>
+          </li>
+          <li id="fn8">
+            For inspiration:
+            <div class="centered-children">
+              <iframe
+                width="100%"
+                height="500"
+                src="https://www.youtube-nocookie.com/embed/I22aVQefrx8"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              >
+              </iframe>
+            </div>
+            <a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a>
+          </li>
+        </ol>
+      </section>
+      <hr />
+      <ul class="date">
+        <li>Created: 2026-01-29</li>
+        <li>Type: Project write-up</li>
+        <li>Tags: adafruitification, good-ideas-gone-jettisoned, hardware</li>
+      </ul>
+      <footer>
+        <div class="link-buttons">
+          <a href="/rss.xml" rel="subscribe-rss">
+            <!-- Source: https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white -->
+            <img class="badge" src="/assets/img/rss-logo-styled.svg" alt="Subscribe to @hannahilea RSS feed"
+          /></a>
+          <a class="button" target="_blank" rel="noreferrer noopener" href="http://groups.google.com/group/hannahilea-blog-rss" target="_blank" rel="noreferrer noopener">Subscribe via email</a>
+        </div>
+        <p class="breadcrumbs">
+          <a class="basic-alignment right" href="/blog/"></a>
+          <a class="basic-alignment left" href="/blog/./telegraph-key-singular-board" title="Previous: Telegraph Key(singular)board: Morse for the modern era">Telegraph Key(singular)board: Morse for the modern era</a>
+        </p>
+        <hr />
+        <nav class="navbar" role="navigation">
+          @hannahilea:
+          <a href="/" class="nav-link">home</a> | <a href="/projects" class="nav-link">projects</a> |
+          <a href="/blog" class="nav-link">blog</a>
+        </nav>
+      </footer>
+    </div>
+  </body>
+</html>
