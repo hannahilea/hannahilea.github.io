@@ -74,7 +74,8 @@ function new_blog_post()
     # cp(joinpath("assets", "img", "emojis", "surprise-pikachu.png"),
     #    joinpath(dir, "assets", "thumbnail.png"))
 
-    @info "Do ctrl+f TODO to find regions to update for newly added project!"
+    @info "New blog template generated! Start editing it: blog/$dir_name/src.md"
+    run(`code blog/$dir_name/src.md`)
 end
 
 function run_wizard(::Missing)
