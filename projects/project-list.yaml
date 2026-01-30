@@ -62,7 +62,7 @@ physical-gallery:
   - project: BongoBoard
     url: https://github.com/hannahilea/BongoBoard
     year: 2025
-    thumbnail_url: "../blog/bongoboard-blues/assets/square.png"
+    thumbnail_url: "../blog/bongoboard-to-bongobored/assets/result.png"
     description:
       'Wireless Bluetooth keyboard constructed from DK Bongos controller.
       <br>Described in blog post <a href="../blog/bongoboard-to-bongobored/">From BongoBoard to BongoBored</a>.'
