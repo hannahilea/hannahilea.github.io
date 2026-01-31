@@ -53,7 +53,7 @@ virtual-gallery:
 physical-gallery:
   - project: Telegraph Key(singular)board
     url: https://github.com/hannahilea/telegraph-key-singular-board
-    year: 2026
+    year: 2025
     thumbnail_url: "../blog/telegraph-key-singular-board/assets/square.png"
     description:
       'Wireless Bluetooth Morse keyboard constructed from a telegraph key.
