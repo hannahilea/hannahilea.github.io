@@ -59,6 +59,14 @@ physical-gallery:
       'Wireless Bluetooth Morse keyboard constructed from a telegraph key.
       <br>Described in blog post <a href="../blog/telegraph-key-singular-board/">Telegraph Key(singular)board: Morse for the modern era</a>.'
 
+  - project: BongoBoard
+    url: https://github.com/hannahilea/BongoBoard
+    year: 2025
+    thumbnail_url: "../blog/bongoboard-to-bongobored/assets/result.png"
+    description:
+      'Wireless Bluetooth keyboard constructed from DK Bongos controller.
+      <br>Described in blog post <a href="../blog/bongoboard-to-bongobored/">From BongoBoard to BongoBored</a>.'
+
   - project: Button-box timer
     url: https://github.com/hannahilea/button-box-timer
     year: 2025
