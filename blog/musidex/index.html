@@ -5,11 +5,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="og:title" content="Musidex: Music" />
+    <meta
+      property="og:title"
+      content="Introducing the Musidex: A
+physical music library for the streaming era"
+    />
     <meta
       property="og:description"
-      content="A physical music library
-for music lovers in the streaming era."
+      content="A tangible music library of
+streaming service URLs, served by a Rolodex."
     />
     <meta property="og:url" content="https://www.hannahilea.com/blog/musidex" />
     <meta property="og:image" content="https://www.hannahilea.com/blog/musidex/assets/thumbnail.png" />
@@ -18,7 +22,7 @@ for music lovers in the streaming era."
     <meta property="og:image:height" content="300" />
     <meta property="og:type" content="website" />
 
-    <title>Musidex: Music</title>
+    <title>Introducing the Musidex: A physical music library for the streaming era</title>
     <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
   </head>
 
@@ -30,57 +34,79 @@ for music lovers in the streaming era."
         <a class="nav-link" href="..">blog</a>
       </nav>
 
-      <h1>Musidex: Music</h1>
-      <div class="date">3 Feb 2026</div>
+      <h1>Introducing the Musidex: A physical music library for the streaming era</h1>
+      <div class="date">14 Feb 2026</div>
       <p>
-        I listen to a lot of music, and I’ve been raised in a family that does a lot of active music listening and curation, but my <del>object permanance</del> recall is really bad.<a
-          href="#fn1"
-          class="footnote-ref"
-          id="fnref1"
-          role="doc-noteref"
-          ><sup>1</sup></a
-        >
+        I listen to a lot of music, but my <del>object permanence</del> active recall is really weak around remembering artists and albums that I love.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> This
+        didn’t used to be a problem, as I could remind myself by flipping through my CD collection or (later) scrolling through my iTunes collection.
       </p>
       <p>
-        The shift from my physical folios of CDs to those same CDs digitized in iMusic wasn’t too bad: I could still pretty easily find my old favorite albums, and rediscover previous obsessions, by searching or sorting by play play count
-        or release date.
+        When I switched over to using streaming services for my day-to-day music listening, however, my listening patterns shifted. I ended up listening mostly to newer songs by contemporary artists, relistening to new favorites but losing
+        track of the much broader and more diverse back catalog of things I’d loved.
       </p>
       <p>
-        The shift from digital library to digital streaming library was brutal, though. Overnight I went from listening to a wide variety of music discovered at all ages of my life thus far to only listening to newer music. While I still
-        kept a finger on the pulse of new releases by my favorite artists, and discovered and shared new music with friends and my family, anything from before I started using streaming services was all but forgotten.
+        Several years ago I decided that I wanted a physical manifestation of my favorite albums, an analog reminder of myself through reminding me of the music I’ve loved. A collection for re-discovery, by myself or anyone visiting my
+        home.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> I didn’t want to stop using a streaming service, but I did want to supplement it with a physical link of some sort.
       </p>
-      <p>
-        Several years ago I decided that I wanted a physical manifestation of my favorite albums again. I wanted something tangible, and [re-]discoverable, something that could be an analog reminder of the music I love. Something that other
-        people could interact with physically. Enter: the humble Musidex!
-      </p>
+      <p>I couldn’t find a suitable solution, so I made one. Enter: the humble Musidex!</p>
       <figure>
         <img src="jwiefj" alt="TODO: gif of musidex" />
       </figure>
       <p>
-        My Musidex is a <a target="_blank" rel="noreferrer noopener" href="TODO-link">Rolodex</a> full of albums. Each page includes the album art, basic metadata (album title, artist, release year), and a QR code that links to the album on
-        a streaming platform.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+        The Musidex is a Rolodex<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> full of albums. Each page documents a single album, and contains the album art, basic metadata—album title, artist, release
+        year—and a QR code that links to that album on a music streaming platform.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>
       </p>
-      <p>I added an NFC tag on the knob; I’ve set up a shortcut on my phone that when I touch my phone to the NFC tag, it auto-connects my phone to the living room speakers.</p>
+      <figure>
+        <img src="jwiefj" alt="TODO: photo close-up of single page" />
+      </figure>
       <p>
-        I’ll admit that what I <em>really</em> wanted was a jukebox—but none of the jukeboxes on Craigslist were in my budget, and even if they ahd been, they probably aren’t within the space or weight limits of my apartment. This Musidex
-        has been a fairly satisfying substitute, if a little less flashy!
+        I added an NFC tag to the side knob; when I tap my phone on the tag, the phone connects and starts broadcasting to my living room speakers. I mounted the Musidex next to the speakers, on a pair of <del>ultra luxe</del> sturdy hooks.
+      </p>
+      <figure>
+        <img src="jwiefj" alt="TODO: photo of mounting set-up" />
+      </figure>
+      <p>
+        The Musidex is relatively cheap, relatively lightweight, relatively easy to make, and supplements existing listening behavior; I’m really happy with how it turned out, and several years in, continue to appreciate its presence in my
+        home.
       </p>
       <h2 id="exhibit-a-musidex-i">Exhibit A: Musidex I</h2>
       <p>The first Musidex I built was for myself.</p>
       <figure>
         <img src="./assets/exhibit-a.png" alt="Photo TODO" />
       </figure>
-      <p><strong>Specification</strong></p>
+      <p>
+        <em>On the software and curation side:</em> I wrote a couple of scripts to parse (1) my ancient iTunes library backup and (2) a streaming service playlist, to which I added tracks from my most recent decade of listening. The scripts
+        took in the specific song, found the album that the song came from, and then dumped the album’s metadata into a table with its streaming service URL, along with links to locally downloaded album art.
+      </p>
+      <p>I then did a bunch of manual deduplication and title/artist cleanup within that spreadsheet, to make sure that all of the text would fit nicely on the Rolodex cards.</p>
+      <p>
+        <em>On the real-world side:</em> I acquired a Rolodex and removed its pages, cut a bunch of cardstock into the correct page size, used a specialized die to punch the specially-shaped notches into the cards, and arranged them by
+        color.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>
+      </p>
+      <p>
+        I then printed sheets of the album art at a local print shop and printed clear stickers containing the rest of the metadata using a mini thermal printer. I cut out the albums by hand and glued one to each page, paired with its
+        metadata sticker.
+      </p>
+      <p><strong>Details</strong></p>
       <ul>
-        <li>TODO pages, one album per page (front and back)</li>
+        <li>Roughly TODO pages, one album per page (front and back)</li>
+        <li>Highly curated, with only one album per artist</li>
+        <li>Some pages intentionally left blank, to allow future additions</li>
         <li>No album ordering—fully randomized</li>
-        <li>Highly curated, with only one album per artist and some pages intentionally left blank to enable future additions</li>
-        <li>A few included mix playlists, each on a shiny (instead of solid color) card</li>
-        <li>Metadata printed on clear stickers; albums printed on regular paper and then glue-sticked down</li>
+        <li>A few pages linking to playlists instead of albums, each on a shiny (instead of solid color) page</li>
+        <li>Albums printed on regular paper and glued to pages; metadata printed on clear stickers</li>
       </ul>
       <p><strong>Challenges</strong></p>
       <ul>
-        <li>Music curation and selection, given that I had to narrow it to one album per artist.</li>
+        <li>Music curation and selection was rough; narrowing this collection down to one album per artist was <em>really</em> rough.</li>
+        <li>
+          Matching iTunes albums to albums on my streaming service was rough, and only partially successful, and required using an external service to do the translation.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"
+            ><sup>6</sup></a
+          >
+        </li>
+        <li>
+          I had to accept that some of the songs I’d listened to obsessively in the past just didn’t exist on a streaming service, and without spending the time to set up a local server, I wasn’t going to be able to include them here.
+        </li>
       </ul>
       <figure>
         <img src="./assets/supplies-b.png" alt="TODO photo of supplies" />
@@ -90,48 +116,110 @@ for music lovers in the streaming era."
       <figure>
         <img src="./assets/exhibit-b.png" alt="Photo TODO" />
       </figure>
+      <p>
+        I thought I’d made choices and learned lessons when making the first one that would make creating a second one trivially easy—after all, I had the scripts to pull in album art and generate QR codes already, how hard could it really
+        be?
+      </p>
+      <p>Hah.</p>
+      <p>One aspect was actively easier: instead of printing the metadata and album art separately, I printed both together onto white stickers, and then each Musidex page got a single sticker. That part was nice.</p>
       <p><strong>Specification</strong></p>
       <ul>
         <li>TODO pages, one album per page (front and back)</li>
-        <li>Albums roughly sorted into five genres[^genres]</li>
+        <li>Highly curated, with multiple albums per artist in a few cases and no pages left blank</li>
+        <li>At the recipient’s request, albums roughly sorted into five genres[^genres]</li>
+        <li>Metadata and album art printed together on a single white sticker</li>
       </ul>
-      <p>[^genres] Well, not genres so much as “classifications based on listening interest.”</p>
+      <p><strong>Challenges</strong></p>
       <ul>
-        <li>Highly curated, with only one album per artist and some pages intentionally left blank to enable future additions</li>
-        <li>A few included mix playlists, each on a shiny (instead of solid color) card</li>
-        <li>Metadata printed on clear stickers; albums printed on regular paper and then glued down</li>
+        <li>It turned out that the iTunes script I’d made for pulling in my library didn’t work with my dad’s exported iTunes library, thanks to a differing XML version; I had to clean it up instead of using it verbatim.</li>
+        <li>Figuring out a usable genre grouping was tricky and angst-ridden, lol.</li>
+        <li>
+          Even with years of listening history by which to sort the albums—thanks, iTunes “play count”!—the task still required a <em>lot</em> of manual curation, including some back and forth with my sister and parents to figure out which
+          albums should take precedence.
+        </li>
       </ul>
-      <p>I thought I’d learned lessons in making my own, and this one would be trivially easy—after all, I had the script to pull in album art and generate QR codes!</p>
-      <h2 id="advice-for-future-builders-of-musidexesplural">
-        Advice for future builders of Musidexes<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>
-      </h2>
-      <p>…myself included!</p>
+      <h2 id="advice-for-future-musidex-builders">Advice for future Musidex builders</h2>
+      <p>
+        While I’m happy with how my Musidexes<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> turned out, here is some advice for anyone making their own:
+      </p>
+      <ul>
+        <li>
+          Don’t bother leaving blank pages. If you want to add more albums in the future, just add more pages then. If your Musidex gets too full? Remove pages.<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"
+            ><sup>8</sup></a
+          >
+          The work of curation and assembly is hefty enough that you might as well end up with a full Musidex at the end.
+        </li>
+      </ul>
       <ul>
         <li>
           <p>
-            Don’t bother leaving blank pages. If you want to add more albums in the future, just add them then, and if the Musidex gets too full you can remove things. The work of assembly is hefty enough that you might as well end up with
-            a full Musidex out of the deal.
-          </p>
-        </li>
-        <li><p>Hand-cutting the paper and manually punching the Rolodex-shaped holes takes a long time. It might be faster do do this part on a laser cutter, if making a bunch of pages.</p></li>
-        <li>
-          <p>
-            The separate album with metadata on a clear sticker (Exhibit A) looks slightly nicer than the single white sticker with both metadata and album art, I think, but (a) it is a lot more time consuming, (b) it is a bit less legible
-            on darker paper colors, and (c) the gluing of the albums made the underlying cards warp a little bit.
+            Since each album QR has an independent URL, there is no need to limit your Musidex to a single music streaming provider: different pages can link to different services! For example, use
+            <a target="_blank" rel="noreferrer noopener" href="https://acampbellpayne.bandcamp.com/album/flow-control">Bandcamp</a> whenever possible, links to your local private server if you have one, and various different streaming
+            platforms as needed.
           </p>
         </li>
         <li>
           <p>
-            I wanted mine to look a certain way, but a much lighter-weight version could easily be made by using the default Rolodex cards instead of hand-cutting colorful new ones, and not bothering with album art, and hand-writing URLs
-            (full or short) instead of generating QR codes. For that matter, the URL isn’t necessarily that important, if you want it as a reminder of music you’ve liked, rather than a shortcut to listening to that music.
+            There are some lovely vintage Rolodex form factors out there, e.g. on Ebay; if you choose one of those, be aware that they might not use the same hole punch size or spacing as the official Rolodex holes. (I learned this the hard
+            way.)
           </p>
         </li>
-        <li><p>Don’t get too bogged down in the minutia (sorting order of albums, genre grouping, matching paper color to album color, etc). Easier said than done.</p></li>
+        <li>
+          <p>
+            While I think that printing the metadata on clear stickers (Musidex I) looks slightly nicer than printing it on the white sticker along with the album art (Musidex II), it is a lot more time consuming to make and less legible on
+            darker paper colors. Also, the gluing of the albums made the underlying cards warp a little bit on Musidex I.
+          </p>
+        </li>
+        <li><p>Don’t get too bogged down in the minutia of the sorting order of albums, genre grouping, matching of paper color to album color, etc. Easier said than done.</p></li>
+        <li>
+          <p>Hand-cutting the paper and manually punching the Rolodex-shaped holes takes a long time.</p>
+          <p>
+            It could be faster do do this part on a laser cutter, if making a bunch of pages. Or, if you aren’t hung up on aesthetics, just use the blank white pages that came with your Rolodex or purchase print-to-Rolodex pages and print
+            everything on to them directly, if you don’t want to mess with making stickers.
+          </p>
+        </li>
+        <li>
+          <p>
+            I wanted my Musidex to look a certain way (colorful!), but it was time-consuming to make. A much lighter-weight version could easily be made by using the default Rolodex cards instead of hand-cutting colorful new ones, not
+            bothering to include album art<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a
+            >, and/or hand-writing URLs (full or shortened) instead of generating QR codes. Or not including a URL at all, if you want your Musidex to be a reminder of music you’ve loved but not a shortcut to listening to it.
+          </p>
+        </li>
       </ul>
+      <p>All that said, if you’re going to take the time to make a Musidex, might as well make it lovely. :) Don’t take <em>too</em> many shortcuts!</p>
+      <h2 id="addendum">Addendum</h2>
+      <p>
+        The Musidex’s approach to tangible computing—a collection of links to to a collection of digital artifacts, presented physically—is easily adaptable.<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"
+          ><sup>10</sup></a
+        >
+      </p>
+      <p>
+        In the abstract, any collection of URLs (QR code or NFC or written) will do, in any form factor you find pleasing: a deck of cards! A mobile! A collection of fridge magnets! A poster for your wall! Some decoupaged dominos!<a
+          href="#fn11"
+          class="footnote-ref"
+          id="fnref11"
+          role="doc-noteref"
+          ><sup>11</sup></a
+        >
+        Assorted objects in an antique <a target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Library_catalog">curio cabinet or card catalog</a>!<a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"
+          ><sup>12</sup></a
+        >
+      </p>
+      <p>Sticking with the Rolodex base, collections that could lend themselves well to the Musidex treatment:</p>
+      <ul>
+        <li>Mediadex: Movies/videos/tv shows, with links to their streaming service;</li>
+        <li>Bookdex: Books, with links to their accompanying audiobook, or to your review of them, or with no link at all</li>
+        <li>Ornitholodex: a collection of birds, with links to their birdcall or recently tracked migration patterns</li>
+        <li>T-Rexdex: …no idea, but it sounds cool!</li>
+      </ul>
+      <p>
+        There’s a lot of room in the world for other creative solutions to the “tangible curation of digital items” problem. While there are some commercial systems out there already, nothing I’ve found has been particularly impressive, or
+        has been as utilitarian as my Musidex has turned out to be for me.<a href="#fn13" class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a>
+      </p>
       <p>
         <strong
           ><em
-            >Thanks to AF for being the producer of my first Musidex, by listening to my brainstorm and then seeking out and gifting me the necessary materials: Rolodex-shaped hole punch, Rolodex frame, and mini sticker printer. &lt;3
+            >Thanks to AF for being the producer of my first Musidex, by listening to my errant brainstorming and then seeking out and gifting the requisite components: Rolodex-shaped hole punch, Rolodex, and mini sticker printer. &lt;3
           </em></strong
         >
       </p>
@@ -145,27 +233,108 @@ for music lovers in the streaming era."
         <h3 id="footnotes-title">Footnotes</h3>
         <ol>
           <li id="fn1">
-            <p>
-              To the point where if you ask me point blank what type of music I listen to, I may panic and not be able to come with any—despite an active history of seeking, curating, and recommending music to others, attending concerts,
-              and playing music myself.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a>
-            </p>
+            <p>To the point where when asked what kind of music I like, I’ve panicked and not been able to come with anything at all.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p>
           </li>
           <li id="fn2">
             <p>
-              The music streaming platform itself is immaterial, as QR codes are just URLs, so they can link to any streaming service of choice. Even better would be to link to some sort of centralized redirect site so that you could change
-              streaming services with the flip of a switch when it turns out that the one you’ve bought into is actually actively subsidizing facism… Musidex v2!<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a>
+              What I <em>really</em> wanted was a jukebox—but none of the jukeboxes on Craigslist were in my budget, but even if they had been, they probably weren’t within the space or weight limits of my apartment. I did do a fair amount
+              of research on Jukebox acquisition, though…<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a>
             </p>
           </li>
           <li id="fn3">
-            <p>One Musidex, three Musidexes? Musidices? Musidex? At any rate, a group of them is a flock: a flock of Musidexes.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p>
+            <p>
+              For the uninitiated, a <a target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Rolodex">Rolodex</a> is a desktop directory of contacts—addresses and phone numbers—in a characteristic cards-on-axel
+              shape. They used to be very very common in office and home settings; I was surprised to discover that they <a target="_blank" rel="noreferrer noopener" href="https://www.rolodex.com/">still exist as a brand</a>.<a
+                href="#fnref3"
+                class="footnote-back"
+                role="doc-backlink"
+                >↩︎</a
+              >
+            </p>
+          </li>
+          <li id="fn4">
+            <p>
+              The music streaming platform itself is immaterial; the QR codes are simply URLs, so can link to any streaming service. Ideally they’d link to some sort of centralized index, such that the choice of service could be swapped out
+              with the flip of a switch, when it turns out that the service you bought into years ago is not only exploiting its artists but also
+              <a target="_blank" rel="noreferrer noopener" href="https://mixmag.net/read/spotify-ceo-daniel-ek-pledges-600-million-investment-into-ai-defence-company-news">funding</a> and
+              <a target="_blank" rel="noreferrer noopener" href="https://www.sfgate.com/sf-culture/article/no-kings-organizers-spotify-boycott-21127453.php">shilling for</a> fascism.<a
+                href="#fnref4"
+                class="footnote-back"
+                role="doc-backlink"
+                >↩︎</a
+              >
+            </p>
+          </li>
+          <li id="fn5">
+            <p>Probably the most important step of the whole project, tbh.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+          <li id="fn6">
+            <p>
+              In hindsight, it would probably have taken less time to do this manually than it took to find a service, try it, run it for real, quality-check it, and correct it post-hoc—it required a <em>lot</em> of correction. I used
+              <a target="_blank" rel="noreferrer noopener" href="https://soundiiz.com/">Soundiiz</a>, which seemed like the best option at the time, and the lack of resounding success was not their fault; it’s a tough problem!<a
+                href="#fnref6"
+                class="footnote-back"
+                role="doc-backlink"
+                >↩︎</a
+              >
+            </p>
+          </li>
+          <li id="fn7">
+            <p><code>index:indices::Musidex:Musidices</code>? <code>ex:exes::Musidex:Musidexes</code>? ¯\_(ツ)_/¯<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+          <li id="fn8">
+            <p>Or buy another Rolodex. :D<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+          <li id="fn9">
+            <p>Crimes!<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+          <li id="fn10">
+            <p>
+              If you want a <a target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Tangible_user_interface">tangible computing</a> fun rabbit hole to fall into, Spencer Chang’s
+              <a target="_blank" rel="noreferrer noopener" href="https://news.spencer.place/p/touching-computers">“computing-infused ceramic explorations”</a> is one of my favorites, and a good inspirational starting point!<a
+                href="#fnref10"
+                class="footnote-back"
+                role="doc-backlink"
+                >↩︎</a
+              >
+            </p>
+          </li>
+          <li id="fn11">
+            <p>I dunno, man. I just work here.<a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+          <li id="fn12">
+            <p>
+              At a formative age I read Lousia May Alcott’s <em>Little Men: Life at Plumfield with Jo’s Boys</em>, and I will forever yearn for Dan’s cabinet of collected naturalist curiosities.<a
+                href="#fnref12"
+                class="footnote-back"
+                role="doc-backlink"
+                >↩︎</a
+              >
+            </p>
+          </li>
+          <li id="fn13">
+            <p>
+              For example, there’s the NFC card-based <a target="_blank" rel="noreferrer noopener" href="https://us.yotoplay.com/">Yoto</a> system designed for kids. While Yoto has been an amazing way for me to interact with my nephews,
+              through sending them “mixtape” cards(!), it wasn’t a good solution for my own collection: audio is hosted in their proprietary database, and linking to the database requires purchasing their proprietary NFC cards, both of
+              which are non-starters.
+            </p>
+            <p>
+              There are some open-source Yoto alternatives, which similarly use NFC cards to trigger playback; at some point, I purchased myself a <a target="_blank" rel="noreferrer noopener" href="">TODO</a> kit. I haven’t assembled it
+              yet, and also, it doesn’t quite fill the same niche as my Musidex, as it encourages a parallel rather than supplemental music listening process. Still cool, though! If I end up assembling it, I’ll write about that here.<a
+                href="#fnref13"
+                class="footnote-back"
+                role="doc-backlink"
+                >↩︎</a
+              >
+            </p>
           </li>
         </ol>
       </section>
       <hr />
       <ul class="date">
-        <li>Created: 2026-02-03</li>
+        <li>Created: 2026-02-14</li>
         <li>Type: Project write-up</li>
-        <li>Tags: houseplant-programming</li>
+        <li>Tags: digital-to-analog-but-not-like-that, houseplant-programming, all-the-colors, jukebox-poseur, audio, programming-as-a-tool</li>
       </ul>
       <footer>
         <div class="link-buttons">
