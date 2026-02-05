@@ -74,9 +74,21 @@ I thought I'd learned lessons in making my own, and this one would be trivially 
 
 ...myself included!
 
-- Don't bother leaving blank pages. If you want to add more albums in the future, just add them then, and if the Musidex gets too full you can remove things. The work of assembly is hefty enough that you might as well end up with a full Musidex out of the deal.
+- Don't bother leaving blank pages. If you want to add more albums in the future, just add more pages. If the Musidex gets too full? Remove pages.[^second] The work of assembly is hefty enough that you might as well end up with a full Musidex out of the deal.
 
-- Hand-cutting the paper and manually punching the Rolodex-shaped holes takes a long time. It might be faster do do this part on a laser cutter, if making a bunch of pages.
+[^second]: Or buy another Rolodex. :D 
+
+- Hand-cutting the paper and manually punching the Rolodex-shaped holes takes a long time. It might be faster do do this part on a laser cutter, if making a bunch of pages. Or, if you aren't hung up on asthetics, just use the pages that came with your Rolodex.
+
+- There are some lovely vintage Rolodex form factors out there; if you choose those, be aware that they might not use exactly the same hole punch scheme.
+
+- Something about not needing to be a brand-name Rolodex---any physical collection of QR codes will do. Might find a bettter catchy name though?
+    - Deck of cards. Yoto.
+    ![TODO photo](photo of my non-round 'dexes)
+    - Card catolog [^something something Little Men book Jo March]
+
+- Doesn't need to have music at all, any digital collection will do. Movies, videos, book reviews with links to your ratings or to an audiobook, a bunch of birds with QR codes to their audio
+    - Rolodex is elegant form factor, v. extensible.
 
 - The separate album with metadata on a clear sticker (Exhibit A) looks slightly nicer than the single white sticker with both metadata and album art, I think, but (a) it is a lot more time consuming, (b) it is a bit less legible on darker paper colors, and (c) the gluing of the albums made the underlying cards warp a little bit.
 
