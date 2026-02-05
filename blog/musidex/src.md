@@ -7,15 +7,21 @@ created: 2026-02-03
 published: Tue, 3 Feb 2026 20:10:28 EST
 ---
 
-I listen to a lot of music, and I've been raised in a family that does a lot of active music listening and curation, but my ~~object permanance~~ recall is really bad.[^recall] The shift from my physical folios of CDs to those same CDs digitized in iMusic wasn't too bad: I could still pretty easily find my old favorite albums, and rediscover previous obsessions, by searching or sorting by play play count or release date. The shift from digital library to digital streaming library was brutal, though. Overnight I went from listening to a wide variety of music discovered at all ages of my life thus far to only listening to newer music. While I still kept a finger on the pulse of new releases by my favorite artists, and discovered and shared new music with friends and my family, anything from before I started using streaming services was all but forgotten.
+I listen to a lot of music, and I've been raised in a family that does a lot of active music listening and curation, but my ~~object permanance~~ recall is really bad.[^recall] 
+
+The shift from my physical folios of CDs to those same CDs digitized in iMusic wasn't too bad: I could still pretty easily find my old favorite albums, and rediscover previous obsessions, by searching or sorting by play play count or release date. 
+
+The shift from digital library to digital streaming library was brutal, though. Overnight I went from listening to a wide variety of music discovered at all ages of my life thus far to only listening to newer music. While I still kept a finger on the pulse of new releases by my favorite artists, and discovered and shared new music with friends and my family, anything from before I started using streaming services was all but forgotten.
 
 [^recall]: To the point where if you ask me point blank what type of music I listen to, I may panic and not be able to come with any---despite an active history of seeking, curating, and recommending music to others, attending concerts, and playing music myself.
 
-Several years ago I decided that I wanted a physical manifestation of my favorite albums. I wanted something tangible, and discoverable, that could be an analog reminder of the music I love. Something that other people could interact with physically. Enter: the humble Musidex!
+Several years ago I decided that I wanted a physical manifestation of my favorite albums again. I wanted something tangible, and [re-]discoverable, something that could be an analog reminder of the music I love. Something that other people could interact with physically. Enter: the humble Musidex!
 
-My Musidex is a Rolodex full of albums. Each page includes the album art, basic metadata (album title, artist, release year), and a QR code that links to the album on a streaming platform.[^platform] 
+![TODO: gif of musidex](jwiefj)
 
-![aowiejfaoweifj](jwiefj)
+My Musidex is a [Rolodex](TODO-link) full of albums. Each page includes the album art, basic metadata (album title, artist, release year), and a QR code that links to the album on a streaming platform.[^platform] 
+
+
 
 I added an NFC tag on the knob; I've set up a shortcut on my phone that when I touch my phone to the NFC tag, it auto-connects my phone to the living room speakers.
 
@@ -23,9 +29,9 @@ I added an NFC tag on the knob; I've set up a shortcut on my phone that when I t
 
 I'll admit that what I *really* wanted was a jukebox---but none of the jukeboxes on Craigslist were in my budget, and even if they ahd been, they probably aren't within the space or weight limits of my apartment. This Musidex has been a fairly satisfying substitute, if a little less flashy!
 
-## Exhibit A: The first Musidex
+## Exhibit A: Musidex I
 
-I built this one for myself. 
+The first Musidex I built was for myself.
 
 ![Photo TODO](./assets/exhibit-a.png)
 
@@ -41,9 +47,11 @@ I built this one for myself.
 
 - Music curation and selection, given that I had to narrow it to one album per artist.
 
-## Exhibit B: The second Musidex
+![TODO photo of supplies](./assets/supplies-b.png)
 
-I built this one for my dad.
+## Exhibit B: Musidex II
+
+The second Musidex I built was for my dad.
 
 ![Photo TODO](./assets/exhibit-b.png)
 
@@ -57,6 +65,8 @@ I built this one for my dad.
 - Highly curated, with only one album per artist and some pages intentionally left blank to enable future additions
 - A few included mix playlists, each on a shiny (instead of solid color) card
 - Metadata printed on clear stickers; albums printed on regular paper and then glued down
+
+I thought I'd learned lessons in making my own, and this one would be trivially easy---after all, I had the script to pull in album art and generate QR codes!
 
 ## Advice for future builders of Musidexes[^plural]
 
