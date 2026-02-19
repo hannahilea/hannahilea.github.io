@@ -7,13 +7,11 @@ created: 2026-02-18
 published: Wed, 18 Feb 2026 22:50:00 EST
 ---
 
-While I listen to a lot of music, my ~~object permanence~~ active recall is weak when it comes to remembering the artists and albums that I love.[^recall] This didn't used to be a problem, as flipping through my CDs or (later) scrolling through my iTunes library would jog my memory.
-
-When I switched over to using music streaming services my listening patterns shifted towards recent releases, and I found myself inadvertently losing track of the broad back catalog of music I loved.
+While I listen to a lot of music, my ~~object permanence~~ active recall is weak when it comes to remembering the artists and albums that I love.[^recall] This didn't used to be a problem, as flipping through my CDs or (later) scrolling through my iTunes library would jog my memory. When I switched over to using music streaming services my listening patterns shifted towards recent releases, and I found myself inadvertently losing track of the broad back catalog of music I loved.
 
 [^recall]: To the point where when asked what kind of music I like, I've panicked and not been able to come with anything at all.
 
-Several years ago I decided that I wanted a physical manifestation of my favorite albums, an analog reminder of myself through reminding me of the music I've loved. A collection for re-discovery, by myself or anyone visiting my home. I didn't want to stop using a streaming service, but I did want to supplement it with a physical link of some sort.[^jukebox]
+Several years ago I decided that I wanted a physical manifestation of my favorite albums: an analog reminder of myself through the music I've loved, and a collection for re-discovery, by myself or for anyone visiting my home. I didn't want to stop using a streaming service, but I did want to supplement it with a physical link of some sort.[^jukebox]
 
 I couldn't find a suitable solution, so I made one. Enter: the Musidex!
 
@@ -33,7 +31,7 @@ It has an NFC tag to the side knob; when I tap my phone on the tag, the phone co
 
     In the interim, there is no need to limit a Musidex to a single music streaming provider: different pages can link to different services. [Bandcamp](https://acampbellpayne.bandcamp.com/album/flow-control) wherever possible, megacorps when not, perhaps?
 
-[^jukebox]: What I *really* wanted was a jukebox---but none of the jukeboxes on Craigslist were in my budget, but even if they had been, they probably weren't within the space or weight limits of my apartment. I did do a fair amount of research on Jukebox acquisition, though...
+[^jukebox]: What I *really* wanted was a jukebox---but none of the jukeboxes on Craigslist were in my budget, and even if they had been, they probably weren't within the space or weight limits of my apartment. I did do a fair amount of research on Jukebox acquisition, though...
 
 Several years in, I continue to appreciate my Musidex: both because I use it on a semi-regular basis, and because I enjoy its colorful presence in my home. 
 
