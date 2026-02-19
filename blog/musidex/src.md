@@ -3,8 +3,8 @@ title: 'Introducing the Musidex: A physical music library for the streaming era'
 type: Project write-up
 tags: [digital-to-analog-but-not-like-that, houseplant-programming, all-the-colors, jukebox-poseur, audio, programming-as-a-tool]
 description: 'A tangible music library of streaming service URLs, served by a Rolodex.'
-created: 2026-02-14
-published: Sat, 14 Feb 2026 14:00:00 EST
+created: 2026-02-18
+published: Wed, 18 Feb 2026 22:50:00 EST
 ---
 
 While I listen to a lot of music, my ~~object permanence~~ active recall is weak when it comes to remembering the artists and albums that I love.[^recall] This didn't used to be a problem, as flipping through my CDs or (later) scrolling through my iTunes library would jog my memory.
