@@ -31,7 +31,7 @@ It has an NFC tag to the side knob; when I tap my phone on the tag, the phone co
 
     In the interim, there is no need to limit a Musidex to a single music streaming provider: different pages can link to different services. [Bandcamp](https://acampbellpayne.bandcamp.com/album/flow-control) wherever possible, megacorps when not, perhaps?
 
-[^jukebox]: What I *really* wanted was a jukebox---but none of the jukeboxes on Craigslist were in my budget, but even if they had been, they probably weren't within the space or weight limits of my apartment. I did do a fair amount of research on Jukebox acquisition, though...
+[^jukebox]: What I *really* wanted was a jukebox---but none of the jukeboxes on Craigslist were in my budget, and even if they had been, they probably weren't within the space or weight limits of my apartment. I did do a fair amount of research on Jukebox acquisition, though...
 
 Several years in, I continue to appreciate my Musidex: both because I use it on a semi-regular basis, and because I enjoy its colorful presence in my home. 
 
