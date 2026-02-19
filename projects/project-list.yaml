@@ -121,10 +121,13 @@ physical-gallery:
       procrastinating</a>.'
 
   - project: Musidex
-    url:
+    url: "../blog/musidex/"
     thumbnail_url: "./thumbnails/musidex.png"
     year: 2023
-    description: "<em>Blog post pending.</em>"
+    description:
+      'Rolodex-based music library with QR codes linking to albums on streaming music platforms.
+      Described in 2026 blog post <a
+      href="../blog/musidex/">Introducing the Musidex: A physical music library for the streaming era</a>.'
 
   - project: FlipDotsPi
     url: https://github.com/hannahilea/FlipDotsPi
