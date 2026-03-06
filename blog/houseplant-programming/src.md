@@ -7,14 +7,14 @@ created: 2025-04-28
 published: Mon, 28 Apr 2025 23:00:00 EST
 ---
 
-[Recurse Center (RC)](https://www.recurse.com/) peer [Ryan](https://rygoldstein.com) recently coined a phrase that I instantly fell in love with: *houseplant programming*.
+[Recurse Center (RC)](https://www.recurse.com/) peer [Ellie](https://ellie-g.com/) recently coined a phrase that I instantly fell in love with: *houseplant programming*.
 
-In Ryan's words:
+In Ellie's words:
 
 > [The tool I built] solves my idiosyncratic problems and may not address yours at all. That’s fine---take it as an ad to write tiny software just for yourself. Houseplant programming 🪴<sup>[2]</sup> !
 > <br><br>
 > <sup>[2]</sup> This isn’t an existing phrase as far as I know, but the closest I can think of is “barefoot developers” which a) is a little more granola than my vibe and b) is maybe tied up in some AI stuff. I guess this is [situated software](https://gwern.net/doc/technology/2004-03-30-shirky-situatedsoftware.html) but even smaller: I’m not building for dozens of users, I’m building for one user in particular.<br>
-<span class="source">[[source]](https://rygoldstein.com/posts/introducing-mirror-darkly)</span>
+<span class="source">[[source]](https://ellie-g.com/posts/introducing-mirror-darkly)</span>
 
 Houseplant programming: tiny software just for yourself. *Perfection.*
 
@@ -45,7 +45,7 @@ In the world of houseplant programming none of these statements are apology-wort
     <span class="source">[[source]](https://www.reddit.com/r/datascience/comments/16jdvsn/what_does_production_code_mean_to_you)</span>
 
 
-[^potted]: Should it be "houseplant programming" or "houseplant programming 🪴"? Unless Ryan weighs in definitively, I'll keep using the two interchangeably.
+[^potted]: Should it be "houseplant programming" or "houseplant programming 🪴"? Unless Ellie weighs in definitively, I'll keep using the two interchangeably.
 
 [Aditya Athalye](https://www.evalapply.org/) (another RC peer!) perfectly captures this vibe in the project description for his software project [`shite`](https://github.com/adityaathalye/shite?tab=readme-ov-file):
 
@@ -183,5 +183,5 @@ And a bonus badge for bouquet programming:
 </a>
 ```
 
-***Thanks to [Ryan](https://rygoldstein.com) for the coinage and to AF for introducing me to strategies for recognizing and countering perfectionism.***
+***Thanks to [Ellie](https://ellie-g.com) for the coinage and to AF for introducing me to strategies for recognizing and countering perfectionism.***
 
