@@ -15,7 +15,7 @@ Without further ado, some things I could write *right now[^footnote1]*:
 
 ### Project write-ups[^footnote2] and tutorials
 
-- *Musidex* | What I wanted was a Craigslist jukebox; what I got was a Rolodex. (Closing line: *I still want a Craigslist jukebox.*)
+- ~~*Musidex* | What I wanted was a Craigslist jukebox; what I got was a Rolodex. (Closing line: *I still want a Craigslist jukebox.*)~~ [EDIT 2/18/26: [Written](../musidex/)!]
 - ~~*Obsessed with [Cuttle](https://cuttle.xyz/): Parametric CAD for prototyping, producing, and procrastinating*~~ [EDIT 9/27/24: [Written](../cuttle-obsession/)!]
 - *Making mixtapes for your youngest pals* | Do you want to enable the song addictions of the small children in your life, to set them on a path towards music obsession, while potentially annoying the heck out of their parents? Of course you do! (This post is not sponsored by [Yoto](https://us.yotoplay.com/collections/library), but could be, should they choose... 👀)
 - *Small Tales* | On building a bookshelf of your favorite reads, in miniature, for when you have limited bookshelf space or a limited book budget.

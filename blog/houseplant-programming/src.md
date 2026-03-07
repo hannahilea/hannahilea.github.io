@@ -157,7 +157,7 @@ Examples of my own bouquet code: a script I used to scrape book cover images for
 <div class="centered-children">
 <figure>
 <img src="./assets/musidex.png" alt="Photo of rolodex with rainbow cards, open to a page with a QR code and an album cover." />
-<figcaption style="text-align:center;font-size:smaller">My Musidex, for which I wrote a semi-reusable script to convert a set of playlists into a set of album art, metadata, and QR code stickers.</figcaption>
+<figcaption style="text-align:center;font-size:smaller">My [Musidex](../musidex/), for which I wrote a semi-reusable script to convert a set of playlists into a set of album art, metadata, and QR code stickers.</figcaption>
 </figure>
 </div>
 
