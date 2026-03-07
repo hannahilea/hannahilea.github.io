@@ -4,7 +4,7 @@ type: Engineering notebook
 tags: [music-information-retrieval, nerd-sniped, make-the-computer-do-the-counting, musical-marathon ]
 description: 'Automating symbolic music analysis to answer the pressing question "how many notes did she just play?!"'
 created: 2026-03-07
-published: Sat, 7 March 2026 16:30:00 EST
+published: Sat, 7 March 2026 17:00:00 EST
 header: '<style>
 .blog {
   img {
@@ -369,7 +369,7 @@ Oh. Yep. That'd do it.
     :::
    
 
-### Addended things addended: Musical marathons
+### Last things last: Musical marathons
 
 The ability to count notes in a musical composition opens up an exciting opportunity: planning a concert *around playing a certain number of notes*.[^count] Runners define marathons as 42.195 kilometer distances, regardless of the terrain or route; why shouldn't we define a musical marathon as playing 42.195 kilonotes-worth of any repertoire or genre?[^km]
 
