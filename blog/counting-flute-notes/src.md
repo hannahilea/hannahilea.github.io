@@ -328,7 +328,7 @@ _Total note count: over **12,489 flute notes played** over 81 minutes of perform
     2. I didn't break trills into their constituent runs of notes.[^tremolo] 
 This final count is therefore a lower bound on the number of flute notes played.</small></p>
 
-If you look at each composition's average NPM metric, you'll see one stand-out: the Kuhlau. What's going on? Did we miscount? 438 NPM seems ridiculous! Let's look at a snippet of the score:
+If you look at each composition's average NPM, you'll see one stand-out: the Kuhlau. What's going on? Did we miscount? 438 notes per minute seems ridiculous! Let's look at a snippet of the score:
 
 ![Screenshot of an excerpt of the Kuhlau piece, dense with musical notes.](./assets/kuhlau-excerpt.png){width="300"
 height="auto" style="border:solid,1px"}
