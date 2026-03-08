@@ -250,7 +250,7 @@ list(piano_rh.measures(1,3).recurse().notes)
 
 Yep, that's it!
 
-Flutes are monophonic, meaning that when they're only expected and able[^usually] to play one pitch at once. Pianos are polyphonic, meaning they can play multiple pitches at once (chords!), and in Music21 it looks like notes and chords are handled similarly in a stream.
+Flutes are monophonic, meaning that they're only expected and able[^usually] to play one pitch at once. Pianos are polyphonic, meaning they can play multiple pitches at once (chords!), and in Music21 it looks like notes and chords are handled similarly in a stream.
 
 Let's make a polyphonic note counting function so that we can figure out how many notes the piano is playing here.
 
