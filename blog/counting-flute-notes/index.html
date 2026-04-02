@@ -30,6 +30,10 @@ play?!”"
 
     <title>Gaubert or go home: Measuring a flute recital in notes played</title>
     <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
+    <link rel="stylesheet" target="_blank" rel="noreferrer noopener" href="https://cuthbertLab.github.io/music21j/css/m21.css" />
+    <br />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+    <br />
     <style>
       .blog {
         img {
@@ -49,6 +53,15 @@ play?!”"
             margin: 0 0 17px 0;
           }
         }
+      }
+      .midiPlayer .timeControls {
+        width: 70%;
+      }
+      .midiPlayer .capsule {
+        width: 100%;
+      }
+      table {
+        font-size: small; /*table-layout: auto !important;*/
       }
     </style>
     <style>
@@ -304,7 +317,7 @@ play?!”"
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the first three bars</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>score.measures(<span class="dv">1</span>,<span class="dv">3</span>).show()</span></code></pre>
       </div>
-      <p><img src="./assets/cell-4-output-1.png" width="708" height="338" /></p>
+      <p><img src="./assets/cell-4-output-1.png" width="708" /></p>
       <div class="sourceCode" id="cb2">
         <pre
           class="sourceCode python cell-code"
@@ -312,21 +325,19 @@ play?!”"
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>flute <span class="op">=</span> score.getElementsByClass(stream.Part).first()</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>flute.measures(<span class="dv">1</span>,<span class="dv">3</span>).show()</span></code></pre>
       </div>
-      <p><img src="./assets/cell-5-output-1.png" width="674" height="169" /></p>
+      <p><img src="./assets/cell-5-output-1.png" width="674" /></p>
       <div class="sourceCode" id="cb3">
         <pre
           class="sourceCode python cell-code"
         ><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display those three measures in piano-roll format, where x-axis is time and y-axis is pitch</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>flute.measures(<span class="dv">1</span>,<span class="dv">3</span>).plot(<span class="st">&#39;pianoroll&#39;</span>)</span></code></pre>
       </div>
-      <p><img src="./assets/cell-6-output-1.png" width="812" height="540" /></p>
+      <p><img src="./assets/cell-6-output-1.png" width="812" /></p>
       <div class="sourceCode" id="cb4">
         <pre class="sourceCode python cell-code"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let&#39;s listen to the computer play it</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>flute.measures(<span class="dv">1</span>,<span class="dv">3</span>).show(<span class="st">&#39;midi&#39;</span>)</span></code></pre>
       </div>
       <div id="midiPlayerDiv19102"></div>
-      <p><link rel="stylesheet" target="_blank" rel="noreferrer noopener" href="https://cuthbertLab.github.io/music21j/css/m21.css" /></p>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
       <script>
         function midiPlayerDiv19102_play() {
           const rq = require.config({
@@ -355,12 +366,12 @@ play?!”"
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>flute.measures(<span class="dv">1</span>,<span class="dv">3</span>).plot(<span class="st">&#39;histogram&#39;</span>, <span class="st">&#39;pitch&#39;</span>, xHideUnused<span class="op">=</span><span class="va">False</span>, </span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                         title<span class="op">=</span><span class="st">&#39;Pitch Histogram (measures 1-3)&#39;</span>)</span></code></pre>
       </div>
-      <p><img src="./assets/cell-8-output-1.png" width="805" height="541" /></p>
+      <p><img src="./assets/cell-8-output-1.png" width="805" /></p>
       <div class="sourceCode" id="cb6">
         <pre class="sourceCode python cell-code"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ...and across the entire piece</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>flute.plot(<span class="st">&#39;histogram&#39;</span>, <span class="st">&#39;pitch&#39;</span>, xHideUnused<span class="op">=</span><span class="va">False</span>, xLabel<span class="op">=</span><span class="st">&quot;Pitch&quot;</span>, yLabel<span class="op">=</span><span class="st">&quot;Play count&quot;</span>)</span></code></pre>
       </div>
-      <p><img src="./assets/cell-10-output-1.png" width="811" height="540" /></p>
+      <p><img src="./assets/cell-10-output-1.png" width="811" /></p>
       <div class="sourceCode" id="cb7">
         <pre
           class="sourceCode python cell-code"
@@ -368,7 +379,7 @@ play?!”"
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># a separate E for each octave, combine the E&#39;s across all octaves into a single bin.</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>flute.plot(<span class="st">&#39;histogram&#39;</span>, <span class="st">&#39;pitchClass&#39;</span>, xHideUnused<span class="op">=</span><span class="va">False</span>, xLabel<span class="op">=</span><span class="st">&quot;Pitch&quot;</span>, yLabel<span class="op">=</span><span class="st">&quot;Play count&quot;</span>)</span></code></pre>
       </div>
-      <p><img src="./assets/cell-11-output-1.png" width="517" height="540" /></p>
+      <p><img src="./assets/cell-11-output-1.png" width="517" /></p>
       <p>Lots of D’s, bunch of G’s and F’s and C’s! Moving on.</p>
       <h2 id="second-things-second-count-some-notes">Second things second: Count some notes!</h2>
       <p>Our goal is to count the number of notes played by the flautist. We’re already pretty close!</p>
@@ -428,7 +439,7 @@ Piano total notes: 1076</code></pre>
         ><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Huh, really? That seems kind of low to me. Let&#39;s visualize the first few bars</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>piano_rh.measures(<span class="dv">1</span>,<span class="dv">3</span>).show()</span></code></pre>
       </div>
-      <p><img src="./assets/cell-20-output-1.png" width="674" height="166" /></p>
+      <p><img src="./assets/cell-20-output-1.png" width="674" /></p>
       <div class="sourceCode" id="cb17">
         <pre class="sourceCode python cell-code"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># And what does our function say?</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>count_notes_played(piano_rh.measures(<span class="dv">1</span>,<span class="dv">3</span>))</span></code></pre>
@@ -498,116 +509,119 @@ Piano total notes: 1550</code></pre>
       <p>Oh also: because Sara helpfully included piece duration in her program, we’re able to calculate each piece’s average notes-per-minute (NPM).</p>
       <p><em>Drumroll…</em></p>
       <hr />
-      <table style="width: 100%">
-        <colgroup>
-          <col style="width: 50%" />
-          <col style="width: 10%" />
-          <col style="width: 10%" />
-          <col style="width: 10%" />
-          <col style="width: 10%" />
-          <col style="width: 10%" />
-        </colgroup>
-        <thead>
-          <tr>
-            <th style="text-align: center">Labeler</th>
-            <th style="text-align: left">Composer</th>
-            <th style="text-align: left">Composition</th>
-            <th style="text-align: right">Duration<br />[min]</th>
-            <th style="text-align: right">Note count</th>
-            <th style="text-align: right">Avg. NPM</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="text-align: center">🤖</td>
-            <td style="text-align: left">Georges Hüe</td>
-            <td style="text-align: left">Fantasie</td>
-            <td style="text-align: right">8</td>
-            <td style="text-align: right">290</td>
-            <td style="text-align: right">36.25</td>
-          </tr>
-          <tr>
-            <td style="text-align: center">🤖</td>
-            <td style="text-align: left">Friedrich Kuhlau</td>
-            <td style="text-align: left">Fantasie, Op. 38, No. 3, Mvmts I and II</td>
-            <td style="text-align: right">12</td>
-            <td style="text-align: right">5,253</td>
-            <td style="text-align: right">437.75</td>
-          </tr>
-          <tr>
-            <td style="text-align: center">🤖</td>
-            <td style="text-align: left">Antonín Dvořák</td>
-            <td style="text-align: left">Romance in f minor, Op. 11</td>
-            <td style="text-align: right">10</td>
-            <td style="text-align: right">1,115</td>
-            <td style="text-align: right">111.5</td>
-          </tr>
-          <tr>
-            <td style="text-align: center">AF</td>
-            <td style="text-align: left">Carl Nielsen</td>
-            <td style="text-align: left">Fantasy Pieces, Op. 2, Mvmts I and II</td>
-            <td style="text-align: right">5</td>
-            <td style="text-align: right">714</td>
-            <td style="text-align: right">142.8</td>
-          </tr>
-          <tr>
-            <td style="text-align: center">🤖</td>
-            <td style="text-align: left">Robert Schumann</td>
-            <td style="text-align: left">Fantastiestücke, Op. 73, Mvmts I, II, III</td>
-            <td style="text-align: right">11</td>
-            <td style="text-align: right">1,021</td>
-            <td style="text-align: right">92.82</td>
-          </tr>
-          <tr>
-            <td style="text-align: center">🤖/HR</td>
-            <td style="text-align: left">Clara Schumann</td>
-            <td style="text-align: left">Drei Romanzen, Op. 22</td>
-            <td style="text-align: right">10</td>
-            <td style="text-align: right">983</td>
-            <td style="text-align: right">98.3</td>
-          </tr>
-          <tr>
-            <td style="text-align: center">–</td>
-            <td style="text-align: left">Francine Trester</td>
-            <td style="text-align: left">Fantasy for Flute and Piano</td>
-            <td style="text-align: right">6</td>
-            <td style="text-align: right">N/A</td>
-            <td style="text-align: right">–</td>
-          </tr>
-          <tr>
-            <td style="text-align: center">🤖</td>
-            <td style="text-align: left">Georges Brun</td>
-            <td style="text-align: left">Romance, Op. 41</td>
-            <td style="text-align: right">5</td>
-            <td style="text-align: right">517</td>
-            <td style="text-align: right">103.4</td>
-          </tr>
-          <tr>
-            <td style="text-align: center">–</td>
-            <td style="text-align: left">Fred Harris</td>
-            <td style="text-align: left">A Day of Promise</td>
-            <td style="text-align: right">1</td>
-            <td style="text-align: right">N/A</td>
-            <td style="text-align: right">–</td>
-          </tr>
-          <tr>
-            <td style="text-align: center">HR</td>
-            <td style="text-align: left">Malcom Arnold</td>
-            <td style="text-align: left">Fantasy for Flute, Op. 89</td>
-            <td style="text-align: right">6</td>
-            <td style="text-align: right">1,368</td>
-            <td style="text-align: right">228</td>
-          </tr>
-          <tr>
-            <td style="text-align: center">🤖</td>
-            <td style="text-align: left">Philippe Gaubert</td>
-            <td style="text-align: left">Fantasie</td>
-            <td style="text-align: right">7</td>
-            <td style="text-align: right">1,228</td>
-            <td style="text-align: right">175.43</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="blog-table-small-text-size">
+        <table>
+          <colgroup>
+            <col style="width: 21%" />
+            <col style="width: 15%" />
+            <col style="width: 15%" />
+            <col style="width: 15%" />
+            <col style="width: 15%" />
+            <col style="width: 15%" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th style="text-align: center">✎</th>
+              <th style="text-align: left">Composer</th>
+              <th style="text-align: left">Composition</th>
+              <th style="text-align: right">Duration [min]</th>
+              <th style="text-align: right">Note count</th>
+              <th style="text-align: right">Avg. NPM</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: center">🤖</td>
+              <td style="text-align: left">Georges Hüe</td>
+              <td style="text-align: left">Fantasie</td>
+              <td style="text-align: right">8</td>
+              <td style="text-align: right">290</td>
+              <td style="text-align: right">36.25</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">🤖</td>
+              <td style="text-align: left">Friedrich Kuhlau</td>
+              <td style="text-align: left">Fantasie, Op. 38, No. 3, Mvmts I and II</td>
+              <td style="text-align: right">12</td>
+              <td style="text-align: right">5,253</td>
+              <td style="text-align: right">437.75</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">🤖</td>
+              <td style="text-align: left">Antonín Dvořák</td>
+              <td style="text-align: left">Romance in f minor, Op. 11</td>
+              <td style="text-align: right">10</td>
+              <td style="text-align: right">1,115</td>
+              <td style="text-align: right">111.5</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">AF</td>
+              <td style="text-align: left">Carl Nielsen</td>
+              <td style="text-align: left">Fantasy Pieces, Op. 2, Mvmts I and II</td>
+              <td style="text-align: right">5</td>
+              <td style="text-align: right">714</td>
+              <td style="text-align: right">142.8</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">🤖</td>
+              <td style="text-align: left">Robert Schumann</td>
+              <td style="text-align: left">Fantastiestücke, Op. 73, Mvmts I, II, III</td>
+              <td style="text-align: right">11</td>
+              <td style="text-align: right">1,021</td>
+              <td style="text-align: right">92.82</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">🤖/HR</td>
+              <td style="text-align: left">Clara Schumann</td>
+              <td style="text-align: left">Drei Romanzen, Op. 22</td>
+              <td style="text-align: right">10</td>
+              <td style="text-align: right">983</td>
+              <td style="text-align: right">98.3</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">–</td>
+              <td style="text-align: left">Francine Trester</td>
+              <td style="text-align: left">Fantasy for Flute and Piano</td>
+              <td style="text-align: right">6</td>
+              <td style="text-align: right">N/A</td>
+              <td style="text-align: right">–</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">🤖</td>
+              <td style="text-align: left">Georges Brun</td>
+              <td style="text-align: left">Romance, Op. 41</td>
+              <td style="text-align: right">5</td>
+              <td style="text-align: right">517</td>
+              <td style="text-align: right">103.4</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">–</td>
+              <td style="text-align: left">Fred Harris</td>
+              <td style="text-align: left">A Day of Promise</td>
+              <td style="text-align: right">1</td>
+              <td style="text-align: right">N/A</td>
+              <td style="text-align: right">–</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">HR</td>
+              <td style="text-align: left">Malcom Arnold</td>
+              <td style="text-align: left">Fantasy for Flute, Op. 89</td>
+              <td style="text-align: right">6</td>
+              <td style="text-align: right">1,368</td>
+              <td style="text-align: right">228</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">🤖</td>
+              <td style="text-align: left">Philippe Gaubert</td>
+              <td style="text-align: left">Fantasie</td>
+              <td style="text-align: right">7</td>
+              <td style="text-align: right">1,228</td>
+              <td style="text-align: right">175.43</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="font-size: small">*<em>Column “✎” is the note counting mechanism, “🤖” for automated, initials for human.</em></p>
+      </div>
       <p>
         <em>Total note count: over <strong>12,489 flute notes played</strong> over 81 minutes of performing.</em>
       </p>

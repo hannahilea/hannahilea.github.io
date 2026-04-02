@@ -5,7 +5,14 @@ tags: [music-information-retrieval, nerd-sniped, make-the-computer-do-the-counti
 description: 'Automating symbolic music analysis to answer the pressing question "how many notes did she just play?!"'
 created: 2026-03-07
 published: Sat, 7 March 2026 17:00:00 EST
-header: '<style>
+header: '
+<link rel="stylesheet" href="https://cuthbertLab.github.io/music21j/css/m21.css">
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"
+></script>
+
+<style>
 .blog {
   img {
     max-width: 100%;
@@ -24,6 +31,19 @@ header: '<style>
         margin: 0 0 17px 0;
     }
   }
+}
+
+.midiPlayer .timeControls {
+    width: 70%;
+}
+
+.midiPlayer .capsule {
+    width: 100%;
+}
+
+table {
+font-size: small;
+/*table-layout: auto !important;*/
 }
 </style>
 '
@@ -70,7 +90,7 @@ score.measures(1,3).show()
 ```
 
 ![](./assets/cell-4-output-1.png){width="708"
-height="338"}
+height="auto"}
 
 ``` {.python .cell-code}
 # Extract just the flute part and view its first three bars
@@ -79,7 +99,7 @@ flute.measures(1,3).show()
 ```
 
 ![](./assets/cell-5-output-1.png){width="674"
-height="169"}
+height="auto"}
 
 ``` {.python .cell-code}
 # Display those three measures in piano-roll format, where x-axis is time and y-axis is pitch
@@ -87,7 +107,7 @@ flute.measures(1,3).plot('pianoroll')
 ```
 
 ![](./assets/cell-6-output-1.png){width="812"
-height="540"}
+height="auto"}
 
 ``` {.python .cell-code}
 # Let's listen to the computer play it
@@ -95,12 +115,6 @@ flute.measures(1,3).show('midi')
 ```
 
 <div id="midiPlayerDiv19102"></div>
-<link rel="stylesheet" href="https://cuthbertLab.github.io/music21j/css/m21.css">
-
-<script
-src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"
-></script>
-
 <script>
 function midiPlayerDiv19102_play() {
     const rq = require.config({
@@ -121,7 +135,6 @@ if (typeof require === 'undefined') {
 }
 </script>
 
-
 ``` {.python .cell-code}
 # Plots are fun! Let's look at a histogram of the pitches played in the first three bars...
 flute.measures(1,3).plot('histogram', 'pitch', xHideUnused=False, 
@@ -129,7 +142,7 @@ flute.measures(1,3).plot('histogram', 'pitch', xHideUnused=False,
 ```
 
 ![](./assets/cell-8-output-1.png){width="805"
-height="541"}
+height="auto"}
 
 ``` {.python .cell-code}
 # ...and across the entire piece
@@ -137,7 +150,7 @@ flute.plot('histogram', 'pitch', xHideUnused=False, xLabel="Pitch", yLabel="Play
 ```
 
 ![](./assets/cell-10-output-1.png){width="811"
-height="540"}
+height="auto"}
 
 
 ``` {.python .cell-code}
@@ -147,7 +160,7 @@ flute.plot('histogram', 'pitchClass', xHideUnused=False, xLabel="Pitch", yLabel=
 ```
 
 ![](./assets/cell-11-output-1.png){width="517"
-height="540"}
+height="auto"}
 
 Lots of D's, bunch of G's and F's and C's! Moving on.
 
@@ -222,7 +235,7 @@ piano_rh.measures(1,3).show()
 ```
 
 ![](./assets/cell-20-output-1.png){width="674"
-height="166"}
+height="auto"}
 
 ``` {.python .cell-code}
 # And what does our function say?
@@ -303,21 +316,24 @@ Oh also: because Sara helpfully included piece duration in her program, we're ab
 *Drumroll...*
 
 ***
+<div class=blog-table-small-text-size>
 
-| Labeler   | Composer         | Composition                                  |   Duration</br>[min] |   Note count |   Avg. NPM |
-|:-------------:|:--|:--|--:|--:|--:|
-| 🤖        | Georges Hüe      | Fantasie                                     |                8 |          290 |    36.25   |
-| 🤖        | Friedrich Kuhlau | Fantasie, Op. 38, No. 3, Mvmts I and II  |               12 |         5,253 |   437.75   |
-| 🤖        | Antonín Dvořák   | Romance in f minor, Op. 11                   |               10 |         1,115 |   111.5    |
-| AF        | Carl Nielsen     | Fantasy Pieces, Op. 2, Mvmts I and II        |                5 |          714 |   142.8    |
-| 🤖        | Robert Schumann  | Fantastiestücke, Op. 73, Mvmts I, II, III    |               11 |         1,021 |    92.82 |
-| 🤖/HR     | Clara Schumann   | Drei Romanzen, Op. 22                        |               10 |          983 |    98.3    |
-| --         | Francine Trester | Fantasy for Flute and Piano |                6 |            N/A |     --      |
-| 🤖        | Georges Brun     | Romance, Op. 41                              |                5 |          517 |   103.4    |
-| --         | Fred Harris      | A Day of Promise                             |                1 |            N/A |     --      |
-| HR        | Malcom Arnold    | Fantasy for Flute, Op. 89                    |                6 |         1,368 |   228      |
-| 🤖        | Philippe Gaubert | Fantasie                                     |                7 |         1,228 |   175.43  |
+| ✎ | Composer | Composition             | Duration [min] | Note count | Avg. NPM |
+|:--:|:--|:--|--:|--:|--:|
+| 🤖  | Georges Hüe | Fantasie | 8 | 290 |    36.25   |
+| 🤖 | Friedrich Kuhlau | Fantasie, Op. 38, No. 3, Mvmts I and II  | 12 | 5,253 |   437.75   |
+| 🤖 | Antonín Dvořák | Romance in f minor, Op. 11 | 10 | 1,115 | 111.5 |
+| AF | Carl Nielsen | Fantasy Pieces, Op. 2, Mvmts I and II | 5 | 714 |   142.8    |
+| 🤖 | Robert Schumann  | Fantastiestücke, Op. 73, Mvmts I, II, III | 11 | 1,021 |    92.82 |
+| 🤖/HR | Clara Schumann   | Drei Romanzen, Op. 22 | 10 | 983 | 98.3 |
+| -- | Francine Trester | Fantasy for Flute and Piano | 6 | N/A | -- |
+| 🤖 | Georges Brun | Romance, Op. 41 | 5 | 517 |   103.4    |
+| -- | Fred Harris | A Day of Promise | 1 | N/A | -- |
+| HR | Malcom Arnold | Fantasy for Flute, Op. 89 | 6 | 1,368 | 228 |
+| 🤖 | Philippe Gaubert | Fantasie | 7 | 1,228 |   175.43  |
 
+<p style="font-size:small">\*_Column "✎" is the note counting mechanism, "🤖" for automated, initials for human._</p>
+</div>
 
 _Total note count: over **12,489 flute notes played** over 81 minutes of performing._
 

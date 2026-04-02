@@ -416,6 +416,10 @@ img.home-img {
     img {
       max-width: 100%;
     }
+
+    .blog-table-small-text-size {
+    font-size: 10px;
+  }
   }
 
   h2,
