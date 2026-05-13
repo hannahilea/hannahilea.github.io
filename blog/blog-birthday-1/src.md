@@ -1,6 +1,6 @@
 ---
 title: 'A year of blogging here---thoughts and plots!'
-type: musing
+type: Musing
 tags: [meta, data-viz, writing-on-writing]
 description: 'A light retrospective, a bar plot, and a bunch of word clouds walk into a room.'
 created: 2025-05-22

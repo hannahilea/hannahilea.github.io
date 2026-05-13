@@ -1,6 +1,6 @@
 ---
 title: 'Intro to BirdNET-Pi: Eavesdropping on my feathered friends (and how you can, too!)'
-type: tutorial
+type: Tutorial
 tags: [birb-creeping, ecoacoustics, hardware, community, houseplant-programming, passive-acoustic-monitoring]
 description: 'Stick microphone out window, catch chorps, feel joy.'
 created: 2025-10-2
