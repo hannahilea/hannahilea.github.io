@@ -1,7 +1,7 @@
 ---
 title: 'Set up BirdNET-Pi on a Raspberry Pi Zero 2 W'
 type: tutorial
-tags: [birb-creeping, ecoacoustics, hardware, community, houseplant-programming, passive-acoustic-monitoring]
+tags: [birb-creeping, ecoacoustics, hardware, community, houseplant-programming, passive-acoustic-monitoring, birdnet-pi]
 description: 'Step by step instructions for monitoring your yellingist feathered neighbors.'
 created: 2025-10-2
 published: Thu, 2 October 2025 10:31:00 EST
@@ -576,5 +576,10 @@ Oh, one last thing: it's probably a good idea to copy your database off the Pi p
 If you use these instructions---or they otherwise inspire you to set up a BirdNET-Pi of your own---please let me know! If anything is unclear or broken, **please tell me**.[^fear] If you know me in real life and want assistance or company while you run through a set up, or just want me to just set one up for you, let me know. I'd love to help!
 
 [^fear]: I am worried that if something goes wrong while someone is trying these instructions, and they are new to this type of computer work, that they will assume the fault is theirs and then be disinclined to try similar projects in the future. The fault is not yours! The fault is nobody's! But also, maybe there are ways I could clarify the instructions to help unstick you, or maybe something about one of these dependencies changed and the instructions legitimately do not work anymore. I want to know about it, in either case!! Please tell me, and please do not assume the problem is on your end.
+
+<br>
+<div class="alert" style="background:#e8ebf5; padding: .5em;">
+<summary class="alert-heading">Next step, now that you've got your basic set-up running: [Text of the wild: Receiving notifications from your BirdNET-Pi](../birdnet-text-of-the-wild) 🐦‍⬛</summary>
+</div>
 
 ***Thanks to AF for all the things: assistance in editing for clarity and comprehension, doing a run-through of the instructions to make sure they work (they did! she set up a BirdNET-Pi!), and kindly prodding me into finally posting this guide. It had only been sitting in draft form for six months, after all... And additional thanks to my mom for "the final goose" (her words!) to get this published.***
