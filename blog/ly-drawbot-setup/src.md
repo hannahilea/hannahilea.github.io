@@ -1,6 +1,6 @@
 ---
 title: 'LY Drawbot setup: From a box of parts to drawing SVGs'
-type: tutorial
+type: Tutorial
 tags: [hardware, pen-plotter, cnc, documentation]
 description: 'Write-up of getting started with a CNC pen plotter'
 created: 2025-02-25

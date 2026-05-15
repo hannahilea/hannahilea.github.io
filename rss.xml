@@ -231,6 +231,13 @@
       <guid>https://hannahilea.com/blog/counting-flute-notes</guid>
       <description>Automating symbolic music analysis to answer the pressing question "how many notes did she just play?!"</description>
     </item>
+    <item>
+      <title>The &#x22;Just&#x22; Flag</title>
+      <pubDate>Fri, 15 May 2026 00:30:00 EST</pubDate>
+      <link>https://hannahilea.com/blog/just-flag</link>
+      <guid>https://hannahilea.com/blog/just-flag</guid>
+      <description>Provenance, usage, and utility of the phenomenon</description>
+    </item>
 
   </channel>
 </rss>
