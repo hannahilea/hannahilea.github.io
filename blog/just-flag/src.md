@@ -19,7 +19,7 @@ Example 1: "The users want a feature that allows them to save their data in a sp
 
 Example 2: "I'm basically ready to leave, I **just** need to pack my suitcase." _(...sure, trivially easy, as long as you've already thought about the weather, you've done your laundry, you know what you want to bring and that it will fit in your bag, etc.)_
 
-In addition to describing this phenomenon (and the recognition of its occurrence!), the literal phrase "just flag" can be used facetiously: "My blog post is nearly done ready, I (air quotes) **just-flag** need to add a couple examples and then it's good to go." _(Cue a stupid amount of time spent waffling...)_
+In addition to describing this phenomenon (and the recognition of its occurrence!), the literal phrase "just flag" can be used facetiously: "My blog post is nearly done, I (air quotes) **just-flag** need to add a couple examples and then it's good to go." _(Cue a stupid amount of time spent waffling...)_
 
 
 Once you start listening for "just" in your own speech and that of the people around you---especially in working environments[^env]---you'll realize that its presence rarely adds anything to the meaning of a statement except a subtle presumptuousness.[^def]
@@ -55,7 +55,7 @@ I have yet to encounter the "just"-flag phenomenon elsewhere, so I'm going to co
 
 * **Q:** *Should I not use the word "just" in my own speech at all?*</br>
 
-    **A:** Keep using it to your heart's content! "Just" isn't a bad word, merely a sometimes loaded one. I use it all the time and don't plan to stop. Just (heh) recognize when you've used it, so that you can make sure to clarify your intent and address any unintentional minimization. Be extra aware of your own usage in situations where you are communicating with someone who who might not feel comfortable "bothering" you with minutia, especially when working on a task they might think _you_ think should be trivially easy.
+    **A:** Keep using it to your heart's content! "Just" isn't a bad word, merely a sometimes loaded one. I use it all the time and don't plan to stop. Just (heh) recognize when you've used it, so that you can make sure to clarify your intent and address any unintentional minimization. Be extra aware of your own usage in situations where you are communicating with someone who might not feel comfortable "bothering" you with minutia, especially when working on a task they might think _you_ think should be trivially easy.
 
     I try to omit "just" from conversations where I'm explaining how I think a task could be accomplished, or when I'm providing instructions.
 
