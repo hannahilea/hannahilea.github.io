@@ -4,7 +4,7 @@ type: Engineering notebook
 tags: [music-information-retrieval, nerd-sniped, make-the-computer-do-the-counting, musical-marathon ]
 description: 'Automating symbolic music analysis to answer the pressing question "how many notes did she just play?!"'
 created: 2026-03-07
-published: Sat, 7 March 2026 17:00:00 EST
+published: Sat, 7 Mar 2026 17:00:00 EST
 header: '
 <link rel="stylesheet" href="https://cuthbertLab.github.io/music21j/css/m21.css">
 

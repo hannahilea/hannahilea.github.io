@@ -4,7 +4,7 @@ type: Link round-up
 tags: [autobibliography, musings]
 description: 'Link round-up'
 created: 2025-12-6
-published: Sat, 6 December 2025 19:30:00 EST
+published: Sat, 6 Dec 2025 19:30:00 EST
 ---
 
 *A lightly-annotated list of recommendations. Previously: [Nov 2025](../autobibliography-3/) [May 2025](../autobibliography-2/) [Feb 2025](../autobibliography-1/)*

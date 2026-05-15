@@ -4,7 +4,7 @@ type: Tutorial
 tags: [birb-creeping, ecoacoustics, hardware, community, houseplant-programming, passive-acoustic-monitoring]
 description: 'Stick microphone out window, catch chorps, feel joy.'
 created: 2025-10-2
-published: Thu, 2 October 2025 10:30:00 EST
+published: Thu, 2 Oct 2025 10:30:00 EST
 header: '<style>
 .blog {
   img {
