@@ -1,6 +1,5 @@
 ---
 title: 'The "Just" Flag'
-rawtitle: 'The &#x22;Just&#x22; Flag'
 type: Musing
 tags: [glossary, communication, just-do-it-wait-no-do-it-without-the-just]
 description: 'Provenance, usage, and utility of the phenomenon'
