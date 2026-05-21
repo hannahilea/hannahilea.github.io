@@ -579,7 +579,7 @@ If you use these instructions---or they otherwise inspire you to set up a BirdNE
 
 <br>
 <div class="alert" style="background:#e8ebf5; padding: .5em;">
-<summary class="alert-heading">Next step, now that you've got your basic set-up running: [Text of the wild: Receiving notifications from your BirdNET-Pi](../birdnet-text-of-the-wild) 🐦‍⬛</summary>
+<summary class="alert-heading">Next step, now that you've got your basic set-up running: [Text of the wild: Receiving notifications from your BirdNET-Pi](../birdnet-notifications) 🐦‍⬛</summary>
 </div>
 
 ***Thanks to AF for all the things: assistance in editing for clarity and comprehension, doing a run-through of the instructions to make sure they work (they did! she set up a BirdNET-Pi!), and kindly prodding me into finally posting this guide. It had only been sitting in draft form for six months, after all... And additional thanks to my mom for "the final goose" (her words!) to get this published.***

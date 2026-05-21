@@ -239,11 +239,11 @@
       <description>A basic explainer on :just-flag: its provenance, usage, and utility</description>
     </item>
     <item>
-      <title>Text of the wild: Push notifications from your BirdNET-Pi</title>
+      <title>Text of the wild: Set up phone notifications for your BirdNET-Pi</title>
       <pubDate>Thu, 21 May 2026 19:40:41 EST</pubDate>
       <link>https://hannahilea.com/blog/birdnet-notifications</link>
       <guid>https://hannahilea.com/blog/birdnet-notifications</guid>
-      <description>TODO</description>
+      <description>Tutorial for configuring your BirdNET-Pi installation to use ntfy to send your phone push notifications whenever a rare-to-you bird starts yelling</description>
     </item>
 
   </channel>
