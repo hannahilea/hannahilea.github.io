@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" type="image/png" href="../../assets/img/favicon.png" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="og:title" content="Text of the wild: Push
+notifications from your BirdNET-Pi"/>
+    <meta property="og:description" content="TODO"/>
+    <meta property="og:url" content="https://www.hannahilea.com/blog/birdnet-notifications"/>
+    <meta property="og:image" content="https://www.hannahilea.com/blog/birdnet-notifications/assets/thumbnail.png">
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:height" content="300" />
+    <meta property="og:type" content="website" />
+
+    <script data-goatcounter="https://hannahilea.goatcounter.com/count"
+      data-goatcounter-settings='{"allow_local": false}'
+      async src="//gc.zgo.at/count.js"></script>
+    <!-- <noscript>
+      <img src="https://hannahilea.goatcounter.com/count?p=blog/birdnet-notifications">
+    </noscript> -->
+
+    <title>Text of the wild: Push notifications from your
+BirdNET-Pi</title>
+    <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
+    
+  </head>
+
+  <body>
+    <div class="main-container blog">
+      <nav class="navbar" role="navigation">
+        @hannahilea:
+        <a class="nav-link" href="../..">home</a> | 
+        <a class="nav-link" href="../../projects">projects</a> |
+        <a class="nav-link" href="..">blog</a>
+      </nav>
+      
+      <h1>Text of the wild: Push notifications from your BirdNET-Pi</h1>
+      <div class="date">21 May 2026</div>
+<br>
+<div class="alert" style="background:#e8ebf5; padding: .5em;">
+<summary class="alert-heading">
+<p>Previous posts in the BirdNET-Pi series:</p>
+<ul>
+<li><a href="../birdnet-intro/">Intro to BirdNET-Pi: Eavesdropping on my
+feathered (and how you can, too!)</a></li>
+<li><a href="../birdnet-setup">Set up a BirdNET-Pi on a Raspberry Pi
+Zero 2 W</a></li>
+</ul>
+🐦‍⬛
+</summary>
+</div>
+<p>Now that you’ve set up your BirdNET-Pi, perhaps you want to get texts
+whenever a new bird <del>enters the ring</del> yells in your yard?</p>
+<p>The good BirdNET-Pi folks have made this trivially straightforward to
+set up, thanks to an <a
+target="_blank" rel="noreferrer noopener" href="https://github.com/caronc/apprise">apprise</a> integration.
+Apprise is a library that enables us-as-users to send notifications via
+the service of our choice. Apprise <a
+target="_blank" rel="noreferrer noopener" href="https://github.com/caronc/apprise#supported-notifications">supports
+a huge number of notification services</a>—you may be familiar with some
+subset of TODO,TODO,TODO—from which I decided to use <a
+target="_blank" rel="noreferrer noopener" href="https://ntfy.sh/">ntfy</a>.<a href="#fn1" class="footnote-ref"
+id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>ntfy is a publication/subscription (pub-sub) service. You (or anyone
+else) publishes a message to the ntfy stream of your choice, and then
+anyone (or you) subscribed to that stream can read that message.</p>
+<p>For example, you can do this right now: 1. Go to https://ntfy.sh/app
+in your browser, no need to sign in 2. “+Subscribe to topic” with topic
+“big-old-string-of-text-that-is-likely-somewhat-unique” 3. In your
+terminal, post a message to that thread, e.g.,</p>
+<pre><code>curl -d &quot;Hellooooooooo &quot; ntfy.sh/big-old-string-of-text-that-is-likely-somewhat-unique</code></pre>
+<ol start="4" type="1">
+<li>…see it come in!</li>
+<li>Note the security/privacy situation around these messages, namely,
+there is none. :D</li>
+</ol>
+<figure>
+<img src="./assets/ntnf-demo.gif" alt="TODO" />
+
+</figure>
+<p>ntfy is an incredibly powerful service for folks with some basic
+non-private notification needs.</p>
+<p>Something worth being very clear about up front: <em>The free version
+of ntfy has no privacy.</em> Any message you post to it can be viewed by
+anyone. It is not likely that these messages will specifically be linked
+to you, unless you share the URL, but you should not post anything to it
+that you are not comfortable being fully public. For my case, the
+messages posted are only ever specific bird detections; while someone
+could theoretically use this information to be creepy, I don’t think
+they would be able to learn more from the notification stream than
+they’d already be able to find out elsewhere.<a href="#fn2"
+class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+While it is possible to pay for a private version of ntfy, or host it
+yourself, that is beyond the scope of this tutorial and I can’t speak to
+its details.</p>
+<h3 id="set-up-instructions">Set-up instructions</h3>
+<p>To use ntfy with BirdNET-Pi, we will therefore choose a unique-enough
+channel, tell BirdNET-Pi to post to that channel (via its UI set-up
+screen), and then subscribe to that stream through the application of
+your choosing: the default web application (if you want desktop
+notifications about your birds), an application on your phone (if you
+want push notifications from your birds), or some other service (if you
+want to do something fancier). You can subscribe as many devices as you
+like to listen to your ntfy BirdNET-PI feed. Everyone in the household
+can be a part of the fun!<a href="#fn3" class="footnote-ref" id="fnref3"
+role="doc-noteref"><sup>3</sup></a></p>
+<p>This process is straightforward—let’s step through it!</p>
+<ol type="1">
+<li><p>Choose a unique-enough channel name. I’d recommend generating a
+universally unique identifier (UUID), which you can generate <a
+target="_blank" rel="noreferrer noopener" href="https://www.uuidgenerator.net/version4">here</a>. It should look
+something like “1cb879d7-2c2e-40a4-8c3b-c5343babd810”.</p>
+<ul>
+<li>The goal here is choosing a channel name that no one else is likely
+to be posting to, so that you don’t get THEIR notifications in addition
+to your own. Also the more obscure it is, the less likely it is that
+someone else will guess it and know to associate it with you,
+specifically. (If that association would be a problem, then you may want
+to reconsider using ntfy as your BirdNET-Pi text solution—take a look at
+the other services supported by apprise and choose one with a privacy
+approach that matches your needs.)</li>
+</ul></li>
+<li><p>In the BirdNET-PI advanced settings page, TODO. Set the message
+as <code>1cb879d7-2c2e-40a4-8c3b-c5343babd810</code> and hit save. <img
+src="TODO-screenshot" alt="TODO" /></p></li>
+<li><p>Test that this subscription is configured correctly, via
+subscribing to your new channel via the <a
+target="_blank" rel="noreferrer noopener" href="https://ntfy.sh/app">web app</a>. (You do not have to sign in or
+make an account to do this). <img src="TODO-screenshot"
+alt="TODO" /></p>
+<p>From BirdNET-Pi, hit “send a test message”. You should see it show up
+in the browser.</p>
+<p>If not, double-check that you are sending to the correct message by
+sending a message from your terminal:
+<code>curl FOO BAR &lt;your id&gt;</code></p></li>
+<li><p>Time to subscribe to these notifications from your phone!</p>
+<ol type="1">
+<li><p>Download the relevant application:</p>
+<ul>
+<li><p>I use an iPhone, so I use the <a target="_blank" rel="noreferrer noopener" href="todo">TODO</a>
+app.</p></li>
+<li><p>If you are on a different device, you’ll have to follow their
+steps for set-up, although I suspect your choices will be similar to
+mine.</p></li>
+</ul></li>
+<li><p>Configure it by doing TODO</p></li>
+</ol></li>
+</ol>
+<p>That’s it! Go forth and be notified! You will likely want to go back
+to step 2 and tune your notification settings, as you decide you want
+more or fewer words from your birds.</p>
+<p>Astute readers will notice that even though they are now being
+notified when they are away from home, they cannot see their BirdNET-Pi
+website unless they’re on their local home network. Woe! What is a
+fellow to do when they receive note that a kestrel was detected, but
+have no way to investigate?!</p>
+<p>…luckily there <em>is</em> a way, short of rushing home as quickly as
+possible: viewing your installation from anywhere in the world via
+tailscale. Ensure you’ve followed <a target="_blank" rel="noreferrer noopener" href="TODO">the steps to install
+tailscale in the set-up guide</a>, and then add the link to your
+BirdNet-PI as a web bookmark on your phone. Then, if you get a
+notification of something Exciting™, you can simply (1) turn on
+Tailscale on your phone (if it isn’t always running!) and then (2) view
+your BirdNET-PI page at its tailscale link.</p>
+<p><strong><em>Thanks to friend S, for setting up their first BirdNET-Pi
+and encouraging me to create this follow-up!</em></strong></p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<h3 id="footnotes-title">Footnotes</h3>
+<ol>
+<li id="fn1"><p>This choice was due to a number of factors: source
+(open), price (free), sign-up (none), features (the ones I wanted, lol),
+access (not linked to proprietary device or app, subscribable from my
+phone), recommendations (from Recurse Center peers), difficulty to
+configure (none).<a href="#fnref1" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>TODO: that link from slack<a href="#fnref2"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Fun or “fun”, you decide. Or they decide. :D<a
+href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+      <hr />
+      <ul class="date">
+        <li>Created: 2026-05-21</li>
+        <li>Type: Tutorial</li>
+        <li>Tags: birb-creeping, houseplant-programming, passive-acoustic-monitoring, birdnet-pi</li>
+      </ul>
+<footer>
+    <div class="link-buttons">
+        <a href="/rss.xml" rel="subscribe-rss">
+            <!-- Source: https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white -->
+            <img class="badge" src="/assets/img/rss-logo-styled.svg" alt="Subscribe to @hannahilea RSS feed" /></a>
+        <a class="button" target="_blank" rel="noreferrer noopener" href="http://groups.google.com/group/hannahilea-blog-rss" target="_blank"
+            rel="noreferrer noopener">Subscribe via email</a>
+        </div>
+        <p class="breadcrumbs"><a class="basic-alignment right" href="/blog/"></a> <a class="basic-alignment left" href="/blog/./just-flag" title="Previous: The "Just" Flag">The "Just" Flag</a></p>
+    <hr>
+    <nav class="navbar" role="navigation">
+        @hannahilea:
+        <a href="/" class="nav-link">home</a> |
+        <a href="/projects" class="nav-link">projects</a> |
+        <a href="/blog" class="nav-link">blog</a>
+    </nav>
+</footer>
+    </div>
+  </body>
+</html>

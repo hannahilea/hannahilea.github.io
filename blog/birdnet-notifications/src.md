@@ -1,10 +1,10 @@
 ---
-title: 'Text of the wild: Receiving notifications from your BirdNET-Pi'
-type: tutorial
+title: 'Text of the wild: Push notifications from your BirdNET-Pi'
+type: Tutorial
 tags: [birb-creeping, houseplant-programming, passive-acoustic-monitoring, birdnet-pi]
 description: 'TODO'
-created: 2026-05-13
-published: Wed, 13 May 2026 19:40:41 EST
+created: 2026-05-21
+published: Thu, 21 May 2026 19:40:41 EST
 ---
 
 <br>
