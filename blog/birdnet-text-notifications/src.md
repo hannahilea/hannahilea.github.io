@@ -5,15 +5,15 @@ tags: [birb-creeping, houseplant-programming, passive-acoustic-monitoring, birdn
 description: 'Tutorial for configuring a BirdNET-Pi with ntfy to send push notifications whenever a rare-to-you bird starts yelling'
 created: 2026-05-23
 published: Sat, 23 May 2026 12:30:00 EST
-draft: true
 ---
 
 <br>
 <div class="alert" style="background:#e8ebf5; padding: .5em;">
-<summary class="alert-heading">Previous posts in the BirdNET-Pi series:
+<summary class="alert-heading">All posts in the BirdNET-Pi series:
 
-- [Intro to BirdNET-Pi: Eavesdropping on my feathered (and how you can, too!)](../birdnet-intro/)
-- [Set up a BirdNET-Pi on a Raspberry Pi Zero 2 W](../birdnet-setup)
+1. [Intro to BirdNET-Pi: Eavesdropping on my feathered friends (and how you can, too!)](../birdnet-intro/)
+2. [Set up a BirdNET-Pi on a Raspberry Pi Zero 2 W](../birdnet-setup)
+3. [Text of the wild: Receive notifications from your BirdNET-Pi via ntfy](../birdnet-text-notifications)
 
 🐦‍⬛</summary>
 </div>
@@ -168,7 +168,7 @@ Cool, we're done with this part! Don't leave the settings page yet, though, we'l
 
     You may want something a little less zealous! Once you've updated your settings, try sending another test message to test it out.
 
-    ![Screenshot from phone showing a notification for the test bird](./assets/phone-push.PNG)
+    ![Screenshot from phone showing a notification for the test bird](./assets/phone-push.png)
 
 That's all! Go forth and be notified! After a few days you'll likely want to go back to the BirdNET-Pi settings to tune your notification frequency, as you decide you want more or fewer words from your birds.
 
@@ -182,3 +182,13 @@ Or you could rush home to try to see your new bird friend in person. Your call!
 
 
 ***Thanks to SM, for setting up their first BirdNET-Pi and encouraging me to document this next step for them! Happy early birthday!***
+
+<div class="alert" style="background:#e8ebf5; padding: .5em;">
+<summary class="alert-heading">All posts in the BirdNET-Pi series:
+
+1. [Intro to BirdNET-Pi: Eavesdropping on my feathered friends (and how you can, too!)](../birdnet-intro/)
+2. [Set up a BirdNET-Pi on a Raspberry Pi Zero 2 W](../birdnet-setup)
+3. [Text of the wild: Receive notifications from your BirdNET-Pi via ntfy](../birdnet-text-notifications)
+
+🐦‍⬛</summary>
+</div>

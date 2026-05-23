@@ -59,13 +59,13 @@ function get_breadcrumbs_details(file; metadata)
         @warn "Uh oh, weird" file file_dir first(metadata).md_file
         return blog_prev, blog_next
     end
-    if i_blog > 1 
+    if i_blog > 1 && !haskey(metadata[i_blog - 1], :draft)
         # All posts except first
         url = metadata[i_blog - 1].url
         title = metadata[i_blog - 1].title
         blog_prev = """<a class="basic-alignment left" href="/blog/$url" title="Previous: $title">$title</a>"""
     end
-    if i_blog < length(metadata)
+    if i_blog < length(metadata) && !haskey(metadata[i_blog + 1], :draft)
         # All posts except last
         url = metadata[i_blog + 1].url
         title = metadata[i_blog + 1].title
