@@ -5,7 +5,6 @@ tags: [birb-creeping, houseplant-programming, passive-acoustic-monitoring, birdn
 description: 'Tutorial for configuring a BirdNET-Pi with ntfy to send push notifications whenever a rare-to-you bird starts yelling'
 created: 2026-05-23
 published: Sat, 23 May 2026 12:30:00 EST
-draft: true
 ---
 
 <br>
