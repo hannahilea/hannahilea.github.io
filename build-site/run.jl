@@ -28,18 +28,28 @@ function convert_to_html(file, outfile; metadata, template=BLOG_TEMPLATE, overwr
     run(pipeline(cmd))
 
     # Get date and format it 
+    yaml_dict = YAML.load_file(file)
     date_pretty = let
-        yaml_dict = YAML.load_file(file)
         str = string(yaml_dict["created"])
         Dates.format(Date(str), dateformat"d u yyyy")
+    end
+
+    date_updated_footer = haskey(yaml_dict, "updated") ? "<li>Updated: " * string(yaml_dict["updated"]) * "</li>" : ""
+    date_updated_top = if isempty(date_updated_footer)
+        ""
+    else
+        str = Date(string(yaml_dict["updated"]))
+        " [Updated " * Dates.format(str, dateformat"d u yyyy") * "]"
     end
 
     # For now, do a very brittle tuning of properties!
     # In future, turn this into a pandoc plugin 
     str = read(outfile, String)
     str = replace(str, "{{ BLOG_DIR }}" => basename(dirname(file)),
-                        "{{ BLOG_DATE }}" => date_pretty,
-                        "{{ BLOG_FOOTER }}" => BLOG_FOOTER)
+                       "{{ BLOG_DATE }}" => date_pretty,
+                       "{{ BLOG_DATE_UPDATED_TOP }}" => date_updated_top,
+                       "{{ BLOG_DATE_UPDATED_FOOTER }}" => date_updated_footer,
+                       "{{ BLOG_FOOTER }}" => BLOG_FOOTER)
 
     blog_prev, blog_next = get_breadcrumbs_details(file; metadata)
     str = replace(str, "{{ BLOG_RIGHT_BREADCRUMB }}" => blog_prev,
