@@ -5,7 +5,7 @@ tags: [birb-creeping, ecoacoustics, hardware, community, houseplant-programming,
 description: 'Step by step instructions for monitoring your yellingist feathered neighbors.'
 created: 2025-10-2
 published: Thu, 2 Oct 2025 10:31:00 EST
-updated: 2026-05-24
+updated: 2026-05-28
 header: '<style>
 .blog {
   img {
