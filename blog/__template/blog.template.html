@@ -41,11 +41,11 @@ $endif$
       </nav>
       
       <h1>$title$</h1>
-      <div class="date">{{ BLOG_DATE }}</div>
+      <div class="date">{{ BLOG_DATE }}{{ BLOG_DATE_UPDATED_TOP }}</div>
 $body$
       <hr />
       <ul class="date">
-        <li>Created: $created$</li>
+        <li>Created: $created$</li>{{ BLOG_DATE_UPDATED_FOOTER }}
         <li>Type: $type$</li>
         <li>Tags: $for(tags)$$tags$$sep$, $endfor$</li>
       </ul>
