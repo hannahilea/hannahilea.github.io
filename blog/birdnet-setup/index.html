@@ -397,43 +397,43 @@ exit 0</code></pre>
           <p>(Look familiar? :) )</p>
         </li>
         <li>
-          <p>Okay, this is the bit that is going to feel silly. Just go with it. In your remote terminal, start the BirdNET-Pi installation script by running</p>
+          <p>Installation time! In your remote terminal, start the BirdNET-Pi installation script by running</p>
           <pre><code>curl -s https://raw.githubusercontent.com/Nachtzuster/BirdNET-Pi/main/newinstaller.sh | bash</code></pre>
           <p>
-            A bunch of text will print out to the screen, as various files and dependencies are copied onto the Pi. You don’t have to pay attention to that text—you just have to wait and wait, <em>until the installation fails</em>. This may
-            take a long time, on the order of tens of minutes.
+            A bunch of text will print out to the screen, as various files and dependencies are copied onto the Pi. You don’t have to pay attention to that text—you just have to wait and wait. This may take a while, on the order of tens of
+            minutes, as lots of things happen during installation. Be patient!
           </p>
-          <p>
-            That’s right: eventually, <strong>the installation script you just ran will fail(!)</strong> with a “No space left on device” error. That’s expected! You want it to happen!<a
-              href="#fn2"
-              class="footnote-ref"
-              id="fnref2"
-              role="doc-noteref"
-              ><sup>2</sup></a
-            >
-          </p>
+          <p>You’ll know it has succeeded because the Pi will reboot, which will close your SSH connection.</p>
           <figure>
-            <img src="./assets/screenshot-failure.png" alt="Screenshot of failure message." />
+            <img src="./assets/screenshot-success.png" alt="Screenshot of success message." />
           </figure>
+          <blockquote>
+            <p><em>What if it doesn’t succeed?!</em></p>
+            <ul>
+              <li>
+                <p>
+                  If the installation fails with a “No space left on device” error, first provide more space to the installer by running <code>sudo mount -o remount,size=5G /tmp/</code>. Then remove the partial installation and try again
+                  (as described next).<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+                </p>
+              </li>
+              <li>
+                <p>If the installation fails with a generic failure message you can safely re-run the installation command after first removing any partial-install:</p>
+                <pre><code># this puts us in the correct working directory
+cd /home/birbwatcher/
+
+# this deletes the stuff that has been partially installed
+rm -rf BirdNET-Pi/</code></pre>
+                <p>Now try rerunning the installation command, above.</p>
+                <p>
+                  You may need to do this “remove and re-run” several times; that’s frustrating but in the realm of normal!<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Try it at least a couple times
+                  before giving up and emailing me that my instructions did not work for you!
+                </p>
+              </li>
+            </ul>
+          </blockquote>
         </li>
-        <li>
-          <p>Okay, let’s fix the out-of-space error. Run the following:</p>
-          <pre><code>sudo mount -o remount,size=5G /tmp/</code></pre>
-        </li>
-        <li>
-          <p>Now re-run the installation step, first deleting the failed installation directory:</p>
-          <pre><code>rm -rf BirdNET-Pi/
-curl -s https://raw.githubusercontent.com/Nachtzuster/BirdNET-Pi/main/newinstaller.sh | bash</code></pre>
-          <p>This step is slow, as lots of things happen during installation. Be patient!</p>
-          <p>This time the installation script should succeed. You’ll know it has succeeded because the Pi will reboot, which will close your SSH connection.</p>
-          <p>
-            If it does NOT succeed, i.e., you still get a failure message when you run that <code>curl</code> command, repeat the commands in this step. Try this a couple times before giving up and emailing me that my instructions did not
-            work for you!<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>
-          </p>
-          <figure>
-            <img src="./assets/screenshot-success.png" alt="Screenshot of failure message." />
-          </figure>
-        </li>
+      </ol>
+      <ol start="7" type="1">
         <li>
           <p>SSH back on to your Pi again! I bet you remember the command this time.</p>
           <blockquote>
@@ -454,6 +454,14 @@ curl -s https://raw.githubusercontent.com/Nachtzuster/BirdNET-Pi/main/newinstall
             <img src="./assets/screenshot-journal.png" alt="Screenshot of journal config with requisite change made." />
           </figure>
           <p>and then save the file: <code>ctrl+x</code> , <code>Y</code>, <code>enter</code>. You’re now a pro at this in-terminal text editor stuff!</p>
+          <blockquote>
+            <p>
+              <em
+                >While this step isn’t immediately critical, without doing it you may end up with an unresponsive BirdNET-Pi in several months when your logs overfloweth…which is what took down my parents’ installation for a while, until we
+                found and applied this fix.</em
+              >
+            </p>
+          </blockquote>
         </li>
         <li>
           <p>Restart the logging with those new settings by running</p>
@@ -835,16 +843,15 @@ sudo apt-get install tailscale</code></pre>
             </p>
           </li>
           <li id="fn2">
-            <p>The installer was designed for the non-“Pi Zero” Raspberry Pi computer, which has more space.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p>
+            <p>
+              E.g., <img src="./assets/screenshot-failure.png" alt="Screenshot of failure message." /> When these instructions were first written (2025), hitting this error was an expected (and necessary!) installation step. As of 5/2026,
+              I’m no longer seeing it.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a>
+            </p>
           </li>
           <li id="fn3">
             <p>
-              :) In AF’s run-through of these instructions, it succeeded on the third try. On <em>my</em> several run-throughs, I didn’t need those additional retries. ¯\_(ツ)_/¯ What can I say, computer is mistaek.<a
-                href="#fnref3"
-                class="footnote-back"
-                role="doc-backlink"
-                >↩︎</a
-              >
+              In AF’s run-through of these instructions (at time of original publication, in 2025), the install succeeded on the third try. On <em>my</em> several run-throughs, I didn’t need any additional retries. ¯\_(ツ)_/¯ What can I
+              say, computer is mistaek. We suspect it has something to do with a network connection <em>somewhere</em>, but not necessarily one<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a>
             </p>
           </li>
           <li id="fn4">
