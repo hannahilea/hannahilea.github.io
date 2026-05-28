@@ -78,7 +78,7 @@ for monitoring your yellingist feathered neighbors."
       <p>While it may look like there’s a lot here, it is a straight-forward “a lot,” without implicit steps that require leaving this page. Don’t be nervous—you’ve got this!</p>
       <p>Also: I ran this setup from my personal computer, which happens to be a Mac. If you’re on a Windows machine the screenshots might not exactly match what you see, but the steps are the same.</p>
       <h3 id="task-0-acquire-components">Task 0: Acquire components</h3>
-      <p>Here are the items you’ll need, with prices at time of writing:</p>
+      <p>Here are the items you’ll need, with current (at time of writing!) prices:</p>
       <ul>
         <li>
           <strong>Raspberry Pi Zero 2 W</strong> [ <a target="_blank" rel="noreferrer noopener" href="https://www.adafruit.com/product/5291">Adafruit, $19</a> |
@@ -88,7 +88,7 @@ for monitoring your yellingist feathered neighbors."
           </ul>
         </li>
         <li>
-          <strong>USB lavalier microphone</strong> [ <a target="_blank" rel="noreferrer noopener" href="https://www.amazon.com/gp/product/B08RYC5435">Amazon, $19</a> plus
+          <strong>USB lavalier microphone</strong> [ <a target="_blank" rel="noreferrer noopener" href="https://www.amazon.com/gp/product/B074BLM973">Amazon, $19</a> plus
           <a target="_blank" rel="noreferrer noopener" href="https://www.amazon.com/dp/B01C6032G0">USB 2.0-to-micro adapter, $5</a>]
           <ul>
             <li>The microphone will plug into a <strong>micro USB port</strong> on the Pi; if you get a different mic than this one, double-check the plug or get an adapter for it.</li>
@@ -105,12 +105,17 @@ for monitoring your yellingist feathered neighbors."
           </ul>
         </li>
         <li>
-          <strong>SanDisk 64GB Extreme microSDXC (64GB)</strong> [
-          <a target="_blank" rel="noreferrer noopener" href="https://www.microcenter.com/product/675331/sandisk-64gb-ultra-microsdxc-class-10-u1-a1-flash-memory-card-with-adapter-(2-pack)">MicroCenter, $17 for two</a> |
-          <a target="_blank" rel="noreferrer noopener" href="https://www.amazon.com/gp/product/B07FCMBLV6">Amazon, $12</a> ]
+          <strong>SanDisk 64GB Max Endurance microSDXC (64GB)</strong> [
+          <a target="_blank" rel="noreferrer noopener" href="https://www.sandisk.com/products/memory-cards/microsd-cards/sandisk-max-endurance-uhs-i-microsd?sku=SDSQQVR-064G-GN6IA">MicroCenter, $44</a> |
+          <a target="_blank" rel="noreferrer noopener" href="https://www.amazon.com/SanDisk-Endurance-microSDXC-Adapter-Security/dp/B084CJ96GT">Amazon, $44</a> ]
           <ul>
             <li>
-              You could probably get away with less memory, but don’t skimp and get an off-brand card; this is the component that actually matters.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
+              [<em>UPDATED: 5/2026</em>] For long-term bird monitoring, it’s important to choose an SD card designated “high/max endurance” rather than “extreme” or “basic”.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"
+                ><sup>1</sup></a
+              >
+            </li>
+            <li>
+              You could probably get away with less memory, but don’t skimp and get an off-brand card; this is the component that actually matters.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
             </li>
           </ul>
         </li>
@@ -125,7 +130,10 @@ for monitoring your yellingist feathered neighbors."
           </ul>
         </li>
       </ul>
-      <p>Total cost: ~$65, not including the SD card writer.</p>
+      <p>
+        Total cost: ~$100, not including the SD card writer [<em>LAST UPDATED: 5/2026</em> <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a
+        >]
+      </p>
       <h3 id="task-1-initial-raspberry-pi-zero-2-w-set-up">Task 1: Initial Raspberry Pi Zero 2 W set up</h3>
       <p>In this task, we’ll install an operating system (OS) on the Raspberry Pi Zero 2 W, by loading it onto the microSD card.</p>
       <ol type="1">
@@ -413,7 +421,7 @@ exit 0</code></pre>
               <li>
                 <p>
                   If the installation fails with a “No space left on device” error, first provide more space to the installer by running <code>sudo mount -o remount,size=5G /tmp/</code>. Then remove the partial installation and try again
-                  (as described next).<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+                  (as described next).<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>
                 </p>
               </li>
               <li>
@@ -425,7 +433,7 @@ cd /home/birbwatcher/
 rm -rf BirdNET-Pi/</code></pre>
                 <p>Now try rerunning the installation command, above.</p>
                 <p>
-                  You may need to do this “remove and re-run” several times; that’s frustrating but in the realm of normal!<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Try it at least a couple times
+                  You may need to do this “remove and re-run” several times; that’s frustrating but in the realm of normal!<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> Try it at least a couple times
                   before giving up and emailing me that my instructions did not work for you!
                 </p>
               </li>
@@ -651,13 +659,13 @@ sudo apt-get install tailscale</code></pre>
       <p>
         Want to configure your Pi to connect to additional Wi-Fi networks? When I set up a BirdNET-Pi for someone else, I want it to recognize my home network during setup, and for quality checking before I send it off(!), but I also want
         it to auto-connect to the network of its recipient. Similarly, you could configure your Pi to connect to your phone’s hotspot, so that you can take it with you on various outdoor adventures.<a
-          href="#fn4"
+          href="#fn6"
           class="footnote-ref"
-          id="fnref4"
+          id="fnref6"
           role="doc-noteref"
-          ><sup>4</sup></a
+          ><sup>6</sup></a
         >
-        <a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> This is an optional task!
+        <a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> This is an optional task!
       </p>
       <details>
         <summary>
@@ -694,7 +702,7 @@ sudo apt-get install tailscale</code></pre>
       <h3 id="task-7-physical-installation">Task 7: Physical installation</h3>
       <p>Time to stick that microphone out a window!</p>
       <p>
-        While you <em>could</em> just unplug your Pi, it’s safer for the Pi to intentionally power it down first—less chance of something going wrong!<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> While
+        While you <em>could</em> just unplug your Pi, it’s safer for the Pi to intentionally power it down first—less chance of something going wrong!<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> While
         SSH’d onto the Pi, do <code>sudo shutdown</code>.
       </p>
       <p>
@@ -729,7 +737,7 @@ sudo apt-get install tailscale</code></pre>
         <li>Put up a sign in your home with a link to the site, to show visitors how to connect to your Wi-Fi and then view your birds</li>
         <li>
           If you have an old display of some sort, you can set up a semi-permanent viewing station. My parents mounted an old iPad near the window with their (first 😅) BirdNET installation, and set its default landing page to view their
-          BirdNET-Pi detections.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>
+          BirdNET-Pi detections.<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>
         </li>
       </ul>
       <div class="centered-children">
@@ -743,7 +751,7 @@ sudo apt-get install tailscale</code></pre>
       <p>
         Click around your site—<code>birdnet-&lt;pi_identifier&gt;.local</code>—to explore what’s visible to you; note that the “Live Audio” and “Species Stats” links won’t show anything, since we disabled those services earlier. The page
         may be a bit slow to load—remember that this site is being served entirely from that little Raspberry Pi Zero you just set up, and in addition to making the website you’re trying to view, it is also constantly recording and
-        analyzing sound. It’s doing the best it can.<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>
+        analyzing sound. It’s doing the best it can.<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a>
       </p>
       <p>Until your Pi has detected a few birds, your website will seem pretty boring and sparse. But not for long! Leave the microphone plugged in for a bit and then recheck your site.</p>
       <p>
@@ -770,8 +778,8 @@ sudo apt-get install tailscale</code></pre>
         </li>
         <li>The website run on BirdNET-Pi’s does not need Internet connectivity. If your Wi-Fi router is running, you’ll be able to see your Pi’s website, regardless of whether your router is connected to the internet or not.</li>
         <li>
-          Once the Pi begins to run out of storage space, which won’t happen for a long time,<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a> the oldest recordings will be deleted to make space for newer
-          recordings.
+          Once the Pi begins to run out of storage space, which won’t happen for a long time,<a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a> the oldest recordings will be deleted to make space for
+          newer recordings.
           <ul>
             <li>If you care about this, you can preempt this loss by periodically moving older recordings off the device to a different storage location.</li>
             <li>The database records of those recordings will not be deleted, just the recordings—so you may not care about preserving them, as you will still have a record of the detections and their times and species, etc.</li>
@@ -799,7 +807,7 @@ sudo apt-get install tailscale</code></pre>
       <p>
         If you set up a BirdNET-Pi for someone else, and discover once in their space that you set up their Wi-Fi password incorrectly (or forgot to set it up at all!), never fear! Update the name of your phone and the password of its
         hotspot to mirror that of the Wi-Fi network you first used to set up the Pi. Then, once you’ve <del>tricked the Pi into connecting to your phone</del> connected to the Pi through your hotspot, update the Pi with the correct
-        configuration for the new Wi-Fi network.<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a>
+        configuration for the new Wi-Fi network.<a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a>
       </p>
       <h2 id="finally">Finally</h2>
       <p>
@@ -812,11 +820,11 @@ sudo apt-get install tailscale</code></pre>
       </p>
       <p>
         If you use these instructions—or they otherwise inspire you to set up a BirdNET-Pi of your own—please let me know! If anything is unclear or broken, <strong>please tell me</strong>.<a
-          href="#fn11"
+          href="#fn13"
           class="footnote-ref"
-          id="fnref11"
+          id="fnref13"
           role="doc-noteref"
-          ><sup>11</sup></a
+          ><sup>13</sup></a
         >
         If you know me in real life and want assistance or company while you run through a set up, or just want me to just set one up for you, let me know. I’d love to help!
       </p>
@@ -838,58 +846,80 @@ sudo apt-get install tailscale</code></pre>
         <ol>
           <li id="fn1">
             <p>
-              Fun fact, SD card choice <em>really</em> matters if you’re working with infrasound, e.g., if you’re detecting bat sounds rather than bird sounds—some brands of SD card generate a hum at the same frequency as bats. The more you
-              know!<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a>
+              This recommendation was updated on 5/2026; I’d originally recommended the “SanDisk 64GB Extreme microSDXC (64GB)” ([
+              <a target="_blank" rel="noreferrer noopener" href="https://www.microcenter.com/product/675331/sandisk-64gb-ultra-microsdxc-class-10-u1-a1-flash-memory-card-with-adapter-(2-pack)">MicroCenter, $17 for two</a> |
+              <a target="_blank" rel="noreferrer noopener" href="https://www.amazon.com/gp/product/B07FCMBLV6">Amazon, $12</a> ]), but have since learned the hard way that for this type of long-running usage, we want an SD card designated
+              “high endurance” instead of “extreme performance”. Why? See
+              <a target="_blank" rel="noreferrer noopener" href="https://oempcworld.com/blogs/blog/high-endurance-vs-extreme-performance-microsd-cards-whats-the-difference">this helpful blog</a> as well as
+              <a target="_blank" rel="noreferrer noopener" href="https://www.dzombak.com/blog/2023/12/considerations-for-a-long-running-raspberry-pi/">this series of posts</a> (h/t RD). (By “the hard way” I mean “an SD card failure that
+              lost me a bunch of bird data.” 😭 I will be writing a follow-up on how to think about backups for your BirdNET-Pi…)
             </p>
-          </li>
-          <li id="fn2">
             <p>
-              E.g., <img src="./assets/screenshot-failure.png" alt="Screenshot of failure message." /> When these instructions were first written (2025), hitting this error was an expected (and necessary!) installation step. As of 5/2026,
-              I’m no longer seeing it.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a>
-            </p>
-          </li>
-          <li id="fn3">
-            <p>
-              In AF’s run-through of these instructions (at time of original publication, in 2025), the install succeeded on the third try. On <em>my</em> several run-throughs, I didn’t need any additional retries. ¯\_(ツ)_/¯ What can I
-              say, computer is mistaek. We suspect it has something to do with a network connection <em>somewhere</em>, but not necessarily one<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a>
-            </p>
-          </li>
-          <li id="fn4">
-            <p>Simply replace the wall plug with a portable USB battery pack, and hey presto, off you go!<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p>
-          </li>
-          <li id="fn5">
-            <p>
-              Note that if your phone’s name (and therefore your hotspot name) is anything other than alphanumeric, these instructions may not work. Ask me and my phone named <code>🐙🐙🐙</code> how I figured this one out, and how long I
-              struggled before giving up. 😅<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a>
-            </p>
-          </li>
-          <li id="fn6">
-            <p>Do as I say, not as I do—I generally just unplug it. YMMV!<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p>
-          </li>
-          <li id="fn7">
-            <p>
-              With the visualization installation, the BirdNET went from being a background afterthought of being an active obsession—when an issue with logging brought down their installation last year they seemingly went into
-              bird-monitoring withdrawal while I worked to get it running again.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a>
-            </p>
-          </li>
-          <li id="fn8">
-            <p>Just like the rest of us.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p>
-          </li>
-          <li id="fn9">
-            <p>
-              This won’t happen for a long time unless you’re somewhere where the birds yell <em>constantly</em> and you have a smaller SD card than the one recommended above.<a href="#fnref9" class="footnote-back" role="doc-backlink"
+              While you could probably get away with a basic non-extreme SD card for a short amount of time, you risk SD corruption (read: data loss, sadness, weeping and gnashing of teeth) a lot sooner.<a
+                href="#fnref1"
+                class="footnote-back"
+                role="doc-backlink"
                 >↩︎</a
               >
             </p>
           </li>
+          <li id="fn2">
+            <p>
+              Fun fact, SD card choice <em>really</em> matters if you’re working with infrasound, e.g., if you’re detecting bat sounds rather than bird sounds—some brands of SD card generate a hum at the same frequency as bats. The more you
+              know!<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a>
+            </p>
+          </li>
+          <li id="fn3">
+            <p>At time of writing [10/2025], this cost was ~$65. The difference is entirely due to the change in price for SD cards, which have gone way up.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+          <li id="fn4">
+            <p>
+              E.g., <img src="./assets/screenshot-failure.png" alt="Screenshot of failure message." /> When these instructions were first written (2025), hitting this error was an expected (and necessary!) installation step. As of 5/2026,
+              I’m no longer seeing it.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a>
+            </p>
+          </li>
+          <li id="fn5">
+            <p>
+              In AF’s run-through of these instructions (at time of original publication, in 2025), the install succeeded on the third try. On <em>my</em> several run-throughs, I didn’t need any additional retries. ¯\_(ツ)_/¯ What can I
+              say, computer is mistaek. We suspect it has something to do with a network connection <em>somewhere</em>, but not necessarily one<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a>
+            </p>
+          </li>
+          <li id="fn6">
+            <p>Simply replace the wall plug with a portable USB battery pack, and hey presto, off you go!<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+          <li id="fn7">
+            <p>
+              Note that if your phone’s name (and therefore your hotspot name) is anything other than alphanumeric, these instructions may not work. Ask me and my phone named <code>🐙🐙🐙</code> how I figured this one out, and how long I
+              struggled before giving up. 😅<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a>
+            </p>
+          </li>
+          <li id="fn8">
+            <p>Do as I say, not as I do—I generally just unplug it. YMMV!<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+          <li id="fn9">
+            <p>
+              With the visualization installation, the BirdNET went from being a background afterthought of being an active obsession—when an issue with logging brought down their installation last year they seemingly went into
+              bird-monitoring withdrawal while I worked to get it running again.<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a>
+            </p>
+          </li>
           <li id="fn10">
-            <p>Ask me how I figured this one out. 🙃<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p>
+            <p>Just like the rest of us.<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p>
           </li>
           <li id="fn11">
             <p>
+              This won’t happen for a long time unless you’re somewhere where the birds yell <em>constantly</em> and you have a smaller SD card than the one recommended above.<a href="#fnref11" class="footnote-back" role="doc-backlink"
+                >↩︎</a
+              >
+            </p>
+          </li>
+          <li id="fn12">
+            <p>Ask me how I figured this one out. 🙃<a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+          <li id="fn13">
+            <p>
               I am worried that if something goes wrong while someone is trying these instructions, and they are new to this type of computer work, that they will assume the fault is theirs and then be disinclined to try similar projects in
               the future. The fault is not yours! The fault is nobody’s! But also, maybe there are ways I could clarify the instructions to help unstick you, or maybe something about one of these dependencies changed and the instructions
-              legitimately do not work anymore. I want to know about it, in either case!! Please tell me, and please do not assume the problem is on your end.<a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a>
+              legitimately do not work anymore. I want to know about it, in either case!! Please tell me, and please do not assume the problem is on your end.<a href="#fnref13" class="footnote-back" role="doc-backlink">↩︎</a>
             </p>
           </li>
         </ol>

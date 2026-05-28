@@ -45,24 +45,31 @@ Also: I ran this setup from my personal computer, which happens to be a Mac. If 
 
 ### Task 0: Acquire components
 
-Here are the items you'll need, with prices at time of writing:
+Here are the items you'll need, with current (at time of writing!) prices:
 
 - **Raspberry Pi Zero 2 W** [ [Adafruit, $19](https://www.adafruit.com/product/5291) | [MicroCenter, $18](https://www.microcenter.com/product/683270/raspberry-pi-raspberry-pi-zero-w-2-with-headers)]
     - With or without headers, it doesn't matter; we won't use them.
-- **USB lavalier microphone** [ [Amazon, $19](https://www.amazon.com/gp/product/B08RYC5435) plus [USB 2.0-to-micro adapter, $5](https://www.amazon.com/dp/B01C6032G0)]
+- **USB lavalier microphone** [ [Amazon, $19](https://www.amazon.com/gp/product/B074BLM973) plus [USB 2.0-to-micro adapter, $5](https://www.amazon.com/dp/B01C6032G0)]
     - The microphone will plug into a **micro USB port** on the Pi; if you get a different mic than this one, double-check the plug or get an adapter for it.
 - **Power adapter, 5V 2.5A or 3A, Micro USB** [ [MicroCenter, $12](https://www.microcenter.com/product/510437/micro-connectors-micro-usb-5v-25a-power-adapter-with-on-off-switch-for-raspberry-pi) | [Amazon, $12](https://www.amazon.com/dp/B07CVH21NC) ]
     - The power adapter will connect to a **micro USB port** on the Pi; if you buy a different adapter than this one, double-check the plug or get an adapter for it.
     - You could alternatively use a rechargable power brick instead of a wall wart, although you'd have to remember to charge it (and wouldn't be detecting birds during recharging...).
-- **SanDisk 64GB Extreme microSDXC (64GB)** [ [MicroCenter, $17 for two](https://www.microcenter.com/product/675331/sandisk-64gb-ultra-microsdxc-class-10-u1-a1-flash-memory-card-with-adapter-(2-pack)) | [Amazon, $12](https://www.amazon.com/gp/product/B07FCMBLV6) ]
+- **SanDisk 64GB Max Endurance microSDXC (64GB)** [ [MicroCenter, $44](https://www.sandisk.com/products/memory-cards/microsd-cards/sandisk-max-endurance-uhs-i-microsd?sku=SDSQQVR-064G-GN6IA) | [Amazon, $44](https://www.amazon.com/SanDisk-Endurance-microSDXC-Adapter-Security/dp/B084CJ96GT) ]
+    - [*UPDATED: 5/2026*] For long-term bird monitoring, it's important to choose an SD card designated "high/max endurance" rather than "extreme" or "basic".[^sd-update]
     - You could probably get away with less memory, but don't skimp and get an off-brand card; this is the component that actually matters.[^sd]
 
 - Access to **an SD card writer** [ [MicroCenter, $18](https://www.microcenter.com/product/467960/iogear-superspeed-usb-30-sd-microsd-card-reader-writer) ], if there isn't one already built into your computer.
     - The step that requires an SD card writer is relatively brief and first on the list, so you could easily get away with borrowing a friend's rather than buying your own---especially if you set up a BirdNET-Pi for them while you're at it!
 
-Total cost: ~$65, not including the SD card writer.
+Total cost: ~$100, not including the SD card writer [*LAST UPDATED: 5/2026* [^update-cost]]
+
+[^update-cost]: At time of writing [10/2025], this cost was ~$65. The difference is entirely due to the change in price for SD cards, which have gone way up.
 
 [^sd]: Fun fact, SD card choice *really* matters if you're working with infrasound, e.g., if you're detecting bat sounds rather than bird sounds---some brands of SD card generate a hum at the same frequency as bats. The more you know!
+
+[^sd-update]: This recommendation was updated on 5/2026; I'd originally recommended the "SanDisk 64GB Extreme microSDXC (64GB)" ([ [MicroCenter, $17 for two](https://www.microcenter.com/product/675331/sandisk-64gb-ultra-microsdxc-class-10-u1-a1-flash-memory-card-with-adapter-(2-pack)) | [Amazon, $12](https://www.amazon.com/gp/product/B07FCMBLV6) ]), but have since learned the hard way that for this type of long-running usage, we want an SD card designated "high endurance" instead of "extreme performance". Why? See [this helpful blog](https://oempcworld.com/blogs/blog/high-endurance-vs-extreme-performance-microsd-cards-whats-the-difference) as well as [this series of posts](https://www.dzombak.com/blog/2023/12/considerations-for-a-long-running-raspberry-pi/) (h/t RD). (By "the hard way" I mean "an SD card failure that lost me a bunch of bird data." 😭 I will be writing a follow-up on how to think about backups for your BirdNET-Pi...)
+
+    While you could probably get away with a basic non-extreme SD card for a short amount of time, you risk SD corruption (read: data loss, sadness, weeping and gnashing of teeth) a lot sooner.
 
 ### Task 1: Initial Raspberry Pi Zero 2 W set up
 
