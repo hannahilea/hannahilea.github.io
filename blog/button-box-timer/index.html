@@ -101,13 +101,6 @@ button and one job: reminding me to push that button."
         <li>Tags: hardware, houseplant-programming</li>
       </ul>
       <footer>
-        <div class="link-buttons">
-          <a href="/rss.xml" rel="subscribe-rss">
-            <!-- Source: https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white -->
-            <img class="badge" src="/assets/img/rss-logo-styled.svg" alt="Subscribe to @hannahilea RSS feed"
-          /></a>
-          <a class="button" target="_blank" rel="noreferrer noopener" href="http://groups.google.com/group/hannahilea-blog-rss" target="_blank" rel="noreferrer noopener">Subscribe via email</a>
-        </div>
         <p class="breadcrumbs">
           <a class="basic-alignment right" href="/blog/./birdnet-intro" title="Next: Intro to BirdNET-Pi: Eavesdropping on my feathered friends (and how you can, too!)"
             >Intro to BirdNET-Pi: Eavesdropping on my feathered friends (and how you can, too!)</a
@@ -115,11 +108,24 @@ button and one job: reminding me to push that button."
           <a class="basic-alignment left" href="/blog/./colors-glass-glory" title="Previous: Colors! Glass! Glory!">Colors! Glass! Glory!</a>
         </p>
         <hr />
-        <nav class="navbar" role="navigation">
+        <nav class="navbar footer-navbar" role="navigation">
           @hannahilea:
           <a href="/" class="nav-link">home</a> | <a href="/projects" class="nav-link">projects</a> |
           <a href="/blog" class="nav-link">blog</a>
         </nav>
+        <div class="link-buttons">
+          <form action="https://buttondown.com/api/emails/embed-subscribe/hannahilea" method="post" class="embeddable-buttondown-form">
+            <input type="email" name="email" id="bd-email" placeholder="Enter your email" />
+            <input type="submit" value="Subscribe" />
+            <a href="/rss.xml" rel="subscribe-rss">
+              <!-- Source: https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white -->
+              <img class="badge" src="/assets/img/rss-logo-styled.svg" alt="Subscribe to @hannahilea RSS feed"
+            /></a>
+            <!-- <p>
+                <a target="_blank" rel="noreferrer noopener" href="https://buttondown.com/refer/hannahilea" target="_blank"> Powered by Buttondown. </a>
+            </p> -->
+          </form>
+        </div>
       </footer>
     </div>
   </body>

@@ -291,6 +291,10 @@ img.home-img {
   }
 }
 
+.footer-navbar {
+  margin-bottom: 1.6em;
+}
+
 /* Blog pages*/
 .blog {
   pre {
@@ -311,10 +315,6 @@ img.home-img {
     font-family: monospace;
     overflow: auto;
     padding: .25em;
-  }
-
-  .navbar {
-    margin-bottom: 1.6em;
   }
 
   .date {
@@ -460,18 +460,30 @@ img.home-img {
 .index-page > footer {
   display: block;
 
-  a.button {
+  input[type="submit"] {
     background-color: #0843c3;
     border: none;
     color: white;
     padding: 0px 10px;
-    text-align: center;
+    /* text-align: center; */
     height: 28px;
     line-height: 28px;
     text-decoration: none;
     display: inline-block;
     vertical-align: top;
-    font-size: smaller;
+    font-size: small;
+    font-family: "Jura Bold";
+    cursor: pointer;
+    margin: auto;
+  }
+
+  input[type="email"] {
+    padding: 0px 10px;
+    height: 25px;
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: top;
+    font-size: small;
     font-family: "Jura Bold";
     cursor: pointer;
     margin: auto;
@@ -487,10 +499,6 @@ img.home-img {
     border-top: 1px solid #0843c3;
     height: 3px;
     border-bottom: 1px solid #0843c3
-  }
-
-  div.link-buttons {
-    text-align: center;
   }
 
   p.breadcrumbs {
@@ -624,3 +632,4 @@ img.home-img {
     }
   }
 }
+

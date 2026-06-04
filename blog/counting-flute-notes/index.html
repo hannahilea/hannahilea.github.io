@@ -34,8 +34,9 @@ played</title>
     .midiPlayer .capsule { width: 100%; }
     table { font-size: small; /*table-layout: auto !important;*/ } </style>
 <style>
+    html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -46,7 +47,7 @@ played</title>
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -569,21 +570,27 @@ href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
         <li>Tags: music-information-retrieval, nerd-sniped, make-the-computer-do-the-counting, musical-marathon</li>
       </ul>
 <footer>
-    <div class="link-buttons">
-        <a href="/rss.xml" rel="subscribe-rss">
-            <!-- Source: https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white -->
-            <img class="badge" src="/assets/img/rss-logo-styled.svg" alt="Subscribe to @hannahilea RSS feed" /></a>
-        <a class="button" target="_blank" rel="noreferrer noopener" href="http://groups.google.com/group/hannahilea-blog-rss" target="_blank"
-            rel="noreferrer noopener">Subscribe via email</a>
-        </div>
-        <p class="breadcrumbs"><a class="basic-alignment right" href="/blog/./just-flag" title="Next: The "Just" Flag">The "Just" Flag</a> <a class="basic-alignment left" href="/blog/./musidex" title="Previous: Introducing the Musidex: A physical music library for the streaming era">Introducing the Musidex: A physical music library for the streaming era</a></p>
+    <p class="breadcrumbs"><a class="basic-alignment right" href="/blog/./just-flag" title="Next: The "Just" Flag">The "Just" Flag</a> <a class="basic-alignment left" href="/blog/./musidex" title="Previous: Introducing the Musidex: A physical music library for the streaming era">Introducing the Musidex: A physical music library for the streaming era</a></p>
     <hr>
-    <nav class="navbar" role="navigation">
+    <nav class="navbar footer-navbar" role="navigation">
         @hannahilea:
         <a href="/" class="nav-link">home</a> |
         <a href="/projects" class="nav-link">projects</a> |
         <a href="/blog" class="nav-link">blog</a>
     </nav>
+    <div class="link-buttons">
+        <form action="https://buttondown.com/api/emails/embed-subscribe/hannahilea" method="post"
+            class="embeddable-buttondown-form">
+            <input type="email" name="email" id="bd-email" placeholder="Enter your email" />
+            <input type="submit" value="Subscribe" />
+            <a href="/rss.xml" rel="subscribe-rss">
+                <!-- Source: https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white -->
+                <img class="badge" src="/assets/img/rss-logo-styled.svg" alt="Subscribe to @hannahilea RSS feed" /></a>
+            <!-- <p>
+                <a target="_blank" rel="noreferrer noopener" href="https://buttondown.com/refer/hannahilea" target="_blank"> Powered by Buttondown. </a>
+            </p> -->
+        </form>
+    </div>
 </footer>
     </div>
   </body>
