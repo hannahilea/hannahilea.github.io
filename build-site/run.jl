@@ -89,7 +89,7 @@ function tweak_html!!(text)
     text = replace(text, " type=\"checkbox\"" => " disabled type=\"checkbox\"")
 
     # Add footnotes heading (this is SO GROSS and we're doing it anyway)
-    fnote_predecessor = "role=\"doc-endnotes\">\n<hr />"
+    fnote_predecessor = "role=\"doc-endnotes\">\n    <hr />"
     fnote_heading = """\n<h3 id="footnotes-title">Footnotes</h3>"""
     text = replace(text, fnote_predecessor => fnote_predecessor * fnote_heading)
 
