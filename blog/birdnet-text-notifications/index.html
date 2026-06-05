@@ -1,471 +1,461 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <link rel="shortcut icon" type="image/png" href="../../assets/img/favicon.png" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="og:title" content="Text of the wild: Receive
-notifications from your BirdNET-Pi via ntfy"/>
-    <meta property="og:description" content="Tutorial for configuring a
+<head>
+  <link rel="shortcut icon" type="image/png" href="../../assets/img/favicon.png" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta property="og:title" content="Text of the wild: Receive
+notifications from your BirdNET-Pi via ntfy" />
+  <meta property="og:description" content="Tutorial for configuring a
 BirdNET-Pi with ntfy to send push notifications whenever a rare-to-you
-bird starts yelling"/>
-    <meta property="og:url" content="https://www.hannahilea.com/blog/birdnet-text-notifications"/>
-    <meta property="og:image" content="https://www.hannahilea.com/blog/birdnet-text-notifications/assets/thumbnail.png">
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="300" />
-    <meta property="og:image:height" content="300" />
-    <meta property="og:type" content="website" />
+bird starts yelling" />
+  <meta property="og:url" content="https://www.hannahilea.com/blog/birdnet-text-notifications" />
+  <meta property="og:image" content="https://www.hannahilea.com/blog/birdnet-text-notifications/assets/thumbnail.png">
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="300" />
+  <meta property="og:image:height" content="300" />
+  <meta property="og:type" content="website" />
 
-    <script data-goatcounter="https://hannahilea.goatcounter.com/count"
-      data-goatcounter-settings='{"allow_local": false}'
-      async src="//gc.zgo.at/count.js"></script>
-    <!-- <noscript>
+  <script data-goatcounter="https://hannahilea.goatcounter.com/count" data-goatcounter-settings='{"allow_local": false}'
+    async src="//gc.zgo.at/count.js"></script>
+  <!-- <noscript>
       <img src="https://hannahilea.goatcounter.com/count?p=blog/birdnet-text-notifications">
     </noscript> -->
 
-    <title>Text of the wild: Receive notifications from your BirdNET-Pi
+  <title>Text of the wild: Receive notifications from your BirdNET-Pi
 via ntfy</title>
-    <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
-    
+  <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
+  
   </head>
 
-  <body>
-    <div class="main-container blog">
-      <nav class="navbar" role="navigation">
-        @hannahilea:
-        <a class="nav-link" href="../..">home</a> | 
-        <a class="nav-link" href="../../projects">projects</a> |
-        <a class="nav-link" href="..">blog</a>
-      </nav>
-      
-      <h1>Text of the wild: Receive notifications from your BirdNET-Pi
-via ntfy</h1>
-      <div class="date">23 May 2026</div>
-<br>
-<div class="alert" style="background:#e8ebf5; padding: .5em;">
-<summary class="alert-heading">
-<p>All posts in the BirdNET-Pi series:</p>
-<ol type="1">
-<li><a href="../birdnet-intro/">Intro to BirdNET-Pi: Eavesdropping on my
-feathered friends (and how you can, too!)</a></li>
-<li><a href="../birdnet-setup">Set up a BirdNET-Pi on a Raspberry Pi
-Zero 2 W</a></li>
-<li><a href="../birdnet-text-notifications">Text of the wild: Receive
-notifications from your BirdNET-Pi via ntfy</a></li>
-</ol>
-🐦‍⬛
-</summary>
-</div>
-<p>Now that you’ve set up your BirdNET-Pi, perhaps you want to get texts
-whenever a new bird <del>enters the ring</del> yells in your yard?</p>
-<figure>
-<img src="./assets/homescreen.png"
-alt="Screenshot of phone lock screen with notification that a House Finch has been detected" />
-
-
-</figure>
-<p>The BirdNET-Pi folks have made this trivially straightforward to set
-up, thanks to an <a target="_blank" rel="noreferrer noopener" href="https://github.com/caronc/apprise">apprise</a>
-integration. Apprise is a piece of code that acts as a switchboard among
-a huge number of <a
-target="_blank" rel="noreferrer noopener" href="https://github.com/caronc/apprise#supported-notifications">notification
-services</a>, so that notifications can be sent to the service(s) of
-one’s choice—with over a hundred such services to choose from.</p>
-<figure>
-<img src="./assets/wupfh.png"
-alt="Screenshot from The Office, with the caption “When you send a WUPFH it goes to your home phone, cell phone, email, facebook, twitter, and home screen, all at the same time”" />
-
-
-</figure>
-<p>From these notification services I decided to use <a
-target="_blank" rel="noreferrer noopener" href="https://ntfy.sh/">ntfy</a> (pronounced “notify”, apparently!),
-which is a <a
-target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern">publish-subscribe
-(pub/sub)</a> service. That means that publishers (in our case, the
-BirdNET-PI) publish messages to a ntfy topic (e.g.,
-<code>ntfy.sh/my-fun-topic</code>), and then anyone who subscribes to
-that topic (you! your cat! your neighbors, if you tell them about it!)
-can read those messages.</p>
-<p>I chose ntfy for a number of reasons:</p>
-<ul>
-<li>source (open)</li>
-<li>price (free, for the basic public service)</li>
-<li>sign-up (none, for the basic public service)</li>
-<li>access (not linked to a proprietary device or application;
-subscribable from my phone; not linked to a single account, so that my
-spouse can also receive bird notifications)</li>
-<li>recommendations (from some <a
-target="_blank" rel="noreferrer noopener" href="https://www.recurse.com/">Recurse Center</a> peers whose choices
-in software tend to align with my own), and</li>
-<li>difficulty to configure (none)</li>
-</ul>
-<p>If you have different notification needs, you may want to use a
-different service, but your set up on the BirdNET-Pi-side will look
-roughly the same.</p>
-<p>For example, you can do this right now, no sign-up needed:</p>
-<ol type="1">
-<li><p>Go to <a target="_blank" rel="noreferrer noopener" href="https://ntfy.sh/app">https://ntfy.sh/app</a> in
-your browser</p></li>
-<li><p>Hit “+Subscribe to topic” and add topic
-“big-old-string-of-text-that-is-likely-somewhat-unique”</p></li>
-</ol>
-<figure>
-<img src="./assets/subscribe-party-people.png"
-alt="Screenshot of browser with above message." />
-
-
-</figure>
-<ol start="3" type="1">
-<li><p>In your terminal, post a message to that thread, e.g., copy
-in</p>
-<pre><code>curl -d &quot;Hello party people &quot; ntfy.sh/big-old-string-of-text-that-is-likely-somewhat-unique</code></pre>
-<p>and then hit enter.</p>
-<figure>
-<img src="./assets/curl-party-people.png"
-alt="Screenshot of terminal with the above message." />
-
-
-</figure></li>
-<li><p>See that message show up in the browser!</p></li>
-</ol>
-<figure>
-<img src="./assets/hello-party-people.png"
-alt="Screenshot of browser with above message." />
-
-
-</figure>
-<ol start="5" type="1">
-<li>Realize that anyone else who subscribed or subscribes to this topic
-will <em>also</em> see these messages, and gain an understanding of the
-privacy situation around these messages—namely, none. 😅</li>
-</ol>
-<figure>
-<img src="./assets/ntnf-demo.gif"
-alt="Screenshots of the above steps being carried out in realtime." />
-
-
-</figure>
-<p>While ntfy is an incredibly powerful service for folks with some
-basic non-private notification needs—like ours, for these birds!—it is
-important to know that <em>the free version of ntfy has no privacy.</em>
-Any message you post to it can be viewed by anyone. It is not likely
-that these messages will specifically be linked to you, unless you share
-the URL, but you absolutely should not post anything to it that you are
-not comfortable being fully public.</p>
-<p>The messages we’ll be posting from BirdNET-Pi will only include
-specific bird names, not locations or addresses or personal contact
-info. While someone could theoretically use that information to be
-creepy, I’ve decided that I don’t think someone would be able to learn
-more from my public bird notification topic than they’d already be able
-to find out elsewhere.<a href="#fn1" class="footnote-ref" id="fnref1"
-role="doc-noteref"><sup>1</sup></a> Well, if there was one particularly
-rare bird that was migrating through a particularly narrow region, and
-you noticed it show up on my topic at a certain time, you might be able
-to triangulate where I live—but not any more precisely than with other
-data that is already public, for better or worse.<a href="#fn2"
-class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
-<p>Alternatively, it is possible to pay for a private version of ntfy,
-or host it yourself. I’ve never done that, but it seems reasonable!</p>
-<h2 id="set-up-ntfy-on-your-birdnet-pi">Set-up ntfy on your
-BirdNET-Pi</h2>
-<p>To use ntfy with BirdNET-Pi, we’ll be choosing a unique-ish topic
-name, telling BirdNET-Pi to post to that ntfy topic (via its website
-settings page), and then subscribing to that topic through the ntfy
-phone application (although you could instead subscribe via the default
-web application or some other service).</p>
-<p>This process is straightforward—let’s step through it! Oh, and I’m
-assuming that you’re starting with a fully set-up installation of
-BirdNET-Pi. If you aren’t, go back and follow my <a
-href="../birdnet-setup/">set-up instructions</a> first!</p>
-<ol type="1">
-<li>Choose a unique-enough ntfy topic, by generating a universally
-unique identifier (UUID).
-<ul>
-<li><p>You can generate one <a
-target="_blank" rel="noreferrer noopener" href="https://www.uuidgenerator.net/version4">here</a> or select one <a
-target="_blank" rel="noreferrer noopener" href="https://everyuuid.com/">from this list of all uuids</a>.<a
-href="#fn3" class="footnote-ref" id="fnref3"
-role="doc-noteref"><sup>3</sup></a> It should look something like
-“1cb879d7-2c2e-40a4-8c3b-c5343babd810”.</p></li>
-<li><p>The goal here is choosing a topic name that no one else is likely
-to be posting to, so that you don’t get <em>their</em> notifications in
-addition to your own. Also the more obscure it is, the less likely it is
-that anyone who randomly stumbles across it will know to associate it
-with you, specifically.</p></li>
-</ul>
-Nothing is stopping you from making something more human-readable, but
-keep the obscurity concern in mind if you do. I intentionally do not use
-<code>hannahilea-birdnet-notifications</code>, but because I’ve set up a
-few different installations now, and want to know what they are from the
-different subscription topics, I do throw an identifier for myself at
-the end of the topic name—e.g.,
-<code>1cb879d7-2c2e-40a4-8c3b-c5343babd810-hr1</code>.</li>
-</ol>
-<ol start="2" type="1">
-<li><p>On your BirdNET-PI’s basic settings page
-(<code>Tools &gt; Settings</code>), find the <code>Notifications</code>
-section.</p>
-<ul>
-<li><p>If you’re prompted to log in, remember that the default
-credentials (unless you changed them!) are username “birdnet” and empty
-password.</p></li>
-<li><p>Forget how to get to your BirdNET-Pi’s website? While on the same
-local WiFi network as it, it will look something like
-<code>http://birdnet-&lt;pi_identifier&gt;.local/</code>; if you <a
-target="_blank" rel="noreferrer noopener" href="https://hannahilea.com/blog/birdnet-setup/#task-5-optional-install-tailscale-for-remote-monitoring">set
-up Tailscale</a> then you won’t need to be on the same local network to
-view it, and your URL will look something like
-<code>http://birdnet-&lt;pi_identifier&gt;.ts.net</code> (you can find
-that specific link in your Tailscale <a
-target="_blank" rel="noreferrer noopener" href="https://login.tailscale.com/admin/machines">console</a>).</p></li>
-</ul>
-<figure>
-<img src="./assets/birdnet-settings-0.png"
-alt="Screenshot of BirdNET-Pi settings page with ntfy set as above" />
-
-
-</figure></li>
-<li><p>Add your ntfy topic as the notification service by setting that
-first “Notifications” field to
-<code>ntfy://&lt;topic-uuid&gt;</code>.</p>
-<ul>
-<li>Using our example uuid, that looks like
-<code>ntfy://1cb879d7-2c2e-40a4-8c3b-c5343babd810</code></li>
-</ul>
-<figure>
-<img src="./assets/birdnet-settings-1.png"
-alt="Screenshot of BirdNET-Pi settings page with ntfy set as above" />
-
-
-</figure>
-<ul>
-<li>If you decide to pay for a private ntfy account—or use a different
-notification service outright—this is the part of these setup steps that
-will change; this configuration line will instead need to be something
-like <code>ntfys://{token}@{hostname}/{topics}</code>. There is good <a
-target="_blank" rel="noreferrer noopener" href="https://appriseit.com/services/ntfy/#syntax">apprise documentation
-for that</a>, should you need it.</li>
-</ul></li>
-<li><p>Set the subject and message based on what you want to hear from
-your birds. I have mine set to basically the default message, with an
-updated subject:</p>
-<ul>
-<li><p>Notification Title: <code>New $comname detection!</code></p></li>
-<li><p>Notification Body:
-<code>A $comname ($sciname) was just detected, with a confidence of $confidence ($reason)</code></p></li>
-</ul>
-<p>You can update the message to use any of the templated variables
-described on that screen; play around with combinations and sending
-yourself test messages to see what feels right to you.<a href="#fn4"
-class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>
-Remember not to include anything private in those messages, though—i.e.,
-skip including <code>$latitude</code> or <code>$longitude</code>.
-(<code>$listenurl</code> will be the url of your BirdNET-Pi, but unless
-you’ve put your installation on a public network, no one except you and
-anyone you’ve added to your tailscale network will be able to access it
-anyway, so you can use it if you want)</p>
-<figure>
-<img src="./assets/birdnet-settings-2.png"
-alt="Screenshot of BirdNET-Pi settings page with notification details set as described" />
-
-
-</figure></li>
-</ol>
-<ol start="5" type="1">
-<li><p>Choose what you want to be notified about! These are my
-settings:<a href="#fn5" class="footnote-ref" id="fnref5"
-role="doc-noteref"><sup>5</sup></a></p>
-<figure>
-<img src="./assets/choices.png" alt="Screenshot of choices" />
-
-</figure></li>
-</ol>
-<ol start="6" type="1">
-<li><p>Test that you’ve configured the BirdNET-Pi correctly: go to the
-ntfy <a target="_blank" rel="noreferrer noopener" href="https://ntfy.sh/app">web app</a>, and subscribe to your
-topic <code>&lt;uuid&gt;</code>:</p>
-<p><img src="./assets/subscribe.png"
-alt="Screenshot of ntfy webapp with subscription to new topic" />.</p>
-<p>Now, back in the BirdNET-Pi settings page, hit “Send Test
-Notification”. After a few moments, confirmation of completion will show
-up below the test button <em>and</em> you should see the test message
-show up on the ntfy page:</p>
-<p><img src="./assets/test-net-to-desktop.png"
-alt="Screenshot of ntfy webapp with new message visible" />.</p>
-<p>Huzzah! (If you don’t see a test message show up, double-check that
-you’ve used the same uuid topic on both your BirdNET-Pi and the ntfy
-app.)</p></li>
-<li><p>Repeat this “send test message” process as much as you like,
-while you tune the notification messages to your liking, but then don’t
-forget to <strong><em>SCROLL TO THE BOTTOM OF THE SETTINGS PAGE AND
-CLICK UPDATE!</em></strong></p>
-<p>Otherwise your settings will not save and your birds will not trigger
-notifications, and you will be sad.</p></li>
-</ol>
-<p>Cool, we’re done with this part! Don’t leave the settings page yet,
-though, we’ll want access to that Send Test Notification button</p>
-<h2 id="set-up-ntfy-on-your-phone">Set-up ntfy on your phone</h2>
-<ol type="1">
-<li><p>Install ntfy on your phone: <a
-target="_blank" rel="noreferrer noopener" href="https://apps.apple.com/us/app/ntfy/id1625396347">iPhone</a> / <a
-target="_blank" rel="noreferrer noopener" href="https://play.google.com/store/apps/details?id=io.heckel.ntfy">Android</a></p>
-<ul>
-<li>I use the iPhone app and can’t personally vouch for the Android one,
-but as they’re by the same developer I assume they’re functionally
-equivalent.</li>
-</ul></li>
-<li><p>Open the ntfy phone app and subscribe to your new topic:</p>
-<figure>
-<img src="./assets/phone-ntfy-add.png"
-alt="Screenshot from phone showing ntfy “add topic” screen" />
-
-
-</figure></li>
-<li><p>With the app still open, send another test message from the
-BirdNET-Pi settings page (“Send Test Notification” button). If you’ve
-typed in your UUID topic correctly, you should see it show up here in
-the app!</p>
-<figure>
-<img src="./assets/phone-ntfy.png"
-alt="Screenshot from phone showing new notification in ntfy topic view" />
-
-
-</figure></li>
-<li><p>When you sent the test notification, you should also have
-received a push notification for it—i.e., a little pop-up notification
-at the top of your screen. If you didn’t get the pop-up, go into your
-phone’s notification settings and update them to allow the types of
-notifications you want.</p>
-<ul>
-<li>On an iPhone, you can get there by going into
-<code>Settings &gt; Notifications &gt; ntfy</code></li>
-<li>Unlike any of my other apps(!), I allow ntfy messages to send me all
-types of notifications, and to let them show up directly on my lock
-screen. That looks like this:</li>
-</ul>
-<figure>
-<img src="./assets/iphone-settings.png"
-alt="Screenshot from phone showing notification settings page" />
-
-
-</figure>
-<p>You may want something a little less zealous! Once you’ve updated
-your settings, try sending another test message to test it out.</p>
-<figure>
-<img src="./assets/phone-push.png"
-alt="Screenshot from phone showing a notification for the test bird" />
-
-
-</figure></li>
-</ol>
-<p>That’s all! Go forth and be notified! After a few days you’ll likely
-want to go back to the BirdNET-Pi settings to tune your notification
-frequency, as you decide you want more or fewer words from your
-birds.</p>
-<h3 id="yet-another-plug-for-tailscale">Yet another plug for
-Tailscale</h3>
-<p>If you’re away from home when you receive a notification from your
-BirdNET-Pi, you may want to immediately go view that new detection. If
-you aren’t on the same WiFi network as your Pi, you won’t be able to
-view it unless you’ve set up Tailscale. The steps to do this are
-included as an optional piece of <a
-target="_blank" rel="noreferrer noopener" href="https://hannahilea.com/blog/birdnet-setup/#task-5-optional-install-tailscale-for-remote-monitoring">my
-original set-up guide</a>.</p>
-<p>If you’ve installed Tailscale on your Pi, you can also add your phone
-to your Tailscale network, by installing the Tailscale app <a
-target="_blank" rel="noreferrer noopener" href="https://tailscale.com/docs/install">on your phone</a>. Then, when
-you’re away from home and you get a ntfy notification about something
-Exciting™ yelling in your yard, you can simply (1) turn on Tailscale on
-your phone (if it isn’t always running!) and then (2) go to view your
-BirdNET-Pi’s website through that Tailscale URL. I have mine bookmarked
-on my home screen.</p>
-<p>Or you could rush home to try to see your new bird friend in person.
-Your call!</p>
-<p><strong><em>Thanks to SM, for setting up their first BirdNET-Pi and
-encouraging me to document this next step for them! Happy early
-birthday!</em></strong></p>
-<div class="alert" style="background:#e8ebf5; padding: .5em;">
-<summary class="alert-heading">
-<p>All posts in the BirdNET-Pi series:</p>
-<ol type="1">
-<li><a href="../birdnet-intro/">Intro to BirdNET-Pi: Eavesdropping on my
-feathered friends (and how you can, too!)</a></li>
-<li><a href="../birdnet-setup">Set up a BirdNET-Pi on a Raspberry Pi
-Zero 2 W</a></li>
-<li><a href="../birdnet-text-notifications">Text of the wild: Receive
-notifications from your BirdNET-Pi via ntfy</a></li>
-</ol>
-🐦‍⬛
-</summary>
-</div>
-<section id="footnotes" class="footnotes footnotes-end-of-document"
-role="doc-endnotes">
-<hr />
-<h3 id="footnotes-title">Footnotes</h3>
-<ol>
-<li id="fn1"><p><a target="_blank" rel="noreferrer noopener" href="https://sinceyouarrived.world/taken">For
-example…</a><a href="#fnref1" class="footnote-back"
-role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Worse. DEFINITELY worse.<a href="#fnref2"
-class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Although I know Nolen <a
-target="_blank" rel="noreferrer noopener" href="https://eieio.games/blog/writing-down-every-uuid/">built this list
-of all uuids on a lark</a>, it is useful here! Thanks, <a
-target="_blank" rel="noreferrer noopener" href="https://eieio.games/">Nolen</a>! Relatedly, it was delightful to
-search the open web for “which uuid version to use” and be given
-Nicole’s <a
-target="_blank" rel="noreferrer noopener" href="https://www.ntietz.com/blog/til-uses-for-the-different-uuid-versions/">TIL:
-8 versions of UUID and when to use them</a> as the top hit. I love it
-when the answer to my asked-to-the-greater-world questions end up coming
-from friends.<a href="#fnref3" class="footnote-back"
-role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>Examples, should you wish: - For desired message “I’m a
-American Goldfinch! I’m a American Goldfinch! I’m a American Goldfinch!”
-set the Notification Body to
-<code>I'm a $comname! I'm a $comname! I'm a $comname!</code> - For
-desired message “A wild Spinus tristus appears!”, set the Notification
-Body to <code>A wild $sciname appears!</code> - For desired message
-format “76% confident in new American Goldfinch detection” set the
-Notifcation Body to
-<code>$confidencepct% confident in new $comname detection</code></p>
-<p>Have fun with it. :)<a href="#fnref4" class="footnote-back"
-role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>When I first set this up I requested notifications for
-everything, but that got old quickly. I’ve got a lot of birds. They have
-a lot to say. Turns out I don’t need to know about all of it.<a
-href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
-      <hr />
-      <ul class="date">
-        <li>Created: 2026-05-23</li>
-        <li>Type: Tutorial</li>
-        <li>Tags: birb-creeping, houseplant-programming, passive-acoustic-monitoring, birdnet-pi</li>
-      </ul>
-<footer>
-    <p class="breadcrumbs"><a class="basic-alignment right" href="/blog/"></a> <a class="basic-alignment left" href="/blog/./just-flag" title="Previous: The "Just" Flag">The "Just" Flag</a></p>
-    <hr>
-    <nav class="navbar footer-navbar" role="navigation">
-        @hannahilea:
-        <a href="/" class="nav-link">home</a> |
-        <a href="/projects" class="nav-link">projects</a> |
-        <a href="/blog" class="nav-link">blog</a>
+<body>
+  <div class="main-container blog">
+    <nav class="navbar" role="navigation">
+      @hannahilea:
+      <a class="nav-link" href="../..">home</a> |
+      <a class="nav-link" href="../../projects">projects</a> |
+      <a class="nav-link" href="..">blog</a>
     </nav>
-    <div class="link-buttons">
-        <form action="https://buttondown.com/api/emails/embed-subscribe/hannahilea" method="post"
-            class="embeddable-buttondown-form">
-            <input type="email" name="email" id="bd-email" placeholder="Enter your email" />
-            <input type="submit" value="Subscribe" />
-            <a href="/rss.xml" rel="subscribe-rss">
-                <!-- Source: https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white -->
-                <img class="badge" src="/assets/img/rss-logo-styled.svg" alt="Subscribe to @hannahilea RSS feed" /></a>
-            <!-- <p>
-                <a target="_blank" rel="noreferrer noopener" href="https://buttondown.com/refer/hannahilea" target="_blank"> Powered by Buttondown. </a>
-            </p> -->
-        </form>
+
+    <h1>Text of the wild: Receive notifications from your BirdNET-Pi via
+ntfy</h1>
+    <div class="date">23 May 2026</div>
+    <br>
+    <div class="alert" style="background:#e8ebf5; padding: .5em;">
+    <summary class="alert-heading">
+    <p>All posts in the BirdNET-Pi series:</p>
+    <ol type="1">
+    <li><a href="../birdnet-intro/">Intro to BirdNET-Pi: Eavesdropping
+    on my feathered friends (and how you can, too!)</a></li>
+    <li><a href="../birdnet-setup">Set up a BirdNET-Pi on a Raspberry Pi
+    Zero 2 W</a></li>
+    <li><a href="../birdnet-text-notifications">Text of the wild:
+    Receive notifications from your BirdNET-Pi via ntfy</a></li>
+    </ol>
+    🐦‍⬛
+    </summary>
     </div>
-</footer>
+    <p>Now that you’ve set up your BirdNET-Pi, perhaps you want to get
+    texts whenever a new bird <del>enters the ring</del> yells in your
+    yard?</p>
+    <figure>
+    <img src="./assets/homescreen.png"
+    alt="Screenshot of phone lock screen with notification that a House Finch has been detected" />
+    
+
+    </figure>
+    <p>The BirdNET-Pi folks have made this trivially straightforward to
+    set up, thanks to an <a
+    target="_blank" rel="noreferrer noopener" href="https://github.com/caronc/apprise">apprise</a> integration.
+    Apprise is a piece of code that acts as a switchboard among a huge
+    number of <a
+    target="_blank" rel="noreferrer noopener" href="https://github.com/caronc/apprise#supported-notifications">notification
+    services</a>, so that notifications can be sent to the service(s) of
+    one’s choice—with over a hundred such services to choose from.</p>
+    <figure>
+    <img src="./assets/wupfh.png"
+    alt="Screenshot from The Office, with the caption “When you send a WUPFH it goes to your home phone, cell phone, email, facebook, twitter, and home screen, all at the same time”" />
+    
+
+    </figure>
+    <p>From these notification services I decided to use <a
+    target="_blank" rel="noreferrer noopener" href="https://ntfy.sh/">ntfy</a> (pronounced “notify”, apparently!),
+    which is a <a
+    target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern">publish-subscribe
+    (pub/sub)</a> service. That means that publishers (in our case, the
+    BirdNET-PI) publish messages to a ntfy topic (e.g.,
+    <code>ntfy.sh/my-fun-topic</code>), and then anyone who subscribes
+    to that topic (you! your cat! your neighbors, if you tell them about
+    it!) can read those messages.</p>
+    <p>I chose ntfy for a number of reasons:</p>
+    <ul>
+    <li>source (open)</li>
+    <li>price (free, for the basic public service)</li>
+    <li>sign-up (none, for the basic public service)</li>
+    <li>access (not linked to a proprietary device or application;
+    subscribable from my phone; not linked to a single account, so that
+    my spouse can also receive bird notifications)</li>
+    <li>recommendations (from some <a
+    target="_blank" rel="noreferrer noopener" href="https://www.recurse.com/">Recurse Center</a> peers whose
+    choices in software tend to align with my own), and</li>
+    <li>difficulty to configure (none)</li>
+    </ul>
+    <p>If you have different notification needs, you may want to use a
+    different service, but your set up on the BirdNET-Pi-side will look
+    roughly the same.</p>
+    <p>For example, you can do this right now, no sign-up needed:</p>
+    <ol type="1">
+    <li><p>Go to <a target="_blank" rel="noreferrer noopener" href="https://ntfy.sh/app">https://ntfy.sh/app</a>
+    in your browser</p></li>
+    <li><p>Hit “+Subscribe to topic” and add topic
+    “big-old-string-of-text-that-is-likely-somewhat-unique”</p></li>
+    </ol>
+    <figure>
+    <img src="./assets/subscribe-party-people.png"
+    alt="Screenshot of browser with above message." />
+    
+
+    </figure>
+    <ol start="3" type="1">
+    <li><p>In your terminal, post a message to that thread, e.g., copy
+    in</p>
+    <pre><code>curl -d &quot;Hello party people &quot; ntfy.sh/big-old-string-of-text-that-is-likely-somewhat-unique</code></pre>
+    <p>and then hit enter.</p>
+    <figure>
+    <img src="./assets/curl-party-people.png"
+    alt="Screenshot of terminal with the above message." />
+    
+
+    </figure></li>
+    <li><p>See that message show up in the browser!</p></li>
+    </ol>
+    <figure>
+    <img src="./assets/hello-party-people.png"
+    alt="Screenshot of browser with above message." />
+    
+
+    </figure>
+    <ol start="5" type="1">
+    <li>Realize that anyone else who subscribed or subscribes to this
+    topic will <em>also</em> see these messages, and gain an
+    understanding of the privacy situation around these messages—namely,
+    none. 😅</li>
+    </ol>
+    <figure>
+    <img src="./assets/ntnf-demo.gif"
+    alt="Screenshots of the above steps being carried out in realtime." />
+    
+
+    </figure>
+    <p>While ntfy is an incredibly powerful service for folks with some
+    basic non-private notification needs—like ours, for these birds!—it
+    is important to know that <em>the free version of ntfy has no
+    privacy.</em> Any message you post to it can be viewed by anyone. It
+    is not likely that these messages will specifically be linked to
+    you, unless you share the URL, but you absolutely should not post
+    anything to it that you are not comfortable being fully public.</p>
+    <p>The messages we’ll be posting from BirdNET-Pi will only include
+    specific bird names, not locations or addresses or personal contact
+    info. While someone could theoretically use that information to be
+    creepy, I’ve decided that I don’t think someone would be able to
+    learn more from my public bird notification topic than they’d
+    already be able to find out elsewhere.<a href="#fn1"
+    class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
+    Well, if there was one particularly rare bird that was migrating
+    through a particularly narrow region, and you noticed it show up on
+    my topic at a certain time, you might be able to triangulate where I
+    live—but not any more precisely than with other data that is already
+    public, for better or worse.<a href="#fn2" class="footnote-ref"
+    id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+    <p>Alternatively, it is possible to pay for a private version of
+    ntfy, or host it yourself. I’ve never done that, but it seems
+    reasonable!</p>
+    <h2 id="set-up-ntfy-on-your-birdnet-pi">Set-up ntfy on your
+    BirdNET-Pi</h2>
+    <p>To use ntfy with BirdNET-Pi, we’ll be choosing a unique-ish topic
+    name, telling BirdNET-Pi to post to that ntfy topic (via its website
+    settings page), and then subscribing to that topic through the ntfy
+    phone application (although you could instead subscribe via the
+    default web application or some other service).</p>
+    <p>This process is straightforward—let’s step through it! Oh, and
+    I’m assuming that you’re starting with a fully set-up installation
+    of BirdNET-Pi. If you aren’t, go back and follow my <a
+    href="../birdnet-setup/">set-up instructions</a> first!</p>
+    <ol type="1">
+    <li>Choose a unique-enough ntfy topic, by generating a universally
+    unique identifier (UUID).
+    <ul>
+    <li><p>You can generate one <a
+    target="_blank" rel="noreferrer noopener" href="https://www.uuidgenerator.net/version4">here</a> or select one
+    <a target="_blank" rel="noreferrer noopener" href="https://everyuuid.com/">from this list of all uuids</a>.<a
+    href="#fn3" class="footnote-ref" id="fnref3"
+    role="doc-noteref"><sup>3</sup></a> It should look something like
+    “1cb879d7-2c2e-40a4-8c3b-c5343babd810”.</p></li>
+    <li><p>The goal here is choosing a topic name that no one else is
+    likely to be posting to, so that you don’t get <em>their</em>
+    notifications in addition to your own. Also the more obscure it is,
+    the less likely it is that anyone who randomly stumbles across it
+    will know to associate it with you, specifically.</p></li>
+    </ul>
+    Nothing is stopping you from making something more human-readable,
+    but keep the obscurity concern in mind if you do. I intentionally do
+    not use <code>hannahilea-birdnet-notifications</code>, but because
+    I’ve set up a few different installations now, and want to know what
+    they are from the different subscription topics, I do throw an
+    identifier for myself at the end of the topic name—e.g.,
+    <code>1cb879d7-2c2e-40a4-8c3b-c5343babd810-hr1</code>.</li>
+    </ol>
+    <ol start="2" type="1">
+    <li><p>On your BirdNET-PI’s basic settings page
+    (<code>Tools &gt; Settings</code>), find the
+    <code>Notifications</code> section.</p>
+    <ul>
+    <li><p>If you’re prompted to log in, remember that the default
+    credentials (unless you changed them!) are username “birdnet” and
+    empty password.</p></li>
+    <li><p>Forget how to get to your BirdNET-Pi’s website? While on the
+    same local WiFi network as it, it will look something like
+    <code>http://birdnet-&lt;pi_identifier&gt;.local/</code>; if you <a
+    target="_blank" rel="noreferrer noopener" href="https://hannahilea.com/blog/birdnet-setup/#task-5-optional-install-tailscale-for-remote-monitoring">set
+    up Tailscale</a> then you won’t need to be on the same local network
+    to view it, and your URL will look something like
+    <code>http://birdnet-&lt;pi_identifier&gt;.ts.net</code> (you can
+    find that specific link in your Tailscale <a
+    target="_blank" rel="noreferrer noopener" href="https://login.tailscale.com/admin/machines">console</a>).</p></li>
+    </ul>
+    <figure>
+    <img src="./assets/birdnet-settings-0.png"
+    alt="Screenshot of BirdNET-Pi settings page with ntfy set as above" />
+    
+
+    </figure></li>
+    <li><p>Add your ntfy topic as the notification service by setting
+    that first “Notifications” field to
+    <code>ntfy://&lt;topic-uuid&gt;</code>.</p>
+    <ul>
+    <li>Using our example uuid, that looks like
+    <code>ntfy://1cb879d7-2c2e-40a4-8c3b-c5343babd810</code></li>
+    </ul>
+    <figure>
+    <img src="./assets/birdnet-settings-1.png"
+    alt="Screenshot of BirdNET-Pi settings page with ntfy set as above" />
+    
+
+    </figure>
+    <ul>
+    <li>If you decide to pay for a private ntfy account—or use a
+    different notification service outright—this is the part of these
+    setup steps that will change; this configuration line will instead
+    need to be something like
+    <code>ntfys://{token}@{hostname}/{topics}</code>. There is good <a
+    target="_blank" rel="noreferrer noopener" href="https://appriseit.com/services/ntfy/#syntax">apprise
+    documentation for that</a>, should you need it.</li>
+    </ul></li>
+    <li><p>Set the subject and message based on what you want to hear
+    from your birds. I have mine set to basically the default message,
+    with an updated subject:</p>
+    <ul>
+    <li><p>Notification Title:
+    <code>New $comname detection!</code></p></li>
+    <li><p>Notification Body:
+    <code>A $comname ($sciname) was just detected, with a confidence of $confidence ($reason)</code></p></li>
+    </ul>
+    <p>You can update the message to use any of the templated variables
+    described on that screen; play around with combinations and sending
+    yourself test messages to see what feels right to you.<a href="#fn4"
+    class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>
+    Remember not to include anything private in those messages,
+    though—i.e., skip including <code>$latitude</code> or
+    <code>$longitude</code>. (<code>$listenurl</code> will be the url of
+    your BirdNET-Pi, but unless you’ve put your installation on a public
+    network, no one except you and anyone you’ve added to your tailscale
+    network will be able to access it anyway, so you can use it if you
+    want)</p>
+    <figure>
+    <img src="./assets/birdnet-settings-2.png"
+    alt="Screenshot of BirdNET-Pi settings page with notification details set as described" />
+    
+
+    </figure></li>
+    </ol>
+    <ol start="5" type="1">
+    <li><p>Choose what you want to be notified about! These are my
+    settings:<a href="#fn5" class="footnote-ref" id="fnref5"
+    role="doc-noteref"><sup>5</sup></a></p>
+    <figure>
+    <img src="./assets/choices.png" alt="Screenshot of choices" />
+    
+    </figure></li>
+    </ol>
+    <ol start="6" type="1">
+    <li><p>Test that you’ve configured the BirdNET-Pi correctly: go to
+    the ntfy <a target="_blank" rel="noreferrer noopener" href="https://ntfy.sh/app">web app</a>, and subscribe to
+    your topic <code>&lt;uuid&gt;</code>:</p>
+    <p><img src="./assets/subscribe.png"
+    alt="Screenshot of ntfy webapp with subscription to new topic" />.</p>
+    <p>Now, back in the BirdNET-Pi settings page, hit “Send Test
+    Notification”. After a few moments, confirmation of completion will
+    show up below the test button <em>and</em> you should see the test
+    message show up on the ntfy page:</p>
+    <p><img src="./assets/test-net-to-desktop.png"
+    alt="Screenshot of ntfy webapp with new message visible" />.</p>
+    <p>Huzzah! (If you don’t see a test message show up, double-check
+    that you’ve used the same uuid topic on both your BirdNET-Pi and the
+    ntfy app.)</p></li>
+    <li><p>Repeat this “send test message” process as much as you like,
+    while you tune the notification messages to your liking, but then
+    don’t forget to <strong><em>SCROLL TO THE BOTTOM OF THE SETTINGS
+    PAGE AND CLICK UPDATE!</em></strong></p>
+    <p>Otherwise your settings will not save and your birds will not
+    trigger notifications, and you will be sad.</p></li>
+    </ol>
+    <p>Cool, we’re done with this part! Don’t leave the settings page
+    yet, though, we’ll want access to that Send Test Notification
+    button</p>
+    <h2 id="set-up-ntfy-on-your-phone">Set-up ntfy on your phone</h2>
+    <ol type="1">
+    <li><p>Install ntfy on your phone: <a
+    target="_blank" rel="noreferrer noopener" href="https://apps.apple.com/us/app/ntfy/id1625396347">iPhone</a> /
+    <a
+    target="_blank" rel="noreferrer noopener" href="https://play.google.com/store/apps/details?id=io.heckel.ntfy">Android</a></p>
+    <ul>
+    <li>I use the iPhone app and can’t personally vouch for the Android
+    one, but as they’re by the same developer I assume they’re
+    functionally equivalent.</li>
+    </ul></li>
+    <li><p>Open the ntfy phone app and subscribe to your new topic:</p>
+    <figure>
+    <img src="./assets/phone-ntfy-add.png"
+    alt="Screenshot from phone showing ntfy “add topic” screen" />
+    
+
+    </figure></li>
+    <li><p>With the app still open, send another test message from the
+    BirdNET-Pi settings page (“Send Test Notification” button). If
+    you’ve typed in your UUID topic correctly, you should see it show up
+    here in the app!</p>
+    <figure>
+    <img src="./assets/phone-ntfy.png"
+    alt="Screenshot from phone showing new notification in ntfy topic view" />
+    
+
+    </figure></li>
+    <li><p>When you sent the test notification, you should also have
+    received a push notification for it—i.e., a little pop-up
+    notification at the top of your screen. If you didn’t get the
+    pop-up, go into your phone’s notification settings and update them
+    to allow the types of notifications you want.</p>
+    <ul>
+    <li>On an iPhone, you can get there by going into
+    <code>Settings &gt; Notifications &gt; ntfy</code></li>
+    <li>Unlike any of my other apps(!), I allow ntfy messages to send me
+    all types of notifications, and to let them show up directly on my
+    lock screen. That looks like this:</li>
+    </ul>
+    <figure>
+    <img src="./assets/iphone-settings.png"
+    alt="Screenshot from phone showing notification settings page" />
+    
+
+    </figure>
+    <p>You may want something a little less zealous! Once you’ve updated
+    your settings, try sending another test message to test it out.</p>
+    <figure>
+    <img src="./assets/phone-push.png"
+    alt="Screenshot from phone showing a notification for the test bird" />
+    
+
+    </figure></li>
+    </ol>
+    <p>That’s all! Go forth and be notified! After a few days you’ll
+    likely want to go back to the BirdNET-Pi settings to tune your
+    notification frequency, as you decide you want more or fewer words
+    from your birds.</p>
+    <h3 id="yet-another-plug-for-tailscale">Yet another plug for
+    Tailscale</h3>
+    <p>If you’re away from home when you receive a notification from
+    your BirdNET-Pi, you may want to immediately go view that new
+    detection. If you aren’t on the same WiFi network as your Pi, you
+    won’t be able to view it unless you’ve set up Tailscale. The steps
+    to do this are included as an optional piece of <a
+    target="_blank" rel="noreferrer noopener" href="https://hannahilea.com/blog/birdnet-setup/#task-5-optional-install-tailscale-for-remote-monitoring">my
+    original set-up guide</a>.</p>
+    <p>If you’ve installed Tailscale on your Pi, you can also add your
+    phone to your Tailscale network, by installing the Tailscale app <a
+    target="_blank" rel="noreferrer noopener" href="https://tailscale.com/docs/install">on your phone</a>. Then,
+    when you’re away from home and you get a ntfy notification about
+    something Exciting™ yelling in your yard, you can simply (1) turn on
+    Tailscale on your phone (if it isn’t always running!) and then (2)
+    go to view your BirdNET-Pi’s website through that Tailscale URL. I
+    have mine bookmarked on my home screen.</p>
+    <p>Or you could rush home to try to see your new bird friend in
+    person. Your call!</p>
+    <p><strong><em>Thanks to SM, for setting up their first BirdNET-Pi
+    and encouraging me to document this next step for them! Happy early
+    birthday!</em></strong></p>
+    <div class="alert" style="background:#e8ebf5; padding: .5em;">
+    <summary class="alert-heading">
+    <p>All posts in the BirdNET-Pi series:</p>
+    <ol type="1">
+    <li><a href="../birdnet-intro/">Intro to BirdNET-Pi: Eavesdropping
+    on my feathered friends (and how you can, too!)</a></li>
+    <li><a href="../birdnet-setup">Set up a BirdNET-Pi on a Raspberry Pi
+    Zero 2 W</a></li>
+    <li><a href="../birdnet-text-notifications">Text of the wild:
+    Receive notifications from your BirdNET-Pi via ntfy</a></li>
+    </ol>
+    🐦‍⬛
+    </summary>
     </div>
-  </body>
+    <section id="footnotes" class="footnotes footnotes-end-of-document"
+    role="doc-endnotes">
+    <hr />
+    <ol>
+    <li id="fn1"><p><a target="_blank" rel="noreferrer noopener" href="https://sinceyouarrived.world/taken">For
+    example…</a><a href="#fnref1" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn2"><p>Worse. DEFINITELY worse.<a href="#fnref2"
+    class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+    <li id="fn3"><p>Although I know Nolen <a
+    target="_blank" rel="noreferrer noopener" href="https://eieio.games/blog/writing-down-every-uuid/">built this
+    list of all uuids on a lark</a>, it is useful here! Thanks, <a
+    target="_blank" rel="noreferrer noopener" href="https://eieio.games/">Nolen</a>! Relatedly, it was delightful
+    to search the open web for “which uuid version to use” and be given
+    Nicole’s <a
+    target="_blank" rel="noreferrer noopener" href="https://www.ntietz.com/blog/til-uses-for-the-different-uuid-versions/">TIL:
+    8 versions of UUID and when to use them</a> as the top hit. I love
+    it when the answer to my asked-to-the-greater-world questions end up
+    coming from friends.<a href="#fnref3" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn4"><p>Examples, should you wish: - For desired message
+    “I’m a American Goldfinch! I’m a American Goldfinch! I’m a American
+    Goldfinch!” set the Notification Body to
+    <code>I'm a $comname! I'm a $comname! I'm a $comname!</code> - For
+    desired message “A wild Spinus tristus appears!”, set the
+    Notification Body to <code>A wild $sciname appears!</code> - For
+    desired message format “76% confident in new American Goldfinch
+    detection” set the Notifcation Body to
+    <code>$confidencepct% confident in new $comname detection</code></p>
+    <p>Have fun with it. :)<a href="#fnref4" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    <li id="fn5"><p>When I first set this up I requested notifications
+    for everything, but that got old quickly. I’ve got a lot of birds.
+    They have a lot to say. Turns out I don’t need to know about all of
+    it.<a href="#fnref5" class="footnote-back"
+    role="doc-backlink">↩︎</a></p></li>
+    </ol>
+    </section>
+    <hr />
+    <ul class="date">
+      <li>Created: 2026-05-23</li>
+      <li>Type: Tutorial</li>
+      <li>Tags: birb-creeping, houseplant-programming, passive-acoustic-monitoring, birdnet-pi</li>
+    </ul>
+    <p class="breadcrumbs"><a class="basic-alignment right" href="/blog/"></a> <a class="basic-alignment left" href="/blog/./just-flag" title="Previous: The "Just" Flag">The "Just" Flag</a></p>
+    {{ NAV_FOOTER }}
+  </div>
+</body>
+
 </html>
