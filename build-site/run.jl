@@ -8,7 +8,7 @@ using YAML
 const BLOG_DIR = joinpath(@__DIR__, "..", "blog")
 const BLOG_TEMPLATE = joinpath(BLOG_DIR, "__template", "blog.template.html")
 const BLOG_INDEX_TEMPLATE = joinpath(BLOG_DIR, "__template", "index.template.html")
-const BLOG_FOOTER = read(joinpath(BLOG_DIR, "__template", "blog-footer.html"), String)
+const NAV_FOOTER = read(joinpath(@__DIR__, "..", "__template", "nav-footer.html"), String)
 
 const PROJECT_DIR = joinpath(@__DIR__, "..", "projects")
 const PROJECT_INDEX_TEMPLATE = joinpath(PROJECT_DIR, "__template", "index.template.html")
@@ -49,7 +49,7 @@ function convert_to_html(file, outfile; metadata, template=BLOG_TEMPLATE, overwr
                        "{{ BLOG_DATE }}" => date_pretty,
                        "{{ BLOG_DATE_UPDATED_TOP }}" => date_updated_top,
                        "{{ BLOG_DATE_UPDATED_FOOTER }}" => date_updated_footer,
-                       "{{ BLOG_FOOTER }}" => BLOG_FOOTER)
+                       "{{ NAV_FOOTER }}" => NAV_FOOTER)
 
     blog_prev, blog_next = get_breadcrumbs_details(file; metadata)
     str = replace(str, "{{ BLOG_RIGHT_BREADCRUMB }}" => blog_prev,
@@ -204,7 +204,7 @@ function generate_blog_index(metadata; overwrite_existing=false, template=BLOG_I
 
     str = read(template, String)
     str = replace(str, "<!-- POSTS -->" => join(blog_strs, "\n"))
-    str = replace(str, "{{ BLOG_FOOTER }}" => BLOG_FOOTER)
+    str = replace(str, "{{ NAV_FOOTER }}" => NAV_FOOTER)
     str = replace(str, "{{ BLOG_LEFT_BREADCRUMB }}" => "", 
                        "{{ BLOG_RIGHT_BREADCRUMB }}" => "")
     str = get_warning(template) * str
@@ -312,6 +312,7 @@ function generate_project_index(; overwrite_existing=false, template=PROJECT_IND
         end
         index_str = replace(index_str, "<!-- POSTS-$key -->" => join(proj_strs, "\n"))
     end
+    index_str = replace(index_str, "{{ NAV_FOOTER }}" => NAV_FOOTER)
     write(outfile, index_str)
 
     try
