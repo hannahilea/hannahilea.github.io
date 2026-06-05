@@ -328,6 +328,10 @@ img.home-img {
     align-items: center;
   }
 
+  .navbar {
+    margin-bottom: 1.6em;
+  }
+
   img {
     display: block;
     margin-left: auto;
@@ -396,12 +400,14 @@ img.home-img {
     border-left: 7px solid #0843c3;
     margin: 1.5em 10px;
     padding: 0.5em 10px;
-    quotes: "\201C""\201D""\2018""\2019";
+    quotes: "\201C" "\201D" "\2018" "\2019";
   }
+
   blockquote p {
     display: inline;
   }
-  blockquote .source{
+
+  blockquote .source {
     display: block;
     text-align: right;
     margin: 0;
@@ -418,8 +424,8 @@ img.home-img {
     }
 
     .blog-table-small-text-size {
-    font-size: 10px;
-  }
+      font-size: 10px;
+    }
   }
 
   h2,
@@ -456,8 +462,8 @@ img.home-img {
   font-family: "Jura Bold";
 }
 
-.blog > footer,
-.index-page > footer {
+.blog>footer,
+.index-page>footer {
   display: block;
 
   input[type="submit"] {
@@ -536,7 +542,7 @@ img.home-img {
     content: "« ";
     left: -1em;
     position: absolute;
-  } 
+  }
 }
 
 /* For blog, project index pages */
@@ -632,4 +638,3 @@ img.home-img {
     }
   }
 }
-
