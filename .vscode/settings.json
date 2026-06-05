@@ -16,6 +16,10 @@
             "cmd": "echo 'A blog template file has been saved ${file}.'; julia --startup-file=no build-site/run.jl"
         },
         {
+            "match": "__template/.*$",
+            "cmd": "echo 'A blog template file has been saved ${file}.'; julia --startup-file=no build-site/run.jl"
+        },
+        {
             "match": "projects/__template/.*$",
             "cmd": "echo 'A project template file has been saved ${file}.'; julia --startup-file=no build-site/run.jl projects"
         },
