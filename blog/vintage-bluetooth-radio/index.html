@@ -8,13 +8,13 @@
     <meta
       property="og:title"
       content="Yesterday’s static, today: A
-modern speaker for the vintage listener"
+Bluetooth speaker for the vintage listener"
     />
     <meta
       property="og:description"
       content="Listening to modern
 baseball games through the static of the past, via a Bluetooth speaker
-with a laser-cut housing modeled off a vintage cathedral radio."
+in a laser-cut housing modeled from a vintage cathedral radio."
     />
     <meta property="og:url" content="https://www.hannahilea.com/blog/vintage-bluetooth-radio" />
     <meta property="og:image" content="https://www.hannahilea.com/blog/vintage-bluetooth-radio/assets/thumbnail.png" />
@@ -28,7 +28,7 @@ with a laser-cut housing modeled off a vintage cathedral radio."
       <img src="https://hannahilea.goatcounter.com/count?p=blog/vintage-bluetooth-radio">
     </noscript> -->
 
-    <title>Yesterday’s static, today: A modern speaker for the vintage listener</title>
+    <title>Yesterday’s static, today: A Bluetooth speaker for the vintage listener</title>
     <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
   </head>
 
@@ -40,75 +40,160 @@ with a laser-cut housing modeled off a vintage cathedral radio."
         <a class="nav-link" href="..">blog</a>
       </nav>
 
-      <h1>Yesterday’s static, today: A modern speaker for the vintage listener</h1>
-      <div class="date">11 Jun 2026</div>
-      <p>
-        Project write-up time, this time for a gifted <a href="../houseplant-programming/">houseplant <del>program</del> build</a>!
-      </p>
-      <h2 id="what">What?</h2>
+      <h1>Yesterday’s static, today: A Bluetooth speaker for the vintage listener</h1>
+      <div class="date">7 Jul 2026</div>
+      <p>Here’s the project write-up for a little cathedral speaker I made as a gift earlier this year.</p>
       <p>TODO-photo</p>
-      <p>A Bluetooth speaker in a housing modeled off a vintage Cathedral radio [todo-link], with a knob for adjusting the volume and another knob for adjusting the “vintage-ness”—namely, the amount of added static and filtering.</p>
-      <p>I’ve taken to calling it a “baseball radio” even though it is very generic and—other than in backstory—has nothing to do with either baseball or radio.</p>
+      <h2 id="what">What?</h2>
+      <p>TODO-video</p>
+      <p>
+        A Bluetooth speaker in a housing modeled off a vintage Cathedral radio,<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> with one knob for adjusting volume and another for adjusting
+        “vintage-ness”—the amount of static and filtering applied to the audio. The higher the vintage-ness, the lower the audio fidelity!<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+      </p>
       <h2 id="why">Why?</h2>
-      <p>My partner frequently listens to baseball games on the radio, often preferring that to watching a full broadcast. To listen to her hometown games she uses streaming sites to tune in.</p>
-      <p>I thought it would be fun to add a vintage flavor to her experience, so decided to build her a “vintage” Bluetooth speaker as a gift, so that she could listen to her baseball games in style.</p>
-      <h2 id="technically-how">[Technically] How?</h2>
+      <p>
+        My partner frequently listens to baseball game radio broadcasts, instead of watching televised games. Given the
+        <a target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Major_League_Baseball_on_the_radio">long history of radio and baseball broadcasts</a>, I thought it would be fun to add a vintage flavor to her
+        experience by building a “vintage” Bluetooth speaker for listening to <a target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Detroit_Tigers_Radio_Network">hometown games</a> in low-fi style.
+      </p>
+      <h2 id="how">How?</h2>
       <h4 id="outside">Outside</h4>
       <p>
-        A wooden housing, designed in Cuttle.xyz from a vintage TODO and cut on the laser cutter in the maker space at my public library.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
+        I modeled the speaker’s wooden housing on a Crosley 179 “Dual Four” Cathedral (1934): in parametric CAD program <a target="_blank" rel="noreferrer noopener" href="https://cuttle.xyz">cuttle.xyz</a> I traced the main outline and
+        cutouts of a photo of the Crosley, rearranged the knob positions, and added some simplified decoration to the faceplate. I sized it down to be just big enough to fit the electronics.
+      </p>
+      <p>TODO-trace screenshot</p>
+      <p>That design is <a target="_blank" rel="noreferrer noopener" href="TODO-link%20cuttle">here</a>, if you want to cut your own.</p>
+      <p>TODO-cut layout</p>
+      <p>
+        I cut it from 1/8” plywood on the laser cutter of my public library’s maker space,<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> then finished the wood with a basic stain and glued the layers
+        together around the electronics. I glued the wood knobs directly onto their respective potentiometers, after inserting the electronics.
       </p>
       <p>TODO-photos</p>
+      <p>
+        The speaker fabric was roughly four inches of a perfect ribbon I found at my local <a target="_blank" rel="noreferrer noopener" href="TODO-link">second-hand art supply</a> store. Seriously, they could not have had a more perfect
+        option. I glued that on, too.
+      </p>
       <h4 id="inside">Inside</h4>
-      <p>An Adafruit FOO, with some other stuff attached. I modeled my approach off of TODO-CITE.</p>
+      <p>
+        I used <a target="_blank" rel="noreferrer noopener" href="TODO-link">this Adafruit tutorial by TODO-FOO</a> as a starting point for the component selection and assembly, as well as the starting code approach.<a
+          href="#fn4"
+          class="footnote-ref"
+          id="fnref4"
+          role="doc-noteref"
+          ><sup>4</sup></a
+        >
+        As in the tutorial, my build is based around an Adafruit TODO, with the addition of a couple of rotary potentiometers and a speaker.
+      </p>
+      <p>Here it is all wired up:</p>
       <p>TODO-photos/schema?</p>
-      <h4 id="code">Code</h4>
-      <p>Code based on FOO.</p>
-      <h2 id="literally-how">[Literally] How?</h2>
-      <p>With much logistical difficulty! After this project, I’m declaring a temporary moratorium on builds with a holiday gifting deadline.</p>
-      <p><strong>Physical challenges:</strong></p>
+      <h4 id="programming">Programming</h4>
+      <p>The radio is programmed in TODO, and relies on the TODO libraries written by TODO. The processing chain is roughly:</p>
       <ul>
-        <li>TODO</li>
+        <li>Audio source is from Bluetooth connection</li>
+        <li>Amplify input based on value of the “volume” potentiometer knob</li>
+        <li>Filter input with notch filter, with depth dependent on value of the “vintage” potentiometer knob</li>
+        <li>Add white noise, with amount dependent on value of the “vintage” potentiometer knob</li>
+        <li>Audio sink is the speaker</li>
       </ul>
-      <p><strong>Technical challenges:</strong></p>
-      <ul>
-        <li>TODO</li>
-      </ul>
+      <p>
+        …it ended up being slightly more convoluted, due to my lack of familiarity with the processing library and the challenging conditions under which I was attempting to debug.<a
+          href="#fn5"
+          class="footnote-ref"
+          id="fnref5"
+          role="doc-noteref"
+          ><sup>5</sup></a
+        >
+        The code is <a target="_blank" rel="noreferrer noopener" href="TODO-link">here</a>.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>
+      </p>
       <h2 id="next-steps">Next steps</h2>
       <p>
         For me, for now? None! I thought that I might continue to futz with it to get the processing how I wanted, but after I handed it over it turns out I was <em>done</em>. It works, it works <em>mostly</em> as designed, and it is usable
         without my intervention. Good enough for giftable work!
       </p>
       <p>
-        If I wanted to improve on it or do something similar in the future, I’d definitely figure out what was going on in my code and make that nicer. I might also switch over to a different board—after it was way too late, a friend
-        recommended using a Teensy, which apparently has a whole GUI system for setting up exactly the processing chain I struggled to implement in code [on a moving train, without ability to debug or play audio out loud].
+        If I wanted to improve on the speaker or build something similar in the future, I’d definitely figure out what was going on in my code and make it nicer. I might also switch over to a different board and programming ecosystem—after
+        the fact, a friend recommended using a <a target="_blank" rel="noreferrer noopener" href="TODO-link">Teensy</a>, which apparently has a whole GUI system for easily setting up exactly the basic processing chain I’d wanted. Fun for
+        the future!
       </p>
-      <p><strong>If you want to make one, go for it!</strong> Caveat that in true houseplant programming form, I have spent no time cleaning up either to be more readable as a tutorial—what you see is what you get:</p>
+      <p><strong>If you want to make one, go for it!</strong> Caveat that in true houseplant programming form, it is not written in tutorial form—what you see is what you get:</p>
       <ul>
         <li>
-          <p>The Cuttle.xyz CAD project for making the housing: <a target="_blank" rel="noreferrer noopener" href="TODO">HERE</a></p>
+          <p>The Cuttle.xyz CAD project for making the housing: <a target="_blank" rel="noreferrer noopener" href="TODO-link">HERE</a></p>
         </li>
         <li>
-          <p>The repo where I documented my hardware set-up and saved my code: <a target="_blank" rel="noreferrer noopener" href="TODO">HERE</a></p>
+          <p>The repo where I documented my hardware set-up and saved my code: <a target="_blank" rel="noreferrer noopener" href="TODO-link">HERE</a></p>
         </li>
       </ul>
-      <p>Or you could take the easier approach: take a regular bluetooth speaker, put it near a microwave, and run the microwave constantly. Bam. Static.</p>
+      <p>If you make one, let me know!</p>
       <p>
-        <strong><em>Thanks to TODO.</em></strong>
+        <strong><em>Thanks to TODO for their Adafruit tutorial.</em></strong>
       </p>
       <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
         <hr />
+        <h3 id="footnotes-title">Footnotes</h3>
         <ol>
           <li id="fn1">
-            <p>Thanks, staff at the Hive! Thanks, local taxpayers of the greater Camberville area!<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p>
+            <p>
+              Specifically, a <a target="_blank" rel="noreferrer noopener" href="https://radioattic.com/item.htm?radio=0960197">Crosley 179 “Dual Four” Cathedral (1934)</a> (and
+              <a href="https://www.radiomuseum.org/r/crosley_dual_four_169revise.html">again</a>).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a>
+            </p>
+          </li>
+          <li id="fn2">
+            <p>
+              In the interest of full disclosure, this is not the first audio dehancement project I’ve worked on. During my time as a DSP engineer at iZotope, one of the projects my team shipped was the 15 year re-release of their original
+              <a target="_blank" rel="noreferrer noopener" href="https://www.izotope.com/products/vinyl">Vinyl plugin</a>, which adds a record player effect to input audio.
+            </p>
+            <p>
+              The current iteration of Vinyl (which you can get <a target="_blank" rel="noreferrer noopener" href="https://www.izotope.com/products/vinyl">here!</a>) has a modern UI, but back when my team worked on it it still had its
+              original look and feel, complete with Easter egg credits:
+            </p>
+            <div class="centered-children">
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube-nocookie.com/embed/a-H20ZymYGQWU"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              >
+              </iframe>
+            </div>
+            <a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a>
+          </li>
+          <li id="fn3">
+            <p>
+              Thanks, staff at the Cambridge Public Library’s <a target="_blank" rel="noreferrer noopener" href="https://www.cambridgema.gov/departments/cambridgepubliclibrary/locations/mainlibrary/thehive">Hive</a>! Thanks, taxpayers of
+              the greater Camberville area!<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a>
+            </p>
+          </li>
+          <li id="fn4">
+            <p>Well, it was more like “I used that tutorial as an ending point,” after attempting various other more complicated set-ups first!<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+          <li id="fn5">
+            <p>
+              Read: on a moving train, with the giftee sitting next to me such that I couldn’t try out my code changes live without giving up the surprise, on the day the gift was due! After this project, I’m declaring a temporary
+              moratorium on builds with any holiday gifting deadlines. The wow factor is not worth the stress of impending deadlines.
+            </p>
+            <p>“But Hannah,” you may be saying to yourself, or to me if you’re feeling rude(!), “why didn’t you <a href="../just-flag/index.html">:just-flag:</a> complete this project sooner?”</p>
+            <p>Luckily for us both, this is question I am far too genteel to dignify with a response.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+          <li id="fn6">
+            <p>
+              If you use it you have to promise to squint at it instead of read it head-on, as the aforementioned deadline lead to a quality that I don’t <em>really</em> stand behind. It sounds like I wanted it to sound, which is I think
+              mostly accidental, and I’m not convinced that the filter is actually doing anything. But also, after I handed it over, I did <em>not</em> then go back to clean it up to be what I’d envisioned, as I thought I might! A true
+              <a href="../houseplant-programming/">houseplant program</a>.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a>
+            </p>
           </li>
         </ol>
       </section>
       <hr />
       <ul class="date">
-        <li>Created: 2026-06-11</li>
-
+        <li>Created: 2026-07-07</li>
         <li>Type: Project write-up</li>
-        <li>Tags: baseball-radio, dsp, now-with-more-static, hardware, audio</li>
+        <li>Tags: baseball-radio, dsp, once-more-with-less-fidelity, hardware, audio</li>
       </ul>
       <footer>
         <div class="link-buttons">
