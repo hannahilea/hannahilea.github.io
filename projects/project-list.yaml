@@ -51,6 +51,14 @@ virtual-gallery:
       Itinerant Mixer: Fun, Slick, and More Than a Toy </em></a>.'
 
 physical-gallery:
+  - project: Vintage Bluetooth cathedral speaker
+    url: https://github.com/hannahilea/vintage-bluetooth-speaker
+    year: 2025
+    thumbnail_url: "../blog/vintage-bluetooth-speaker/assets/square.png"
+    description:
+      'Wireless Bluetooth speaker modeled from a 1934 Crosley radio.
+      <br>Described in blog post <a href="../blog/vintage-bluetooth-speaker/">Yesterday&rsquo;s static, today: A Bluetooth speaker for the vintage listener</a>.'
+
   - project: BirdNET-Pi installation blog series 🐦‍⬛
     year: 2025
     thumbnail_url: "../blog/birdnet-intro/assets/april6.png"

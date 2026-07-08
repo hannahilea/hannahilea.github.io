@@ -245,6 +245,13 @@
       <guid>https://hannahilea.com/blog/birdnet-text-notifications</guid>
       <description>Tutorial for configuring a BirdNET-Pi with ntfy to send push notifications whenever a rare-to-you bird starts yelling</description>
     </item>
+    <item>
+      <title>Yesterday's static, today: A Bluetooth speaker for the vintage listener</title>
+      <pubDate>Wed, 8 Jul 2026 12:15:00 EST</pubDate>
+      <link>https://hannahilea.com/blog/vintage-bluetooth-speaker</link>
+      <guid>https://hannahilea.com/blog/vintage-bluetooth-speaker</guid>
+      <description>Listening to modern baseball games through the static of the past, via a Bluetooth speaker in a laser-cut housing modeled from a vintage cathedral radio.</description>
+    </item>
 
   </channel>
 </rss>
