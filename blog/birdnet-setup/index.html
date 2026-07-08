@@ -7,13 +7,13 @@
 
     <meta
       property="og:title"
-      content="Set up BirdNET-Pi on a Raspberry
-Pi Zero 2 W"
+      content="Set up BirdNET-Pi on a Raspberry Pi
+Zero 2 W"
     />
     <meta
       property="og:description"
-      content="Step by step instructions
-for monitoring your yellingist feathered neighbors."
+      content="Step by step instructions for
+monitoring your yellingist feathered neighbors."
     />
     <meta property="og:url" content="https://www.hannahilea.com/blog/birdnet-setup" />
     <meta property="og:image" content="https://www.hannahilea.com/blog/birdnet-setup/assets/thumbnail.png" />
@@ -97,8 +97,7 @@ for monitoring your yellingist feathered neighbors."
         <li>
           <strong>Power adapter, 5V 2.5A or 3A, Micro USB</strong> [
           <a target="_blank" rel="noreferrer noopener" href="https://www.microcenter.com/product/510437/micro-connectors-micro-usb-5v-25a-power-adapter-with-on-off-switch-for-raspberry-pi">MicroCenter, $12</a> |
-          <a target="_blank" rel="noreferrer noopener" href="https://www.amazon.com/dp/B07CVH21NC">Amazon, $12</a>
-          ]
+          <a target="_blank" rel="noreferrer noopener" href="https://www.amazon.com/dp/B07CVH21NC">Amazon, $12</a> ]
           <ul>
             <li>The power adapter will connect to a <strong>micro USB port</strong> on the Pi; if you buy a different adapter than this one, double-check the plug or get an adapter for it.</li>
             <li>You could alternatively use a rechargable power brick instead of a wall wart, although you’d have to remember to charge it (and wouldn’t be detecting birds during recharging…).</li>
@@ -212,7 +211,9 @@ for monitoring your yellingist feathered neighbors."
               </ul>
             </li>
             <li>
-              Configure wireless LAN: <strong><code>&lt;your_current_wifi_network_name&gt;</code></strong> /
+              Configure wireless LAN:
+              <strong><code>&lt;your_current_wifi_network_name&gt;</code></strong>
+              /
               <strong><code>&lt;your_current_wifi_network_password&gt;</code></strong>
               <ul>
                 <li>
@@ -932,13 +933,6 @@ sudo apt-get install tailscale</code></pre>
         <li>Tags: birb-creeping, ecoacoustics, hardware, community, houseplant-programming, passive-acoustic-monitoring, birdnet-pi</li>
       </ul>
       <footer>
-        <div class="link-buttons">
-          <a href="/rss.xml" rel="subscribe-rss">
-            <!-- Source: https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white -->
-            <img class="badge" src="/assets/img/rss-logo-styled.svg" alt="Subscribe to @hannahilea RSS feed"
-          /></a>
-          <a class="button" target="_blank" rel="noreferrer noopener" href="http://groups.google.com/group/hannahilea-blog-rss" target="_blank" rel="noreferrer noopener">Subscribe via email</a>
-        </div>
         <p class="breadcrumbs">
           <a class="basic-alignment right" href="/blog/./learn-to-learn-electronics" title="Next: Learning to learn how to play with electronics">Learning to learn how to play with electronics</a>
           <a class="basic-alignment left" href="/blog/./birdnet-intro" title="Previous: Intro to BirdNET-Pi: Eavesdropping on my feathered friends (and how you can, too!)"
@@ -946,11 +940,24 @@ sudo apt-get install tailscale</code></pre>
           >
         </p>
         <hr />
-        <nav class="navbar" role="navigation">
+        <nav class="navbar footer-navbar" role="navigation">
           @hannahilea:
           <a href="/" class="nav-link">home</a> | <a href="/projects" class="nav-link">projects</a> |
           <a href="/blog" class="nav-link">blog</a>
         </nav>
+        <div class="link-buttons">
+          <form action="https://buttondown.com/api/emails/embed-subscribe/hannahilea" method="post" class="embeddable-buttondown-form">
+            <input type="email" name="email" id="bd-email" placeholder="Enter your email" />
+            <input type="submit" value="Subscribe" />
+            <a href="/rss.xml" rel="subscribe-rss">
+              <!-- Source: https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white -->
+              <img class="badge" src="/assets/img/rss-logo-styled.svg" alt="Subscribe to @hannahilea RSS feed"
+            /></a>
+            <!-- <p>
+                <a target="_blank" rel="noreferrer noopener" href="https://buttondown.com/refer/hannahilea" target="_blank"> Powered by Buttondown. </a>
+            </p> -->
+          </form>
+        </div>
       </footer>
     </div>
   </body>

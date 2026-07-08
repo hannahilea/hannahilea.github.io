@@ -12,8 +12,8 @@ post"
     />
     <meta
       property="og:description"
-      content="The structure of this
-website motivated and described."
+      content="The structure of this website
+motivated and described."
     />
     <meta property="og:url" content="https://www.hannahilea.com/blog/site-structure" />
     <meta property="og:image" content="https://www.hannahilea.com/blog/site-structure/assets/thumbnail.png" />
@@ -31,11 +31,15 @@ website motivated and described."
     <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
 
     <style>
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
       pre > code.sourceCode {
         white-space: pre;
         position: relative;
       }
       pre > code.sourceCode > span {
+        display: inline-block;
         line-height: 1.25;
       }
       pre > code.sourceCode > span:empty {
@@ -64,7 +68,6 @@ website motivated and described."
           white-space: pre-wrap;
         }
         pre > code.sourceCode > span {
-          display: inline-block;
           text-indent: -5em;
           padding-left: 5em;
         }
@@ -274,9 +277,7 @@ website motivated and described."
       </div>
       <p>
         <code>src.md</code> contains the full content of a blogpost, written in markdown. <code>index.html</code> is identical across blog posts and contains no specialized content; it exists simply to contain the results of converting
-        <code>src.md</code> to html, which is performed with the
-        <a target="_blank" rel="noreferrer noopener" href="https://md-block.verou.me/"><code>md-block.js</code></a>
-        library.
+        <code>src.md</code> to html, which is performed with the <a target="_blank" rel="noreferrer noopener" href="https://md-block.verou.me/"><code>md-block.js</code></a> library.
       </p>
       <p>
         Why this approach? Writing markdown feels much more natural to me than writing html, and even though I have to include the same boilerplate html file in every blog post directory, it is mentally cheaper than switching the whole site
@@ -337,13 +338,6 @@ website motivated and described."
         <li>Tags: webdev, programming, metawriting</li>
       </ul>
       <footer>
-        <div class="link-buttons">
-          <a href="/rss.xml" rel="subscribe-rss">
-            <!-- Source: https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white -->
-            <img class="badge" src="/assets/img/rss-logo-styled.svg" alt="Subscribe to @hannahilea RSS feed"
-          /></a>
-          <a class="button" target="_blank" rel="noreferrer noopener" href="http://groups.google.com/group/hannahilea-blog-rss" target="_blank" rel="noreferrer noopener">Subscribe via email</a>
-        </div>
         <p class="breadcrumbs">
           <a class="basic-alignment right" href="/blog/./clapping-music-for-flip-disc-displays" title="Next: <strong><em>Clapping Music</em></strong> for two flip-disc displays"
             ><strong><em>Clapping Music</em></strong> for two flip-disc displays</a
@@ -351,11 +345,24 @@ website motivated and described."
           <a class="basic-alignment left" href="/blog/"></a>
         </p>
         <hr />
-        <nav class="navbar" role="navigation">
+        <nav class="navbar footer-navbar" role="navigation">
           @hannahilea:
           <a href="/" class="nav-link">home</a> | <a href="/projects" class="nav-link">projects</a> |
           <a href="/blog" class="nav-link">blog</a>
         </nav>
+        <div class="link-buttons">
+          <form action="https://buttondown.com/api/emails/embed-subscribe/hannahilea" method="post" class="embeddable-buttondown-form">
+            <input type="email" name="email" id="bd-email" placeholder="Enter your email" />
+            <input type="submit" value="Subscribe" />
+            <a href="/rss.xml" rel="subscribe-rss">
+              <!-- Source: https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white -->
+              <img class="badge" src="/assets/img/rss-logo-styled.svg" alt="Subscribe to @hannahilea RSS feed"
+            /></a>
+            <!-- <p>
+                <a target="_blank" rel="noreferrer noopener" href="https://buttondown.com/refer/hannahilea" target="_blank"> Powered by Buttondown. </a>
+            </p> -->
+          </form>
+        </div>
       </footer>
     </div>
   </body>

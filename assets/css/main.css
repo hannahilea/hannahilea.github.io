@@ -291,6 +291,10 @@ img.home-img {
   }
 }
 
+.footer-navbar {
+  margin-bottom: 1.6em;
+}
+
 /* Blog pages*/
 .blog {
   pre {
@@ -313,10 +317,6 @@ img.home-img {
     padding: .25em;
   }
 
-  .navbar {
-    margin-bottom: 1.6em;
-  }
-
   .date {
     font-family: "Jura Regular"
   }
@@ -326,6 +326,10 @@ img.home-img {
     flex-direction: column;
     width: 100%;
     align-items: center;
+  }
+
+  .navbar {
+    margin-bottom: 1.6em;
   }
 
   img {
@@ -396,12 +400,14 @@ img.home-img {
     border-left: 7px solid #0843c3;
     margin: 1.5em 10px;
     padding: 0.5em 10px;
-    quotes: "\201C""\201D""\2018""\2019";
+    quotes: "\201C" "\201D" "\2018" "\2019";
   }
+
   blockquote p {
     display: inline;
   }
-  blockquote .source{
+
+  blockquote .source {
     display: block;
     text-align: right;
     margin: 0;
@@ -418,8 +424,8 @@ img.home-img {
     }
 
     .blog-table-small-text-size {
-    font-size: 10px;
-  }
+      font-size: 10px;
+    }
   }
 
   h2,
@@ -456,22 +462,33 @@ img.home-img {
   font-family: "Jura Bold";
 }
 
-.blog > footer,
-.index-page > footer {
+.blog>footer,
+.index-page>footer {
   display: block;
 
-  a.button {
+  input[type="submit"] {
     background-color: #0843c3;
     border: none;
     color: white;
     padding: 0px 10px;
-    text-align: center;
     height: 28px;
     line-height: 28px;
     text-decoration: none;
     display: inline-block;
     vertical-align: top;
-    font-size: smaller;
+    font-size: small;
+    font-family: "Jura Bold";
+    cursor: pointer;
+    margin: auto;
+  }
+
+  input[type="email"] {
+    padding: 0px 10px;
+    height: 25px;
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: top;
+    font-size: small;
     font-family: "Jura Bold";
     cursor: pointer;
     margin: auto;
@@ -487,10 +504,6 @@ img.home-img {
     border-top: 1px solid #0843c3;
     height: 3px;
     border-bottom: 1px solid #0843c3
-  }
-
-  div.link-buttons {
-    text-align: center;
   }
 
   p.breadcrumbs {
@@ -528,7 +541,7 @@ img.home-img {
     content: "« ";
     left: -1em;
     position: absolute;
-  } 
+  }
 }
 
 /* For blog, project index pages */
