@@ -4,8 +4,14 @@ type: Infrastructure documentation
 tags: [meta, website, documentation]
 description: 'Instructions for how to set up a mailing list to receive notifications about new posts, using RSS, IFTTT, and Google Groups.'
 created: 2025-01-23
+updated: 2026-07-08
 published: Tue, 23 Jan 2025 12:56:00 EST
 ---
+
+<br>
+<div class="alert" style="background:#e8ebf5; padding: .5em;">
+<summary class="alert-heading"><em>2027-07-08 UPDATE: I'm keeping this post for posterity, but I no longer use this workflow! My mailing list is now powered by [Buttondown](https://buttondown.com/hannahilea)</em></summary>
+</div>
 
 Say you want to know when I've written new blog posts, but you don't want to have to manually check my site every few hours (or every day, or every week, or once a month). What do you do?
 
@@ -100,3 +106,7 @@ A few notes:
     1. I don't want to have to think about how the content is formatted in an email, and whether it looks good, etc; and
     2. More importantly, I often post stuff and then realize I have spelling or formatting errors that I need to fix. I'd rather not have those errors memorialized in the inboxes of any subscribers!
 
+<br>
+<div class="alert" style="background:#e8ebf5; padding: .5em;">
+<summary class="alert-heading"><em>2027-07-08 UPDATE: I'm keeping this post for posterity, but I no longer use this workflow! My mailing list is now powered by [Buttondown](https://buttondown.com/hannahilea)</em></summary>
+</div>
