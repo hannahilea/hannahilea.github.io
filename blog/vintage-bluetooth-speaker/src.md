@@ -1,7 +1,7 @@
 ---
 title: "Yesterday's static, today: A Bluetooth speaker for the vintage listener"
 type: Project write-up
-tags: [baseball-radio, dsp, once-more-with-less-fidelity, hardware, audio]
+tags: [baseball-radio, dsp, once-more-with-less-fidelity, hardware, audio-dehancement]
 description: 'Listening to modern baseball games through the static of the past, via a Bluetooth speaker in a laser-cut housing modeled from a vintage cathedral radio.'
 created: 2026-07-07
 published: Tue, 7 Jul 2026 23:30:00 EST
@@ -54,23 +54,43 @@ I cut the pieces from 1/8" plywood using the laser cutter at my public library's
 
 [^thanks]: Thanks, staff at the Cambridge Public Library's [Hive](https://www.cambridgema.gov/departments/cambridgepubliclibrary/locations/mainlibrary/thehive)! Thanks, taxpayers of the greater Camberville area!
 
-![TODO](TODO-image-pieces)
+![Photo of cut components.](./assets/layers.png)
 
-I finished the wood with a basic stain and glued the layers together; the wood knobs were glued directly onto their respective potentiometers. The speaker fabric was roughly four inches of a perfect ribbon I found at my local [second-hand art supply](https://makeandmendshop.com/) store. Seriously, they could not have had a more perfect option. I glued that on, too.
+I finished the wood with a basic stain and glued the layers together.
 
-![TODO](TODO-image-assembly)
+![Photo of components during staining](./assets/stained.png)
+
+The speaker fabric was roughly four inches of a perfect ribbon I found at my local [second-hand art supply](https://makeandmendshop.com/) store. Seriously, they could not have had a more perfect option. I glued that on, too.
+
+![Photo of speaker fabric glued.](./assets/glued.png)
+
+A small piece of velcro helped hold the speaker in place:
+
+![Photo of speaker velcro.](./assets/speaker-velcro.png)
+
+![Photo of speaker, velcroed.](./assets/speaker.png)
 
 My Cuttle design is [here](https://cuttle.xyz/@hannahilea/Bluetooth-cathedral-speaker-Bmqlp4mlXIro), if you want to cut your own.
 
 #### Hardware
 
-I used [this Adafruit tutorial by the Ruiz Brothers and Liz Clark](https://learn.adafruit.com/bluetooth-speaker) as a starting point for the component selection and assembly, as well as the starting code approach.[^well] As in the tutorial, my build starts with an [Adafruit ESP32 Feather](https://www.adafruit.com/product/5400) as its microcontroller, and adds a couple of rotary potentiometers and a speaker.
+I used [this Adafruit tutorial by the Ruiz Brothers and Liz Clark](https://learn.adafruit.com/bluetooth-speaker) as a starting point for the component selection and software approach.[^well] As in that tutorial, my build uses an [Adafruit ESP32 Feather](https://www.adafruit.com/product/5400)  microcontroller, with a couple of rotary potentiometers and a speaker.
 
 [^well]: Well, it was more like "I used that tutorial as an ending point," after attempting various other more complicated set-ups first...
 
-Here it is all wired up:
+Here it is all wired up and connected to the front-plate:
 
-TODO-photos/schema?
+![Photo of assembled hardware from the back](./assets/connected.png)
+
+![Photo of assembled hardware from the front](./assets/connected-front.png)
+
+![Photo of speaker assembly](./assets/sandwich.png)
+
+The wood knobs were glued directly onto their respective potentiometers:
+
+![Photo of assembled speaker from the front](./assets/top.png)
+
+![Photo of assembled speaker from the back](./assets/back.png)
 
 #### Software
 
@@ -83,7 +103,7 @@ The radio is programmed in C++, and relies on the Arduino [Audio Tools](https://
 - Output is sent to the speaker
 
 The code is [here](https://github.com/hannahilea/baseball-radio).[^code] 
-My implementation ended up being slightly convoluted (read: hacky), due to my lack of familiarity with the processing library and the tricky conditions under which I was attempting to debug.[^train] I ran out of time to add the notch filter I wanted, and clean things up a bit.
+My implementation ended up being slightly convoluted (read: hacky), due to my lack of familiarity with the processing library and the tricky conditions under which I was attempting to debug.[^train] I ran out of time to add the notch filter I wanted, and the high pass filter. Oh well.
 
 [^code]: If you use it you have to promise to squint at it instead of read it head-on, as the aforementioned deadline lead to a quality that I don't *really* stand behind. It sounds like I wanted it to sound, which is I think mostly accidental, and I'm not convinced that the filter is actually doing anything. But also, after I handed it over, I did *not* then go back to clean it up to be what I'd envisioned, as I thought I might! A true [houseplant program](../houseplant-programming/).
 
@@ -95,16 +115,16 @@ My implementation ended up being slightly convoluted (read: hacky), due to my la
 
 ## Next steps
 
-For me, for now? None! I thought that I might continue to futz with it to get the processing how I wanted, but after I handed it over it turns out I was *done*. It works, it works _mostly_ as designed, and it is usable without my intervention. Good enough for giftable work!
+For me, for now? None! I thought that I might continue to futz with it to get the processing how I wanted, but after I gifted it I realized I was *done*. It works, it works _mostly_ as designed, and it is usable without my intervention. Good enough for giftable work!
 
 If I wanted to improve on the speaker or build something similar in the future, I'd definitely figure out what was going on in my code and make it nicer. I might also switch over to a different board and programming ecosystem---after the fact, a friend recommended using a [Teensy](https://www.pjrc.com/teensy/), which apparently has a whole GUI system for easily setting up exactly the processing chain I'd wanted. Fun for the future!
 
-**If you want to make one, go for it!** Typical caveat applies: in true houseplant programming form, I have not cleaned it up into a tutorial---what you see is what I wrote is what you get:
+**If you want to make one, go for it!** Typical caveat applies: I have not spent time turning my steps into a nice tutorial, so what you see is the notes I took while building is what you get:
 
-- The Cuttle.xyz CAD project for making the housing is [HERE](https://cuttle.xyz/@hannahilea/Bluetooth-cathedral-speaker-Bmqlp4mlXIro)
+- The Cuttle.xyz CAD design for constructing the enclosure is [HERE](https://cuttle.xyz/@hannahilea/Bluetooth-cathedral-speaker-Bmqlp4mlXIro)
 
-- The repo where I documented my hardware set-up and saved my code is [HERE](https://github.com/hannahilea/baseball-radio)
+- The repo where I documented my hardware set-up and put my resultant script is [HERE](https://github.com/hannahilea/baseball-radio)
 
 If you make one, let me know!
 
-***Thanks to the Ruiz Brothers and Liz Clark for [their Adafruit tutorial](https://learn.adafruit.com/bluetooth-speaker) and to Phil Schatzmann for the Arduino libraries.***
+***Thanks to the Ruiz Brothers and Liz Clark for [their Adafruit tutorial](https://learn.adafruit.com/bluetooth-speaker), and to Phil Schatzmann for the Arduino libraries.***

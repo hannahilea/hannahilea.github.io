@@ -74,24 +74,50 @@ in a laser-cut housing modeled from a vintage cathedral radio."
         I cut the pieces from 1/8” plywood using the laser cutter at my public library’s maker space.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
       </p>
       <figure>
-        <img src="TODO-image-pieces" alt="TODO" />
+        <img src="./assets/layers.png" alt="Photo of cut components." />
+      </figure>
+      <p>I finished the wood with a basic stain and glued the layers together.</p>
+      <figure>
+        <img src="./assets/stained.png" alt="Photo of components during staining" />
       </figure>
       <p>
-        I finished the wood with a basic stain and glued the layers together; the wood knobs were glued directly onto their respective potentiometers. The speaker fabric was roughly four inches of a perfect ribbon I found at my local
-        <a target="_blank" rel="noreferrer noopener" href="https://makeandmendshop.com/">second-hand art supply</a> store. Seriously, they could not have had a more perfect option. I glued that on, too.
+        The speaker fabric was roughly four inches of a perfect ribbon I found at my local <a target="_blank" rel="noreferrer noopener" href="https://makeandmendshop.com/">second-hand art supply</a> store. Seriously, they could not have had
+        a more perfect option. I glued that on, too.
       </p>
       <figure>
-        <img src="TODO-image-assembly" alt="TODO" />
+        <img src="./assets/glued.png" alt="Photo of speaker fabric glued." />
+      </figure>
+      <p>A small piece of velcro helped hold the speaker in place:</p>
+      <figure>
+        <img src="./assets/speaker-velcro.png" alt="Photo of speaker velcro." />
+      </figure>
+      <figure>
+        <img src="./assets/speaker.png" alt="Photo of speaker, velcroed." />
       </figure>
       <p>My Cuttle design is <a target="_blank" rel="noreferrer noopener" href="https://cuttle.xyz/@hannahilea/Bluetooth-cathedral-speaker-Bmqlp4mlXIro">here</a>, if you want to cut your own.</p>
       <h4 id="hardware">Hardware</h4>
       <p>
-        I used <a target="_blank" rel="noreferrer noopener" href="https://learn.adafruit.com/bluetooth-speaker">this Adafruit tutorial by the Ruiz Brothers and Liz Clark</a> as a starting point for the component selection and assembly, as
-        well as the starting code approach.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> As in the tutorial, my build starts with an
-        <a target="_blank" rel="noreferrer noopener" href="https://www.adafruit.com/product/5400">Adafruit ESP32 Feather</a> as its microcontroller, and adds a couple of rotary potentiometers and a speaker.
+        I used <a target="_blank" rel="noreferrer noopener" href="https://learn.adafruit.com/bluetooth-speaker">this Adafruit tutorial by the Ruiz Brothers and Liz Clark</a> as a starting point for the component selection and software
+        approach.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> As in that tutorial, my build uses an
+        <a target="_blank" rel="noreferrer noopener" href="https://www.adafruit.com/product/5400">Adafruit ESP32 Feather</a> microcontroller, with a couple of rotary potentiometers and a speaker.
       </p>
-      <p>Here it is all wired up:</p>
-      <p>TODO-photos/schema?</p>
+      <p>Here it is all wired up and connected to the front-plate:</p>
+      <figure>
+        <img src="./assets/connected.png" alt="Photo of assembled hardware from the back" />
+      </figure>
+      <figure>
+        <img src="./assets/connected-front.png" alt="Photo of assembled hardware from the front" />
+      </figure>
+      <figure>
+        <img src="./assets/sandwich.png" alt="Photo of speaker assembly" />
+      </figure>
+      <p>The wood knobs were glued directly onto their respective potentiometers:</p>
+      <figure>
+        <img src="./assets/top.png" alt="Photo of assembled speaker from the front" />
+      </figure>
+      <figure>
+        <img src="./assets/back.png" alt="Photo of assembled speaker from the back" />
+      </figure>
       <h4 id="software">Software</h4>
       <p>
         The radio is programmed in C++, and relies on the Arduino <a target="_blank" rel="noreferrer noopener" href="https://github.com/pschatzmann/arduino-audio-tools">Audio Tools</a> and
@@ -108,11 +134,11 @@ in a laser-cut housing modeled from a vintage cathedral radio."
       <p>
         The code is <a href="https://github.com/hannahilea/baseball-radio">here</a>.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> My implementation ended up being slightly convoluted (read: hacky), due
         to my lack of familiarity with the processing library and the tricky conditions under which I was attempting to debug.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> I ran out of time to add the
-        notch filter I wanted, and clean things up a bit.
+        notch filter I wanted, and the high pass filter. Oh well.
       </p>
       <h2 id="next-steps">Next steps</h2>
       <p>
-        For me, for now? None! I thought that I might continue to futz with it to get the processing how I wanted, but after I handed it over it turns out I was <em>done</em>. It works, it works <em>mostly</em> as designed, and it is usable
+        For me, for now? None! I thought that I might continue to futz with it to get the processing how I wanted, but after I gifted it I realized I was <em>done</em>. It works, it works <em>mostly</em> as designed, and it is usable
         without my intervention. Good enough for giftable work!
       </p>
       <p>
@@ -120,20 +146,20 @@ in a laser-cut housing modeled from a vintage cathedral radio."
         the fact, a friend recommended using a <a target="_blank" rel="noreferrer noopener" href="https://www.pjrc.com/teensy/">Teensy</a>, which apparently has a whole GUI system for easily setting up exactly the processing chain I’d
         wanted. Fun for the future!
       </p>
-      <p><strong>If you want to make one, go for it!</strong> Typical caveat applies: in true houseplant programming form, I have not cleaned it up into a tutorial—what you see is what I wrote is what you get:</p>
+      <p><strong>If you want to make one, go for it!</strong> Typical caveat applies: I have not spent time turning my steps into a nice tutorial, so what you see is the notes I took while building is what you get:</p>
       <ul>
         <li>
-          <p>The Cuttle.xyz CAD project for making the housing is <a target="_blank" rel="noreferrer noopener" href="https://cuttle.xyz/@hannahilea/Bluetooth-cathedral-speaker-Bmqlp4mlXIro">HERE</a></p>
+          <p>The Cuttle.xyz CAD design for constructing the enclosure is <a target="_blank" rel="noreferrer noopener" href="https://cuttle.xyz/@hannahilea/Bluetooth-cathedral-speaker-Bmqlp4mlXIro">HERE</a></p>
         </li>
         <li>
-          <p>The repo where I documented my hardware set-up and saved my code is <a target="_blank" rel="noreferrer noopener" href="https://github.com/hannahilea/baseball-radio">HERE</a></p>
+          <p>The repo where I documented my hardware set-up and put my resultant script is <a target="_blank" rel="noreferrer noopener" href="https://github.com/hannahilea/baseball-radio">HERE</a></p>
         </li>
       </ul>
       <p>If you make one, let me know!</p>
       <p>
         <strong
           ><em
-            >Thanks to the Ruiz Brothers and Liz Clark for <a target="_blank" rel="noreferrer noopener" href="https://learn.adafruit.com/bluetooth-speaker">their Adafruit tutorial</a> and to Phil Schatzmann for the Arduino libraries.</em
+            >Thanks to the Ruiz Brothers and Liz Clark for <a target="_blank" rel="noreferrer noopener" href="https://learn.adafruit.com/bluetooth-speaker">their Adafruit tutorial</a>, and to Phil Schatzmann for the Arduino libraries.</em
           ></strong
         >
       </p>
@@ -195,7 +221,7 @@ in a laser-cut housing modeled from a vintage cathedral radio."
       <ul class="date">
         <li>Created: 2026-07-07</li>
         <li>Type: Project write-up</li>
-        <li>Tags: baseball-radio, dsp, once-more-with-less-fidelity, hardware, audio</li>
+        <li>Tags: baseball-radio, dsp, once-more-with-less-fidelity, hardware, audio-dehancement</li>
       </ul>
       <footer>
         <div class="link-buttons">
