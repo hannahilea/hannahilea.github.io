@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" type="image/png" href="../../assets/img/favicon.png" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta
+      property="og:title"
+      content="Birduino: A Tonuino-based birdcall
+learning game"
+    />
+    <meta property="og:description" content="TODO" />
+    <meta property="og:url" content="https://www.hannahilea.com/blog/birduino" />
+    <meta property="og:image" content="https://www.hannahilea.com/blog/birduino/assets/thumbnail.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:height" content="300" />
+    <meta property="og:type" content="website" />
+
+    <script data-goatcounter="https://hannahilea.goatcounter.com/count" data-goatcounter-settings='{"allow_local": false}' async src="//gc.zgo.at/count.js"></script>
+    <!-- <noscript>
+      <img src="https://hannahilea.goatcounter.com/count?p=blog/birduino">
+    </noscript> -->
+
+    <title>Birduino: A Tonuino-based birdcall learning game</title>
+    <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
+    <style>
+      .blog {
+        img {
+          max-width: 90%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="main-container blog">
+      <nav class="navbar" role="navigation">
+        @hannahilea:
+        <a class="nav-link" href="../..">home</a> | <a class="nav-link" href="../../projects">projects</a> |
+        <a class="nav-link" href="..">blog</a>
+      </nav>
+
+      <h1>Birduino: A Tonuino-based birdcall learning game</h1>
+      <div class="date">8 Jul 2026</div>
+      <p>
+        Here’s the project write-up for an interactive birdcall learning game I made, using a deck of bird cards, audio from the Cornell Ornithology Lab, RFID stickers, and an open-source RFID-triggered mp3 player project called the
+        <a target="_blank" rel="noreferrer noopener" href="TODO-link">Tonuino</a>.
+      </p>
+      <figure>
+        <img src="./assets/TODO" alt="Photo of birduino" />
+      </figure>
+      <h2 id="what">What?</h2>
+      <p>TODO-explain</p>
+      <h2 id="why">Why?</h2>
+      <p>
+        A few years ago I was excited to discover the <a target="_blank" rel="noreferrer noopener" href="TODO">Tonuino</a> project, an open-source alternative to the proprietary Yoto Player. While my nephews have a Yoto player, and I love
+        making them mix <del>tapes</del> cards for it, I was curious about the world of open-source alternatives.
+      </p>
+      <p>
+        At the time the Tonuino inventor was selling component kits, and I purchased a couple. I then lost track of them in my box of electronics. When I came across them earlier this year, I wanted a scoped and self-contained use case for
+        building one of them. Making a birdcall learning tool seemed like a low-effort way to try the kit out. After all, it was <a href="../just-flag/">just</a> a matter of soldering the kit’s pieces together, right? As the kids say,
+        lol.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
+      </p>
+      <h2 id="how">How?</h2>
+      <h4 id="hardware-tonuino-kit-assembly">Hardware: Tonuino kit assembly</h4>
+      <p>TODO</p>
+      <p>TODO-photos</p>
+      <p>TODO-diagram, colored</p>
+      <h4 id="software">Software</h4>
+      <p>TODO - how software loaded on device, where from, any steps needed</p>
+      <p>TODO - what tweaked for addition of various buttons/knobs</p>
+      <p>TODO - link to my code?</p>
+      <h4 id="enclosure">Enclosure</h4>
+      <p>
+        I created a basic box housing in parametric CAD program <a target="_blank" rel="noreferrer noopener" href="https://cuttle.xyz">cuttle.xyz</a>, and then created a second box plus tray so that the assembled Tonuino and its associated
+        bird cards could be presented together.
+      </p>
+      <p><img src="./assets/TODO-cuttle-1" alt="Vectorized layout of components to cut." /> <img src="./assets/TODO-cuttle-2" alt="Vectorized layout of components to cut." /></p>
+      <p>The Cuttle designs are <a target="_blank" rel="noreferrer noopener" href="TODO">here</a> and <a target="_blank" rel="noreferrer noopener" href="TODO">here</a>, if you want to cut your own.</p>
+      <p>
+        I cut the pieces from 1/8” acrylic, since I think objects with visible innards look cool and hadn’t yet internalized that I’d used an excessive amount of wire relative to the size of the enclosure. This fabrication was done with the
+        laser cutter at my public library’s maker space.
+      </p>
+      <figure>
+        <img src="./assets/TODO" alt="Photo of cut components." />
+      </figure>
+      <p>I had to tweak the design to make sure that the speaker and potentiometer fit perfectly, and then had to re-cut the box to leave more space for all the wires.</p>
+      <p>
+        Even though the enclosure is technically a press-fit box, it needed to be glued for longevity. The choice of clear acrylic made for a frustrating adhesive process, as I needed to find a glue that didn’t make the acrylic cloudy.
+        After way too many different purchases and ugly test bonds, we<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> settled on TODO.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"
+          ><sup>3</sup></a
+        >
+      </p>
+      <p>If I were going to build another one, I’d make different wire choices to make the Birduino contents look a little cleaner, but I am happy with how this first attempt turned out.</p>
+      <figure>
+        <img src="./assets/TODO" alt="Photo of assembled Birduino plus empty tray" />
+      </figure>
+      <h4 id="audio">Audio</h4>
+      <h4 id="cards">Cards</h4>
+      <p>I was picky about the playing cards I chose; while there are some beautiful ones out there, I wanted photos. I ended up purchasing <a target="_blank" rel="noreferrer noopener" href="TODO-link">TODO’s deck</a>.</p>
+      <p>TODO-photo</p>
+      <p>I put an <a target="_blank" rel="noreferrer noopener" href="TODO-link">NFC sticker</a> on the back of each:</p>
+      <p>TODO-photo</p>
+      <p>
+        Programming the cards ended up being easy, thanks to a program written by TODO-FOO.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> From the manifest I generated from my audio files, it took no
+        time at all to program the stickers on all 52 bird cards.
+      </p>
+      <p>TODO-photo</p>
+      <h2 id="all-together-now">All together now</h2>
+      <p>Tada!</p>
+      <p>TODO-video</p>
+      <p>TODO-photo</p>
+      <p>So much for a light and breezy project! It was a satisfying one to complete, though. And now I’m a whiz at birdcall identification! Well, not yet, but perhaps soon…</p>
+      <p>I still have another couple Tonuinos in wait for a good use-case, and now that I’ve assembled this first one, it should be trivial to build the others into new projects, right? :)</p>
+      <p>
+        <strong><em>Thanks to TODO-Tonuino community, TODO-audio-folks, and AF for her adhesive assist!</em></strong>
+      </p>
+      <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+        <hr />
+        <h3 id="footnotes-title">Footnotes</h3>
+        <ol>
+          <li id="fn1">
+            <p>Hah!<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+          <li id="fn2">
+            <p>AF was the MVP of the glue process; when she saw I was losing my mind a little, she took over the research and procurement.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+          <li id="fn3">
+            <p>
+              No thanks to the Gorilla Glue branding including many different flavors of glue, all similarly named despite their chemical differences. It’s enough to make me want to apply for a job in their branding department, revamp their
+              spec sheets and packaging, and then quit. Seriously, though, I <em>want</em> to use your glue! Take my money! Make it easy for me!
+            </p>
+            <p>One resource that did prove useful was TODO’S write-up <a target="_blank" rel="noreferrer noopener" href="TODO-link">“TODO-TITLE”</a>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+          <li id="fn4">
+            <p>
+              “Ended up” being the operative phrase there; before I folded and had AF dig her old android out of storage to enable me to use the above app, I first tried–and cursed—a bunch of RFID-programming apps from the Apple app store.
+              The programs exist, but are designed to be “user friendly” and program URLs or text blobs or files. Too user friendly. I couldn’t find one that would support a basic binary string as required by the Tonuino.
+            </p>
+            <p>Apple app designers take note: there is a gap in the market for a lightweight, no nonsense, RFID writer. When you make it, let me know.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+        </ol>
+      </section>
+      <hr />
+      <ul class="date">
+        <li>Created: 2026-07-08</li>
+        <li>Type: Project write-up</li>
+        <li>Tags: birbs, hardware, audio, CAD</li>
+      </ul>
+      <footer>
+        <p class="breadcrumbs">
+          <a class="basic-alignment right" href="/blog/"></a>
+          <a class="basic-alignment left" href="/blog/./vintage-bluetooth-speaker" title="Previous: Yesterday's static, today: A Bluetooth speaker for the vintage listener"
+            >Yesterday's static, today: A Bluetooth speaker for the vintage listener</a
+          >
+        </p>
+        <hr />
+        <nav class="navbar footer-navbar" role="navigation">
+          @hannahilea:
+          <a href="/" class="nav-link">home</a> | <a href="/projects" class="nav-link">projects</a> |
+          <a href="/blog" class="nav-link">blog</a>
+        </nav>
+        <div class="link-buttons">
+          <form action="https://buttondown.com/api/emails/embed-subscribe/hannahilea" method="post" class="embeddable-buttondown-form">
+            <input type="email" name="email" id="bd-email" placeholder="Enter your email" />
+            <input type="submit" value="Subscribe" />
+            <a href="/rss.xml" rel="subscribe-rss">
+              <!-- Source: https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white -->
+              <img class="badge" src="/assets/img/rss-logo-styled.svg" alt="Subscribe to @hannahilea RSS feed"
+            /></a>
+            <!-- <p>
+                <a target="_blank" rel="noreferrer noopener" href="https://buttondown.com/refer/hannahilea" target="_blank"> Powered by Buttondown. </a>
+            </p> -->
+          </form>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
