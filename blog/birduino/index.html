@@ -7,10 +7,15 @@
 
     <meta
       property="og:title"
-      content="Birduino: A Tonuino-based birdcall
-learning game"
+      content="Birduino: A card-triggered audio
+player for [learning] the birds"
     />
-    <meta property="og:description" content="TODO" />
+    <meta
+      property="og:description"
+      content="Tap a bird card to the NFC
+reader to hear one of its calls, attempt to identify the bird from its
+vocalizations alone!"
+    />
     <meta property="og:url" content="https://www.hannahilea.com/blog/birduino" />
     <meta property="og:image" content="https://www.hannahilea.com/blog/birduino/assets/thumbnail.png" />
     <meta property="og:image:type" content="image/png" />
@@ -23,7 +28,7 @@ learning game"
       <img src="https://hannahilea.goatcounter.com/count?p=blog/birduino">
     </noscript> -->
 
-    <title>Birduino: A Tonuino-based birdcall learning game</title>
+    <title>Birduino: A card-triggered audio player for [learning] the birds</title>
     <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
     <style>
       .blog {
@@ -42,112 +47,282 @@ learning game"
         <a class="nav-link" href="..">blog</a>
       </nav>
 
-      <h1>Birduino: A Tonuino-based birdcall learning game</h1>
-      <div class="date">8 Jul 2026</div>
-      <p>
-        Here’s the project write-up for an interactive birdcall learning game I made, using a deck of bird cards, audio from the Cornell Ornithology Lab, RFID stickers, and an open-source RFID-triggered mp3 player project called the
-        <a target="_blank" rel="noreferrer noopener" href="TODO-link">Tonuino</a>.
-      </p>
+      <h1>Birduino: A card-triggered audio player for [learning] the birds</h1>
+      <div class="date">25 Jul 2026</div>
+      <p>This is the Birduino!</p>
       <figure>
-        <img src="./assets/TODO" alt="Photo of birduino" />
+        <img src="./assets/assembled.png" alt="Photo of fully assembled Birduino!" />
       </figure>
-      <h2 id="what">What?</h2>
-      <p>TODO-explain</p>
-      <h2 id="why">Why?</h2>
       <p>
-        A few years ago I was excited to discover the <a target="_blank" rel="noreferrer noopener" href="TODO">Tonuino</a> project, an open-source alternative to the proprietary Yoto Player. While my nephews have a Yoto player, and I love
-        making them mix <del>tapes</del> cards for it, I was curious about the world of open-source alternatives.
-      </p>
-      <p>
-        At the time the Tonuino inventor was selling component kits, and I purchased a couple. I then lost track of them in my box of electronics. When I came across them earlier this year, I wanted a scoped and self-contained use case for
-        building one of them. Making a birdcall learning tool seemed like a low-effort way to try the kit out. After all, it was <a href="../just-flag/">just</a> a matter of soldering the kit’s pieces together, right? As the kids say,
-        lol.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
-      </p>
-      <h2 id="how">How?</h2>
-      <h4 id="hardware-tonuino-kit-assembly">Hardware: Tonuino kit assembly</h4>
-      <p>TODO</p>
-      <p>TODO-photos</p>
-      <p>TODO-diagram, colored</p>
-      <h4 id="software">Software</h4>
-      <p>TODO - how software loaded on device, where from, any steps needed</p>
-      <p>TODO - what tweaked for addition of various buttons/knobs</p>
-      <p>TODO - link to my code?</p>
-      <h4 id="enclosure">Enclosure</h4>
-      <p>
-        I created a basic box housing in parametric CAD program <a target="_blank" rel="noreferrer noopener" href="https://cuttle.xyz">cuttle.xyz</a>, and then created a second box plus tray so that the assembled Tonuino and its associated
-        bird cards could be presented together.
-      </p>
-      <p><img src="./assets/TODO-cuttle-1" alt="Vectorized layout of components to cut." /> <img src="./assets/TODO-cuttle-2" alt="Vectorized layout of components to cut." /></p>
-      <p>The Cuttle designs are <a target="_blank" rel="noreferrer noopener" href="TODO">here</a> and <a target="_blank" rel="noreferrer noopener" href="TODO">here</a>, if you want to cut your own.</p>
-      <p>
-        I cut the pieces from 1/8” acrylic, since I think objects with visible innards look cool and hadn’t yet internalized that I’d used an excessive amount of wire relative to the size of the enclosure. This fabrication was done with the
-        laser cutter at my public library’s maker space.
-      </p>
-      <figure>
-        <img src="./assets/TODO" alt="Photo of cut components." />
-      </figure>
-      <p>I had to tweak the design to make sure that the speaker and potentiometer fit perfectly, and then had to re-cut the box to leave more space for all the wires.</p>
-      <p>
-        Even though the enclosure is technically a press-fit box, it needed to be glued for longevity. The choice of clear acrylic made for a frustrating adhesive process, as I needed to find a glue that didn’t make the acrylic cloudy.
-        After way too many different purchases and ugly test bonds, we<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> settled on TODO.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"
-          ><sup>3</sup></a
+        Each bird card has an NFC tag associating it with three to ten audio recordings of that bird’s call. When you tap a card on the Birduino’s card reader, one of those recordings will play.<a
+          href="#fn1"
+          class="footnote-ref"
+          id="fnref1"
+          role="doc-noteref"
+          ><sup>1</sup></a
         >
       </p>
-      <p>If I were going to build another one, I’d make different wire choices to make the Birduino contents look a little cleaner, but I am happy with how this first attempt turned out.</p>
-      <figure>
-        <img src="./assets/TODO" alt="Photo of assembled Birduino plus empty tray" />
-      </figure>
-      <h4 id="audio">Audio</h4>
-      <h4 id="cards">Cards</h4>
-      <p>I was picky about the playing cards I chose; while there are some beautiful ones out there, I wanted photos. I ended up purchasing <a target="_blank" rel="noreferrer noopener" href="TODO-link">TODO’s deck</a>.</p>
-      <p>TODO-photo</p>
-      <p>I put an <a target="_blank" rel="noreferrer noopener" href="TODO-link">NFC sticker</a> on the back of each:</p>
-      <p>TODO-photo</p>
+      <p>To test yourself on recall, keep the front of the cards hidden and try to guess the bird from the call alone.</p>
+      <div class="centered-children">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube-nocookie.com/embed/cs_hh3SiV1c?si=Fttae_I8sXknUmV4"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        >
+        </iframe>
+      </div>
+      <h2 id="background">Background</h2>
       <p>
-        Programming the cards ended up being easy, thanks to a program written by TODO-FOO.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> From the manifest I generated from my audio files, it took no
-        time at all to program the stickers on all 52 bird cards.
+        At the heart of this build is a TonUINO, an open-source audio player first developed by Thorsten Voss and now maintained by
+        <a target="_blank" rel="noreferrer noopener" href="https://discourse.voss.earth">an open-source community of enthusiasts</a>.
       </p>
-      <p>TODO-photo</p>
-      <h2 id="all-together-now">All together now</h2>
-      <p>Tada!</p>
-      <p>TODO-video</p>
-      <p>TODO-photo</p>
-      <p>So much for a light and breezy project! It was a satisfying one to complete, though. And now I’m a whiz at birdcall identification! Well, not yet, but perhaps soon…</p>
-      <p>I still have another couple Tonuinos in wait for a good use-case, and now that I’ve assembled this first one, it should be trivial to build the others into new projects, right? :)</p>
       <p>
-        <strong><em>Thanks to TODO-Tonuino community, TODO-audio-folks, and AF for her adhesive assist!</em></strong>
+        Construction of the Birduino involved setting up a <a target="_blank" rel="noreferrer noopener" href="https://www.voss.earth/tonuino/">TonUINO</a>, designing and assembling a clear acrylic housing for it, and mapping a card deck of
+        birds to their respective recordings as loaded onto the TonUINO.
+      </p>
+      <h2 id="hardware-assembling-a-tonuino-player">Hardware: Assembling a TonUINO player</h2>
+      <p>
+        I purchased the core pieces of my TonUINO as a <a target="_blank" rel="noreferrer noopener" href="https://www.amazon.co.uk/dp/B07TVN3M3X?th=1">kit</a> from
+        <a target="_blank" rel="noreferrer noopener" href="https://cdn.shopify.com/s/files/1/1509/1638/files/AZ240_A_1-7_A_1-8_EN_B07JLBGYQ6_e6736396-264c-43ef-8a33-fc1758c7ecd7.pdf?v=1721124164">AZ-Delivery</a>; it included a
+        microcontroller (<a target="_blank" rel="noreferrer noopener" href="https://www.az-delivery.de/en/products/nano-v3-mit-ch340-arduino-kompatibel?srsltid=AfmBOop4FADDSv34pBe6dLynd6G8L1yPbPIsMdjdvb24V6My_burgqOh"
+          >AZ-Nano V3, based on an ATmega328P</a
+        >), a RC522 RFID reader module, and mp3 module:
+      </p>
+      <figure>
+        <img src="./assets/kit.png" alt="Photo of TonUINO kit components" />
+      </figure>
+      <figure>
+        <img src="./assets/kit_inverted.png" alt="Photo of TonUINO kit components, upside down." />
+      </figure>
+      <p>
+        I combined these components with three buttons I already had, a <a target="_blank" rel="noreferrer noopener" href="https://www.amazon.com/dp/B0BWYBFPW8">speaker</a>, and a rotary potentiometer. I used a prototyping board as a base.
+      </p>
+      <figure>
+        <img src="./assets/components.png" alt="Photo of components and prototype board" />
+      </figure>
+      <p>
+        The TonUINO community’s <a target="_blank" rel="noreferrer noopener" href="https://discourse.voss.earth/t/haeufige-fragen-faq/13282">comprehensive FAQ</a> came in handy for several aspects of this set up, as did Google Translate
+        (!).
+      </p>
+      <p>Our compact and portable soldering station made soldering a delight! (Thanks, AF!)</p>
+      <figure>
+        <img src="./assets/solder1.png" alt="Photo of in-progress soldering" />
+      </figure>
+      <figure>
+        <img src="./assets/solder3.png" alt="Another photo of in-progress soldering" />
+      </figure>
+      <p>
+        Here’s my resultant schematic; I colored each wire as I selected it.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+      </p>
+      <figure>
+        <img src="./assets/schematic.png" alt="Photo of color-coded schematic" />
+      </figure>
+      <details>
+        <summary>
+          <strong><em>Disclaimer that I can’t stop myself from including</em></strong>
+        </summary>
+        <blockquote>
+          <p>This project would have been significantly easier with (a) a larger prototyping board and (b) a different choice of wires.<br /><br /></p>
+          <p>
+            The prototyping board was the only one we had at the time, and since I hadn’t resigned myself to this being more than a one-evening project, I didn’t want to wait to acquire a better board. In hindsight, it would have been worth
+            a few days to order a larger one, not least of which because I wouldn’t have had to scratch out traces with a knife, or squeeze my soldering into such a tiny space (and then fix shorts).<br /><br />
+          </p>
+          <p>
+            Similarly, my choice of wires was not ideal. I chose the rainbow wires, as they had connection jacks that slotted nicely into the headers that were pre-soldered onto kit various components. This would have been great had I been
+            working with a breadboard and simply inserting all connector pins into slots, but instead I needed to solder the other end of those wires to the proto board—which required cutting the pins off and soldering them directly.
+            Something about these wires did <em>not</em> solder well, which gave me a bunch of messy connections, and more inadvertent bridging that I had to debug and fix.<br /><br />
+          </p>
+          <p>Learn from my mistakes, and get yourself a proto board with suitable properties, and do not use these wires if you need to do any soldering!</p>
+        </blockquote>
+      </details>
+      <h2 id="software-configuring-and-loading-the-tonuino-application">Software: Configuring and loading the TonUINO application</h2>
+      <p>
+        The TonUINO application is written in C++; I cloned <a target="_blank" rel="noreferrer noopener" href="https://github.com/tonuino/TonUINO-TNG">the repository</a> and uncommented various sections to match my hardware configuration. I
+        then used the Arduino IDE to load it onto the microcontroller.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>
+      </p>
+      <h2 id="audio-the-cornell-guide-to-bird-sounds">Audio: The Cornell Guide to Bird Sounds</h2>
+      <p>
+        For audio, I purchased
+        <a target="_blank" rel="noreferrer noopener" href="https://www.macaulaylibrary.org/product/the-cornell-guide-to-bird-sounds-us-and-canada/"><em>The Cornell Guide to Bird Sounds: United States and Canada</em></a
+        >:
+      </p>
+      <blockquote>
+        <p>
+          The Cornell Guide to Bird Sounds: United States and Canada (v2025) is a compilation of curated audio files covering songs, calls, flight calls, and other sounds for 908 species found in the United States and Canada.<br /><br />
+        </p>
+        <p>[…]<br /><br /></p>
+        <p>
+          The 1.7GB download includes 4,959 MP3 audio files covering 908 regularly occurring, native, vagrant, and introduced species in the United States (including Hawaii) and Canada. The audio in this collection was hand-picked and
+          masterfully edited to ensure premium sound quality while showcasing each species’ range of vocalizations. The collection was made possible by the contributions of more than 515 sound recordists who archived their recordings in the
+          Macaulay Library.<br /><br />
+        </p>
+        <p>Proceeds from the sale of this guide go directly to supporting the Macaulay Library in building free tools to enhance your birding and power research and conservation.</p>
+      </blockquote>
+      <p>$20 well spent! Not only is the sound quality great, the naming conventions of each track made it trivially easy to map the vocalizations of each species to it’s corresponding bird card. Speaking of which…</p>
+      <h2 id="card-deck-birds-of-north-america">Card deck: <em>Birds of North America</em></h2>
+      <p>I needed a set of bird images that I didn’t need to curate, design, and print myself. Hence: playing cards with birds on them!</p>
+      <p>
+        I was picky about the deck I chose; while there are some beautifully illustrated decks out there, I wanted photos. I ended up purchasing
+        <a target="_blank" rel="noreferrer noopener" href="https://www.mountaineers.org/books/books/birds-of-north-america-deck-52-playing-cards">Gerrit Vyn’s “Birds of North America</a> deck.
+      </p>
+      <p>I then stuck an <a target="_blank" rel="noreferrer noopener" href="https://www.amazon.com/dp/B0919DVLWW?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_1&amp;th=1">NFC tag</a> to the back of each card.</p>
+      <figure>
+        <img src="./assets/cards.png" alt="Photo of card deck, with NFC tag stickers on card backs" />
+      </figure>
+      <h2 id="mapping-bird-cards-to-bird-calls">Mapping bird cards to bird calls</h2>
+      <p>
+        Programming the NFC tags on the bird cards ended up being straightforward, thanks to Max Mehl’s <a target="_blank" rel="noreferrer noopener" href="https://github.com/mxmehl/tonuino-cards-manager">TonUINO Cards Manager</a> project,
+        which maps a manifest of audio files to their corresponding TonUINO-card-ready byte strings, which is then written to NFC tags to create the set of TonUINO cards.
+      </p>
+      <p>To make the manifest for the Birduino, I listed out the birds (in the order of my card deck) and then iterated through them, matching any audio file names from the Cornell Guide.</p>
+      <p>The function to append the relevant audio to each bird looked like this:</p>
+      <pre class="code"><code>function append_birdsong_files() {
+    local I_BIRD=&quot;$1&quot;
+    local BIRD=&quot;$2&quot;
+
+    printf &quot;  $I_BIRD:\n    description: $BIRD\n    source:\n&quot; &gt;&gt; &quot;$OUTFILE&quot;
+    cat audio-full-tracklist.txt \
+        | grep &quot;$BIRD&quot; \
+        | sort \
+        | awk &#39;{ print &quot;      - &quot; $0 }&#39; \
+        &gt;&gt; &quot;$OUTFILE&quot;
+    printf &quot;    mode: party-from-to\n    from_song: 1\n    to_song: &quot;  &gt;&gt; &quot;$OUTFILE&quot;
+    cat audio-full-tracklist.txt \
+        | grep &quot;$BIRD&quot; \
+        | wc -l \
+        | tr -d &#39; &#39; \
+        &gt;&gt; &quot;$OUTFILE&quot;
+    printf &quot;\n&quot; &gt;&gt; &quot;$OUTFILE&quot;
+}</code></pre>
+      <p>The output manifest looked like this:</p>
+      <figure>
+        <img src="./assets/manifest.png" alt="Photo of manifest" />
+      </figure>
+      <p>My full script and manifest are <a target="_blank" rel="noreferrer noopener" href="https://github.com/hannahilea/notebook-playground/tree/main/tonuino-birds">here</a>, should you want to make your own.</p>
+      <p>
+        Using the <a target="_blank" rel="noreferrer noopener" href="https://marc136.github.io/tonuino-nfc-tools/">TonUINO NFC Tools</a> application for Android phones, I then was able to write that list of byte strings to the NFC tags on
+        the bird cards. This NFC-writing process went quickly!<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>
+      </p>
+      <h2 id="enclosure-designing-and-fabricating-clear-boxes">Enclosure: Designing and fabricating clear boxes</h2>
+      <p>
+        Using parametric CAD program <a href="../cuttle-obsession/">Cuttle.xyz</a>, I modified a basic press-fit box to give it cutouts for the knob and speaker, and overall dimensions such that the prototyping board could act as the box’s
+        top.
+      </p>
+      <p><img src="./assets/cad-box.png" alt="Vectorized layout of box to cut." /> The Cuttle design is <a target="_blank" rel="noreferrer noopener" href="https://cuttle.xyz/@hannahilea/Birduino-enclosure-xwsytzmwwLnc">here</a>.</p>
+      <p>I designed a second box to hold the cards, and a tray with inserts for both boxes to fit into so that the audio player could be presented along with its cards.</p>
+      <p><img src="./assets/cad-tray.png" alt="Vectorized layout of tray + rest to cut." /> The Cuttle design is <a target="_blank" rel="noreferrer noopener" href="https://cuttle.xyz/@hannahilea/Birduino-Tray-MhnQCGlMyedq">here</a></p>
+      <p>
+        I cut the pieces from 1/8” clear acrylic, using the laser cutter at my public library’s maker space.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>
+      </p>
+      <p>
+        Even though the enclosure is technically a press-fit box, I wanted to glue it for longevity.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> Choosing an adhesive was non-trivial, as I needed to
+        find a glue that didn’t make the acrylic cloudy. After testing several different options, we<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> settled on <em>Clear Gorilla Glue Gel</em>.<a
+          href="#fn8"
+          class="footnote-ref"
+          id="fnref8"
+          role="doc-noteref"
+          ><sup>8</sup></a
+        >
+      </p>
+      <p>Adhesive selected, I glued the whole shebang together.</p>
+      <figure>
+        <img src="./assets/player.png" alt="Photo of assembled Birduino player." />
+      </figure>
+      <figure>
+        <img src="./assets/tray-in-progress.png" alt="Photo of assembled Birduino tray." />
+      </figure>
+      <p>And that’s that: the complete Birduino!</p>
+      <figure>
+        <img src="./assets/all-back.png" alt="Photo of fully assembled Birduino, from back" />
+      </figure>
+      <figure>
+        <img src="./assets/assembled.png" alt="Photo of fully assembled Birduino!" />
+      </figure>
+      <p style="text-align: center">***</p>
+      <p>So much for a light and breezy project! It was satisfying to complete, though, and is fun to play with.</p>
+      <p>
+        <strong
+          ><em
+            >Thanks to: the TonUINO development community, the sound recordists and other folks who contributed to the <em>Cornell Guide</em> recordings, Gerrit Vyn for the beautiful card deck, and AF for her adhesive assist! Also, to the
+            birds whose vocalizations have been immortalized for projects such as this.</em
+          ></strong
+        >
       </p>
       <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
         <hr />
         <h3 id="footnotes-title">Footnotes</h3>
         <ol>
           <li id="fn1">
-            <p>Hah!<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p>
+            <p>
+              The recordings are shuffled randomly each time the card triggers playback, so you can’t <a href="../just-flag/">:just-flag:</a> get good at recognizing the ambient sound of a bird’s recording instead of the bird’s call
+              itself.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a>
+            </p>
           </li>
           <li id="fn2">
-            <p>AF was the MVP of the glue process; when she saw I was losing my mind a little, she took over the research and procurement.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p>
+            <p>This project was above all else an exercise in cable management, so the color-coding was both aesthetic <em>and</em> functional!<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p>
           </li>
           <li id="fn3">
-            <p>
-              No thanks to the Gorilla Glue branding including many different flavors of glue, all similarly named despite their chemical differences. It’s enough to make me want to apply for a job in their branding department, revamp their
-              spec sheets and packaging, and then quit. Seriously, though, I <em>want</em> to use your glue! Take my money! Make it easy for me!
-            </p>
-            <p>One resource that did prove useful was TODO’S write-up <a target="_blank" rel="noreferrer noopener" href="TODO-link">“TODO-TITLE”</a>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p>
+            <p>Configuration specifics, in case you’re making a Birduino too:</p>
+            <ul>
+              <li>I uncommented the following <code>#define</code>s: <code>TonUINO_Classic</code>, <code>THREEBUTTONS</code>, <code>DISABLE_SHUTDOWN_VIA_BUTTON</code>, <code>POTI</code>, <code>SPKONOFF</code></li>
+              <li>
+                I had to make one additional software change, to the max input constant used in the volume knob mapping: from <code>static constexpr int16_t maxLevel = 1023;</code> to <code>static constexpr int16_t maxLevel = 700;</code>.
+                (The project’s logging is set up nicely, which enabled me to determine this value empirically.)
+              </li>
+            </ul>
+            <a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a>
           </li>
           <li id="fn4">
             <p>
-              “Ended up” being the operative phrase there; before I folded and had AF dig her old android out of storage to enable me to use the above app, I first tried–and cursed—a bunch of RFID-programming apps from the Apple app store.
-              The programs exist, but are designed to be “user friendly” and program URLs or text blobs or files. Too user friendly. I couldn’t find one that would support a basic binary string as required by the Tonuino.
+              “This process” is the operative phrase here; before I had AF dig her old Android phone out of storage to facilitate this helper application, I first tried using a bunch of unhelpful RFID-programming apps from the Apple app
+              store. The programs exist, but are designed to be “user friendly” and program URLs or text blobs or files. Too user friendly. I couldn’t find one that would support a basic binary string as required by the TonUINO.
             </p>
-            <p>Apple app designers take note: there is a gap in the market for a lightweight, no nonsense, RFID writer. When you make it, let me know.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p>
+            <p>
+              Apple app designers take note: there is a gap in the market for a lightweight, no nonsense RFID writer that supports byte blobs. When you make it, let me know.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a>
+            </p>
+          </li>
+          <li id="fn5">
+            <p>
+              Why clear acrylic? I think electronic objects with visible innards look cool, and I hadn’t yet internalized that in this project I’d used an excessive amount of wire relative to the size of the enclosure, such that
+              <em>my</em> electronic object with visible innards would look less “cool” and more “crammed together uncomfortably”… 😅<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a>
+            </p>
+          </li>
+          <li id="fn6">
+            <p>Also because the aforementioned tangle of wires crammed were pressing outward in an attempt to break free, acting to press <em>un</em>fit!<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+          <li id="fn7">
+            <p>
+              “We” because I did not do this step alone: AF was the MVP of the glue process: when she saw I was losing my mind over it, she took over glue research and procurement.<a href="#fnref7" class="footnote-back" role="doc-backlink"
+                >↩︎</a
+              >
+            </p>
+          </li>
+          <li id="fn8">
+            <p>No thanks to the Gorilla Glue’s branding, which includes many different form factors and formulations of glue, all similarly named despite different chemical differences.</p>
+            <figure>
+              <img src="./assets/glues.png" alt="Photo of glues." />
+            </figure>
+            <p>
+              It’s enough to make me want to apply for a job in their branding department, revamp their spec sheets and packaging, and then quit. I <em>want</em> to use your glue! Take my money! Make it easy for me! Make an FAQ page that
+              A’s my F A Qs!
+            </p>
+            <p>
+              One resource that did prove useful was Danielle Feliciano Wethington’s <a target="_blank" rel="noreferrer noopener" href="https://daniellefeliciano.com/gluingacrylic/"><em>The Acrylic Gluing Guide</em></a
+              >.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a>
+            </p>
           </li>
         </ol>
       </section>
       <hr />
       <ul class="date">
-        <li>Created: 2026-07-08</li>
+        <li>Created: 2026-07-25</li>
         <li>Type: Project write-up</li>
-        <li>Tags: birbs, hardware, audio, CAD</li>
+        <li>Tags: birbs, hardware, audio, CAD, card-games-with-augmented-cards</li>
       </ul>
       <footer>
         <p class="breadcrumbs">
