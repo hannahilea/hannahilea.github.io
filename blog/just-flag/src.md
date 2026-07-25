@@ -2,7 +2,7 @@
 title: 'The "Just" Flag'
 type: Musing
 tags: [glossary, communication, just-do-it-wait-no-do-it-without-the-just]
-description: 'A basic explainer on :just-flag: its provenance, usage, and utility'
+description: 'A basic explainer on the :just-flag:&rsquo;s provenance, usage, and utility'
 created: 2026-05-15
 published: Fri, 15 May 2026 00:30:00 EST
 ---
