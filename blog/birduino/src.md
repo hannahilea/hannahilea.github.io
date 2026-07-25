@@ -2,7 +2,7 @@
 title: 'Birduino: A card-triggered audio player for [learning] the birds'
 type: Project write-up
 tags: [birbs, hardware, audio, CAD, card-games-with-augmented-cards]
-description: 'Tap a bird card to the NFC reader to hear one of its calls, identify birds from their vocalizations, up your bird game'
+description: 'Tap a bird card to the NFC reader to hear one of its calls, identify birds from their vocalizations, and up your bird game!'
 created: 2026-07-25
 published: Sat, 25 Jul 2026 11:45:00 EST
 header: '<style>
