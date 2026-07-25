@@ -51,8 +51,17 @@ virtual-gallery:
       Itinerant Mixer: Fun, Slick, and More Than a Toy </em></a>.'
 
 physical-gallery:
+  - project: Birduino
+    url: ../blog/birduino
+    year: 2026
+    thumbnail_url: "../blog/birduino/assets/square.png"
+    description:
+      'Interactive audio player for birdcalls, triggered by tapping a bird&rsquo;s card on the card reader.
+      <br>Described in blog post <a href="../blog/birduino/">Birduino: A card-triggered audio player for [learning] the birds</a>.'
+
+
   - project: Vintage Bluetooth cathedral speaker
-    url: https://github.com/hannahilea/vintage-bluetooth-speaker
+    url: ../blog/vintage-bluetooth-speaker
     year: 2025
     thumbnail_url: "../blog/vintage-bluetooth-speaker/assets/square.png"
     description:

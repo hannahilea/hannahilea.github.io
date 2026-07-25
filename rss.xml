@@ -252,6 +252,13 @@
       <guid>https://hannahilea.com/blog/vintage-bluetooth-speaker</guid>
       <description>Listening to modern baseball games through the static of the past, via a Bluetooth speaker in a laser-cut housing modeled from a vintage cathedral radio.</description>
     </item>
+    <item>
+      <title>Birduino: A card-triggered audio player for [learning] the birds</title>
+      <pubDate>Sat, 25 Jul 2026 11:45:00 EST</pubDate>
+      <link>https://hannahilea.com/blog/birduino</link>
+      <guid>https://hannahilea.com/blog/birduino</guid>
+      <description>Tap a bird card to the NFC reader to hear one of its calls, identify birds from their vocalizations, up your bird game</description>
+    </item>
 
   </channel>
 </rss>
