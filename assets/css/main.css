@@ -192,13 +192,6 @@ a[href^="https://github.com/hannahilea"] {
   font-family: "Jura Regular";
 }
 
-.home-header-text {
-  font-weight: normal;
-  margin: 0;
-  padding: .5em 0 0 0;
-  font-family: "Jura Regular";
-}
-
 .home-about-container {
   width: 50%;
 }
@@ -463,7 +456,8 @@ img.home-img {
 }
 
 .blog>footer,
-.index-page>footer {
+.index-page>footer,
+.mailing-list {
   display: block;
 
   input[type="submit"] {
@@ -636,4 +630,10 @@ img.home-img {
       /* font-style: italic; */
     }
   }
+}
+
+.mailing-list>p {
+  font-size: smaller;
+  font-style: italic;
+  line-height: .1;
 }
