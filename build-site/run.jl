@@ -275,7 +275,9 @@ function generate_project_index(; overwrite_existing=false, template=PROJECT_IND
     is_present = x -> !(isnothing(x) || isempty(x))
 
     for key in keys(all_projects)
-        proj_strs = map(all_projects[key]) do p
+        _projects = sort(all_projects[key]; by=(p) -> get(p, "year", ""), rev=true)
+
+        proj_strs = map(_projects) do p
             url = get(p, "url", "")
             name = get(p, "project", "")
             description = get(p, "description", "")
