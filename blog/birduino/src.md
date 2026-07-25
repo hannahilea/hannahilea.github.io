@@ -110,7 +110,7 @@ $20 well spent! Not only is the sound quality great, the naming conventions of e
 
 I needed a set of bird images that I didn't need to curate, design, and print myself. Hence: playing cards with birds on them!
 
-I was picky about the deck I chose; while there are some beautifully illustrated decks out there, I wanted photos. I ended up purchasing [Gerrit Vyn's "Birds of North America](https://www.mountaineers.org/books/books/birds-of-north-america-deck-52-playing-cards) deck.
+I was picky about the deck I chose; while there are some beautifully illustrated decks out there, I wanted photos. I ended up purchasing [Gerrit Vyn's "Birds of North America"](https://www.mountaineers.org/books/books/birds-of-north-america-deck-52-playing-cards) deck.
 
 I then stuck an [NFC tag](https://www.amazon.com/dp/B0919DVLWW?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_1&th=1) to the back of each card.
 
