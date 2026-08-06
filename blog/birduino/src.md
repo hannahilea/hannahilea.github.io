@@ -92,7 +92,7 @@ The TonUINO application is written in C++; I cloned [the repository](https://git
 
 ## Audio: The Cornell Guide to Bird Sounds
 
-Loading audio onto a TonUINO is trivially easy: you put it on the microSD card that gets loaded in the mp3 module, following a straight-foward naming and directory structure.
+Loading audio onto a TonUINO is easy: you put it on the microSD card that gets loaded in the mp3 module, following a straight-forward naming and directory structure.
 
 For this project's audio, I wanted multiple high-quality vocalizations for each included bird. To accomplish this,  I purchased [_The Cornell Guide to Bird Sounds: United States and Canada_](https://www.macaulaylibrary.org/product/the-cornell-guide-to-bird-sounds-us-and-canada/):
 
@@ -159,7 +159,7 @@ My full script and manifest are [here](https://github.com/hannahilea/notebook-pl
 
 ## Enclosure: Designing and fabricating clear boxes
 
-I wanted to make the Birduino relatively self-contained---or at least, didn't leave a bunch of wires hanging around. Time to build a box!
+I wanted to make the Birduino relatively self-contained---or at least, didn't want to leave a bunch of wires hanging around. Time to build a box!
 
 Using parametric CAD program [Cuttle.xyz](../cuttle-obsession/), I modified a basic press-fit box to give it cutouts for the knob and speaker, with overall dimensions such that the prototyping board could act as the box's top.
 
@@ -199,7 +199,7 @@ And that's that: the complete Birduino!
 
 <p style="text-align: center">***</p>
 
-My only regret here is that my Birduino doesn't include enough birds! This initial 54-bird line-up is a good start, but I'd love to include birds from other parts of the world, or even more birds from North America.[^joker] 
+My only regret here is that my Birduino doesn't include enough birds! This initial 54-bird line-up is a good start, but I'd love to include birds from other parts of the world, or even more birds from North America.[^joker]
 
 For the future: Birduino extension packs!
 
