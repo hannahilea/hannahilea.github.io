@@ -4,7 +4,7 @@ type: project-write-up
 tags: [hardware, houseplant-programming]
 description: '.... .- ...- . / -- --- .-. ... . / .-- .. .-.. .-.. / - .-. .- ...- . .-.. / ... - --- .--.'
 created: 2026-01-24
-published: Thu, 24 Jan 2026 01:15:00 EST
+published: Sat, 24 Jan 2026 01:15:00 EST
 ---
 
 I acquired a [telegraph key](https://en.wikipedia.org/wiki/Telegraph_key):[^swapfest]
