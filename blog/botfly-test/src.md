@@ -4,7 +4,7 @@ type: Musing
 tags: [spite-driven-development, bechdel-test]
 description: 'Assessment criteria for bot behavior: is it transparent, prosocial, and unselfish?'
 created: 2025-03-3
-published: Tue, 3 Mar 2025 17:45:00 EST
+published: Mon, 3 Mar 2025 17:45:00 EST
 ---
 
 I recently encountered non-transparent automated behavior in a tech-community forum, and it really, *really* annoyed me. After confirming that my spidey senses were correct, and that this user was actively, regularly, and non-transparently performing and benefiting from automated interactions in the forum, I spent some time trying to figure out why exactly I was *so* annoyed by it.

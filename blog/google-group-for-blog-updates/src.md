@@ -5,7 +5,7 @@ tags: [meta, website, documentation]
 description: 'Instructions for how to set up a mailing list to receive notifications about new posts, using RSS, IFTTT, and Google Groups.'
 created: 2025-01-23
 updated: 2026-07-08
-published: Tue, 23 Jan 2025 12:56:00 EST
+published: Thu, 23 Jan 2025 12:56:00 EST
 ---
 
 <br>

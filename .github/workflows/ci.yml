@@ -1,0 +1,19 @@
+name: CI 
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  rss_validate:
+    name: "RSS Validation"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        with:
+          sparse-checkout: rss.xml
+      - uses: alexwilson/feed-validator-action@20c1fc2adb3820699d789855f346bc2e61fcffd8
+        with:
+          feed: rss.xml
+          origin-url: https://hannahilea.com/rss.xml
