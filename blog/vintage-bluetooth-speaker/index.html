@@ -74,8 +74,9 @@ laser-cut housing modeled from a vintage cathedral radio."
       <h2 id="why">Why?</h2>
       <p>
         My partner frequently listens to baseball game radio broadcasts, instead of watching televised games. Given the
-        <a target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Major_League_Baseball_on_the_radio">long history of radio and baseball broadcasts</a> I thought it would be fun to add a vintage flavor to her
-        experience by building a “vintage” Bluetooth speaker for listening to <a target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Detroit_Tigers_Radio_Network">hometown games</a> in low-fi style.
+        <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Major_League_Baseball_on_the_radio">long history of radio and baseball broadcasts</a> I thought it would be
+        fun to add a vintage flavor to her experience by building a “vintage” Bluetooth speaker for listening to
+        <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Detroit_Tigers_Radio_Network">hometown games</a> in low-fi style.
       </p>
       <p>Of course, you can use it to listen to anything—not just baseball games.</p>
       <div class="centered-children">
@@ -98,9 +99,9 @@ laser-cut housing modeled from a vintage cathedral radio."
       <h2 id="how">How?</h2>
       <h4 id="hardware">Hardware</h4>
       <p>
-        I used <a target="_blank" rel="noreferrer noopener" href="https://learn.adafruit.com/bluetooth-speaker">this Adafruit tutorial by the Ruiz Brothers and Liz Clark</a> as a starting point for the component selection and software
-        approach.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> As in that tutorial, my build uses an
-        <a target="_blank" rel="noreferrer noopener" href="https://www.adafruit.com/product/5400">Adafruit ESP32 Feather</a> microcontroller, with a couple of rotary potentiometers and a speaker.
+        I used <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://learn.adafruit.com/bluetooth-speaker">this Adafruit tutorial by the Ruiz Brothers and Liz Clark</a> as a starting point for
+        the component selection and software approach.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> As in that tutorial, my build uses an
+        <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://www.adafruit.com/product/5400">Adafruit ESP32 Feather</a> microcontroller, with a couple of rotary potentiometers and a speaker.
       </p>
       <p>Here it is all wired up and connected to the front-plate:</p>
       <figure>
@@ -111,9 +112,10 @@ laser-cut housing modeled from a vintage cathedral radio."
       </figure>
       <h4 id="enclosure">Enclosure</h4>
       <p>
-        I modeled the speaker’s wooden housing on a <a target="_blank" rel="noreferrer noopener" href="https://radioattic.com/item.htm?radio=0960197">Crosley 179 “Dual Four” Cathedral radio from 1934</a>: in parametric CAD program
-        <a target="_blank" rel="noreferrer noopener" href="https://cuttle.xyz">cuttle.xyz</a> I traced the main outline and cutouts from a photo of the Crosley, then rearranged the knob positions and added simplified decoration to the
-        faceplate.
+        I modeled the speaker’s wooden housing on a
+        <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://radioattic.com/item.htm?radio=0960197">Crosley 179 “Dual Four” Cathedral radio from 1934</a>: in parametric CAD program
+        <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://cuttle.xyz">cuttle.xyz</a> I traced the main outline and cutouts from a photo of the Crosley, then rearranged the knob positions
+        and added simplified decoration to the faceplate.
       </p>
       <figure>
         <img src="./assets/crosley_trace.gif" alt="Faceplate trace, with original photo toggled on and off." />
@@ -122,7 +124,7 @@ laser-cut housing modeled from a vintage cathedral radio."
       <figure>
         <img src="./assets/cuttle_layout.png" alt="Vectorized layout of components to cut." />
       </figure>
-      <p>My Cuttle design is <a target="_blank" rel="noreferrer noopener" href="https://cuttle.xyz/@hannahilea/Bluetooth-cathedral-speaker-Bmqlp4mlXIro">here</a>, if you want to cut your own.</p>
+      <p>My Cuttle design is <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://cuttle.xyz/@hannahilea/Bluetooth-cathedral-speaker-Bmqlp4mlXIro">here</a>, if you want to cut your own.</p>
       <p>
         I cut the pieces from 1/8” plywood using the laser cutter at my public library’s maker space.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> I finished the wood with a basic stain.
       </p>
@@ -133,8 +135,9 @@ laser-cut housing modeled from a vintage cathedral radio."
         <img src="./assets/stained.png" alt="Photo of components during staining" />
       </figure>
       <p>
-        The speaker fabric was roughly four inches of a perfect ribbon I found at my local <a target="_blank" rel="noreferrer noopener" href="https://makeandmendshop.com/">second-hand art supply</a> store. Seriously, they could not have had
-        a more perfect option. I glued it on, along with a small piece of mulberry paper over the dial hole.
+        The speaker fabric was roughly four inches of a perfect ribbon I found at my local
+        <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://makeandmendshop.com/">second-hand art supply</a> store. Seriously, they could not have had a more perfect option. I glued it on,
+        along with a small piece of mulberry paper over the dial hole.
       </p>
       <figure>
         <img src="./assets/glued.png" alt="Photo of speaker fabric glued." />
@@ -162,9 +165,9 @@ laser-cut housing modeled from a vintage cathedral radio."
       </figure>
       <h4 id="software">Software</h4>
       <p>
-        The speaker is programmed in C++, using the Arduino <a target="_blank" rel="noreferrer noopener" href="https://github.com/pschatzmann/arduino-audio-tools">Audio Tools</a> and
-        <a target="_blank" rel="noreferrer noopener" href="https://github.com/pschatzmann/ESP32-A2DP/tree/2e0f47dec2735924d58bfb5c67c44e32ae72218a">ESP32-A2DP</a> (audio over Bluetooth) libraries written by
-        <a target="_blank" rel="noreferrer noopener" href="https://github.com/pschatzmann">Phil Schatzmann</a>.
+        The speaker is programmed in C++, using the Arduino <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://github.com/pschatzmann/arduino-audio-tools">Audio Tools</a> and
+        <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://github.com/pschatzmann/ESP32-A2DP/tree/2e0f47dec2735924d58bfb5c67c44e32ae72218a">ESP32-A2DP</a> (audio over Bluetooth) libraries
+        written by <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://github.com/pschatzmann">Phil Schatzmann</a>.
       </p>
       <p>Processing chain:</p>
       <ul>
@@ -181,9 +184,9 @@ laser-cut housing modeled from a vintage cathedral radio."
         <li><p>Output is played through the speaker component</p></li>
       </ul>
       <p>
-        My code is <a target="_blank" rel="noreferrer noopener" href="https://github.com/hannahilea/baseball-radio">here</a>. The implementation ended up being slightly convoluted (read: hacky), due to my lack of familiarity with the
-        processing library and the tricky conditions under which I was working.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> I ran out of time to add the notch filter I wanted, and also the high pass
-        filter. Oh well.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>
+        My code is <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://github.com/hannahilea/baseball-radio">here</a>. The implementation ended up being slightly convoluted (read: hacky), due
+        to my lack of familiarity with the processing library and the tricky conditions under which I was working.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> I ran out of time to add the notch filter
+        I wanted, and also the high pass filter. Oh well.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>
       </p>
       <h2 id="next-steps">Next steps</h2>
       <p>
@@ -192,38 +195,45 @@ laser-cut housing modeled from a vintage cathedral radio."
       </p>
       <p>
         If I wanted to improve on the speaker or build something similar in the future, I’d definitely figure out what was going on in my code and make it nicer. I might also switch over to a different board and programming ecosystem—after
-        the fact, a friend recommended using a <a target="_blank" rel="noreferrer noopener" href="https://www.pjrc.com/teensy/">Teensy</a>, which apparently has a whole GUI system for easily setting up exactly the processing chain I’d
-        wanted.
+        the fact, a friend recommended using a <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://www.pjrc.com/teensy/">Teensy</a>, which apparently has a whole GUI system for easily setting
+        up exactly the processing chain I’d wanted.
       </p>
       <p><strong>If you want to make one, go for it!</strong> Typical caveat applies: I have not spent time turning my steps into a nice tutorial.</p>
       <ul>
         <li>
-          <p>The Cuttle.xyz CAD design for constructing the enclosure is <a target="_blank" rel="noreferrer noopener" href="https://cuttle.xyz/@hannahilea/Bluetooth-cathedral-speaker-Bmqlp4mlXIro">HERE</a></p>
+          <p>
+            The Cuttle.xyz CAD design for constructing the enclosure is
+            <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://cuttle.xyz/@hannahilea/Bluetooth-cathedral-speaker-Bmqlp4mlXIro">HERE</a>
+          </p>
         </li>
         <li>
-          <p>The repo where I documented my hardware set-up and put my resultant script is <a target="_blank" rel="noreferrer noopener" href="https://github.com/hannahilea/baseball-radio">HERE</a></p>
+          <p>
+            The repo where I documented my hardware set-up and put my resultant script is <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://github.com/hannahilea/baseball-radio">HERE</a>
+          </p>
         </li>
       </ul>
       <p>If you make one, let me know!</p>
       <p>
         <strong
           ><em
-            >Thanks to the Ruiz Brothers and Liz Clark for <a target="_blank" rel="noreferrer noopener" href="https://learn.adafruit.com/bluetooth-speaker">their Adafruit tutorial</a>, and to Phil Schatzmann for the Arduino libraries.</em
+            >Thanks to the Ruiz Brothers and Liz Clark for <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://learn.adafruit.com/bluetooth-speaker">their Adafruit tutorial</a>, and to Phil
+            Schatzmann for the Arduino libraries.</em
           ></strong
         >
       </p>
       <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
         <hr />
         <h3 id="footnotes-title">Footnotes</h3>
+        <h3 id="footnotes-title">Footnotes</h3>
         <ol>
           <li id="fn1">
             <p>
               In the interest of full disclosure, this is not the first audio ✨dehancement✨ project I’ve worked on. During my time as a DSP engineer at iZotope, one of the projects my team shipped was the 15 year re-release of their
-              original <a target="_blank" rel="noreferrer noopener" href="https://www.izotope.com/products/vinyl">Vinyl plugin</a>, which adds a record player effect to input audio.
+              original <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://www.izotope.com/products/vinyl">Vinyl plugin</a>, which adds a record player effect to input audio.
             </p>
             <p>
-              The current iteration of Vinyl (which you can get for free <a target="_blank" rel="noreferrer noopener" href="https://www.izotope.com/products/vinyl">here!</a>) has a modern UI, but back when my team worked on it it still had
-              its original look and feel, complete with Easter egg credits:
+              The current iteration of Vinyl (which you can get for free <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://www.izotope.com/products/vinyl">here!</a>) has a modern UI, but
+              back when my team worked on it it still had its original look and feel, complete with Easter egg credits:
             </p>
             <div class="centered-children">
               <iframe
@@ -248,8 +258,9 @@ laser-cut housing modeled from a vintage cathedral radio."
           </li>
           <li id="fn4">
             <p>
-              Thanks, staff at the Cambridge Public Library’s <a target="_blank" rel="noreferrer noopener" href="https://www.cambridgema.gov/departments/cambridgepubliclibrary/locations/mainlibrary/thehive">Hive</a>! Thanks, taxpayers of
-              the greater Camberville area!<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a>
+              Thanks, staff at the Cambridge Public Library’s
+              <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://www.cambridgema.gov/departments/cambridgepubliclibrary/locations/mainlibrary/thehive">Hive</a>! Thanks, taxpayers of the
+              greater Camberville area!<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a>
             </p>
           </li>
           <li id="fn5">
@@ -297,7 +308,7 @@ laser-cut housing modeled from a vintage cathedral radio."
               <img class="badge" src="/assets/img/rss-logo-styled.svg" alt="Subscribe to @hannahilea RSS feed"
             /></a>
             <!-- <p>
-                <a target="_blank" rel="noreferrer noopener" href="https://buttondown.com/refer/hannahilea" target="_blank"> Powered by Buttondown. </a>
+                <a target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://buttondown.com/refer/hannahilea" target="_blank"> Powered by Buttondown. </a>
             </p> -->
           </form>
         </div>
@@ -305,7 +316,8 @@ laser-cut housing modeled from a vintage cathedral radio."
       <div class="rc-scout-wrapper">
         <div class="rc-scout" data-scout-rendered="true">
           <p class="rc-scout__text">
-            <i class="rc-scout__logo"></i> I attended the <a class="rc-scout__link" target="_blank" rel="noreferrer noopener" href="https://www.recurse.com/scout/click?t=7a1a00ebf918cc52e21814b3b29abfdf">Recurse Center</a> and all I got was
+            <i class="rc-scout__logo"></i> I attended the
+            <a class="rc-scout__link" target="_blank" rel="noreferrer noopener" target="_blank" rel="noreferrer noopener" href="https://www.recurse.com/scout/click?t=7a1a00ebf918cc52e21814b3b29abfdf">Recurse Center</a> and all I got was
             this lousy blog footer
           </p>
         </div>
