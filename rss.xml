@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <atom:link href="https://hannahilea.com/rss.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://hannahilea.com/rss.xml" rel="self" type="application/rss+xml" />
     <title>@hannahilea</title>
     <link>https://hannahilea.com</link>
     <description>Personal website of Hannah Robertson (`@hannahilea`)</description>
@@ -15,7 +15,7 @@
       <description>Avatar: Photo of stereo system with large googly eyes on top to look surprised</description>
     </image>
     <item>
-      <title>This website’s structure: A meta post</title>
+      <title>This website’s structure: A meta post</title
       <pubDate>Fri, 17 May 2024 20:22:34 GMT</pubDate>
       <link>https://hannahilea.com/blog/site-structure</link>
       <guid>https://hannahilea.com/blog/site-structure</guid>
