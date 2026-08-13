@@ -22,8 +22,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
-        with:
-          sparse-checkout: "*.html"
       - name: Restore lychee cache
         uses: actions/cache@v4
         with:
