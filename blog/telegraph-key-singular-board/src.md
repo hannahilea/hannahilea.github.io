@@ -25,7 +25,7 @@ Never has it been more satisfying---or less private[^morse]---to type messages. 
 
 [^morse]: On the plus side, I suspect that most people around me don't know Morse code, which probably gives me a certain amount of privacy through ~~obsoletion~~ obfuscation....
 
-[^practice]: Although I have not done so yet, the Key(singular)board can be used with any existing [typing training software](http://typerfast.com/), since as far as a computer is concerned it is a normal alphanumeric keyboard.
+[^practice]: Although I have not done so yet, the Key(singular)board can be used with any existing [typing training software](https://typerfast.com/), since as far as a computer is concerned it is a normal alphanumeric keyboard.
 
 <div class="centered-children">
 <iframe

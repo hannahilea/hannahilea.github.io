@@ -57,7 +57,7 @@ published: Sat, 6 Dec 2025 19:30:00 EST
 
 ## Listen
 
-- **Third Reprise's cover of *[I'm Not That Girl](youtube.com/watch?v=DaU2RkaufMw)***
+- **Third Reprise's cover of *[I'm Not That Girl](https://www.youtube.com/watch?v=DaU2RkaufMw)***
 
 <div class="centered-children">
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/DaU2RkaufMw?si=4gVB2-n6qYZKvOfa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

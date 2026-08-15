@@ -135,10 +135,10 @@ Shout-out to a bunch of folks in the [Recurse (RC)](https://www.recurse.com) com
 [^salad]: Excepting my own brain, which is majority *Brassica*. Anyway, the phrase "gently debate a word salad machine" has lodged itself in my brain, thanks to [this comment:
     ![](./assets/salad.png)](https://github.com/dotnet/runtime/pull/115762#issuecomment-2898635945)
 
-Even if I never publish anything else to this site, I feel good about how much I've done this year alone.[^bird] My "write publicly" experiment was a personal win, and I encourage everyone to try it for themselves. (Not sure how to start? I recommend [tinylogger](www.tinylogger.com)![^start])
+Even if I never publish anything else to this site, I feel good about how much I've done this year alone.[^bird] My "write publicly" experiment was a personal win, and I encourage everyone to try it for themselves. (Not sure how to start? I recommend [tinylogger](https://www.tinylogger.com)![^start])
 
 [^bird]: Okay, that's not QUITE true---I currently have a BirdNET-Pi tutorial that's nearly ready to go, and that I've promised some folks, and I'd be pretty bummed not to have actually shared it. 
-[^start]: I use [tinylogger](www.tinylogger.com) to draft new posts; while I then move mine elsewhere to publish, you can publish direct from tinylogger if you like! The creator---[Max Pekarsky](https://maximpekarsky.com/)---is an RC alum, and responds to feature requests unreasonably quickly.
+[^start]: I use [tinylogger](https://www.tinylogger.com) to draft new posts; while I then move mine elsewhere to publish, you can publish direct from tinylogger if you like! The creator---[Max Pekarsky](https://maximpekarsky.com/)---is an RC alum, and responds to feature requests unreasonably quickly.
 
 
 ***Thanks to AF, Charles, Shae, and the RC community---and to you, for reading!***

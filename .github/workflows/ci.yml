@@ -17,3 +17,22 @@ jobs:
         with:
           feed: rss.xml
           origin-url: https://hannahilea.com/rss.xml
+  links_validate:
+    name: Link checker
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+      # - name: Restore lychee cache
+      #   uses: actions/cache@v4
+      #   with:
+      #     path: .lycheecache
+      #     key: cache-lychee-${{ github.sha }}
+      #     restore-keys: cache-lychee-
+      - name: Run lychee
+        id: lychee
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8
+        with:
+          # Check all html
+          args: --root-dir "$(pwd)" --verbose --no-progress './**/*.html'
+          # Don't fail action on broken links
+          fail: false
