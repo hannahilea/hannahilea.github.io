@@ -259,6 +259,13 @@
       <guid>https://hannahilea.com/blog/birduino</guid>
       <description>Tap a bird card to the NFC reader to hear one of its calls, identify birds from their vocalizations, and up your bird game!</description>
     </item>
+    <item>
+      <title>Here comes the sun[light]: An ambient Daylight Clock with time and space controls</title>
+      <pubDate>Thu, 05 Nov 2026 13:00:00 EST</pubDate>
+      <link>https://hannahilea.com/blog/daylight-clock</link>
+      <guid>https://hannahilea.com/blog/daylight-clock</guid>
+      <description>Project write-up for an analog clock with an edge-lit illumination of day vs night, for passive passage-of-date awareness...and clocking on sunshine.</description>
+    </item>
 
   </channel>
 </rss>
