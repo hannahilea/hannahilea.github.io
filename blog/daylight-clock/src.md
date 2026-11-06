@@ -46,6 +46,8 @@ What does this controller do?
 ></iframe>
 </div>
 
+    The sudden ~~springs forward and falls back~~ daylight shifts are when Daylight Savings Time begins and ends.
+
 - The toggle on the side switches enables the control box's time and space overrides; when this switch is off, the time knob controls the brightness of the edge lighting.[^brightness]
 
 [^week]: Originally I was going to scan in increments of "day", but after playing with it, "day" felt too short and required too many turns to see a difference, or to have a true understanding of how much time had passed. After experimenting, "week" had the most pleasing connection between turning the knob and seeing a physical shift in daylight.
@@ -253,7 +255,7 @@ Challenges:
 - Deciding what I wanted the clock frame to look like
 - Deciding how I wanted to decorate the clock face
 - Deciding how I wanted to decorate the outer ring around the clock's face
-- Deciding that I was going to just use a cardboard box for the controller...and then doing that, and discovering that I hated it and wanted to cut something out of wood
+- Deciding that I was going to [:just-flag:](../just-flag/) use a cardboard box for the controller...and then doing that, and discovering that I hated it and wanted to cut something out of wood
 - Purchasing pre-painted wood to speed up the cut/paint processes
 - Discovering that the library policies had changed so I couldn't use their laser cutter on this wood
 - Attempting to use a different maker space and/or hire a local shop to cut this wood for me
