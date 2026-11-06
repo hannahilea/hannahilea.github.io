@@ -29,7 +29,7 @@ I also built a time-and-space control box:
 
 What does this controller do?
 
-- The knob at the bottom controls time, in increments of one week per click.[^week] 
+- The knob at the bottom controls time, in increments of one week per click.[^week]
 
     The time knob in action:
 
@@ -50,7 +50,7 @@ What does this controller do?
 
 [^week]: Originally I was going to scan in increments of "day", but after playing with it, "day" felt too short and required too many turns to see a difference, or to have a true understanding of how much time had passed. After experimenting, "week" had the most pleasing connection between turning the knob and seeing a physical shift in daylight.
 
-[^brightness]: Brightness is controlled by the time knob too, when the clock is in "explore time and space" mode: 
+[^brightness]: Brightness is controlled by the time knob too, when the clock is in "explore time and space" mode:
     <div class="centered-children">
     <iframe
         width="560"
@@ -66,7 +66,7 @@ What does this controller do?
 
     The extreme contrast in all of these videos is because I turned the clock to full brightness for ~~drama~~ enhanced visibility, which resulted in some strange color autobalancing. The color in the photos is more representative.
 
-- The vertical slider is a latitude selector, designed so that the world map---[Equal Earth projection](https://en.wikipedia.org/wiki/Equal_Earth_projection)!---lines up with the length of the slider.[^proud] 
+- The vertical slider is a latitude selector, designed so that the world map---[Equal Earth projection](https://en.wikipedia.org/wiki/Equal_Earth_projection)!---lines up with the length of the slider.[^proud]
 
     The latitude slider in action:
 
@@ -102,9 +102,9 @@ What does this controller do?
     ></iframe>
     </div>
 
-Based on the relative longitude video, is it possible that this entire project was a way for me to illustrate the time zone grudge I've held for years? Not intentionally, but.... 
+Based on the relative longitude video, is it possible that this entire project was a way for me to illustrate the time zone grudge I've held for years? Not intentionally, but....
 
-The grudge: I grew up in Michigan, on the west edge of the Eastern Time Zone (US); I later moved to the eastern side of that same zone, where the sun rises and sets _a full hour earlier_. This is distressing in the summer---by rights, the sun ought to set _late_ in the summer!---and borders on criminal in the winter: the sun sets just after 4pm on the solstice. 😱 
+The grudge: I grew up in Michigan, on the west edge of the Eastern Time Zone (US); I later moved to the eastern side of that same zone, where the sun rises and sets _a full hour earlier_. This is distressing in the summer---by rights, the sun ought to set _late_ in the summer!---and borders on criminal in the winter: the sun sets just after 4pm on the solstice. 😱
 
 
 [^lon]: Because the clock hands are not connected to the electronics, there's no way for the clock hands to jump to a new time when a change in longitude crosses a time zone! Within a single time zone, however, there's no need for the clock hands to shift. The longitude toggle therefore sets the _relative_ longitude position within the clock's default time zone---west, central, east. This makes visible the daylight shift across those different locations for the same *time* of day.
@@ -217,7 +217,7 @@ I failed to make the box deep enough to fit the ensuing tangle of wires crammed 
 The Daylight Clock runs off an [Adafruit Feather RP2040](https://www.adafruit.com/product/4884) microcontroller. The rest of the components are:
 
 - A strand of 48 [neopixels](https://www.adafruit.com/product/2541),
-- A [real-time clock (RTC) component](https://www.adafruit.com/product/3295) assembly, to maintain the current date and time even when the board isn't powered, so that I don't have to hand-set it every time I plug in the clock[^feather] 
+- A [real-time clock (RTC) component](https://www.adafruit.com/product/3295) assembly, to maintain the current date and time even when the board isn't powered, so that I don't have to hand-set it every time I plug in the clock[^feather]
 - A two-way toggle to enable/disable switch between "daylight based on current time" vs "daylight based on control box settings"
 - A [linear potentiometer](https://cdn-shop.adafruit.com/product-files/4219/4219_C11375.pdf), i.e., the slider to control latitude
 - A [rotary encoder](https://www.adafruit.com/product/377), i.e., the knob to control date
@@ -240,9 +240,9 @@ The [new-to-me aspects of this project were](../learn-to-learn-electronics/) the
 
 I programmed the Adafruit Feather with CircuitPython, relying heavily on the [`asyncio`](https://learn.adafruit.com/cooperative-multitasking-in-circuitpython-with-asyncio/concurrent-tasks) library. `asyncio` allowed me to separate monitoring the state of the input controllers---"has the slider position changed? the toggle toggled? the knob turned?"---from re-computing each neopixel's resultant color.
 
-I ported the sunrise and sunset calculations from cceckman's [Rust implementation](https://github.com/cceckman/aclock/blob/5547d8490151eafa77f33dc697cbb58ea0035c70/server/src/riseset.rs#L60) of the [NOAA](https://gml.noaa.gov/grad/solcalc/calcdetails.html) solar calculator.
+I ported the sunrise and sunset calculations from Charles's [Rust implementation](https://github.com/cceckman/aclock/blob/5547d8490151eafa77f33dc697cbb58ea0035c70/server/src/riseset.rs#L60) of the [NOAA](https://gml.noaa.gov/grad/solcalc/calcdetails.html) solar calculator.
 
-I've made the code available [here](https://github.com/hannahilea/notebook-playground/tree/main/daylight-clock)---and standard [houseplant programming](../houseplant-programming/) caveats apply. 
+I've made the code available [here](https://github.com/hannahilea/notebook-playground/tree/main/daylight-clock)---and standard [houseplant programming](../houseplant-programming/) caveats apply.
 
 ## Retrospective
 
@@ -281,10 +281,8 @@ Feel free to ask if you are building one and need more guidance at any step; I d
 
 Also, if you want to make one, but don't want to deal with quite so many electronics:
 
-- You could skip the control box: The majority of the technical challenges I encountered---both design and implementation---came from the addition of the controls. A Daylight Clock sans control box would still be pretty cool. 
+- You could skip the control box: The majority of the technical challenges I encountered---both design and implementation---came from the addition of the controls. A Daylight Clock sans control box would still be pretty cool.
 - You could use one of the Adafruit Feathers that is WiFi-enabled, and get the time via request, so you could skip setting up the RTC component.
 - If using a WiFi-enabled microcontroller, you could create a webpage-based control panel instead of the physical one, which would also be pretty cool!
 
-And with that, it is time for me to venture out into the Boston darkness. After all, it's nearly 4:30pm, so the daylight is nearly gone.
-
-***Thanks to Charles! Also AF, for build support.***
+***Thanks to Charles! Also AF, for build [emotional] support.***
