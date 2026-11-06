@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+        uses: actions/checkout@873ef3c2816d3eeec7ddc7490c1b03ca4383dcc8
         with:
           sparse-checkout: rss.xml
       - uses: alexwilson/feed-validator-action@20c1fc2adb3820699d789855f346bc2e61fcffd8
