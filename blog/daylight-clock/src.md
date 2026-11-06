@@ -3,8 +3,8 @@ title: "Here comes the sun[light]: An ambient Daylight Clock with time and space
 type: Project write-up
 tags: [friendship-as-a-gateway-drug-to-electronics, long-held-grudge-against-the-1915-detroit-auto-lobby, hardware, data-viz, cad]
 description: 'Project write-up for an analog clock with an edge-lit illumination of day vs night, for passive passage-of-date awareness...and clocking on sunshine.'
-created: 2026-11-05
-published: Thu, 05 Nov 2026 16:15:00 EST
+created: 2026-11-06
+published: Fri, 06 Nov 2026 18:30:00 EST
 header: '<style>
 .blog {
   img {
@@ -236,7 +236,7 @@ The Daylight Clock runs off an [Adafruit Feather RP2040](https://www.adafruit.co
 
 The microcontroller and all components live in the control box, except for the neopixels around the clock face, which are connected to the microcontroller via some hand-braided wires and a few connectors.The connectors are so that I can easily change the distance between clock and control box, without doing any additional soldering. The neopixels are powered through the board, which plugs in via standard [wall wart](https://en.wikipedia.org/wiki/AC_adapter).
 
-The [new-to-me aspects of this project were](../learn-to-learn-electronics/) the RTC and---less glamorously!---the crimped wire connectors.
+The [new-to-me aspects of this project](../learn-to-learn-electronics/) were the RTC and---less glamorously!---the crimped wire connectors.
 
 ## Software design
 
@@ -273,7 +273,7 @@ Thankfully the result looks really cool, and works as intended, and I love havin
 
 Go for it!
 
-My sources:
+To get you started:
 
 - [Cuttle design for clock housing](https://cuttle.xyz/@hannahilea/24-hour-Daylight-Clock-Housing-1-of-2-SCEntzkZSNvZ)
 - [Cuttle design for control box](https://cuttle.xyz/@hannahilea/24-hour-Daylight-Clock-Control-box-1-of-2-IgA1LCVjOqzO)
