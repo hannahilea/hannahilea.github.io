@@ -64,7 +64,10 @@ passage-of-date awareness…and clocking on sunshine."
       <p>What does this controller do?</p>
       <ul>
         <li>
-          The knob at the bottom controls time, in increments of one week per click.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
+          <p>
+            The knob at the bottom controls time, in increments of one week per click.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
+          </p>
+          <p>The time knob in action:</p>
         </li>
       </ul>
       <div class="centered-children">
@@ -93,8 +96,11 @@ passage-of-date awareness…and clocking on sunshine."
       </ul>
       <ul>
         <li>
-          The vertical slider is a latitude selector, designed so that the world map—<a target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Equal_Earth_projection">Equal Earth projection</a>!—lines up with the
-          length of the slider.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>
+          <p>
+            The vertical slider is a latitude selector, designed so that the world map—<a target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Equal_Earth_projection">Equal Earth projection</a>!—lines up with the
+            length of the slider.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>
+          </p>
+          <p>The latitude slider in action:</p>
         </li>
       </ul>
       <div class="centered-children">
@@ -121,6 +127,7 @@ passage-of-date awareness…and clocking on sunshine."
               ><sup>4</sup></a
             >
           </p>
+          <p>The longitude toggle in action:</p>
           <div class="centered-children">
             <iframe
               width="560"
@@ -209,13 +216,14 @@ passage-of-date awareness…and clocking on sunshine."
           </figcaption>
         </figure>
       </div>
+      <p>Painting was…an experience.</p>
       <figure>
         <img src="./assets/paint-1.png" alt="Photo of decorated face during painting" />
       </figure>
       <figure>
         <img src="./assets/paint-2.png" alt="Photo of decorated face after painting" />
       </figure>
-      <p>I used wood glue to make the press-fit connections permanent…</p>
+      <p>I used wood glue to make the press-fit connections permanent.</p>
       <figure>
         <img src="./assets/assembly0.png" alt="Photo of clock parts before assembly" />
       </figure>
@@ -270,19 +278,16 @@ passage-of-date awareness…and clocking on sunshine."
         <img src="./assets/innards4.png" alt="Photo of electronics assembly" />
       </figure>
       <p>
-        The microcontroller and all components live in the control box, except for the neopixels around the clock face, which are connected to the microcontroller via some hand-braided wires and a few crimped connectors so that (in the
-        future) I can easily change the distance between clock and control box. The neopixels are powered through the board, which plugs in via standard
+        The microcontroller and all components live in the control box, except for the neopixels around the clock face, which are connected to the microcontroller via some hand-braided wires and a few connectors.The connectors are so that I
+        can easily change the distance between clock and control box, without doing any additional soldering. The neopixels are powered through the board, which plugs in via standard
         <a target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/AC_adapter">wall wart</a>.
       </p>
-      <figure>
-        <img src="./assets/all-wall.jpg" alt="Photo of full assembly on wall" />
-      </figure>
-      <p>The <a href="../learn-to-learn-electronics/">new-to-me aspect of this project were</a> the RTC and—less glamorously!—the crimped wire connectors.</p>
+      <p>The <a href="../learn-to-learn-electronics/">new-to-me aspects of this project were</a> the RTC and—less glamorously!—the crimped wire connectors.</p>
       <h2 id="software-design">Software design</h2>
       <p>
-        I used CircuitPython to program the control box logic, and rely heavily on the
-        <a target="_blank" rel="noreferrer noopener" href="https://learn.adafruit.com/cooperative-multitasking-in-circuitpython-with-asyncio/concurrent-tasks"><code>asyncio</code></a> library, which allowed me to separate monitoring the
-        state of the input controllers—“has the slider position changed? the toggle toggled? the knob turned?”—from that of computing and setting the requisite neopixels to their “daylight” color.
+        I programmed the Adafruit Feather with CircuitPython, relying heavily on the
+        <a target="_blank" rel="noreferrer noopener" href="https://learn.adafruit.com/cooperative-multitasking-in-circuitpython-with-asyncio/concurrent-tasks"><code>asyncio</code></a> library. <code>asyncio</code> allowed me to separate
+        monitoring the state of the input controllers—“has the slider position changed? the toggle toggled? the knob turned?”—from re-computing each neopixel’s resultant color.
       </p>
       <p>
         I ported the sunrise and sunset calculations from cceckman’s
@@ -311,16 +316,25 @@ passage-of-date awareness…and clocking on sunshine."
         <li>Discovering that I’d installed the neopixel strip backwards (counterclockwise instead of clockwise)</li>
       </ul>
       <p>Thankfully the result looks really cool, and works as intended, and I love having it on the wall.</p>
+      <figure>
+        <img src="./assets/all-wall.jpg" alt="Photo of full assembly on wall" />
+      </figure>
       <h2 id="i-bet-you-want-to-make-one-of-your-own-now-yeah">I bet you want to make one of your own now, yeah?</h2>
       <p>Go for it!</p>
-      <p>
-        Also, if you want to make one, but don’t want to deal with quite so many electronics, you can skip the control box. The majority of the technical challenges I encountered—both design and implementation—came from the addition of the
-        control box. Building a Daylight Clock sans control box would still be pretty cool.
-      </p>
-      <p>
-        Alternatively, a simpler Daylight Clock variant could be built using one of the Adafruit Feathers that has a WiFi-enabled microcontroller, such that it could be controlled by a web-based control panel. That would also let you skip
-        the RTC component.
-      </p>
+      <p>My sources:</p>
+      <ul>
+        <li><a target="_blank" rel="noreferrer noopener" href="https://cuttle.xyz/@hannahilea/24-hour-Daylight-Clock-Housing-1-of-2-SCEntzkZSNvZ">Cuttle design for clock housing</a></li>
+        <li><a target="_blank" rel="noreferrer noopener" href="https://cuttle.xyz/@hannahilea/24-hour-Daylight-Clock-Control-box-1-of-2-IgA1LCVjOqzO">Cuttle design for control box</a></li>
+        <li><a target="_blank" rel="noreferrer noopener" href="https://github.com/hannahilea/notebook-playground/tree/main/daylight-clock">Code</a></li>
+      </ul>
+      <p>Feel free to ask if you are building one and need more guidance at any step; I didn’t want to take the time (heh) to write a full tutorial, but I’m more than happy to assist retroactively.</p>
+      <p>Also, if you want to make one, but don’t want to deal with quite so many electronics:</p>
+      <ul>
+        <li>You could skip the control box: The majority of the technical challenges I encountered—both design and implementation—came from the addition of the controls. A Daylight Clock sans control box would still be pretty cool.</li>
+        <li>You could use one of the Adafruit Feathers that is WiFi-enabled, and get the time via request, so you could skip setting up the RTC component.</li>
+        <li>If using a WiFi-enabled microcontroller, you could create a webpage-based control panel instead of the physical one, which would also be pretty cool!</li>
+      </ul>
+      <p>And with that, it is time for me to venture out into the Boston darkness. After all, it’s nearly 4:30pm, so the daylight is nearly gone.</p>
       <p>
         <strong><em>Thanks to Charles! Also AF, for build support.</em></strong>
       </p>

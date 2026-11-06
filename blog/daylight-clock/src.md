@@ -4,7 +4,7 @@ type: Project write-up
 tags: [friendship-as-a-gateway-drug-to-electronics, long-held-grudge-against-the-1915-detroit-auto-lobby, hardware, data-viz, cad]
 description: 'Project write-up for an analog clock with an edge-lit illumination of day vs night, for passive passage-of-date awareness...and clocking on sunshine.'
 created: 2026-11-05
-published: Thu, 05 Nov 2026 13:00:00 EST
+published: Thu, 05 Nov 2026 16:15:00 EST
 header: '<style>
 .blog {
   img {
@@ -31,6 +31,8 @@ What does this controller do?
 
 - The knob at the bottom controls time, in increments of one week per click.[^week] 
 
+    The time knob in action:
+
 <div class="centered-children">
 <iframe
     width="560"
@@ -45,7 +47,6 @@ What does this controller do?
 </div>
 
 - The toggle on the side switches enables the control box's time and space overrides; when this switch is off, the time knob controls the brightness of the edge lighting.[^brightness]
-
 
 [^week]: Originally I was going to scan in increments of "day", but after playing with it, "day" felt too short and required too many turns to see a difference, or to have a true understanding of how much time had passed. After experimenting, "week" had the most pleasing connection between turning the knob and seeing a physical shift in daylight.
 
@@ -65,7 +66,9 @@ What does this controller do?
 
     The extreme contrast in all of these videos is because I turned the clock to full brightness for ~~drama~~ enhanced visibility, which resulted in some strange color autobalancing. The color in the photos is more representative.
 
-- The vertical slider is a latitude selector, designed so that the world map---[Equal Earth projection](https://en.wikipedia.org/wiki/Equal_Earth_projection)!---lines up with the length of the slider.[^proud]
+- The vertical slider is a latitude selector, designed so that the world map---[Equal Earth projection](https://en.wikipedia.org/wiki/Equal_Earth_projection)!---lines up with the length of the slider.[^proud] 
+
+    The latitude slider in action:
 
 [^proud]: I'm particularly proud of that bit!
 
@@ -83,6 +86,8 @@ What does this controller do?
 </div>
 
 - The three-way "relative longitude" toggle at the top sets position within the current time zone---i.e., whether the daylight computation is based on the west, central, or east edge of the given timezone.[^lon]
+
+    The longitude toggle in action:
 
     <div class="centered-children">
     <iframe
@@ -172,11 +177,13 @@ The outer decoration is from the astronomical face of the astronomical clock of 
 </figure>
 </div>
 
+Painting was...an experience.
+
 ![Photo of decorated face during painting](./assets/paint-1.png)
 
 ![Photo of decorated face after painting](./assets/paint-2.png)
 
-I used wood glue to make the press-fit connections permanent...
+I used wood glue to make the press-fit connections permanent.
 
 ![Photo of clock parts before assembly](./assets/assembly0.png)
 
@@ -225,16 +232,13 @@ The Daylight Clock runs off an [Adafruit Feather RP2040](https://www.adafruit.co
 
 ![Photo of electronics assembly](./assets/innards4.png)
 
-The microcontroller and all components live in the control box, except for the neopixels around the clock face, which are connected to the microcontroller via some hand-braided wires and a few crimped connectors so that (in the future) I can easily change the distance between clock and control box. The neopixels are powered through the board, which plugs in via standard [wall wart](https://en.wikipedia.org/wiki/AC_adapter).
+The microcontroller and all components live in the control box, except for the neopixels around the clock face, which are connected to the microcontroller via some hand-braided wires and a few connectors.The connectors are so that I can easily change the distance between clock and control box, without doing any additional soldering. The neopixels are powered through the board, which plugs in via standard [wall wart](https://en.wikipedia.org/wiki/AC_adapter).
 
-
-![Photo of full assembly on wall](./assets/all-wall.jpg)
-
-The [new-to-me aspect of this project were](../learn-to-learn-electronics/) the RTC and---less glamorously!---the crimped wire connectors.
+The [new-to-me aspects of this project were](../learn-to-learn-electronics/) the RTC and---less glamorously!---the crimped wire connectors.
 
 ## Software design
 
-I used CircuitPython to program the control box logic, and rely heavily on the [`asyncio`](https://learn.adafruit.com/cooperative-multitasking-in-circuitpython-with-asyncio/concurrent-tasks) library, which allowed me to separate monitoring the state of the input controllers---"has the slider position changed? the toggle toggled? the knob turned?"---from that of computing and setting the requisite neopixels to their "daylight" color.
+I programmed the Adafruit Feather with CircuitPython, relying heavily on the [`asyncio`](https://learn.adafruit.com/cooperative-multitasking-in-circuitpython-with-asyncio/concurrent-tasks) library. `asyncio` allowed me to separate monitoring the state of the input controllers---"has the slider position changed? the toggle toggled? the knob turned?"---from re-computing each neopixel's resultant color.
 
 I ported the sunrise and sunset calculations from cceckman's [Rust implementation](https://github.com/cceckman/aclock/blob/5547d8490151eafa77f33dc697cbb58ea0035c70/server/src/riseset.rs#L60) of the [NOAA](https://gml.noaa.gov/grad/solcalc/calcdetails.html) solar calculator.
 
@@ -261,14 +265,26 @@ Challenges:
 
 Thankfully the result looks really cool, and works as intended, and I love having it on the wall.
 
+![Photo of full assembly on wall](./assets/all-wall.jpg)
 
 ## I bet you want to make one of your own now, yeah?
 
 Go for it!
 
-Also, if you want to make one, but don't want to deal with quite so many electronics, you can skip the control box. The majority of the technical challenges I encountered---both design and implementation---came from the addition of the control box. Building a Daylight Clock sans control box would still be pretty cool. 
+My sources:
 
-Alternatively, a simpler Daylight Clock variant could be built using one of the Adafruit Feathers that has a WiFi-enabled microcontroller, such that it could be controlled by a web-based control panel. That would also let you skip the RTC component.
+- [Cuttle design for clock housing](https://cuttle.xyz/@hannahilea/24-hour-Daylight-Clock-Housing-1-of-2-SCEntzkZSNvZ)
+- [Cuttle design for control box](https://cuttle.xyz/@hannahilea/24-hour-Daylight-Clock-Control-box-1-of-2-IgA1LCVjOqzO)
+- [Code](https://github.com/hannahilea/notebook-playground/tree/main/daylight-clock)
 
+Feel free to ask if you are building one and need more guidance at any step; I didn't want to take the time (heh) to write a full tutorial, but I'm more than happy to assist retroactively.
+
+Also, if you want to make one, but don't want to deal with quite so many electronics:
+
+- You could skip the control box: The majority of the technical challenges I encountered---both design and implementation---came from the addition of the controls. A Daylight Clock sans control box would still be pretty cool. 
+- You could use one of the Adafruit Feathers that is WiFi-enabled, and get the time via request, so you could skip setting up the RTC component.
+- If using a WiFi-enabled microcontroller, you could create a webpage-based control panel instead of the physical one, which would also be pretty cool!
+
+And with that, it is time for me to venture out into the Boston darkness. After all, it's nearly 4:30pm, so the daylight is nearly gone.
 
 ***Thanks to Charles! Also AF, for build support.***
