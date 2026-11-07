@@ -20,6 +20,11 @@ rolodex.com
 kvraudio.com
 www.aes.org
 microcenter.com
+cemantle.certitudes.org
+pedantle.certitudes.org
+acampbellpayne.com
+gml.noaa.gov
+www.acoustics.hut.fi
 
 # Do not need to check
 www.recurse.com/scout/
@@ -41,6 +46,11 @@ p5js.org/examples/simulate-flocking
 chiffandfipple
 
 
-# Bad ecom links, could find alternative later but don't want to now
+# Bad ecom links, could attempt to find alternative later
 
 aliexpress.us/item/2251832781162574
+
+
+# Should prob fix but don't want to right now
+
+www.youtube.com/embed/lzkOFJMI5i8?si=ejabmAmcAjnxOlPn&start=21
