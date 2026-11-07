@@ -22,3 +22,32 @@ To run manually it, do `julia build-site/run.jl`.
 Build dependencies:
 - Requires a local installation of Julia
 - Requires a local installation of [prettier](https://formulae.brew.sh/formula/prettier)
+
+### Cheatsheet
+
+- Imbedding from YT, where original link is e.g. `https://youtu.be/WrzbMWeNBkU?si=2F_Pq_R39ufjGVeg` aka `https://youtu.be/<ID1>?si=<ID2>
+```
+<div class="centered-children">
+<iframe
+    width="560"
+    height="315"
+    src="https://www.youtube-nocookie.com/embed/<ID1>?si=<ID2>"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+></iframe>
+</div>
+```
+plus consider at top
+```
+header: '<style>
+.blog {
+  img {
+    max-width: 90%;
+    }
+}
+</style>'
+```
+
