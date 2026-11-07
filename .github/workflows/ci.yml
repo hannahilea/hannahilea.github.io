@@ -34,5 +34,5 @@ jobs:
         with:
           # Check all html
           args: --root-dir "$(pwd)" --verbose --no-progress './**/*.html'
-          # Don't fail action on broken links
-          fail: false
+          # Fail action on broken links
+          fail: true

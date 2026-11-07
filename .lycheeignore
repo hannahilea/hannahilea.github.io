@@ -10,6 +10,7 @@ substack.com
 bookshop.org
 allpoetry.com
 merlinbirds.org
+merlin.allaboutbirds.org
 birds.cornell.edu
 raspberrypi.com
 nintendo.fandom.com
@@ -18,6 +19,7 @@ merriam-webster.com
 rolodex.com
 kvraudio.com
 www.aes.org
+microcenter.com
 
 # Do not need to check
 www.recurse.com/scout/
@@ -27,13 +29,18 @@ buttondown.com/api/emails/embed-subscribe/hannahilea
 
 thisfont.woff
 thisfont.eot
+home.earthlink.net/~bartscma
+ggwhistles.com
+quod.lib.umich.edu
 
 # Expired and not elsewhere :(
 
 https://rrgrng.org/
-https://swlody.dev/Posts/really-really-good-random-number-generator-(rrgrng)
-
-# I'm not going to attempt to fix these links, many of which were for ancient coursework
-# Even though I'm sad they are no longer valid. :( Perhaps the wayback machine can assist
-
+swlody.dev
+p5js.org/examples/simulate-flocking
 chiffandfipple
+
+
+# Bad ecom links, could find alternative later but don't want to now
+
+aliexpress.us/item/2251832781162574
