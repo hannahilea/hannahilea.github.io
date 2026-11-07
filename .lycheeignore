@@ -1,1 +1,36 @@
+# These always give 403s or otherwise redirect and fail; don't even bother checking
+
 instagram\.com
+az-delivery
+.bandcamp.com
+izotope.com
+stackexchange.com
+patreon.com
+substack.com
+bookshop.org
+allpoetry.com
+merlinbirds.org
+birds.cornell.edu
+raspberrypi.com
+nintendo.fandom.com
+reddit.com
+merriam-webster.com
+rolodex.com
+kvraudio.com
+
+# From coursework. Don't care to correct.
+
+thisfont.woff
+thisfont.eot
+
+# Expired and not elsewhere :(
+
+https://rrgrng.org/
+https://swlody.dev/Posts/really-really-good-random-number-generator-(rrgrng)
+
+# I'm not going to attempt to fix these links, many of which were for ancient coursework
+# Even though I'm sad they are no longer valid. :( Perhaps the wayback machine can assist
+
+chiffandfipple
+
+

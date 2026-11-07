@@ -1,4 +1,4 @@
-// Original p5 sketch co-created with hendersonreed (https://hendersonreed.github.io/)
+// Original p5 sketch co-created with hendersonreed (https://henderson.lol/)
 // https://editor.p5js.org/hannahilea/sketches/Vx6KrBw6-
 // as a creative coding project while at the 
 // Recurse Center (www.recurse.com/)
