@@ -109,7 +109,7 @@ Shout-out to a bunch of folks in the [Recurse (RC)](https://www.recurse.com) com
 
 - Having a dedicated draft-reader and thumbs-up-giver has been key---shout-out to AF, who has done a final read on most posts, flagged obvious errors, and provided confirmation that at least one other person (her!) finds the thing worth reading. Bonus points for often doing this last pass at stupid-o'clock, after I'd promised to be done hours earlier.
 
-- The existence of this site has let me shift my project mindset from a regularly negative cycle of "think up project, do project, abandon project in weird state, feel guilty about not completing project, avoid it, etc" and shift to more of a [content-driven development](https://ntietz.com/blog/making-progress-with-content-driven-development) mindset---as in, I can decide I'm done with a project at any point, and "writing about it" is as good an end point as meeting some arbitrary perfectionist bar that I haven't even clarified for myself. 
+- The existence of this site has let me shift my project mindset from a regularly negative cycle of "think up project, do project, abandon project in weird state, feel guilty about not completing project, avoid it, etc" and shift to more of a [content-driven development](https://ntietz.com/blog/making-progress-with-content-driven-development/) mindset---as in, I can decide I'm done with a project at any point, and "writing about it" is as good an end point as meeting some arbitrary perfectionist bar that I haven't even clarified for myself. 
 
 - I still really struggle with exactly how candid to be here, and about which parts of my life and thoughts about the world to share. Focusing on the tech projects has helped set a bit of a boundary, but it's still hazy. I'm not quite as personally open as some of the tech and art writers I most admire, and I'm not sure if or when that will change. At heart I'm still a livejournal kid, with a fully-locked-down journal, and it feels weird to not know exactly who is reading any of this.
 - I haven't quite figured out a consistent tone, or level of appropriate wordiness, or a specific audience and level of detail for any given set of tech steps. I think that's okay, and expect it to be an emergent property, but I do think about it semi-regularly when I write here, and once it has settled I think my writing-to-publishing process will feel smoother and involve less angsting.
@@ -143,4 +143,4 @@ Even if I never publish anything else to this site, I feel good about how much I
 
 ***Thanks to AF, Charles, Shae, and the RC community---and to you, for reading!***
 
-*The code used to generate the plots is [here](https://github.com/hannahilea/hannahilea.github.io/tree/main/blog/blog-birthday-1/plots/run.jl).*
+*The code used to generate the plots is [here](https://github.com/hannahilea/hannahilea.github.io/blob/main/blog/blog-birthday-1/plots/run.jl).*

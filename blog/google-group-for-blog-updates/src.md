@@ -15,7 +15,7 @@ published: Thu, 23 Jan 2025 12:56:00 EST
 
 Say you want to know when I've written new blog posts, but you don't want to have to manually check my site every few hours (or every day, or every week, or once a month). What do you do?
 
-One option: you could subscribe to [my RSS feed](../rss.xml)! But what if you don't (yet![^RSS]) use an RSS aggregator, and you don't want to set one up right now? 
+One option: you could subscribe to [my RSS feed](/rss.xml)! But what if you don't (yet![^RSS]) use an RSS aggregator, and you don't want to set one up right now? 
 
 [^RSS]: Unfamiliar with RSS? Check out ["A Gentle Explainer for the Ever Obscure RSS"](https://cuene.com/2023/03/07/a-gentle-explainer-for-the-ever-obscure-rss/) and ["What is an RSS Feed: Complete Beginners Guide"](https://riverside.fm/blog/what-is-an-rss-feed). I've been using the [Feedly](https://feedly.com/) aggregator and am fairly happy with it.
 
@@ -23,7 +23,7 @@ One option: you could subscribe to [my RSS feed](../rss.xml)! But what if you do
 A new option: you can sign up for my mailing list, such that you'll get an email when a new post is published:
 <div class="centered-children">
 <div class="blog-footer">
-<a class="button" href="http://groups.google.com/group/hannahilea-blog-rss" target="_blank" rel="noreferrer noopener">Subscribe via email</a>
+<a class="button" href="http://groups.google.com/g/hannahilea-blog-rss" target="_blank" rel="noreferrer noopener">Subscribe via email</a>
 </div></div>
 
 If you have your own site, and want to add a similar subscription option---i.e., email notifications whenever you update your RSS feed, without paying some external service to handle it for you---the rest of this post is for you. 

@@ -36,7 +36,7 @@ published: Sat, 6 Dec 2025 19:30:00 EST
 
     The primer I wish I'd read a while ago, before an frustrating hexagon CAD tiling exercise. (h/t QK)
 
-    [![Animated gif of distance measurement in a hexagon grid, captured from the linked site](./assets/hex.gif)](https://www.redblobgames.com/grids/hexagons)
+    [![Animated gif of distance measurement in a hexagon grid, captured from the linked site](./assets/hex.gif)](https://www.redblobgames.com/grids/hexagons/)
 
 
 - **Matt Keveney's animations of *[Five Hundred and Seven Mechanical Movements by Henry T. Brown](https://507movements.com/)***

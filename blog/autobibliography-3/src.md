@@ -35,7 +35,7 @@ img.link {
 
 - **Amy, aka sailorhg, of [electrocuties](https://electrocuties.com/) and [sailorhg](https://sailorhg.com)** [<img class="link" alt="Instagram" src="./assets/instagram-logo.png"/>](https://www.instagram.com/sailorhg/)
 
-    Aesthetically pleasing projects and zines. I think I first encountered sailorhg through [this functional transit card ring](https://electrocuties.com/2019/11/29/one-ring-to-ride-them-all-electrocuties) made by dissolving an RFID-based transit card. I got as far as the "dissolving the card" part; I used a cheapo plastic keychain for mine, instead of going the resin route, and it was very satisfying to use to tap onto the T.[^card]
+    Aesthetically pleasing projects and zines. I think I first encountered sailorhg through [this functional transit card ring](https://electrocuties.com/2019/11/29/one-ring-to-ride-them-all-electrocuties/) made by dissolving an RFID-based transit card. I got as far as the "dissolving the card" part; I used a cheapo plastic keychain for mine, instead of going the resin route, and it was very satisfying to use to tap onto the T.[^card]
 
     [^card]: Unfortunately I stalled so long on making mine that my city's transit system enabled their tap-to-pay system basically within a month of me dissolving my card, and it was easier to switch over to using my phone. Ah well. 🙃 
 
@@ -50,9 +50,9 @@ img.link {
 <script async src="//www.instagram.com/embed.js"></script>
 </div>
 
-- **[Open Music Labs](http://www.openmusiclabs.com/store1/index.html)**
+- **[Open Music Labs](https://www.openmusiclabs.com/store1/index.html)**
 
-    Kits and tutorials, mainly related to audio---e.g., this comprehensive [Electret Microphones](http://www.openmusiclabs.com/learning/sensors/electret-microphones/) write-up.
+    Kits and tutorials, mainly related to audio---e.g., this comprehensive [Electret Microphones](https://www.openmusiclabs.com/learning/sensors/electret-microphones/) write-up.
 
 ## Sculpture, wearables, audio
 

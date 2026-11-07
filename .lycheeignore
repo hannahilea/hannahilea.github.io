@@ -1,4 +1,56 @@
-./**/__template/
-blog/__template/
-projects/__template/
-__template/
+# These always give 403s or otherwise redirect and fail; don't even bother checking
+
+instagram\.com
+az-delivery
+.bandcamp.com
+izotope.com
+stackexchange.com
+patreon.com
+substack.com
+bookshop.org
+allpoetry.com
+merlinbirds.org
+merlin.allaboutbirds.org
+birds.cornell.edu
+raspberrypi.com
+nintendo.fandom.com
+reddit.com
+merriam-webster.com
+rolodex.com
+kvraudio.com
+www.aes.org
+microcenter.com
+cemantle.certitudes.org
+pedantle.certitudes.org
+acampbellpayne.com
+gml.noaa.gov
+www.acoustics.hut.fi
+
+# Do not need to check
+www.recurse.com/scout/
+buttondown.com/api/emails/embed-subscribe/hannahilea
+
+# From coursework. Don't care to correct.
+
+thisfont.woff
+thisfont.eot
+home.earthlink.net/~bartscma
+ggwhistles.com
+quod.lib.umich.edu
+
+# Expired and not elsewhere :(
+
+https://rrgrng.org/
+swlody.dev
+p5js.org/examples/simulate-flocking
+chiffandfipple
+
+
+# Bad ecom links, could attempt to find alternative later
+
+aliexpress.us/item/2251832781162574
+
+
+# Should prob fix but don't want to right now
+
+youtube.com/embed/lzkOFJMI5i8

@@ -130,7 +130,7 @@ My clock's provenance is wholly attributable to my friend Charles and _his_ very
 <div class="centered-children">
 <figure>
 <img src="./assets/cce-clock.png" alt="Photo of Charles's daylight-aware clock." />
-<figcaption style="text-align:right;font-size:smaller">Charles Eckman's _Daylight-Aware Clock_</br><a href="https://cceckman.com/writing/aclock">Photo credit: Charles Eckman</a>.</figcaption>
+<figcaption style="text-align:right;font-size:smaller">Charles Eckman's _Daylight-Aware Clock_</br><a href="https://cceckman.com/writing/aclock/">Photo credit: Charles Eckman</a>.</figcaption>
 </figure>
 </div>
 

@@ -8,7 +8,7 @@ published: Fri, 20 Sep 2024 19:52:58 GMT
 ---
 
 A few weeks ago, [Recurser](https://www.recurse.com/about) friend Nicole Tietz-Sokolskaya
-published [Making progress on side projects with content-driven development](https://ntietz.com/blog/making-progress-with-content-driven-development), an excellent write-up about Doing Stuff in order to be able to Share About Having Done Stuff™. You should read it!
+published [Making progress on side projects with content-driven development](https://ntietz.com/blog/making-progress-with-content-driven-development/), an excellent write-up about Doing Stuff in order to be able to Share About Having Done Stuff™. You should read it!
 
 Unfortunately for me, her denomination of "Content-driven development" tripped some switch in my brain, and since then a rotating slate of "X-driven development" variations have taken over. I started with obsessing over spite-driven development (SDD), am currently on a dopamine-driven development (DDD) kick, and have (today) shifted to a rapidly changing moment-by-moment characterization of my actions: feed-the-cat-driven development (FCDD)! Coffee-shop-driven development (CSDD)! Beat-the-rain-home-driven development (BRHDD)!  Perhaps writing about it will help me keep the situation in check, before it becomes my whole personality?[^personality] We can only hope. In the meantime, I am writing this post following muffin-driven development (MDD).[^MDD] 
 
@@ -105,7 +105,7 @@ I've started using DDD and SDD conversationally, and folks in my circles have ru
 
 [^personality]: Get-it-out-of-my-brain-driven development (GIOMBDD)
 
-[^MDD]: I chose a time to make [muffins](https://smittenkitchen.com/2020/10/morning-glory-breakfast-cake) that cut a liiiiiiittle too close to the Publication Accountabilibuddies session I frequent, such that I am only now coming off the adrenaline of getting them in the oven in time. The next step is to write as much as possible before the oven timer goes off. How will I know I'm done? There will be words on my page AND a muffin to consume. Muffin-driven development!
+[^MDD]: I chose a time to make [muffins](https://smittenkitchen.com/2020/10/morning-glory-breakfast-cake/) that cut a liiiiiiittle too close to the Publication Accountabilibuddies session I frequent, such that I am only now coming off the adrenaline of getting them in the oven in time. The next step is to write as much as possible before the oven timer goes off. How will I know I'm done? There will be words on my page AND a muffin to consume. Muffin-driven development!
 
 [^TDDdomains]: Okay okay, I would not necessarily take TDD *literally* in many domains---but it is certainly possible to think through the "what-ifs" to understand what a failing case would look like, and then what a successful case looks like. And it seems like (from the [TDD wikipedia page](https://en.wikipedia.org/wiki/Test-driven_development)) this cross-domain adoption is something that folks already do. Good!
 

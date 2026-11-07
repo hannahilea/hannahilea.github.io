@@ -113,7 +113,7 @@ Not all projects are winners! Here is a write-up of [BongoBoard](https://github.
     ![Photo of the the outside of DK Bongos](./assets/result.png)
 
 
-[^what]: What is an electret microphone? Great question! You won't regret reading this comprehensive Open Music Labs write-up for the answer: [Electret Microphones](http://www.openmusiclabs.com/learning/sensors/electret-microphones/).
+[^what]: What is an electret microphone? Great question! You won't regret reading this comprehensive Open Music Labs write-up for the answer: [Electret Microphones](https://www.openmusiclabs.com/learning/sensors/electret-microphones/).
 
 
 ## What for?

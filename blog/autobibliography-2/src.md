@@ -169,7 +169,7 @@ header: '<script async src="https://www.instagram.com/embed.js"></script>'
 
 Last but not least!
 
-- **Olive Klug's new album [*Lost Dog*](https://oliveklug.com/listen)**:
+- **Olive Klug's new album [*Lost Dog*](https://oliveklug.bandcamp.com/album/lost-dog)**:
 
     We saw them play at Passim recently, and it was the best show I'd been to in a long time. Their band is similarly excellent. Would recommend catching a live show, if you can!
     
