@@ -23,7 +23,7 @@ One option: you could subscribe to [my RSS feed](/rss.xml)! But what if you don'
 A new option: you can sign up for my mailing list, such that you'll get an email when a new post is published:
 <div class="centered-children">
 <div class="blog-footer">
-<a class="button" href="http://groups.google.com/group/hannahilea-blog-rss" target="_blank" rel="noreferrer noopener">Subscribe via email</a>
+<a class="button" href="http://groups.google.com/g/hannahilea-blog-rss" target="_blank" rel="noreferrer noopener">Subscribe via email</a>
 </div></div>
 
 If you have your own site, and want to add a similar subscription option---i.e., email notifications whenever you update your RSS feed, without paying some external service to handle it for you---the rest of this post is for you. 

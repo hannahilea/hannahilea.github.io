@@ -165,20 +165,20 @@ Examples of my own bouquet code: a script I used to scrape book cover images for
 
 I made a status badge for houseplant repos---feel free to use it!
 
-[<img style="border:none" alt="Static Badge" src="https://img.shields.io/badge/%F0%9F%AA%B4%20Houseplant%20-x?style=flat&label=Project%20type&color=1E1E1D">](https://www.hannahilea.com/blog/houseplant-programming)
+[<img style="border:none" alt="Static Badge" src="https://img.shields.io/badge/%F0%9F%AA%B4%20Houseplant%20-x?style=flat&label=Project%20type&color=1E1E1D">](https://www.hannahilea.com/blog/houseplant-programming/)
 
 ```
-<a raw_href="https://www.hannahilea.com/blog/houseplant-programming">
+<a raw_href="https://www.hannahilea.com/blog/houseplant-programming/">
   <img alt="Static Badge" src="https://img.shields.io/badge/%F0%9F%AA%B4%20Houseplant%20-x?style=flat&amp;label=Project%20type&amp;color=1E1E1D">
 </a>
 ```
 
 And a bonus badge for bouquet programming:
 
-[<img style="border:none" alt="Static Badge" src="https://img.shields.io/badge/&#x1F490;%20Bouquet%20-x?style=flat&label=Project%20type&color=1E1E1D">](https://www.hannahilea.com/blog/houseplant-programming)
+[<img style="border:none" alt="Static Badge" src="https://img.shields.io/badge/&#x1F490;%20Bouquet%20-x?style=flat&label=Project%20type&color=1E1E1D">](https://www.hannahilea.com/blog/houseplant-programming/)
 
 ```
-<a raw_href="https://www.hannahilea.com/blog/houseplant-programming">
+<a raw_href="https://www.hannahilea.com/blog/houseplant-programming/">
   <img alt="Static Badge" src="https://img.shields.io/badge/&#x1F490;%20Bouquet%20-x?style=flat&amp;label=Project%20type&amp;color=1E1E1D">
 </a>
 ```

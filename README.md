@@ -1,6 +1,6 @@
 # hannahilea.github.io
 
-[<img alt="Static Badge" src="https://img.shields.io/badge/%F0%9F%AA%B4%20Houseplant%20-x?style=flat&amp;label=Project%20type&amp;color=1E1E1D">](https://www.hannahilea.com/blog/houseplant-programming)
+[<img alt="Static Badge" src="https://img.shields.io/badge/%F0%9F%AA%B4%20Houseplant%20-x?style=flat&amp;label=Project%20type&amp;color=1E1E1D">](https://www.hannahilea.com/blog/houseplant-programming/)
 
 My personal website and the lightweight pandoc-based Julia script that builds it. Site can be viewed at [hannahilea.com](https://hannahilea.com).
 
