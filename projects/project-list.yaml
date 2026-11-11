@@ -1,10 +1,18 @@
 gallery:
+  - project: Transit timing display
+    url: ../blog/magtag-mbta-display
+    year: 2026
+    thumbnail_url: "../blog/magtag-mbta-display/assets/square.jpg"
+    description:
+      'Small E-Ink display showing arrival times of nearby transit stops.
+      <br>Described in blog post <a href="../blog/daylight-clock/">Personal public transit display on an Adafruit MagTag</a>.'
+
   - project: Daylight Clock
     url: ../blog/daylight-clock
     year: 2026
     thumbnail_url: "../blog/daylight-clock/assets/clock.jpg"
     description:
-      'Interactive audio player for birdcalls, triggered by tapping a bird&rsquo;s card on the card reader.
+      'Analog clock with an edge-lit illumination of day vs night, for passive (and exploratory) passage-of-date awareness.
       <br>Described in blog post <a href="../blog/daylight-clock/">Here comes the sun[light]: An ambient Daylight Clock with time and space controls</a>.'
 
   - project: Birduino
