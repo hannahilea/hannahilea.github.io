@@ -35,14 +35,14 @@ gallery:
     year: 2025
     thumbnail_url: "../blog/birdnet-intro/assets/april6.png"
     description:
-      '<ol class=blog-tags>
+      '</p><ol class=blog-tags>
       <li><a href="../blog/birdnet-intro/">Intro to BirdNET-Pi: Eavesdropping on my
       feathered friends (and how you can, too!)</a> [2025]</li>
       <li><a href="../blog/birdnet-setup">Set up a BirdNET-Pi on a Raspberry Pi
       Zero 2 W</a> [2025]</li>
       <li><a href="../blog/birdnet-text-notifications">Text of the wild: Receive
       notifications from your BirdNET-Pi via ntfy</a> [2026]</li>
-      </ol>
+      </ol><p>
       '
 
   - project: Telegraph Key(singular)board
