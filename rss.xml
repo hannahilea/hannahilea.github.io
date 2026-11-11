@@ -266,6 +266,13 @@
       <guid>https://hannahilea.com/blog/daylight-clock</guid>
       <description>Project write-up for an analog clock with an edge-lit illumination of day vs night, for passive passage-of-date awareness...and clocking on sunshine.</description>
     </item>
+    <item>
+      <title>Personal public transit display on an Adafruit MagTag</title>
+      <pubDate>Wed, 11 Nov 2026 14:45:00 EST</pubDate>
+      <link>https://hannahilea.com/blog/magtag-mbta-display</link>
+      <guid>https://hannahilea.com/blog/magtag-mbta-display</guid>
+      <description>Have MBTA transit API, will travel. Well, will know when to travel, at least.</description>
+    </item>
 
   </channel>
 </rss>
