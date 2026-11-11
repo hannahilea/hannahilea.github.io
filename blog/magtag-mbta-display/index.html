@@ -67,7 +67,8 @@ travel. Well, will know when to travel, at least."
       </figure>
       <p>
         The initial wake-up isn’t instantaneous, but that hasn’t been a problem: waiting 18 seconds for it to wake up is still better than pulling out a phone, spending that same 18 seconds searching for the same info and inevitably getting
-        distracted into doing More Phone Things. It’s certainly enough time to put on shoes while waiting to find out if the next expected bus is on time (run!!) or a few minutes delayed (saunter!).
+        distracted into doing More Phone Things. It’s certainly enough time to put on shoes while waiting to find out if the next expected bus is on time (run!!) or a few minutes delayed (saunter!). Although sometimes the MBTA’s API returns
+        upcoming departures without scheduled times, so the best we can see is “???” to show that <em>something</em> will depart <em>some time</em>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
       </p>
       <div class="centered-children">
         <iframe
@@ -84,18 +85,18 @@ travel. Well, will know when to travel, at least."
       </div>
       <p>
         I chose an Adafruit MagTag for this project because I wanted to make something functional quickly and relatively cheaply, without faffing about with too many components: the MagTag has WiFi, display, and buttons all built in.<a
-          href="#fn2"
-          class="footnote-ref"
-          id="fnref2"
-          role="doc-noteref"
-          ><sup>2</sup></a
-        >
-        The display is E-Ink so doesn’t draw power except when the screen is actively updating, which is great—with our current usage patterns of the transit display, we only need to recharge its LiPo battery once every few weeks.<a
           href="#fn3"
           class="footnote-ref"
           id="fnref3"
           role="doc-noteref"
           ><sup>3</sup></a
+        >
+        The display is E-Ink so doesn’t draw power except when the screen is actively updating, which is great—with our current usage patterns of the transit display, we only need to recharge its LiPo battery once every few weeks.<a
+          href="#fn4"
+          class="footnote-ref"
+          id="fnref4"
+          role="doc-noteref"
+          ><sup>4</sup></a
         >
         The recharge is trivially easy with a portable USB battery pack.
       </p>
@@ -104,18 +105,18 @@ travel. Well, will know when to travel, at least."
       <ul>
         <li>
           <em>If you’re Boston-based (i.e., also use the MBTA):</em> Follow the set-up instructions in the README, which will walk you through configuring the MagTag to connect to your WiFi and setting up your own list of MBTA routes.<a
-            href="#fn4"
+            href="#fn5"
             class="footnote-ref"
-            id="fnref4"
+            id="fnref5"
             role="doc-noteref"
-            ><sup>4</sup></a
+            ><sup>5</sup></a
           >
         </li>
       </ul>
       <ul>
         <li>
           <em>If you don’t live in Boston:</em> Sorry, slightly more work for you! You can still start from that code, but you’ll almost certainly need to adapt it. Once you’ve found your local transit’s API, you’ll likely need to update
-          the JSON-parsing piece of my <code>code.py</code> script for your API’s response format.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>
+          the JSON-parsing piece of my <code>code.py</code> script for your API’s response format.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>
         </li>
       </ul>
       <p>
@@ -129,30 +130,36 @@ travel. Well, will know when to travel, at least."
             <p>This leaves me with only one gazillion <em>minus one</em> items from Swapfest awaiting a project. Progress!<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p>
           </li>
           <li id="fn2">
-            <p>Okay, okay, I <em>also</em> chose it because I wanted an excuse to play with a MagTag!<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p>
+            <p>
+              To be fair, I have yet to see this for a bus—just for my favorite local Green Line terminus… That said, even when that terminus shows a real time on the platform’s displays, the conductors don’t always pay attention. “3m until
+              departure” says the announcement and the display, to the dismay of those of us left in the wake of the departing train.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a>
+            </p>
           </li>
           <li id="fn3">
+            <p>Okay, okay, I <em>also</em> chose it because I wanted an excuse to play with a MagTag!<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+          <li id="fn4">
             <p>
               We decided we didn’t need an always-on-and-always-updating display because most of the time we simply don’t care about the next departure times! An on-demand-(with-short-term-updating) display better meets our needs anyway.<a
-                href="#fnref3"
+                href="#fnref4"
                 class="footnote-back"
                 role="doc-backlink"
                 >↩︎</a
               >
             </p>
           </li>
-          <li id="fn4">
+          <li id="fn5">
             <p>
-              Of course, if you live in the middle of Union Square, Somerville, you’re in luck—that’s set of stops I selected for the demo and the default routes in the code.<a href="#fnref4" class="footnote-back" role="doc-backlink"
+              Of course, if you live in the middle of Union Square, Somerville, you’re in luck—that’s set of stops I selected for the demo and the default routes in the code.<a href="#fnref5" class="footnote-back" role="doc-backlink"
                 >↩︎</a
               >
             </p>
           </li>
-          <li id="fn5">
+          <li id="fn6">
             <p>
               One possible breadcrumb for transit APIs is the <a target="_blank" rel="noreferrer noopener" href="https://transitapp.com/en/region">Transit</a> app’s
               <a target="_blank" rel="noreferrer noopener" href="https://api-doc.transitapp.com/v4.html#description/introduction">API</a>, although I haven’t poked at it myself. My assumption is that if a transit organization is available
-              via Transit, it has <em>some</em> API of its own.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a>
+              via Transit, it has <em>some</em> API of its own.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a>
             </p>
           </li>
         </ol>

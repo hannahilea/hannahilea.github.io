@@ -26,7 +26,9 @@ When the Big Button™---or any of the on-board buttons---is pushed, the board w
 
 ![Photo of personal public transit display hibernating](./assets/hibernate.png)
 
-The initial wake-up isn't instantaneous, but that hasn't been a problem: waiting 18 seconds for it to wake up is still better than pulling out a phone, spending that same 18 seconds searching for the same info and inevitably getting distracted into doing More Phone Things. It's certainly enough time to put on shoes while waiting to find out if the next expected bus is on time (run!!) or a few minutes delayed (saunter!).
+The initial wake-up isn't instantaneous, but that hasn't been a problem: waiting 18 seconds for it to wake up is still better than pulling out a phone, spending that same 18 seconds searching for the same info and inevitably getting distracted into doing More Phone Things. It's certainly enough time to put on shoes while waiting to find out if the next expected bus is on time (run!!) or a few minutes delayed (saunter!). Although sometimes the MBTA's API returns upcoming departures without scheduled times, so the best we can see is "???" to show that _something_ will depart _some time_.[^terminus]
+
+[^terminus]: To be fair, I have yet to see this for a bus---just for my favorite local Green Line terminus... That said, even when that terminus shows a real time on the platform's displays, the conductors don't always pay attention. "3m until departure" says the announcement and the display, to the dismay of those of us left in the wake of the departing train.
 
 <div class="centered-children">
 <iframe
