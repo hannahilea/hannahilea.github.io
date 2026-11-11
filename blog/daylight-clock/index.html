@@ -144,11 +144,17 @@ passage-of-date awareness…and clocking on sunshine."
       </ul>
       <p>Based on the relative longitude video, is it possible that this entire project was a way for me to illustrate the time zone grudge I’ve held for years? Not intentionally, but….</p>
       <p>
-        The grudge: I grew up in Michigan, on the west edge of the Eastern Time Zone (US); I later moved to the eastern side of that same zone, where the sun rises and sets <em>a full hour earlier</em>. This is distressing in the summer—by
-        rights, the sun ought to set <em>late</em> in the summer!—and borders on criminal in the winter: the sun sets just after 4pm on the solstice. 😱
+        The grudge: I grew up in Michigan, on the west edge of the Eastern Time Zone (US); I later moved to the eastern side of that same zone, where the sun rises and sets <em>a full hour earlier</em>.<a
+          href="#fn5"
+          class="footnote-ref"
+          id="fnref5"
+          role="doc-noteref"
+          ><sup>5</sup></a
+        >
+        This is distressing in the summer—by rights, the sun ought to set <em>late</em> in the summer!—and borders on criminal in the winter: the sun sets just after 4pm on the solstice. 😱
       </p>
       <h2 id="envy-driven-development-eddedd-cceckmans-daylight-aware-clock">
-        Envy-driven development (EDD):<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> cceckman’s daylight-aware clock
+        Envy-driven development (EDD):<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> cceckman’s daylight-aware clock
       </h2>
       <p>My clock’s provenance is wholly attributable to my friend Charles and <em>his</em> very cool <a target="_blank" rel="noreferrer noopener" href="https://cceckman.com/writing/aclock/">daylight-aware clock</a>. In Charles’s words:</p>
       <blockquote>
@@ -166,10 +172,10 @@ passage-of-date awareness…and clocking on sunshine."
       </div>
       <p>When Charles started building his clock I was covetous, and knew I had to build my own.</p>
       <p>
-        We made a few different design choices—his time display is digital, mine analog; his daylight illuminates outward from the circumference of the clock, mine inward<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"
-          ><sup>6</sup></a
-        >—but we both put noon at the top,<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> and I used his daylight calculation code wholesale. Also his pair programming assistance to sleuth out a
-        mysterious failure mode!<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> <a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>
+        We made a few different design choices—his time display is digital, mine analog; his daylight illuminates outward from the circumference of the clock, mine inward<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"
+          ><sup>7</sup></a
+        >—but we both put noon at the top,<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> and I used his daylight calculation code wholesale. Also his pair programming assistance to sleuth out a
+        mysterious failure mode!<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a> <a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a>
       </p>
       <p>My clock’s time-space control box was inspired by Charles’s nifty virtual <a target="_blank" rel="noreferrer noopener" href="https://cceckman.com/writing/aclock/software/">interactive daylight visualization</a>:</p>
       <div class="centered-children">
@@ -183,15 +189,15 @@ passage-of-date awareness…and clocking on sunshine."
       <h2 id="physical-design-and-construction-clock-body">Physical design and construction: Clock body</h2>
       <p>
         The clock movement is an <a target="_blank" rel="noreferrer noopener" href="https://www.amazon.com/Deevoka-Movement-24-Hour-Replacement-Repair/dp/B0BPQPPJ86/ref=sr_1_4?crid=2WACKC1NECWJQ">off-the-shelf</a> 24-hour movement. You can
-        just <em>buy</em> these!<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a>
+        just <em>buy</em> these!<a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a>
       </p>
       <p>
         I designed the body of the clock and the body of the controller box in <a href="../cuttle-obsession/">Cuttle.xyz</a>, and cut the pieces on the laser-cutter at my local library’s free maker space(!).<a
-          href="#fn11"
+          href="#fn12"
           class="footnote-ref"
-          id="fnref11"
+          id="fnref12"
           role="doc-noteref"
-          ><sup>11</sup></a
+          ><sup>12</sup></a
         >
         I designed the clock to have a circumference of exactly 48 neopixels on an <a target="_blank" rel="noreferrer noopener" href="https://www.adafruit.com/product/2541">Adafruit neopixel strip</a>, so that the lights would subdivide
         nicely into the hours of the day.
@@ -260,7 +266,7 @@ passage-of-date awareness…and clocking on sunshine."
         <li>A strand of 48 <a target="_blank" rel="noreferrer noopener" href="https://www.adafruit.com/product/2541">neopixels</a>,</li>
         <li>
           A <a target="_blank" rel="noreferrer noopener" href="https://www.adafruit.com/product/3295">real-time clock (RTC) component</a> assembly, to maintain the current date and time even when the board isn’t powered, so that I don’t
-          have to hand-set it every time I plug in the clock<a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a>
+          have to hand-set it every time I plug in the clock<a href="#fn13" class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a>
         </li>
         <li>A two-way toggle to enable/disable switch between “daylight based on current time” vs “daylight based on control box settings”</li>
         <li>A <a target="_blank" rel="noreferrer noopener" href="https://cdn-shop.adafruit.com/product-files/4219/4219_C11375.pdf">linear potentiometer</a>, i.e., the slider to control latitude</li>
@@ -378,44 +384,47 @@ passage-of-date awareness…and clocking on sunshine."
             </p>
           </li>
           <li id="fn5">
-            <p>EDD follows a grand tradition of other <a href="../driven-developments/">driven developments</a>…<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p>
+            <p>
+              Until I wrote this blog post, I blamed Michigan’s choice of belonging to the Eastern Time Zone solely on the Detroit auto lobby, but it turns out it was not <em>just</em> the auto lobby, it was a bunch of other folks too. Amy
+              Elliott Bragg’s 2025 <a target="_blank" rel="noreferrer noopener" href="https://littledetroithistoryletter.substack.com/p/how-detroit-got-its-late-summer-sunsets"><em>How Detroit got its late summer sunsets</em></a> is
+              fascinating, and I recommend reading the whole thing. Wikipedia has another (briefer, less fun) summary of
+              <a target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Time_in_Michigan">time in Michigan</a>.
+            </p>
+            <p>
+              Also, I no longer blame Michigan for joining the Eastern Time Zone, and I don’t think Michigan should shift to Central time, I think Massachusetts should switch to
+              <a target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Atlantic_Time_Zone#U.S._states_considering_a_change_to_Atlantic_Standard_Time">Atlantic Standard Time</a>. At our latitude, with ~9.5 hours of
+              daylight on the shortest day, there’s no excuse for a 4pm sunset.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a>
+            </p>
           </li>
           <li id="fn6">
-            <p>
-              I actually prefer the outward illumination of his to the inward illumination of mine, but when I started I didn’t know where I was going to hang my clock, or whether there’d be enough space around it on the wall to have a nice
-              effect. The inward illumination makes the result slightly more self-contained.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a>
-            </p>
+            <p>EDD follows a grand tradition of other <a href="../driven-developments/">driven developments</a>…<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p>
           </li>
           <li id="fn7">
             <p>
-              It seems like the convention is for standard 24-hour analog clocks to place <a target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/24-hour_analog_dial">midnight at the top of the circle</a> rather
-              than at the bottom—but it felt more right to me for “day” to be the top half of this clock: with noon at the top of the clock, it feels like the hour hand tracks the sun’s the progress across the sky. Which, it turns out in
-              hindsight, follows the <a target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Astronomical_clock">Astronomical Clock</a> convention! And there are
-              <a target="_blank" rel="noreferrer noopener" href="https://www.atlasobscura.com/lists/astronomical-clocks">a lot</a> of cool astronomical clocks out there…<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a>
+              I actually prefer the outward illumination of his to the inward illumination of mine, but when I started I didn’t know where I was going to hang my clock, or whether there’d be enough space around it on the wall to have a nice
+              effect. The inward illumination makes the result slightly more self-contained.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a>
             </p>
           </li>
           <li id="fn8">
             <p>
-              I thought maybe I’d mucked up something in my translation of his Rust to my CircuitPython, but the issue turned out to be due to the specifics of datetime handling in <em>Python</em> vs CircuitPython; I’d gotten the
-              translation correct, but applied CircuitPython’s datetime incorrectly. An easy fix, once we found it. Programming: so fun. 🙄<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a>
+              It seems like the convention is for standard 24-hour analog clocks to place <a target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/24-hour_analog_dial">midnight at the top of the circle</a> rather
+              than at the bottom—but it felt more right to me for “day” to be the top half of this clock: with noon at the top of the clock, it feels like the hour hand tracks the sun’s the progress across the sky. Which, it turns out in
+              hindsight, follows the <a target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Astronomical_clock">Astronomical Clock</a> convention! And there are
+              <a target="_blank" rel="noreferrer noopener" href="https://www.atlasobscura.com/lists/astronomical-clocks">a lot</a> of cool astronomical clocks out there…<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a>
             </p>
           </li>
           <li id="fn9">
-            <p>The real bug fixes are the friends we make along the way!<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p>
+            <p>
+              I thought maybe I’d mucked up something in my translation of his Rust to my CircuitPython, but the issue turned out to be due to the specifics of datetime handling in <em>Python</em> vs CircuitPython; I’d gotten the
+              translation correct, but applied CircuitPython’s datetime incorrectly. An easy fix, once we found it. Programming: so fun. 🙄<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a>
+            </p>
           </li>
           <li id="fn10">
-            <p>
-              One can also theoretically purchase phase-of-the-moon 28-day movements (!), although I haven’t managed it yet, as I’ve only seen factory-scale batches for sale and I’m not really interested in having 500 of them…<a
-                href="#fnref10"
-                class="footnote-back"
-                role="doc-backlink"
-                >↩︎</a
-              >
-            </p>
+            <p>The real bug fixes are the friends we make along the way!<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p>
           </li>
           <li id="fn11">
             <p>
-              If you’ve read any of my <a href="../birduino/">other</a> <a href="../vintage-bluetooth-speaker/">project</a> <a href="../cuttle-obsession/">write-ups</a>, you may notice a pattern here…<a
+              One can also theoretically purchase phase-of-the-moon 28-day movements (!), although I haven’t managed it yet, as I’ve only seen factory-scale batches for sale and I’m not really interested in having 500 of them…<a
                 href="#fnref11"
                 class="footnote-back"
                 role="doc-backlink"
@@ -425,7 +434,17 @@ passage-of-date awareness…and clocking on sunshine."
           </li>
           <li id="fn12">
             <p>
-              The PR2040 doesn’t have Internet or Bluetooth connectivity, so I can’t :just: automatically grab the current time over an external connection. Thus, the RTC.<a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a>
+              If you’ve read any of my <a href="../birduino/">other</a> <a href="../vintage-bluetooth-speaker/">project</a> <a href="../cuttle-obsession/">write-ups</a>, you may notice a pattern here…<a
+                href="#fnref12"
+                class="footnote-back"
+                role="doc-backlink"
+                >↩︎</a
+              >
+            </p>
+          </li>
+          <li id="fn13">
+            <p>
+              The PR2040 doesn’t have Internet or Bluetooth connectivity, so I can’t :just: automatically grab the current time over an external connection. Thus, the RTC.<a href="#fnref13" class="footnote-back" role="doc-backlink">↩︎</a>
             </p>
           </li>
         </ol>
