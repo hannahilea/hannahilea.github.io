@@ -29,6 +29,13 @@ travel. Well, will know when to travel, at least."
 
     <title>Personal public transit display on an Adafruit MagTag</title>
     <link rel="stylesheet" type="text/css" href="../../assets/css/main.css" />
+    <style>
+      .blog {
+        img {
+          max-width: 80%;
+        }
+      }
+    </style>
   </head>
 
   <body>
@@ -41,100 +48,112 @@ travel. Well, will know when to travel, at least."
 
       <h1>Personal public transit display on an Adafruit MagTag</h1>
       <div class="date">11 Nov 2026</div>
-      <p>I live at the nexus of a bunch of awesome public transit routes, and we use many of them on a regular basis, so I built us a little display for next to the door:</p>
+      <p>I live at the nexus of a bunch of public transit routes, so I built a little on-demand display:</p>
       <figure>
-        <img src=".." alt="TODO-Photo" />
+        <img src="./assets/awake.png" alt="Photo of personal public transit display awake" />
       </figure>
       <p>
         It’s pretty basic: an <a target="_blank" rel="noreferrer noopener" href="https://www.adafruit.com/product/4800">Adafruit MagTag</a> powered by a little
-        <a target="_blank" rel="noreferrer noopener" href="https://www.adafruit.com/product/1570">LiPo battery</a>, plus a pleasing—albeit not actually necessary!—button picked up at
+        <a target="_blank" rel="noreferrer noopener" href="https://www.adafruit.com/product/1570">LiPo battery</a>, plus a pleasing—albeit un-necessary!—button picked up at
         <a target="_blank" rel="noreferrer noopener" href="https://w1mx.mit.edu/flea-at-mit/">Swapfest</a>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
       </p>
       <p>
-        When the Big Button™—or any of the on-board buttons!—is pushed, the board wakes up, connects to my home WiFi, requests per-route timing from the MBTA’s API, and then updates the display with the next few departure times for each
-        route.
+        When the Big Button™—or any of the on-board buttons—is pushed, the board wakes up, connects to WiFi, requests the next per-route departures from the
+        <a target="_blank" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/Massachusetts_Bay_Transportation_Authority">MBTA</a>’s API, and displays them. Every 30 seconds thereafter it refreshes those times; and after several
+        minutes displays a “sleeping” screen and hibernates. If a button is re-pressed any time during the wake period, additional refreshes are added pre-hibernation.
       </p>
       <figure>
-        <img src=".." alt="TODO-gif-or-video" />
+        <img src="./assets/hibernate.png" alt="Photo of personal public transit display hibernating" />
       </figure>
-      <p>Every 30s thereafter, it requests updated timing from the MBTA and redraws the screen. After several minutes, it displays a “sleeping” screen and goes to sleep.</p>
-      <figure>
-        <img src="TODO" alt="TODO-photo-hibernating" />
-      </figure>
-      <p>If the button is pressed any time during the wake period, more time is added before hibernation.</p>
       <p>
-        The initial startup-from-hibernation isn’t instantaneous but that hasn’t been a problem: when in a hurry—e.g., we planned for a specific bus, and want to know if it is truly showing up outside in 2min!—we can put shoes on while it
-        updates. When not in a hurry, waiting 20s for it to wake up is still better than pulling out a phone, spending that same 20s searching for the relevant info, and then getting distracted into doing More Phone Things.
+        The initial wake-up isn’t instantaneous, but that hasn’t been a problem: waiting 18 seconds for it to wake up is still better than pulling out a phone, spending that same 18 seconds searching for the same info and inevitably getting
+        distracted into doing More Phone Things. It’s certainly enough time to put on shoes while waiting to find out if the next expected bus is on time (run!!) or a few minutes delayed (saunter!).
       </p>
+      <div class="centered-children">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube-nocookie.com/embed/AsXHbMu94-c?si=Vjum8xVbuWTjihGe"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        >
+        </iframe>
+      </div>
       <p>
-        I chose a MagTag for this project because I wanted to make something functional quickly and relatively cheaply, without faffing about with learning too many new components: the MagTag has WiFi, display, and buttons all built in.
-        Because the display is E-Ink, it doesn’t draw power except when the screen is actively being redrawn, which is great—given our current usage patterns, we recharge the MagTag via a portable USB battery pack once every few weeks.<a
+        I chose an Adafruit MagTag for this project because I wanted to make something functional quickly and relatively cheaply, without faffing about with too many components: the MagTag has WiFi, display, and buttons all built in.<a
           href="#fn2"
           class="footnote-ref"
           id="fnref2"
           role="doc-noteref"
           ><sup>2</sup></a
         >
+        The display is E-Ink so doesn’t draw power except when the screen is actively updating, which is great—with our current usage patterns of the transit display, we only need to recharge its LiPo battery once every few weeks.<a
+          href="#fn3"
+          class="footnote-ref"
+          id="fnref3"
+          role="doc-noteref"
+          ><sup>3</sup></a
+        >
+        The recharge is trivially easy with a portable USB battery pack.
       </p>
       <hr />
       <p>My code is <a target="_blank" rel="noreferrer noopener" href="https://github.com/hannahilea/notebook-playground/tree/main/magtag-mbta-display">here</a>. To set up your own:</p>
       <ul>
         <li>
-          <p>
-            <em>If you’re Boston-based (i.e., also use the MBTA):</em> Follow the set-up instructions in that
-            <a target="_blank" rel="noreferrer noopener" href="https://github.com/hannahilea/notebook-playground/blob/main/magtag-mbta-display/README.md"><code>README.md</code></a
-            >, which will walk you through configuring the MagTag to connect to your WiFi and set up your chosen list of MBTA routes.
-          </p>
+          <em>If you’re Boston-based (i.e., also use the MBTA):</em> Follow the set-up instructions in the README, which will walk you through configuring the MagTag to connect to your WiFi and setting up your own list of MBTA routes.<a
+            href="#fn4"
+            class="footnote-ref"
+            id="fnref4"
+            role="doc-noteref"
+            ><sup>4</sup></a
+          >
         </li>
+      </ul>
+      <ul>
         <li>
-          <p>
-            <em>If you don’t live in Boston:</em> Sorry, slightly more work for you! You can still start from that code, but you’ll almost certainly need to adapt. Your local transit system likely has an API service of its own;<a
-              href="#fn3"
-              class="footnote-ref"
-              id="fnref3"
-              role="doc-noteref"
-              ><sup>3</sup></a
-            >
-            once you’ve found it, you’ll likely need to update the JSON-parsing part of the <code>code.py</code> script to pull the relevant timing info from the API responses.
-          </p>
+          <em>If you don’t live in Boston:</em> Sorry, slightly more work for you! You can still start from that code, but you’ll almost certainly need to adapt it. Once you’ve found your local transit’s API, you’ll likely need to update
+          the JSON-parsing piece of my <code>code.py</code> script for your API’s response format.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>
         </li>
       </ul>
       <p>
-        <strong
-          ><em
-            >Thanks to the MBTA for providing an awesome API, and Adafruit for providing the easy-to-play-with MagTag. No thanks to the drivers of the Green Line’s Union Square terminus, who often leave several minutes before the promised
-            departure time, without care for the unwitting wannabe-riders at the entrance end of the platform. We would have made a run for it, if only we’d known.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"
-              ><sup>4</sup></a
-            ></em
-          ></strong
-        >
+        <strong><em>Thanks to Alex for photography and the MBTA for the API.</em></strong>
       </p>
       <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
         <hr />
         <h3 id="footnotes-title">Footnotes</h3>
         <ol>
           <li id="fn1">
-            <p>This leaves me with only <code>one gazillion _- 1_</code> items from Swapfest awaiting a project…progress!<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p>
+            <p>This leaves me with only one gazillion <em>minus one</em> items from Swapfest awaiting a project. Progress!<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p>
           </li>
           <li id="fn2">
+            <p>Okay, okay, I <em>also</em> chose it because I wanted an excuse to play with a MagTag!<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          </li>
+          <li id="fn3">
             <p>
-              We decided we didn’t need an always-on-and-always-updating display because most of the time we <em>aren’t</em> planning our next departure; an on-demand-(with-short-term-updating) display better meets our needs anyway.<a
-                href="#fnref2"
+              We decided we didn’t need an always-on-and-always-updating display because most of the time we simply don’t care about the next departure times! An on-demand-(with-short-term-updating) display better meets our needs anyway.<a
+                href="#fnref3"
                 class="footnote-back"
                 role="doc-backlink"
                 >↩︎</a
               >
             </p>
           </li>
-          <li id="fn3">
+          <li id="fn4">
             <p>
-              One possible breadcrumb is the <a target="_blank" rel="noreferrer noopener" href="https://transitapp.com/en/region">Transit</a> app’s
-              <a target="_blank" rel="noreferrer noopener" href="https://api-doc.transitapp.com/v4.html#description/introduction">API</a>, although I haven’t poked at that myself. My assumption is that if a transit organization is available
-              via Transit, it has <em>some</em> API of its own.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a>
+              Of course, if you live in the middle of Union Square, Somerville, you’re in luck—that’s set of stops I selected for the demo and the default routes in the code.<a href="#fnref4" class="footnote-back" role="doc-backlink"
+                >↩︎</a
+              >
             </p>
           </li>
-          <li id="fn4">
-            <p>Shame on us for trusting the departure board, I guess.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p>
+          <li id="fn5">
+            <p>
+              One possible breadcrumb for transit APIs is the <a target="_blank" rel="noreferrer noopener" href="https://transitapp.com/en/region">Transit</a> app’s
+              <a target="_blank" rel="noreferrer noopener" href="https://api-doc.transitapp.com/v4.html#description/introduction">API</a>, although I haven’t poked at it myself. My assumption is that if a transit organization is available
+              via Transit, it has <em>some</em> API of its own.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a>
+            </p>
           </li>
         </ol>
       </section>

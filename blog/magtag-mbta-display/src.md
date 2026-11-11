@@ -4,43 +4,59 @@ type: Project write-up
 tags: [hardware, mbta, public-transit, houseplant-programming]
 description: 'Have MBTA transit API, will travel. Well, will know when to travel, at least.'
 created: 2026-11-11
-published: Wed, 11 Nov 2026 14:45:00 EST
+published: Wed, 11 Nov 2026 16:55:00 EST
+header: '<style>
+.blog {
+  img {
+    max-width: 80%;
+    }
+}
+</style>'
 ---
 
-I live at the nexus of a bunch of awesome public transit routes, and we use many of them on a regular basis, so I built us a little display for next to the door:
+I live at the nexus of a bunch of public transit routes, so I built a little on-demand display:
 
-![TODO-Photo](..)
+![Photo of personal public transit display awake](./assets/awake.png)
 
-It's pretty basic: an [Adafruit MagTag](https://www.adafruit.com/product/4800) powered by a little [LiPo battery](https://www.adafruit.com/product/1570), plus a pleasing---albeit not actually necessary!---button picked up at [Swapfest](https://w1mx.mit.edu/flea-at-mit/).[^swapfest]
+It's pretty basic: an [Adafruit MagTag](https://www.adafruit.com/product/4800) powered by a little [LiPo battery](https://www.adafruit.com/product/1570), plus a pleasing---albeit un-necessary!---button picked up at [Swapfest](https://w1mx.mit.edu/flea-at-mit/).[^swapfest]
 
-[^swapfest]: This leaves me with only `one gazillion _- 1_` items from Swapfest awaiting a project...progress!
+[^swapfest]: This leaves me with only one gazillion _minus one_ items from Swapfest awaiting a project. Progress!
 
-When the Big Button™---or any of the on-board buttons!---is pushed, the board wakes up, connects to my home WiFi, requests per-route timing from the MBTA's API, and then updates the display with the next few departure times for each route. 
+When the Big Button™---or any of the on-board buttons---is pushed, the board wakes up, connects to WiFi, requests the next per-route departures from the [MBTA](https://en.wikipedia.org/wiki/Massachusetts_Bay_Transportation_Authority)'s API, and displays them. Every 30 seconds thereafter it refreshes those times; and after several minutes displays a "sleeping" screen and hibernates. If a button is re-pressed any time during the wake period, additional refreshes are added pre-hibernation.
 
-![TODO-gif-or-video](..)
+![Photo of personal public transit display hibernating](./assets/hibernate.png)
 
-Every 30s thereafter, it requests updated timing from the MBTA and redraws the screen. After several minutes, it displays a "sleeping" screen and goes to sleep.
+The initial wake-up isn't instantaneous, but that hasn't been a problem: waiting 18 seconds for it to wake up is still better than pulling out a phone, spending that same 18 seconds searching for the same info and inevitably getting distracted into doing More Phone Things. It's certainly enough time to put on shoes while waiting to find out if the next expected bus is on time (run!!) or a few minutes delayed (saunter!).
 
-![TODO-photo-hibernating](TODO)
+<div class="centered-children">
+<iframe
+    width="560"
+    height="315"
+    src="https://www.youtube-nocookie.com/embed/AsXHbMu94-c?si=Vjum8xVbuWTjihGe"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+></iframe>
+</div>
 
-If the button is pressed any time during the wake period, more time is added before hibernation.
+I chose an Adafruit MagTag for this project because I wanted to make something functional quickly and relatively cheaply, without faffing about with too many components: the MagTag has WiFi, display, and buttons all built in.[^excuse] The display is E-Ink so doesn't draw power except when the screen is actively updating, which is great---with our current usage patterns of the transit display, we only need to recharge its LiPo battery once every few weeks.[^needs] The recharge is trivially easy with a portable USB battery pack.
 
-The initial startup-from-hibernation isn't instantaneous but that hasn't been a problem: when in a hurry---e.g., we planned for a specific bus, and want to know if it is truly showing up outside in 2min!---we can put shoes on while it updates. When not in a hurry, waiting 20s for it to wake up is still better than pulling out a phone, spending that same 20s searching for the relevant info, and then getting distracted into doing More Phone Things.
+[^excuse]: Okay, okay, I *also* chose it because I wanted an excuse to play with a MagTag!
 
-I chose a MagTag for this project because I wanted to make something functional quickly and relatively cheaply, without faffing about with learning too many new components: the MagTag has WiFi, display, and buttons all built in. Because the display is E-Ink, it doesn't draw power except when the screen is actively being redrawn, which is great---given our current usage patterns, we recharge the MagTag via a portable USB battery pack once every few weeks.[^needs]
-
-[^needs]: We decided we didn't need an always-on-and-always-updating display because most of the time we _aren't_ planning our next departure; an on-demand-(with-short-term-updating) display better meets our needs anyway.
+[^needs]: We decided we didn't need an always-on-and-always-updating display because most of the time we simply don't care about the next departure times! An on-demand-(with-short-term-updating) display better meets our needs anyway.
 
 ***
 
 My code is [here](https://github.com/hannahilea/notebook-playground/tree/main/magtag-mbta-display). To set up your own:
 
-- *If you're Boston-based (i.e., also use the MBTA):* Follow the set-up instructions in that [`README.md`](https://github.com/hannahilea/notebook-playground/blob/main/magtag-mbta-display/README.md), which will walk you through configuring the MagTag to connect to your WiFi and set up your chosen list of MBTA routes.
+- *If you're Boston-based (i.e., also use the MBTA):* Follow the set-up instructions in the README, which will walk you through configuring the MagTag to connect to your WiFi and setting up your own list of MBTA routes.[^lucky]
 
-- *If you don't live in Boston:* Sorry, slightly more work for you! You can still start from that code, but you'll almost certainly need to adapt. Your local transit system likely has an API service of its own;[^leads] once you've found it, you'll likely need to update the JSON-parsing part of the `code.py` script to pull the relevant timing info from the API responses.
+[^lucky]: Of course, if you live in the middle of Union Square, Somerville, you're in luck---that's set of stops I selected for the demo and the default routes in the code.
 
-[^leads]: One possible breadcrumb is the [Transit](https://transitapp.com/en/region) app's [API](https://api-doc.transitapp.com/v4.html#description/introduction), although I haven't poked at that myself. My assumption is that if a transit organization is available via Transit, it has _some_ API of its own.
+- *If you don't live in Boston:* Sorry, slightly more work for you! You can still start from that code, but you'll almost certainly need to adapt it. Once you've found your local transit's API, you'll likely need to update the JSON-parsing piece of my `code.py` script for your API's response format.[^leads]
 
-***Thanks to the MBTA for providing an awesome API, and Adafruit for providing the easy-to-play-with MagTag. No thanks to the drivers of the Green Line's Union Square terminus, who often leave several minutes before the promised departure time, without care for the unwitting wannabe-riders at the entrance end of the platform. We would have made a run for it, if only we'd known.[^known]***
+[^leads]: One possible breadcrumb for transit APIs is the [Transit](https://transitapp.com/en/region) app's [API](https://api-doc.transitapp.com/v4.html#description/introduction), although I haven't poked at it myself. My assumption is that if a transit organization is available via Transit, it has _some_ API of its own.
 
-[^known]: Shame on us for trusting the departure board, I guess.
+***Thanks to Alex for photography and the MBTA for the API.***
