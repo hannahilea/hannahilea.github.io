@@ -106,7 +106,7 @@ What does this controller do?
 
 Based on the relative longitude video, is it possible that this entire project was a way for me to illustrate the time zone grudge I've held for years? Not intentionally, but....
 
-The grudge: I grew up in Michigan, on the west edge of the Eastern Time Zone (US); I later moved to the eastern side of that same zone, where the sun rises and sets _a full hour earlier_. This is distressing in the summer---by rights, the sun ought to set _late_ in the summer!---and borders on criminal in the winter: the sun sets just after 4pm on the solstice. 😱
+The grudge: I grew up in Michigan, on the west edge of the Eastern Time Zone (US); I later moved to the eastern side of that same zone, where the sun rises and sets _a full hour earlier_.[^lobby] This is distressing in the summer---by rights, the sun ought to set _late_ in the summer!---and borders on criminal in the winter: the sun sets just after 4pm on the solstice. 😱
 
 
 [^lon]: Because the clock hands are not connected to the electronics, there's no way for the clock hands to jump to a new time when a change in longitude crosses a time zone! Within a single time zone, however, there's no need for the clock hands to shift. The longitude toggle therefore sets the _relative_ longitude position within the clock's default time zone---west, central, east. This makes visible the daylight shift across those different locations for the same *time* of day.
