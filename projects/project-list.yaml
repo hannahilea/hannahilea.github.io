@@ -1,10 +1,10 @@
 gallery:
-  - project: Transit timing display
+  - project: Personal transit display
     url: ../blog/magtag-mbta-display
     year: 2026
     thumbnail_url: "../blog/magtag-mbta-display/assets/square.jpg"
     description:
-      'Small E-Ink display showing arrival times of nearby transit stops.
+      'Small E-Ink display showing transit arrival times for nearby bus and train stops.
       <br>Described in blog post <a href="../blog/daylight-clock/">Personal public transit display on an Adafruit MagTag</a>.'
 
   - project: Daylight Clock
