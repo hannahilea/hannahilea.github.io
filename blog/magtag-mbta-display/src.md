@@ -55,7 +55,7 @@ My code is [here](https://github.com/hannahilea/notebook-playground/tree/main/ma
 
 - *If you're Boston-based (i.e., also use the MBTA):* Follow the set-up instructions in the README, which will walk you through configuring the MagTag to connect to your WiFi and setting up your own list of MBTA routes.[^lucky]
 
-[^lucky]: Of course, if you live in the middle of Union Square, Somerville, you're in luck---that's set of stops I selected for the demo and the default routes in the code.
+[^lucky]: Of course, if you live in the middle of Union Square, Somerville, you're in luck---those are the routes selected as default in the code and this demo!
 
 - *If you don't live in Boston:* Sorry, slightly more work for you! You can still start from that code, but you'll almost certainly need to adapt it. Once you've found your local transit's API, you'll likely need to update the JSON-parsing piece of my `code.py` script for your API's response format.[^leads]
 
